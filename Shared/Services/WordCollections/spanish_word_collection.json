@@ -620,537 +620,6 @@
             "isFeatured": false
         },
         {
-            "id": "everyday-actions-001",
-            "title": "Acciones Cotidianas",
-            "words": [
-                {
-                    "id": "hablar-001",
-                    "text": "hablar",
-                    "phonetics": "/ablar/",
-                    "partOfSpeech": "verb",
-                    "definition": "Usar tu voz para comunicarte con otras personas. Como cuando dices 'hola' a alguien.",
-                    "examples": [
-                        "Hablo español muy bien.",
-                        "Necesito hablar contigo."
-                    ]
-                },
-                {
-                    "id": "comer-001",
-                    "text": "comer",
-                    "phonetics": "/komer/",
-                    "partOfSpeech": "verb",
-                    "definition": "Poner comida en tu boca y masticarla. Como cuando comes una manzana.",
-                    "examples": [
-                        "Voy a comer una pizza.",
-                        "Me gusta comer frutas."
-                    ]
-                },
-                {
-                    "id": "beber-001",
-                    "text": "beber",
-                    "phonetics": "/beber/",
-                    "partOfSpeech": "verb",
-                    "definition": "Tomar líquido por la boca. Como cuando bebes agua o leche.",
-                    "examples": [
-                        "Necesito beber agua.",
-                        "Me gusta beber jugo de naranja."
-                    ]
-                },
-                {
-                    "id": "dormir-001",
-                    "text": "dormir",
-                    "phonetics": "/dormir/",
-                    "partOfSpeech": "verb",
-                    "definition": "Cerrar los ojos y descansar en la cama. Como cuando te vas a dormir por la noche.",
-                    "examples": [
-                        "Voy a dormir temprano.",
-                        "Me gusta dormir la siesta."
-                    ]
-                },
-                {
-                    "id": "trabajar-001",
-                    "text": "trabajar",
-                    "phonetics": "/trabaχar/",
-                    "partOfSpeech": "verb",
-                    "definition": "Hacer algo para ganar dinero. Como cuando papá va a trabajar.",
-                    "examples": [
-                        "Trabajo en una oficina.",
-                        "Mi papá trabaja mucho."
-                    ]
-                },
-                {
-                    "id": "estudiar-001",
-                    "text": "estudiar",
-                    "phonetics": "/estudjar/",
-                    "partOfSpeech": "verb",
-                    "definition": "Leer y aprender cosas nuevas. Como cuando estudias para el examen.",
-                    "examples": [
-                        "Estudio matemáticas.",
-                        "Necesito estudiar más."
-                    ]
-                },
-                {
-                    "id": "leer-001",
-                    "text": "leer",
-                    "phonetics": "/leer/",
-                    "partOfSpeech": "verb",
-                    "definition": "Mirar las letras y entender lo que dicen. Como cuando lees un cuento.",
-                    "examples": [
-                        "Me gusta leer libros.",
-                        "Leo el periódico todos los días."
-                    ]
-                },
-                {
-                    "id": "escribir-001",
-                    "text": "escribir",
-                    "phonetics": "/eskribir/",
-                    "partOfSpeech": "verb",
-                    "definition": "Hacer letras con un lápiz o pluma. Como cuando escribes tu nombre.",
-                    "examples": [
-                        "Escribo una carta.",
-                        "Necesito escribir mi tarea."
-                    ]
-                },
-                {
-                    "id": "caminar-001",
-                    "text": "caminar",
-                    "phonetics": "/kaminar/",
-                    "partOfSpeech": "verb",
-                    "definition": "Mover los pies para ir de un lugar a otro. Como cuando caminas al parque.",
-                    "examples": [
-                        "Camino al colegio todos los días.",
-                        "Me gusta caminar por el parque."
-                    ]
-                },
-                {
-                    "id": "correr-001",
-                    "text": "correr",
-                    "phonetics": "/korrer/",
-                    "partOfSpeech": "verb",
-                    "definition": "Mover los pies muy rápido. Como cuando corres en el recreo.",
-                    "examples": [
-                        "Corro en el parque.",
-                        "Me gusta correr por la mañana."
-                    ]
-                },
-                {
-                    "id": "conducir-001",
-                    "text": "conducir",
-                    "phonetics": "/konduθir/",
-                    "partOfSpeech": "verb",
-                    "definition": "Manejar un coche o camión. Como cuando papá conduce al trabajo.",
-                    "examples": [
-                        "Conduzco al trabajo.",
-                        "Mi papá conduce muy bien."
-                    ]
-                },
-                {
-                    "id": "comprar-001",
-                    "text": "comprar",
-                    "phonetics": "/komprar/",
-                    "partOfSpeech": "verb",
-                    "definition": "Dar dinero para tener algo. Como cuando compras un juguete.",
-                    "examples": [
-                        "Voy a comprar pan.",
-                        "Compré un regalo para mamá."
-                    ]
-                },
-                {
-                    "id": "vender-001",
-                    "text": "vender",
-                    "phonetics": "/bender/",
-                    "partOfSpeech": "verb",
-                    "definition": "Dar algo a cambio de dinero. Como cuando vendes limonada.",
-                    "examples": [
-                        "Vendo mi bicicleta.",
-                        "Mi mamá vende flores."
-                    ]
-                },
-                {
-                    "id": "cocinar-001",
-                    "text": "cocinar",
-                    "phonetics": "/kokinар/",
-                    "partOfSpeech": "verb",
-                    "definition": "Hacer comida en la cocina. Como cuando cocinas pasta.",
-                    "examples": [
-                        "Cocino la cena.",
-                        "Me gusta cocinar con mamá."
-                    ]
-                },
-                {
-                    "id": "limpiar-001",
-                    "text": "limpiar",
-                    "phonetics": "/limpjar/",
-                    "partOfSpeech": "verb",
-                    "definition": "Hacer que algo esté limpio y bonito. Como cuando limpias tu cuarto.",
-                    "examples": [
-                        "Limpio mi habitación.",
-                        "Necesito limpiar la cocina."
-                    ]
-                },
-                {
-                    "id": "lavar-001",
-                    "text": "lavar",
-                    "phonetics": "/laβar/",
-                    "partOfSpeech": "verb",
-                    "definition": "Usar agua y jabón para quitar la suciedad. Como cuando lavas las manos.",
-                    "examples": [
-                        "Lavo los platos.",
-                        "Me lavo los dientes."
-                    ]
-                },
-                {
-                    "id": "vestir-001",
-                    "text": "vestir",
-                    "phonetics": "/βestir/",
-                    "partOfSpeech": "verb",
-                    "definition": "Ponerse ropa. Como cuando te vistes por la mañana.",
-                    "examples": [
-                        "Me visto rápido.",
-                        "Visto a mi hermanito."
-                    ]
-                },
-                {
-                    "id": "despertar-001",
-                    "text": "despertar",
-                    "phonetics": "/despertar/",
-                    "partOfSpeech": "verb",
-                    "definition": "Abrir los ojos después de dormir. Como cuando te despiertas por la mañana.",
-                    "examples": [
-                        "Me despierto temprano.",
-                        "Mamá me despierta a las siete."
-                    ]
-                },
-                {
-                    "id": "levantar-001",
-                    "text": "levantar",
-                    "phonetics": "/leβantar/",
-                    "partOfSpeech": "verb",
-                    "definition": "Subir algo hacia arriba. Como cuando levantas tu brazo.",
-                    "examples": [
-                        "Levanto la mano en clase.",
-                        "Necesito levantar esta caja."
-                    ]
-                },
-                {
-                    "id": "sentar-001",
-                    "text": "sentar",
-                    "phonetics": "/sentar/",
-                    "partOfSpeech": "verb",
-                    "definition": "Ponerse en una silla o banco. Como cuando te sientas en la mesa.",
-                    "examples": [
-                        "Me siento en la silla.",
-                        "Siento al bebé en la silla alta."
-                    ]
-                },
-                {
-                    "id": "parar-001",
-                    "text": "parar",
-                    "phonetics": "/parar/",
-                    "partOfSpeech": "verb",
-                    "definition": "Dejar de moverse. Como cuando paras de correr.",
-                    "examples": [
-                        "Paro de correr.",
-                        "El coche para en el semáforo."
-                    ]
-                },
-                {
-                    "id": "empezar-001",
-                    "text": "empezar",
-                    "phonetics": "/empeθar/",
-                    "partOfSpeech": "verb",
-                    "definition": "Comenzar a hacer algo. Como cuando empiezas a jugar.",
-                    "examples": [
-                        "Empiezo a estudiar.",
-                        "La película empieza a las ocho."
-                    ]
-                },
-                {
-                    "id": "terminar-001",
-                    "text": "terminar",
-                    "phonetics": "/terminar/",
-                    "partOfSpeech": "verb",
-                    "definition": "Acabar de hacer algo. Como cuando terminas tu tarea.",
-                    "examples": [
-                        "Termino mi trabajo.",
-                        "La película termina a las diez."
-                    ]
-                },
-                {
-                    "id": "ayudar-001",
-                    "text": "ayudar",
-                    "phonetics": "/ajuðar/",
-                    "partOfSpeech": "verb",
-                    "definition": "Hacer algo para que otra persona pueda hacer algo mejor. Como cuando ayudas a mamá.",
-                    "examples": [
-                        "Ayudo a mi mamá.",
-                        "Me gusta ayudar a mis amigos."
-                    ]
-                },
-                {
-                    "id": "necesitar-001",
-                    "text": "necesitar",
-                    "phonetics": "/neθesitar/",
-                    "partOfSpeech": "verb",
-                    "definition": "Tener que tener algo. Como cuando necesitas agua.",
-                    "examples": [
-                        "Necesito ayuda.",
-                        "Necesitamos más tiempo."
-                    ]
-                },
-                {
-                    "id": "querer-001",
-                    "text": "querer",
-                    "phonetics": "/kerer/",
-                    "partOfSpeech": "verb",
-                    "definition": "Desear algo mucho. Como cuando quieres un juguete.",
-                    "examples": [
-                        "Quiero ir al parque.",
-                        "Quiero mucho a mi familia."
-                    ]
-                },
-                {
-                    "id": "gustar-001",
-                    "text": "gustar",
-                    "phonetics": "/gustar/",
-                    "partOfSpeech": "verb",
-                    "definition": "Sentir que algo es bonito o bueno. Como cuando te gusta el helado.",
-                    "examples": [
-                        "Me gusta la música.",
-                        "Te gusta jugar fútbol."
-                    ]
-                },
-                {
-                    "id": "ver-001",
-                    "text": "ver",
-                    "phonetics": "/ber/",
-                    "partOfSpeech": "verb",
-                    "definition": "Usar los ojos para saber qué hay. Como cuando ves un pájaro.",
-                    "examples": [
-                        "Veo un gato.",
-                        "No veo bien sin gafas."
-                    ]
-                },
-                {
-                    "id": "oir-001",
-                    "text": "oír",
-                    "phonetics": "/oir/",
-                    "partOfSpeech": "verb",
-                    "definition": "Usar los oídos para saber qué sonidos hay. Como cuando oyes música.",
-                    "examples": [
-                        "Oigo la música.",
-                        "No oigo bien lo que dices."
-                    ]
-                },
-                {
-                    "id": "tocar-001",
-                    "text": "tocar",
-                    "phonetics": "/tokar/",
-                    "partOfSpeech": "verb",
-                    "definition": "Poner las manos en algo. Como cuando tocas un gato.",
-                    "examples": [
-                        "Toco la guitarra.",
-                        "No toques el fuego."
-                    ]
-                },
-                {
-                    "id": "oler-001",
-                    "text": "oler",
-                    "phonetics": "/oler/",
-                    "partOfSpeech": "verb",
-                    "definition": "Usar la nariz para saber qué olores hay. Como cuando hueles una flor.",
-                    "examples": [
-                        "Huelo las flores.",
-                        "Esta comida huele muy bien."
-                    ]
-                },
-                {
-                    "id": "saber-001",
-                    "text": "saber",
-                    "phonetics": "/saβer/",
-                    "partOfSpeech": "verb",
-                    "definition": "Conocer información. Como cuando sabes tu nombre.",
-                    "examples": [
-                        "Sé mi dirección.",
-                        "No sé la respuesta."
-                    ]
-                },
-                {
-                    "id": "conocer-001",
-                    "text": "conocer",
-                    "phonetics": "/konoθer/",
-                    "partOfSpeech": "verb",
-                    "definition": "Saber quién es alguien o qué es algo. Como cuando conoces a un amigo.",
-                    "examples": [
-                        "Conozco a tu mamá.",
-                        "Quiero conocer España."
-                    ]
-                },
-                {
-                    "id": "entender-001",
-                    "text": "entender",
-                    "phonetics": "/entender/",
-                    "partOfSpeech": "verb",
-                    "definition": "Saber qué significa algo. Como cuando entiendes una pregunta.",
-                    "examples": [
-                        "Entiendo la lección.",
-                        "No entiendo esta palabra."
-                    ]
-                },
-                {
-                    "id": "aprender-001",
-                    "text": "aprender",
-                    "phonetics": "/aprender/",
-                    "partOfSpeech": "verb",
-                    "definition": "Ganar conocimiento nuevo. Como cuando aprendes a leer.",
-                    "examples": [
-                        "Aprendo español.",
-                        "Quiero aprender a nadar."
-                    ]
-                },
-                {
-                    "id": "ensenar-001",
-                    "text": "enseñar",
-                    "phonetics": "/enseɲar/",
-                    "partOfSpeech": "verb",
-                    "definition": "Mostrar a alguien cómo hacer algo. Como cuando enseñas a tu hermano.",
-                    "examples": [
-                        "Enseño a mi hermana.",
-                        "La maestra enseña matemáticas."
-                    ]
-                },
-                {
-                    "id": "jugar-001",
-                    "text": "jugar",
-                    "phonetics": "/xuɣar/",
-                    "partOfSpeech": "verb",
-                    "definition": "Hacer algo divertido. Como cuando juegas con juguetes.",
-                    "examples": [
-                        "Juego con mis amigos.",
-                        "Me gusta jugar fútbol."
-                    ]
-                },
-                {
-                    "id": "cantar-001",
-                    "text": "cantar",
-                    "phonetics": "/kantar/",
-                    "partOfSpeech": "verb",
-                    "definition": "Hacer música con tu voz. Como cuando cantas una canción.",
-                    "examples": [
-                        "Canto en el coro.",
-                        "Me gusta cantar."
-                    ]
-                },
-                {
-                    "id": "bailar-001",
-                    "text": "bailar",
-                    "phonetics": "/bajlar/",
-                    "partOfSpeech": "verb",
-                    "definition": "Mover el cuerpo con música. Como cuando bailas en una fiesta.",
-                    "examples": [
-                        "Bailo con mi mamá.",
-                        "Me gusta bailar salsa."
-                    ]
-                },
-                {
-                    "id": "viajar-001",
-                    "text": "viajar",
-                    "phonetics": "/bjaχar/",
-                    "partOfSpeech": "verb",
-                    "definition": "Ir a un lugar lejos. Como cuando viajas en vacaciones.",
-                    "examples": [
-                        "Viajo a la playa.",
-                        "Me gusta viajar en avión."
-                    ]
-                },
-                {
-                    "id": "visitar-001",
-                    "text": "visitar",
-                    "phonetics": "/bisiтар/",
-                    "partOfSpeech": "verb",
-                    "definition": "Ir a ver a alguien o algún lugar. Como cuando visitas a la abuela.",
-                    "examples": [
-                        "Visito a mi abuela.",
-                        "Quiero visitar el museo."
-                    ]
-                },
-                {
-                    "id": "llamar-001",
-                    "text": "llamar",
-                    "phonetics": "/ʝamar/",
-                    "partOfSpeech": "verb",
-                    "definition": "Usar el teléfono para hablar con alguien. Como cuando llamas a papá.",
-                    "examples": [
-                        "Llamo a mi mamá.",
-                        "Necesito llamar al doctor."
-                    ]
-                },
-                {
-                    "id": "esperar-001",
-                    "text": "esperar",
-                    "phonetics": "/esperar/",
-                    "partOfSpeech": "verb",
-                    "definition": "Quedarse quieto hasta que algo pase. Como cuando esperas el autobús.",
-                    "examples": [
-                        "Espero el autobús.",
-                        "Espero a que llegue mamá."
-                    ]
-                },
-                {
-                    "id": "buscar-001",
-                    "text": "buscar",
-                    "phonetics": "/buskar/",
-                    "partOfSpeech": "verb",
-                    "definition": "Mirar en muchos lugares para encontrar algo. Como cuando buscas un juguete.",
-                    "examples": [
-                        "Busco mis llaves.",
-                        "Busco un buen restaurante."
-                    ]
-                },
-                {
-                    "id": "encontrar-001",
-                    "text": "encontrar",
-                    "phonetics": "/enkontrar/",
-                    "partOfSpeech": "verb",
-                    "definition": "Ver algo que estabas buscando. Como cuando encuentras tu juguete.",
-                    "examples": [
-                        "Encuentro mi libro.",
-                        "No encuentro mis gafas."
-                    ]
-                },
-                {
-                    "id": "perder-001",
-                    "text": "perder",
-                    "phonetics": "/perder/",
-                    "partOfSpeech": "verb",
-                    "definition": "No saber dónde está algo. Como cuando pierdes un juguete.",
-                    "examples": [
-                        "Pierdo mis llaves.",
-                        "No quiero perder el juego."
-                    ]
-                },
-                {
-                    "id": "ganar-001",
-                    "text": "ganar",
-                    "phonetics": "/ɣanar/",
-                    "partOfSpeech": "verb",
-                    "definition": "Ser el mejor en un juego o competencia. Como cuando ganas una carrera.",
-                    "examples": [
-                        "Gano el juego.",
-                        "Quiero ganar el premio."
-                    ]
-                }
-            ],
-            "level": "A2",
-            "tagValue": "Verbs",
-            "languageCode": "es",
-            "description": "Verbos esenciales en español para actividades diarias y comunicación",
-            "imageUrl": null,
-            "localImageName": "business",
-            "isPremium": true,
-            "isFeatured": false
-        },
-        {
             "id": "people-and-places-001",
             "title": "Personas y Lugares",
             "words": [
@@ -1393,340 +862,7 @@
             "imageUrl": null,
             "localImageName": "family",
             "isPremium": false,
-            "isFeatured": false
-        },
-        {
-            "id": "feelings-and-descriptions-001",
-            "title": "Sentimientos y Descripciones",
-            "words": [
-                {
-                    "id": "feliz-001",
-                    "text": "feliz",
-                    "phonetics": "/felis/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Sentir alegría o placer. Como cuando te dan un regalo o juegas con amigos.",
-                    "examples": [
-                        "Estoy muy feliz hoy.",
-                        "Los niños están felices en el parque."
-                    ]
-                },
-                {
-                    "id": "triste-001",
-                    "text": "triste",
-                    "phonetics": "/triste/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Sentir pena o melancolía. Como cuando pierdes un juguete favorito.",
-                    "examples": [
-                        "Estoy triste porque mi amigo se fue.",
-                        "El perro se ve triste."
-                    ]
-                },
-                {
-                    "id": "enojado-001",
-                    "text": "enojado",
-                    "phonetics": "/enoxaðo/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Sentir ira o molestia. Como cuando alguien rompe tu juguete.",
-                    "examples": [
-                        "Papá está enojado porque rompí algo.",
-                        "No me gusta cuando estoy enojado."
-                    ]
-                },
-                {
-                    "id": "nervioso-001",
-                    "text": "nervioso",
-                    "phonetics": "/nerβjoso/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Sentir ansiedad o inquietud. Como cuando tienes que hablar en público.",
-                    "examples": [
-                        "Estoy nervioso antes del examen.",
-                        "El gato se pone nervioso con los ruidos."
-                    ]
-                },
-                {
-                    "id": "cansado-001",
-                    "text": "cansado",
-                    "phonetics": "/kansaðo/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Sentir fatiga o agotamiento. Como cuando has jugado mucho y necesitas descansar.",
-                    "examples": [
-                        "Estoy muy cansado después de correr.",
-                        "Mamá está cansada del trabajo."
-                    ]
-                },
-                {
-                    "id": "emocionado-001",
-                    "text": "emocionado",
-                    "phonetics": "/emoθjonaðo/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Sentir mucha alegría y expectativa. Como cuando esperas tu cumpleaños.",
-                    "examples": [
-                        "Estoy emocionado por el viaje.",
-                        "Los niños están emocionados por la fiesta."
-                    ]
-                },
-                {
-                    "id": "sorprendido-001",
-                    "text": "sorprendido",
-                    "phonetics": "/sorprendiðo/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Sentir asombro o admiración. Como cuando ves algo que no esperabas.",
-                    "examples": [
-                        "Estoy sorprendido por la noticia.",
-                        "Quedé sorprendido cuando vi el regalo."
-                    ]
-                },
-                {
-                    "id": "preocupado-001",
-                    "text": "preocupado",
-                    "phonetics": "/preokupaðo/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Sentir inquietud o ansiedad por algo. Como cuando tu mamá no llega a tiempo.",
-                    "examples": [
-                        "Estoy preocupado por mi hermana.",
-                        "Papá está preocupado por el trabajo."
-                    ]
-                },
-                {
-                    "id": "grande-001",
-                    "text": "grande",
-                    "phonetics": "/ɣrande/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Que tiene mucho tamaño. Como un elefante o una casa grande.",
-                    "examples": [
-                        "El elefante es muy grande.",
-                        "Tengo una casa grande."
-                    ]
-                },
-                {
-                    "id": "pequeno-001",
-                    "text": "pequeño",
-                    "phonetics": "/pekeɲo/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Que tiene poco tamaño. Como un ratón o una caja pequeña.",
-                    "examples": [
-                        "El ratón es muy pequeño.",
-                        "Tengo una habitación pequeña."
-                    ]
-                },
-                {
-                    "id": "alto-001",
-                    "text": "alto",
-                    "phonetics": "/alto/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Que tiene mucha altura. Como un árbol alto o una persona alta.",
-                    "examples": [
-                        "El árbol es muy alto.",
-                        "Mi papá es alto."
-                    ]
-                },
-                {
-                    "id": "bajo-001",
-                    "text": "bajo",
-                    "phonetics": "/baxo/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Que tiene poca altura. Como un arbusto bajo o una mesa baja.",
-                    "examples": [
-                        "El arbusto es bajo.",
-                        "Mi hermano es bajo para su edad."
-                    ]
-                },
-                {
-                    "id": "bonito-001",
-                    "text": "bonito",
-                    "phonetics": "/bonito/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Que es agradable a la vista. Como una flor bonita o un vestido bonito.",
-                    "examples": [
-                        "La flor es muy bonita.",
-                        "Tienes un vestido bonito."
-                    ]
-                },
-                {
-                    "id": "feo-001",
-                    "text": "feo",
-                    "phonetics": "/feo/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Que no es agradable a la vista. Como algo que no te gusta ver.",
-                    "examples": [
-                        "El monstruo del cuento es feo.",
-                        "No me gusta ese color, es feo."
-                    ]
-                },
-                {
-                    "id": "bueno-001",
-                    "text": "bueno",
-                    "phonetics": "/bweno/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Que es positivo o correcto. Como un buen amigo o buena comida.",
-                    "examples": [
-                        "Eres un buen amigo.",
-                        "Esta comida está muy buena."
-                    ]
-                },
-                {
-                    "id": "malo-001",
-                    "text": "malo",
-                    "phonetics": "/malo/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Que es negativo o incorrecto. Como un mal comportamiento o comida mala.",
-                    "examples": [
-                        "No es bueno ser malo con otros.",
-                        "Esta comida sabe mal."
-                    ]
-                },
-                {
-                    "id": "facil-001",
-                    "text": "fácil",
-                    "phonetics": "/faθil/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Que se puede hacer sin mucho esfuerzo. Como un puzzle fácil.",
-                    "examples": [
-                        "Este ejercicio es fácil.",
-                        "Es fácil caminar."
-                    ]
-                },
-                {
-                    "id": "dificil-001",
-                    "text": "difícil",
-                    "phonetics": "/difiθil/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Que requiere mucho esfuerzo. Como un problema difícil.",
-                    "examples": [
-                        "Este examen es difícil.",
-                        "Es difícil aprender a nadar."
-                    ]
-                },
-                {
-                    "id": "rapido-001",
-                    "text": "rápido",
-                    "phonetics": "/rapiðo/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Que se mueve o hace algo con mucha velocidad. Como un coche rápido.",
-                    "examples": [
-                        "El coche es muy rápido.",
-                        "Corro muy rápido."
-                    ]
-                },
-                {
-                    "id": "lento-001",
-                    "text": "lento",
-                    "phonetics": "/lento/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Que se mueve o hace algo con poca velocidad. Como una tortuga lenta.",
-                    "examples": [
-                        "La tortuga es muy lenta.",
-                        "Camino lento cuando estoy cansado."
-                    ]
-                },
-                {
-                    "id": "nuevo-001",
-                    "text": "nuevo",
-                    "phonetics": "/nweβo/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Que no ha sido usado antes o que acaba de llegar. Como un juguete nuevo.",
-                    "examples": [
-                        "Tengo un juguete nuevo.",
-                        "Esta casa es nueva."
-                    ]
-                },
-                {
-                    "id": "viejo-001",
-                    "text": "viejo",
-                    "phonetics": "/bjeχo/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Que ha existido por mucho tiempo. Como un abuelo viejo o un libro viejo.",
-                    "examples": [
-                        "Mi abuelo es viejo.",
-                        "Este libro es muy viejo."
-                    ]
-                },
-                {
-                    "id": "joven-001",
-                    "text": "joven",
-                    "phonetics": "/xoβen/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Que tiene poca edad. Como un niño joven o una persona joven.",
-                    "examples": [
-                        "Soy muy joven.",
-                        "Los jóvenes estudian mucho."
-                    ]
-                },
-                {
-                    "id": "caliente-001",
-                    "text": "caliente",
-                    "phonetics": "/kaljente/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Que tiene mucha temperatura. Como el sol o una taza de chocolate caliente.",
-                    "examples": [
-                        "El sol está muy caliente.",
-                        "Quiero agua caliente."
-                    ]
-                },
-                {
-                    "id": "frio-001",
-                    "text": "frío",
-                    "phonetics": "/frio/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Que tiene poca temperatura. Como el hielo o un día frío.",
-                    "examples": [
-                        "El hielo está muy frío.",
-                        "Hoy hace mucho frío."
-                    ]
-                },
-                {
-                    "id": "rico-001",
-                    "text": "rico",
-                    "phonetics": "/riko/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Que tiene mucho dinero o que sabe muy bien. Como una comida rica.",
-                    "examples": [
-                        "Esta comida está muy rica.",
-                        "El hombre rico tiene mucho dinero."
-                    ]
-                },
-                {
-                    "id": "pobre-001",
-                    "text": "pobre",
-                    "phonetics": "/poβre/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Que tiene poco dinero o que causa pena. Como una familia pobre.",
-                    "examples": [
-                        "La familia pobre necesita ayuda.",
-                        "Me da pena el perro pobre."
-                    ]
-                },
-                {
-                    "id": "limpio-001",
-                    "text": "limpio",
-                    "phonetics": "/limpjo/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Que no tiene suciedad. Como una habitación limpia o ropa limpia.",
-                    "examples": [
-                        "Mi habitación está muy limpia.",
-                        "Me pongo ropa limpia."
-                    ]
-                },
-                {
-                    "id": "sucio-001",
-                    "text": "sucio",
-                    "phonetics": "/suθjo/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Que tiene suciedad o manchas. Como ropa sucia o un plato sucio.",
-                    "examples": [
-                        "Mi ropa está sucia.",
-                        "El plato está sucio después de comer."
-                    ]
-                }
-            ],
-            "level": "A2",
-            "tagValue": "Adjectives",
-            "languageCode": "es",
-            "description": "Adjetivos esenciales en español para describir sentimientos, emociones y características",
-            "imageUrl": null,
-            "localImageName": "mental_health",
-            "isPremium": false,
-            "isFeatured": false
+            "isFeatured": true
         },
         {
             "id": "time-and-events-001",
@@ -2307,238 +1443,868 @@
             "isFeatured": false
         },
         {
-            "id": "spanish-idioms-001",
-            "title": "Modismos Españoles",
+            "id": "everyday-actions-001",
+            "title": "Acciones Cotidianas",
             "words": [
                 {
-                    "id": "costar-ojo-cara-001",
-                    "text": "costar un ojo de la cara",
-                    "phonetics": "/kostar un oxo de la kara/",
-                    "partOfSpeech": "idiom",
-                    "definition": "Significa que algo cuesta mucho dinero. Como cuando dices que algo es muy caro, como si tuvieras que dar tu ojo.",
+                    "id": "hablar-001",
+                    "text": "hablar",
+                    "phonetics": "/ablar/",
+                    "partOfSpeech": "verb",
+                    "definition": "Usar tu voz para comunicarte con otras personas. Como cuando dices 'hola' a alguien.",
                     "examples": [
-                        "Este coche cuesta un ojo de la cara.",
-                        "Las vacaciones costaron un ojo de la cara."
+                        "Hablo español muy bien.",
+                        "Necesito hablar contigo."
                     ]
                 },
                 {
-                    "id": "estar-nubes-001",
-                    "text": "estar en las nubes",
-                    "phonetics": "/estar en las nuβes/",
-                    "partOfSpeech": "idiom",
-                    "definition": "Significa que no estás prestando atención. Como cuando estás pensando en otra cosa y no escuchas.",
+                    "id": "comer-001",
+                    "text": "comer",
+                    "phonetics": "/komer/",
+                    "partOfSpeech": "verb",
+                    "definition": "Poner comida en tu boca y masticarla. Como cuando comes una manzana.",
                     "examples": [
-                        "Hoy estoy en las nubes.",
-                        "No me escuchas, estás en las nubes."
+                        "Voy a comer una pizza.",
+                        "Me gusta comer frutas."
                     ]
                 },
                 {
-                    "id": "pan-comido-001",
-                    "text": "ser pan comido",
-                    "phonetics": "/ser pan komido/",
-                    "partOfSpeech": "idiom",
-                    "definition": "Significa que algo es muy fácil de hacer. Como cuando algo es tan fácil como comer pan.",
+                    "id": "beber-001",
+                    "text": "beber",
+                    "phonetics": "/beber/",
+                    "partOfSpeech": "verb",
+                    "definition": "Tomar líquido por la boca. Como cuando bebes agua o leche.",
                     "examples": [
-                        "Este examen es pan comido.",
-                        "Para él, cocinar es pan comido."
+                        "Necesito beber agua.",
+                        "Me gusta beber jugo de naranja."
                     ]
                 },
                 {
-                    "id": "llover-cantaros-001",
-                    "text": "llover a cántaros",
-                    "phonetics": "/ʝoβer a kantaros/",
-                    "partOfSpeech": "idiom",
-                    "definition": "Significa que está lloviendo muchísimo. Como si lloviera con cántaros de agua.",
+                    "id": "dormir-001",
+                    "text": "dormir",
+                    "phonetics": "/dormir/",
+                    "partOfSpeech": "verb",
+                    "definition": "Cerrar los ojos y descansar en la cama. Como cuando te vas a dormir por la noche.",
                     "examples": [
-                        "Está lloviendo a cántaros.",
-                        "Ayer llovió a cántaros toda la noche."
+                        "Voy a dormir temprano.",
+                        "Me gusta dormir la siesta."
                     ]
                 },
                 {
-                    "id": "estar-cabra-001",
-                    "text": "estar como una cabra",
-                    "phonetics": "/estar komo una kaβra/",
-                    "partOfSpeech": "idiom",
-                    "definition": "Significa que alguien está loco o hace cosas raras. Como cuando alguien se comporta de manera extraña.",
+                    "id": "trabajar-001",
+                    "text": "trabajar",
+                    "phonetics": "/trabaχar/",
+                    "partOfSpeech": "verb",
+                    "definition": "Hacer algo para ganar dinero. Como cuando papá va a trabajar.",
                     "examples": [
-                        "Hoy estás como una cabra.",
-                        "Mi hermano está como una cabra últimamente."
+                        "Trabajo en una oficina.",
+                        "Mi papá trabaja mucho."
                     ]
                 },
                 {
-                    "id": "tirar-casa-ventana-001",
-                    "text": "tirar la casa por la ventana",
-                    "phonetics": "/tirar la kasa por la βentana/",
-                    "partOfSpeech": "idiom",
-                    "definition": "Significa gastar mucho dinero en una celebración. Como cuando haces una fiesta muy grande y cara.",
+                    "id": "estudiar-001",
+                    "text": "estudiar",
+                    "phonetics": "/estudjar/",
+                    "partOfSpeech": "verb",
+                    "definition": "Leer y aprender cosas nuevas. Como cuando estudias para el examen.",
                     "examples": [
-                        "En la boda tiraron la casa por la ventana.",
-                        "Para su cumpleaños tiró la casa por la ventana."
+                        "Estudio matemáticas.",
+                        "Necesito estudiar más."
                     ]
                 },
                 {
-                    "id": "septimo-cielo-001",
-                    "text": "estar en el séptimo cielo",
-                    "phonetics": "/estar en el septimo θjelo/",
-                    "partOfSpeech": "idiom",
-                    "definition": "Significa estar muy feliz. Como cuando estás tan contento que sientes que estás en el cielo.",
+                    "id": "leer-001",
+                    "text": "leer",
+                    "phonetics": "/leer/",
+                    "partOfSpeech": "verb",
+                    "definition": "Mirar las letras y entender lo que dicen. Como cuando lees un cuento.",
                     "examples": [
-                        "Estoy en el séptimo cielo.",
-                        "Desde que tiene novia, está en el séptimo cielo."
+                        "Me gusta leer libros.",
+                        "Leo el periódico todos los días."
                     ]
                 },
                 {
-                    "id": "no-pelos-lengua-001",
-                    "text": "no tener pelos en la lengua",
-                    "phonetics": "/no tener pelos en la leŋɡwa/",
-                    "partOfSpeech": "idiom",
-                    "definition": "Significa decir las cosas directamente, sin miedo. Como cuando dices lo que piensas sin disimular.",
+                    "id": "escribir-001",
+                    "text": "escribir",
+                    "phonetics": "/eskribir/",
+                    "partOfSpeech": "verb",
+                    "definition": "Hacer letras con un lápiz o pluma. Como cuando escribes tu nombre.",
                     "examples": [
-                        "Ella no tiene pelos en la lengua.",
-                        "Mi abuela no tiene pelos en la lengua."
+                        "Escribo una carta.",
+                        "Necesito escribir mi tarea."
                     ]
                 },
                 {
-                    "id": "hasta-narices-001",
-                    "text": "estar hasta las narices",
-                    "phonetics": "/estar asta las narizes/",
-                    "partOfSpeech": "idiom",
-                    "definition": "Significa estar muy cansado o molesto con algo. Como cuando ya no aguantas más.",
+                    "id": "caminar-001",
+                    "text": "caminar",
+                    "phonetics": "/kaminar/",
+                    "partOfSpeech": "verb",
+                    "definition": "Mover los pies para ir de un lugar a otro. Como cuando caminas al parque.",
                     "examples": [
-                        "Estoy hasta las narices del trabajo.",
-                        "Está hasta las narices de los problemas."
+                        "Camino al colegio todos los días.",
+                        "Me gusta caminar por el parque."
                     ]
                 },
                 {
-                    "id": "mas-viejo-matusalen-001",
-                    "text": "ser más viejo que Matusalén",
-                    "phonetics": "/ser mas bjeχo ke matusalen/",
-                    "partOfSpeech": "idiom",
-                    "definition": "Significa ser muy viejo. Como cuando algo o alguien es muy antiguo.",
+                    "id": "correr-001",
+                    "text": "correr",
+                    "phonetics": "/korrer/",
+                    "partOfSpeech": "verb",
+                    "definition": "Mover los pies muy rápido. Como cuando corres en el recreo.",
                     "examples": [
-                        "Este coche es más viejo que Matusalén.",
-                        "Mi abuelo dice que es más viejo que Matusalén."
+                        "Corro en el parque.",
+                        "Me gusta correr por la mañana."
                     ]
                 },
                 {
-                    "id": "quinto-pino-001",
-                    "text": "estar en el quinto pino",
-                    "phonetics": "/estar en el kinto pino/",
-                    "partOfSpeech": "idiom",
-                    "definition": "Significa estar muy lejos. Como cuando algo está en un lugar muy distante.",
+                    "id": "conducir-001",
+                    "text": "conducir",
+                    "phonetics": "/konduθir/",
+                    "partOfSpeech": "verb",
+                    "definition": "Manejar un coche o camión. Como cuando papá conduce al trabajo.",
                     "examples": [
-                        "Su casa está en el quinto pino.",
-                        "El trabajo está en el quinto pino."
+                        "Conduzco al trabajo.",
+                        "Mi papá conduce muy bien."
                     ]
                 },
                 {
-                    "id": "una-carne-001",
-                    "text": "ser uña y carne",
-                    "phonetics": "/ser uɲa i karne/",
-                    "partOfSpeech": "idiom",
-                    "definition": "Significa ser muy buenos amigos, inseparables. Como cuando dos personas son como hermanos.",
+                    "id": "comprar-001",
+                    "text": "comprar",
+                    "phonetics": "/komprar/",
+                    "partOfSpeech": "verb",
+                    "definition": "Dar dinero para tener algo. Como cuando compras un juguete.",
                     "examples": [
-                        "Ellos son uña y carne.",
-                        "Desde pequeños son uña y carne."
+                        "Voy a comprar pan.",
+                        "Compré un regalo para mamá."
                     ]
                 },
                 {
-                    "id": "pez-agua-001",
-                    "text": "estar como pez en el agua",
-                    "phonetics": "/estar komo peθ en el aɣwa/",
-                    "partOfSpeech": "idiom",
-                    "definition": "Significa estar muy cómodo en una situación. Como cuando te sientes muy bien haciendo algo.",
+                    "id": "vender-001",
+                    "text": "vender",
+                    "phonetics": "/bender/",
+                    "partOfSpeech": "verb",
+                    "definition": "Dar algo a cambio de dinero. Como cuando vendes limonada.",
                     "examples": [
-                        "En la playa está como pez en el agua.",
-                        "Cuando canta está como pez en el agua."
+                        "Vendo mi bicicleta.",
+                        "Mi mamá vende flores."
                     ]
                 },
                 {
-                    "id": "no-moros-costa-001",
-                    "text": "no hay moros en la costa",
-                    "phonetics": "/no aj moros en la kosta/",
-                    "partOfSpeech": "idiom",
-                    "definition": "Significa que no hay peligro o que puedes hacer algo sin problemas. Como cuando no hay nadie que te moleste.",
+                    "id": "cocinar-001",
+                    "text": "cocinar",
+                    "phonetics": "/kokinар/",
+                    "partOfSpeech": "verb",
+                    "definition": "Hacer comida en la cocina. Como cuando cocinas pasta.",
                     "examples": [
-                        "No hay moros en la costa, podemos hablar.",
-                        "Puedes salir, no hay moros en la costa."
+                        "Cocino la cena.",
+                        "Me gusta cocinar con mamá."
                     ]
                 },
                 {
-                    "id": "luna-valencia-001",
-                    "text": "estar en la luna de Valencia",
-                    "phonetics": "/estar en la luna de βalenθja/",
-                    "partOfSpeech": "idiom",
-                    "definition": "Significa estar distraído o no prestar atención. Como cuando estás pensando en otra cosa.",
+                    "id": "limpiar-001",
+                    "text": "limpiar",
+                    "phonetics": "/limpjar/",
+                    "partOfSpeech": "verb",
+                    "definition": "Hacer que algo esté limpio y bonito. Como cuando limpias tu cuarto.",
                     "examples": [
-                        "Estás en la luna de Valencia.",
-                        "No me escuchas, estás en la luna de Valencia."
+                        "Limpio mi habitación.",
+                        "Necesito limpiar la cocina."
                     ]
                 },
                 {
-                    "id": "mas-listo-hambre-001",
-                    "text": "ser más listo que el hambre",
-                    "phonetics": "/ser mas listo ke el ambre/",
-                    "partOfSpeech": "idiom",
-                    "definition": "Significa ser muy inteligente y astuto. Como cuando alguien es muy listo para conseguir lo que quiere.",
+                    "id": "lavar-001",
+                    "text": "lavar",
+                    "phonetics": "/laβar/",
+                    "partOfSpeech": "verb",
+                    "definition": "Usar agua y jabón para quitar la suciedad. Como cuando lavas las manos.",
                     "examples": [
-                        "Él es más listo que el hambre.",
-                        "Mi hermana es más listo que el hambre."
+                        "Lavo los platos.",
+                        "Me lavo los dientes."
                     ]
                 },
                 {
-                    "id": "hecho-aji-001",
-                    "text": "estar hecho un ají",
-                    "phonetics": "/estar exo un axi/",
-                    "partOfSpeech": "idiom",
-                    "definition": "Significa estar muy enojado. Como cuando estás tan molesto que te pones rojo como un ají.",
+                    "id": "vestir-001",
+                    "text": "vestir",
+                    "phonetics": "/βestir/",
+                    "partOfSpeech": "verb",
+                    "definition": "Ponerse ropa. Como cuando te vistes por la mañana.",
                     "examples": [
-                        "Está hecho un ají.",
-                        "Cuando se enteró, se puso hecho un ají."
+                        "Me visto rápido.",
+                        "Visto a mi hermanito."
                     ]
                 },
                 {
-                    "id": "ano-pera-001",
-                    "text": "ser del año de la pera",
-                    "phonetics": "/ser del aɲo de la pera/",
-                    "partOfSpeech": "idiom",
-                    "definition": "Significa ser muy antiguo o pasado de moda. Como cuando algo es muy viejo.",
+                    "id": "despertar-001",
+                    "text": "despertar",
+                    "phonetics": "/despertar/",
+                    "partOfSpeech": "verb",
+                    "definition": "Abrir los ojos después de dormir. Como cuando te despiertas por la mañana.",
                     "examples": [
-                        "Este coche es del año de la pera.",
-                        "Esa canción es del año de la pera."
+                        "Me despierto temprano.",
+                        "Mamá me despierta a las siete."
                     ]
                 },
                 {
-                    "id": "estar-moto-001",
-                    "text": "estar como una moto",
-                    "phonetics": "/estar komo una moto/",
-                    "partOfSpeech": "idiom",
-                    "definition": "Significa estar muy nervioso o activo. Como cuando no puedes estar quieto.",
+                    "id": "levantar-001",
+                    "text": "levantar",
+                    "phonetics": "/leβantar/",
+                    "partOfSpeech": "verb",
+                    "definition": "Subir algo hacia arriba. Como cuando levantas tu brazo.",
                     "examples": [
-                        "Hoy estás como una moto.",
-                        "Los niños están como una moto."
+                        "Levanto la mano en clase.",
+                        "Necesito levantar esta caja."
                     ]
                 },
                 {
-                    "id": "no-dar-pie-bola-001",
-                    "text": "no dar pie con bola",
-                    "phonetics": "/no dar pje kon bola/",
-                    "partOfSpeech": "idiom",
-                    "definition": "Significa no hacer nada bien o fallar en todo. Como cuando todo te sale mal.",
+                    "id": "sentar-001",
+                    "text": "sentar",
+                    "phonetics": "/sentar/",
+                    "partOfSpeech": "verb",
+                    "definition": "Ponerse en una silla o banco. Como cuando te sientas en la mesa.",
                     "examples": [
-                        "Hoy no doy pie con bola.",
-                        "En el trabajo no doy pie con bola."
+                        "Me siento en la silla.",
+                        "Siento al bebé en la silla alta."
+                    ]
+                },
+                {
+                    "id": "parar-001",
+                    "text": "parar",
+                    "phonetics": "/parar/",
+                    "partOfSpeech": "verb",
+                    "definition": "Dejar de moverse. Como cuando paras de correr.",
+                    "examples": [
+                        "Paro de correr.",
+                        "El coche para en el semáforo."
+                    ]
+                },
+                {
+                    "id": "empezar-001",
+                    "text": "empezar",
+                    "phonetics": "/empeθar/",
+                    "partOfSpeech": "verb",
+                    "definition": "Comenzar a hacer algo. Como cuando empiezas a jugar.",
+                    "examples": [
+                        "Empiezo a estudiar.",
+                        "La película empieza a las ocho."
+                    ]
+                },
+                {
+                    "id": "terminar-001",
+                    "text": "terminar",
+                    "phonetics": "/terminar/",
+                    "partOfSpeech": "verb",
+                    "definition": "Acabar de hacer algo. Como cuando terminas tu tarea.",
+                    "examples": [
+                        "Termino mi trabajo.",
+                        "La película termina a las diez."
+                    ]
+                },
+                {
+                    "id": "ayudar-001",
+                    "text": "ayudar",
+                    "phonetics": "/ajuðar/",
+                    "partOfSpeech": "verb",
+                    "definition": "Hacer algo para que otra persona pueda hacer algo mejor. Como cuando ayudas a mamá.",
+                    "examples": [
+                        "Ayudo a mi mamá.",
+                        "Me gusta ayudar a mis amigos."
+                    ]
+                },
+                {
+                    "id": "necesitar-001",
+                    "text": "necesitar",
+                    "phonetics": "/neθesitar/",
+                    "partOfSpeech": "verb",
+                    "definition": "Tener que tener algo. Como cuando necesitas agua.",
+                    "examples": [
+                        "Necesito ayuda.",
+                        "Necesitamos más tiempo."
+                    ]
+                },
+                {
+                    "id": "querer-001",
+                    "text": "querer",
+                    "phonetics": "/kerer/",
+                    "partOfSpeech": "verb",
+                    "definition": "Desear algo mucho. Como cuando quieres un juguete.",
+                    "examples": [
+                        "Quiero ir al parque.",
+                        "Quiero mucho a mi familia."
+                    ]
+                },
+                {
+                    "id": "gustar-001",
+                    "text": "gustar",
+                    "phonetics": "/gustar/",
+                    "partOfSpeech": "verb",
+                    "definition": "Sentir que algo es bonito o bueno. Como cuando te gusta el helado.",
+                    "examples": [
+                        "Me gusta la música.",
+                        "Te gusta jugar fútbol."
+                    ]
+                },
+                {
+                    "id": "ver-001",
+                    "text": "ver",
+                    "phonetics": "/ber/",
+                    "partOfSpeech": "verb",
+                    "definition": "Usar los ojos para saber qué hay. Como cuando ves un pájaro.",
+                    "examples": [
+                        "Veo un gato.",
+                        "No veo bien sin gafas."
+                    ]
+                },
+                {
+                    "id": "oir-001",
+                    "text": "oír",
+                    "phonetics": "/oir/",
+                    "partOfSpeech": "verb",
+                    "definition": "Usar los oídos para saber qué sonidos hay. Como cuando oyes música.",
+                    "examples": [
+                        "Oigo la música.",
+                        "No oigo bien lo que dices."
+                    ]
+                },
+                {
+                    "id": "tocar-001",
+                    "text": "tocar",
+                    "phonetics": "/tokar/",
+                    "partOfSpeech": "verb",
+                    "definition": "Poner las manos en algo. Como cuando tocas un gato.",
+                    "examples": [
+                        "Toco la guitarra.",
+                        "No toques el fuego."
+                    ]
+                },
+                {
+                    "id": "oler-001",
+                    "text": "oler",
+                    "phonetics": "/oler/",
+                    "partOfSpeech": "verb",
+                    "definition": "Usar la nariz para saber qué olores hay. Como cuando hueles una flor.",
+                    "examples": [
+                        "Huelo las flores.",
+                        "Esta comida huele muy bien."
+                    ]
+                },
+                {
+                    "id": "saber-001",
+                    "text": "saber",
+                    "phonetics": "/saβer/",
+                    "partOfSpeech": "verb",
+                    "definition": "Conocer información. Como cuando sabes tu nombre.",
+                    "examples": [
+                        "Sé mi dirección.",
+                        "No sé la respuesta."
+                    ]
+                },
+                {
+                    "id": "conocer-001",
+                    "text": "conocer",
+                    "phonetics": "/konoθer/",
+                    "partOfSpeech": "verb",
+                    "definition": "Saber quién es alguien o qué es algo. Como cuando conoces a un amigo.",
+                    "examples": [
+                        "Conozco a tu mamá.",
+                        "Quiero conocer España."
+                    ]
+                },
+                {
+                    "id": "entender-001",
+                    "text": "entender",
+                    "phonetics": "/entender/",
+                    "partOfSpeech": "verb",
+                    "definition": "Saber qué significa algo. Como cuando entiendes una pregunta.",
+                    "examples": [
+                        "Entiendo la lección.",
+                        "No entiendo esta palabra."
+                    ]
+                },
+                {
+                    "id": "aprender-001",
+                    "text": "aprender",
+                    "phonetics": "/aprender/",
+                    "partOfSpeech": "verb",
+                    "definition": "Ganar conocimiento nuevo. Como cuando aprendes a leer.",
+                    "examples": [
+                        "Aprendo español.",
+                        "Quiero aprender a nadar."
+                    ]
+                },
+                {
+                    "id": "ensenar-001",
+                    "text": "enseñar",
+                    "phonetics": "/enseɲar/",
+                    "partOfSpeech": "verb",
+                    "definition": "Mostrar a alguien cómo hacer algo. Como cuando enseñas a tu hermano.",
+                    "examples": [
+                        "Enseño a mi hermana.",
+                        "La maestra enseña matemáticas."
+                    ]
+                },
+                {
+                    "id": "jugar-001",
+                    "text": "jugar",
+                    "phonetics": "/xuɣar/",
+                    "partOfSpeech": "verb",
+                    "definition": "Hacer algo divertido. Como cuando juegas con juguetes.",
+                    "examples": [
+                        "Juego con mis amigos.",
+                        "Me gusta jugar fútbol."
+                    ]
+                },
+                {
+                    "id": "cantar-001",
+                    "text": "cantar",
+                    "phonetics": "/kantar/",
+                    "partOfSpeech": "verb",
+                    "definition": "Hacer música con tu voz. Como cuando cantas una canción.",
+                    "examples": [
+                        "Canto en el coro.",
+                        "Me gusta cantar."
+                    ]
+                },
+                {
+                    "id": "bailar-001",
+                    "text": "bailar",
+                    "phonetics": "/bajlar/",
+                    "partOfSpeech": "verb",
+                    "definition": "Mover el cuerpo con música. Como cuando bailas en una fiesta.",
+                    "examples": [
+                        "Bailo con mi mamá.",
+                        "Me gusta bailar salsa."
+                    ]
+                },
+                {
+                    "id": "viajar-001",
+                    "text": "viajar",
+                    "phonetics": "/bjaχar/",
+                    "partOfSpeech": "verb",
+                    "definition": "Ir a un lugar lejos. Como cuando viajas en vacaciones.",
+                    "examples": [
+                        "Viajo a la playa.",
+                        "Me gusta viajar en avión."
+                    ]
+                },
+                {
+                    "id": "visitar-001",
+                    "text": "visitar",
+                    "phonetics": "/bisiтар/",
+                    "partOfSpeech": "verb",
+                    "definition": "Ir a ver a alguien o algún lugar. Como cuando visitas a la abuela.",
+                    "examples": [
+                        "Visito a mi abuela.",
+                        "Quiero visitar el museo."
+                    ]
+                },
+                {
+                    "id": "llamar-001",
+                    "text": "llamar",
+                    "phonetics": "/ʝamar/",
+                    "partOfSpeech": "verb",
+                    "definition": "Usar el teléfono para hablar con alguien. Como cuando llamas a papá.",
+                    "examples": [
+                        "Llamo a mi mamá.",
+                        "Necesito llamar al doctor."
+                    ]
+                },
+                {
+                    "id": "esperar-001",
+                    "text": "esperar",
+                    "phonetics": "/esperar/",
+                    "partOfSpeech": "verb",
+                    "definition": "Quedarse quieto hasta que algo pase. Como cuando esperas el autobús.",
+                    "examples": [
+                        "Espero el autobús.",
+                        "Espero a que llegue mamá."
+                    ]
+                },
+                {
+                    "id": "buscar-001",
+                    "text": "buscar",
+                    "phonetics": "/buskar/",
+                    "partOfSpeech": "verb",
+                    "definition": "Mirar en muchos lugares para encontrar algo. Como cuando buscas un juguete.",
+                    "examples": [
+                        "Busco mis llaves.",
+                        "Busco un buen restaurante."
+                    ]
+                },
+                {
+                    "id": "encontrar-001",
+                    "text": "encontrar",
+                    "phonetics": "/enkontrar/",
+                    "partOfSpeech": "verb",
+                    "definition": "Ver algo que estabas buscando. Como cuando encuentras tu juguete.",
+                    "examples": [
+                        "Encuentro mi libro.",
+                        "No encuentro mis gafas."
+                    ]
+                },
+                {
+                    "id": "perder-001",
+                    "text": "perder",
+                    "phonetics": "/perder/",
+                    "partOfSpeech": "verb",
+                    "definition": "No saber dónde está algo. Como cuando pierdes un juguete.",
+                    "examples": [
+                        "Pierdo mis llaves.",
+                        "No quiero perder el juego."
+                    ]
+                },
+                {
+                    "id": "ganar-001",
+                    "text": "ganar",
+                    "phonetics": "/ɣanar/",
+                    "partOfSpeech": "verb",
+                    "definition": "Ser el mejor en un juego o competencia. Como cuando ganas una carrera.",
+                    "examples": [
+                        "Gano el juego.",
+                        "Quiero ganar el premio."
                     ]
                 }
             ],
-            "level": "B2",
-            "tagValue": "Idioms",
+            "level": "A2",
+            "tagValue": "Verbs",
             "languageCode": "es",
-            "description": "Modismos y expresiones populares en español para hablar como un nativo",
+            "description": "Verbos esenciales en español para actividades diarias y comunicación",
             "imageUrl": null,
-            "localImageName": "book-glasses",
-            "isPremium": true,
+            "localImageName": "business",
+            "isPremium": false,
             "isFeatured": true
+        },
+        {
+            "id": "feelings-and-descriptions-001",
+            "title": "Sentimientos y Descripciones",
+            "words": [
+                {
+                    "id": "feliz-001",
+                    "text": "feliz",
+                    "phonetics": "/felis/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Sentir alegría o placer. Como cuando te dan un regalo o juegas con amigos.",
+                    "examples": [
+                        "Estoy muy feliz hoy.",
+                        "Los niños están felices en el parque."
+                    ]
+                },
+                {
+                    "id": "triste-001",
+                    "text": "triste",
+                    "phonetics": "/triste/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Sentir pena o melancolía. Como cuando pierdes un juguete favorito.",
+                    "examples": [
+                        "Estoy triste porque mi amigo se fue.",
+                        "El perro se ve triste."
+                    ]
+                },
+                {
+                    "id": "enojado-001",
+                    "text": "enojado",
+                    "phonetics": "/enoxaðo/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Sentir ira o molestia. Como cuando alguien rompe tu juguete.",
+                    "examples": [
+                        "Papá está enojado porque rompí algo.",
+                        "No me gusta cuando estoy enojado."
+                    ]
+                },
+                {
+                    "id": "nervioso-001",
+                    "text": "nervioso",
+                    "phonetics": "/nerβjoso/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Sentir ansiedad o inquietud. Como cuando tienes que hablar en público.",
+                    "examples": [
+                        "Estoy nervioso antes del examen.",
+                        "El gato se pone nervioso con los ruidos."
+                    ]
+                },
+                {
+                    "id": "cansado-001",
+                    "text": "cansado",
+                    "phonetics": "/kansaðo/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Sentir fatiga o agotamiento. Como cuando has jugado mucho y necesitas descansar.",
+                    "examples": [
+                        "Estoy muy cansado después de correr.",
+                        "Mamá está cansada del trabajo."
+                    ]
+                },
+                {
+                    "id": "emocionado-001",
+                    "text": "emocionado",
+                    "phonetics": "/emoθjonaðo/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Sentir mucha alegría y expectativa. Como cuando esperas tu cumpleaños.",
+                    "examples": [
+                        "Estoy emocionado por el viaje.",
+                        "Los niños están emocionados por la fiesta."
+                    ]
+                },
+                {
+                    "id": "sorprendido-001",
+                    "text": "sorprendido",
+                    "phonetics": "/sorprendiðo/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Sentir asombro o admiración. Como cuando ves algo que no esperabas.",
+                    "examples": [
+                        "Estoy sorprendido por la noticia.",
+                        "Quedé sorprendido cuando vi el regalo."
+                    ]
+                },
+                {
+                    "id": "preocupado-001",
+                    "text": "preocupado",
+                    "phonetics": "/preokupaðo/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Sentir inquietud o ansiedad por algo. Como cuando tu mamá no llega a tiempo.",
+                    "examples": [
+                        "Estoy preocupado por mi hermana.",
+                        "Papá está preocupado por el trabajo."
+                    ]
+                },
+                {
+                    "id": "grande-001",
+                    "text": "grande",
+                    "phonetics": "/ɣrande/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Que tiene mucho tamaño. Como un elefante o una casa grande.",
+                    "examples": [
+                        "El elefante es muy grande.",
+                        "Tengo una casa grande."
+                    ]
+                },
+                {
+                    "id": "pequeno-001",
+                    "text": "pequeño",
+                    "phonetics": "/pekeɲo/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Que tiene poco tamaño. Como un ratón o una caja pequeña.",
+                    "examples": [
+                        "El ratón es muy pequeño.",
+                        "Tengo una habitación pequeña."
+                    ]
+                },
+                {
+                    "id": "alto-001",
+                    "text": "alto",
+                    "phonetics": "/alto/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Que tiene mucha altura. Como un árbol alto o una persona alta.",
+                    "examples": [
+                        "El árbol es muy alto.",
+                        "Mi papá es alto."
+                    ]
+                },
+                {
+                    "id": "bajo-001",
+                    "text": "bajo",
+                    "phonetics": "/baxo/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Que tiene poca altura. Como un arbusto bajo o una mesa baja.",
+                    "examples": [
+                        "El arbusto es bajo.",
+                        "Mi hermano es bajo para su edad."
+                    ]
+                },
+                {
+                    "id": "bonito-001",
+                    "text": "bonito",
+                    "phonetics": "/bonito/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Que es agradable a la vista. Como una flor bonita o un vestido bonito.",
+                    "examples": [
+                        "La flor es muy bonita.",
+                        "Tienes un vestido bonito."
+                    ]
+                },
+                {
+                    "id": "feo-001",
+                    "text": "feo",
+                    "phonetics": "/feo/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Que no es agradable a la vista. Como algo que no te gusta ver.",
+                    "examples": [
+                        "El monstruo del cuento es feo.",
+                        "No me gusta ese color, es feo."
+                    ]
+                },
+                {
+                    "id": "bueno-001",
+                    "text": "bueno",
+                    "phonetics": "/bweno/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Que es positivo o correcto. Como un buen amigo o buena comida.",
+                    "examples": [
+                        "Eres un buen amigo.",
+                        "Esta comida está muy buena."
+                    ]
+                },
+                {
+                    "id": "malo-001",
+                    "text": "malo",
+                    "phonetics": "/malo/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Que es negativo o incorrecto. Como un mal comportamiento o comida mala.",
+                    "examples": [
+                        "No es bueno ser malo con otros.",
+                        "Esta comida sabe mal."
+                    ]
+                },
+                {
+                    "id": "facil-001",
+                    "text": "fácil",
+                    "phonetics": "/faθil/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Que se puede hacer sin mucho esfuerzo. Como un puzzle fácil.",
+                    "examples": [
+                        "Este ejercicio es fácil.",
+                        "Es fácil caminar."
+                    ]
+                },
+                {
+                    "id": "dificil-001",
+                    "text": "difícil",
+                    "phonetics": "/difiθil/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Que requiere mucho esfuerzo. Como un problema difícil.",
+                    "examples": [
+                        "Este examen es difícil.",
+                        "Es difícil aprender a nadar."
+                    ]
+                },
+                {
+                    "id": "rapido-001",
+                    "text": "rápido",
+                    "phonetics": "/rapiðo/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Que se mueve o hace algo con mucha velocidad. Como un coche rápido.",
+                    "examples": [
+                        "El coche es muy rápido.",
+                        "Corro muy rápido."
+                    ]
+                },
+                {
+                    "id": "lento-001",
+                    "text": "lento",
+                    "phonetics": "/lento/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Que se mueve o hace algo con poca velocidad. Como una tortuga lenta.",
+                    "examples": [
+                        "La tortuga es muy lenta.",
+                        "Camino lento cuando estoy cansado."
+                    ]
+                },
+                {
+                    "id": "nuevo-001",
+                    "text": "nuevo",
+                    "phonetics": "/nweβo/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Que no ha sido usado antes o que acaba de llegar. Como un juguete nuevo.",
+                    "examples": [
+                        "Tengo un juguete nuevo.",
+                        "Esta casa es nueva."
+                    ]
+                },
+                {
+                    "id": "viejo-001",
+                    "text": "viejo",
+                    "phonetics": "/bjeχo/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Que ha existido por mucho tiempo. Como un abuelo viejo o un libro viejo.",
+                    "examples": [
+                        "Mi abuelo es viejo.",
+                        "Este libro es muy viejo."
+                    ]
+                },
+                {
+                    "id": "joven-001",
+                    "text": "joven",
+                    "phonetics": "/xoβen/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Que tiene poca edad. Como un niño joven o una persona joven.",
+                    "examples": [
+                        "Soy muy joven.",
+                        "Los jóvenes estudian mucho."
+                    ]
+                },
+                {
+                    "id": "caliente-001",
+                    "text": "caliente",
+                    "phonetics": "/kaljente/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Que tiene mucha temperatura. Como el sol o una taza de chocolate caliente.",
+                    "examples": [
+                        "El sol está muy caliente.",
+                        "Quiero agua caliente."
+                    ]
+                },
+                {
+                    "id": "frio-001",
+                    "text": "frío",
+                    "phonetics": "/frio/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Que tiene poca temperatura. Como el hielo o un día frío.",
+                    "examples": [
+                        "El hielo está muy frío.",
+                        "Hoy hace mucho frío."
+                    ]
+                },
+                {
+                    "id": "rico-001",
+                    "text": "rico",
+                    "phonetics": "/riko/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Que tiene mucho dinero o que sabe muy bien. Como una comida rica.",
+                    "examples": [
+                        "Esta comida está muy rica.",
+                        "El hombre rico tiene mucho dinero."
+                    ]
+                },
+                {
+                    "id": "pobre-001",
+                    "text": "pobre",
+                    "phonetics": "/poβre/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Que tiene poco dinero o que causa pena. Como una familia pobre.",
+                    "examples": [
+                        "La familia pobre necesita ayuda.",
+                        "Me da pena el perro pobre."
+                    ]
+                },
+                {
+                    "id": "limpio-001",
+                    "text": "limpio",
+                    "phonetics": "/limpjo/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Que no tiene suciedad. Como una habitación limpia o ropa limpia.",
+                    "examples": [
+                        "Mi habitación está muy limpia.",
+                        "Me pongo ropa limpia."
+                    ]
+                },
+                {
+                    "id": "sucio-001",
+                    "text": "sucio",
+                    "phonetics": "/suθjo/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Que tiene suciedad o manchas. Como ropa sucia o un plato sucio.",
+                    "examples": [
+                        "Mi ropa está sucia.",
+                        "El plato está sucio después de comer."
+                    ]
+                }
+            ],
+            "level": "A2",
+            "tagValue": "Adjectives",
+            "languageCode": "es",
+            "description": "Adjetivos esenciales en español para describir sentimientos, emociones y características",
+            "imageUrl": null,
+            "localImageName": "mental_health",
+            "isPremium": false,
+            "isFeatured": false
         },
         {
             "id": "business-and-work-001",
@@ -3159,364 +2925,6 @@
             "description": "Vocabulario esencial en español para viajes, turismo y exploración del mundo",
             "imageUrl": null,
             "localImageName": "plane_window",
-            "isPremium": true,
-            "isFeatured": false
-        },
-        {
-            "id": "academic-professional-discourse-001",
-            "title": "Discurso Académico y Profesional",
-            "words": [
-                {
-                    "id": "investigacion-001",
-                    "text": "la investigación",
-                    "phonetics": "/imβestiɣaθjon/",
-                    "partOfSpeech": "noun",
-                    "definition": "El proceso sistemático de búsqueda, análisis e interpretación de información para generar conocimiento nuevo o validar teorías existentes.",
-                    "examples": [
-                        "La investigación científica requiere rigor metodológico.",
-                        "Su investigación sobre el cambio climático fue publicada en una revista internacional."
-                    ]
-                },
-                {
-                    "id": "metodologia-001",
-                    "text": "la metodología",
-                    "phonetics": "/metodoloxja/",
-                    "partOfSpeech": "noun",
-                    "definition": "El conjunto de métodos, técnicas y procedimientos utilizados para realizar una investigación de manera sistemática y rigurosa.",
-                    "examples": [
-                        "La metodología cuantitativa permite medir variables específicas.",
-                        "Debemos definir claramente la metodología antes de comenzar el estudio."
-                    ]
-                },
-                {
-                    "id": "hipotesis-001",
-                    "text": "la hipótesis",
-                    "phonetics": "/ipotesis/",
-                    "partOfSpeech": "noun",
-                    "definition": "Una proposición o suposición fundamentada que se plantea como punto de partida para una investigación y que debe ser verificada empíricamente.",
-                    "examples": [
-                        "La hipótesis nula establece que no existe relación entre las variables.",
-                        "Formulamos una hipótesis basada en la revisión de la literatura."
-                    ]
-                },
-                {
-                    "id": "analisis-001",
-                    "text": "el análisis",
-                    "phonetics": "/analisis/",
-                    "partOfSpeech": "noun",
-                    "definition": "El proceso de examinar, descomponer e interpretar datos o información para identificar patrones, relaciones y tendencias significativas.",
-                    "examples": [
-                        "El análisis estadístico reveló correlaciones significativas.",
-                        "Realizamos un análisis cualitativo de las entrevistas."
-                    ]
-                },
-                {
-                    "id": "sintesis-001",
-                    "text": "la síntesis",
-                    "phonetics": "/sintesis/",
-                    "partOfSpeech": "noun",
-                    "definition": "El proceso de integrar y combinar información de múltiples fuentes para crear una comprensión coherente y unificada del tema estudiado.",
-                    "examples": [
-                        "La síntesis de la literatura mostró consenso en varios puntos.",
-                        "Presentó una síntesis brillante de las teorías más relevantes."
-                    ]
-                },
-                {
-                    "id": "evidencia-001",
-                    "text": "la evidencia",
-                    "phonetics": "/eβiðenθja/",
-                    "partOfSpeech": "noun",
-                    "definition": "Datos, hechos o pruebas empíricas que respaldan o refutan una afirmación, teoría o hipótesis en el contexto académico o científico.",
-                    "examples": [
-                        "La evidencia empírica contradice la teoría establecida.",
-                        "Necesitamos evidencia más sólida para sustentar nuestras conclusiones."
-                    ]
-                },
-                {
-                    "id": "argumentacion-001",
-                    "text": "la argumentación",
-                    "phonetics": "/arɣumentaθjon/",
-                    "partOfSpeech": "noun",
-                    "definition": "El proceso de presentar razones, evidencia y lógica de manera estructurada para persuadir o demostrar la validez de una posición académica.",
-                    "examples": [
-                        "La argumentación del autor es convincente y bien fundamentada.",
-                        "Su argumentación carece de evidencia empírica suficiente."
-                    ]
-                },
-                {
-                    "id": "tesis-001",
-                    "text": "la tesis",
-                    "phonetics": "/tesis/",
-                    "partOfSpeech": "noun",
-                    "definition": "Una proposición central o afirmación principal que un investigador defiende mediante evidencia y argumentación en un trabajo académico.",
-                    "examples": [
-                        "La tesis doctoral debe contribuir originalmente al conocimiento.",
-                        "Su tesis sobre la inteligencia artificial fue innovadora."
-                    ]
-                },
-                {
-                    "id": "bibliografia-001",
-                    "text": "la bibliografía",
-                    "phonetics": "/biβljoɣrafja/",
-                    "partOfSpeech": "noun",
-                    "definition": "Lista sistemática y organizada de todas las fuentes consultadas durante la investigación, incluyendo libros, artículos y documentos académicos.",
-                    "examples": [
-                        "La bibliografía incluye más de cien referencias académicas.",
-                        "Debe actualizar su bibliografía con las publicaciones más recientes."
-                    ]
-                },
-                {
-                    "id": "academia-001",
-                    "text": "la academia",
-                    "phonetics": "/akaðemja/",
-                    "partOfSpeech": "noun",
-                    "definition": "La comunidad intelectual y profesional formada por universidades, centros de investigación y académicos dedicados al avance del conocimiento.",
-                    "examples": [
-                        "La academia ha reconocido su contribución al campo de la medicina.",
-                        "Trabaja en la academia desde hace más de veinte años."
-                    ]
-                },
-                {
-                    "id": "paradigma-001",
-                    "text": "el paradigma",
-                    "phonetics": "/paraðiɣma/",
-                    "partOfSpeech": "noun",
-                    "definition": "Un marco conceptual o modelo teórico que define cómo se entiende y estudia un fenómeno en una disciplina científica o académica.",
-                    "examples": [
-                        "El paradigma conductista dominó la psicología durante décadas.",
-                        "Necesitamos un nuevo paradigma para abordar estos problemas complejos."
-                    ]
-                },
-                {
-                    "id": "contexto-001",
-                    "text": "el contexto",
-                    "phonetics": "/konteksto/",
-                    "partOfSpeech": "noun",
-                    "definition": "El entorno, circunstancias o marco de referencia que rodea un fenómeno, evento o información, proporcionando significado y comprensión.",
-                    "examples": [
-                        "Es fundamental considerar el contexto histórico de estos eventos.",
-                        "Sin el contexto apropiado, los datos pueden malinterpretarse."
-                    ]
-                },
-                {
-                    "id": "interpretacion-001",
-                    "text": "la interpretación",
-                    "phonetics": "/interprretaθjon/",
-                    "partOfSpeech": "noun",
-                    "definition": "El proceso de explicar, explicar o dar significado a datos, textos o fenómenos basándose en análisis, teoría y conocimiento previo.",
-                    "examples": [
-                        "La interpretación de los resultados requiere precaución metodológica.",
-                        "Su interpretación del texto fue muy original y perspicaz."
-                    ]
-                },
-                {
-                    "id": "inferencia-001",
-                    "text": "la inferencia",
-                    "phonetics": "/imferenθja/",
-                    "partOfSpeech": "noun",
-                    "definition": "El proceso de llegar a una conclusión lógica basándose en evidencia disponible, observaciones o premisas establecidas.",
-                    "examples": [
-                        "La inferencia estadística permite generalizar los resultados.",
-                        "Hizo una inferencia válida basada en los datos experimentales."
-                    ]
-                },
-                {
-                    "id": "contribucion-001",
-                    "text": "la contribución",
-                    "phonetics": "/kontriβuθjon/",
-                    "partOfSpeech": "noun",
-                    "definition": "Un aporte original y significativo al conocimiento, teoría o práctica en un campo de estudio específico.",
-                    "examples": [
-                        "Su contribución al campo de la neurociencia fue revolucionaria.",
-                        "La contribución de este estudio al debate académico es considerable."
-                    ]
-                }
-            ],
-            "level": "C1",
-            "tagValue": "Academic",
-            "languageCode": "es",
-            "description": "Vocabulario avanzado en español para el discurso académico y profesional",
-            "imageUrl": null,
-            "localImageName": "studying-2",
-            "isPremium": true,
-            "isFeatured": true
-        },
-        {
-            "id": "literature-and-arts-001",
-            "title": "Literatura y Artes",
-            "words": [
-                {
-                    "id": "prosa-001",
-                    "text": "la prosa",
-                    "phonetics": "/prosa/",
-                    "partOfSpeech": "noun",
-                    "definition": "Forma de expresión escrita que sigue el ritmo natural del lenguaje, sin las restricciones métricas de la poesía.",
-                    "examples": [
-                        "La prosa de Borges es reconocida por su precisión y elegancia.",
-                        "Prefiero la prosa narrativa a la poética para contar historias."
-                    ]
-                },
-                {
-                    "id": "poesia-001",
-                    "text": "la poesía",
-                    "phonetics": "/poesja/",
-                    "partOfSpeech": "noun",
-                    "definition": "Forma literaria que utiliza recursos estilísticos como el ritmo, la métrica y las figuras retóricas para expresar emociones e ideas.",
-                    "examples": [
-                        "La poesía de Neruda captura la esencia del amor y la naturaleza.",
-                        "Estudio la poesía del Siglo de Oro español en la universidad."
-                    ]
-                },
-                {
-                    "id": "metafora-001",
-                    "text": "la metáfora",
-                    "phonetics": "/metafra/",
-                    "partOfSpeech": "noun",
-                    "definition": "Figura retórica que establece una relación de semejanza entre dos conceptos, identificándolos directamente sin usar comparativos.",
-                    "examples": [
-                        "La metáfora 'el tiempo es oro' expresa la valiosa naturaleza del tiempo.",
-                        "Utilizó una metáfora brillante para describir la soledad."
-                    ]
-                },
-                {
-                    "id": "alegoria-001",
-                    "text": "la alegoría",
-                    "phonetics": "/aleɣorja/",
-                    "partOfSpeech": "noun",
-                    "definition": "Narración o descripción en la que elementos concretos representan conceptos abstractos, creando un significado simbólico más profundo.",
-                    "examples": [
-                        "La Divina Comedia es una alegoría del viaje del alma hacia Dios.",
-                        "Su obra utiliza la alegoría para criticar la sociedad moderna."
-                    ]
-                },
-                {
-                    "id": "simbolo-001",
-                    "text": "el símbolo",
-                    "phonetics": "/simbolo/",
-                    "partOfSpeech": "noun",
-                    "definition": "Elemento que representa o evoca otra cosa por convención cultural o asociación, transmitiendo significados más allá de su forma literal.",
-                    "examples": [
-                        "La paloma es un símbolo universal de paz.",
-                        "El autor utiliza el símbolo del laberinto para representar la confusión humana."
-                    ]
-                },
-                {
-                    "id": "ironia-001",
-                    "text": "la ironía",
-                    "phonetics": "/ironja/",
-                    "partOfSpeech": "noun",
-                    "definition": "Recurso literario en el que se expresa lo contrario de lo que se piensa o siente, creando un efecto de contraste o humor sutil.",
-                    "examples": [
-                        "Su ironía mordaz critica las costumbres sociales de su época.",
-                        "La ironía dramática aumenta la tensión en la obra teatral."
-                    ]
-                },
-                {
-                    "id": "protagonista-001",
-                    "text": "el protagonista",
-                    "phonetics": "/protaɣonista/",
-                    "partOfSpeech": "noun",
-                    "definition": "Personaje principal de una obra narrativa o dramática, alrededor del cual gira la acción y cuyo destino constituye el eje central de la historia.",
-                    "examples": [
-                        "El protagonista de la novela experimenta una transformación profunda.",
-                        "La protagonista femenina desafía las convenciones sociales de su época."
-                    ]
-                },
-                {
-                    "id": "narrador-001",
-                    "text": "el narrador",
-                    "phonetics": "/narraðor/",
-                    "partOfSpeech": "noun",
-                    "definition": "Voz que cuenta la historia, puede ser un personaje dentro de la obra o una entidad externa, determinando la perspectiva y el punto de vista narrativo.",
-                    "examples": [
-                        "El narrador omnisciente conoce todos los pensamientos de los personajes.",
-                        "El narrador en primera persona limita la perspectiva a su experiencia personal."
-                    ]
-                },
-                {
-                    "id": "trama-001",
-                    "text": "la trama",
-                    "phonetics": "/trama/",
-                    "partOfSpeech": "noun",
-                    "definition": "Secuencia de eventos que constituyen el desarrollo de la acción en una obra narrativa, creando tensión y llevando hacia el desenlace.",
-                    "examples": [
-                        "La trama de la novela policíaca mantiene al lector en suspenso.",
-                        "El autor teje una trama compleja con múltiples líneas argumentales."
-                    ]
-                },
-                {
-                    "id": "desenlace-001",
-                    "text": "el desenlace",
-                    "phonetics": "/desenlase/",
-                    "partOfSpeech": "noun",
-                    "definition": "Resolución final de los conflictos planteados en la obra, donde se revelan las consecuencias de las acciones y se completa la estructura narrativa.",
-                    "examples": [
-                        "El desenlace inesperado sorprendió a todos los lectores.",
-                        "El desenlace de la tragedia es inevitable y devastador."
-                    ]
-                },
-                {
-                    "id": "estilo-001",
-                    "text": "el estilo",
-                    "phonetics": "/estilo/",
-                    "partOfSpeech": "noun",
-                    "definition": "Manera particular de expresarse que caracteriza a un autor, incluyendo su elección de palabras, estructura sintáctica y recursos estilísticos.",
-                    "examples": [
-                        "El estilo barroco se caracteriza por su exuberancia y complejidad.",
-                        "Su estilo literario es reconocible por su prosa poética y metáforas innovadoras."
-                    ]
-                },
-                {
-                    "id": "atmosfera-001",
-                    "text": "la atmósfera",
-                    "phonetics": "/atmosfera/",
-                    "partOfSpeech": "noun",
-                    "definition": "Ambiente emocional o psicológico que envuelve una obra, creado a través de la descripción del entorno, el tono y las emociones transmitidas.",
-                    "examples": [
-                        "La atmósfera gótica de la novela genera tensión y misterio.",
-                        "El autor crea una atmósfera melancólica mediante descripciones detalladas."
-                    ]
-                },
-                {
-                    "id": "personaje-001",
-                    "text": "el personaje",
-                    "phonetics": "/personaxe/",
-                    "partOfSpeech": "noun",
-                    "definition": "Ser ficticio que participa en la acción de una obra literaria, desarrollado a través de sus acciones, diálogos y características psicológicas.",
-                    "examples": [
-                        "El personaje del héroe trágico evoluciona a lo largo de la obra.",
-                        "Los personajes secundarios enriquecen la trama principal."
-                    ]
-                },
-                {
-                    "id": "conflicto-001",
-                    "text": "el conflicto",
-                    "phonetics": "/konflikto/",
-                    "partOfSpeech": "noun",
-                    "definition": "Oposición o tensión entre fuerzas, ideas o personajes que impulsa la acción narrativa y genera interés dramático en la obra.",
-                    "examples": [
-                        "El conflicto interno del protagonista es el motor de la historia.",
-                        "El conflicto entre tradición y modernidad estructura toda la novela."
-                    ]
-                },
-                {
-                    "id": "sutileza-001",
-                    "text": "la sutileza",
-                    "phonetics": "/sutileθa/",
-                    "partOfSpeech": "noun",
-                    "definition": "Cualidad de ser delicado, refinado y preciso en la expresión, evitando lo obvio y creando significados múltiples o matices complejos.",
-                    "examples": [
-                        "La sutileza de su prosa requiere una lectura cuidadosa y atenta.",
-                        "Aprecio la sutileza con que aborda temas controvertidos en su obra."
-                    ]
-                }
-            ],
-            "level": "C1",
-            "tagValue": "Literature",
-            "languageCode": "es",
-            "description": "Vocabulario avanzado en español para literatura, artes y análisis literario",
-            "imageUrl": null,
-            "localImageName": "books-1",
             "isPremium": true,
             "isFeatured": false
         },
@@ -4775,6 +4183,598 @@
             "languageCode": "es",
             "imageUrl": null,
             "localImageName": "market",
+            "isPremium": true,
+            "isFeatured": false
+        },
+        {
+            "id": "spanish-idioms-001",
+            "title": "Modismos Españoles",
+            "words": [
+                {
+                    "id": "costar-ojo-cara-001",
+                    "text": "costar un ojo de la cara",
+                    "phonetics": "/kostar un oxo de la kara/",
+                    "partOfSpeech": "idiom",
+                    "definition": "Significa que algo cuesta mucho dinero. Como cuando dices que algo es muy caro, como si tuvieras que dar tu ojo.",
+                    "examples": [
+                        "Este coche cuesta un ojo de la cara.",
+                        "Las vacaciones costaron un ojo de la cara."
+                    ]
+                },
+                {
+                    "id": "estar-nubes-001",
+                    "text": "estar en las nubes",
+                    "phonetics": "/estar en las nuβes/",
+                    "partOfSpeech": "idiom",
+                    "definition": "Significa que no estás prestando atención. Como cuando estás pensando en otra cosa y no escuchas.",
+                    "examples": [
+                        "Hoy estoy en las nubes.",
+                        "No me escuchas, estás en las nubes."
+                    ]
+                },
+                {
+                    "id": "pan-comido-001",
+                    "text": "ser pan comido",
+                    "phonetics": "/ser pan komido/",
+                    "partOfSpeech": "idiom",
+                    "definition": "Significa que algo es muy fácil de hacer. Como cuando algo es tan fácil como comer pan.",
+                    "examples": [
+                        "Este examen es pan comido.",
+                        "Para él, cocinar es pan comido."
+                    ]
+                },
+                {
+                    "id": "llover-cantaros-001",
+                    "text": "llover a cántaros",
+                    "phonetics": "/ʝoβer a kantaros/",
+                    "partOfSpeech": "idiom",
+                    "definition": "Significa que está lloviendo muchísimo. Como si lloviera con cántaros de agua.",
+                    "examples": [
+                        "Está lloviendo a cántaros.",
+                        "Ayer llovió a cántaros toda la noche."
+                    ]
+                },
+                {
+                    "id": "estar-cabra-001",
+                    "text": "estar como una cabra",
+                    "phonetics": "/estar komo una kaβra/",
+                    "partOfSpeech": "idiom",
+                    "definition": "Significa que alguien está loco o hace cosas raras. Como cuando alguien se comporta de manera extraña.",
+                    "examples": [
+                        "Hoy estás como una cabra.",
+                        "Mi hermano está como una cabra últimamente."
+                    ]
+                },
+                {
+                    "id": "tirar-casa-ventana-001",
+                    "text": "tirar la casa por la ventana",
+                    "phonetics": "/tirar la kasa por la βentana/",
+                    "partOfSpeech": "idiom",
+                    "definition": "Significa gastar mucho dinero en una celebración. Como cuando haces una fiesta muy grande y cara.",
+                    "examples": [
+                        "En la boda tiraron la casa por la ventana.",
+                        "Para su cumpleaños tiró la casa por la ventana."
+                    ]
+                },
+                {
+                    "id": "septimo-cielo-001",
+                    "text": "estar en el séptimo cielo",
+                    "phonetics": "/estar en el septimo θjelo/",
+                    "partOfSpeech": "idiom",
+                    "definition": "Significa estar muy feliz. Como cuando estás tan contento que sientes que estás en el cielo.",
+                    "examples": [
+                        "Estoy en el séptimo cielo.",
+                        "Desde que tiene novia, está en el séptimo cielo."
+                    ]
+                },
+                {
+                    "id": "no-pelos-lengua-001",
+                    "text": "no tener pelos en la lengua",
+                    "phonetics": "/no tener pelos en la leŋɡwa/",
+                    "partOfSpeech": "idiom",
+                    "definition": "Significa decir las cosas directamente, sin miedo. Como cuando dices lo que piensas sin disimular.",
+                    "examples": [
+                        "Ella no tiene pelos en la lengua.",
+                        "Mi abuela no tiene pelos en la lengua."
+                    ]
+                },
+                {
+                    "id": "hasta-narices-001",
+                    "text": "estar hasta las narices",
+                    "phonetics": "/estar asta las narizes/",
+                    "partOfSpeech": "idiom",
+                    "definition": "Significa estar muy cansado o molesto con algo. Como cuando ya no aguantas más.",
+                    "examples": [
+                        "Estoy hasta las narices del trabajo.",
+                        "Está hasta las narices de los problemas."
+                    ]
+                },
+                {
+                    "id": "mas-viejo-matusalen-001",
+                    "text": "ser más viejo que Matusalén",
+                    "phonetics": "/ser mas bjeχo ke matusalen/",
+                    "partOfSpeech": "idiom",
+                    "definition": "Significa ser muy viejo. Como cuando algo o alguien es muy antiguo.",
+                    "examples": [
+                        "Este coche es más viejo que Matusalén.",
+                        "Mi abuelo dice que es más viejo que Matusalén."
+                    ]
+                },
+                {
+                    "id": "quinto-pino-001",
+                    "text": "estar en el quinto pino",
+                    "phonetics": "/estar en el kinto pino/",
+                    "partOfSpeech": "idiom",
+                    "definition": "Significa estar muy lejos. Como cuando algo está en un lugar muy distante.",
+                    "examples": [
+                        "Su casa está en el quinto pino.",
+                        "El trabajo está en el quinto pino."
+                    ]
+                },
+                {
+                    "id": "una-carne-001",
+                    "text": "ser uña y carne",
+                    "phonetics": "/ser uɲa i karne/",
+                    "partOfSpeech": "idiom",
+                    "definition": "Significa ser muy buenos amigos, inseparables. Como cuando dos personas son como hermanos.",
+                    "examples": [
+                        "Ellos son uña y carne.",
+                        "Desde pequeños son uña y carne."
+                    ]
+                },
+                {
+                    "id": "pez-agua-001",
+                    "text": "estar como pez en el agua",
+                    "phonetics": "/estar komo peθ en el aɣwa/",
+                    "partOfSpeech": "idiom",
+                    "definition": "Significa estar muy cómodo en una situación. Como cuando te sientes muy bien haciendo algo.",
+                    "examples": [
+                        "En la playa está como pez en el agua.",
+                        "Cuando canta está como pez en el agua."
+                    ]
+                },
+                {
+                    "id": "no-moros-costa-001",
+                    "text": "no hay moros en la costa",
+                    "phonetics": "/no aj moros en la kosta/",
+                    "partOfSpeech": "idiom",
+                    "definition": "Significa que no hay peligro o que puedes hacer algo sin problemas. Como cuando no hay nadie que te moleste.",
+                    "examples": [
+                        "No hay moros en la costa, podemos hablar.",
+                        "Puedes salir, no hay moros en la costa."
+                    ]
+                },
+                {
+                    "id": "luna-valencia-001",
+                    "text": "estar en la luna de Valencia",
+                    "phonetics": "/estar en la luna de βalenθja/",
+                    "partOfSpeech": "idiom",
+                    "definition": "Significa estar distraído o no prestar atención. Como cuando estás pensando en otra cosa.",
+                    "examples": [
+                        "Estás en la luna de Valencia.",
+                        "No me escuchas, estás en la luna de Valencia."
+                    ]
+                },
+                {
+                    "id": "mas-listo-hambre-001",
+                    "text": "ser más listo que el hambre",
+                    "phonetics": "/ser mas listo ke el ambre/",
+                    "partOfSpeech": "idiom",
+                    "definition": "Significa ser muy inteligente y astuto. Como cuando alguien es muy listo para conseguir lo que quiere.",
+                    "examples": [
+                        "Él es más listo que el hambre.",
+                        "Mi hermana es más listo que el hambre."
+                    ]
+                },
+                {
+                    "id": "hecho-aji-001",
+                    "text": "estar hecho un ají",
+                    "phonetics": "/estar exo un axi/",
+                    "partOfSpeech": "idiom",
+                    "definition": "Significa estar muy enojado. Como cuando estás tan molesto que te pones rojo como un ají.",
+                    "examples": [
+                        "Está hecho un ají.",
+                        "Cuando se enteró, se puso hecho un ají."
+                    ]
+                },
+                {
+                    "id": "ano-pera-001",
+                    "text": "ser del año de la pera",
+                    "phonetics": "/ser del aɲo de la pera/",
+                    "partOfSpeech": "idiom",
+                    "definition": "Significa ser muy antiguo o pasado de moda. Como cuando algo es muy viejo.",
+                    "examples": [
+                        "Este coche es del año de la pera.",
+                        "Esa canción es del año de la pera."
+                    ]
+                },
+                {
+                    "id": "estar-moto-001",
+                    "text": "estar como una moto",
+                    "phonetics": "/estar komo una moto/",
+                    "partOfSpeech": "idiom",
+                    "definition": "Significa estar muy nervioso o activo. Como cuando no puedes estar quieto.",
+                    "examples": [
+                        "Hoy estás como una moto.",
+                        "Los niños están como una moto."
+                    ]
+                },
+                {
+                    "id": "no-dar-pie-bola-001",
+                    "text": "no dar pie con bola",
+                    "phonetics": "/no dar pje kon bola/",
+                    "partOfSpeech": "idiom",
+                    "definition": "Significa no hacer nada bien o fallar en todo. Como cuando todo te sale mal.",
+                    "examples": [
+                        "Hoy no doy pie con bola.",
+                        "En el trabajo no doy pie con bola."
+                    ]
+                }
+            ],
+            "level": "B2",
+            "tagValue": "Idioms",
+            "languageCode": "es",
+            "description": "Modismos y expresiones populares en español para hablar como un nativo",
+            "imageUrl": null,
+            "localImageName": "book-glasses",
+            "isPremium": true,
+            "isFeatured": true
+        },
+        {
+            "id": "academic-professional-discourse-001",
+            "title": "Discurso Académico y Profesional",
+            "words": [
+                {
+                    "id": "investigacion-001",
+                    "text": "la investigación",
+                    "phonetics": "/imβestiɣaθjon/",
+                    "partOfSpeech": "noun",
+                    "definition": "El proceso sistemático de búsqueda, análisis e interpretación de información para generar conocimiento nuevo o validar teorías existentes.",
+                    "examples": [
+                        "La investigación científica requiere rigor metodológico.",
+                        "Su investigación sobre el cambio climático fue publicada en una revista internacional."
+                    ]
+                },
+                {
+                    "id": "metodologia-001",
+                    "text": "la metodología",
+                    "phonetics": "/metodoloxja/",
+                    "partOfSpeech": "noun",
+                    "definition": "El conjunto de métodos, técnicas y procedimientos utilizados para realizar una investigación de manera sistemática y rigurosa.",
+                    "examples": [
+                        "La metodología cuantitativa permite medir variables específicas.",
+                        "Debemos definir claramente la metodología antes de comenzar el estudio."
+                    ]
+                },
+                {
+                    "id": "hipotesis-001",
+                    "text": "la hipótesis",
+                    "phonetics": "/ipotesis/",
+                    "partOfSpeech": "noun",
+                    "definition": "Una proposición o suposición fundamentada que se plantea como punto de partida para una investigación y que debe ser verificada empíricamente.",
+                    "examples": [
+                        "La hipótesis nula establece que no existe relación entre las variables.",
+                        "Formulamos una hipótesis basada en la revisión de la literatura."
+                    ]
+                },
+                {
+                    "id": "analisis-001",
+                    "text": "el análisis",
+                    "phonetics": "/analisis/",
+                    "partOfSpeech": "noun",
+                    "definition": "El proceso de examinar, descomponer e interpretar datos o información para identificar patrones, relaciones y tendencias significativas.",
+                    "examples": [
+                        "El análisis estadístico reveló correlaciones significativas.",
+                        "Realizamos un análisis cualitativo de las entrevistas."
+                    ]
+                },
+                {
+                    "id": "sintesis-001",
+                    "text": "la síntesis",
+                    "phonetics": "/sintesis/",
+                    "partOfSpeech": "noun",
+                    "definition": "El proceso de integrar y combinar información de múltiples fuentes para crear una comprensión coherente y unificada del tema estudiado.",
+                    "examples": [
+                        "La síntesis de la literatura mostró consenso en varios puntos.",
+                        "Presentó una síntesis brillante de las teorías más relevantes."
+                    ]
+                },
+                {
+                    "id": "evidencia-001",
+                    "text": "la evidencia",
+                    "phonetics": "/eβiðenθja/",
+                    "partOfSpeech": "noun",
+                    "definition": "Datos, hechos o pruebas empíricas que respaldan o refutan una afirmación, teoría o hipótesis en el contexto académico o científico.",
+                    "examples": [
+                        "La evidencia empírica contradice la teoría establecida.",
+                        "Necesitamos evidencia más sólida para sustentar nuestras conclusiones."
+                    ]
+                },
+                {
+                    "id": "argumentacion-001",
+                    "text": "la argumentación",
+                    "phonetics": "/arɣumentaθjon/",
+                    "partOfSpeech": "noun",
+                    "definition": "El proceso de presentar razones, evidencia y lógica de manera estructurada para persuadir o demostrar la validez de una posición académica.",
+                    "examples": [
+                        "La argumentación del autor es convincente y bien fundamentada.",
+                        "Su argumentación carece de evidencia empírica suficiente."
+                    ]
+                },
+                {
+                    "id": "tesis-001",
+                    "text": "la tesis",
+                    "phonetics": "/tesis/",
+                    "partOfSpeech": "noun",
+                    "definition": "Una proposición central o afirmación principal que un investigador defiende mediante evidencia y argumentación en un trabajo académico.",
+                    "examples": [
+                        "La tesis doctoral debe contribuir originalmente al conocimiento.",
+                        "Su tesis sobre la inteligencia artificial fue innovadora."
+                    ]
+                },
+                {
+                    "id": "bibliografia-001",
+                    "text": "la bibliografía",
+                    "phonetics": "/biβljoɣrafja/",
+                    "partOfSpeech": "noun",
+                    "definition": "Lista sistemática y organizada de todas las fuentes consultadas durante la investigación, incluyendo libros, artículos y documentos académicos.",
+                    "examples": [
+                        "La bibliografía incluye más de cien referencias académicas.",
+                        "Debe actualizar su bibliografía con las publicaciones más recientes."
+                    ]
+                },
+                {
+                    "id": "academia-001",
+                    "text": "la academia",
+                    "phonetics": "/akaðemja/",
+                    "partOfSpeech": "noun",
+                    "definition": "La comunidad intelectual y profesional formada por universidades, centros de investigación y académicos dedicados al avance del conocimiento.",
+                    "examples": [
+                        "La academia ha reconocido su contribución al campo de la medicina.",
+                        "Trabaja en la academia desde hace más de veinte años."
+                    ]
+                },
+                {
+                    "id": "paradigma-001",
+                    "text": "el paradigma",
+                    "phonetics": "/paraðiɣma/",
+                    "partOfSpeech": "noun",
+                    "definition": "Un marco conceptual o modelo teórico que define cómo se entiende y estudia un fenómeno en una disciplina científica o académica.",
+                    "examples": [
+                        "El paradigma conductista dominó la psicología durante décadas.",
+                        "Necesitamos un nuevo paradigma para abordar estos problemas complejos."
+                    ]
+                },
+                {
+                    "id": "contexto-001",
+                    "text": "el contexto",
+                    "phonetics": "/konteksto/",
+                    "partOfSpeech": "noun",
+                    "definition": "El entorno, circunstancias o marco de referencia que rodea un fenómeno, evento o información, proporcionando significado y comprensión.",
+                    "examples": [
+                        "Es fundamental considerar el contexto histórico de estos eventos.",
+                        "Sin el contexto apropiado, los datos pueden malinterpretarse."
+                    ]
+                },
+                {
+                    "id": "interpretacion-001",
+                    "text": "la interpretación",
+                    "phonetics": "/interprretaθjon/",
+                    "partOfSpeech": "noun",
+                    "definition": "El proceso de explicar, explicar o dar significado a datos, textos o fenómenos basándose en análisis, teoría y conocimiento previo.",
+                    "examples": [
+                        "La interpretación de los resultados requiere precaución metodológica.",
+                        "Su interpretación del texto fue muy original y perspicaz."
+                    ]
+                },
+                {
+                    "id": "inferencia-001",
+                    "text": "la inferencia",
+                    "phonetics": "/imferenθja/",
+                    "partOfSpeech": "noun",
+                    "definition": "El proceso de llegar a una conclusión lógica basándose en evidencia disponible, observaciones o premisas establecidas.",
+                    "examples": [
+                        "La inferencia estadística permite generalizar los resultados.",
+                        "Hizo una inferencia válida basada en los datos experimentales."
+                    ]
+                },
+                {
+                    "id": "contribucion-001",
+                    "text": "la contribución",
+                    "phonetics": "/kontriβuθjon/",
+                    "partOfSpeech": "noun",
+                    "definition": "Un aporte original y significativo al conocimiento, teoría o práctica en un campo de estudio específico.",
+                    "examples": [
+                        "Su contribución al campo de la neurociencia fue revolucionaria.",
+                        "La contribución de este estudio al debate académico es considerable."
+                    ]
+                }
+            ],
+            "level": "C1",
+            "tagValue": "Academic",
+            "languageCode": "es",
+            "description": "Vocabulario avanzado en español para el discurso académico y profesional",
+            "imageUrl": null,
+            "localImageName": "studying-2",
+            "isPremium": true,
+            "isFeatured": false
+        },
+        {
+            "id": "literature-and-arts-001",
+            "title": "Literatura y Artes",
+            "words": [
+                {
+                    "id": "prosa-001",
+                    "text": "la prosa",
+                    "phonetics": "/prosa/",
+                    "partOfSpeech": "noun",
+                    "definition": "Forma de expresión escrita que sigue el ritmo natural del lenguaje, sin las restricciones métricas de la poesía.",
+                    "examples": [
+                        "La prosa de Borges es reconocida por su precisión y elegancia.",
+                        "Prefiero la prosa narrativa a la poética para contar historias."
+                    ]
+                },
+                {
+                    "id": "poesia-001",
+                    "text": "la poesía",
+                    "phonetics": "/poesja/",
+                    "partOfSpeech": "noun",
+                    "definition": "Forma literaria que utiliza recursos estilísticos como el ritmo, la métrica y las figuras retóricas para expresar emociones e ideas.",
+                    "examples": [
+                        "La poesía de Neruda captura la esencia del amor y la naturaleza.",
+                        "Estudio la poesía del Siglo de Oro español en la universidad."
+                    ]
+                },
+                {
+                    "id": "metafora-001",
+                    "text": "la metáfora",
+                    "phonetics": "/metafra/",
+                    "partOfSpeech": "noun",
+                    "definition": "Figura retórica que establece una relación de semejanza entre dos conceptos, identificándolos directamente sin usar comparativos.",
+                    "examples": [
+                        "La metáfora 'el tiempo es oro' expresa la valiosa naturaleza del tiempo.",
+                        "Utilizó una metáfora brillante para describir la soledad."
+                    ]
+                },
+                {
+                    "id": "alegoria-001",
+                    "text": "la alegoría",
+                    "phonetics": "/aleɣorja/",
+                    "partOfSpeech": "noun",
+                    "definition": "Narración o descripción en la que elementos concretos representan conceptos abstractos, creando un significado simbólico más profundo.",
+                    "examples": [
+                        "La Divina Comedia es una alegoría del viaje del alma hacia Dios.",
+                        "Su obra utiliza la alegoría para criticar la sociedad moderna."
+                    ]
+                },
+                {
+                    "id": "simbolo-001",
+                    "text": "el símbolo",
+                    "phonetics": "/simbolo/",
+                    "partOfSpeech": "noun",
+                    "definition": "Elemento que representa o evoca otra cosa por convención cultural o asociación, transmitiendo significados más allá de su forma literal.",
+                    "examples": [
+                        "La paloma es un símbolo universal de paz.",
+                        "El autor utiliza el símbolo del laberinto para representar la confusión humana."
+                    ]
+                },
+                {
+                    "id": "ironia-001",
+                    "text": "la ironía",
+                    "phonetics": "/ironja/",
+                    "partOfSpeech": "noun",
+                    "definition": "Recurso literario en el que se expresa lo contrario de lo que se piensa o siente, creando un efecto de contraste o humor sutil.",
+                    "examples": [
+                        "Su ironía mordaz critica las costumbres sociales de su época.",
+                        "La ironía dramática aumenta la tensión en la obra teatral."
+                    ]
+                },
+                {
+                    "id": "protagonista-001",
+                    "text": "el protagonista",
+                    "phonetics": "/protaɣonista/",
+                    "partOfSpeech": "noun",
+                    "definition": "Personaje principal de una obra narrativa o dramática, alrededor del cual gira la acción y cuyo destino constituye el eje central de la historia.",
+                    "examples": [
+                        "El protagonista de la novela experimenta una transformación profunda.",
+                        "La protagonista femenina desafía las convenciones sociales de su época."
+                    ]
+                },
+                {
+                    "id": "narrador-001",
+                    "text": "el narrador",
+                    "phonetics": "/narraðor/",
+                    "partOfSpeech": "noun",
+                    "definition": "Voz que cuenta la historia, puede ser un personaje dentro de la obra o una entidad externa, determinando la perspectiva y el punto de vista narrativo.",
+                    "examples": [
+                        "El narrador omnisciente conoce todos los pensamientos de los personajes.",
+                        "El narrador en primera persona limita la perspectiva a su experiencia personal."
+                    ]
+                },
+                {
+                    "id": "trama-001",
+                    "text": "la trama",
+                    "phonetics": "/trama/",
+                    "partOfSpeech": "noun",
+                    "definition": "Secuencia de eventos que constituyen el desarrollo de la acción en una obra narrativa, creando tensión y llevando hacia el desenlace.",
+                    "examples": [
+                        "La trama de la novela policíaca mantiene al lector en suspenso.",
+                        "El autor teje una trama compleja con múltiples líneas argumentales."
+                    ]
+                },
+                {
+                    "id": "desenlace-001",
+                    "text": "el desenlace",
+                    "phonetics": "/desenlase/",
+                    "partOfSpeech": "noun",
+                    "definition": "Resolución final de los conflictos planteados en la obra, donde se revelan las consecuencias de las acciones y se completa la estructura narrativa.",
+                    "examples": [
+                        "El desenlace inesperado sorprendió a todos los lectores.",
+                        "El desenlace de la tragedia es inevitable y devastador."
+                    ]
+                },
+                {
+                    "id": "estilo-001",
+                    "text": "el estilo",
+                    "phonetics": "/estilo/",
+                    "partOfSpeech": "noun",
+                    "definition": "Manera particular de expresarse que caracteriza a un autor, incluyendo su elección de palabras, estructura sintáctica y recursos estilísticos.",
+                    "examples": [
+                        "El estilo barroco se caracteriza por su exuberancia y complejidad.",
+                        "Su estilo literario es reconocible por su prosa poética y metáforas innovadoras."
+                    ]
+                },
+                {
+                    "id": "atmosfera-001",
+                    "text": "la atmósfera",
+                    "phonetics": "/atmosfera/",
+                    "partOfSpeech": "noun",
+                    "definition": "Ambiente emocional o psicológico que envuelve una obra, creado a través de la descripción del entorno, el tono y las emociones transmitidas.",
+                    "examples": [
+                        "La atmósfera gótica de la novela genera tensión y misterio.",
+                        "El autor crea una atmósfera melancólica mediante descripciones detalladas."
+                    ]
+                },
+                {
+                    "id": "personaje-001",
+                    "text": "el personaje",
+                    "phonetics": "/personaxe/",
+                    "partOfSpeech": "noun",
+                    "definition": "Ser ficticio que participa en la acción de una obra literaria, desarrollado a través de sus acciones, diálogos y características psicológicas.",
+                    "examples": [
+                        "El personaje del héroe trágico evoluciona a lo largo de la obra.",
+                        "Los personajes secundarios enriquecen la trama principal."
+                    ]
+                },
+                {
+                    "id": "conflicto-001",
+                    "text": "el conflicto",
+                    "phonetics": "/konflikto/",
+                    "partOfSpeech": "noun",
+                    "definition": "Oposición o tensión entre fuerzas, ideas o personajes que impulsa la acción narrativa y genera interés dramático en la obra.",
+                    "examples": [
+                        "El conflicto interno del protagonista es el motor de la historia.",
+                        "El conflicto entre tradición y modernidad estructura toda la novela."
+                    ]
+                },
+                {
+                    "id": "sutileza-001",
+                    "text": "la sutileza",
+                    "phonetics": "/sutileθa/",
+                    "partOfSpeech": "noun",
+                    "definition": "Cualidad de ser delicado, refinado y preciso en la expresión, evitando lo obvio y creando significados múltiples o matices complejos.",
+                    "examples": [
+                        "La sutileza de su prosa requiere una lectura cuidadosa y atenta.",
+                        "Aprecio la sutileza con que aborda temas controvertidos en su obra."
+                    ]
+                }
+            ],
+            "level": "C1",
+            "tagValue": "Literature",
+            "languageCode": "es",
+            "description": "Vocabulario avanzado en español para literatura, artes y análisis literario",
+            "imageUrl": null,
+            "localImageName": "books-1",
             "isPremium": true,
             "isFeatured": false
         }

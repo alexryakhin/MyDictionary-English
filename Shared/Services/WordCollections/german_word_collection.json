@@ -1,6 +1,995 @@
 {
     "collections": [
         {
+            "id": "german_family_relationships",
+            "title": "Familie und Beziehungen",
+            "description": "Wortschatz für Familie und persönliche Beziehungen",
+            "level": "A1",
+            "tagValue": "deutsch",
+            "languageCode": "de",
+            "localImageName": "family",
+            "isPremium": false,
+            "isFeatured": true,
+            "words": [
+                {
+                    "id": "die_familie",
+                    "text": "die Familie",
+                    "phonetics": "/diː.fa.ˈmiː.li̯ə/",
+                    "partOfSpeech": "noun",
+                    "definition": "Gruppe von Personen, die durch Blut oder Liebe verbunden sind",
+                    "examples": [
+                        "Meine Familie ist sehr wichtig für mich.",
+                        "Ich verbringe gerne Zeit mit meiner Familie."
+                    ]
+                },
+                {
+                    "id": "der_vater",
+                    "text": "der Vater",
+                    "phonetics": "/deːɐ.ˈfaː.tɐ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Mann, der Kinder hat",
+                    "examples": [
+                        "Mein Vater arbeitet in einem Büro.",
+                        "Der Vater von Marie ist Arzt."
+                    ]
+                },
+                {
+                    "id": "die_mutter",
+                    "text": "die Mutter",
+                    "phonetics": "/diː.ˈmʊ.tɐ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Frau, die Kinder hat",
+                    "examples": [
+                        "Meine Mutter kocht sehr gut.",
+                        "Die Mutter von Peter ist Lehrerin."
+                    ]
+                },
+                {
+                    "id": "das_kind",
+                    "text": "das Kind",
+                    "phonetics": "/das.kɪnt/",
+                    "partOfSpeech": "noun",
+                    "definition": "Junge Person, die noch nicht erwachsen ist",
+                    "examples": [
+                        "Dieses Kind spielt im Garten.",
+                        "Die Kinder gehen zur Schule."
+                    ]
+                },
+                {
+                    "id": "der_sohn",
+                    "text": "der Sohn",
+                    "phonetics": "/deːɐ.zoːn/",
+                    "partOfSpeech": "noun",
+                    "definition": "Junge in Bezug zu seinen Eltern",
+                    "examples": [
+                        "Mein Sohn ist 10 Jahre alt.",
+                        "Der Sohn meiner Schwester ist sehr nett."
+                    ]
+                },
+                {
+                    "id": "die_tochter",
+                    "text": "die Tochter",
+                    "phonetics": "/diː.ˈtɔx.tɐ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Mädchen in Bezug zu ihren Eltern",
+                    "examples": [
+                        "Meine Tochter studiert an der Universität.",
+                        "Die Tochter meines Nachbarn ist sehr schön."
+                    ]
+                },
+                {
+                    "id": "der_bruder",
+                    "text": "der Bruder",
+                    "phonetics": "/deːɐ.ˈbʁuː.dɐ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Junge, der die gleichen Eltern hat",
+                    "examples": [
+                        "Mein Bruder ist älter als ich.",
+                        "Ich habe zwei Brüder und eine Schwester."
+                    ]
+                },
+                {
+                    "id": "die_schwester",
+                    "text": "die Schwester",
+                    "phonetics": "/diː.ˈʃvɛs.tɐ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Mädchen, das die gleichen Eltern hat",
+                    "examples": [
+                        "Meine Schwester wohnt in Paris.",
+                        "Ich habe eine große Schwester und einen kleinen Bruder."
+                    ]
+                },
+                {
+                    "id": "der_grossvater",
+                    "text": "der Großvater",
+                    "phonetics": "/deːɐ.ˈɡʁoːs.ˌfaː.tɐ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Vater des Vaters oder der Mutter",
+                    "examples": [
+                        "Mein Großvater erzählt schöne Geschichten.",
+                        "Der Großvater von Hans ist sehr alt."
+                    ]
+                },
+                {
+                    "id": "die_grossmutter",
+                    "text": "die Großmutter",
+                    "phonetics": "/diː.ˈɡʁoːs.ˌmʊ.tɐ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Mutter des Vaters oder der Mutter",
+                    "examples": [
+                        "Meine Großmutter macht gute Kuchen.",
+                        "Die Großmutter von Marie ist sehr nett."
+                    ]
+                },
+                {
+                    "id": "der_onkel",
+                    "text": "der Onkel",
+                    "phonetics": "/deːɐ.ˈɔŋ.kəl/",
+                    "partOfSpeech": "noun",
+                    "definition": "Bruder des Vaters oder der Mutter",
+                    "examples": [
+                        "Mein Onkel wohnt in England.",
+                        "Der Onkel von Peter ist sehr lustig."
+                    ]
+                },
+                {
+                    "id": "die_tante",
+                    "text": "die Tante",
+                    "phonetics": "/diː.ˈtan.tə/",
+                    "partOfSpeech": "noun",
+                    "definition": "Schwester des Vaters oder der Mutter",
+                    "examples": [
+                        "Meine Tante besucht uns oft.",
+                        "Die Tante von Marie ist sehr großzügig."
+                    ]
+                },
+                {
+                    "id": "der_cousin",
+                    "text": "der Cousin",
+                    "phonetics": "/deːɐ.ku.ˈzɛ̃/",
+                    "partOfSpeech": "noun",
+                    "definition": "Sohn des Onkels oder der Tante",
+                    "examples": [
+                        "Mein Cousin spielt Fußball.",
+                        "Der Cousin von Hans ist sehr intelligent."
+                    ]
+                },
+                {
+                    "id": "die_cousine",
+                    "text": "die Cousine",
+                    "phonetics": "/diː.ku.ˈziːn/",
+                    "partOfSpeech": "noun",
+                    "definition": "Tochter des Onkels oder der Tante",
+                    "examples": [
+                        "Meine Cousine tanzt sehr gut.",
+                        "Die Cousine von Peter ist sehr hübsch."
+                    ]
+                },
+                {
+                    "id": "der_ehemann",
+                    "text": "der Ehemann",
+                    "phonetics": "/deːɐ.ˈeː.ə.ˌman/",
+                    "partOfSpeech": "noun",
+                    "definition": "Mann, der mit einer Frau verheiratet ist",
+                    "examples": [
+                        "Mein Ehemann arbeitet in einer Bank.",
+                        "Der Ehemann von Marie ist sehr nett."
+                    ]
+                },
+                {
+                    "id": "die_ehefrau",
+                    "text": "die Ehefrau",
+                    "phonetics": "/diː.ˈeː.ə.ˌfʁaʊ̯/",
+                    "partOfSpeech": "noun",
+                    "definition": "Frau, die mit einem Mann verheiratet ist",
+                    "examples": [
+                        "Meine Ehefrau ist Lehrerin.",
+                        "Die Ehefrau von Hans ist sehr schön."
+                    ]
+                },
+                {
+                    "id": "der_freund",
+                    "text": "der Freund",
+                    "phonetics": "/deːɐ.fʁɔɪ̯nt/",
+                    "partOfSpeech": "noun",
+                    "definition": "Person, die man mag und kennt",
+                    "examples": [
+                        "Mein Freund wohnt in der Nähe.",
+                        "Der Freund von Peter ist sehr sympathisch."
+                    ]
+                },
+                {
+                    "id": "die_freundin",
+                    "text": "die Freundin",
+                    "phonetics": "/diː.ˈfʁɔɪ̯n.dɪn/",
+                    "partOfSpeech": "noun",
+                    "definition": "Frau, die man mag und kennt",
+                    "examples": [
+                        "Meine Freundin arbeitet in einem Laden.",
+                        "Die Freundin von Marie ist sehr lustig."
+                    ]
+                },
+                {
+                    "id": "lieben",
+                    "text": "lieben",
+                    "phonetics": "/ˈliː.bən/",
+                    "partOfSpeech": "verb",
+                    "definition": "Zuneigung für jemanden haben",
+                    "examples": [
+                        "Ich liebe meine Familie sehr.",
+                        "Sie liebt ihre Freunde."
+                    ]
+                },
+                {
+                    "id": "die_liebe",
+                    "text": "die Liebe",
+                    "phonetics": "/diː.ˈliː.bə/",
+                    "partOfSpeech": "noun",
+                    "definition": "Sehr starkes Gefühl, das man für jemanden hat",
+                    "examples": [
+                        "Die Liebe meiner Familie ist wichtig.",
+                        "Die Liebe macht glücklich."
+                    ]
+                },
+                {
+                    "id": "sich_verheiraten",
+                    "text": "sich verheiraten",
+                    "phonetics": "/zɪç.fɛɐ.ˈheː.ʁa.tən/",
+                    "partOfSpeech": "verb",
+                    "definition": "Offiziell Ehemann und Ehefrau werden",
+                    "examples": [
+                        "Sie werden im Juni heiraten.",
+                        "Meine Eltern haben vor 20 Jahren geheiratet."
+                    ]
+                },
+                {
+                    "id": "die_hochzeit",
+                    "text": "die Hochzeit",
+                    "phonetics": "/diː.ˈhɔx.ˌtsaɪ̯t/",
+                    "partOfSpeech": "noun",
+                    "definition": "Feier, wo zwei Personen heiraten",
+                    "examples": [
+                        "Die Hochzeit meiner Schwester ist morgen.",
+                        "Die Hochzeit findet in einer Kirche statt."
+                    ]
+                },
+                {
+                    "id": "geboren_werden",
+                    "text": "geboren werden",
+                    "phonetics": "/ɡə.ˈboː.ʁən.ˈveːɐ.dən/",
+                    "partOfSpeech": "phrase",
+                    "definition": "Auf die Welt kommen",
+                    "examples": [
+                        "Ich bin in Deutschland geboren.",
+                        "Das Baby wird bald geboren."
+                    ]
+                },
+                {
+                    "id": "wachsen",
+                    "text": "wachsen",
+                    "phonetics": "/ˈvak.sən/",
+                    "partOfSpeech": "verb",
+                    "definition": "Größer und älter werden",
+                    "examples": [
+                        "Die Kinder wachsen schnell.",
+                        "Ich wachse jedes Jahr."
+                    ]
+                },
+                {
+                    "id": "das_haus",
+                    "text": "das Haus",
+                    "phonetics": "/das.haʊ̯s/",
+                    "partOfSpeech": "noun",
+                    "definition": "Ort, wo eine Familie wohnt",
+                    "examples": [
+                        "Unser Haus ist sehr gemütlich.",
+                        "Das Haus meiner Eltern ist groß."
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "german_prepositions_conjunctions",
+            "title": "Präpositionen und Konjunktionen",
+            "description": "Grundlegende Präpositionen und Konjunktionen für A1-Lernende",
+            "level": "A1",
+            "tagValue": "grammatik",
+            "languageCode": "de",
+            "localImageName": "preposition",
+            "isPremium": false,
+            "isFeatured": false,
+            "words": [
+                {
+                    "id": "an",
+                    "text": "an",
+                    "phonetics": "/an/",
+                    "partOfSpeech": "preposition",
+                    "definition": "Zeigt Position oder Zeit",
+                    "examples": [
+                        "Das Bild hängt an der Wand.",
+                        "Am Montag gehe ich zur Arbeit."
+                    ]
+                },
+                {
+                    "id": "auf",
+                    "text": "auf",
+                    "phonetics": "/aʊf/",
+                    "partOfSpeech": "preposition",
+                    "definition": "Zeigt Position einer Oberfläche an",
+                    "examples": [
+                        "Das Buch liegt auf dem Tisch.",
+                        "Ich sitze auf dem Stuhl."
+                    ]
+                },
+                {
+                    "id": "aus",
+                    "text": "aus",
+                    "phonetics": "/aʊs/",
+                    "partOfSpeech": "preposition",
+                    "definition": "Zeigt Herkunft oder Material an",
+                    "examples": [
+                        "Ich komme aus Deutschland.",
+                        "Die Tasse ist aus Porzellan."
+                    ]
+                },
+                {
+                    "id": "bei",
+                    "text": "bei",
+                    "phonetics": "/baɪ/",
+                    "partOfSpeech": "preposition",
+                    "definition": "Zeigt Nähe oder Zeit an",
+                    "examples": [
+                        "Ich wohne bei meinen Eltern.",
+                        "Bei der Arbeit bin ich müde."
+                    ]
+                },
+                {
+                    "id": "in",
+                    "text": "in",
+                    "phonetics": "/ɪn/",
+                    "partOfSpeech": "preposition",
+                    "definition": "Zeigt Position in einem Raum oder Zeit an",
+                    "examples": [
+                        "Das Auto steht in der Garage.",
+                        "Im Sommer ist es warm."
+                    ]
+                },
+                {
+                    "id": "mit",
+                    "text": "mit",
+                    "phonetics": "/mɪt/",
+                    "partOfSpeech": "preposition",
+                    "definition": "Zeigt Begleitung oder Mittel an",
+                    "examples": [
+                        "Ich gehe mit meinem Freund spazieren.",
+                        "Ich schreibe mit einem Stift."
+                    ]
+                },
+                {
+                    "id": "nach",
+                    "text": "nach",
+                    "phonetics": "/naːx/",
+                    "partOfSpeech": "preposition",
+                    "definition": "Zeigt Richtung oder Zeit an",
+                    "examples": [
+                        "Ich fahre nach Berlin.",
+                        "Nach dem Essen gehe ich schlafen."
+                    ]
+                },
+                {
+                    "id": "über",
+                    "text": "über",
+                    "phonetics": "/ˈyː.bɐ/",
+                    "partOfSpeech": "preposition",
+                    "definition": "Zeigt Position über etwas oder Thema an",
+                    "examples": [
+                        "Das Flugzeug fliegt über die Wolken.",
+                        "Wir sprechen über das Wetter."
+                    ]
+                },
+                {
+                    "id": "und",
+                    "text": "und",
+                    "phonetics": "/ʊnt/",
+                    "partOfSpeech": "conjunction",
+                    "definition": "Verbindet Wörter oder Sätze",
+                    "examples": [
+                        "Ich trinke Kaffee und esse Brot.",
+                        "Das Auto ist rot und schnell."
+                    ]
+                },
+                {
+                    "id": "oder",
+                    "text": "oder",
+                    "phonetics": "/ˈoː.dɐ/",
+                    "partOfSpeech": "conjunction",
+                    "definition": "Zeigt eine Alternative an",
+                    "examples": [
+                        "Möchtest du Tee oder Kaffee?",
+                        "Ich gehe heute oder morgen."
+                    ]
+                },
+                {
+                    "id": "aber",
+                    "text": "aber",
+                    "phonetics": "/ˈaː.bɐ/",
+                    "partOfSpeech": "conjunction",
+                    "definition": "Zeigt einen Gegensatz an",
+                    "examples": [
+                        "Das Auto ist teuer, aber schön.",
+                        "Ich bin müde, aber ich arbeite weiter."
+                    ]
+                },
+                {
+                    "id": "weil",
+                    "text": "weil",
+                    "phonetics": "/vaɪl/",
+                    "partOfSpeech": "conjunction",
+                    "definition": "Zeigt einen Grund an",
+                    "examples": [
+                        "Ich bin müde, weil ich spät ins Bett gehe.",
+                        "Das Auto fährt nicht, weil es kein Benzin hat."
+                    ]
+                },
+                {
+                    "id": "wenn",
+                    "text": "wenn",
+                    "phonetics": "/vɛn/",
+                    "partOfSpeech": "conjunction",
+                    "definition": "Zeigt eine Bedingung an",
+                    "examples": [
+                        "Wenn es regnet, bleibe ich zu Hause.",
+                        "Wenn du Zeit hast, rufe mich an."
+                    ]
+                },
+                {
+                    "id": "dass",
+                    "text": "dass",
+                    "phonetics": "/das/",
+                    "partOfSpeech": "conjunction",
+                    "definition": "Leitet einen Nebensatz ein",
+                    "examples": [
+                        "Ich weiß, dass du recht hast.",
+                        "Es ist gut, dass du kommst."
+                    ]
+                },
+                {
+                    "id": "denn",
+                    "text": "denn",
+                    "phonetics": "/dɛn/",
+                    "partOfSpeech": "conjunction",
+                    "definition": "Zeigt einen Grund an",
+                    "examples": [
+                        "Ich gehe nach Hause, denn ich bin müde.",
+                        "Das Auto ist teuer, denn es ist neu."
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "german_basic_adjectives",
+            "title": "Grundlegende Adjektive",
+            "description": "Wichtige Adjektive für A1-Lernende",
+            "level": "A1",
+            "tagValue": "adjektive",
+            "languageCode": "de",
+            "localImageName": "a-bunch-of-pens-and-markers-on-a-pink-background",
+            "isPremium": false,
+            "isFeatured": false,
+            "words": [
+                {
+                    "id": "groß",
+                    "text": "groß",
+                    "phonetics": "/ɡroːs/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Von großer Größe",
+                    "examples": [
+                        "Das Haus ist sehr groß.",
+                        "Mein Bruder ist größer als ich."
+                    ]
+                },
+                {
+                    "id": "klein",
+                    "text": "klein",
+                    "phonetics": "/klaɪn/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Von kleiner Größe",
+                    "examples": [
+                        "Das Auto ist klein.",
+                        "Die Katze ist sehr klein."
+                    ]
+                },
+                {
+                    "id": "schön",
+                    "text": "schön",
+                    "phonetics": "/ʃøːn/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Angenehm anzusehen",
+                    "examples": [
+                        "Das Mädchen ist sehr schön.",
+                        "Heute ist schönes Wetter."
+                    ]
+                },
+                {
+                    "id": "hässlich",
+                    "text": "hässlich",
+                    "phonetics": "/ˈhɛs.lɪç/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Nicht schön anzusehen",
+                    "examples": [
+                        "Das Bild ist hässlich.",
+                        "Das Wetter ist heute hässlich."
+                    ]
+                },
+                {
+                    "id": "neu",
+                    "text": "neu",
+                    "phonetics": "/nɔɪ̯/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Frisch, nicht alt",
+                    "examples": [
+                        "Ich habe ein neues Auto.",
+                        "Das ist eine neue Idee."
+                    ]
+                },
+                {
+                    "id": "alt",
+                    "text": "alt",
+                    "phonetics": "/alt/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Nicht jung, schon lange da",
+                    "examples": [
+                        "Mein Großvater ist alt.",
+                        "Das ist ein altes Buch."
+                    ]
+                },
+                {
+                    "id": "gut",
+                    "text": "gut",
+                    "phonetics": "/ɡuːt/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Von guter Qualität",
+                    "examples": [
+                        "Das Essen schmeckt gut.",
+                        "Er ist ein guter Freund."
+                    ]
+                },
+                {
+                    "id": "schlecht",
+                    "text": "schlecht",
+                    "phonetics": "/ʃlɛçt/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Nicht gut",
+                    "examples": [
+                        "Das Wetter ist schlecht.",
+                        "Ich fühle mich schlecht."
+                    ]
+                },
+                {
+                    "id": "warm",
+                    "text": "warm",
+                    "phonetics": "/varm/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Angenehme hohe Temperatur",
+                    "examples": [
+                        "Das Wasser ist warm.",
+                        "Heute ist es warm."
+                    ]
+                },
+                {
+                    "id": "kalt",
+                    "text": "kalt",
+                    "phonetics": "/kalt/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Niedrige Temperatur",
+                    "examples": [
+                        "Das Eis ist kalt.",
+                        "Im Winter ist es kalt."
+                    ]
+                },
+                {
+                    "id": "schnell",
+                    "text": "schnell",
+                    "phonetics": "/ʃnɛl/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Mit hoher Geschwindigkeit",
+                    "examples": [
+                        "Das Auto ist schnell.",
+                        "Er läuft sehr schnell."
+                    ]
+                },
+                {
+                    "id": "langsam",
+                    "text": "langsam",
+                    "phonetics": "/ˈlaŋ.zaːm/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Mit niedriger Geschwindigkeit",
+                    "examples": [
+                        "Die Schildkröte ist langsam.",
+                        "Fahre bitte langsam."
+                    ]
+                },
+                {
+                    "id": "teuer",
+                    "text": "teuer",
+                    "phonetics": "/ˈtɔɪ̯.ɐ/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Kostet viel Geld",
+                    "examples": [
+                        "Das Auto ist sehr teuer.",
+                        "Das Restaurant ist teuer."
+                    ]
+                },
+                {
+                    "id": "billig",
+                    "text": "billig",
+                    "phonetics": "/ˈbɪ.lɪç/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Kostet wenig Geld",
+                    "examples": [
+                        "Das T-Shirt ist billig.",
+                        "Hier ist das Essen billig."
+                    ]
+                },
+                {
+                    "id": "wichtig",
+                    "text": "wichtig",
+                    "phonetics": "/ˈvɪç.tɪç/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Von großer Bedeutung",
+                    "examples": [
+                        "Das ist eine wichtige Information.",
+                        "Gesundheit ist wichtig."
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "german_question_words",
+            "title": "Fragewörter",
+            "description": "Wichtige Fragewörter für A1-Lernende",
+            "level": "A1",
+            "tagValue": "fragen",
+            "languageCode": "de",
+            "localImageName": "hello-1",
+            "isPremium": false,
+            "isFeatured": false,
+            "words": [
+                {
+                    "id": "wer",
+                    "text": "wer",
+                    "phonetics": "/veːr/",
+                    "partOfSpeech": "pronoun",
+                    "definition": "Fragt nach einer Person",
+                    "examples": [
+                        "Wer ist das?",
+                        "Wer kommt heute?"
+                    ]
+                },
+                {
+                    "id": "was",
+                    "text": "was",
+                    "phonetics": "/vas/",
+                    "partOfSpeech": "pronoun",
+                    "definition": "Fragt nach einer Sache",
+                    "examples": [
+                        "Was machst du?",
+                        "Was ist das?"
+                    ]
+                },
+                {
+                    "id": "wo",
+                    "text": "wo",
+                    "phonetics": "/voː/",
+                    "partOfSpeech": "adverb",
+                    "definition": "Fragt nach dem Ort",
+                    "examples": [
+                        "Wo wohnst du?",
+                        "Wo ist das Buch?"
+                    ]
+                },
+                {
+                    "id": "wann",
+                    "text": "wann",
+                    "phonetics": "/van/",
+                    "partOfSpeech": "adverb",
+                    "definition": "Fragt nach der Zeit",
+                    "examples": [
+                        "Wann kommst du?",
+                        "Wann ist der Termin?"
+                    ]
+                },
+                {
+                    "id": "warum",
+                    "text": "warum",
+                    "phonetics": "/vaˈrʊm/",
+                    "partOfSpeech": "adverb",
+                    "definition": "Fragt nach dem Grund",
+                    "examples": [
+                        "Warum bist du traurig?",
+                        "Warum kommst du nicht?"
+                    ]
+                },
+                {
+                    "id": "wie",
+                    "text": "wie",
+                    "phonetics": "/viː/",
+                    "partOfSpeech": "adverb",
+                    "definition": "Fragt nach der Art und Weise",
+                    "examples": [
+                        "Wie geht es dir?",
+                        "Wie heißt du?"
+                    ]
+                },
+                {
+                    "id": "welcher",
+                    "text": "welcher",
+                    "phonetics": "/ˈvɛl.çɐ/",
+                    "partOfSpeech": "pronoun",
+                    "definition": "Fragt nach einer bestimmten Sache (männlich)",
+                    "examples": [
+                        "Welcher Tag ist heute?",
+                        "Welcher Bus fährt zum Bahnhof?"
+                    ]
+                },
+                {
+                    "id": "welche",
+                    "text": "welche",
+                    "phonetics": "/ˈvɛl.çə/",
+                    "partOfSpeech": "pronoun",
+                    "definition": "Fragt nach einer bestimmten Sache (weiblich)",
+                    "examples": [
+                        "Welche Farbe magst du?",
+                        "Welche Zeitung liest du?"
+                    ]
+                },
+                {
+                    "id": "welches",
+                    "text": "welches",
+                    "phonetics": "/ˈvɛl.çəs/",
+                    "partOfSpeech": "pronoun",
+                    "definition": "Fragt nach einer bestimmten Sache (sächlich)",
+                    "examples": [
+                        "Welches Buch liest du?",
+                        "Welches Auto gefällt dir?"
+                    ]
+                },
+                {
+                    "id": "wessen",
+                    "text": "wessen",
+                    "phonetics": "/ˈvɛ.sən/",
+                    "partOfSpeech": "pronoun",
+                    "definition": "Fragt nach dem Besitzer",
+                    "examples": [
+                        "Wessen Buch ist das?",
+                        "Wessen Auto steht da?"
+                    ]
+                },
+                {
+                    "id": "wohin",
+                    "text": "wohin",
+                    "phonetics": "/voˈhɪn/",
+                    "partOfSpeech": "adverb",
+                    "definition": "Fragt nach der Richtung",
+                    "examples": [
+                        "Wohin gehst du?",
+                        "Wohin fährt der Zug?"
+                    ]
+                },
+                {
+                    "id": "wozu",
+                    "text": "wozu",
+                    "phonetics": "/voˈtsuː/",
+                    "partOfSpeech": "adverb",
+                    "definition": "Fragt nach dem Zweck",
+                    "examples": [
+                        "Wozu brauchst du das?",
+                        "Wozu ist das gut?"
+                    ]
+                },
+                {
+                    "id": "wie_viel",
+                    "text": "wie viel",
+                    "phonetics": "/viː.fiːl/",
+                    "partOfSpeech": "adverb",
+                    "definition": "Fragt nach der Menge (nicht zählbar)",
+                    "examples": [
+                        "Wie viel kostet das?",
+                        "Wie viel Zeit hast du?"
+                    ]
+                },
+                {
+                    "id": "wie_viele",
+                    "text": "wie viele",
+                    "phonetics": "/viː.ˈfiː.lə/",
+                    "partOfSpeech": "adverb",
+                    "definition": "Fragt nach der Anzahl (zählbar)",
+                    "examples": [
+                        "Wie viele Bücher hast du?",
+                        "Wie viele Personen kommen?"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "german_body_parts",
+            "title": "Körperteile",
+            "description": "Wichtige Körperteile für A1-Lernende",
+            "level": "A1",
+            "tagValue": "körper",
+            "languageCode": "de",
+            "localImageName": "cool-woman",
+            "isPremium": false,
+            "isFeatured": false,
+            "words": [
+                {
+                    "id": "kopf",
+                    "text": "Kopf",
+                    "phonetics": "/kɔpf/",
+                    "partOfSpeech": "noun",
+                    "definition": "Der oberste Teil des Körpers",
+                    "examples": [
+                        "Mein Kopf tut weh.",
+                        "Er hat schwarze Haare am Kopf."
+                    ]
+                },
+                {
+                    "id": "haar",
+                    "text": "Haar",
+                    "phonetics": "/haːr/",
+                    "partOfSpeech": "noun",
+                    "definition": "Die Haare auf dem Kopf",
+                    "examples": [
+                        "Sie hat blonde Haare.",
+                        "Ich wasche meine Haare."
+                    ]
+                },
+                {
+                    "id": "auge",
+                    "text": "Auge",
+                    "phonetics": "/ˈaʊ.ɡə/",
+                    "partOfSpeech": "noun",
+                    "definition": "Das Organ zum Sehen",
+                    "examples": [
+                        "Ich habe blaue Augen.",
+                        "Das Auge ist müde."
+                    ]
+                },
+                {
+                    "id": "nase",
+                    "text": "Nase",
+                    "phonetics": "/ˈnaː.zə/",
+                    "partOfSpeech": "noun",
+                    "definition": "Das Organ zum Riechen",
+                    "examples": [
+                        "Die Nase ist rot.",
+                        "Ich kann nicht riechen, meine Nase ist verstopft."
+                    ]
+                },
+                {
+                    "id": "mund",
+                    "text": "Mund",
+                    "phonetics": "/mʊnt/",
+                    "partOfSpeech": "noun",
+                    "definition": "Die Öffnung zum Essen und Sprechen",
+                    "examples": [
+                        "Der Mund ist klein.",
+                        "Ich öffne den Mund."
+                    ]
+                },
+                {
+                    "id": "ohr",
+                    "text": "Ohr",
+                    "phonetics": "/oːr/",
+                    "partOfSpeech": "noun",
+                    "definition": "Das Organ zum Hören",
+                    "examples": [
+                        "Das Ohr hört gut.",
+                        "Ich habe Ohrenschmerzen."
+                    ]
+                },
+                {
+                    "id": "hals",
+                    "text": "Hals",
+                    "phonetics": "/hals/",
+                    "partOfSpeech": "noun",
+                    "definition": "Der Teil zwischen Kopf und Körper",
+                    "examples": [
+                        "Der Hals ist lang.",
+                        "Ich habe Halsschmerzen."
+                    ]
+                },
+                {
+                    "id": "arm",
+                    "text": "Arm",
+                    "phonetics": "/arm/",
+                    "partOfSpeech": "noun",
+                    "definition": "Der obere Teil des Armes",
+                    "examples": [
+                        "Der Arm ist stark.",
+                        "Ich hebe den Arm."
+                    ]
+                },
+                {
+                    "id": "hand",
+                    "text": "Hand",
+                    "phonetics": "/hant/",
+                    "partOfSpeech": "noun",
+                    "definition": "Das Ende des Armes mit Fingern",
+                    "examples": [
+                        "Die Hand ist warm.",
+                        "Ich wasche meine Hände."
+                    ]
+                },
+                {
+                    "id": "bein",
+                    "text": "Bein",
+                    "phonetics": "/baɪn/",
+                    "partOfSpeech": "noun",
+                    "definition": "Das untere Glied zum Gehen",
+                    "examples": [
+                        "Das Bein ist lang.",
+                        "Ich habe Beinschmerzen."
+                    ]
+                },
+                {
+                    "id": "fuß",
+                    "text": "Fuß",
+                    "phonetics": "/fuːs/",
+                    "partOfSpeech": "noun",
+                    "definition": "Das Ende des Beines",
+                    "examples": [
+                        "Der Fuß ist groß.",
+                        "Ich trage Schuhe an den Füßen."
+                    ]
+                },
+                {
+                    "id": "rücken",
+                    "text": "Rücken",
+                    "phonetics": "/ˈrʏ.kən/",
+                    "partOfSpeech": "noun",
+                    "definition": "Die hintere Seite des Körpers",
+                    "examples": [
+                        "Der Rücken tut weh.",
+                        "Ich sitze gerade, um den Rücken zu schonen."
+                    ]
+                },
+                {
+                    "id": "bauch",
+                    "text": "Bauch",
+                    "phonetics": "/baʊx/",
+                    "partOfSpeech": "noun",
+                    "definition": "Der vordere Teil des Körpers",
+                    "examples": [
+                        "Der Bauch ist rund.",
+                        "Ich habe Bauchschmerzen."
+                    ]
+                },
+                {
+                    "id": "herz",
+                    "text": "Herz",
+                    "phonetics": "/hɛrts/",
+                    "partOfSpeech": "noun",
+                    "definition": "Das Organ, das Blut pumpt",
+                    "examples": [
+                        "Das Herz schlägt schnell.",
+                        "Ich höre mein Herz."
+                    ]
+                },
+                {
+                    "id": "schulter",
+                    "text": "Schulter",
+                    "phonetics": "/ˈʃʊl.tɐ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Der Teil zwischen Arm und Hals",
+                    "examples": [
+                        "Die Schulter ist breit.",
+                        "Ich habe Schulterschmerzen."
+                    ]
+                }
+            ]
+        },
+        {
             "id": "german_food_dining",
             "title": "Essen und Restaurant",
             "description": "Grundwortschatz für Essen, Mahlzeiten und Restaurants auf Deutsch",
@@ -577,6 +1566,650 @@
             ]
         },
         {
+            "id": "german_shopping_consumption",
+            "title": "Einkaufen und Konsum",
+            "description": "Wortschatz für Einkäufe und Geldausgaben",
+            "level": "A2",
+            "tagValue": "deutsch",
+            "languageCode": "de",
+            "localImageName": "market",
+            "isPremium": false,
+            "isFeatured": false,
+            "words": [
+                {
+                    "id": "der_laden",
+                    "text": "der Laden",
+                    "phonetics": "/deːɐ.ˈlaː.dən/",
+                    "partOfSpeech": "noun",
+                    "definition": "Ort, wo man Dinge kaufen kann",
+                    "examples": [
+                        "Ich gehe in den Laden, um Brot zu kaufen.",
+                        "Dieser Laden hat schöne Kleidung."
+                    ]
+                },
+                {
+                    "id": "kaufen",
+                    "text": "kaufen",
+                    "phonetics": "/ˈkaʊ̯.fən/",
+                    "partOfSpeech": "verb",
+                    "definition": "Geld geben, um etwas zu bekommen",
+                    "examples": [
+                        "Ich kaufe Obst auf dem Markt.",
+                        "Sie kauft ein neues Buch."
+                    ]
+                },
+                {
+                    "id": "verkaufen",
+                    "text": "verkaufen",
+                    "phonetics": "/fɛɐ.ˈkaʊ̯.fən/",
+                    "partOfSpeech": "verb",
+                    "definition": "Etwas gegen Geld geben",
+                    "examples": [
+                        "Ich verkaufe mein Auto.",
+                        "Dieser Laden verkauft Schuhe."
+                    ]
+                },
+                {
+                    "id": "der_preis",
+                    "text": "der Preis",
+                    "phonetics": "/deːɐ.pʁaɪ̯s/",
+                    "partOfSpeech": "noun",
+                    "definition": "Geldbetrag, den man bezahlen muss",
+                    "examples": [
+                        "Der Preis dieses Kleides ist 50 Euro.",
+                        "Dieser Preis ist sehr vernünftig."
+                    ]
+                },
+                {
+                    "id": "teuer",
+                    "text": "teuer",
+                    "phonetics": "/ˈtɔɪ̯.ɐ/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Was viel Geld kostet",
+                    "examples": [
+                        "Dieses Auto ist sehr teuer.",
+                        "Das Restaurant ist teuer, aber gut."
+                    ]
+                },
+                {
+                    "id": "billig",
+                    "text": "billig",
+                    "phonetics": "/ˈbɪ.lɪç/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Was nicht viel Geld kostet",
+                    "examples": [
+                        "Diese Schuhe sind billig.",
+                        "Ich suche etwas Billiges."
+                    ]
+                },
+                {
+                    "id": "bezahlen",
+                    "text": "bezahlen",
+                    "phonetics": "/bə.ˈtsaː.lən/",
+                    "partOfSpeech": "verb",
+                    "definition": "Geld für etwas geben",
+                    "examples": [
+                        "Ich bezahle mit meiner Kreditkarte.",
+                        "Sie bezahlt bar."
+                    ]
+                },
+                {
+                    "id": "das_geld",
+                    "text": "das Geld",
+                    "phonetics": "/das.ɡɛlt/",
+                    "partOfSpeech": "noun",
+                    "definition": "Tauschmittel, das man zum Kaufen verwendet",
+                    "examples": [
+                        "Ich brauche Geld zum Einkaufen.",
+                        "Geld macht nicht glücklich."
+                    ]
+                },
+                {
+                    "id": "der_euro",
+                    "text": "der Euro",
+                    "phonetics": "/deːɐ.ˈɔɪ̯.ʁo/",
+                    "partOfSpeech": "noun",
+                    "definition": "Währung, die in Europa verwendet wird",
+                    "examples": [
+                        "Das kostet 10 Euro.",
+                        "Ich bezahle in Euro."
+                    ]
+                },
+                {
+                    "id": "die_kreditkarte",
+                    "text": "die Kreditkarte",
+                    "phonetics": "/diː.kʁe.ˈdɪt.ˌkaʁ.tə/",
+                    "partOfSpeech": "noun",
+                    "definition": "Kleine Karte, die das Bezahlen ermöglicht",
+                    "examples": [
+                        "Ich bezahle mit meiner Kreditkarte.",
+                        "Meine Kreditkarte funktioniert nicht mehr."
+                    ]
+                },
+                {
+                    "id": "das_bargeld",
+                    "text": "das Bargeld",
+                    "phonetics": "/das.ˈbaːɐ.ˌɡɛlt/",
+                    "partOfSpeech": "noun",
+                    "definition": "Geld in Münzen und Scheinen",
+                    "examples": [
+                        "Ich bezahle bar.",
+                        "Haben Sie Wechselgeld?"
+                    ]
+                },
+                {
+                    "id": "das_wechselgeld",
+                    "text": "das Wechselgeld",
+                    "phonetics": "/das.ˈvɛk.səl.ˌɡɛlt/",
+                    "partOfSpeech": "noun",
+                    "definition": "Geld, das man nach einem Kauf zurückbekommt",
+                    "examples": [
+                        "Hier ist Ihr Wechselgeld.",
+                        "Ich brauche Wechselgeld."
+                    ]
+                },
+                {
+                    "id": "die_kasse",
+                    "text": "die Kasse",
+                    "phonetics": "/diː.ˈka.sə/",
+                    "partOfSpeech": "noun",
+                    "definition": "Ort, wo man in einem Laden bezahlt",
+                    "examples": [
+                        "Ich gehe zur Kasse.",
+                        "Die Kasse ist geschlossen."
+                    ]
+                },
+                {
+                    "id": "die_rechnung",
+                    "text": "die Rechnung",
+                    "phonetics": "/diː.ˈʁɛç.nʊŋ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Papier, das zeigt, was man gekauft hat und wie viel es kostet",
+                    "examples": [
+                        "Hier ist Ihre Rechnung.",
+                        "Ich behalte alle meine Rechnungen."
+                    ]
+                },
+                {
+                    "id": "der_beleg",
+                    "text": "der Beleg",
+                    "phonetics": "/deːɐ.bə.ˈleːk/",
+                    "partOfSpeech": "noun",
+                    "definition": "Kleines Papier, das beweist, dass man bezahlt hat",
+                    "examples": [
+                        "Bewahren Sie Ihren Beleg auf.",
+                        "Der Kassenbeleg ist wichtig."
+                    ]
+                },
+                {
+                    "id": "der_rabatt",
+                    "text": "der Rabatt",
+                    "phonetics": "/deːɐ.ʁa.ˈbat/",
+                    "partOfSpeech": "noun",
+                    "definition": "Preisreduktion auf Artikel",
+                    "examples": [
+                        "Es gibt Rabatte im Januar.",
+                        "Dieser Artikel ist im Rabatt."
+                    ]
+                },
+                {
+                    "id": "die_reduktion",
+                    "text": "die Reduktion",
+                    "phonetics": "/diː.ʁe.dʊk.ˈt͡si̯oːn/",
+                    "partOfSpeech": "noun",
+                    "definition": "Verringerung des Preises",
+                    "examples": [
+                        "Ich habe eine Reduktion von 20%.",
+                        "Diese Reduktion ist interessant."
+                    ]
+                },
+                {
+                    "id": "der_einkaufswagen",
+                    "text": "der Einkaufswagen",
+                    "phonetics": "/deːɐ.ˈaɪ̯n.ˌkaʊ̯fs.ˌvaː.ɡən/",
+                    "partOfSpeech": "noun",
+                    "definition": "Behälter, in den man die Artikel legt, die man kaufen möchte",
+                    "examples": [
+                        "Mein Einkaufswagen ist voll.",
+                        "Ich lege die Artikel in den Einkaufswagen."
+                    ]
+                },
+                {
+                    "id": "waehlen",
+                    "text": "wählen",
+                    "phonetics": "/ˈvɛː.lən/",
+                    "partOfSpeech": "verb",
+                    "definition": "Eine Sache aus mehreren nehmen",
+                    "examples": [
+                        "Ich wähle dieses Kleid.",
+                        "Sie wählt sorgfältig aus."
+                    ]
+                },
+                {
+                    "id": "die_wahl",
+                    "text": "die Wahl",
+                    "phonetics": "/diː.vaːl/",
+                    "partOfSpeech": "noun",
+                    "definition": "Möglichkeit, etwas zu nehmen",
+                    "examples": [
+                        "Es gibt viele Wahlmöglichkeiten.",
+                        "Meine Wahl ist getroffen."
+                    ]
+                },
+                {
+                    "id": "probieren",
+                    "text": "probieren",
+                    "phonetics": "/pʁo.ˈbiː.ʁən/",
+                    "partOfSpeech": "verb",
+                    "definition": "Etwas anziehen, um zu sehen, ob es passt",
+                    "examples": [
+                        "Ich möchte diese Jacke probieren.",
+                        "Sie probiert mehrere Schuhe an."
+                    ]
+                },
+                {
+                    "id": "die_groesse",
+                    "text": "die Größe",
+                    "phonetics": "/diː.ˈɡʁøː.sə/",
+                    "partOfSpeech": "noun",
+                    "definition": "Maß, das der Länge entspricht",
+                    "examples": [
+                        "Welche Größe haben Sie?",
+                        "Diese Größe passt mir gut."
+                    ]
+                },
+                {
+                    "id": "die_farbe",
+                    "text": "die Farbe",
+                    "phonetics": "/diː.ˈfaʁ.bə/",
+                    "partOfSpeech": "noun",
+                    "definition": "Visueller Aspekt einer Sache (rot, blau, etc.)",
+                    "examples": [
+                        "Ich mag diese Farbe.",
+                        "Welche Farbe bevorzugen Sie?"
+                    ]
+                },
+                {
+                    "id": "die_qualitaet",
+                    "text": "die Qualität",
+                    "phonetics": "/diː.kva.li.ˈtɛːt/",
+                    "partOfSpeech": "noun",
+                    "definition": "Niveau der Güte eines Produkts",
+                    "examples": [
+                        "Die Qualität dieses Produkts ist ausgezeichnet.",
+                        "Ich bevorzuge Qualität über den Preis."
+                    ]
+                },
+                {
+                    "id": "zurueckgeben",
+                    "text": "zurückgeben",
+                    "phonetics": "/tsu.ˈʁʏk.ˌɡeː.bən/",
+                    "partOfSpeech": "verb",
+                    "definition": "Etwas zurückgeben, das man gekauft hat",
+                    "examples": [
+                        "Ich gebe diesen Artikel zurück.",
+                        "Sie gibt ihre Bestellung zurück."
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "german_clothing",
+            "title": "Kleidung",
+            "description": "Wichtige Kleidungsstücke für A2-Lernende",
+            "level": "A2",
+            "tagValue": "kleidung",
+            "languageCode": "de",
+            "localImageName": "assorted-makeup-brushes",
+            "isPremium": false,
+            "isFeatured": false,
+            "words": [
+                {
+                    "id": "hose",
+                    "text": "Hose",
+                    "phonetics": "/ˈhoː.zə/",
+                    "partOfSpeech": "noun",
+                    "definition": "Kleidungsstück für die Beine",
+                    "examples": [
+                        "Ich trage eine blaue Hose.",
+                        "Die Hose ist zu lang."
+                    ]
+                },
+                {
+                    "id": "hemd",
+                    "text": "Hemd",
+                    "phonetics": "/hɛmt/",
+                    "partOfSpeech": "noun",
+                    "definition": "Kleidungsstück für den Oberkörper mit Knöpfen",
+                    "examples": [
+                        "Er trägt ein weißes Hemd zur Arbeit.",
+                        "Das Hemd muss gebügelt werden."
+                    ]
+                },
+                {
+                    "id": "jacke",
+                    "text": "Jacke",
+                    "phonetics": "/ˈja.kə/",
+                    "partOfSpeech": "noun",
+                    "definition": "Kleidungsstück für den Oberkörper mit Ärmeln",
+                    "examples": [
+                        "Ich brauche eine warme Jacke.",
+                        "Die Jacke hat viele Taschen."
+                    ]
+                },
+                {
+                    "id": "mantel",
+                    "text": "Mantel",
+                    "phonetics": "/ˈman.təl/",
+                    "partOfSpeech": "noun",
+                    "definition": "Langes Kleidungsstück für den Oberkörper",
+                    "examples": [
+                        "Im Winter trage ich einen Mantel.",
+                        "Der Mantel ist aus Wolle."
+                    ]
+                },
+                {
+                    "id": "schuh",
+                    "text": "Schuh",
+                    "phonetics": "/ʃuː/",
+                    "partOfSpeech": "noun",
+                    "definition": "Kleidungsstück für die Füße",
+                    "examples": [
+                        "Ich kaufe neue Schuhe.",
+                        "Die Schuhe sind sehr bequem."
+                    ]
+                },
+                {
+                    "id": "socke",
+                    "text": "Socke",
+                    "phonetics": "/ˈzɔ.kə/",
+                    "partOfSpeech": "noun",
+                    "definition": "Kleidungsstück für die Füße unter den Schuhen",
+                    "examples": [
+                        "Ich trage dicke Socken.",
+                        "Die Socken sind aus Baumwolle."
+                    ]
+                },
+                {
+                    "id": "hut",
+                    "text": "Hut",
+                    "phonetics": "/huːt/",
+                    "partOfSpeech": "noun",
+                    "definition": "Kleidungsstück für den Kopf mit Krempe",
+                    "examples": [
+                        "Er trägt einen schwarzen Hut.",
+                        "Der Hut schützt vor der Sonne."
+                    ]
+                },
+                {
+                    "id": "muetze",
+                    "text": "Mütze",
+                    "phonetics": "/ˈmyː.tsə/",
+                    "partOfSpeech": "noun",
+                    "definition": "Kleidungsstück für den Kopf ohne Krempe",
+                    "examples": [
+                        "Im Winter trage ich eine Mütze.",
+                        "Die Mütze ist aus Wolle."
+                    ]
+                },
+                {
+                    "id": "t_shirt",
+                    "text": "T-Shirt",
+                    "phonetics": "/ˈtiː.ʃɐt/",
+                    "partOfSpeech": "noun",
+                    "definition": "Kleidungsstück für den Oberkörper mit kurzen Ärmeln",
+                    "examples": [
+                        "Ich trage ein rotes T-Shirt.",
+                        "Das T-Shirt ist aus Baumwolle."
+                    ]
+                },
+                {
+                    "id": "kleid",
+                    "text": "Kleid",
+                    "phonetics": "/klaɪt/",
+                    "partOfSpeech": "noun",
+                    "definition": "Kleidungsstück für Frauen, das den ganzen Körper bedeckt",
+                    "examples": [
+                        "Sie trägt ein schönes Kleid.",
+                        "Das Kleid ist für die Party."
+                    ]
+                },
+                {
+                    "id": "rock",
+                    "text": "Rock",
+                    "phonetics": "/rɔk/",
+                    "partOfSpeech": "noun",
+                    "definition": "Kleidungsstück für Frauen, das nur die Beine bedeckt",
+                    "examples": [
+                        "Sie trägt einen kurzen Rock.",
+                        "Der Rock ist aus Leinen."
+                    ]
+                },
+                {
+                    "id": "pullover",
+                    "text": "Pullover",
+                    "phonetics": "/pʊˈloː.vɐ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Warmes Kleidungsstück für den Oberkörper",
+                    "examples": [
+                        "Ich trage einen dicken Pullover.",
+                        "Der Pullover ist handgestrickt."
+                    ]
+                },
+                {
+                    "id": "unterwaesche",
+                    "text": "Unterwäsche",
+                    "phonetics": "/ˈʊn.tɐ.vɛ.ʃə/",
+                    "partOfSpeech": "noun",
+                    "definition": "Kleidungsstücke, die direkt auf der Haut getragen werden",
+                    "examples": [
+                        "Ich kaufe neue Unterwäsche.",
+                        "Unterwäsche muss täglich gewechselt werden."
+                    ]
+                },
+                {
+                    "id": "guertel",
+                    "text": "Gürtel",
+                    "phonetics": "/ˈɡʏr.təl/",
+                    "partOfSpeech": "noun",
+                    "definition": "Band um die Taille, um die Hose zu halten",
+                    "examples": [
+                        "Ich trage einen Ledergürtel.",
+                        "Der Gürtel ist zu lang."
+                    ]
+                },
+                {
+                    "id": "schal",
+                    "text": "Schal",
+                    "phonetics": "/ʃaːl/",
+                    "partOfSpeech": "noun",
+                    "definition": "Langes Tuch um den Hals",
+                    "examples": [
+                        "Im Winter trage ich einen Schal.",
+                        "Der Schal ist aus Seide."
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "german_weather",
+            "title": "Wetter",
+            "description": "Wichtige Wetterbegriffe für A2-Lernende",
+            "level": "A2",
+            "tagValue": "wetter",
+            "languageCode": "de",
+            "localImageName": "forest",
+            "isPremium": false,
+            "isFeatured": false,
+            "words": [
+                {
+                    "id": "sonne",
+                    "text": "Sonne",
+                    "phonetics": "/ˈzɔ.nə/",
+                    "partOfSpeech": "noun",
+                    "definition": "Der große, helle Stern am Himmel",
+                    "examples": [
+                        "Die Sonne scheint heute.",
+                        "Bei Sonnenschein gehe ich spazieren."
+                    ]
+                },
+                {
+                    "id": "regen",
+                    "text": "Regen",
+                    "phonetics": "/ˈreː.ɡən/",
+                    "partOfSpeech": "noun",
+                    "definition": "Wasser, das vom Himmel fällt",
+                    "examples": [
+                        "Heute fällt viel Regen.",
+                        "Bei Regen bleibe ich zu Hause."
+                    ]
+                },
+                {
+                    "id": "schnee",
+                    "text": "Schnee",
+                    "phonetics": "/ʃneː/",
+                    "partOfSpeech": "noun",
+                    "definition": "Weiße, kalte Flocken, die vom Himmel fallen",
+                    "examples": [
+                        "Im Winter fällt Schnee.",
+                        "Kinder spielen gerne im Schnee."
+                    ]
+                },
+                {
+                    "id": "wind",
+                    "text": "Wind",
+                    "phonetics": "/vɪnt/",
+                    "partOfSpeech": "noun",
+                    "definition": "Bewegte Luft",
+                    "examples": [
+                        "Heute weht starker Wind.",
+                        "Der Wind bläst die Blätter weg."
+                    ]
+                },
+                {
+                    "id": "wolke",
+                    "text": "Wolke",
+                    "phonetics": "/ˈvɔl.kə/",
+                    "partOfSpeech": "noun",
+                    "definition": "Weiße oder graue Masse am Himmel",
+                    "examples": [
+                        "Der Himmel ist voller Wolken.",
+                        "Wolken bringen oft Regen."
+                    ]
+                },
+                {
+                    "id": "nebel",
+                    "text": "Nebel",
+                    "phonetics": "/ˈneː.bəl/",
+                    "partOfSpeech": "noun",
+                    "definition": "Dicke, weiße Luft, die die Sicht behindert",
+                    "examples": [
+                        "Heute Morgen ist Nebel.",
+                        "Bei Nebel fahre ich langsam."
+                    ]
+                },
+                {
+                    "id": "sturm",
+                    "text": "Sturm",
+                    "phonetics": "/ʃtʊrm/",
+                    "partOfSpeech": "noun",
+                    "definition": "Sehr starker Wind",
+                    "examples": [
+                        "Ein Sturm zieht auf.",
+                        "Bei Sturm bleiben wir drinnen."
+                    ]
+                },
+                {
+                    "id": "heiss",
+                    "text": "heiß",
+                    "phonetics": "/haɪs/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Sehr hohe Temperatur",
+                    "examples": [
+                        "Heute ist es sehr heiß.",
+                        "Heißes Wetter macht müde."
+                    ]
+                },
+                {
+                    "id": "kalt",
+                    "text": "kalt",
+                    "phonetics": "/kalt/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Niedrige Temperatur",
+                    "examples": [
+                        "Im Winter ist es kalt.",
+                        "Kalte Luft kommt von Norden."
+                    ]
+                },
+                {
+                    "id": "warm",
+                    "text": "warm",
+                    "phonetics": "/varm/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Angenehme hohe Temperatur",
+                    "examples": [
+                        "Das Wasser ist warm.",
+                        "Warme Luft steigt auf."
+                    ]
+                },
+                {
+                    "id": "kuehl",
+                    "text": "kühl",
+                    "phonetics": "/kyːl/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Etwas niedrige Temperatur",
+                    "examples": [
+                        "Der Abend ist kühl.",
+                        "Kühle Luft ist erfrischend."
+                    ]
+                },
+                {
+                    "id": "nass",
+                    "text": "nass",
+                    "phonetics": "/nas/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Mit Wasser bedeckt oder durchtränkt",
+                    "examples": [
+                        "Die Straße ist nass vom Regen.",
+                        "Nasse Kleidung muss getrocknet werden."
+                    ]
+                },
+                {
+                    "id": "trocken",
+                    "text": "trocken",
+                    "phonetics": "/ˈtrɔ.kən/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Ohne Wasser oder Feuchtigkeit",
+                    "examples": [
+                        "Die Luft ist sehr trocken.",
+                        "Trockenes Wetter ist gut für die Ernte."
+                    ]
+                },
+                {
+                    "id": "gewitter",
+                    "text": "Gewitter",
+                    "phonetics": "/ɡəˈvɪ.tɐ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Sturm mit Regen, Blitz und Donner",
+                    "examples": [
+                        "Ein Gewitter zieht auf.",
+                        "Bei Gewitter sollte man drinnen bleiben."
+                    ]
+                },
+                {
+                    "id": "temperatur",
+                    "text": "Temperatur",
+                    "phonetics": "/tem.pə.raˈtuːr/",
+                    "partOfSpeech": "noun",
+                    "definition": "Wie warm oder kalt es ist",
+                    "examples": [
+                        "Die Temperatur steigt heute.",
+                        "Die Temperatur wird in Grad gemessen."
+                    ]
+                }
+            ]
+        },
+        {
             "id": "german_business_work",
             "title": "Geschäft und Arbeit",
             "description": "Berufsvokabular für die Arbeitswelt und Geschäfte",
@@ -585,7 +2218,7 @@
             "languageCode": "de",
             "localImageName": "business",
             "isPremium": true,
-            "isFeatured": false,
+            "isFeatured": true,
             "words": [
                 {
                     "id": "die_arbeit",
@@ -860,294 +2493,6 @@
                     "examples": [
                         "Meine Präsentation ist fertig.",
                         "Die Präsentation dauert 30 Minuten."
-                    ]
-                }
-            ]
-        },
-        {
-            "id": "german_family_relationships",
-            "title": "Familie und Beziehungen",
-            "description": "Wortschatz für Familie und persönliche Beziehungen",
-            "level": "A1",
-            "tagValue": "deutsch",
-            "languageCode": "de",
-            "localImageName": "family",
-            "isPremium": false,
-            "isFeatured": false,
-            "words": [
-                {
-                    "id": "die_familie",
-                    "text": "die Familie",
-                    "phonetics": "/diː.fa.ˈmiː.li̯ə/",
-                    "partOfSpeech": "noun",
-                    "definition": "Gruppe von Personen, die durch Blut oder Liebe verbunden sind",
-                    "examples": [
-                        "Meine Familie ist sehr wichtig für mich.",
-                        "Ich verbringe gerne Zeit mit meiner Familie."
-                    ]
-                },
-                {
-                    "id": "der_vater",
-                    "text": "der Vater",
-                    "phonetics": "/deːɐ.ˈfaː.tɐ/",
-                    "partOfSpeech": "noun",
-                    "definition": "Mann, der Kinder hat",
-                    "examples": [
-                        "Mein Vater arbeitet in einem Büro.",
-                        "Der Vater von Marie ist Arzt."
-                    ]
-                },
-                {
-                    "id": "die_mutter",
-                    "text": "die Mutter",
-                    "phonetics": "/diː.ˈmʊ.tɐ/",
-                    "partOfSpeech": "noun",
-                    "definition": "Frau, die Kinder hat",
-                    "examples": [
-                        "Meine Mutter kocht sehr gut.",
-                        "Die Mutter von Peter ist Lehrerin."
-                    ]
-                },
-                {
-                    "id": "das_kind",
-                    "text": "das Kind",
-                    "phonetics": "/das.kɪnt/",
-                    "partOfSpeech": "noun",
-                    "definition": "Junge Person, die noch nicht erwachsen ist",
-                    "examples": [
-                        "Dieses Kind spielt im Garten.",
-                        "Die Kinder gehen zur Schule."
-                    ]
-                },
-                {
-                    "id": "der_sohn",
-                    "text": "der Sohn",
-                    "phonetics": "/deːɐ.zoːn/",
-                    "partOfSpeech": "noun",
-                    "definition": "Junge in Bezug zu seinen Eltern",
-                    "examples": [
-                        "Mein Sohn ist 10 Jahre alt.",
-                        "Der Sohn meiner Schwester ist sehr nett."
-                    ]
-                },
-                {
-                    "id": "die_tochter",
-                    "text": "die Tochter",
-                    "phonetics": "/diː.ˈtɔx.tɐ/",
-                    "partOfSpeech": "noun",
-                    "definition": "Mädchen in Bezug zu ihren Eltern",
-                    "examples": [
-                        "Meine Tochter studiert an der Universität.",
-                        "Die Tochter meines Nachbarn ist sehr schön."
-                    ]
-                },
-                {
-                    "id": "der_bruder",
-                    "text": "der Bruder",
-                    "phonetics": "/deːɐ.ˈbʁuː.dɐ/",
-                    "partOfSpeech": "noun",
-                    "definition": "Junge, der die gleichen Eltern hat",
-                    "examples": [
-                        "Mein Bruder ist älter als ich.",
-                        "Ich habe zwei Brüder und eine Schwester."
-                    ]
-                },
-                {
-                    "id": "die_schwester",
-                    "text": "die Schwester",
-                    "phonetics": "/diː.ˈʃvɛs.tɐ/",
-                    "partOfSpeech": "noun",
-                    "definition": "Mädchen, das die gleichen Eltern hat",
-                    "examples": [
-                        "Meine Schwester wohnt in Paris.",
-                        "Ich habe eine große Schwester und einen kleinen Bruder."
-                    ]
-                },
-                {
-                    "id": "der_grossvater",
-                    "text": "der Großvater",
-                    "phonetics": "/deːɐ.ˈɡʁoːs.ˌfaː.tɐ/",
-                    "partOfSpeech": "noun",
-                    "definition": "Vater des Vaters oder der Mutter",
-                    "examples": [
-                        "Mein Großvater erzählt schöne Geschichten.",
-                        "Der Großvater von Hans ist sehr alt."
-                    ]
-                },
-                {
-                    "id": "die_grossmutter",
-                    "text": "die Großmutter",
-                    "phonetics": "/diː.ˈɡʁoːs.ˌmʊ.tɐ/",
-                    "partOfSpeech": "noun",
-                    "definition": "Mutter des Vaters oder der Mutter",
-                    "examples": [
-                        "Meine Großmutter macht gute Kuchen.",
-                        "Die Großmutter von Marie ist sehr nett."
-                    ]
-                },
-                {
-                    "id": "der_onkel",
-                    "text": "der Onkel",
-                    "phonetics": "/deːɐ.ˈɔŋ.kəl/",
-                    "partOfSpeech": "noun",
-                    "definition": "Bruder des Vaters oder der Mutter",
-                    "examples": [
-                        "Mein Onkel wohnt in England.",
-                        "Der Onkel von Peter ist sehr lustig."
-                    ]
-                },
-                {
-                    "id": "die_tante",
-                    "text": "die Tante",
-                    "phonetics": "/diː.ˈtan.tə/",
-                    "partOfSpeech": "noun",
-                    "definition": "Schwester des Vaters oder der Mutter",
-                    "examples": [
-                        "Meine Tante besucht uns oft.",
-                        "Die Tante von Marie ist sehr großzügig."
-                    ]
-                },
-                {
-                    "id": "der_cousin",
-                    "text": "der Cousin",
-                    "phonetics": "/deːɐ.ku.ˈzɛ̃/",
-                    "partOfSpeech": "noun",
-                    "definition": "Sohn des Onkels oder der Tante",
-                    "examples": [
-                        "Mein Cousin spielt Fußball.",
-                        "Der Cousin von Hans ist sehr intelligent."
-                    ]
-                },
-                {
-                    "id": "die_cousine",
-                    "text": "die Cousine",
-                    "phonetics": "/diː.ku.ˈziːn/",
-                    "partOfSpeech": "noun",
-                    "definition": "Tochter des Onkels oder der Tante",
-                    "examples": [
-                        "Meine Cousine tanzt sehr gut.",
-                        "Die Cousine von Peter ist sehr hübsch."
-                    ]
-                },
-                {
-                    "id": "der_ehemann",
-                    "text": "der Ehemann",
-                    "phonetics": "/deːɐ.ˈeː.ə.ˌman/",
-                    "partOfSpeech": "noun",
-                    "definition": "Mann, der mit einer Frau verheiratet ist",
-                    "examples": [
-                        "Mein Ehemann arbeitet in einer Bank.",
-                        "Der Ehemann von Marie ist sehr nett."
-                    ]
-                },
-                {
-                    "id": "die_ehefrau",
-                    "text": "die Ehefrau",
-                    "phonetics": "/diː.ˈeː.ə.ˌfʁaʊ̯/",
-                    "partOfSpeech": "noun",
-                    "definition": "Frau, die mit einem Mann verheiratet ist",
-                    "examples": [
-                        "Meine Ehefrau ist Lehrerin.",
-                        "Die Ehefrau von Hans ist sehr schön."
-                    ]
-                },
-                {
-                    "id": "der_freund",
-                    "text": "der Freund",
-                    "phonetics": "/deːɐ.fʁɔɪ̯nt/",
-                    "partOfSpeech": "noun",
-                    "definition": "Person, die man mag und kennt",
-                    "examples": [
-                        "Mein Freund wohnt in der Nähe.",
-                        "Der Freund von Peter ist sehr sympathisch."
-                    ]
-                },
-                {
-                    "id": "die_freundin",
-                    "text": "die Freundin",
-                    "phonetics": "/diː.ˈfʁɔɪ̯n.dɪn/",
-                    "partOfSpeech": "noun",
-                    "definition": "Frau, die man mag und kennt",
-                    "examples": [
-                        "Meine Freundin arbeitet in einem Laden.",
-                        "Die Freundin von Marie ist sehr lustig."
-                    ]
-                },
-                {
-                    "id": "lieben",
-                    "text": "lieben",
-                    "phonetics": "/ˈliː.bən/",
-                    "partOfSpeech": "verb",
-                    "definition": "Zuneigung für jemanden haben",
-                    "examples": [
-                        "Ich liebe meine Familie sehr.",
-                        "Sie liebt ihre Freunde."
-                    ]
-                },
-                {
-                    "id": "die_liebe",
-                    "text": "die Liebe",
-                    "phonetics": "/diː.ˈliː.bə/",
-                    "partOfSpeech": "noun",
-                    "definition": "Sehr starkes Gefühl, das man für jemanden hat",
-                    "examples": [
-                        "Die Liebe meiner Familie ist wichtig.",
-                        "Die Liebe macht glücklich."
-                    ]
-                },
-                {
-                    "id": "sich_verheiraten",
-                    "text": "sich verheiraten",
-                    "phonetics": "/zɪç.fɛɐ.ˈheː.ʁa.tən/",
-                    "partOfSpeech": "verb",
-                    "definition": "Offiziell Ehemann und Ehefrau werden",
-                    "examples": [
-                        "Sie werden im Juni heiraten.",
-                        "Meine Eltern haben vor 20 Jahren geheiratet."
-                    ]
-                },
-                {
-                    "id": "die_hochzeit",
-                    "text": "die Hochzeit",
-                    "phonetics": "/diː.ˈhɔx.ˌtsaɪ̯t/",
-                    "partOfSpeech": "noun",
-                    "definition": "Feier, wo zwei Personen heiraten",
-                    "examples": [
-                        "Die Hochzeit meiner Schwester ist morgen.",
-                        "Die Hochzeit findet in einer Kirche statt."
-                    ]
-                },
-                {
-                    "id": "geboren_werden",
-                    "text": "geboren werden",
-                    "phonetics": "/ɡə.ˈboː.ʁən.ˈveːɐ.dən/",
-                    "partOfSpeech": "phrase",
-                    "definition": "Auf die Welt kommen",
-                    "examples": [
-                        "Ich bin in Deutschland geboren.",
-                        "Das Baby wird bald geboren."
-                    ]
-                },
-                {
-                    "id": "wachsen",
-                    "text": "wachsen",
-                    "phonetics": "/ˈvak.sən/",
-                    "partOfSpeech": "verb",
-                    "definition": "Größer und älter werden",
-                    "examples": [
-                        "Die Kinder wachsen schnell.",
-                        "Ich wachse jedes Jahr."
-                    ]
-                },
-                {
-                    "id": "das_haus",
-                    "text": "das Haus",
-                    "phonetics": "/das.haʊ̯s/",
-                    "partOfSpeech": "noun",
-                    "definition": "Ort, wo eine Familie wohnt",
-                    "examples": [
-                        "Unser Haus ist sehr gemütlich.",
-                        "Das Haus meiner Eltern ist groß."
                     ]
                 }
             ]
@@ -1441,289 +2786,1603 @@
             ]
         },
         {
-            "id": "german_shopping_consumption",
-            "title": "Einkaufen und Konsum",
-            "description": "Wortschatz für Einkäufe und Geldausgaben",
-            "level": "A2",
-            "tagValue": "deutsch",
+            "id": "german_medicine_health",
+            "title": "Medizin und Gesundheit",
+            "description": "Wichtige Begriffe aus Medizin und Gesundheit für B2-Lernende",
+            "level": "B2",
+            "tagValue": "medizin",
             "languageCode": "de",
-            "localImageName": "market",
-            "isPremium": false,
+            "localImageName": "a-book-with-a-stethoscope-on-top-of-it",
+            "isPremium": true,
             "isFeatured": false,
             "words": [
                 {
-                    "id": "der_laden",
-                    "text": "der Laden",
-                    "phonetics": "/deːɐ.ˈlaː.dən/",
+                    "id": "diagnose",
+                    "text": "Diagnose",
+                    "phonetics": "/di.aˈɡnoː.zə/",
                     "partOfSpeech": "noun",
-                    "definition": "Ort, wo man Dinge kaufen kann",
+                    "definition": "Feststellung einer Krankheit durch einen Arzt",
                     "examples": [
-                        "Ich gehe in den Laden, um Brot zu kaufen.",
-                        "Dieser Laden hat schöne Kleidung."
+                        "Die Diagnose war eindeutig.",
+                        "Der Arzt stellte eine schwere Diagnose."
                     ]
                 },
                 {
-                    "id": "kaufen",
-                    "text": "kaufen",
-                    "phonetics": "/ˈkaʊ̯.fən/",
-                    "partOfSpeech": "verb",
-                    "definition": "Geld geben, um etwas zu bekommen",
-                    "examples": [
-                        "Ich kaufe Obst auf dem Markt.",
-                        "Sie kauft ein neues Buch."
-                    ]
-                },
-                {
-                    "id": "verkaufen",
-                    "text": "verkaufen",
-                    "phonetics": "/fɛɐ.ˈkaʊ̯.fən/",
-                    "partOfSpeech": "verb",
-                    "definition": "Etwas gegen Geld geben",
-                    "examples": [
-                        "Ich verkaufe mein Auto.",
-                        "Dieser Laden verkauft Schuhe."
-                    ]
-                },
-                {
-                    "id": "der_preis",
-                    "text": "der Preis",
-                    "phonetics": "/deːɐ.pʁaɪ̯s/",
+                    "id": "behandlung",
+                    "text": "Behandlung",
+                    "phonetics": "/bəˈhan.dlʊŋ/",
                     "partOfSpeech": "noun",
-                    "definition": "Geldbetrag, den man bezahlen muss",
+                    "definition": "Therapeutische Maßnahmen gegen eine Krankheit",
                     "examples": [
-                        "Der Preis dieses Kleides ist 50 Euro.",
-                        "Dieser Preis ist sehr vernünftig."
+                        "Die Behandlung war erfolgreich.",
+                        "Er braucht eine intensive Behandlung."
                     ]
                 },
                 {
-                    "id": "teuer",
-                    "text": "teuer",
-                    "phonetics": "/ˈtɔɪ̯.ɐ/",
+                    "id": "operation",
+                    "text": "Operation",
+                    "phonetics": "/o.pə.raˈtsi̯oːn/",
+                    "partOfSpeech": "noun",
+                    "definition": "Chirurgischer Eingriff am Körper",
+                    "examples": [
+                        "Die Operation dauerte drei Stunden.",
+                        "Nach der Operation muss er sich schonen."
+                    ]
+                },
+                {
+                    "id": "arzt",
+                    "text": "Arzt",
+                    "phonetics": "/aːrtst/",
+                    "partOfSpeech": "noun",
+                    "definition": "Person, die Medizin studiert hat und Kranke behandelt",
+                    "examples": [
+                        "Der Arzt untersucht den Patienten.",
+                        "Ich gehe morgen zum Arzt."
+                    ]
+                },
+                {
+                    "id": "patient",
+                    "text": "Patient",
+                    "phonetics": "/paˈtsi̯ɛnt/",
+                    "partOfSpeech": "noun",
+                    "definition": "Person, die medizinisch behandelt wird",
+                    "examples": [
+                        "Der Patient fühlt sich besser.",
+                        "Die Patientin wartet im Wartezimmer."
+                    ]
+                },
+                {
+                    "id": "krankheit",
+                    "text": "Krankheit",
+                    "phonetics": "/ˈkraŋk.haɪt/",
+                    "partOfSpeech": "noun",
+                    "definition": "Störung der normalen Körperfunktionen",
+                    "examples": [
+                        "Die Krankheit ist ansteckend.",
+                        "Er leidet an einer seltenen Krankheit."
+                    ]
+                },
+                {
+                    "id": "therapie",
+                    "text": "Therapie",
+                    "phonetics": "/te.raˈpiː/",
+                    "partOfSpeech": "noun",
+                    "definition": "Behandlungsmethode zur Heilung",
+                    "examples": [
+                        "Die Therapie zeigt gute Erfolge.",
+                        "Er macht eine psychologische Therapie."
+                    ]
+                },
+                {
+                    "id": "medikament",
+                    "text": "Medikament",
+                    "phonetics": "/me.di.kaˈmɛnt/",
+                    "partOfSpeech": "noun",
+                    "definition": "Arzneimittel zur Behandlung von Krankheiten",
+                    "examples": [
+                        "Das Medikament hilft gegen Schmerzen.",
+                        "Sie nimmt täglich ihre Medikamente."
+                    ]
+                },
+                {
+                    "id": "symptome",
+                    "text": "Symptome",
+                    "phonetics": "/zʏmpˈtoː.mə/",
+                    "partOfSpeech": "noun",
+                    "definition": "Anzeichen einer Krankheit",
+                    "examples": [
+                        "Die Symptome sind typisch für eine Grippe.",
+                        "Er hat verschiedene Symptome."
+                    ]
+                },
+                {
+                    "id": "praevention",
+                    "text": "Prävention",
+                    "phonetics": "/prɛ.vɛnˈtsi̯oːn/",
+                    "partOfSpeech": "noun",
+                    "definition": "Vorbeugende Maßnahmen gegen Krankheiten",
+                    "examples": [
+                        "Prävention ist besser als Heilung.",
+                        "Die Prävention von Herzinfarkten ist wichtig."
+                    ]
+                },
+                {
+                    "id": "klinik",
+                    "text": "Klinik",
+                    "phonetics": "/ˈkliː.nɪk/",
+                    "partOfSpeech": "noun",
+                    "definition": "Krankenhaus oder medizinische Einrichtung",
+                    "examples": [
+                        "Er liegt in der Klinik.",
+                        "Die Klinik ist modern ausgestattet."
+                    ]
+                },
+                {
+                    "id": "gesundheitssystem",
+                    "text": "Gesundheitssystem",
+                    "phonetics": "/ɡəˈzʊnt.haɪts.zʏs.teːm/",
+                    "partOfSpeech": "noun",
+                    "definition": "Organisation der medizinischen Versorgung",
+                    "examples": [
+                        "Das Gesundheitssystem ist überlastet.",
+                        "Die Reform des Gesundheitssystems ist nötig."
+                    ]
+                },
+                {
+                    "id": "rezept",
+                    "text": "Rezept",
+                    "phonetics": "/reˈtsɛpt/",
+                    "partOfSpeech": "noun",
+                    "definition": "Schriftliche Anweisung für Medikamente",
+                    "examples": [
+                        "Der Arzt schreibt ein Rezept.",
+                        "Ich hole das Rezept in der Apotheke ab."
+                    ]
+                },
+                {
+                    "id": "heilung",
+                    "text": "Heilung",
+                    "phonetics": "/ˈhaɪ.lʊŋ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Wiederherstellung der Gesundheit",
+                    "examples": [
+                        "Die Heilung dauert mehrere Wochen.",
+                        "Eine vollständige Heilung ist möglich."
+                    ]
+                },
+                {
+                    "id": "impfung",
+                    "text": "Impfung",
+                    "phonetics": "/ˈɪmp.fʊŋ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Schutzimpfung gegen Krankheiten",
+                    "examples": [
+                        "Die Impfung schützt vor der Krankheit.",
+                        "Kinder bekommen regelmäßige Impfungen."
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "german_history_geography",
+            "title": "Geschichte und Geographie",
+            "description": "Wichtige Begriffe aus Geschichte und Geographie für B2-Lernende",
+            "level": "B2",
+            "tagValue": "geschichte",
+            "languageCode": "de",
+            "localImageName": "a-stack-of-books-sitting-on-top-of-a-pink-surface",
+            "isPremium": true,
+            "isFeatured": false,
+            "words": [
+                {
+                    "id": "geschichte",
+                    "text": "Geschichte",
+                    "phonetics": "/ɡəˈʃɪç.tə/",
+                    "partOfSpeech": "noun",
+                    "definition": "Vergangene Ereignisse und deren Erforschung",
+                    "examples": [
+                        "Die Geschichte Europas ist sehr interessant.",
+                        "Er studiert Geschichte an der Universität."
+                    ]
+                },
+                {
+                    "id": "krieg",
+                    "text": "Krieg",
+                    "phonetics": "/kriːk/",
+                    "partOfSpeech": "noun",
+                    "definition": "Bewaffneter Konflikt zwischen Staaten oder Gruppen",
+                    "examples": [
+                        "Der Krieg dauerte vier Jahre.",
+                        "Viele Menschen starben im Krieg."
+                    ]
+                },
+                {
+                    "id": "frieden",
+                    "text": "Frieden",
+                    "phonetics": "/ˈfriː.dən/",
+                    "partOfSpeech": "noun",
+                    "definition": "Zustand ohne Krieg und Gewalt",
+                    "examples": [
+                        "Nach dem Krieg herrschte endlich Frieden.",
+                        "Frieden ist wichtiger als Sieg."
+                    ]
+                },
+                {
+                    "id": "epoche",
+                    "text": "Epoche",
+                    "phonetics": "/eˈpɔ.xə/",
+                    "partOfSpeech": "noun",
+                    "definition": "Zeitabschnitt mit besonderen Merkmalen",
+                    "examples": [
+                        "Das Mittelalter war eine wichtige Epoche.",
+                        "Wir leben in einer neuen Epoche."
+                    ]
+                },
+                {
+                    "id": "koenig",
+                    "text": "König",
+                    "phonetics": "/ˈkøː.nɪç/",
+                    "partOfSpeech": "noun",
+                    "definition": "Herrscher eines Königreichs",
+                    "examples": [
+                        "Der König regierte viele Jahre.",
+                        "Der König lebte in einem prächtigen Schloss."
+                    ]
+                },
+                {
+                    "id": "revolution",
+                    "text": "Revolution",
+                    "phonetics": "/re.vo.luˈtsi̯oːn/",
+                    "partOfSpeech": "noun",
+                    "definition": "Gewaltsame Umwälzung der politischen Ordnung",
+                    "examples": [
+                        "Die Revolution veränderte das Land.",
+                        "Die Französische Revolution war historisch wichtig."
+                    ]
+                },
+                {
+                    "id": "kultur",
+                    "text": "Kultur",
+                    "phonetics": "/kʊlˈtuːr/",
+                    "partOfSpeech": "noun",
+                    "definition": "Gesamtheit der geistigen und künstlerischen Leistungen",
+                    "examples": [
+                        "Die deutsche Kultur ist sehr reich.",
+                        "Kultur verbindet Menschen."
+                    ]
+                },
+                {
+                    "id": "kontinent",
+                    "text": "Kontinent",
+                    "phonetics": "/kɔn.tiˈnɛnt/",
+                    "partOfSpeech": "noun",
+                    "definition": "Große zusammenhängende Landmasse",
+                    "examples": [
+                        "Europa ist ein Kontinent.",
+                        "Afrika ist der zweitgrößte Kontinent."
+                    ]
+                },
+                {
+                    "id": "fluss",
+                    "text": "Fluss",
+                    "phonetics": "/flʊs/",
+                    "partOfSpeech": "noun",
+                    "definition": "Großes fließendes Gewässer",
+                    "examples": [
+                        "Der Rhein ist ein wichtiger Fluss.",
+                        "Der Fluss fließt ins Meer."
+                    ]
+                },
+                {
+                    "id": "berg",
+                    "text": "Berg",
+                    "phonetics": "/bɛrk/",
+                    "partOfSpeech": "noun",
+                    "definition": "Hohe Erhebung der Erdoberfläche",
+                    "examples": [
+                        "Der Berg ist sehr hoch.",
+                        "Wir wandern auf den Berg."
+                    ]
+                },
+                {
+                    "id": "land",
+                    "text": "Land",
+                    "phonetics": "/lant/",
+                    "partOfSpeech": "noun",
+                    "definition": "Staat oder Gebiet mit eigener Regierung",
+                    "examples": [
+                        "Deutschland ist ein schönes Land.",
+                        "Viele Länder arbeiten zusammen."
+                    ]
+                },
+                {
+                    "id": "stadt",
+                    "text": "Stadt",
+                    "phonetics": "/ʃtat/",
+                    "partOfSpeech": "noun",
+                    "definition": "Große Siedlung mit vielen Einwohnern",
+                    "examples": [
+                        "Berlin ist eine große Stadt.",
+                        "Die Stadt hat viele Sehenswürdigkeiten."
+                    ]
+                },
+                {
+                    "id": "grenze",
+                    "text": "Grenze",
+                    "phonetics": "/ˈɡrɛn.tsə/",
+                    "partOfSpeech": "noun",
+                    "definition": "Trennlinie zwischen zwei Gebieten",
+                    "examples": [
+                        "Die Grenze zwischen den Ländern ist offen.",
+                        "An der Grenze wird kontrolliert."
+                    ]
+                },
+                {
+                    "id": "klima",
+                    "text": "Klima",
+                    "phonetics": "/ˈkliː.ma/",
+                    "partOfSpeech": "noun",
+                    "definition": "Langfristige Wetterbedingungen einer Region",
+                    "examples": [
+                        "Das Klima in Deutschland ist gemäßigt.",
+                        "Der Klimawandel betrifft alle Länder."
+                    ]
+                },
+                {
+                    "id": "bevoelkerung",
+                    "text": "Bevölkerung",
+                    "phonetics": "/bəˈfœl.kə.rʊŋ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Alle Einwohner eines Gebiets",
+                    "examples": [
+                        "Die Bevölkerung wächst ständig.",
+                        "Die Bevölkerung des Landes ist jung."
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "german_philosophy_ethics",
+            "title": "Philosophie und Ethik",
+            "description": "Wichtige Begriffe aus Philosophie und Ethik für B2-Lernende",
+            "level": "B2",
+            "tagValue": "philosophie",
+            "languageCode": "de",
+            "localImageName": "a-woman-in-a-white-sweater-and-black-pants-meditates-on-a-blanket",
+            "isPremium": true,
+            "isFeatured": false,
+            "words": [
+                {
+                    "id": "philosophie",
+                    "text": "Philosophie",
+                    "phonetics": "/fi.lo.zoˈfiː/",
+                    "partOfSpeech": "noun",
+                    "definition": "Wissenschaft vom Denken und der Erkenntnis",
+                    "examples": [
+                        "Die Philosophie beschäftigt sich mit großen Fragen.",
+                        "Er studiert Philosophie an der Universität."
+                    ]
+                },
+                {
+                    "id": "moral",
+                    "text": "Moral",
+                    "phonetics": "/moˈraːl/",
+                    "partOfSpeech": "noun",
+                    "definition": "Gesamtheit der sittlichen Normen und Werte",
+                    "examples": [
+                        "Die Moral einer Gesellschaft verändert sich.",
+                        "Seine Moral ist sehr streng."
+                    ]
+                },
+                {
+                    "id": "ethik",
+                    "text": "Ethik",
+                    "phonetics": "/ˈeː.tɪk/",
+                    "partOfSpeech": "noun",
+                    "definition": "Lehre vom richtigen Handeln",
+                    "examples": [
+                        "Die Ethik ist ein wichtiger Teil der Philosophie.",
+                        "Medizinische Ethik ist sehr komplex."
+                    ]
+                },
+                {
+                    "id": "werte",
+                    "text": "Werte",
+                    "phonetics": "/ˈveːr.tə/",
+                    "partOfSpeech": "noun",
+                    "definition": "Wichtige Grundsätze und Überzeugungen",
+                    "examples": [
+                        "Unsere Werte prägen unser Handeln.",
+                        "Die Werte der Gesellschaft sind vielfältig."
+                    ]
+                },
+                {
+                    "id": "freiheit",
+                    "text": "Freiheit",
+                    "phonetics": "/ˈfraɪ.haɪt/",
+                    "partOfSpeech": "noun",
+                    "definition": "Zustand der Unabhängigkeit und Selbstbestimmung",
+                    "examples": [
+                        "Freiheit ist ein wichtiges Menschenrecht.",
+                        "Die Freiheit hat ihre Grenzen."
+                    ]
+                },
+                {
+                    "id": "verantwortung",
+                    "text": "Verantwortung",
+                    "phonetics": "/fɛrˈant.vɔr.tʊŋ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Pflicht, für etwas einzustehen",
+                    "examples": [
+                        "Jeder trägt Verantwortung für sein Handeln.",
+                        "Die Verantwortung ist sehr groß."
+                    ]
+                },
+                {
+                    "id": "gerechtigkeit",
+                    "text": "Gerechtigkeit",
+                    "phonetics": "/ɡəˈrɛç.tɪç.kaɪt/",
+                    "partOfSpeech": "noun",
+                    "definition": "Prinzip der Fairness und Gleichbehandlung",
+                    "examples": [
+                        "Gerechtigkeit ist ein wichtiger Wert.",
+                        "Die Gerechtigkeit muss hergestellt werden."
+                    ]
+                },
+                {
+                    "id": "wahrheit",
+                    "text": "Wahrheit",
+                    "phonetics": "/ˈvaːr.haɪt/",
+                    "partOfSpeech": "noun",
+                    "definition": "Übereinstimmung mit der Wirklichkeit",
+                    "examples": [
+                        "Die Wahrheit ist manchmal schwer zu finden.",
+                        "Er sucht nach der Wahrheit."
+                    ]
+                },
+                {
+                    "id": "sinn",
+                    "text": "Sinn",
+                    "phonetics": "/zɪn/",
+                    "partOfSpeech": "noun",
+                    "definition": "Bedeutung oder Zweck von etwas",
+                    "examples": [
+                        "Der Sinn des Lebens ist eine große Frage.",
+                        "Das hat keinen Sinn."
+                    ]
+                },
+                {
+                    "id": "dilemma",
+                    "text": "Dilemma",
+                    "phonetics": "/diˈlɛ.ma/",
+                    "partOfSpeech": "noun",
+                    "definition": "Schwierige Entscheidung zwischen zwei unangenehmen Alternativen",
+                    "examples": [
+                        "Er steht vor einem moralischen Dilemma.",
+                        "Das Dilemma ist unlösbar."
+                    ]
+                },
+                {
+                    "id": "argument",
+                    "text": "Argument",
+                    "phonetics": "/ar.ɡuˈmɛnt/",
+                    "partOfSpeech": "noun",
+                    "definition": "Begründung für eine Behauptung",
+                    "examples": [
+                        "Sein Argument ist überzeugend.",
+                        "Die Argumente sprechen dafür."
+                    ]
+                },
+                {
+                    "id": "ueberzeugung",
+                    "text": "Überzeugung",
+                    "phonetics": "/yː.bərˈtsɔɪ.ɡʊŋ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Feste Meinung oder Glaube",
+                    "examples": [
+                        "Seine Überzeugung ist stark.",
+                        "Ich respektiere deine Überzeugung."
+                    ]
+                },
+                {
+                    "id": "prinzip",
+                    "text": "Prinzip",
+                    "phonetics": "/prɪnˈtsiːp/",
+                    "partOfSpeech": "noun",
+                    "definition": "Grundsatz oder Regel",
+                    "examples": [
+                        "Das ist ein wichtiges Prinzip.",
+                        "Er handelt nach Prinzipien."
+                    ]
+                },
+                {
+                    "id": "diskussion",
+                    "text": "Diskussion",
+                    "phonetics": "/dɪs.kʊˈsi̯oːn/",
+                    "partOfSpeech": "noun",
+                    "definition": "Gespräch über verschiedene Meinungen",
+                    "examples": [
+                        "Die Diskussion war sehr interessant.",
+                        "Wir führen eine sachliche Diskussion."
+                    ]
+                },
+                {
+                    "id": "reflexion",
+                    "text": "Reflexion",
+                    "phonetics": "/re.flɛkˈsi̯oːn/",
+                    "partOfSpeech": "noun",
+                    "definition": "Nachdenken über sich selbst oder ein Thema",
+                    "examples": [
+                        "Reflexion ist wichtig für das Lernen.",
+                        "Er macht eine tiefe Reflexion."
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "german_professional_communication",
+            "title": "Professionelle Kommunikation",
+            "description": "Wichtige Begriffe für professionelle Kommunikation auf C1-Niveau",
+            "level": "C1",
+            "tagValue": "kommunikation",
+            "languageCode": "de",
+            "localImageName": "microphone",
+            "isPremium": true,
+            "isFeatured": false,
+            "words": [
+                {
+                    "id": "verhandlung",
+                    "text": "Verhandlung",
+                    "phonetics": "/fɛrˈhan.dlʊŋ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Gespräch zur Einigung über Bedingungen",
+                    "examples": [
+                        "Die Verhandlung war sehr erfolgreich.",
+                        "Er ist ein erfahrener Verhandlungsführer."
+                    ]
+                },
+                {
+                    "id": "diplomatie",
+                    "text": "Diplomatie",
+                    "phonetics": "/di.plo.maˈtiː/",
+                    "partOfSpeech": "noun",
+                    "definition": "Kunst der internationalen Beziehungen",
+                    "examples": [
+                        "Diplomatie erfordert viel Fingerspitzengefühl.",
+                        "Die Diplomatie hat den Konflikt gelöst."
+                    ]
+                },
+                {
+                    "id": "fuehrung",
+                    "text": "Führung",
+                    "phonetics": "/ˈfyː.rʊŋ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Leitung und Steuerung einer Gruppe",
+                    "examples": [
+                        "Gute Führung motiviert die Mitarbeiter.",
+                        "Die Führung des Unternehmens ist kompetent."
+                    ]
+                },
+                {
+                    "id": "kommunikation",
+                    "text": "Kommunikation",
+                    "phonetics": "/kɔ.mu.ni.kaˈtsi̯oːn/",
+                    "partOfSpeech": "noun",
+                    "definition": "Austausch von Informationen zwischen Menschen",
+                    "examples": [
+                        "Effektive Kommunikation ist entscheidend.",
+                        "Die Kommunikation zwischen den Abteilungen funktioniert gut."
+                    ]
+                },
+                {
+                    "id": "praesentation",
+                    "text": "Präsentation",
+                    "phonetics": "/pre.zɛn.taˈtsi̯oːn/",
+                    "partOfSpeech": "noun",
+                    "definition": "Vortrag oder Darstellung von Informationen",
+                    "examples": [
+                        "Die Präsentation war sehr überzeugend.",
+                        "Er hält morgen eine wichtige Präsentation."
+                    ]
+                },
+                {
+                    "id": "strategie",
+                    "text": "Strategie",
+                    "phonetics": "/stra.teˈɡiː/",
+                    "partOfSpeech": "noun",
+                    "definition": "Langfristiger Plan zur Erreichung von Zielen",
+                    "examples": [
+                        "Die neue Strategie soll den Umsatz steigern.",
+                        "Strategisches Denken ist wichtig für den Erfolg."
+                    ]
+                },
+                {
+                    "id": "ueberzeugung",
+                    "text": "Überzeugung",
+                    "phonetics": "/yː.bərˈtsɔɪ.ɡʊŋ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Fähigkeit, andere von etwas zu überzeugen",
+                    "examples": [
+                        "Seine Überzeugungskraft ist beeindruckend.",
+                        "Überzeugung ist wichtiger als Druck."
+                    ]
+                },
+                {
+                    "id": "konflikt",
+                    "text": "Konflikt",
+                    "phonetics": "/kɔnˈflɪkt/",
+                    "partOfSpeech": "noun",
+                    "definition": "Auseinandersetzung zwischen verschiedenen Interessen",
+                    "examples": [
+                        "Der Konflikt wurde friedlich gelöst.",
+                        "Konflikte können auch konstruktiv sein."
+                    ]
+                },
+                {
+                    "id": "kooperation",
+                    "text": "Kooperation",
+                    "phonetics": "/ko.o.pə.raˈtsi̯oːn/",
+                    "partOfSpeech": "noun",
+                    "definition": "Zusammenarbeit zwischen verschiedenen Parteien",
+                    "examples": [
+                        "Die Kooperation zwischen den Firmen ist erfolgreich.",
+                        "Kooperation ist besser als Konkurrenz."
+                    ]
+                },
+                {
+                    "id": "netzwerk",
+                    "text": "Netzwerk",
+                    "phonetics": "/ˈnɛts.vɛrk/",
+                    "partOfSpeech": "noun",
+                    "definition": "System von Verbindungen zwischen Personen oder Organisationen",
+                    "examples": [
+                        "Ein gutes Netzwerk ist wichtig für die Karriere.",
+                        "Das Netzwerk der Kontakte ist sehr wertvoll."
+                    ]
+                },
+                {
+                    "id": "professionalitaet",
+                    "text": "Professionalität",
+                    "phonetics": "/pro.fɛ.si̯o.na.liˈtɛːt/",
+                    "partOfSpeech": "noun",
+                    "definition": "Qualität des professionellen Handelns",
+                    "examples": [
+                        "Seine Professionalität ist unbestritten.",
+                        "Professionalität zeichnet gute Mitarbeiter aus."
+                    ]
+                },
+                {
+                    "id": "rhetorik",
+                    "text": "Rhetorik",
+                    "phonetics": "/reˈtoː.rɪk/",
+                    "partOfSpeech": "noun",
+                    "definition": "Kunst der überzeugenden Rede",
+                    "examples": [
+                        "Gute Rhetorik überzeugt das Publikum.",
+                        "Er hat Rhetorik an der Universität studiert."
+                    ]
+                },
+                {
+                    "id": "diskurs",
+                    "text": "Diskurs",
+                    "phonetics": "/dɪsˈkʊrs/",
+                    "partOfSpeech": "noun",
+                    "definition": "Wissenschaftliche oder öffentliche Debatte",
+                    "examples": [
+                        "Der Diskurs über Klimawandel ist wichtig.",
+                        "Ein sachlicher Diskurs führt zu besseren Ergebnissen."
+                    ]
+                },
+                {
+                    "id": "moderation",
+                    "text": "Moderation",
+                    "phonetics": "/mo.də.raˈtsi̯oːn/",
+                    "partOfSpeech": "noun",
+                    "definition": "Leitung und Steuerung einer Veranstaltung",
+                    "examples": [
+                        "Die Moderation der Diskussion war ausgezeichnet.",
+                        "Er übernimmt die Moderation der Konferenz."
+                    ]
+                },
+                {
+                    "id": "feedback",
+                    "text": "Feedback",
+                    "phonetics": "/ˈfiːd.bæk/",
+                    "partOfSpeech": "noun",
+                    "definition": "Rückmeldung über Leistung oder Verhalten",
+                    "examples": [
+                        "Konstruktives Feedback hilft bei der Verbesserung.",
+                        "Das Feedback der Kunden ist sehr positiv."
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "german_technical_fields",
+            "title": "Technische Bereiche",
+            "description": "Wichtige Begriffe aus technischen Bereichen für C1-Lernende",
+            "level": "C1",
+            "tagValue": "technik",
+            "languageCode": "de",
+            "localImageName": "cheerful-man-is-working-on-laptop-his-female-colleague",
+            "isPremium": true,
+            "isFeatured": false,
+            "words": [
+                {
+                    "id": "ingenieurwesen",
+                    "text": "Ingenieurwesen",
+                    "phonetics": "/ɪn.ʒe.ni̯uːr.ˈveː.zən/",
+                    "partOfSpeech": "noun",
+                    "definition": "Wissenschaftliche Disziplin der technischen Entwicklung",
+                    "examples": [
+                        "Das Ingenieurwesen ist sehr vielfältig.",
+                        "Er studiert Ingenieurwesen an der TU."
+                    ]
+                },
+                {
+                    "id": "technologie",
+                    "text": "Technologie",
+                    "phonetics": "/tɛç.no.loˈɡiː/",
+                    "partOfSpeech": "noun",
+                    "definition": "Anwendung wissenschaftlicher Erkenntnisse in der Praxis",
+                    "examples": [
+                        "Die Technologie entwickelt sich rasant.",
+                        "Neue Technologien verändern die Arbeitswelt."
+                    ]
+                },
+                {
+                    "id": "programmierung",
+                    "text": "Programmierung",
+                    "phonetics": "/pro.ɡra.miˈrʊŋ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Erstellung von Computerprogrammen",
+                    "examples": [
+                        "Programmierung erfordert logisches Denken.",
+                        "Er arbeitet in der Programmierung von Apps."
+                    ]
+                },
+                {
+                    "id": "software",
+                    "text": "Software",
+                    "phonetics": "/ˈsɔft.vɛr/",
+                    "partOfSpeech": "noun",
+                    "definition": "Programme und Daten für Computer",
+                    "examples": [
+                        "Die Software ist benutzerfreundlich.",
+                        "Neue Software wird regelmäßig aktualisiert."
+                    ]
+                },
+                {
+                    "id": "hardware",
+                    "text": "Hardware",
+                    "phonetics": "/ˈhaːrd.vɛr/",
+                    "partOfSpeech": "noun",
+                    "definition": "Physische Komponenten von Computern",
+                    "examples": [
+                        "Die Hardware ist veraltet.",
+                        "Hardware-Upgrades sind teuer."
+                    ]
+                },
+                {
+                    "id": "algorithmus",
+                    "text": "Algorithmus",
+                    "phonetics": "/al.ɡo.ˈrɪt.mʊs/",
+                    "partOfSpeech": "noun",
+                    "definition": "Schrittweise Anleitung zur Lösung eines Problems",
+                    "examples": [
+                        "Der Algorithmus ist sehr effizient.",
+                        "Komplexe Algorithmen erfordern viel Rechenleistung."
+                    ]
+                },
+                {
+                    "id": "datenbank",
+                    "text": "Datenbank",
+                    "phonetics": "/ˈdaː.tən.baŋk/",
+                    "partOfSpeech": "noun",
+                    "definition": "System zur Speicherung und Verwaltung von Daten",
+                    "examples": [
+                        "Die Datenbank ist gut strukturiert.",
+                        "Datenbanken speichern große Mengen an Informationen."
+                    ]
+                },
+                {
+                    "id": "netzwerk",
+                    "text": "Netzwerk",
+                    "phonetics": "/ˈnɛts.vɛrk/",
+                    "partOfSpeech": "noun",
+                    "definition": "Verbund von Computern oder Systemen",
+                    "examples": [
+                        "Das Netzwerk ist sicher konfiguriert.",
+                        "Netzwerke ermöglichen den Datenaustausch."
+                    ]
+                },
+                {
+                    "id": "sicherheit",
+                    "text": "Sicherheit",
+                    "phonetics": "/ˈzɪ.çər.haɪt/",
+                    "partOfSpeech": "noun",
+                    "definition": "Schutz vor Bedrohungen und Gefahren",
+                    "examples": [
+                        "Cybersicherheit ist sehr wichtig.",
+                        "Die Sicherheit der Daten muss gewährleistet sein."
+                    ]
+                },
+                {
+                    "id": "innovation",
+                    "text": "Innovation",
+                    "phonetics": "/ɪ.no.vaˈtsi̯oːn/",
+                    "partOfSpeech": "noun",
+                    "definition": "Einführung neuer Ideen oder Methoden",
+                    "examples": [
+                        "Innovation treibt den Fortschritt voran.",
+                        "Das Unternehmen investiert viel in Innovation."
+                    ]
+                },
+                {
+                    "id": "entwicklung",
+                    "text": "Entwicklung",
+                    "phonetics": "/ɛntˈvɪk.lʊŋ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Prozess der Weiterentwicklung und Verbesserung",
+                    "examples": [
+                        "Die Entwicklung neuer Produkte dauert Jahre.",
+                        "Software-Entwicklung ist ein kreativer Prozess."
+                    ]
+                },
+                {
+                    "id": "system",
+                    "text": "System",
+                    "phonetics": "/zʏsˈteːm/",
+                    "partOfSpeech": "noun",
+                    "definition": "Zusammenhängende Einheit von Komponenten",
+                    "examples": [
+                        "Das System funktioniert zuverlässig.",
+                        "Komplexe Systeme sind schwer zu verstehen."
+                    ]
+                },
+                {
+                    "id": "komponente",
+                    "text": "Komponente",
+                    "phonetics": "/kɔm.poˈnɛn.tə/",
+                    "partOfSpeech": "noun",
+                    "definition": "Einzelner Bestandteil eines größeren Systems",
+                    "examples": [
+                        "Jede Komponente hat eine spezifische Funktion.",
+                        "Die Komponenten sind modular aufgebaut."
+                    ]
+                },
+                {
+                    "id": "fehler",
+                    "text": "Fehler",
+                    "phonetics": "/ˈfeː.lər/",
+                    "partOfSpeech": "noun",
+                    "definition": "Abweichung vom erwarteten Verhalten",
+                    "examples": [
+                        "Der Fehler wurde schnell behoben.",
+                        "Fehleranalyse hilft bei der Verbesserung."
+                    ]
+                },
+                {
+                    "id": "optimierung",
+                    "text": "Optimierung",
+                    "phonetics": "/ɔp.ti.miˈrʊŋ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Verbesserung der Leistung oder Effizienz",
+                    "examples": [
+                        "Die Optimierung des Codes war erfolgreich.",
+                        "Optimierung ist ein kontinuierlicher Prozess."
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "german_idiomatic_expressions",
+            "title": "Redewendungen und Idiome",
+            "description": "Wichtige deutsche Redewendungen und idiomatische Ausdrücke für C2-Lernende",
+            "level": "C2",
+            "tagValue": "redewendungen",
+            "languageCode": "de",
+            "localImageName": "dictionary",
+            "isPremium": true,
+            "isFeatured": false,
+            "words": [
+                {
+                    "id": "um_die_ecke",
+                    "text": "um die Ecke",
+                    "phonetics": "/ʊm diː ˈɛk.kə/",
+                    "partOfSpeech": "phrase",
+                    "definition": "Sehr nah, in der Nähe",
+                    "examples": [
+                        "Das Restaurant ist gleich um die Ecke.",
+                        "Er wohnt nur um die Ecke."
+                    ]
+                },
+                {
+                    "id": "ins_schwarze_treffen",
+                    "text": "ins Schwarze treffen",
+                    "phonetics": "/ɪns ˈʃvar.tsə ˈtreː.fən/",
+                    "partOfSpeech": "phrase",
+                    "definition": "Genau richtig liegen, das Ziel erreichen",
+                    "examples": [
+                        "Mit seiner Analyse hat er ins Schwarze getroffen.",
+                        "Seine Vermutung traf ins Schwarze."
+                    ]
+                },
+                {
+                    "id": "auf_wolke_sieben",
+                    "text": "auf Wolke sieben",
+                    "phonetics": "/aʊf ˈvɔl.kə ˈziː.bən/",
+                    "partOfSpeech": "phrase",
+                    "definition": "Sehr glücklich und zufrieden sein",
+                    "examples": [
+                        "Nach der Beförderung schwebt er auf Wolke sieben.",
+                        "Sie ist auf Wolke sieben, seit sie verlobt ist."
+                    ]
+                },
+                {
+                    "id": "unter_die_lupe_nehmen",
+                    "text": "unter die Lupe nehmen",
+                    "phonetics": "/ˈʊn.tər diː ˈluː.pə ˈneː.mən/",
+                    "partOfSpeech": "phrase",
+                    "definition": "Etwas genau und kritisch untersuchen",
+                    "examples": [
+                        "Die Presse nimmt den Skandal unter die Lupe.",
+                        "Wir müssen die Kosten unter die Lupe nehmen."
+                    ]
+                },
+                {
+                    "id": "den_nagel_auf_den_kopf_treffen",
+                    "text": "den Nagel auf den Kopf treffen",
+                    "phonetics": "/deːn ˈnaː.ɡəl aʊf deːn kɔpf ˈtreː.fən/",
+                    "partOfSpeech": "phrase",
+                    "definition": "Etwas genau richtig ausdrücken",
+                    "examples": [
+                        "Mit dieser Aussage triffst du den Nagel auf den Kopf.",
+                        "Seine Analyse trifft den Nagel auf den Kopf."
+                    ]
+                },
+                {
+                    "id": "hand_und_fuss_haben",
+                    "text": "Hand und Fuß haben",
+                    "phonetics": "/hant ʊnt fuːs ˈhaː.bən/",
+                    "partOfSpeech": "phrase",
+                    "definition": "Logisch und durchdacht sein",
+                    "examples": [
+                        "Sein Plan hat Hand und Fuß.",
+                        "Die Argumentation hat Hand und Fuß."
+                    ]
+                },
+                {
+                    "id": "auf_dem_laufenden",
+                    "text": "auf dem Laufenden",
+                    "phonetics": "/aʊf deːm ˈlaʊ.fən.dən/",
+                    "partOfSpeech": "phrase",
+                    "definition": "Über aktuelle Entwicklungen informiert sein",
+                    "examples": [
+                        "Ich halte dich auf dem Laufenden.",
+                        "Sie ist immer auf dem Laufenden."
+                    ]
+                },
+                {
+                    "id": "wie_aus_dem_nichts",
+                    "text": "wie aus dem Nichts",
+                    "phonetics": "/viː aʊs deːm nɪçts/",
+                    "partOfSpeech": "phrase",
+                    "definition": "Plötzlich und unerwartet",
+                    "examples": [
+                        "Er erschien wie aus dem Nichts.",
+                        "Das Problem kam wie aus dem Nichts."
+                    ]
+                },
+                {
+                    "id": "einen_korb_geben",
+                    "text": "einen Korb geben",
+                    "phonetics": "/ˈaɪ.nən kɔrp ˈɡeː.bən/",
+                    "partOfSpeech": "phrase",
+                    "definition": "Jemanden ablehnen oder abweisen",
+                    "examples": [
+                        "Sie hat ihm einen Korb gegeben.",
+                        "Er bekam einen Korb von der Firma."
+                    ]
+                },
+                {
+                    "id": "auf_die_nerven_gehen",
+                    "text": "auf die Nerven gehen",
+                    "phonetics": "/aʊf diː ˈnɛr.vən ˈɡeː.ən/",
+                    "partOfSpeech": "phrase",
+                    "definition": "Jemanden stören oder belästigen",
+                    "examples": [
+                        "Sein Gejammer geht mir auf die Nerven.",
+                        "Das Geräusch geht mir auf die Nerven."
+                    ]
+                },
+                {
+                    "id": "in_den_sternen_stehen",
+                    "text": "in den Sternen stehen",
+                    "phonetics": "/ɪn deːn ˈʃtɛr.nən ˈʃteː.ən/",
+                    "partOfSpeech": "phrase",
+                    "definition": "Ungewiss oder unbestimmt sein",
+                    "examples": [
+                        "Ob das klappt, steht in den Sternen.",
+                        "Die Zukunft steht in den Sternen."
+                    ]
+                },
+                {
+                    "id": "das_fuenfte_rad_am_wagen",
+                    "text": "das fünfte Rad am Wagen",
+                    "phonetics": "/das ˈfʏnf.tə raːt am ˈvaː.ɡən/",
+                    "partOfSpeech": "phrase",
+                    "definition": "Überflüssig oder unnötig sein",
+                    "examples": [
+                        "Bei diesem Projekt bin ich das fünfte Rad am Wagen.",
+                        "Er fühlt sich wie das fünfte Rad am Wagen."
+                    ]
+                },
+                {
+                    "id": "auf_dem_holzweg",
+                    "text": "auf dem Holzweg",
+                    "phonetics": "/aʊf deːm ˈhɔlts.vɛk/",
+                    "partOfSpeech": "phrase",
+                    "definition": "Auf dem falschen Weg sein, sich irren",
+                    "examples": [
+                        "Mit dieser Theorie bist du auf dem Holzweg.",
+                        "Er ist völlig auf dem Holzweg."
+                    ]
+                },
+                {
+                    "id": "durch_die_blume",
+                    "text": "durch die Blume",
+                    "phonetics": "/dʊrç diː ˈbluː.mə/",
+                    "partOfSpeech": "phrase",
+                    "definition": "Indirekt und versteckt ausdrücken",
+                    "examples": [
+                        "Sie hat es ihm durch die Blume gesagt.",
+                        "Durch die Blume machte er seine Ablehnung klar."
+                    ]
+                },
+                {
+                    "id": "mit_harten_bandagen",
+                    "text": "mit harten Bandagen",
+                    "phonetics": "/mɪt ˈhar.tən banˈdaː.ɡən/",
+                    "partOfSpeech": "phrase",
+                    "definition": "Rücksichtslos und ohne Kompromisse",
+                    "examples": [
+                        "Die Verhandlungen wurden mit harten Bandagen geführt.",
+                        "Er kämpft mit harten Bandagen um den Sieg."
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "german_rhetorical_devices",
+            "title": "Rhetorische Stilmittel",
+            "description": "Wichtige rhetorische Stilmittel und sprachliche Figuren für C2-Lernende",
+            "level": "C2",
+            "tagValue": "rhetorik",
+            "languageCode": "de",
+            "localImageName": "pencil",
+            "isPremium": true,
+            "isFeatured": false,
+            "words": [
+                {
+                    "id": "metapher",
+                    "text": "Metapher",
+                    "phonetics": "/me.taˈfeːr/",
+                    "partOfSpeech": "noun",
+                    "definition": "Bildhafter Ausdruck durch Übertragung",
+                    "examples": [
+                        "Die Metapher macht den Text lebendiger.",
+                        "Er verwendet viele Metaphern in seiner Rede."
+                    ]
+                },
+                {
+                    "id": "ironie",
+                    "text": "Ironie",
+                    "phonetics": "/i.roˈniː/",
+                    "partOfSpeech": "noun",
+                    "definition": "Stilmittel, bei dem das Gegenteil gemeint ist",
+                    "examples": [
+                        "Seine Ironie war nicht zu überhören.",
+                        "Ironie kann verletzend wirken."
+                    ]
+                },
+                {
+                    "id": "hyperbel",
+                    "text": "Hyperbel",
+                    "phonetics": "/hyˈpɛr.bəl/",
+                    "partOfSpeech": "noun",
+                    "definition": "Übertreibung zur Verstärkung der Wirkung",
+                    "examples": [
+                        "Die Hyperbel macht die Aussage eindringlicher.",
+                        "Er nutzt Hyperbeln, um zu überzeugen."
+                    ]
+                },
+                {
+                    "id": "anapher",
+                    "text": "Anapher",
+                    "phonetics": "/aˈnaː.fər/",
+                    "partOfSpeech": "noun",
+                    "definition": "Wiederholung von Wörtern am Satzanfang",
+                    "examples": [
+                        "Die Anapher verstärkt den Rhythmus.",
+                        "Durch Anaphern wird die Rede eindringlicher."
+                    ]
+                },
+                {
+                    "id": "paradox",
+                    "text": "Paradox",
+                    "phonetics": "/pa.raˈdɔks/",
+                    "partOfSpeech": "noun",
+                    "definition": "Scheinbar widersprüchliche Aussage",
+                    "examples": [
+                        "Das Paradox regt zum Nachdenken an.",
+                        "Seine Aussage war ein Paradox."
+                    ]
+                },
+                {
+                    "id": "rhetorik",
+                    "text": "Rhetorik",
+                    "phonetics": "/reˈtoː.rɪk/",
+                    "partOfSpeech": "noun",
+                    "definition": "Kunst der überzeugenden Rede",
+                    "examples": [
+                        "Gute Rhetorik überzeugt das Publikum.",
+                        "Die Rhetorik ist ein wichtiges Werkzeug."
+                    ]
+                },
+                {
+                    "id": "ueberzeugung",
+                    "text": "Überzeugung",
+                    "phonetics": "/yː.bərˈtsɔɪ.ɡʊŋ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Fähigkeit, andere von etwas zu überzeugen",
+                    "examples": [
+                        "Seine Überzeugungskraft ist beeindruckend.",
+                        "Überzeugung ist wichtiger als Druck."
+                    ]
+                },
+                {
+                    "id": "redewendung",
+                    "text": "Redewendung",
+                    "phonetics": "/ˈreː.də.vɛn.dʊŋ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Feste sprachliche Wendung",
+                    "examples": [
+                        "Diese Redewendung ist sehr alt.",
+                        "Redewendungen bereichern die Sprache."
+                    ]
+                },
+                {
+                    "id": "allegorie",
+                    "text": "Allegorie",
+                    "phonetics": "/a.le.ɡoˈriː/",
+                    "partOfSpeech": "noun",
+                    "definition": "Bildliche Darstellung abstrakter Begriffe",
+                    "examples": [
+                        "Die Allegorie macht komplexe Themen verständlich.",
+                        "Seine Geschichte ist eine Allegorie des Lebens."
+                    ]
+                },
+                {
+                    "id": "antithese",
+                    "text": "Antithese",
+                    "phonetics": "/an.tiˈteː.zə/",
+                    "partOfSpeech": "noun",
+                    "definition": "Gegenüberstellung entgegengesetzter Begriffe",
+                    "examples": [
+                        "Die Antithese verstärkt den Kontrast.",
+                        "Durch Antithesen wird die Spannung erhöht."
+                    ]
+                },
+                {
+                    "id": "chiasmus",
+                    "text": "Chiasmus",
+                    "phonetics": "/ˈçi̯a.smʊs/",
+                    "partOfSpeech": "noun",
+                    "definition": "Kreuzstellung von Begriffen",
+                    "examples": [
+                        "Der Chiasmus macht die Aussage einprägsam.",
+                        "Durch Chiasmus entsteht ein besonderer Rhythmus."
+                    ]
+                },
+                {
+                    "id": "euphemismus",
+                    "text": "Euphemismus",
+                    "phonetics": "/ɔɪ.feˈmɪs.mʊs/",
+                    "partOfSpeech": "noun",
+                    "definition": "Beschönigende Umschreibung",
+                    "examples": [
+                        "Der Euphemismus mildert die Aussage ab.",
+                        "Euphemismen werden oft in der Politik verwendet."
+                    ]
+                },
+                {
+                    "id": "litotes",
+                    "text": "Litotes",
+                    "phonetics": "/liˈtoː.tes/",
+                    "partOfSpeech": "noun",
+                    "definition": "Untertreibung durch doppelte Verneinung",
+                    "examples": [
+                        "Die Litotes verstärkt die Aussage.",
+                        "Durch Litotes wird Ironie erzeugt."
+                    ]
+                },
+                {
+                    "id": "personifikation",
+                    "text": "Personifikation",
+                    "phonetics": "/pɛr.zo.ni.fi.kaˈtsi̯oːn/",
+                    "partOfSpeech": "noun",
+                    "definition": "Vermenschlichung von Gegenständen oder Begriffen",
+                    "examples": [
+                        "Die Personifikation macht den Text lebendig.",
+                        "Durch Personifikation werden abstrakte Begriffe greifbar."
+                    ]
+                },
+                {
+                    "id": "synekdoche",
+                    "text": "Synekdoche",
+                    "phonetics": "/zy.nɛkˈdoː.çə/",
+                    "partOfSpeech": "noun",
+                    "definition": "Ersetzung eines Begriffs durch einen verwandten",
+                    "examples": [
+                        "Die Synekdoche ist ein subtiles Stilmittel.",
+                        "Durch Synekdoche entstehen bildhafte Ausdrücke."
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "german_specialized_jargon",
+            "title": "Fachjargon und Terminologie",
+            "description": "Wichtige Begriffe aus Fachjargon und spezialisierter Terminologie für C2-Lernende",
+            "level": "C2",
+            "tagValue": "fachjargon",
+            "languageCode": "de",
+            "localImageName": "book-glasses",
+            "isPremium": true,
+            "isFeatured": false,
+            "words": [
+                {
+                    "id": "fachjargon",
+                    "text": "Fachjargon",
+                    "phonetics": "/ˈfax.ʒar.ɡɔ̃/",
+                    "partOfSpeech": "noun",
+                    "definition": "Spezielle Sprache einer Berufsgruppe",
+                    "examples": [
+                        "Der Fachjargon ist für Außenstehende schwer verständlich.",
+                        "Er beherrscht den medizinischen Fachjargon perfekt."
+                    ]
+                },
+                {
+                    "id": "terminologie",
+                    "text": "Terminologie",
+                    "phonetics": "/tɛr.mi.no.loˈɡiː/",
+                    "partOfSpeech": "noun",
+                    "definition": "Gesamtheit der Fachbegriffe eines Gebiets",
+                    "examples": [
+                        "Die Terminologie ist international standardisiert.",
+                        "Er kennt die juristische Terminologie sehr gut."
+                    ]
+                },
+                {
+                    "id": "nomenklatur",
+                    "text": "Nomenklatur",
+                    "phonetics": "/no.mɛn.kluˈtuːr/",
+                    "partOfSpeech": "noun",
+                    "definition": "Systematische Benennung von Begriffen",
+                    "examples": [
+                        "Die Nomenklatur folgt internationalen Standards.",
+                        "Die chemische Nomenklatur ist sehr präzise."
+                    ]
+                },
+                {
+                    "id": "spezialisierung",
+                    "text": "Spezialisierung",
+                    "phonetics": "/ʃpe.tsi̯a.li.ziˈrʊŋ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Konzentration auf ein bestimmtes Fachgebiet",
+                    "examples": [
+                        "Die Spezialisierung ist in der Medizin üblich.",
+                        "Seine Spezialisierung liegt im Bereich der Künstlichen Intelligenz."
+                    ]
+                },
+                {
+                    "id": "konzept",
+                    "text": "Konzept",
+                    "phonetics": "/kɔnˈtsɛpt/",
+                    "partOfSpeech": "noun",
+                    "definition": "Grundidee oder Entwurf für etwas",
+                    "examples": [
+                        "Das Konzept ist sehr durchdacht.",
+                        "Er entwickelt ein neues Konzept für das Projekt."
+                    ]
+                },
+                {
+                    "id": "paradigma",
+                    "text": "Paradigma",
+                    "phonetics": "/pa.raˈdɪɡ.ma/",
+                    "partOfSpeech": "noun",
+                    "definition": "Grundlegendes Denkmuster oder Modell",
+                    "examples": [
+                        "Das Paradigma hat sich grundlegend geändert.",
+                        "Ein neues Paradigma entsteht in der Wissenschaft."
+                    ]
+                },
+                {
+                    "id": "diskurs",
+                    "text": "Diskurs",
+                    "phonetics": "/dɪsˈkʊrs/",
+                    "partOfSpeech": "noun",
+                    "definition": "Wissenschaftliche oder öffentliche Debatte",
+                    "examples": [
+                        "Der Diskurs über Klimawandel ist wichtig.",
+                        "Ein sachlicher Diskurs führt zu besseren Ergebnissen."
+                    ]
+                },
+                {
+                    "id": "semantik",
+                    "text": "Semantik",
+                    "phonetics": "/ze.manˈtɪk/",
+                    "partOfSpeech": "noun",
+                    "definition": "Lehre von der Bedeutung sprachlicher Zeichen",
+                    "examples": [
+                        "Die Semantik beschäftigt sich mit Wortbedeutungen.",
+                        "Semantische Analysen sind sehr komplex."
+                    ]
+                },
+                {
+                    "id": "syntax",
+                    "text": "Syntax",
+                    "phonetics": "/zʏnˈtaks/",
+                    "partOfSpeech": "noun",
+                    "definition": "Lehre vom Satzbau und der Wortstellung",
+                    "examples": [
+                        "Die Syntax der deutschen Sprache ist komplex.",
+                        "Syntax und Semantik gehören zusammen."
+                    ]
+                },
+                {
+                    "id": "pragmatik",
+                    "text": "Pragmatik",
+                    "phonetics": "/praɡˈma.tɪk/",
+                    "partOfSpeech": "noun",
+                    "definition": "Lehre vom Sprachgebrauch in konkreten Situationen",
+                    "examples": [
+                        "Die Pragmatik untersucht den Kontext der Sprache.",
+                        "Pragmatische Aspekte sind wichtig für das Verständnis."
+                    ]
+                },
+                {
+                    "id": "lexikon",
+                    "text": "Lexikon",
+                    "phonetics": "/ˈlɛk.si.kɔn/",
+                    "partOfSpeech": "noun",
+                    "definition": "Wörterbuch oder Nachschlagewerk",
+                    "examples": [
+                        "Das Lexikon enthält alle wichtigen Begriffe.",
+                        "Ein digitales Lexikon ist sehr praktisch."
+                    ]
+                },
+                {
+                    "id": "standardisierung",
+                    "text": "Standardisierung",
+                    "phonetics": "/ʃtan.dar.di.ziˈrʊŋ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Vereinheitlichung nach festgelegten Normen",
+                    "examples": [
+                        "Die Standardisierung erleichtert die Kommunikation.",
+                        "Internationale Standardisierung ist wichtig."
+                    ]
+                },
+                {
+                    "id": "domaene",
+                    "text": "Domäne",
+                    "phonetics": "/doˈmɛː.nə/",
+                    "partOfSpeech": "noun",
+                    "definition": "Bereich oder Gebiet, in dem jemand tätig ist",
+                    "examples": [
+                        "Die Domäne der Künstlichen Intelligenz wächst schnell.",
+                        "Er ist Experte in seiner Domäne."
+                    ]
+                },
+                {
+                    "id": "protokoll",
+                    "text": "Protokoll",
+                    "phonetics": "/pro.toˈkɔl/",
+                    "partOfSpeech": "noun",
+                    "definition": "Schriftliche Aufzeichnung oder Verfahrensregel",
+                    "examples": [
+                        "Das Protokoll der Sitzung ist sehr detailliert.",
+                        "Das Protokoll muss eingehalten werden."
+                    ]
+                },
+                {
+                    "id": "norm",
+                    "text": "Norm",
+                    "phonetics": "/nɔrm/",
+                    "partOfSpeech": "noun",
+                    "definition": "Festgelegte Regel oder Richtlinie",
+                    "examples": [
+                        "Die Norm definiert die Mindestanforderungen.",
+                        "Internationale Normen erleichtern den Handel."
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "german_cultural_nuances",
+            "title": "Kulturelle Nuancen",
+            "description": "Wichtige Begriffe für kulturelle Nuancen und subtile Kommunikation für C2-Lernende",
+            "level": "C2",
+            "tagValue": "kultur",
+            "languageCode": "de",
+            "localImageName": "german-national-flag-at-the-bundestag-government-building-in-berlin",
+            "isPremium": true,
+            "isFeatured": false,
+            "words": [
+                {
+                    "id": "zwischen_den_zeilen",
+                    "text": "zwischen den Zeilen",
+                    "phonetics": "/ˈtsvɪ.ʃən deːn ˈtsaɪ.lən/",
+                    "partOfSpeech": "phrase",
+                    "definition": "Versteckte oder indirekte Bedeutung erkennen",
+                    "examples": [
+                        "Man muss zwischen den Zeilen lesen können.",
+                        "Zwischen den Zeilen steht mehr als im Text."
+                    ]
+                },
+                {
+                    "id": "taktgefuehl",
+                    "text": "Taktgefühl",
+                    "phonetics": "/ˈtakt.ɡə.fyːl/",
+                    "partOfSpeech": "noun",
+                    "definition": "Feines Gespür für angemessenes Verhalten",
+                    "examples": [
+                        "Sein Taktgefühl ist sehr ausgeprägt.",
+                        "Taktgefühl ist in der Diplomatie wichtig."
+                    ]
+                },
+                {
+                    "id": "anspielung",
+                    "text": "Anspielung",
+                    "phonetics": "/ˈan.ʃpiː.lʊŋ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Indirekte Bezugnahme auf etwas",
+                    "examples": [
+                        "Seine Anspielung war nicht zu überhören.",
+                        "Die Anspielung war sehr subtil."
+                    ]
+                },
+                {
+                    "id": "humor",
+                    "text": "Humor",
+                    "phonetics": "/huˈmoːr/",
+                    "partOfSpeech": "noun",
+                    "definition": "Fähigkeit, etwas als komisch zu empfinden",
+                    "examples": [
+                        "Sein Humor ist sehr trocken.",
+                        "Humor hilft in schwierigen Situationen."
+                    ]
+                },
+                {
+                    "id": "sarkasmus",
+                    "text": "Sarkasmus",
+                    "phonetics": "/zarˈkas.mʊs/",
+                    "partOfSpeech": "noun",
+                    "definition": "Bissiger, beißender Spott",
+                    "examples": [
+                        "Sein Sarkasmus war nicht zu überhören.",
+                        "Sarkasmus kann verletzend wirken."
+                    ]
+                },
+                {
+                    "id": "subtileitaet",
+                    "text": "Subtilität",
+                    "phonetics": "/zʊp.ti.liˈtɛːt/",
+                    "partOfSpeech": "noun",
+                    "definition": "Feine, kaum merkliche Unterschiede",
+                    "examples": [
+                        "Die Subtilität seiner Argumentation ist beeindruckend.",
+                        "Subtilität zeichnet gute Literatur aus."
+                    ]
+                },
+                {
+                    "id": "kontext",
+                    "text": "Kontext",
+                    "phonetics": "/ˈkɔn.tɛkst/",
+                    "partOfSpeech": "noun",
+                    "definition": "Zusammenhang oder Umgebung von etwas",
+                    "examples": [
+                        "Der Kontext ist wichtig für das Verständnis.",
+                        "Ohne Kontext ist die Aussage missverständlich."
+                    ]
+                },
+                {
+                    "id": "nuancen",
+                    "text": "Nuancen",
+                    "phonetics": "/nuˈan.sən/",
+                    "partOfSpeech": "noun",
+                    "definition": "Feine Unterschiede oder Abstufungen",
+                    "examples": [
+                        "Die Nuancen der Sprache sind schwer zu erfassen.",
+                        "Er versteht die kulturellen Nuancen sehr gut."
+                    ]
+                },
+                {
+                    "id": "feingefuehl",
+                    "text": "Feingefühl",
+                    "phonetics": "/ˈfaɪn.ɡə.fyːl/",
+                    "partOfSpeech": "noun",
+                    "definition": "Empfindliches Gespür für feine Unterschiede",
+                    "examples": [
+                        "Sein Feingefühl ist sehr ausgeprägt.",
+                        "Feingefühl ist wichtig in der Kommunikation."
+                    ]
+                },
+                {
+                    "id": "doppeldeutigkeit",
+                    "text": "Doppeldeutigkeit",
+                    "phonetics": "/ˈdɔ.pəl.dɔɪ.tɪç.kaɪt/",
+                    "partOfSpeech": "noun",
+                    "definition": "Mehrdeutigkeit oder Zweideutigkeit",
+                    "examples": [
+                        "Die Doppeldeutigkeit war beabsichtigt.",
+                        "Doppeldeutigkeiten können zu Missverständnissen führen."
+                    ]
+                },
+                {
+                    "id": "hoeflichkeit",
+                    "text": "Höflichkeit",
+                    "phonetics": "/ˈhøːf.lɪç.kaɪt/",
+                    "partOfSpeech": "noun",
+                    "definition": "Respektvolle und rücksichtsvolle Umgangsform",
+                    "examples": [
+                        "Höflichkeit ist in allen Kulturen wichtig.",
+                        "Seine Höflichkeit ist vorbildlich."
+                    ]
+                },
+                {
+                    "id": "sprachwitz",
+                    "text": "Sprachwitz",
+                    "phonetics": "/ˈʃpraːx.vɪts/",
+                    "partOfSpeech": "noun",
+                    "definition": "Witz, der auf sprachlichen Mitteln beruht",
+                    "examples": [
+                        "Sein Sprachwitz ist sehr ausgeprägt.",
+                        "Sprachwitz erfordert Sprachgefühl."
+                    ]
+                },
+                {
+                    "id": "unterton",
+                    "text": "Unterton",
+                    "phonetics": "/ˈʊn.tər.toːn/",
+                    "partOfSpeech": "noun",
+                    "definition": "Versteckte oder mitschwingende Bedeutung",
+                    "examples": [
+                        "Seine Worte hatten einen kritischen Unterton.",
+                        "Der Unterton war nicht zu überhören."
+                    ]
+                },
+                {
+                    "id": "kulturell",
+                    "text": "kulturell",
+                    "phonetics": "/kʊl.tuˈreːl/",
                     "partOfSpeech": "adjective",
-                    "definition": "Was viel Geld kostet",
+                    "definition": "Die Kultur betreffend",
                     "examples": [
-                        "Dieses Auto ist sehr teuer.",
-                        "Das Restaurant ist teuer, aber gut."
+                        "Kulturelle Unterschiede sind faszinierend.",
+                        "Die kulturelle Vielfalt bereichert die Gesellschaft."
                     ]
                 },
                 {
-                    "id": "billig",
-                    "text": "billig",
-                    "phonetics": "/ˈbɪ.lɪç/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Was nicht viel Geld kostet",
-                    "examples": [
-                        "Diese Schuhe sind billig.",
-                        "Ich suche etwas Billiges."
-                    ]
-                },
-                {
-                    "id": "bezahlen",
-                    "text": "bezahlen",
-                    "phonetics": "/bə.ˈtsaː.lən/",
-                    "partOfSpeech": "verb",
-                    "definition": "Geld für etwas geben",
-                    "examples": [
-                        "Ich bezahle mit meiner Kreditkarte.",
-                        "Sie bezahlt bar."
-                    ]
-                },
-                {
-                    "id": "das_geld",
-                    "text": "das Geld",
-                    "phonetics": "/das.ɡɛlt/",
+                    "id": "anstand",
+                    "text": "Anstand",
+                    "phonetics": "/ˈan.ʃtant/",
                     "partOfSpeech": "noun",
-                    "definition": "Tauschmittel, das man zum Kaufen verwendet",
+                    "definition": "Gute Sitten und angemessenes Verhalten",
                     "examples": [
-                        "Ich brauche Geld zum Einkaufen.",
-                        "Geld macht nicht glücklich."
-                    ]
-                },
-                {
-                    "id": "der_euro",
-                    "text": "der Euro",
-                    "phonetics": "/deːɐ.ˈɔɪ̯.ʁo/",
-                    "partOfSpeech": "noun",
-                    "definition": "Währung, die in Europa verwendet wird",
-                    "examples": [
-                        "Das kostet 10 Euro.",
-                        "Ich bezahle in Euro."
-                    ]
-                },
-                {
-                    "id": "die_kreditkarte",
-                    "text": "die Kreditkarte",
-                    "phonetics": "/diː.kʁe.ˈdɪt.ˌkaʁ.tə/",
-                    "partOfSpeech": "noun",
-                    "definition": "Kleine Karte, die das Bezahlen ermöglicht",
-                    "examples": [
-                        "Ich bezahle mit meiner Kreditkarte.",
-                        "Meine Kreditkarte funktioniert nicht mehr."
-                    ]
-                },
-                {
-                    "id": "das_bargeld",
-                    "text": "das Bargeld",
-                    "phonetics": "/das.ˈbaːɐ.ˌɡɛlt/",
-                    "partOfSpeech": "noun",
-                    "definition": "Geld in Münzen und Scheinen",
-                    "examples": [
-                        "Ich bezahle bar.",
-                        "Haben Sie Wechselgeld?"
-                    ]
-                },
-                {
-                    "id": "das_wechselgeld",
-                    "text": "das Wechselgeld",
-                    "phonetics": "/das.ˈvɛk.səl.ˌɡɛlt/",
-                    "partOfSpeech": "noun",
-                    "definition": "Geld, das man nach einem Kauf zurückbekommt",
-                    "examples": [
-                        "Hier ist Ihr Wechselgeld.",
-                        "Ich brauche Wechselgeld."
-                    ]
-                },
-                {
-                    "id": "die_kasse",
-                    "text": "die Kasse",
-                    "phonetics": "/diː.ˈka.sə/",
-                    "partOfSpeech": "noun",
-                    "definition": "Ort, wo man in einem Laden bezahlt",
-                    "examples": [
-                        "Ich gehe zur Kasse.",
-                        "Die Kasse ist geschlossen."
-                    ]
-                },
-                {
-                    "id": "die_rechnung",
-                    "text": "die Rechnung",
-                    "phonetics": "/diː.ˈʁɛç.nʊŋ/",
-                    "partOfSpeech": "noun",
-                    "definition": "Papier, das zeigt, was man gekauft hat und wie viel es kostet",
-                    "examples": [
-                        "Hier ist Ihre Rechnung.",
-                        "Ich behalte alle meine Rechnungen."
-                    ]
-                },
-                {
-                    "id": "der_beleg",
-                    "text": "der Beleg",
-                    "phonetics": "/deːɐ.bə.ˈleːk/",
-                    "partOfSpeech": "noun",
-                    "definition": "Kleines Papier, das beweist, dass man bezahlt hat",
-                    "examples": [
-                        "Bewahren Sie Ihren Beleg auf.",
-                        "Der Kassenbeleg ist wichtig."
-                    ]
-                },
-                {
-                    "id": "der_rabatt",
-                    "text": "der Rabatt",
-                    "phonetics": "/deːɐ.ʁa.ˈbat/",
-                    "partOfSpeech": "noun",
-                    "definition": "Preisreduktion auf Artikel",
-                    "examples": [
-                        "Es gibt Rabatte im Januar.",
-                        "Dieser Artikel ist im Rabatt."
-                    ]
-                },
-                {
-                    "id": "die_reduktion",
-                    "text": "die Reduktion",
-                    "phonetics": "/diː.ʁe.dʊk.ˈt͡si̯oːn/",
-                    "partOfSpeech": "noun",
-                    "definition": "Verringerung des Preises",
-                    "examples": [
-                        "Ich habe eine Reduktion von 20%.",
-                        "Diese Reduktion ist interessant."
-                    ]
-                },
-                {
-                    "id": "der_einkaufswagen",
-                    "text": "der Einkaufswagen",
-                    "phonetics": "/deːɐ.ˈaɪ̯n.ˌkaʊ̯fs.ˌvaː.ɡən/",
-                    "partOfSpeech": "noun",
-                    "definition": "Behälter, in den man die Artikel legt, die man kaufen möchte",
-                    "examples": [
-                        "Mein Einkaufswagen ist voll.",
-                        "Ich lege die Artikel in den Einkaufswagen."
-                    ]
-                },
-                {
-                    "id": "waehlen",
-                    "text": "wählen",
-                    "phonetics": "/ˈvɛː.lən/",
-                    "partOfSpeech": "verb",
-                    "definition": "Eine Sache aus mehreren nehmen",
-                    "examples": [
-                        "Ich wähle dieses Kleid.",
-                        "Sie wählt sorgfältig aus."
-                    ]
-                },
-                {
-                    "id": "die_wahl",
-                    "text": "die Wahl",
-                    "phonetics": "/diː.vaːl/",
-                    "partOfSpeech": "noun",
-                    "definition": "Möglichkeit, etwas zu nehmen",
-                    "examples": [
-                        "Es gibt viele Wahlmöglichkeiten.",
-                        "Meine Wahl ist getroffen."
-                    ]
-                },
-                {
-                    "id": "probieren",
-                    "text": "probieren",
-                    "phonetics": "/pʁo.ˈbiː.ʁən/",
-                    "partOfSpeech": "verb",
-                    "definition": "Etwas anziehen, um zu sehen, ob es passt",
-                    "examples": [
-                        "Ich möchte diese Jacke probieren.",
-                        "Sie probiert mehrere Schuhe an."
-                    ]
-                },
-                {
-                    "id": "die_groesse",
-                    "text": "die Größe",
-                    "phonetics": "/diː.ˈɡʁøː.sə/",
-                    "partOfSpeech": "noun",
-                    "definition": "Maß, das der Länge entspricht",
-                    "examples": [
-                        "Welche Größe haben Sie?",
-                        "Diese Größe passt mir gut."
-                    ]
-                },
-                {
-                    "id": "die_farbe",
-                    "text": "die Farbe",
-                    "phonetics": "/diː.ˈfaʁ.bə/",
-                    "partOfSpeech": "noun",
-                    "definition": "Visueller Aspekt einer Sache (rot, blau, etc.)",
-                    "examples": [
-                        "Ich mag diese Farbe.",
-                        "Welche Farbe bevorzugen Sie?"
-                    ]
-                },
-                {
-                    "id": "die_qualitaet",
-                    "text": "die Qualität",
-                    "phonetics": "/diː.kva.li.ˈtɛːt/",
-                    "partOfSpeech": "noun",
-                    "definition": "Niveau der Güte eines Produkts",
-                    "examples": [
-                        "Die Qualität dieses Produkts ist ausgezeichnet.",
-                        "Ich bevorzuge Qualität über den Preis."
-                    ]
-                },
-                {
-                    "id": "zurueckgeben",
-                    "text": "zurückgeben",
-                    "phonetics": "/tsu.ˈʁʏk.ˌɡeː.bən/",
-                    "partOfSpeech": "verb",
-                    "definition": "Etwas zurückgeben, das man gekauft hat",
-                    "examples": [
-                        "Ich gebe diesen Artikel zurück.",
-                        "Sie gibt ihre Bestellung zurück."
+                        "Anstand ist in der Gesellschaft wichtig.",
+                        "Sein Anstand ist vorbildlich."
                     ]
                 }
             ]

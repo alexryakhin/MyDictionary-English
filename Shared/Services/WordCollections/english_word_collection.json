@@ -1115,1488 +1115,6 @@
             "isFeatured": true
         },
         {
-            "id": "gen-z-slang-001",
-            "title": "Gen Z Slang",
-            "words": [
-                {
-                    "id": "delulu-001",
-                    "text": "delulu",
-                    "phonetics": "/dɪˈluːluː/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Delusional, often used for unrealistic optimism in romance",
-                    "examples": [
-                        "She's being delulu about that celebrity crush.",
-                        "Stop being delulu, he's not into you."
-                    ]
-                },
-                {
-                    "id": "skibidi-001",
-                    "text": "skibidi",
-                    "phonetics": "/ˈskɪbɪdi/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Absurd or chaotic, from viral memes",
-                    "examples": [
-                        "This situation is so skibidi right now.",
-                        "The party was completely skibidi."
-                    ]
-                },
-                {
-                    "id": "rizz-001",
-                    "text": "rizz",
-                    "phonetics": "/rɪz/",
-                    "partOfSpeech": "noun",
-                    "definition": "Charisma or flirting skills",
-                    "examples": [
-                        "He's got serious rizz with the ladies.",
-                        "Your rizz game is strong tonight."
-                    ]
-                },
-                {
-                    "id": "aura-001",
-                    "text": "aura",
-                    "phonetics": "/ˈɔːrə/",
-                    "partOfSpeech": "noun",
-                    "definition": "Personal vibe or energy points",
-                    "examples": [
-                        "She has such a positive aura.",
-                        "Your aura is glowing today."
-                    ]
-                },
-                {
-                    "id": "broligarchy-001",
-                    "text": "broligarchy",
-                    "phonetics": "/broʊˈlɪgərki/",
-                    "partOfSpeech": "noun",
-                    "definition": "Male-dominated power structures in casual settings",
-                    "examples": [
-                        "The broligarchy at this gym is real.",
-                        "We need to break down this broligarchy."
-                    ]
-                },
-                {
-                    "id": "inspo-001",
-                    "text": "inspo",
-                    "phonetics": "/ɪnˈspoʊ/",
-                    "partOfSpeech": "noun",
-                    "definition": "Short for inspiration, like mood board ideas",
-                    "examples": [
-                        "I need some fashion inspo for the party.",
-                        "This Pinterest board is full of inspo."
-                    ]
-                },
-                {
-                    "id": "glow-up-001",
-                    "text": "glow-up",
-                    "phonetics": "/ˈɡloʊ ʌp/",
-                    "partOfSpeech": "noun",
-                    "definition": "Major transformation in appearance or confidence",
-                    "examples": [
-                        "Her glow-up since high school is incredible.",
-                        "Time for my glow-up era."
-                    ]
-                },
-                {
-                    "id": "slay-001",
-                    "text": "slay",
-                    "phonetics": "/sleɪ/",
-                    "partOfSpeech": "verb",
-                    "definition": "To excel or look amazing",
-                    "examples": [
-                        "You absolutely slayed that presentation.",
-                        "She's slaying in that outfit."
-                    ]
-                },
-                {
-                    "id": "vibes-001",
-                    "text": "vibes",
-                    "phonetics": "/vaɪbz/",
-                    "partOfSpeech": "noun",
-                    "definition": "Overall atmosphere or mood",
-                    "examples": [
-                        "I'm getting good vibes from this place.",
-                        "The vibes at this party are immaculate."
-                    ]
-                },
-                {
-                    "id": "lit-001",
-                    "text": "lit",
-                    "phonetics": "/lɪt/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Exciting or amazing",
-                    "examples": [
-                        "This concert is absolutely lit.",
-                        "That was a lit performance."
-                    ]
-                },
-                {
-                    "id": "flex-001",
-                    "text": "flex",
-                    "phonetics": "/flɛks/",
-                    "partOfSpeech": "verb",
-                    "definition": "To show off subtly",
-                    "examples": [
-                        "He's always flexing his new car.",
-                        "Stop flexing your grades."
-                    ]
-                },
-                {
-                    "id": "hangry-001",
-                    "text": "hangry",
-                    "phonetics": "/ˈhæŋɡri/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Hungry and angry",
-                    "examples": [
-                        "I'm getting hangry, let's eat soon.",
-                        "Don't talk to me when I'm hangry."
-                    ]
-                },
-                {
-                    "id": "nomophobia-001",
-                    "text": "nomophobia",
-                    "phonetics": "/noʊmoʊˈfoʊbiə/",
-                    "partOfSpeech": "noun",
-                    "definition": "Fear of being without your phone",
-                    "examples": [
-                        "I have serious nomophobia when my phone dies.",
-                        "Her nomophobia is getting out of control."
-                    ]
-                }
-            ],
-            "level": "B2",
-            "tagValue": "Gen Z",
-            "languageCode": "en",
-            "description": "Trending slang from social media and youth culture",
-            "imageUrl": null,
-            "localImageName": "gen_z",
-            "isPremium": true,
-            "isFeatured": true
-        },
-        {
-            "id": "ai-tech-buzzwords-001",
-            "title": "AI and Tech Buzzwords",
-            "words": [
-                {
-                    "id": "gen-ai-001",
-                    "text": "Gen AI",
-                    "phonetics": "/dʒen ˈeɪ aɪ/",
-                    "partOfSpeech": "noun",
-                    "definition": "Generative artificial intelligence, like chatbots creating content",
-                    "examples": [
-                        "Gen AI is revolutionizing content creation.",
-                        "The company invested heavily in Gen AI technology."
-                    ]
-                },
-                {
-                    "id": "ai-fluency-001",
-                    "text": "AI Fluency",
-                    "phonetics": "/eɪ aɪ ˈfluːənsi/",
-                    "partOfSpeech": "noun",
-                    "definition": "Skill in using AI tools effectively",
-                    "examples": [
-                        "AI fluency is becoming essential in modern workplaces.",
-                        "She developed strong AI fluency through practice."
-                    ]
-                },
-                {
-                    "id": "metaverse-001",
-                    "text": "metaverse",
-                    "phonetics": "/ˈmetəvɜːrs/",
-                    "partOfSpeech": "noun",
-                    "definition": "Virtual reality worlds for social and work interactions",
-                    "examples": [
-                        "Companies are building offices in the metaverse.",
-                        "The metaverse promises new ways to connect."
-                    ]
-                },
-                {
-                    "id": "digital-nomad-001",
-                    "text": "digital nomad",
-                    "phonetics": "/ˈdɪdʒɪtl ˈnoʊmæd/",
-                    "partOfSpeech": "noun",
-                    "definition": "Remote worker traveling globally",
-                    "examples": [
-                        "She became a digital nomad and works from Bali.",
-                        "Digital nomads are changing the future of work."
-                    ]
-                },
-                {
-                    "id": "quiet-quitting-001",
-                    "text": "quiet quitting",
-                    "phonetics": "/ˈkwaɪət ˈkwɪtɪŋ/",
-                    "partOfSpeech": "noun",
-                    "definition": "Doing the minimum at work without overcommitting",
-                    "examples": [
-                        "Quiet quitting is a response to burnout culture.",
-                        "Many employees are practicing quiet quitting."
-                    ]
-                },
-                {
-                    "id": "waifu-001",
-                    "text": "waifu",
-                    "phonetics": "/ˈwaɪfuː/",
-                    "partOfSpeech": "noun",
-                    "definition": "Anime-style idealized virtual partner",
-                    "examples": [
-                        "His waifu is from a popular anime series.",
-                        "Virtual waifus are popular in gaming culture."
-                    ]
-                },
-                {
-                    "id": "supercycle-001",
-                    "text": "supercycle",
-                    "phonetics": "/ˈsuːpərsaɪkəl/",
-                    "partOfSpeech": "noun",
-                    "definition": "Long-term economic or tech boom",
-                    "examples": [
-                        "We're entering a new tech supercycle.",
-                        "The AI supercycle is transforming industries."
-                    ]
-                },
-                {
-                    "id": "nft-001",
-                    "text": "NFT",
-                    "phonetics": "/en ef tiː/",
-                    "partOfSpeech": "noun",
-                    "definition": "Non-fungible token, unique digital asset",
-                    "examples": [
-                        "He sold his NFT for thousands of dollars.",
-                        "NFTs represent ownership of digital art."
-                    ]
-                },
-                {
-                    "id": "virtual-fashion-001",
-                    "text": "virtual fashion",
-                    "phonetics": "/ˈvɜːrtʃuəl ˈfæʃən/",
-                    "partOfSpeech": "noun",
-                    "definition": "Digital clothing for avatars in games or metaverses",
-                    "examples": [
-                        "Virtual fashion is a growing industry.",
-                        "She designs virtual fashion for gaming avatars."
-                    ]
-                },
-                {
-                    "id": "algorithm-001",
-                    "text": "algorithm",
-                    "phonetics": "/ˈælɡərɪðəm/",
-                    "partOfSpeech": "noun",
-                    "definition": "Set of rules for AI decision-making",
-                    "examples": [
-                        "The algorithm determines what content you see.",
-                        "Machine learning algorithms improve over time."
-                    ]
-                },
-                {
-                    "id": "blockchain-001",
-                    "text": "blockchain",
-                    "phonetics": "/ˈblɑːktʃeɪn/",
-                    "partOfSpeech": "noun",
-                    "definition": "Secure digital ledger technology",
-                    "examples": [
-                        "Blockchain technology ensures data security.",
-                        "Cryptocurrency relies on blockchain networks."
-                    ]
-                },
-                {
-                    "id": "prompt-001",
-                    "text": "prompt",
-                    "phonetics": "/prɑːmpt/",
-                    "partOfSpeech": "noun",
-                    "definition": "Input command for AI generation",
-                    "examples": [
-                        "Write a clear prompt for better AI results.",
-                        "The prompt engineering course was very helpful."
-                    ]
-                }
-            ],
-            "level": "B2",
-            "tagValue": "AI Tech",
-            "languageCode": "en",
-            "description": "Rising with Gen AI advancements and digital nomad lifestyles",
-            "imageUrl": null,
-            "localImageName": "laptop",
-            "isPremium": true,
-            "isFeatured": false
-        },
-        {
-            "id": "sustainability-eco-living-001",
-            "title": "Sustainability and Eco-Living",
-            "words": [
-                {
-                    "id": "eco-minimalism-001",
-                    "text": "eco-minimalism",
-                    "phonetics": "/ˈiːkoʊ ˈmɪnɪməlɪzəm/",
-                    "partOfSpeech": "noun",
-                    "definition": "Sustainable living with fewer possessions",
-                    "examples": [
-                        "Eco-minimalism helps reduce environmental impact.",
-                        "She practices eco-minimalism by buying only essentials."
-                    ]
-                },
-                {
-                    "id": "climavore-001",
-                    "text": "climavore",
-                    "phonetics": "/ˈklaɪməvɔːr/",
-                    "partOfSpeech": "noun",
-                    "definition": "Diet avoiding high-carbon foods",
-                    "examples": [
-                        "As a climavore, she avoids beef and dairy.",
-                        "Climavores choose foods with low carbon footprints."
-                    ]
-                },
-                {
-                    "id": "carbon-footprint-001",
-                    "text": "carbon footprint",
-                    "phonetics": "/ˈkɑːrbən ˈfʊtprɪnt/",
-                    "partOfSpeech": "noun",
-                    "definition": "Environmental impact from daily activities",
-                    "examples": [
-                        "Flying increases your carbon footprint significantly.",
-                        "We're working to reduce our company's carbon footprint."
-                    ]
-                },
-                {
-                    "id": "upcycle-001",
-                    "text": "upcycle",
-                    "phonetics": "/ˈʌpsaɪkəl/",
-                    "partOfSpeech": "verb",
-                    "definition": "Reuse waste creatively into something valuable",
-                    "examples": [
-                        "She upcycles old jars into beautiful planters.",
-                        "Upcycling reduces waste and saves money."
-                    ]
-                },
-                {
-                    "id": "zero-waste-001",
-                    "text": "zero-waste",
-                    "phonetics": "/ˈzɪroʊ weɪst/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Lifestyle producing no trash",
-                    "examples": [
-                        "The zero-waste movement is growing rapidly.",
-                        "She follows a zero-waste lifestyle with reusable containers."
-                    ]
-                },
-                {
-                    "id": "sustainable-001",
-                    "text": "sustainable",
-                    "phonetics": "/səˈsteɪnəbəl/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Long-term environmentally friendly",
-                    "examples": [
-                        "Sustainable fashion uses eco-friendly materials.",
-                        "We need sustainable solutions for climate change."
-                    ]
-                },
-                {
-                    "id": "biodiversity-001",
-                    "text": "biodiversity",
-                    "phonetics": "/ˌbaɪoʊdaɪˈvɜːrsəti/",
-                    "partOfSpeech": "noun",
-                    "definition": "Variety of life in ecosystems",
-                    "examples": [
-                        "Protecting biodiversity is crucial for our planet.",
-                        "The rainforest has incredible biodiversity."
-                    ]
-                },
-                {
-                    "id": "renewable-001",
-                    "text": "renewable",
-                    "phonetics": "/rɪˈnuːəbəl/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Energy sources like solar that replenish naturally",
-                    "examples": [
-                        "Solar and wind are renewable energy sources.",
-                        "The country aims for 100% renewable electricity."
-                    ]
-                },
-                {
-                    "id": "compost-001",
-                    "text": "compost",
-                    "phonetics": "/ˈkɑːmpoʊst/",
-                    "partOfSpeech": "verb",
-                    "definition": "Decompose organic waste into fertilizer",
-                    "examples": [
-                        "We compost our food scraps in the backyard.",
-                        "Composting reduces landfill waste significantly."
-                    ]
-                },
-                {
-                    "id": "greenwashing-001",
-                    "text": "greenwashing",
-                    "phonetics": "/ˈɡriːnwɑːʃɪŋ/",
-                    "partOfSpeech": "noun",
-                    "definition": "False eco-friendly claims by companies",
-                    "examples": [
-                        "Consumers are getting better at spotting greenwashing.",
-                        "The company was accused of greenwashing their products."
-                    ]
-                },
-                {
-                    "id": "biodegradable-001",
-                    "text": "biodegradable",
-                    "phonetics": "/ˌbaɪoʊdɪˈɡreɪdəbəl/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Breaks down naturally without harm",
-                    "examples": [
-                        "Biodegradable packaging is better for the environment.",
-                        "These bags are made from biodegradable materials."
-                    ]
-                }
-            ],
-            "level": "B1",
-            "tagValue": "Eco",
-            "languageCode": "en",
-            "description": "Popular in 2025 lifestyle trends like eco-minimalism",
-            "imageUrl": null,
-            "localImageName": "ecology",
-            "isPremium": true,
-            "isFeatured": false
-        },
-        {
-            "id": "beauty-self-care-trends-001",
-            "title": "Beauty and Self-Care Trends",
-            "words": [
-                {
-                    "id": "butter-skin-001",
-                    "text": "butter skin",
-                    "phonetics": "/ˈbʌtər skɪn/",
-                    "partOfSpeech": "noun",
-                    "definition": "Soft, glowing complexion from skincare",
-                    "examples": [
-                        "Her butter skin routine includes daily moisturizing.",
-                        "Everyone wants that perfect butter skin look."
-                    ]
-                },
-                {
-                    "id": "athleisure-001",
-                    "text": "athleisure",
-                    "phonetics": "/ˈæθliːʒər/",
-                    "partOfSpeech": "noun",
-                    "definition": "Comfortable athletic wear for everyday",
-                    "examples": [
-                        "Athleisure has become the new office dress code.",
-                        "She loves wearing athleisure on weekends."
-                    ]
-                },
-                {
-                    "id": "quiet-luxury-001",
-                    "text": "quiet luxury",
-                    "phonetics": "/ˈkwaɪət ˈlʌkʃəri/",
-                    "partOfSpeech": "noun",
-                    "definition": "Understated high-quality fashion",
-                    "examples": [
-                        "Quiet luxury focuses on quality over flashy logos.",
-                        "Her style embodies quiet luxury with timeless pieces."
-                    ]
-                },
-                {
-                    "id": "clean-beauty-001",
-                    "text": "clean beauty",
-                    "phonetics": "/kliːn ˈbjuːti/",
-                    "partOfSpeech": "noun",
-                    "definition": "Products free of harmful chemicals",
-                    "examples": [
-                        "Clean beauty brands are growing in popularity.",
-                        "She switched to clean beauty for healthier skin."
-                    ]
-                },
-                {
-                    "id": "skincare-001",
-                    "text": "skincare",
-                    "phonetics": "/ˈskaɪnkeər/",
-                    "partOfSpeech": "noun",
-                    "definition": "Routine for healthy skin",
-                    "examples": [
-                        "Her skincare routine takes 10 minutes every morning.",
-                        "Good skincare is essential for healthy aging."
-                    ]
-                },
-                {
-                    "id": "glow-001",
-                    "text": "glow",
-                    "phonetics": "/ɡloʊ/",
-                    "partOfSpeech": "noun",
-                    "definition": "Radiant, healthy appearance",
-                    "examples": [
-                        "She has such a natural glow after vacation.",
-                        "This serum gives your skin an amazing glow."
-                    ]
-                },
-                {
-                    "id": "minimalist-001",
-                    "text": "minimalist",
-                    "phonetics": "/ˈmɪnɪməlɪst/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Simple, essential beauty routine",
-                    "examples": [
-                        "Her minimalist approach uses only three products.",
-                        "Minimalist beauty focuses on quality over quantity."
-                    ]
-                },
-                {
-                    "id": "hydration-001",
-                    "text": "hydration",
-                    "phonetics": "/haɪˈdreɪʃən/",
-                    "partOfSpeech": "noun",
-                    "definition": "Keeping skin moisturized",
-                    "examples": [
-                        "Proper hydration is key to healthy skin.",
-                        "This cream provides deep hydration all day."
-                    ]
-                },
-                {
-                    "id": "exfoliate-001",
-                    "text": "exfoliate",
-                    "phonetics": "/ɪkˈsfoʊlieɪt/",
-                    "partOfSpeech": "verb",
-                    "definition": "Remove dead skin cells",
-                    "examples": [
-                        "Exfoliate twice a week for smoother skin.",
-                        "This scrub helps exfoliate gently."
-                    ]
-                },
-                {
-                    "id": "serum-001",
-                    "text": "serum",
-                    "phonetics": "/ˈsɪrəm/",
-                    "partOfSpeech": "noun",
-                    "definition": "Concentrated skincare treatment",
-                    "examples": [
-                        "Apply serum before your moisturizer.",
-                        "This vitamin C serum brightens the skin."
-                    ]
-                },
-                {
-                    "id": "trendy-001",
-                    "text": "trendy",
-                    "phonetics": "/ˈtrendi/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Currently popular style",
-                    "examples": [
-                        "That haircut is so trendy right now.",
-                        "She always knows what's trendy in beauty."
-                    ]
-                }
-            ],
-            "level": "A2",
-            "tagValue": "Beauty",
-            "languageCode": "en",
-            "description": "From skincare routines and wellness apps",
-            "imageUrl": null,
-            "localImageName": "self_care",
-            "isPremium": true,
-            "isFeatured": false
-        },
-        {
-            "id": "food-culinary-vocab-001",
-            "title": "Food and Culinary Vocab",
-            "words": [
-                {
-                    "id": "climavore-002",
-                    "text": "climavore",
-                    "phonetics": "/ˈklaɪməvɔːr/",
-                    "partOfSpeech": "noun",
-                    "definition": "Climate-conscious eater",
-                    "examples": [
-                        "As a climavore, she chooses local seasonal produce.",
-                        "Climavores consider the environmental impact of their food."
-                    ]
-                },
-                {
-                    "id": "fusion-001",
-                    "text": "fusion",
-                    "phonetics": "/ˈfjuːʒən/",
-                    "partOfSpeech": "noun",
-                    "definition": "Blending cuisines, like Korean-Mexican",
-                    "examples": [
-                        "This restaurant serves amazing Korean-Mexican fusion.",
-                        "Fusion cuisine combines flavors from different cultures."
-                    ]
-                },
-                {
-                    "id": "umami-001",
-                    "text": "umami",
-                    "phonetics": "/uˈmɑːmi/",
-                    "partOfSpeech": "noun",
-                    "definition": "Savory fifth taste",
-                    "examples": [
-                        "Mushrooms and soy sauce are rich in umami flavor.",
-                        "Umami makes food taste more satisfying and complex."
-                    ]
-                },
-                {
-                    "id": "forage-001",
-                    "text": "forage",
-                    "phonetics": "/ˈfɔːrɪdʒ/",
-                    "partOfSpeech": "verb",
-                    "definition": "Gather wild edible plants",
-                    "examples": [
-                        "We forage for wild berries in the forest.",
-                        "Foraging connects people with nature and local food."
-                    ]
-                },
-                {
-                    "id": "plant-based-001",
-                    "text": "plant-based",
-                    "phonetics": "/plænt beɪst/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Meat-free, vegetable-focused",
-                    "examples": [
-                        "Plant-based diets are becoming more popular.",
-                        "This restaurant offers delicious plant-based options."
-                    ]
-                },
-                {
-                    "id": "ferment-001",
-                    "text": "ferment",
-                    "phonetics": "/fərˈment/",
-                    "partOfSpeech": "verb",
-                    "definition": "Preserve food via bacteria, like kimchi",
-                    "examples": [
-                        "We ferment cabbage to make homemade kimchi.",
-                        "Fermented foods are great for gut health."
-                    ]
-                },
-                {
-                    "id": "gourmet-001",
-                    "text": "gourmet",
-                    "phonetics": "/ɡʊrˈmeɪ/",
-                    "partOfSpeech": "adjective",
-                    "definition": "High-quality, fancy food",
-                    "examples": [
-                        "This gourmet restaurant has a Michelin star.",
-                        "She loves cooking gourmet meals for special occasions."
-                    ]
-                },
-                {
-                    "id": "palate-001",
-                    "text": "palate",
-                    "phonetics": "/ˈpælət/",
-                    "partOfSpeech": "noun",
-                    "definition": "Sense of taste",
-                    "examples": [
-                        "His palate has developed through years of cooking.",
-                        "This wine will please even the most refined palate."
-                    ]
-                },
-                {
-                    "id": "savor-001",
-                    "text": "savor",
-                    "phonetics": "/ˈseɪvər/",
-                    "partOfSpeech": "verb",
-                    "definition": "Enjoy food slowly",
-                    "examples": [
-                        "Savor each bite of this delicious chocolate cake.",
-                        "Take time to savor the flavors of this meal."
-                    ]
-                },
-                {
-                    "id": "ingredient-001",
-                    "text": "ingredient",
-                    "phonetics": "/ɪnˈɡriːdiənt/",
-                    "partOfSpeech": "noun",
-                    "definition": "Component of a recipe",
-                    "examples": [
-                        "Fresh ingredients make all the difference in cooking.",
-                        "Check the ingredients list for allergens."
-                    ]
-                },
-                {
-                    "id": "cuisine-001",
-                    "text": "cuisine",
-                    "phonetics": "/kwɪˈziːn/",
-                    "partOfSpeech": "noun",
-                    "definition": "Style of cooking from a region",
-                    "examples": [
-                        "Italian cuisine is famous for pasta and pizza.",
-                        "She specializes in authentic Thai cuisine."
-                    ]
-                },
-                {
-                    "id": "vegan-001",
-                    "text": "vegan",
-                    "phonetics": "/ˈviːɡən/",
-                    "partOfSpeech": "adjective",
-                    "definition": "No animal products at all",
-                    "examples": [
-                        "This vegan restaurant serves amazing plant-based dishes.",
-                        "She's been vegan for three years now."
-                    ]
-                }
-            ],
-            "level": "A2",
-            "tagValue": "Food",
-            "languageCode": "en",
-            "description": "Inspired by global diets and climavore trends",
-            "imageUrl": null,
-            "localImageName": "avocado",
-            "isPremium": true,
-            "isFeatured": false
-        },
-        {
-            "id": "travel-adventure-terms-001",
-            "title": "Travel and Adventure Terms",
-            "words": [
-                {
-                    "id": "digital-nomad-002",
-                    "text": "digital nomad",
-                    "phonetics": "/ˈdɪdʒɪtl ˈnoʊmæd/",
-                    "partOfSpeech": "noun",
-                    "definition": "Traveler working remotely",
-                    "examples": [
-                        "Digital nomads can work from anywhere with WiFi.",
-                        "She became a digital nomad and travels while working."
-                    ]
-                },
-                {
-                    "id": "wanderlust-001",
-                    "text": "wanderlust",
-                    "phonetics": "/ˈwɑːndərlʌst/",
-                    "partOfSpeech": "noun",
-                    "definition": "Strong desire to travel",
-                    "examples": [
-                        "Her wanderlust led her to visit 30 countries.",
-                        "I have serious wanderlust and want to see the world."
-                    ]
-                },
-                {
-                    "id": "itinerary-001",
-                    "text": "itinerary",
-                    "phonetics": "/aɪˈtɪnəreri/",
-                    "partOfSpeech": "noun",
-                    "definition": "Travel plan or schedule",
-                    "examples": [
-                        "Check your itinerary for tomorrow's activities.",
-                        "Our travel itinerary includes five cities in two weeks."
-                    ]
-                },
-                {
-                    "id": "jet-lag-001",
-                    "text": "jet lag",
-                    "phonetics": "/dʒet læɡ/",
-                    "partOfSpeech": "noun",
-                    "definition": "Fatigue from time zone changes",
-                    "examples": [
-                        "I'm suffering from jet lag after the long flight.",
-                        "Jet lag makes it hard to sleep at the right time."
-                    ]
-                },
-                {
-                    "id": "eco-tourism-001",
-                    "text": "eco-tourism",
-                    "phonetics": "/ˈiːkoʊ ˈtʊrɪzəm/",
-                    "partOfSpeech": "noun",
-                    "definition": "Environmentally friendly travel",
-                    "examples": [
-                        "Eco-tourism helps protect natural environments.",
-                        "We chose eco-tourism to minimize our impact."
-                    ]
-                },
-                {
-                    "id": "backpacker-001",
-                    "text": "backpacker",
-                    "phonetics": "/ˈbækpækər/",
-                    "partOfSpeech": "noun",
-                    "definition": "Budget traveler with a pack",
-                    "examples": [
-                        "Backpackers often stay in hostels to save money.",
-                        "He's been a backpacker for six months across Asia."
-                    ]
-                },
-                {
-                    "id": "destination-001",
-                    "text": "destination",
-                    "phonetics": "/ˌdestɪˈneɪʃən/",
-                    "partOfSpeech": "noun",
-                    "definition": "Place you're traveling to",
-                    "examples": [
-                        "Paris is my dream travel destination.",
-                        "What's your next vacation destination?"
-                    ]
-                },
-                {
-                    "id": "nomadic-001",
-                    "text": "nomadic",
-                    "phonetics": "/noʊˈmædɪk/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Wandering lifestyle",
-                    "examples": [
-                        "She leads a nomadic lifestyle, moving every few months.",
-                        "Nomadic tribes have lived this way for centuries."
-                    ]
-                },
-                {
-                    "id": "visa-001",
-                    "text": "visa",
-                    "phonetics": "/ˈviːzə/",
-                    "partOfSpeech": "noun",
-                    "definition": "Official travel permission",
-                    "examples": [
-                        "You need a visa to visit that country.",
-                        "My visa expires next month, so I need to renew it."
-                    ]
-                },
-                {
-                    "id": "explore-001",
-                    "text": "explore",
-                    "phonetics": "/ɪkˈsplɔːr/",
-                    "partOfSpeech": "verb",
-                    "definition": "Discover new places",
-                    "examples": [
-                        "Let's explore the old town on foot.",
-                        "I love to explore new cities and cultures."
-                    ]
-                },
-                {
-                    "id": "adventure-001",
-                    "text": "adventure",
-                    "phonetics": "/ədˈventʃər/",
-                    "partOfSpeech": "noun",
-                    "definition": "Exciting, risky trip",
-                    "examples": [
-                        "Hiking in the mountains was quite an adventure.",
-                        "She's always looking for her next big adventure."
-                    ]
-                },
-                {
-                    "id": "culture-shock-001",
-                    "text": "culture shock",
-                    "phonetics": "/ˈkʌltʃər ʃɑːk/",
-                    "partOfSpeech": "noun",
-                    "definition": "Disorientation in new cultures",
-                    "examples": [
-                        "Moving to Japan gave me serious culture shock.",
-                        "Culture shock is normal when living abroad."
-                    ]
-                },
-                {
-                    "id": "souvenir-001",
-                    "text": "souvenir",
-                    "phonetics": "/ˌsuːvəˈnɪr/",
-                    "partOfSpeech": "noun",
-                    "definition": "Travel memento",
-                    "examples": [
-                        "I bought a souvenir from every city I visited.",
-                        "This keychain is a souvenir from my trip to Italy."
-                    ]
-                }
-            ],
-            "level": "A2",
-            "tagValue": "Travel",
-            "languageCode": "en",
-            "description": "Tied to digital nomad and global trends",
-            "imageUrl": null,
-            "localImageName": "travel",
-            "isPremium": true,
-            "isFeatured": false
-        },
-        {
-            "id": "emotions-mental-health-001",
-            "title": "Emotions and Mental Health Words",
-            "words": [
-                {
-                    "id": "hangry-002",
-                    "text": "hangry",
-                    "phonetics": "/ˈhæŋɡri/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Irritable from hunger",
-                    "examples": [
-                        "I get hangry when I skip lunch.",
-                        "Don't talk to me when I'm hangry."
-                    ]
-                },
-                {
-                    "id": "nomophobia-002",
-                    "text": "nomophobia",
-                    "phonetics": "/noʊmoʊˈfoʊbiə/",
-                    "partOfSpeech": "noun",
-                    "definition": "Phone separation anxiety",
-                    "examples": [
-                        "Her nomophobia makes her check her phone constantly.",
-                        "Nomophobia is becoming a real problem for many people."
-                    ]
-                },
-                {
-                    "id": "resilient-001",
-                    "text": "resilient",
-                    "phonetics": "/rɪˈzɪliənt/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Bouncing back from setbacks",
-                    "examples": [
-                        "She's very resilient and always finds a way forward.",
-                        "Resilient people adapt well to challenges."
-                    ]
-                },
-                {
-                    "id": "empathetic-001",
-                    "text": "empathetic",
-                    "phonetics": "/ˌempəˈθetɪk/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Understanding others' feelings",
-                    "examples": [
-                        "An empathetic person listens without judgment.",
-                        "She's naturally empathetic and helps others feel heard."
-                    ]
-                },
-                {
-                    "id": "anxious-001",
-                    "text": "anxious",
-                    "phonetics": "/ˈæŋkʃəs/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Worried or uneasy",
-                    "examples": [
-                        "I feel anxious before big presentations.",
-                        "Anxious thoughts can keep you awake at night."
-                    ]
-                },
-                {
-                    "id": "mindful-001",
-                    "text": "mindful",
-                    "phonetics": "/ˈmaɪndfəl/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Aware in the present moment",
-                    "examples": [
-                        "Mindful breathing helps reduce stress.",
-                        "She practices mindful eating to enjoy her meals."
-                    ]
-                },
-                {
-                    "id": "overwhelmed-001",
-                    "text": "overwhelmed",
-                    "phonetics": "/ˌoʊvərˈwelmd/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Feeling too much pressure",
-                    "examples": [
-                        "I feel overwhelmed by all these deadlines.",
-                        "Overwhelmed students often need support and guidance."
-                    ]
-                },
-                {
-                    "id": "grateful-001",
-                    "text": "grateful",
-                    "phonetics": "/ˈɡreɪtfəl/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Thankful for what you have",
-                    "examples": [
-                        "I'm grateful for my family and friends.",
-                        "Practicing gratitude makes you more grateful daily."
-                    ]
-                },
-                {
-                    "id": "serene-001",
-                    "text": "serene",
-                    "phonetics": "/səˈriːn/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Calm and peaceful",
-                    "examples": [
-                        "The lake looked serene in the morning light.",
-                        "Meditation helps her feel more serene and centered."
-                    ]
-                },
-                {
-                    "id": "vulnerable-001",
-                    "text": "vulnerable",
-                    "phonetics": "/ˈvʌlnərəbəl/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Open to emotional harm",
-                    "examples": [
-                        "Being vulnerable in relationships takes courage.",
-                        "Vulnerable people need extra support and understanding."
-                    ]
-                },
-                {
-                    "id": "cope-001",
-                    "text": "cope",
-                    "phonetics": "/koʊp/",
-                    "partOfSpeech": "verb",
-                    "definition": "Deal with stress",
-                    "examples": [
-                        "Everyone copes with stress differently.",
-                        "Exercise helps me cope with anxiety."
-                    ]
-                },
-                {
-                    "id": "therapy-001",
-                    "text": "therapy",
-                    "phonetics": "/ˈθerəpi/",
-                    "partOfSpeech": "noun",
-                    "definition": "Professional mental health support",
-                    "examples": [
-                        "Therapy has helped her work through her issues.",
-                        "Many people benefit from regular therapy sessions."
-                    ]
-                }
-            ],
-            "level": "B1",
-            "tagValue": "Mental Health",
-            "languageCode": "en",
-            "description": "From wellness apps and modern self-improvement",
-            "imageUrl": null,
-            "localImageName": "mental_health",
-            "isPremium": true,
-            "isFeatured": false
-        },
-        {
-            "id": "social-media-internet-slang-001",
-            "title": "Social Media and Internet Slang",
-            "words": [
-                {
-                    "id": "meme-001",
-                    "text": "meme",
-                    "phonetics": "/miːm/",
-                    "partOfSpeech": "noun",
-                    "definition": "Humorous image or video shared online",
-                    "examples": [
-                        "That meme is so funny, I can't stop laughing.",
-                        "Memes spread quickly across social media platforms."
-                    ]
-                },
-                {
-                    "id": "viral-001",
-                    "text": "viral",
-                    "phonetics": "/ˈvaɪrəl/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Spread rapidly on social media",
-                    "examples": [
-                        "Her dance video went viral overnight.",
-                        "Viral content can reach millions of people quickly."
-                    ]
-                },
-                {
-                    "id": "hashtag-001",
-                    "text": "hashtag",
-                    "phonetics": "/ˈhæʃtæɡ/",
-                    "partOfSpeech": "noun",
-                    "definition": "# tag for categorizing posts",
-                    "examples": [
-                        "Use the hashtag #travel to reach more people.",
-                        "Hashtags help organize content on social media."
-                    ]
-                },
-                {
-                    "id": "influencer-001",
-                    "text": "influencer",
-                    "phonetics": "/ˈɪnfluənsər/",
-                    "partOfSpeech": "noun",
-                    "definition": "Social media personality with followers",
-                    "examples": [
-                        "The influencer promoted the new product to her audience.",
-                        "Influencers can shape trends and opinions online."
-                    ]
-                },
-                {
-                    "id": "trend-001",
-                    "text": "trend",
-                    "phonetics": "/trend/",
-                    "partOfSpeech": "noun",
-                    "definition": "Popular topic or challenge",
-                    "examples": [
-                        "The new dance trend is taking over TikTok.",
-                        "Trends change quickly on social media platforms."
-                    ]
-                },
-                {
-                    "id": "ghosting-001",
-                    "text": "ghosting",
-                    "phonetics": "/ˈɡoʊstɪŋ/",
-                    "partOfSpeech": "noun",
-                    "definition": "Suddenly cutting off communication",
-                    "examples": [
-                        "He's been ghosting me for weeks now.",
-                        "Ghosting is considered rude in online dating."
-                    ]
-                },
-                {
-                    "id": "dm-001",
-                    "text": "DM",
-                    "phonetics": "/diː em/",
-                    "partOfSpeech": "noun",
-                    "definition": "Direct message on apps",
-                    "examples": [
-                        "Send me a DM if you want to chat privately.",
-                        "I'll DM you the details later."
-                    ]
-                },
-                {
-                    "id": "stream-001",
-                    "text": "stream",
-                    "phonetics": "/striːm/",
-                    "partOfSpeech": "verb",
-                    "definition": "Live video broadcast",
-                    "examples": [
-                        "She streams her gaming sessions every evening.",
-                        "Many people stream their daily activities online."
-                    ]
-                },
-                {
-                    "id": "content-001",
-                    "text": "content",
-                    "phonetics": "/ˈkɑːntent/",
-                    "partOfSpeech": "noun",
-                    "definition": "Media created for online sharing",
-                    "examples": [
-                        "She creates amazing content for her YouTube channel.",
-                        "Good content keeps audiences engaged and coming back."
-                    ]
-                },
-                {
-                    "id": "algorithm-002",
-                    "text": "algorithm",
-                    "phonetics": "/ˈælɡərɪðəm/",
-                    "partOfSpeech": "noun",
-                    "definition": "System recommending posts",
-                    "examples": [
-                        "The algorithm shows me videos I might like.",
-                        "Understanding the algorithm helps content creators succeed."
-                    ]
-                },
-                {
-                    "id": "fyp-001",
-                    "text": "FYP",
-                    "phonetics": "/ef waɪ piː/",
-                    "partOfSpeech": "noun",
-                    "definition": "For You Page on TikTok",
-                    "examples": [
-                        "My video made it to the FYP!",
-                        "The FYP shows personalized content recommendations."
-                    ]
-                },
-                {
-                    "id": "caption-001",
-                    "text": "caption",
-                    "phonetics": "/ˈkæpʃən/",
-                    "partOfSpeech": "noun",
-                    "definition": "Text description under a post",
-                    "examples": [
-                        "Write a catchy caption for your Instagram photo.",
-                        "The caption explains what's happening in the video."
-                    ]
-                },
-                {
-                    "id": "engage-001",
-                    "text": "engage",
-                    "phonetics": "/ɪnˈɡeɪdʒ/",
-                    "partOfSpeech": "verb",
-                    "definition": "Interact with content (like, comment)",
-                    "examples": [
-                        "Engage with posts by liking and commenting.",
-                        "Engaging content gets more views and shares."
-                    ]
-                }
-            ],
-            "level": "A2",
-            "tagValue": "Social Media",
-            "languageCode": "en",
-            "description": "Viral from TikTok, X, and meme culture",
-            "imageUrl": null,
-            "localImageName": "socials",
-            "isPremium": true,
-            "isFeatured": false
-        },
-        {
-            "id": "fitness-wellness-vocab-001",
-            "title": "Fitness and Wellness Vocab",
-            "words": [
-                {
-                    "id": "workout-001",
-                    "text": "workout",
-                    "phonetics": "/ˈwɜːrkaʊt/",
-                    "partOfSpeech": "noun",
-                    "definition": "Exercise session",
-                    "examples": [
-                        "I do a 30-minute workout every morning.",
-                        "This workout really challenges your muscles."
-                    ]
-                },
-                {
-                    "id": "hydrate-001",
-                    "text": "hydrate",
-                    "phonetics": "/ˈhaɪdreɪt/",
-                    "partOfSpeech": "verb",
-                    "definition": "Drink water to stay healthy",
-                    "examples": [
-                        "Remember to hydrate before and after exercise.",
-                        "Hydrating properly helps with muscle recovery."
-                    ]
-                },
-                {
-                    "id": "endurance-001",
-                    "text": "endurance",
-                    "phonetics": "/ɪnˈdʊrəns/",
-                    "partOfSpeech": "noun",
-                    "definition": "Ability to sustain activity",
-                    "examples": [
-                        "Marathon running requires great endurance.",
-                        "Building endurance takes time and consistent training."
-                    ]
-                },
-                {
-                    "id": "cardio-001",
-                    "text": "cardio",
-                    "phonetics": "/ˈkɑːrdioʊ/",
-                    "partOfSpeech": "noun",
-                    "definition": "Heart-strengthening exercise",
-                    "examples": [
-                        "I do cardio three times a week for heart health.",
-                        "Running and cycling are great cardio exercises."
-                    ]
-                },
-                {
-                    "id": "yoga-001",
-                    "text": "yoga",
-                    "phonetics": "/ˈjoʊɡə/",
-                    "partOfSpeech": "noun",
-                    "definition": "Mind-body practice",
-                    "examples": [
-                        "Yoga helps improve flexibility and reduces stress.",
-                        "She practices yoga every morning for mindfulness."
-                    ]
-                },
-                {
-                    "id": "rep-001",
-                    "text": "rep",
-                    "phonetics": "/rep/",
-                    "partOfSpeech": "noun",
-                    "definition": "Repetition in strength training",
-                    "examples": [
-                        "Do 10 reps of this exercise.",
-                        "Increasing reps builds muscle endurance."
-                    ]
-                },
-                {
-                    "id": "wellness-001",
-                    "text": "wellness",
-                    "phonetics": "/ˈwelnəs/",
-                    "partOfSpeech": "noun",
-                    "definition": "Overall health state",
-                    "examples": [
-                        "Wellness includes physical, mental, and emotional health.",
-                        "The company focuses on employee wellness programs."
-                    ]
-                },
-                {
-                    "id": "meditate-001",
-                    "text": "meditate",
-                    "phonetics": "/ˈmedɪteɪt/",
-                    "partOfSpeech": "verb",
-                    "definition": "Practice mindfulness",
-                    "examples": [
-                        "I meditate for 10 minutes every morning.",
-                        "Meditating helps reduce anxiety and improve focus."
-                    ]
-                },
-                {
-                    "id": "stamina-001",
-                    "text": "stamina",
-                    "phonetics": "/ˈstæmɪnə/",
-                    "partOfSpeech": "noun",
-                    "definition": "Energy for prolonged effort",
-                    "examples": [
-                        "Long-distance runners need incredible stamina.",
-                        "Building stamina requires regular aerobic exercise."
-                    ]
-                },
-                {
-                    "id": "balance-001",
-                    "text": "balance",
-                    "phonetics": "/ˈbæləns/",
-                    "partOfSpeech": "noun",
-                    "definition": "Stability in poses or life",
-                    "examples": [
-                        "Yoga helps improve balance and coordination.",
-                        "Finding work-life balance is important for wellness."
-                    ]
-                },
-                {
-                    "id": "recover-001",
-                    "text": "recover",
-                    "phonetics": "/rɪˈkʌvər/",
-                    "partOfSpeech": "verb",
-                    "definition": "Rest after exercise",
-                    "examples": [
-                        "Your muscles need time to recover between workouts.",
-                        "Proper recovery includes sleep and nutrition."
-                    ]
-                },
-                {
-                    "id": "boost-001",
-                    "text": "boost",
-                    "phonetics": "/buːst/",
-                    "partOfSpeech": "verb",
-                    "definition": "Increase energy or performance",
-                    "examples": [
-                        "This pre-workout drink will boost your energy.",
-                        "Exercise can boost your mood and confidence."
-                    ]
-                },
-                {
-                    "id": "flex-002",
-                    "text": "flex",
-                    "phonetics": "/fleks/",
-                    "partOfSpeech": "verb",
-                    "definition": "Show muscle or bend",
-                    "examples": [
-                        "Flex your muscles to show your strength.",
-                        "Flex your knees slightly when doing squats."
-                    ]
-                }
-            ],
-            "level": "A2",
-            "tagValue": "Fitness",
-            "languageCode": "en",
-            "description": "From gamified health apps like Duolingo for gym",
-            "imageUrl": null,
-            "localImageName": "business",
-            "isPremium": true,
-            "isFeatured": false
-        },
-        {
-            "id": "everyday-modern-phrases-001",
-            "title": "Everyday Modern Phrases",
-            "words": [
-                {
-                    "id": "pessimize-001",
-                    "text": "pessimize",
-                    "phonetics": "/ˈpesɪmaɪz/",
-                    "partOfSpeech": "verb",
-                    "definition": "Expect the worst outcome",
-                    "examples": [
-                        "Don't pessimize about the exam results.",
-                        "She tends to pessimize when facing challenges."
-                    ]
-                },
-                {
-                    "id": "mountweazel-001",
-                    "text": "mountweazel",
-                    "phonetics": "/ˈmaʊntwiːzəl/",
-                    "partOfSpeech": "noun",
-                    "definition": "Fictional dictionary entry to catch plagiarism",
-                    "examples": [
-                        "The dictionary included a mountweazel to detect copying.",
-                        "Mountweazels help protect intellectual property."
-                    ]
-                },
-                {
-                    "id": "confuddle-001",
-                    "text": "confuddle",
-                    "phonetics": "/kənˈfʌdəl/",
-                    "partOfSpeech": "verb",
-                    "definition": "To confuse thoroughly",
-                    "examples": [
-                        "The complex instructions confuddled everyone.",
-                        "Don't confuddle the issue with unnecessary details."
-                    ]
-                },
-                {
-                    "id": "beseech-001",
-                    "text": "beseech",
-                    "phonetics": "/bɪˈsiːtʃ/",
-                    "partOfSpeech": "verb",
-                    "definition": "Beg urgently",
-                    "examples": [
-                        "I beseech you to reconsider your decision.",
-                        "She beseeched him to stay and help."
-                    ]
-                },
-                {
-                    "id": "aggrandize-001",
-                    "text": "aggrandize",
-                    "phonetics": "/əˈɡrændaɪz/",
-                    "partOfSpeech": "verb",
-                    "definition": "Make greater or exaggerate",
-                    "examples": [
-                        "He tends to aggrandize his achievements.",
-                        "Don't aggrandize the problem beyond reality."
-                    ]
-                },
-                {
-                    "id": "abnegation-001",
-                    "text": "abnegation",
-                    "phonetics": "/ˌæbnɪˈɡeɪʃən/",
-                    "partOfSpeech": "noun",
-                    "definition": "Self-denial of desires",
-                    "examples": [
-                        "His abnegation of luxury impressed everyone.",
-                        "Abnegation is often seen as a virtue in some cultures."
-                    ]
-                },
-                {
-                    "id": "brat-001",
-                    "text": "brat",
-                    "phonetics": "/bræt/",
-                    "partOfSpeech": "noun",
-                    "definition": "Spoiled or cheeky person (trending from pop culture)",
-                    "examples": [
-                        "She's such a brat when she doesn't get her way.",
-                        "The brat behavior is trending in social media."
-                    ]
-                },
-                {
-                    "id": "egen-nam-001",
-                    "text": "egen-nam",
-                    "phonetics": "/ˈeɡən næm/",
-                    "partOfSpeech": "noun",
-                    "definition": "Effortless charm (Korean trend influencing global slang)",
-                    "examples": [
-                        "He has that egen-nam quality that everyone loves.",
-                        "Egen-nam is becoming popular in international fashion."
-                    ]
-                },
-                {
-                    "id": "teto-nam-001",
-                    "text": "teto-nam",
-                    "phonetics": "/ˈtetoʊ næm/",
-                    "partOfSpeech": "noun",
-                    "definition": "Natural attractiveness",
-                    "examples": [
-                        "Her teto-nam makes her stand out naturally.",
-                        "Teto-nam is about embracing your natural beauty."
-                    ]
-                },
-                {
-                    "id": "kkeok-eo-001",
-                    "text": "kkeok-eo",
-                    "phonetics": "/ˈkkeok eo/",
-                    "partOfSpeech": "verb",
-                    "definition": "Versatile slang for turn/bend/break (viral from entertainment)",
-                    "examples": [
-                        "Just kkeok-eo when you reach the corner.",
-                        "Kkeok-eo has become viral slang in global entertainment."
-                    ]
-                },
-                {
-                    "id": "intrusive-001",
-                    "text": "intrusive",
-                    "phonetics": "/ɪnˈtruːsɪv/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Unwanted thoughts popping up",
-                    "examples": [
-                        "Intrusive thoughts can be difficult to control.",
-                        "She struggled with intrusive memories from the past."
-                    ]
-                },
-                {
-                    "id": "purity-001",
-                    "text": "purity",
-                    "phonetics": "/ˈpjʊrəti/",
-                    "partOfSpeech": "noun",
-                    "definition": "Strict moral standards (often critiqued online)",
-                    "examples": [
-                        "The concept of purity is being questioned online.",
-                        "Purity culture is a topic of debate in modern society."
-                    ]
-                }
-            ],
-            "level": "B2",
-            "tagValue": "Modern",
-            "languageCode": "en",
-            "description": "Adapted as single words or short terms for quick learning, from 2025 dictionary additions",
-            "imageUrl": null,
-            "localImageName": "hello-1",
-            "isPremium": true,
-            "isFeatured": false
-        },
-        {
             "id": "sight-words-001",
             "title": "Sight Words",
             "words": [
@@ -3316,310 +1834,781 @@
             "isFeatured": false
         },
         {
-            "id": "academic-synonyms-001",
-            "title": "Academic Synonyms",
+            "id": "beauty-self-care-trends-001",
+            "title": "Beauty and Self-Care Trends",
             "words": [
                 {
-                    "id": "commence-001",
-                    "text": "commence",
-                    "phonetics": "/kəˈmens/",
-                    "partOfSpeech": "verb",
-                    "definition": "To begin or start",
-                    "examples": [
-                        "The ceremony will commence at 3 PM.",
-                        "Students should commence their research early."
-                    ]
-                },
-                {
-                    "id": "conclude-001",
-                    "text": "conclude",
-                    "phonetics": "/kənˈkluːd/",
-                    "partOfSpeech": "verb",
-                    "definition": "To end or finish",
-                    "examples": [
-                        "The meeting will conclude in ten minutes.",
-                        "Based on the evidence, we can conclude that the theory is valid."
-                    ]
-                },
-                {
-                    "id": "elucidate-001",
-                    "text": "elucidate",
-                    "phonetics": "/ɪˈluːsɪdeɪt/",
-                    "partOfSpeech": "verb",
-                    "definition": "To explain clearly",
-                    "examples": [
-                        "The professor will elucidate the complex theory.",
-                        "The diagram helps elucidate the process."
-                    ]
-                },
-                {
-                    "id": "exemplify-001",
-                    "text": "exemplify",
-                    "phonetics": "/ɪɡˈzemplɪfaɪ/",
-                    "partOfSpeech": "verb",
-                    "definition": "To illustrate with an example",
-                    "examples": [
-                        "This case exemplifies the problem perfectly.",
-                        "The data exemplifies the trend we discussed."
-                    ]
-                },
-                {
-                    "id": "facilitate-001",
-                    "text": "facilitate",
-                    "phonetics": "/fəˈsɪlɪteɪt/",
-                    "partOfSpeech": "verb",
-                    "definition": "To make easier",
-                    "examples": [
-                        "Technology can facilitate learning.",
-                        "The new system will facilitate communication."
-                    ]
-                },
-                {
-                    "id": "implement-001",
-                    "text": "implement",
-                    "phonetics": "/ˈɪmplɪment/",
-                    "partOfSpeech": "verb",
-                    "definition": "To put into action",
-                    "examples": [
-                        "The company will implement new policies.",
-                        "We need to implement these changes immediately."
-                    ]
-                },
-                {
-                    "id": "mitigate-001",
-                    "text": "mitigate",
-                    "phonetics": "/ˈmɪtɪɡeɪt/",
-                    "partOfSpeech": "verb",
-                    "definition": "To lessen severity",
-                    "examples": [
-                        "Measures were taken to mitigate the damage.",
-                        "Early intervention can mitigate the effects."
-                    ]
-                },
-                {
-                    "id": "substantiate-001",
-                    "text": "substantiate",
-                    "phonetics": "/səbˈstænʃieɪt/",
-                    "partOfSpeech": "verb",
-                    "definition": "To provide evidence for",
-                    "examples": [
-                        "The research substantiates our hypothesis.",
-                        "We need more data to substantiate this claim."
-                    ]
-                },
-                {
-                    "id": "advocate-001",
-                    "text": "advocate",
-                    "phonetics": "/ˈædvəkeɪt/",
-                    "partOfSpeech": "verb",
-                    "definition": "To support publicly",
-                    "examples": [
-                        "The organization advocates for environmental protection.",
-                        "She advocates for better healthcare policies."
-                    ]
-                },
-                {
-                    "id": "collaborate-001",
-                    "text": "collaborate",
-                    "phonetics": "/kəˈlæbəreɪt/",
-                    "partOfSpeech": "verb",
-                    "definition": "To work jointly",
-                    "examples": [
-                        "The teams will collaborate on this project.",
-                        "Scientists collaborate across different disciplines."
-                    ]
-                },
-                {
-                    "id": "deteriorate-001",
-                    "text": "deteriorate",
-                    "phonetics": "/dɪˈtɪriəreɪt/",
-                    "partOfSpeech": "verb",
-                    "definition": "To worsen",
-                    "examples": [
-                        "The patient's condition began to deteriorate.",
-                        "Relations between the countries have deteriorated."
-                    ]
-                },
-                {
-                    "id": "enhance-001",
-                    "text": "enhance",
-                    "phonetics": "/ɪnˈhæns/",
-                    "partOfSpeech": "verb",
-                    "definition": "To improve quality",
-                    "examples": [
-                        "The new features will enhance user experience.",
-                        "Regular exercise can enhance cognitive function."
-                    ]
-                }
-            ],
-            "level": "C1",
-            "tagValue": "Academic",
-            "languageCode": "en",
-            "description": "C1-level alternatives to common words, for varied essay expression in IELTS/TOEFL",
-            "imageUrl": null,
-            "localImageName": "book-glasses",
-            "isPremium": true,
-            "isFeatured": true
-        },
-        {
-            "id": "abstract-concepts-001",
-            "title": "Abstract Concepts",
-            "words": [
-                {
-                    "id": "ambiguous-001",
-                    "text": "ambiguous",
-                    "phonetics": "/æmˈbɪɡjuəs/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Open to multiple interpretations",
-                    "examples": [
-                        "The politician's statement was deliberately ambiguous.",
-                        "The contract language is ambiguous and needs clarification."
-                    ]
-                },
-                {
-                    "id": "coherent-001",
-                    "text": "coherent",
-                    "phonetics": "/koʊˈhɪrənt/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Logical and consistent",
-                    "examples": [
-                        "The student presented a coherent argument in her essay.",
-                        "The policy lacks a coherent strategy for implementation."
-                    ]
-                },
-                {
-                    "id": "disparity-001",
-                    "text": "disparity",
-                    "phonetics": "/dɪˈspærəti/",
+                    "id": "butter-skin-001",
+                    "text": "butter skin",
+                    "phonetics": "/ˈbʌtər skɪn/",
                     "partOfSpeech": "noun",
-                    "definition": "Difference or inequality",
+                    "definition": "Soft, glowing complexion from skincare",
                     "examples": [
-                        "There is a significant disparity in income levels.",
-                        "The disparity between theory and practice is concerning."
+                        "Her butter skin routine includes daily moisturizing.",
+                        "Everyone wants that perfect butter skin look."
                     ]
                 },
                 {
-                    "id": "eminent-001",
-                    "text": "eminent",
-                    "phonetics": "/ˈemənənt/",
+                    "id": "athleisure-001",
+                    "text": "athleisure",
+                    "phonetics": "/ˈæθliːʒər/",
+                    "partOfSpeech": "noun",
+                    "definition": "Comfortable athletic wear for everyday",
+                    "examples": [
+                        "Athleisure has become the new office dress code.",
+                        "She loves wearing athleisure on weekends."
+                    ]
+                },
+                {
+                    "id": "quiet-luxury-001",
+                    "text": "quiet luxury",
+                    "phonetics": "/ˈkwaɪət ˈlʌkʃəri/",
+                    "partOfSpeech": "noun",
+                    "definition": "Understated high-quality fashion",
+                    "examples": [
+                        "Quiet luxury focuses on quality over flashy logos.",
+                        "Her style embodies quiet luxury with timeless pieces."
+                    ]
+                },
+                {
+                    "id": "clean-beauty-001",
+                    "text": "clean beauty",
+                    "phonetics": "/kliːn ˈbjuːti/",
+                    "partOfSpeech": "noun",
+                    "definition": "Products free of harmful chemicals",
+                    "examples": [
+                        "Clean beauty brands are growing in popularity.",
+                        "She switched to clean beauty for healthier skin."
+                    ]
+                },
+                {
+                    "id": "skincare-001",
+                    "text": "skincare",
+                    "phonetics": "/ˈskaɪnkeər/",
+                    "partOfSpeech": "noun",
+                    "definition": "Routine for healthy skin",
+                    "examples": [
+                        "Her skincare routine takes 10 minutes every morning.",
+                        "Good skincare is essential for healthy aging."
+                    ]
+                },
+                {
+                    "id": "glow-001",
+                    "text": "glow",
+                    "phonetics": "/ɡloʊ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Radiant, healthy appearance",
+                    "examples": [
+                        "She has such a natural glow after vacation.",
+                        "This serum gives your skin an amazing glow."
+                    ]
+                },
+                {
+                    "id": "minimalist-001",
+                    "text": "minimalist",
+                    "phonetics": "/ˈmɪnɪməlɪst/",
                     "partOfSpeech": "adjective",
-                    "definition": "Famous and respected",
+                    "definition": "Simple, essential beauty routine",
                     "examples": [
-                        "The eminent scientist won the Nobel Prize.",
-                        "She is an eminent authority in her field."
+                        "Her minimalist approach uses only three products.",
+                        "Minimalist beauty focuses on quality over quantity."
                     ]
                 },
                 {
-                    "id": "feasible-001",
-                    "text": "feasible",
-                    "phonetics": "/ˈfiːzəbəl/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Possible to do easily",
+                    "id": "hydration-001",
+                    "text": "hydration",
+                    "phonetics": "/haɪˈdreɪʃən/",
+                    "partOfSpeech": "noun",
+                    "definition": "Keeping skin moisturized",
                     "examples": [
-                        "The proposed solution is not economically feasible.",
-                        "Is it feasible to complete this project by next month?"
+                        "Proper hydration is key to healthy skin.",
+                        "This cream provides deep hydration all day."
                     ]
                 },
                 {
-                    "id": "imperative-001",
-                    "text": "imperative",
-                    "phonetics": "/ɪmˈperətɪv/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Absolutely necessary",
-                    "examples": [
-                        "It is imperative that we address this issue immediately.",
-                        "Climate action has become an imperative for governments."
-                    ]
-                },
-                {
-                    "id": "juxtapose-001",
-                    "text": "juxtapose",
-                    "phonetics": "/ˈdʒʌkstəpoʊz/",
+                    "id": "exfoliate-001",
+                    "text": "exfoliate",
+                    "phonetics": "/ɪkˈsfoʊlieɪt/",
                     "partOfSpeech": "verb",
-                    "definition": "To place side by side for contrast",
+                    "definition": "Remove dead skin cells",
                     "examples": [
-                        "The author juxtaposes traditional and modern values.",
-                        "The exhibition juxtaposes works from different time periods."
+                        "Exfoliate twice a week for smoother skin.",
+                        "This scrub helps exfoliate gently."
                     ]
                 },
                 {
-                    "id": "mitigate-002",
-                    "text": "mitigate",
-                    "phonetics": "/ˈmɪtɪɡeɪt/",
-                    "partOfSpeech": "verb",
-                    "definition": "To reduce harm",
+                    "id": "serum-001",
+                    "text": "serum",
+                    "phonetics": "/ˈsɪrəm/",
+                    "partOfSpeech": "noun",
+                    "definition": "Concentrated skincare treatment",
                     "examples": [
-                        "New policies aim to mitigate environmental damage.",
-                        "Early intervention can mitigate the effects of learning difficulties."
+                        "Apply serum before your moisturizer.",
+                        "This vitamin C serum brightens the skin."
                     ]
                 },
                 {
-                    "id": "pragmatic-001",
-                    "text": "pragmatic",
-                    "phonetics": "/præɡˈmætɪk/",
+                    "id": "trendy-001",
+                    "text": "trendy",
+                    "phonetics": "/ˈtrendi/",
                     "partOfSpeech": "adjective",
-                    "definition": "Practical rather than idealistic",
+                    "definition": "Currently popular style",
                     "examples": [
-                        "We need a pragmatic approach to solving this problem.",
-                        "The government adopted a pragmatic policy on immigration."
-                    ]
-                },
-                {
-                    "id": "resilient-001",
-                    "text": "resilient",
-                    "phonetics": "/rɪˈzɪliənt/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Able to recover quickly",
-                    "examples": [
-                        "The economy has shown itself to be remarkably resilient.",
-                        "Children are often more resilient than adults think."
-                    ]
-                },
-                {
-                    "id": "scrutinize-001",
-                    "text": "scrutinize",
-                    "phonetics": "/ˈskruːtənaɪz/",
-                    "partOfSpeech": "verb",
-                    "definition": "To examine closely",
-                    "examples": [
-                        "The committee will scrutinize the proposed legislation.",
-                        "Investors scrutinize company financial reports carefully."
-                    ]
-                },
-                {
-                    "id": "transient-001",
-                    "text": "transient",
-                    "phonetics": "/ˈtrænziənt/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Short-lived or temporary",
-                    "examples": [
-                        "The economic recovery may prove to be transient.",
-                        "Many species are experiencing transient population changes."
+                        "That haircut is so trendy right now.",
+                        "She always knows what's trendy in beauty."
                     ]
                 }
             ],
-            "level": "C1",
-            "tagValue": "Abstract",
+            "level": "A2",
+            "tagValue": "Beauty",
             "languageCode": "en",
-            "description": "C1-C2 terms for opinions and arguments, common in TOEFL reading/speaking",
+            "description": "From skincare routines and wellness apps",
             "imageUrl": null,
-            "localImageName": "studying-2",
+            "localImageName": "self_care",
             "isPremium": true,
             "isFeatured": false
         },
         {
-            "id": "environment-society-001",
-            "title": "Environment and Society",
+            "id": "food-culinary-vocab-001",
+            "title": "Food and Culinary Vocab",
             "words": [
                 {
-                    "id": "biodiversity-001",
-                    "text": "biodiversity",
-                    "phonetics": "/ˌbaɪoʊdaɪˈvɜːrsəti/",
+                    "id": "climavore-002",
+                    "text": "climavore",
+                    "phonetics": "/ˈklaɪməvɔːr/",
                     "partOfSpeech": "noun",
-                    "definition": "Variety of plant and animal life",
+                    "definition": "Climate-conscious eater",
                     "examples": [
-                        "The Amazon rainforest has incredible biodiversity.",
-                        "Climate change threatens global biodiversity."
+                        "As a climavore, she chooses local seasonal produce.",
+                        "Climavores consider the environmental impact of their food."
+                    ]
+                },
+                {
+                    "id": "fusion-001",
+                    "text": "fusion",
+                    "phonetics": "/ˈfjuːʒən/",
+                    "partOfSpeech": "noun",
+                    "definition": "Blending cuisines, like Korean-Mexican",
+                    "examples": [
+                        "This restaurant serves amazing Korean-Mexican fusion.",
+                        "Fusion cuisine combines flavors from different cultures."
+                    ]
+                },
+                {
+                    "id": "umami-001",
+                    "text": "umami",
+                    "phonetics": "/uˈmɑːmi/",
+                    "partOfSpeech": "noun",
+                    "definition": "Savory fifth taste",
+                    "examples": [
+                        "Mushrooms and soy sauce are rich in umami flavor.",
+                        "Umami makes food taste more satisfying and complex."
+                    ]
+                },
+                {
+                    "id": "forage-001",
+                    "text": "forage",
+                    "phonetics": "/ˈfɔːrɪdʒ/",
+                    "partOfSpeech": "verb",
+                    "definition": "Gather wild edible plants",
+                    "examples": [
+                        "We forage for wild berries in the forest.",
+                        "Foraging connects people with nature and local food."
+                    ]
+                },
+                {
+                    "id": "plant-based-001",
+                    "text": "plant-based",
+                    "phonetics": "/plænt beɪst/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Meat-free, vegetable-focused",
+                    "examples": [
+                        "Plant-based diets are becoming more popular.",
+                        "This restaurant offers delicious plant-based options."
+                    ]
+                },
+                {
+                    "id": "ferment-001",
+                    "text": "ferment",
+                    "phonetics": "/fərˈment/",
+                    "partOfSpeech": "verb",
+                    "definition": "Preserve food via bacteria, like kimchi",
+                    "examples": [
+                        "We ferment cabbage to make homemade kimchi.",
+                        "Fermented foods are great for gut health."
+                    ]
+                },
+                {
+                    "id": "gourmet-001",
+                    "text": "gourmet",
+                    "phonetics": "/ɡʊrˈmeɪ/",
+                    "partOfSpeech": "adjective",
+                    "definition": "High-quality, fancy food",
+                    "examples": [
+                        "This gourmet restaurant has a Michelin star.",
+                        "She loves cooking gourmet meals for special occasions."
+                    ]
+                },
+                {
+                    "id": "palate-001",
+                    "text": "palate",
+                    "phonetics": "/ˈpælət/",
+                    "partOfSpeech": "noun",
+                    "definition": "Sense of taste",
+                    "examples": [
+                        "His palate has developed through years of cooking.",
+                        "This wine will please even the most refined palate."
+                    ]
+                },
+                {
+                    "id": "savor-001",
+                    "text": "savor",
+                    "phonetics": "/ˈseɪvər/",
+                    "partOfSpeech": "verb",
+                    "definition": "Enjoy food slowly",
+                    "examples": [
+                        "Savor each bite of this delicious chocolate cake.",
+                        "Take time to savor the flavors of this meal."
+                    ]
+                },
+                {
+                    "id": "ingredient-001",
+                    "text": "ingredient",
+                    "phonetics": "/ɪnˈɡriːdiənt/",
+                    "partOfSpeech": "noun",
+                    "definition": "Component of a recipe",
+                    "examples": [
+                        "Fresh ingredients make all the difference in cooking.",
+                        "Check the ingredients list for allergens."
+                    ]
+                },
+                {
+                    "id": "cuisine-001",
+                    "text": "cuisine",
+                    "phonetics": "/kwɪˈziːn/",
+                    "partOfSpeech": "noun",
+                    "definition": "Style of cooking from a region",
+                    "examples": [
+                        "Italian cuisine is famous for pasta and pizza.",
+                        "She specializes in authentic Thai cuisine."
+                    ]
+                },
+                {
+                    "id": "vegan-001",
+                    "text": "vegan",
+                    "phonetics": "/ˈviːɡən/",
+                    "partOfSpeech": "adjective",
+                    "definition": "No animal products at all",
+                    "examples": [
+                        "This vegan restaurant serves amazing plant-based dishes.",
+                        "She's been vegan for three years now."
+                    ]
+                }
+            ],
+            "level": "A2",
+            "tagValue": "Food",
+            "languageCode": "en",
+            "description": "Inspired by global diets and climavore trends",
+            "imageUrl": null,
+            "localImageName": "avocado",
+            "isPremium": true,
+            "isFeatured": false
+        },
+        {
+            "id": "travel-adventure-terms-001",
+            "title": "Travel and Adventure Terms",
+            "words": [
+                {
+                    "id": "digital-nomad-002",
+                    "text": "digital nomad",
+                    "phonetics": "/ˈdɪdʒɪtl ˈnoʊmæd/",
+                    "partOfSpeech": "noun",
+                    "definition": "Traveler working remotely",
+                    "examples": [
+                        "Digital nomads can work from anywhere with WiFi.",
+                        "She became a digital nomad and travels while working."
+                    ]
+                },
+                {
+                    "id": "wanderlust-001",
+                    "text": "wanderlust",
+                    "phonetics": "/ˈwɑːndərlʌst/",
+                    "partOfSpeech": "noun",
+                    "definition": "Strong desire to travel",
+                    "examples": [
+                        "Her wanderlust led her to visit 30 countries.",
+                        "I have serious wanderlust and want to see the world."
+                    ]
+                },
+                {
+                    "id": "itinerary-001",
+                    "text": "itinerary",
+                    "phonetics": "/aɪˈtɪnəreri/",
+                    "partOfSpeech": "noun",
+                    "definition": "Travel plan or schedule",
+                    "examples": [
+                        "Check your itinerary for tomorrow's activities.",
+                        "Our travel itinerary includes five cities in two weeks."
+                    ]
+                },
+                {
+                    "id": "jet-lag-001",
+                    "text": "jet lag",
+                    "phonetics": "/dʒet læɡ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Fatigue from time zone changes",
+                    "examples": [
+                        "I'm suffering from jet lag after the long flight.",
+                        "Jet lag makes it hard to sleep at the right time."
+                    ]
+                },
+                {
+                    "id": "eco-tourism-001",
+                    "text": "eco-tourism",
+                    "phonetics": "/ˈiːkoʊ ˈtʊrɪzəm/",
+                    "partOfSpeech": "noun",
+                    "definition": "Environmentally friendly travel",
+                    "examples": [
+                        "Eco-tourism helps protect natural environments.",
+                        "We chose eco-tourism to minimize our impact."
+                    ]
+                },
+                {
+                    "id": "backpacker-001",
+                    "text": "backpacker",
+                    "phonetics": "/ˈbækpækər/",
+                    "partOfSpeech": "noun",
+                    "definition": "Budget traveler with a pack",
+                    "examples": [
+                        "Backpackers often stay in hostels to save money.",
+                        "He's been a backpacker for six months across Asia."
+                    ]
+                },
+                {
+                    "id": "destination-001",
+                    "text": "destination",
+                    "phonetics": "/ˌdestɪˈneɪʃən/",
+                    "partOfSpeech": "noun",
+                    "definition": "Place you're traveling to",
+                    "examples": [
+                        "Paris is my dream travel destination.",
+                        "What's your next vacation destination?"
+                    ]
+                },
+                {
+                    "id": "nomadic-001",
+                    "text": "nomadic",
+                    "phonetics": "/noʊˈmædɪk/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Wandering lifestyle",
+                    "examples": [
+                        "She leads a nomadic lifestyle, moving every few months.",
+                        "Nomadic tribes have lived this way for centuries."
+                    ]
+                },
+                {
+                    "id": "visa-001",
+                    "text": "visa",
+                    "phonetics": "/ˈviːzə/",
+                    "partOfSpeech": "noun",
+                    "definition": "Official travel permission",
+                    "examples": [
+                        "You need a visa to visit that country.",
+                        "My visa expires next month, so I need to renew it."
+                    ]
+                },
+                {
+                    "id": "explore-001",
+                    "text": "explore",
+                    "phonetics": "/ɪkˈsplɔːr/",
+                    "partOfSpeech": "verb",
+                    "definition": "Discover new places",
+                    "examples": [
+                        "Let's explore the old town on foot.",
+                        "I love to explore new cities and cultures."
+                    ]
+                },
+                {
+                    "id": "adventure-001",
+                    "text": "adventure",
+                    "phonetics": "/ədˈventʃər/",
+                    "partOfSpeech": "noun",
+                    "definition": "Exciting, risky trip",
+                    "examples": [
+                        "Hiking in the mountains was quite an adventure.",
+                        "She's always looking for her next big adventure."
+                    ]
+                },
+                {
+                    "id": "culture-shock-001",
+                    "text": "culture shock",
+                    "phonetics": "/ˈkʌltʃər ʃɑːk/",
+                    "partOfSpeech": "noun",
+                    "definition": "Disorientation in new cultures",
+                    "examples": [
+                        "Moving to Japan gave me serious culture shock.",
+                        "Culture shock is normal when living abroad."
+                    ]
+                },
+                {
+                    "id": "souvenir-001",
+                    "text": "souvenir",
+                    "phonetics": "/ˌsuːvəˈnɪr/",
+                    "partOfSpeech": "noun",
+                    "definition": "Travel memento",
+                    "examples": [
+                        "I bought a souvenir from every city I visited.",
+                        "This keychain is a souvenir from my trip to Italy."
+                    ]
+                }
+            ],
+            "level": "A2",
+            "tagValue": "Travel",
+            "languageCode": "en",
+            "description": "Tied to digital nomad and global trends",
+            "imageUrl": null,
+            "localImageName": "travel",
+            "isPremium": true,
+            "isFeatured": false
+        },
+        {
+            "id": "social-media-internet-slang-001",
+            "title": "Social Media and Internet Slang",
+            "words": [
+                {
+                    "id": "meme-001",
+                    "text": "meme",
+                    "phonetics": "/miːm/",
+                    "partOfSpeech": "noun",
+                    "definition": "Humorous image or video shared online",
+                    "examples": [
+                        "That meme is so funny, I can't stop laughing.",
+                        "Memes spread quickly across social media platforms."
+                    ]
+                },
+                {
+                    "id": "viral-001",
+                    "text": "viral",
+                    "phonetics": "/ˈvaɪrəl/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Spread rapidly on social media",
+                    "examples": [
+                        "Her dance video went viral overnight.",
+                        "Viral content can reach millions of people quickly."
+                    ]
+                },
+                {
+                    "id": "hashtag-001",
+                    "text": "hashtag",
+                    "phonetics": "/ˈhæʃtæɡ/",
+                    "partOfSpeech": "noun",
+                    "definition": "# tag for categorizing posts",
+                    "examples": [
+                        "Use the hashtag #travel to reach more people.",
+                        "Hashtags help organize content on social media."
+                    ]
+                },
+                {
+                    "id": "influencer-001",
+                    "text": "influencer",
+                    "phonetics": "/ˈɪnfluənsər/",
+                    "partOfSpeech": "noun",
+                    "definition": "Social media personality with followers",
+                    "examples": [
+                        "The influencer promoted the new product to her audience.",
+                        "Influencers can shape trends and opinions online."
+                    ]
+                },
+                {
+                    "id": "trend-001",
+                    "text": "trend",
+                    "phonetics": "/trend/",
+                    "partOfSpeech": "noun",
+                    "definition": "Popular topic or challenge",
+                    "examples": [
+                        "The new dance trend is taking over TikTok.",
+                        "Trends change quickly on social media platforms."
+                    ]
+                },
+                {
+                    "id": "ghosting-001",
+                    "text": "ghosting",
+                    "phonetics": "/ˈɡoʊstɪŋ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Suddenly cutting off communication",
+                    "examples": [
+                        "He's been ghosting me for weeks now.",
+                        "Ghosting is considered rude in online dating."
+                    ]
+                },
+                {
+                    "id": "dm-001",
+                    "text": "DM",
+                    "phonetics": "/diː em/",
+                    "partOfSpeech": "noun",
+                    "definition": "Direct message on apps",
+                    "examples": [
+                        "Send me a DM if you want to chat privately.",
+                        "I'll DM you the details later."
+                    ]
+                },
+                {
+                    "id": "stream-001",
+                    "text": "stream",
+                    "phonetics": "/striːm/",
+                    "partOfSpeech": "verb",
+                    "definition": "Live video broadcast",
+                    "examples": [
+                        "She streams her gaming sessions every evening.",
+                        "Many people stream their daily activities online."
+                    ]
+                },
+                {
+                    "id": "content-001",
+                    "text": "content",
+                    "phonetics": "/ˈkɑːntent/",
+                    "partOfSpeech": "noun",
+                    "definition": "Media created for online sharing",
+                    "examples": [
+                        "She creates amazing content for her YouTube channel.",
+                        "Good content keeps audiences engaged and coming back."
+                    ]
+                },
+                {
+                    "id": "algorithm-002",
+                    "text": "algorithm",
+                    "phonetics": "/ˈælɡərɪðəm/",
+                    "partOfSpeech": "noun",
+                    "definition": "System recommending posts",
+                    "examples": [
+                        "The algorithm shows me videos I might like.",
+                        "Understanding the algorithm helps content creators succeed."
+                    ]
+                },
+                {
+                    "id": "fyp-001",
+                    "text": "FYP",
+                    "phonetics": "/ef waɪ piː/",
+                    "partOfSpeech": "noun",
+                    "definition": "For You Page on TikTok",
+                    "examples": [
+                        "My video made it to the FYP!",
+                        "The FYP shows personalized content recommendations."
+                    ]
+                },
+                {
+                    "id": "caption-001",
+                    "text": "caption",
+                    "phonetics": "/ˈkæpʃən/",
+                    "partOfSpeech": "noun",
+                    "definition": "Text description under a post",
+                    "examples": [
+                        "Write a catchy caption for your Instagram photo.",
+                        "The caption explains what's happening in the video."
+                    ]
+                },
+                {
+                    "id": "engage-001",
+                    "text": "engage",
+                    "phonetics": "/ɪnˈɡeɪdʒ/",
+                    "partOfSpeech": "verb",
+                    "definition": "Interact with content (like, comment)",
+                    "examples": [
+                        "Engage with posts by liking and commenting.",
+                        "Engaging content gets more views and shares."
+                    ]
+                }
+            ],
+            "level": "A2",
+            "tagValue": "Social Media",
+            "languageCode": "en",
+            "description": "Viral from TikTok, X, and meme culture",
+            "imageUrl": null,
+            "localImageName": "socials",
+            "isPremium": true,
+            "isFeatured": false
+        },
+        {
+            "id": "fitness-wellness-vocab-001",
+            "title": "Fitness and Wellness Vocab",
+            "words": [
+                {
+                    "id": "workout-001",
+                    "text": "workout",
+                    "phonetics": "/ˈwɜːrkaʊt/",
+                    "partOfSpeech": "noun",
+                    "definition": "Exercise session",
+                    "examples": [
+                        "I do a 30-minute workout every morning.",
+                        "This workout really challenges your muscles."
+                    ]
+                },
+                {
+                    "id": "hydrate-001",
+                    "text": "hydrate",
+                    "phonetics": "/ˈhaɪdreɪt/",
+                    "partOfSpeech": "verb",
+                    "definition": "Drink water to stay healthy",
+                    "examples": [
+                        "Remember to hydrate before and after exercise.",
+                        "Hydrating properly helps with muscle recovery."
+                    ]
+                },
+                {
+                    "id": "endurance-001",
+                    "text": "endurance",
+                    "phonetics": "/ɪnˈdʊrəns/",
+                    "partOfSpeech": "noun",
+                    "definition": "Ability to sustain activity",
+                    "examples": [
+                        "Marathon running requires great endurance.",
+                        "Building endurance takes time and consistent training."
+                    ]
+                },
+                {
+                    "id": "cardio-001",
+                    "text": "cardio",
+                    "phonetics": "/ˈkɑːrdioʊ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Heart-strengthening exercise",
+                    "examples": [
+                        "I do cardio three times a week for heart health.",
+                        "Running and cycling are great cardio exercises."
+                    ]
+                },
+                {
+                    "id": "yoga-001",
+                    "text": "yoga",
+                    "phonetics": "/ˈjoʊɡə/",
+                    "partOfSpeech": "noun",
+                    "definition": "Mind-body practice",
+                    "examples": [
+                        "Yoga helps improve flexibility and reduces stress.",
+                        "She practices yoga every morning for mindfulness."
+                    ]
+                },
+                {
+                    "id": "rep-001",
+                    "text": "rep",
+                    "phonetics": "/rep/",
+                    "partOfSpeech": "noun",
+                    "definition": "Repetition in strength training",
+                    "examples": [
+                        "Do 10 reps of this exercise.",
+                        "Increasing reps builds muscle endurance."
+                    ]
+                },
+                {
+                    "id": "wellness-001",
+                    "text": "wellness",
+                    "phonetics": "/ˈwelnəs/",
+                    "partOfSpeech": "noun",
+                    "definition": "Overall health state",
+                    "examples": [
+                        "Wellness includes physical, mental, and emotional health.",
+                        "The company focuses on employee wellness programs."
+                    ]
+                },
+                {
+                    "id": "meditate-001",
+                    "text": "meditate",
+                    "phonetics": "/ˈmedɪteɪt/",
+                    "partOfSpeech": "verb",
+                    "definition": "Practice mindfulness",
+                    "examples": [
+                        "I meditate for 10 minutes every morning.",
+                        "Meditating helps reduce anxiety and improve focus."
+                    ]
+                },
+                {
+                    "id": "stamina-001",
+                    "text": "stamina",
+                    "phonetics": "/ˈstæmɪnə/",
+                    "partOfSpeech": "noun",
+                    "definition": "Energy for prolonged effort",
+                    "examples": [
+                        "Long-distance runners need incredible stamina.",
+                        "Building stamina requires regular aerobic exercise."
+                    ]
+                },
+                {
+                    "id": "balance-001",
+                    "text": "balance",
+                    "phonetics": "/ˈbæləns/",
+                    "partOfSpeech": "noun",
+                    "definition": "Stability in poses or life",
+                    "examples": [
+                        "Yoga helps improve balance and coordination.",
+                        "Finding work-life balance is important for wellness."
+                    ]
+                },
+                {
+                    "id": "recover-001",
+                    "text": "recover",
+                    "phonetics": "/rɪˈkʌvər/",
+                    "partOfSpeech": "verb",
+                    "definition": "Rest after exercise",
+                    "examples": [
+                        "Your muscles need time to recover between workouts.",
+                        "Proper recovery includes sleep and nutrition."
+                    ]
+                },
+                {
+                    "id": "boost-001",
+                    "text": "boost",
+                    "phonetics": "/buːst/",
+                    "partOfSpeech": "verb",
+                    "definition": "Increase energy or performance",
+                    "examples": [
+                        "This pre-workout drink will boost your energy.",
+                        "Exercise can boost your mood and confidence."
+                    ]
+                },
+                {
+                    "id": "flex-002",
+                    "text": "flex",
+                    "phonetics": "/fleks/",
+                    "partOfSpeech": "verb",
+                    "definition": "Show muscle or bend",
+                    "examples": [
+                        "Flex your muscles to show your strength.",
+                        "Flex your knees slightly when doing squats."
+                    ]
+                }
+            ],
+            "level": "A2",
+            "tagValue": "Fitness",
+            "languageCode": "en",
+            "description": "From gamified health apps like Duolingo for gym",
+            "imageUrl": null,
+            "localImageName": "business",
+            "isPremium": true,
+            "isFeatured": false
+        },
+        {
+            "id": "sustainability-eco-living-001",
+            "title": "Sustainability and Eco-Living",
+            "words": [
+                {
+                    "id": "eco-minimalism-001",
+                    "text": "eco-minimalism",
+                    "phonetics": "/ˈiːkoʊ ˈmɪnɪməlɪzəm/",
+                    "partOfSpeech": "noun",
+                    "definition": "Sustainable living with fewer possessions",
+                    "examples": [
+                        "Eco-minimalism helps reduce environmental impact.",
+                        "She practices eco-minimalism by buying only essentials."
+                    ]
+                },
+                {
+                    "id": "climavore-001",
+                    "text": "climavore",
+                    "phonetics": "/ˈklaɪməvɔːr/",
+                    "partOfSpeech": "noun",
+                    "definition": "Diet avoiding high-carbon foods",
+                    "examples": [
+                        "As a climavore, she avoids beef and dairy.",
+                        "Climavores choose foods with low carbon footprints."
                     ]
                 },
                 {
@@ -3627,54 +2616,54 @@
                     "text": "carbon footprint",
                     "phonetics": "/ˈkɑːrbən ˈfʊtprɪnt/",
                     "partOfSpeech": "noun",
-                    "definition": "Environmental impact from emissions",
+                    "definition": "Environmental impact from daily activities",
                     "examples": [
                         "Flying increases your carbon footprint significantly.",
-                        "Companies are working to reduce their carbon footprint."
+                        "We're working to reduce our company's carbon footprint."
                     ]
                 },
                 {
-                    "id": "deforestation-001",
-                    "text": "deforestation",
-                    "phonetics": "/diːˌfɔːrɪˈsteɪʃən/",
-                    "partOfSpeech": "noun",
-                    "definition": "Clearing forests on a large scale",
+                    "id": "upcycle-001",
+                    "text": "upcycle",
+                    "phonetics": "/ˈʌpsaɪkəl/",
+                    "partOfSpeech": "verb",
+                    "definition": "Reuse waste creatively into something valuable",
                     "examples": [
-                        "Deforestation is destroying wildlife habitats.",
-                        "The government must address illegal deforestation."
+                        "She upcycles old jars into beautiful planters.",
+                        "Upcycling reduces waste and saves money."
                     ]
                 },
                 {
-                    "id": "ecosystem-001",
-                    "text": "ecosystem",
-                    "phonetics": "/ˈiːkoʊsɪstəm/",
-                    "partOfSpeech": "noun",
-                    "definition": "Community of living organisms",
+                    "id": "zero-waste-001",
+                    "text": "zero-waste",
+                    "phonetics": "/ˈzɪroʊ weɪst/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Lifestyle producing no trash",
                     "examples": [
-                        "Pollution disrupts the marine ecosystem.",
-                        "The coral reef ecosystem is extremely fragile."
+                        "The zero-waste movement is growing rapidly.",
+                        "She follows a zero-waste lifestyle with reusable containers."
                     ]
                 },
                 {
-                    "id": "globalization-001",
-                    "text": "globalization",
-                    "phonetics": "/ˌɡloʊbələˈzeɪʃən/",
-                    "partOfSpeech": "noun",
-                    "definition": "Worldwide integration of economies",
+                    "id": "sustainable-001",
+                    "text": "sustainable",
+                    "phonetics": "/səˈsteɪnəbəl/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Long-term environmentally friendly",
                     "examples": [
-                        "Globalization has connected markets worldwide.",
-                        "The effects of globalization are complex and far-reaching."
+                        "Sustainable fashion uses eco-friendly materials.",
+                        "We need sustainable solutions for climate change."
                     ]
                 },
                 {
-                    "id": "inequality-001",
-                    "text": "inequality",
-                    "phonetics": "/ˌɪnɪˈkwɑːləti/",
+                    "id": "biodiversity-001",
+                    "text": "biodiversity",
+                    "phonetics": "/ˌbaɪoʊdaɪˈvɜːrsəti/",
                     "partOfSpeech": "noun",
-                    "definition": "Unequal distribution of resources",
+                    "definition": "Variety of life in ecosystems",
                     "examples": [
-                        "Income inequality is growing in many countries.",
-                        "Educational inequality affects future opportunities."
+                        "Protecting biodiversity is crucial for our planet.",
+                        "The rainforest has incredible biodiversity."
                     ]
                 },
                 {
@@ -3682,388 +2671,647 @@
                     "text": "renewable",
                     "phonetics": "/rɪˈnuːəbəl/",
                     "partOfSpeech": "adjective",
-                    "definition": "Resources that replenish naturally",
+                    "definition": "Energy sources like solar that replenish naturally",
                     "examples": [
                         "Solar and wind are renewable energy sources.",
-                        "We must invest in renewable technologies."
+                        "The country aims for 100% renewable electricity."
                     ]
                 },
                 {
-                    "id": "sustainability-001",
-                    "text": "sustainability",
-                    "phonetics": "/səˌsteɪnəˈbɪləti/",
-                    "partOfSpeech": "noun",
-                    "definition": "Ability to maintain long-term",
-                    "examples": [
-                        "Environmental sustainability requires immediate action.",
-                        "The company focuses on economic sustainability."
-                    ]
-                },
-                {
-                    "id": "urbanization-001",
-                    "text": "urbanization",
-                    "phonetics": "/ˌɜːrbənəˈzeɪʃən/",
-                    "partOfSpeech": "noun",
-                    "definition": "Growth of city populations",
-                    "examples": [
-                        "Rapid urbanization is changing rural landscapes.",
-                        "Urbanization brings both opportunities and challenges."
-                    ]
-                },
-                {
-                    "id": "alleviate-001",
-                    "text": "alleviate",
-                    "phonetics": "/əˈliːvieɪt/",
+                    "id": "compost-001",
+                    "text": "compost",
+                    "phonetics": "/ˈkɑːmpoʊst/",
                     "partOfSpeech": "verb",
-                    "definition": "To ease or relieve",
+                    "definition": "Decompose organic waste into fertilizer",
                     "examples": [
-                        "New policies aim to alleviate poverty.",
-                        "Technology can help alleviate traffic congestion."
+                        "We compost our food scraps in the backyard.",
+                        "Composting reduces landfill waste significantly."
                     ]
                 },
                 {
-                    "id": "catalyst-001",
-                    "text": "catalyst",
-                    "phonetics": "/ˈkætəlɪst/",
+                    "id": "greenwashing-001",
+                    "text": "greenwashing",
+                    "phonetics": "/ˈɡriːnwɑːʃɪŋ/",
                     "partOfSpeech": "noun",
-                    "definition": "Something sparking change",
+                    "definition": "False eco-friendly claims by companies",
                     "examples": [
-                        "The pandemic was a catalyst for digital transformation.",
-                        "Education serves as a catalyst for social mobility."
+                        "Consumers are getting better at spotting greenwashing.",
+                        "The company was accused of greenwashing their products."
                     ]
                 },
                 {
-                    "id": "detrimental-001",
-                    "text": "detrimental",
-                    "phonetics": "/ˌdetrɪˈmentəl/",
+                    "id": "biodegradable-001",
+                    "text": "biodegradable",
+                    "phonetics": "/ˌbaɪoʊdɪˈɡreɪdəbəl/",
                     "partOfSpeech": "adjective",
-                    "definition": "Harmful or damaging",
+                    "definition": "Breaks down naturally without harm",
                     "examples": [
-                        "Plastic waste is detrimental to marine life.",
-                        "Lack of sleep is detrimental to academic performance."
-                    ]
-                },
-                {
-                    "id": "proliferation-001",
-                    "text": "proliferation",
-                    "phonetics": "/prəˌlɪfəˈreɪʃən/",
-                    "partOfSpeech": "noun",
-                    "definition": "Rapid increase or spread",
-                    "examples": [
-                        "The proliferation of social media has changed communication.",
-                        "Nuclear proliferation remains a global concern."
+                        "Biodegradable packaging is better for the environment.",
+                        "These bags are made from biodegradable materials."
                     ]
                 }
             ],
-            "level": "C2",
-            "tagValue": "Environment",
+            "level": "B1",
+            "tagValue": "Eco",
             "languageCode": "en",
-            "description": "C2-level topic words for IELTS Task 2 essays on global issues",
+            "description": "Popular in 2025 lifestyle trends like eco-minimalism",
             "imageUrl": null,
-            "localImageName": "flag-uk",
+            "localImageName": "ecology",
             "isPremium": true,
             "isFeatured": false
         },
         {
-            "id": "emotions-relationships-001",
-            "title": "Emotions and Relationships",
+            "id": "emotions-mental-health-001",
+            "title": "Emotions and Mental Health Words",
             "words": [
                 {
-                    "id": "affection-001",
-                    "text": "affection",
-                    "phonetics": "/əˈfekʃən/",
-                    "partOfSpeech": "noun",
-                    "definition": "Warm fondness or liking",
+                    "id": "hangry-002",
+                    "text": "hangry",
+                    "phonetics": "/ˈhæŋɡri/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Irritable from hunger",
                     "examples": [
-                        "She showed great affection for her grandchildren.",
-                        "The couple's affection for each other was evident."
+                        "I get hangry when I skip lunch.",
+                        "Don't talk to me when I'm hangry."
                     ]
                 },
                 {
-                    "id": "bewilderment-001",
-                    "text": "bewilderment",
-                    "phonetics": "/bɪˈwɪldərmənt/",
+                    "id": "nomophobia-002",
+                    "text": "nomophobia",
+                    "phonetics": "/noʊmoʊˈfoʊbiə/",
                     "partOfSpeech": "noun",
-                    "definition": "Confusion or puzzlement",
+                    "definition": "Phone separation anxiety",
                     "examples": [
-                        "His sudden departure left everyone in bewilderment.",
-                        "The complex instructions caused bewilderment among students."
+                        "Her nomophobia makes her check her phone constantly.",
+                        "Nomophobia is becoming a real problem for many people."
                     ]
                 },
                 {
-                    "id": "contentment-001",
-                    "text": "contentment",
-                    "phonetics": "/kənˈtentmənt/",
-                    "partOfSpeech": "noun",
-                    "definition": "State of happiness and satisfaction",
+                    "id": "resilient-001",
+                    "text": "resilient",
+                    "phonetics": "/rɪˈzɪliənt/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Bouncing back from setbacks",
                     "examples": [
-                        "She found contentment in her simple lifestyle.",
-                        "The peaceful garden brought him great contentment."
+                        "She's very resilient and always finds a way forward.",
+                        "Resilient people adapt well to challenges."
                     ]
                 },
                 {
-                    "id": "despair-001",
-                    "text": "despair",
-                    "phonetics": "/dɪˈsper/",
-                    "partOfSpeech": "noun",
-                    "definition": "Complete loss of hope",
-                    "examples": [
-                        "The failed exam filled him with despair.",
-                        "In moments of despair, she turned to her family."
-                    ]
-                },
-                {
-                    "id": "empathy-001",
-                    "text": "empathy",
-                    "phonetics": "/ˈempəθi/",
-                    "partOfSpeech": "noun",
+                    "id": "empathetic-001",
+                    "text": "empathetic",
+                    "phonetics": "/ˌempəˈθetɪk/",
+                    "partOfSpeech": "adjective",
                     "definition": "Understanding others' feelings",
                     "examples": [
-                        "Good teachers show empathy toward struggling students.",
-                        "Her empathy helped her connect with patients."
+                        "An empathetic person listens without judgment.",
+                        "She's naturally empathetic and helps others feel heard."
                     ]
                 },
                 {
-                    "id": "euphoria-001",
-                    "text": "euphoria",
-                    "phonetics": "/juːˈfɔːriə/",
-                    "partOfSpeech": "noun",
-                    "definition": "Intense joy or excitement",
+                    "id": "anxious-001",
+                    "text": "anxious",
+                    "phonetics": "/ˈæŋkʃəs/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Worried or uneasy",
                     "examples": [
-                        "Winning the championship brought euphoria to the team.",
-                        "The success of the project created a sense of euphoria."
+                        "I feel anxious before big presentations.",
+                        "Anxious thoughts can keep you awake at night."
                     ]
                 },
                 {
-                    "id": "hostility-001",
-                    "text": "hostility",
-                    "phonetics": "/hɑːˈstɪləti/",
-                    "partOfSpeech": "noun",
-                    "definition": "Unfriendliness or opposition",
+                    "id": "mindful-001",
+                    "text": "mindful",
+                    "phonetics": "/ˈmaɪndfəl/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Aware in the present moment",
                     "examples": [
-                        "There was clear hostility between the two groups.",
-                        "The hostile environment made collaboration difficult."
+                        "Mindful breathing helps reduce stress.",
+                        "She practices mindful eating to enjoy her meals."
                     ]
                 },
                 {
-                    "id": "nostalgia-001",
-                    "text": "nostalgia",
-                    "phonetics": "/nəˈstældʒə/",
-                    "partOfSpeech": "noun",
-                    "definition": "Longing for the past",
+                    "id": "overwhelmed-001",
+                    "text": "overwhelmed",
+                    "phonetics": "/ˌoʊvərˈwelmd/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Feeling too much pressure",
                     "examples": [
-                        "The old photos filled her with nostalgia.",
-                        "He felt nostalgia for his childhood summers."
+                        "I feel overwhelmed by all these deadlines.",
+                        "Overwhelmed students often need support and guidance."
                     ]
                 },
                 {
-                    "id": "resentment-001",
-                    "text": "resentment",
-                    "phonetics": "/rɪˈzentmənt/",
-                    "partOfSpeech": "noun",
-                    "definition": "Bitter lingering anger",
+                    "id": "grateful-001",
+                    "text": "grateful",
+                    "phonetics": "/ˈɡreɪtfəl/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Thankful for what you have",
                     "examples": [
-                        "Years of unfair treatment built up resentment.",
-                        "She tried to let go of her resentment toward her former boss."
+                        "I'm grateful for my family and friends.",
+                        "Practicing gratitude makes you more grateful daily."
                     ]
                 },
                 {
-                    "id": "serenity-001",
-                    "text": "serenity",
-                    "phonetics": "/səˈrenəti/",
-                    "partOfSpeech": "noun",
-                    "definition": "Calm and peaceful state",
+                    "id": "serene-001",
+                    "text": "serene",
+                    "phonetics": "/səˈriːn/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Calm and peaceful",
                     "examples": [
-                        "The mountain lake offered perfect serenity.",
-                        "Meditation helped her find inner serenity."
+                        "The lake looked serene in the morning light.",
+                        "Meditation helps her feel more serene and centered."
                     ]
                 },
                 {
-                    "id": "vulnerability-001",
-                    "text": "vulnerability",
-                    "phonetics": "/ˌvʌlnərəˈbɪləti/",
-                    "partOfSpeech": "noun",
+                    "id": "vulnerable-001",
+                    "text": "vulnerable",
+                    "phonetics": "/ˈvʌlnərəbəl/",
+                    "partOfSpeech": "adjective",
                     "definition": "Open to emotional harm",
                     "examples": [
-                        "Sharing his story showed great vulnerability.",
-                        "The experience taught her about her own vulnerability."
+                        "Being vulnerable in relationships takes courage.",
+                        "Vulnerable people need extra support and understanding."
                     ]
                 },
                 {
-                    "id": "zeal-001",
-                    "text": "zeal",
-                    "phonetics": "/ziːl/",
-                    "partOfSpeech": "noun",
-                    "definition": "Great enthusiasm",
+                    "id": "cope-001",
+                    "text": "cope",
+                    "phonetics": "/koʊp/",
+                    "partOfSpeech": "verb",
+                    "definition": "Deal with stress",
                     "examples": [
-                        "She approached her work with remarkable zeal.",
-                        "His zeal for learning inspired his classmates."
+                        "Everyone copes with stress differently.",
+                        "Exercise helps me cope with anxiety."
+                    ]
+                },
+                {
+                    "id": "therapy-001",
+                    "text": "therapy",
+                    "phonetics": "/ˈθerəpi/",
+                    "partOfSpeech": "noun",
+                    "definition": "Professional mental health support",
+                    "examples": [
+                        "Therapy has helped her work through her issues.",
+                        "Many people benefit from regular therapy sessions."
                     ]
                 }
             ],
-            "level": "C1",
-            "tagValue": "Emotions",
+            "level": "B1",
+            "tagValue": "Mental Health",
             "languageCode": "en",
-            "description": "Advanced C1 descriptors for TOEFL integrated tasks and personal narratives",
+            "description": "From wellness apps and modern self-improvement",
             "imageUrl": null,
-            "localImageName": "microphone",
+            "localImageName": "mental_health",
             "isPremium": true,
             "isFeatured": false
         },
         {
-            "id": "idioms-phrasal-verbs-001",
-            "title": "Idioms and Phrasal Verbs",
+            "id": "gen-z-slang-001",
+            "title": "Gen Z Slang",
             "words": [
                 {
-                    "id": "break-the-ice-001",
-                    "text": "break the ice",
-                    "phonetics": "/breɪk ði aɪs/",
-                    "partOfSpeech": "idiom",
-                    "definition": "Start a conversation awkwardly",
+                    "id": "delulu-001",
+                    "text": "delulu",
+                    "phonetics": "/dɪˈluːluː/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Delusional, often used for unrealistic optimism in romance",
                     "examples": [
-                        "I told a joke to break the ice at the meeting.",
-                        "She asked about the weather to break the ice with her new neighbor."
+                        "She's being delulu about that celebrity crush.",
+                        "Stop being delulu, he's not into you."
                     ]
                 },
                 {
-                    "id": "call-it-a-day-001",
-                    "text": "call it a day",
-                    "phonetics": "/kɔːl ɪt ə deɪ/",
-                    "partOfSpeech": "idiom",
-                    "definition": "Stop working on something",
+                    "id": "skibidi-001",
+                    "text": "skibidi",
+                    "phonetics": "/ˈskɪbɪdi/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Absurd or chaotic, from viral memes",
                     "examples": [
-                        "We've been working for hours - let's call it a day.",
-                        "The team decided to call it a day after the successful presentation."
+                        "This situation is so skibidi right now.",
+                        "The party was completely skibidi."
                     ]
                 },
                 {
-                    "id": "cut-corners-001",
-                    "text": "cut corners",
-                    "phonetics": "/kʌt ˈkɔːrnərz/",
-                    "partOfSpeech": "idiom",
-                    "definition": "Do something cheaply or poorly",
+                    "id": "rizz-001",
+                    "text": "rizz",
+                    "phonetics": "/rɪz/",
+                    "partOfSpeech": "noun",
+                    "definition": "Charisma or flirting skills",
                     "examples": [
-                        "Don't cut corners when building the foundation.",
-                        "The company cut corners to save money, but quality suffered."
+                        "He's got serious rizz with the ladies.",
+                        "Your rizz game is strong tonight."
                     ]
                 },
                 {
-                    "id": "draw-a-blank-001",
-                    "text": "draw a blank",
-                    "phonetics": "/drɔː ə blæŋk/",
-                    "partOfSpeech": "idiom",
-                    "definition": "Fail to remember",
+                    "id": "aura-001",
+                    "text": "aura",
+                    "phonetics": "/ˈɔːrə/",
+                    "partOfSpeech": "noun",
+                    "definition": "Personal vibe or energy points",
                     "examples": [
-                        "I drew a blank when asked about the client's name.",
-                        "She drew a blank during the exam despite studying hard."
+                        "She has such a positive aura.",
+                        "Your aura is glowing today."
                     ]
                 },
                 {
-                    "id": "get-cold-feet-001",
-                    "text": "get cold feet",
-                    "phonetics": "/ɡet koʊld fiːt/",
-                    "partOfSpeech": "idiom",
-                    "definition": "Become nervous before an event",
+                    "id": "broligarchy-001",
+                    "text": "broligarchy",
+                    "phonetics": "/broʊˈlɪgərki/",
+                    "partOfSpeech": "noun",
+                    "definition": "Male-dominated power structures in casual settings",
                     "examples": [
-                        "He got cold feet before the wedding and almost didn't show up.",
-                        "Don't get cold feet now - you've prepared well for this interview."
+                        "The broligarchy at this gym is real.",
+                        "We need to break down this broligarchy."
                     ]
                 },
                 {
-                    "id": "hit-the-nail-on-the-head-001",
-                    "text": "hit the nail on the head",
-                    "phonetics": "/hɪt ðə neɪl ɑːn ðə hed/",
-                    "partOfSpeech": "idiom",
-                    "definition": "Describe exactly right",
+                    "id": "inspo-001",
+                    "text": "inspo",
+                    "phonetics": "/ɪnˈspoʊ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Short for inspiration, like mood board ideas",
                     "examples": [
-                        "You hit the nail on the head with that analysis.",
-                        "The teacher hit the nail on the head when explaining the problem."
+                        "I need some fashion inspo for the party.",
+                        "This Pinterest board is full of inspo."
                     ]
                 },
                 {
-                    "id": "jump-on-the-bandwagon-001",
-                    "text": "jump on the bandwagon",
-                    "phonetics": "/dʒʌmp ɑːn ðə ˈbændwæɡən/",
-                    "partOfSpeech": "idiom",
-                    "definition": "Follow a trend",
+                    "id": "glow-up-001",
+                    "text": "glow-up",
+                    "phonetics": "/ˈɡloʊ ʌp/",
+                    "partOfSpeech": "noun",
+                    "definition": "Major transformation in appearance or confidence",
                     "examples": [
-                        "Many companies are jumping on the bandwagon of remote work.",
-                        "Don't just jump on the bandwagon - think for yourself."
+                        "Her glow-up since high school is incredible.",
+                        "Time for my glow-up era."
                     ]
                 },
                 {
-                    "id": "keep-an-eye-on-001",
-                    "text": "keep an eye on",
-                    "phonetics": "/kiːp ən aɪ ɑːn/",
+                    "id": "slay-001",
+                    "text": "slay",
+                    "phonetics": "/sleɪ/",
                     "partOfSpeech": "verb",
-                    "definition": "Watch carefully",
+                    "definition": "To excel or look amazing",
                     "examples": [
-                        "Please keep an eye on the children while I'm cooking.",
-                        "The manager asked me to keep an eye on the new employee."
+                        "You absolutely slayed that presentation.",
+                        "She's slaying in that outfit."
                     ]
                 },
                 {
-                    "id": "let-the-cat-out-of-the-bag-001",
-                    "text": "let the cat out of the bag",
-                    "phonetics": "/let ðə kæt aʊt ʌv ðə bæɡ/",
-                    "partOfSpeech": "idiom",
-                    "definition": "Reveal a secret",
+                    "id": "vibes-001",
+                    "text": "vibes",
+                    "phonetics": "/vaɪbz/",
+                    "partOfSpeech": "noun",
+                    "definition": "Overall atmosphere or mood",
                     "examples": [
-                        "I accidentally let the cat out of the bag about the surprise party.",
-                        "The journalist let the cat out of the bag about the scandal."
+                        "I'm getting good vibes from this place.",
+                        "The vibes at this party are immaculate."
                     ]
                 },
                 {
-                    "id": "piece-of-cake-001",
-                    "text": "piece of cake",
-                    "phonetics": "/piːs ʌv keɪk/",
-                    "partOfSpeech": "idiom",
-                    "definition": "Something very easy",
+                    "id": "lit-001",
+                    "text": "lit",
+                    "phonetics": "/lɪt/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Exciting or amazing",
                     "examples": [
-                        "The math test was a piece of cake for her.",
-                        "Don't worry about the presentation - it'll be a piece of cake."
+                        "This concert is absolutely lit.",
+                        "That was a lit performance."
                     ]
                 },
                 {
-                    "id": "pull-someones-leg-001",
-                    "text": "pull someone's leg",
-                    "phonetics": "/pʊl ˈsʌmwʌnz leɡ/",
-                    "partOfSpeech": "idiom",
-                    "definition": "Joke or tease",
+                    "id": "flex-001",
+                    "text": "flex",
+                    "phonetics": "/flɛks/",
+                    "partOfSpeech": "verb",
+                    "definition": "To show off subtly",
                     "examples": [
-                        "I'm just pulling your leg - of course I believe you.",
-                        "Stop pulling my leg and tell me the real story."
+                        "He's always flexing his new car.",
+                        "Stop flexing your grades."
                     ]
                 },
                 {
-                    "id": "spill-the-beans-001",
-                    "text": "spill the beans",
-                    "phonetics": "/spɪl ðə biːnz/",
-                    "partOfSpeech": "idiom",
-                    "definition": "Disclose confidential info",
+                    "id": "hangry-001",
+                    "text": "hangry",
+                    "phonetics": "/ˈhæŋɡri/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Hungry and angry",
                     "examples": [
-                        "Someone spilled the beans about the merger before the announcement.",
-                        "I can't spill the beans about the surprise - it's a secret."
+                        "I'm getting hangry, let's eat soon.",
+                        "Don't talk to me when I'm hangry."
                     ]
                 },
                 {
-                    "id": "under-the-weather-001",
-                    "text": "under the weather",
-                    "phonetics": "/ˈʌndər ðə ˈweðər/",
-                    "partOfSpeech": "idiom",
-                    "definition": "Feeling slightly ill",
+                    "id": "nomophobia-001",
+                    "text": "nomophobia",
+                    "phonetics": "/noʊmoʊˈfoʊbiə/",
+                    "partOfSpeech": "noun",
+                    "definition": "Fear of being without your phone",
                     "examples": [
-                        "I'm feeling a bit under the weather today.",
-                        "She called in sick because she was under the weather."
+                        "I have serious nomophobia when my phone dies.",
+                        "Her nomophobia is getting out of control."
                     ]
                 }
             ],
-            "level": "C1",
-            "tagValue": "Idioms",
+            "level": "B2",
+            "tagValue": "Gen Z",
             "languageCode": "en",
-            "description": "C1-C2 expressions for natural fluency in IELTS speaking",
+            "description": "Trending slang from social media and youth culture",
             "imageUrl": null,
-            "localImageName": "tv",
+            "localImageName": "gen_z",
+            "isPremium": true,
+            "isFeatured": true
+        },
+        {
+            "id": "ai-tech-buzzwords-001",
+            "title": "AI and Tech Buzzwords",
+            "words": [
+                {
+                    "id": "gen-ai-001",
+                    "text": "Gen AI",
+                    "phonetics": "/dʒen ˈeɪ aɪ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Generative artificial intelligence, like chatbots creating content",
+                    "examples": [
+                        "Gen AI is revolutionizing content creation.",
+                        "The company invested heavily in Gen AI technology."
+                    ]
+                },
+                {
+                    "id": "ai-fluency-001",
+                    "text": "AI Fluency",
+                    "phonetics": "/eɪ aɪ ˈfluːənsi/",
+                    "partOfSpeech": "noun",
+                    "definition": "Skill in using AI tools effectively",
+                    "examples": [
+                        "AI fluency is becoming essential in modern workplaces.",
+                        "She developed strong AI fluency through practice."
+                    ]
+                },
+                {
+                    "id": "metaverse-001",
+                    "text": "metaverse",
+                    "phonetics": "/ˈmetəvɜːrs/",
+                    "partOfSpeech": "noun",
+                    "definition": "Virtual reality worlds for social and work interactions",
+                    "examples": [
+                        "Companies are building offices in the metaverse.",
+                        "The metaverse promises new ways to connect."
+                    ]
+                },
+                {
+                    "id": "digital-nomad-001",
+                    "text": "digital nomad",
+                    "phonetics": "/ˈdɪdʒɪtl ˈnoʊmæd/",
+                    "partOfSpeech": "noun",
+                    "definition": "Remote worker traveling globally",
+                    "examples": [
+                        "She became a digital nomad and works from Bali.",
+                        "Digital nomads are changing the future of work."
+                    ]
+                },
+                {
+                    "id": "quiet-quitting-001",
+                    "text": "quiet quitting",
+                    "phonetics": "/ˈkwaɪət ˈkwɪtɪŋ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Doing the minimum at work without overcommitting",
+                    "examples": [
+                        "Quiet quitting is a response to burnout culture.",
+                        "Many employees are practicing quiet quitting."
+                    ]
+                },
+                {
+                    "id": "waifu-001",
+                    "text": "waifu",
+                    "phonetics": "/ˈwaɪfuː/",
+                    "partOfSpeech": "noun",
+                    "definition": "Anime-style idealized virtual partner",
+                    "examples": [
+                        "His waifu is from a popular anime series.",
+                        "Virtual waifus are popular in gaming culture."
+                    ]
+                },
+                {
+                    "id": "supercycle-001",
+                    "text": "supercycle",
+                    "phonetics": "/ˈsuːpərsaɪkəl/",
+                    "partOfSpeech": "noun",
+                    "definition": "Long-term economic or tech boom",
+                    "examples": [
+                        "We're entering a new tech supercycle.",
+                        "The AI supercycle is transforming industries."
+                    ]
+                },
+                {
+                    "id": "nft-001",
+                    "text": "NFT",
+                    "phonetics": "/en ef tiː/",
+                    "partOfSpeech": "noun",
+                    "definition": "Non-fungible token, unique digital asset",
+                    "examples": [
+                        "He sold his NFT for thousands of dollars.",
+                        "NFTs represent ownership of digital art."
+                    ]
+                },
+                {
+                    "id": "virtual-fashion-001",
+                    "text": "virtual fashion",
+                    "phonetics": "/ˈvɜːrtʃuəl ˈfæʃən/",
+                    "partOfSpeech": "noun",
+                    "definition": "Digital clothing for avatars in games or metaverses",
+                    "examples": [
+                        "Virtual fashion is a growing industry.",
+                        "She designs virtual fashion for gaming avatars."
+                    ]
+                },
+                {
+                    "id": "algorithm-001",
+                    "text": "algorithm",
+                    "phonetics": "/ˈælɡərɪðəm/",
+                    "partOfSpeech": "noun",
+                    "definition": "Set of rules for AI decision-making",
+                    "examples": [
+                        "The algorithm determines what content you see.",
+                        "Machine learning algorithms improve over time."
+                    ]
+                },
+                {
+                    "id": "blockchain-001",
+                    "text": "blockchain",
+                    "phonetics": "/ˈblɑːktʃeɪn/",
+                    "partOfSpeech": "noun",
+                    "definition": "Secure digital ledger technology",
+                    "examples": [
+                        "Blockchain technology ensures data security.",
+                        "Cryptocurrency relies on blockchain networks."
+                    ]
+                },
+                {
+                    "id": "prompt-001",
+                    "text": "prompt",
+                    "phonetics": "/prɑːmpt/",
+                    "partOfSpeech": "noun",
+                    "definition": "Input command for AI generation",
+                    "examples": [
+                        "Write a clear prompt for better AI results.",
+                        "The prompt engineering course was very helpful."
+                    ]
+                }
+            ],
+            "level": "B2",
+            "tagValue": "AI Tech",
+            "languageCode": "en",
+            "description": "Rising with Gen AI advancements and digital nomad lifestyles",
+            "imageUrl": null,
+            "localImageName": "laptop",
+            "isPremium": true,
+            "isFeatured": false
+        },
+        {
+            "id": "everyday-modern-phrases-001",
+            "title": "Everyday Modern Phrases",
+            "words": [
+                {
+                    "id": "pessimize-001",
+                    "text": "pessimize",
+                    "phonetics": "/ˈpesɪmaɪz/",
+                    "partOfSpeech": "verb",
+                    "definition": "Expect the worst outcome",
+                    "examples": [
+                        "Don't pessimize about the exam results.",
+                        "She tends to pessimize when facing challenges."
+                    ]
+                },
+                {
+                    "id": "mountweazel-001",
+                    "text": "mountweazel",
+                    "phonetics": "/ˈmaʊntwiːzəl/",
+                    "partOfSpeech": "noun",
+                    "definition": "Fictional dictionary entry to catch plagiarism",
+                    "examples": [
+                        "The dictionary included a mountweazel to detect copying.",
+                        "Mountweazels help protect intellectual property."
+                    ]
+                },
+                {
+                    "id": "confuddle-001",
+                    "text": "confuddle",
+                    "phonetics": "/kənˈfʌdəl/",
+                    "partOfSpeech": "verb",
+                    "definition": "To confuse thoroughly",
+                    "examples": [
+                        "The complex instructions confuddled everyone.",
+                        "Don't confuddle the issue with unnecessary details."
+                    ]
+                },
+                {
+                    "id": "beseech-001",
+                    "text": "beseech",
+                    "phonetics": "/bɪˈsiːtʃ/",
+                    "partOfSpeech": "verb",
+                    "definition": "Beg urgently",
+                    "examples": [
+                        "I beseech you to reconsider your decision.",
+                        "She beseeched him to stay and help."
+                    ]
+                },
+                {
+                    "id": "aggrandize-001",
+                    "text": "aggrandize",
+                    "phonetics": "/əˈɡrændaɪz/",
+                    "partOfSpeech": "verb",
+                    "definition": "Make greater or exaggerate",
+                    "examples": [
+                        "He tends to aggrandize his achievements.",
+                        "Don't aggrandize the problem beyond reality."
+                    ]
+                },
+                {
+                    "id": "abnegation-001",
+                    "text": "abnegation",
+                    "phonetics": "/ˌæbnɪˈɡeɪʃən/",
+                    "partOfSpeech": "noun",
+                    "definition": "Self-denial of desires",
+                    "examples": [
+                        "His abnegation of luxury impressed everyone.",
+                        "Abnegation is often seen as a virtue in some cultures."
+                    ]
+                },
+                {
+                    "id": "brat-001",
+                    "text": "brat",
+                    "phonetics": "/bræt/",
+                    "partOfSpeech": "noun",
+                    "definition": "Spoiled or cheeky person (trending from pop culture)",
+                    "examples": [
+                        "She's such a brat when she doesn't get her way.",
+                        "The brat behavior is trending in social media."
+                    ]
+                },
+                {
+                    "id": "egen-nam-001",
+                    "text": "egen-nam",
+                    "phonetics": "/ˈeɡən næm/",
+                    "partOfSpeech": "noun",
+                    "definition": "Effortless charm (Korean trend influencing global slang)",
+                    "examples": [
+                        "He has that egen-nam quality that everyone loves.",
+                        "Egen-nam is becoming popular in international fashion."
+                    ]
+                },
+                {
+                    "id": "teto-nam-001",
+                    "text": "teto-nam",
+                    "phonetics": "/ˈtetoʊ næm/",
+                    "partOfSpeech": "noun",
+                    "definition": "Natural attractiveness",
+                    "examples": [
+                        "Her teto-nam makes her stand out naturally.",
+                        "Teto-nam is about embracing your natural beauty."
+                    ]
+                },
+                {
+                    "id": "kkeok-eo-001",
+                    "text": "kkeok-eo",
+                    "phonetics": "/ˈkkeok eo/",
+                    "partOfSpeech": "verb",
+                    "definition": "Versatile slang for turn/bend/break (viral from entertainment)",
+                    "examples": [
+                        "Just kkeok-eo when you reach the corner.",
+                        "Kkeok-eo has become viral slang in global entertainment."
+                    ]
+                },
+                {
+                    "id": "intrusive-001",
+                    "text": "intrusive",
+                    "phonetics": "/ɪnˈtruːsɪv/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Unwanted thoughts popping up",
+                    "examples": [
+                        "Intrusive thoughts can be difficult to control.",
+                        "She struggled with intrusive memories from the past."
+                    ]
+                },
+                {
+                    "id": "purity-001",
+                    "text": "purity",
+                    "phonetics": "/ˈpjʊrəti/",
+                    "partOfSpeech": "noun",
+                    "definition": "Strict moral standards (often critiqued online)",
+                    "examples": [
+                        "The concept of purity is being questioned online.",
+                        "Purity culture is a topic of debate in modern society."
+                    ]
+                }
+            ],
+            "level": "B2",
+            "tagValue": "Modern",
+            "languageCode": "en",
+            "description": "Adapted as single words or short terms for quick learning, from 2025 dictionary additions",
+            "imageUrl": null,
+            "localImageName": "hello-1",
             "isPremium": true,
             "isFeatured": false
         },
@@ -4588,6 +3836,758 @@
             "imageUrl": null,
             "localImageName": "sat",
             "isPremium": false,
+            "isFeatured": false
+        },
+        {
+            "id": "academic-synonyms-001",
+            "title": "Academic Synonyms",
+            "words": [
+                {
+                    "id": "commence-001",
+                    "text": "commence",
+                    "phonetics": "/kəˈmens/",
+                    "partOfSpeech": "verb",
+                    "definition": "To begin or start",
+                    "examples": [
+                        "The ceremony will commence at 3 PM.",
+                        "Students should commence their research early."
+                    ]
+                },
+                {
+                    "id": "conclude-001",
+                    "text": "conclude",
+                    "phonetics": "/kənˈkluːd/",
+                    "partOfSpeech": "verb",
+                    "definition": "To end or finish",
+                    "examples": [
+                        "The meeting will conclude in ten minutes.",
+                        "Based on the evidence, we can conclude that the theory is valid."
+                    ]
+                },
+                {
+                    "id": "elucidate-001",
+                    "text": "elucidate",
+                    "phonetics": "/ɪˈluːsɪdeɪt/",
+                    "partOfSpeech": "verb",
+                    "definition": "To explain clearly",
+                    "examples": [
+                        "The professor will elucidate the complex theory.",
+                        "The diagram helps elucidate the process."
+                    ]
+                },
+                {
+                    "id": "exemplify-001",
+                    "text": "exemplify",
+                    "phonetics": "/ɪɡˈzemplɪfaɪ/",
+                    "partOfSpeech": "verb",
+                    "definition": "To illustrate with an example",
+                    "examples": [
+                        "This case exemplifies the problem perfectly.",
+                        "The data exemplifies the trend we discussed."
+                    ]
+                },
+                {
+                    "id": "facilitate-001",
+                    "text": "facilitate",
+                    "phonetics": "/fəˈsɪlɪteɪt/",
+                    "partOfSpeech": "verb",
+                    "definition": "To make easier",
+                    "examples": [
+                        "Technology can facilitate learning.",
+                        "The new system will facilitate communication."
+                    ]
+                },
+                {
+                    "id": "implement-001",
+                    "text": "implement",
+                    "phonetics": "/ˈɪmplɪment/",
+                    "partOfSpeech": "verb",
+                    "definition": "To put into action",
+                    "examples": [
+                        "The company will implement new policies.",
+                        "We need to implement these changes immediately."
+                    ]
+                },
+                {
+                    "id": "mitigate-001",
+                    "text": "mitigate",
+                    "phonetics": "/ˈmɪtɪɡeɪt/",
+                    "partOfSpeech": "verb",
+                    "definition": "To lessen severity",
+                    "examples": [
+                        "Measures were taken to mitigate the damage.",
+                        "Early intervention can mitigate the effects."
+                    ]
+                },
+                {
+                    "id": "substantiate-001",
+                    "text": "substantiate",
+                    "phonetics": "/səbˈstænʃieɪt/",
+                    "partOfSpeech": "verb",
+                    "definition": "To provide evidence for",
+                    "examples": [
+                        "The research substantiates our hypothesis.",
+                        "We need more data to substantiate this claim."
+                    ]
+                },
+                {
+                    "id": "advocate-001",
+                    "text": "advocate",
+                    "phonetics": "/ˈædvəkeɪt/",
+                    "partOfSpeech": "verb",
+                    "definition": "To support publicly",
+                    "examples": [
+                        "The organization advocates for environmental protection.",
+                        "She advocates for better healthcare policies."
+                    ]
+                },
+                {
+                    "id": "collaborate-001",
+                    "text": "collaborate",
+                    "phonetics": "/kəˈlæbəreɪt/",
+                    "partOfSpeech": "verb",
+                    "definition": "To work jointly",
+                    "examples": [
+                        "The teams will collaborate on this project.",
+                        "Scientists collaborate across different disciplines."
+                    ]
+                },
+                {
+                    "id": "deteriorate-001",
+                    "text": "deteriorate",
+                    "phonetics": "/dɪˈtɪriəreɪt/",
+                    "partOfSpeech": "verb",
+                    "definition": "To worsen",
+                    "examples": [
+                        "The patient's condition began to deteriorate.",
+                        "Relations between the countries have deteriorated."
+                    ]
+                },
+                {
+                    "id": "enhance-001",
+                    "text": "enhance",
+                    "phonetics": "/ɪnˈhæns/",
+                    "partOfSpeech": "verb",
+                    "definition": "To improve quality",
+                    "examples": [
+                        "The new features will enhance user experience.",
+                        "Regular exercise can enhance cognitive function."
+                    ]
+                }
+            ],
+            "level": "C1",
+            "tagValue": "Academic",
+            "languageCode": "en",
+            "description": "C1-level alternatives to common words, for varied essay expression in IELTS/TOEFL",
+            "imageUrl": null,
+            "localImageName": "book-glasses",
+            "isPremium": true,
+            "isFeatured": true
+        },
+        {
+            "id": "abstract-concepts-001",
+            "title": "Abstract Concepts",
+            "words": [
+                {
+                    "id": "ambiguous-001",
+                    "text": "ambiguous",
+                    "phonetics": "/æmˈbɪɡjuəs/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Open to multiple interpretations",
+                    "examples": [
+                        "The politician's statement was deliberately ambiguous.",
+                        "The contract language is ambiguous and needs clarification."
+                    ]
+                },
+                {
+                    "id": "coherent-001",
+                    "text": "coherent",
+                    "phonetics": "/koʊˈhɪrənt/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Logical and consistent",
+                    "examples": [
+                        "The student presented a coherent argument in her essay.",
+                        "The policy lacks a coherent strategy for implementation."
+                    ]
+                },
+                {
+                    "id": "disparity-001",
+                    "text": "disparity",
+                    "phonetics": "/dɪˈspærəti/",
+                    "partOfSpeech": "noun",
+                    "definition": "Difference or inequality",
+                    "examples": [
+                        "There is a significant disparity in income levels.",
+                        "The disparity between theory and practice is concerning."
+                    ]
+                },
+                {
+                    "id": "eminent-001",
+                    "text": "eminent",
+                    "phonetics": "/ˈemənənt/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Famous and respected",
+                    "examples": [
+                        "The eminent scientist won the Nobel Prize.",
+                        "She is an eminent authority in her field."
+                    ]
+                },
+                {
+                    "id": "feasible-001",
+                    "text": "feasible",
+                    "phonetics": "/ˈfiːzəbəl/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Possible to do easily",
+                    "examples": [
+                        "The proposed solution is not economically feasible.",
+                        "Is it feasible to complete this project by next month?"
+                    ]
+                },
+                {
+                    "id": "imperative-001",
+                    "text": "imperative",
+                    "phonetics": "/ɪmˈperətɪv/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Absolutely necessary",
+                    "examples": [
+                        "It is imperative that we address this issue immediately.",
+                        "Climate action has become an imperative for governments."
+                    ]
+                },
+                {
+                    "id": "juxtapose-001",
+                    "text": "juxtapose",
+                    "phonetics": "/ˈdʒʌkstəpoʊz/",
+                    "partOfSpeech": "verb",
+                    "definition": "To place side by side for contrast",
+                    "examples": [
+                        "The author juxtaposes traditional and modern values.",
+                        "The exhibition juxtaposes works from different time periods."
+                    ]
+                },
+                {
+                    "id": "mitigate-002",
+                    "text": "mitigate",
+                    "phonetics": "/ˈmɪtɪɡeɪt/",
+                    "partOfSpeech": "verb",
+                    "definition": "To reduce harm",
+                    "examples": [
+                        "New policies aim to mitigate environmental damage.",
+                        "Early intervention can mitigate the effects of learning difficulties."
+                    ]
+                },
+                {
+                    "id": "pragmatic-001",
+                    "text": "pragmatic",
+                    "phonetics": "/præɡˈmætɪk/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Practical rather than idealistic",
+                    "examples": [
+                        "We need a pragmatic approach to solving this problem.",
+                        "The government adopted a pragmatic policy on immigration."
+                    ]
+                },
+                {
+                    "id": "resilient-001",
+                    "text": "resilient",
+                    "phonetics": "/rɪˈzɪliənt/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Able to recover quickly",
+                    "examples": [
+                        "The economy has shown itself to be remarkably resilient.",
+                        "Children are often more resilient than adults think."
+                    ]
+                },
+                {
+                    "id": "scrutinize-001",
+                    "text": "scrutinize",
+                    "phonetics": "/ˈskruːtənaɪz/",
+                    "partOfSpeech": "verb",
+                    "definition": "To examine closely",
+                    "examples": [
+                        "The committee will scrutinize the proposed legislation.",
+                        "Investors scrutinize company financial reports carefully."
+                    ]
+                },
+                {
+                    "id": "transient-001",
+                    "text": "transient",
+                    "phonetics": "/ˈtrænziənt/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Short-lived or temporary",
+                    "examples": [
+                        "The economic recovery may prove to be transient.",
+                        "Many species are experiencing transient population changes."
+                    ]
+                }
+            ],
+            "level": "C1",
+            "tagValue": "Abstract",
+            "languageCode": "en",
+            "description": "C1-C2 terms for opinions and arguments, common in TOEFL reading/speaking",
+            "imageUrl": null,
+            "localImageName": "studying-2",
+            "isPremium": true,
+            "isFeatured": false
+        },
+        {
+            "id": "emotions-relationships-001",
+            "title": "Emotions and Relationships",
+            "words": [
+                {
+                    "id": "affection-001",
+                    "text": "affection",
+                    "phonetics": "/əˈfekʃən/",
+                    "partOfSpeech": "noun",
+                    "definition": "Warm fondness or liking",
+                    "examples": [
+                        "She showed great affection for her grandchildren.",
+                        "The couple's affection for each other was evident."
+                    ]
+                },
+                {
+                    "id": "bewilderment-001",
+                    "text": "bewilderment",
+                    "phonetics": "/bɪˈwɪldərmənt/",
+                    "partOfSpeech": "noun",
+                    "definition": "Confusion or puzzlement",
+                    "examples": [
+                        "His sudden departure left everyone in bewilderment.",
+                        "The complex instructions caused bewilderment among students."
+                    ]
+                },
+                {
+                    "id": "contentment-001",
+                    "text": "contentment",
+                    "phonetics": "/kənˈtentmənt/",
+                    "partOfSpeech": "noun",
+                    "definition": "State of happiness and satisfaction",
+                    "examples": [
+                        "She found contentment in her simple lifestyle.",
+                        "The peaceful garden brought him great contentment."
+                    ]
+                },
+                {
+                    "id": "despair-001",
+                    "text": "despair",
+                    "phonetics": "/dɪˈsper/",
+                    "partOfSpeech": "noun",
+                    "definition": "Complete loss of hope",
+                    "examples": [
+                        "The failed exam filled him with despair.",
+                        "In moments of despair, she turned to her family."
+                    ]
+                },
+                {
+                    "id": "empathy-001",
+                    "text": "empathy",
+                    "phonetics": "/ˈempəθi/",
+                    "partOfSpeech": "noun",
+                    "definition": "Understanding others' feelings",
+                    "examples": [
+                        "Good teachers show empathy toward struggling students.",
+                        "Her empathy helped her connect with patients."
+                    ]
+                },
+                {
+                    "id": "euphoria-001",
+                    "text": "euphoria",
+                    "phonetics": "/juːˈfɔːriə/",
+                    "partOfSpeech": "noun",
+                    "definition": "Intense joy or excitement",
+                    "examples": [
+                        "Winning the championship brought euphoria to the team.",
+                        "The success of the project created a sense of euphoria."
+                    ]
+                },
+                {
+                    "id": "hostility-001",
+                    "text": "hostility",
+                    "phonetics": "/hɑːˈstɪləti/",
+                    "partOfSpeech": "noun",
+                    "definition": "Unfriendliness or opposition",
+                    "examples": [
+                        "There was clear hostility between the two groups.",
+                        "The hostile environment made collaboration difficult."
+                    ]
+                },
+                {
+                    "id": "nostalgia-001",
+                    "text": "nostalgia",
+                    "phonetics": "/nəˈstældʒə/",
+                    "partOfSpeech": "noun",
+                    "definition": "Longing for the past",
+                    "examples": [
+                        "The old photos filled her with nostalgia.",
+                        "He felt nostalgia for his childhood summers."
+                    ]
+                },
+                {
+                    "id": "resentment-001",
+                    "text": "resentment",
+                    "phonetics": "/rɪˈzentmənt/",
+                    "partOfSpeech": "noun",
+                    "definition": "Bitter lingering anger",
+                    "examples": [
+                        "Years of unfair treatment built up resentment.",
+                        "She tried to let go of her resentment toward her former boss."
+                    ]
+                },
+                {
+                    "id": "serenity-001",
+                    "text": "serenity",
+                    "phonetics": "/səˈrenəti/",
+                    "partOfSpeech": "noun",
+                    "definition": "Calm and peaceful state",
+                    "examples": [
+                        "The mountain lake offered perfect serenity.",
+                        "Meditation helped her find inner serenity."
+                    ]
+                },
+                {
+                    "id": "vulnerability-001",
+                    "text": "vulnerability",
+                    "phonetics": "/ˌvʌlnərəˈbɪləti/",
+                    "partOfSpeech": "noun",
+                    "definition": "Open to emotional harm",
+                    "examples": [
+                        "Sharing his story showed great vulnerability.",
+                        "The experience taught her about her own vulnerability."
+                    ]
+                },
+                {
+                    "id": "zeal-001",
+                    "text": "zeal",
+                    "phonetics": "/ziːl/",
+                    "partOfSpeech": "noun",
+                    "definition": "Great enthusiasm",
+                    "examples": [
+                        "She approached her work with remarkable zeal.",
+                        "His zeal for learning inspired his classmates."
+                    ]
+                }
+            ],
+            "level": "C1",
+            "tagValue": "Emotions",
+            "languageCode": "en",
+            "description": "Advanced C1 descriptors for TOEFL integrated tasks and personal narratives",
+            "imageUrl": null,
+            "localImageName": "microphone",
+            "isPremium": true,
+            "isFeatured": false
+        },
+        {
+            "id": "idioms-phrasal-verbs-001",
+            "title": "Idioms and Phrasal Verbs",
+            "words": [
+                {
+                    "id": "break-the-ice-001",
+                    "text": "break the ice",
+                    "phonetics": "/breɪk ði aɪs/",
+                    "partOfSpeech": "idiom",
+                    "definition": "Start a conversation awkwardly",
+                    "examples": [
+                        "I told a joke to break the ice at the meeting.",
+                        "She asked about the weather to break the ice with her new neighbor."
+                    ]
+                },
+                {
+                    "id": "call-it-a-day-001",
+                    "text": "call it a day",
+                    "phonetics": "/kɔːl ɪt ə deɪ/",
+                    "partOfSpeech": "idiom",
+                    "definition": "Stop working on something",
+                    "examples": [
+                        "We've been working for hours - let's call it a day.",
+                        "The team decided to call it a day after the successful presentation."
+                    ]
+                },
+                {
+                    "id": "cut-corners-001",
+                    "text": "cut corners",
+                    "phonetics": "/kʌt ˈkɔːrnərz/",
+                    "partOfSpeech": "idiom",
+                    "definition": "Do something cheaply or poorly",
+                    "examples": [
+                        "Don't cut corners when building the foundation.",
+                        "The company cut corners to save money, but quality suffered."
+                    ]
+                },
+                {
+                    "id": "draw-a-blank-001",
+                    "text": "draw a blank",
+                    "phonetics": "/drɔː ə blæŋk/",
+                    "partOfSpeech": "idiom",
+                    "definition": "Fail to remember",
+                    "examples": [
+                        "I drew a blank when asked about the client's name.",
+                        "She drew a blank during the exam despite studying hard."
+                    ]
+                },
+                {
+                    "id": "get-cold-feet-001",
+                    "text": "get cold feet",
+                    "phonetics": "/ɡet koʊld fiːt/",
+                    "partOfSpeech": "idiom",
+                    "definition": "Become nervous before an event",
+                    "examples": [
+                        "He got cold feet before the wedding and almost didn't show up.",
+                        "Don't get cold feet now - you've prepared well for this interview."
+                    ]
+                },
+                {
+                    "id": "hit-the-nail-on-the-head-001",
+                    "text": "hit the nail on the head",
+                    "phonetics": "/hɪt ðə neɪl ɑːn ðə hed/",
+                    "partOfSpeech": "idiom",
+                    "definition": "Describe exactly right",
+                    "examples": [
+                        "You hit the nail on the head with that analysis.",
+                        "The teacher hit the nail on the head when explaining the problem."
+                    ]
+                },
+                {
+                    "id": "jump-on-the-bandwagon-001",
+                    "text": "jump on the bandwagon",
+                    "phonetics": "/dʒʌmp ɑːn ðə ˈbændwæɡən/",
+                    "partOfSpeech": "idiom",
+                    "definition": "Follow a trend",
+                    "examples": [
+                        "Many companies are jumping on the bandwagon of remote work.",
+                        "Don't just jump on the bandwagon - think for yourself."
+                    ]
+                },
+                {
+                    "id": "keep-an-eye-on-001",
+                    "text": "keep an eye on",
+                    "phonetics": "/kiːp ən aɪ ɑːn/",
+                    "partOfSpeech": "verb",
+                    "definition": "Watch carefully",
+                    "examples": [
+                        "Please keep an eye on the children while I'm cooking.",
+                        "The manager asked me to keep an eye on the new employee."
+                    ]
+                },
+                {
+                    "id": "let-the-cat-out-of-the-bag-001",
+                    "text": "let the cat out of the bag",
+                    "phonetics": "/let ðə kæt aʊt ʌv ðə bæɡ/",
+                    "partOfSpeech": "idiom",
+                    "definition": "Reveal a secret",
+                    "examples": [
+                        "I accidentally let the cat out of the bag about the surprise party.",
+                        "The journalist let the cat out of the bag about the scandal."
+                    ]
+                },
+                {
+                    "id": "piece-of-cake-001",
+                    "text": "piece of cake",
+                    "phonetics": "/piːs ʌv keɪk/",
+                    "partOfSpeech": "idiom",
+                    "definition": "Something very easy",
+                    "examples": [
+                        "The math test was a piece of cake for her.",
+                        "Don't worry about the presentation - it'll be a piece of cake."
+                    ]
+                },
+                {
+                    "id": "pull-someones-leg-001",
+                    "text": "pull someone's leg",
+                    "phonetics": "/pʊl ˈsʌmwʌnz leɡ/",
+                    "partOfSpeech": "idiom",
+                    "definition": "Joke or tease",
+                    "examples": [
+                        "I'm just pulling your leg - of course I believe you.",
+                        "Stop pulling my leg and tell me the real story."
+                    ]
+                },
+                {
+                    "id": "spill-the-beans-001",
+                    "text": "spill the beans",
+                    "phonetics": "/spɪl ðə biːnz/",
+                    "partOfSpeech": "idiom",
+                    "definition": "Disclose confidential info",
+                    "examples": [
+                        "Someone spilled the beans about the merger before the announcement.",
+                        "I can't spill the beans about the surprise - it's a secret."
+                    ]
+                },
+                {
+                    "id": "under-the-weather-001",
+                    "text": "under the weather",
+                    "phonetics": "/ˈʌndər ðə ˈweðər/",
+                    "partOfSpeech": "idiom",
+                    "definition": "Feeling slightly ill",
+                    "examples": [
+                        "I'm feeling a bit under the weather today.",
+                        "She called in sick because she was under the weather."
+                    ]
+                }
+            ],
+            "level": "C1",
+            "tagValue": "Idioms",
+            "languageCode": "en",
+            "description": "C1-C2 expressions for natural fluency in IELTS speaking",
+            "imageUrl": null,
+            "localImageName": "tv",
+            "isPremium": true,
+            "isFeatured": false
+        },
+        {
+            "id": "environment-society-001",
+            "title": "Environment and Society",
+            "words": [
+                {
+                    "id": "biodiversity-001",
+                    "text": "biodiversity",
+                    "phonetics": "/ˌbaɪoʊdaɪˈvɜːrsəti/",
+                    "partOfSpeech": "noun",
+                    "definition": "Variety of plant and animal life",
+                    "examples": [
+                        "The Amazon rainforest has incredible biodiversity.",
+                        "Climate change threatens global biodiversity."
+                    ]
+                },
+                {
+                    "id": "carbon-footprint-001",
+                    "text": "carbon footprint",
+                    "phonetics": "/ˈkɑːrbən ˈfʊtprɪnt/",
+                    "partOfSpeech": "noun",
+                    "definition": "Environmental impact from emissions",
+                    "examples": [
+                        "Flying increases your carbon footprint significantly.",
+                        "Companies are working to reduce their carbon footprint."
+                    ]
+                },
+                {
+                    "id": "deforestation-001",
+                    "text": "deforestation",
+                    "phonetics": "/diːˌfɔːrɪˈsteɪʃən/",
+                    "partOfSpeech": "noun",
+                    "definition": "Clearing forests on a large scale",
+                    "examples": [
+                        "Deforestation is destroying wildlife habitats.",
+                        "The government must address illegal deforestation."
+                    ]
+                },
+                {
+                    "id": "ecosystem-001",
+                    "text": "ecosystem",
+                    "phonetics": "/ˈiːkoʊsɪstəm/",
+                    "partOfSpeech": "noun",
+                    "definition": "Community of living organisms",
+                    "examples": [
+                        "Pollution disrupts the marine ecosystem.",
+                        "The coral reef ecosystem is extremely fragile."
+                    ]
+                },
+                {
+                    "id": "globalization-001",
+                    "text": "globalization",
+                    "phonetics": "/ˌɡloʊbələˈzeɪʃən/",
+                    "partOfSpeech": "noun",
+                    "definition": "Worldwide integration of economies",
+                    "examples": [
+                        "Globalization has connected markets worldwide.",
+                        "The effects of globalization are complex and far-reaching."
+                    ]
+                },
+                {
+                    "id": "inequality-001",
+                    "text": "inequality",
+                    "phonetics": "/ˌɪnɪˈkwɑːləti/",
+                    "partOfSpeech": "noun",
+                    "definition": "Unequal distribution of resources",
+                    "examples": [
+                        "Income inequality is growing in many countries.",
+                        "Educational inequality affects future opportunities."
+                    ]
+                },
+                {
+                    "id": "renewable-001",
+                    "text": "renewable",
+                    "phonetics": "/rɪˈnuːəbəl/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Resources that replenish naturally",
+                    "examples": [
+                        "Solar and wind are renewable energy sources.",
+                        "We must invest in renewable technologies."
+                    ]
+                },
+                {
+                    "id": "sustainability-001",
+                    "text": "sustainability",
+                    "phonetics": "/səˌsteɪnəˈbɪləti/",
+                    "partOfSpeech": "noun",
+                    "definition": "Ability to maintain long-term",
+                    "examples": [
+                        "Environmental sustainability requires immediate action.",
+                        "The company focuses on economic sustainability."
+                    ]
+                },
+                {
+                    "id": "urbanization-001",
+                    "text": "urbanization",
+                    "phonetics": "/ˌɜːrbənəˈzeɪʃən/",
+                    "partOfSpeech": "noun",
+                    "definition": "Growth of city populations",
+                    "examples": [
+                        "Rapid urbanization is changing rural landscapes.",
+                        "Urbanization brings both opportunities and challenges."
+                    ]
+                },
+                {
+                    "id": "alleviate-001",
+                    "text": "alleviate",
+                    "phonetics": "/əˈliːvieɪt/",
+                    "partOfSpeech": "verb",
+                    "definition": "To ease or relieve",
+                    "examples": [
+                        "New policies aim to alleviate poverty.",
+                        "Technology can help alleviate traffic congestion."
+                    ]
+                },
+                {
+                    "id": "catalyst-001",
+                    "text": "catalyst",
+                    "phonetics": "/ˈkætəlɪst/",
+                    "partOfSpeech": "noun",
+                    "definition": "Something sparking change",
+                    "examples": [
+                        "The pandemic was a catalyst for digital transformation.",
+                        "Education serves as a catalyst for social mobility."
+                    ]
+                },
+                {
+                    "id": "detrimental-001",
+                    "text": "detrimental",
+                    "phonetics": "/ˌdetrɪˈmentəl/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Harmful or damaging",
+                    "examples": [
+                        "Plastic waste is detrimental to marine life.",
+                        "Lack of sleep is detrimental to academic performance."
+                    ]
+                },
+                {
+                    "id": "proliferation-001",
+                    "text": "proliferation",
+                    "phonetics": "/prəˌlɪfəˈreɪʃən/",
+                    "partOfSpeech": "noun",
+                    "definition": "Rapid increase or spread",
+                    "examples": [
+                        "The proliferation of social media has changed communication.",
+                        "Nuclear proliferation remains a global concern."
+                    ]
+                }
+            ],
+            "level": "C2",
+            "tagValue": "Environment",
+            "languageCode": "en",
+            "description": "C2-level topic words for IELTS Task 2 essays on global issues",
+            "imageUrl": null,
+            "localImageName": "flag-uk",
+            "isPremium": true,
             "isFeatured": false
         }
     ],

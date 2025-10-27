@@ -9,7 +9,7 @@
             "languageCode": "fr",
             "localImageName": "french-flag",
             "isPremium": false,
-            "isFeatured": true,
+            "isFeatured": false,
             "words": [
                 {
                     "id": "bonjour",
@@ -506,61 +506,349 @@
                         "Tu vis avec ta famille."
                     ]
                 },
-                 {
-                     "id": "manger_repas",
-                     "text": "manger",
-                     "phonetics": "/mɑ̃.ʒe/",
-                     "partOfSpeech": "verb",
-                     "definition": "Action de prendre un repas",
-                     "examples": [
-                         "Je mange à midi.",
-                         "Tu manges avec nous ?"
-                     ]
-                 },
-                 {
-                     "id": "marcher",
-                     "text": "marcher",
-                     "phonetics": "/maʁ.ʃe/",
-                     "partOfSpeech": "verb",
-                     "definition": "Mot qui dit qu'on avance en mettant un pied devant l'autre",
-                     "examples": [
-                         "Je marche dans le parc.",
-                         "Tu marches vite."
-                     ]
-                 },
-                 {
-                     "id": "courir",
-                     "text": "courir",
-                     "phonetics": "/ku.ʁiʁ/",
-                     "partOfSpeech": "verb",
-                     "definition": "Mot qui dit qu'on avance très vite en bougeant les jambes",
-                     "examples": [
-                         "Je cours dans le jardin.",
-                         "Tu cours plus vite que moi."
-                     ]
-                 },
-                 {
-                     "id": "apprendre",
-                     "text": "apprendre",
-                     "phonetics": "/a.pʁɑ̃dʁ/",
-                     "partOfSpeech": "verb",
-                     "definition": "Mot qui dit qu'on découvre quelque chose de nouveau",
-                     "examples": [
-                         "J'apprends le français.",
-                         "Tu apprends vite."
-                     ]
-                 },
-                 {
-                     "id": "comprendre",
-                     "text": "comprendre",
-                     "phonetics": "/kɔ̃.pʁɑ̃dʁ/",
-                     "partOfSpeech": "verb",
-                     "definition": "Mot qui dit qu'on sait ce que quelque chose signifie",
-                     "examples": [
-                         "Je comprends la leçon.",
-                         "Tu comprends bien."
-                     ]
-                 }
+                {
+                    "id": "manger_repas",
+                    "text": "manger",
+                    "phonetics": "/mɑ̃.ʒe/",
+                    "partOfSpeech": "verb",
+                    "definition": "Action de prendre un repas",
+                    "examples": [
+                        "Je mange à midi.",
+                        "Tu manges avec nous ?"
+                    ]
+                },
+                {
+                    "id": "marcher",
+                    "text": "marcher",
+                    "phonetics": "/maʁ.ʃe/",
+                    "partOfSpeech": "verb",
+                    "definition": "Mot qui dit qu'on avance en mettant un pied devant l'autre",
+                    "examples": [
+                        "Je marche dans le parc.",
+                        "Tu marches vite."
+                    ]
+                },
+                {
+                    "id": "courir",
+                    "text": "courir",
+                    "phonetics": "/ku.ʁiʁ/",
+                    "partOfSpeech": "verb",
+                    "definition": "Mot qui dit qu'on avance très vite en bougeant les jambes",
+                    "examples": [
+                        "Je cours dans le jardin.",
+                        "Tu cours plus vite que moi."
+                    ]
+                },
+                {
+                    "id": "apprendre",
+                    "text": "apprendre",
+                    "phonetics": "/a.pʁɑ̃dʁ/",
+                    "partOfSpeech": "verb",
+                    "definition": "Mot qui dit qu'on découvre quelque chose de nouveau",
+                    "examples": [
+                        "J'apprends le français.",
+                        "Tu apprends vite."
+                    ]
+                },
+                {
+                    "id": "comprendre",
+                    "text": "comprendre",
+                    "phonetics": "/kɔ̃.pʁɑ̃dʁ/",
+                    "partOfSpeech": "verb",
+                    "definition": "Mot qui dit qu'on sait ce que quelque chose signifie",
+                    "examples": [
+                        "Je comprends la leçon.",
+                        "Tu comprends bien."
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "french_family_relationships",
+            "title": "Famille et Relations",
+            "description": "Vocabulaire pour parler de la famille et des relations personnelles",
+            "level": "A1",
+            "tagValue": "français",
+            "languageCode": "fr",
+            "localImageName": "family2",
+            "isPremium": false,
+            "isFeatured": true,
+            "words": [
+                {
+                    "id": "la_famille",
+                    "text": "la famille",
+                    "phonetics": "/la.fa.mij/",
+                    "partOfSpeech": "noun",
+                    "definition": "Groupe de personnes qui sont liées par le sang ou l'amour",
+                    "examples": [
+                        "Ma famille est très importante pour moi.",
+                        "J'aime passer du temps avec ma famille."
+                    ]
+                },
+                {
+                    "id": "le_père",
+                    "text": "le père",
+                    "phonetics": "/lə.pɛʁ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Homme qui a des enfants",
+                    "examples": [
+                        "Mon père travaille dans un bureau.",
+                        "Le père de Marie est médecin."
+                    ]
+                },
+                {
+                    "id": "la_mère",
+                    "text": "la mère",
+                    "phonetics": "/la.mɛʁ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Femme qui a des enfants",
+                    "examples": [
+                        "Ma mère cuisine très bien.",
+                        "La mère de Pierre est enseignante."
+                    ]
+                },
+                {
+                    "id": "l_enfant",
+                    "text": "l'enfant",
+                    "phonetics": "/lɑ̃.fɑ̃/",
+                    "partOfSpeech": "noun",
+                    "definition": "Jeune personne qui n'est pas encore adulte",
+                    "examples": [
+                        "Cet enfant joue dans le jardin.",
+                        "Les enfants vont à l'école."
+                    ]
+                },
+                {
+                    "id": "le_fils",
+                    "text": "le fils",
+                    "phonetics": "/lə.fis/",
+                    "partOfSpeech": "noun",
+                    "definition": "Garçon par rapport à ses parents",
+                    "examples": [
+                        "Mon fils a 10 ans.",
+                        "Le fils de ma sœur est très gentil."
+                    ]
+                },
+                {
+                    "id": "la_fille",
+                    "text": "la fille",
+                    "phonetics": "/la.fij/",
+                    "partOfSpeech": "noun",
+                    "definition": "Femme par rapport à ses parents",
+                    "examples": [
+                        "Ma fille étudie à l'université.",
+                        "La fille de mon voisin est très belle."
+                    ]
+                },
+                {
+                    "id": "le_frère",
+                    "text": "le frère",
+                    "phonetics": "/lə.fʁɛʁ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Garçon qui a les mêmes parents",
+                    "examples": [
+                        "Mon frère est plus âgé que moi.",
+                        "J'ai deux frères et une sœur."
+                    ]
+                },
+                {
+                    "id": "la_sœur",
+                    "text": "la sœur",
+                    "phonetics": "/la.sœʁ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Femme qui a les mêmes parents",
+                    "examples": [
+                        "Ma sœur habite à Paris.",
+                        "J'ai une grande sœur et un petit frère."
+                    ]
+                },
+                {
+                    "id": "le_grand_père",
+                    "text": "le grand-père",
+                    "phonetics": "/lə.ɡʁɑ̃.pɛʁ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Père du père ou de la mère",
+                    "examples": [
+                        "Mon grand-père raconte de belles histoires.",
+                        "Le grand-père de Jean est très âgé."
+                    ]
+                },
+                {
+                    "id": "la_grand_mère",
+                    "text": "la grand-mère",
+                    "phonetics": "/la.ɡʁɑ̃.mɛʁ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Mère du père ou de la mère",
+                    "examples": [
+                        "Ma grand-mère fait de bons gâteaux.",
+                        "La grand-mère de Marie est très gentille."
+                    ]
+                },
+                {
+                    "id": "l_oncle",
+                    "text": "l'oncle",
+                    "phonetics": "/lɔ̃kl/",
+                    "partOfSpeech": "noun",
+                    "definition": "Frère du père ou de la mère",
+                    "examples": [
+                        "Mon oncle habite en Angleterre.",
+                        "L'oncle de Pierre est très drôle."
+                    ]
+                },
+                {
+                    "id": "la_tante",
+                    "text": "la tante",
+                    "phonetics": "/la.tɑ̃t/",
+                    "partOfSpeech": "noun",
+                    "definition": "Sœur du père ou de la mère",
+                    "examples": [
+                        "Ma tante nous rend visite souvent.",
+                        "La tante de Marie est très généreuse."
+                    ]
+                },
+                {
+                    "id": "le_cousin",
+                    "text": "le cousin",
+                    "phonetics": "/lə.ku.zɛ̃/",
+                    "partOfSpeech": "noun",
+                    "definition": "Fils de l'oncle ou de la tante",
+                    "examples": [
+                        "Mon cousin joue au football.",
+                        "Le cousin de Jean est très intelligent."
+                    ]
+                },
+                {
+                    "id": "la_cousine",
+                    "text": "la cousine",
+                    "phonetics": "/la.ku.zin/",
+                    "partOfSpeech": "noun",
+                    "definition": "Fille de l'oncle ou de la tante",
+                    "examples": [
+                        "Ma cousine danse très bien.",
+                        "La cousine de Pierre est très jolie."
+                    ]
+                },
+                {
+                    "id": "le_mari",
+                    "text": "le mari",
+                    "phonetics": "/lə.ma.ʁi/",
+                    "partOfSpeech": "noun",
+                    "definition": "Homme qui est marié à une femme",
+                    "examples": [
+                        "Mon mari travaille dans une banque.",
+                        "Le mari de Marie est très gentil."
+                    ]
+                },
+                {
+                    "id": "la_femme",
+                    "text": "la femme",
+                    "phonetics": "/la.fam/",
+                    "partOfSpeech": "noun",
+                    "definition": "Femme qui est mariée à un homme",
+                    "examples": [
+                        "Ma femme est professeur.",
+                        "La femme de Jean est très belle."
+                    ]
+                },
+                {
+                    "id": "l_ami",
+                    "text": "l'ami",
+                    "phonetics": "/la.mi/",
+                    "partOfSpeech": "noun",
+                    "definition": "Personne qu'on aime bien et qu'on connaît",
+                    "examples": [
+                        "Mon ami habite près de chez moi.",
+                        "L'ami de Pierre est très sympa."
+                    ]
+                },
+                {
+                    "id": "l_amie",
+                    "text": "l'amie",
+                    "phonetics": "/la.mi/",
+                    "partOfSpeech": "noun",
+                    "definition": "Femme qu'on aime bien et qu'on connaît",
+                    "examples": [
+                        "Mon amie travaille dans un magasin.",
+                        "L'amie de Marie est très drôle."
+                    ]
+                },
+                {
+                    "id": "aimer",
+                    "text": "aimer",
+                    "phonetics": "/ɛ.me/",
+                    "partOfSpeech": "verb",
+                    "definition": "Avoir de l'affection pour quelqu'un",
+                    "examples": [
+                        "J'aime beaucoup ma famille.",
+                        "Elle aime ses amis."
+                    ]
+                },
+                {
+                    "id": "l_amour",
+                    "text": "l'amour",
+                    "phonetics": "/la.muʁ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Sentiment très fort qu'on a pour quelqu'un",
+                    "examples": [
+                        "L'amour de ma famille est important.",
+                        "L'amour rend heureux."
+                    ]
+                },
+                {
+                    "id": "se_marier",
+                    "text": "se marier",
+                    "phonetics": "/sə.ma.ʁje/",
+                    "partOfSpeech": "verb",
+                    "definition": "Devenir mari et femme officiellement",
+                    "examples": [
+                        "Ils vont se marier en juin.",
+                        "Mes parents se sont mariés il y a 20 ans."
+                    ]
+                },
+                {
+                    "id": "le_mariage",
+                    "text": "le mariage",
+                    "phonetics": "/lə.ma.ʁjaʒ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Cérémonie où deux personnes se marient",
+                    "examples": [
+                        "Le mariage de ma sœur est demain.",
+                        "Le mariage a lieu dans une église."
+                    ]
+                },
+                {
+                    "id": "naître",
+                    "text": "naître",
+                    "phonetics": "/nɛtʁ/",
+                    "partOfSpeech": "verb",
+                    "definition": "Venir au monde",
+                    "examples": [
+                        "Je suis né en France.",
+                        "Le bébé va naître bientôt."
+                    ]
+                },
+                {
+                    "id": "grandir",
+                    "text": "grandir",
+                    "phonetics": "/ɡʁɑ̃.diʁ/",
+                    "partOfSpeech": "verb",
+                    "definition": "Devenir plus grand et plus âgé",
+                    "examples": [
+                        "Les enfants grandissent vite.",
+                        "Je grandis chaque année."
+                    ]
+                },
+                {
+                    "id": "la_maison",
+                    "text": "la maison",
+                    "phonetics": "/la.mɛ.zɔ̃/",
+                    "partOfSpeech": "noun",
+                    "definition": "Endroit où habite une famille",
+                    "examples": [
+                        "Notre maison est très confortable.",
+                        "La maison de mes parents est grande."
+                    ]
+                }
             ]
         },
         {
@@ -1140,6 +1428,294 @@
             ]
         },
         {
+            "id": "french_shopping_consumption",
+            "title": "Achats et Consommation",
+            "description": "Vocabulaire pour faire des achats et gérer ses dépenses",
+            "level": "A2",
+            "tagValue": "français",
+            "languageCode": "fr",
+            "localImageName": "market",
+            "isPremium": false,
+            "isFeatured": false,
+            "words": [
+                {
+                    "id": "le_magasin",
+                    "text": "le magasin",
+                    "phonetics": "/lə.ma.ɡa.zɛ̃/",
+                    "partOfSpeech": "noun",
+                    "definition": "Endroit où on peut acheter des choses",
+                    "examples": [
+                        "Je vais au magasin pour acheter du pain.",
+                        "Ce magasin a de beaux vêtements."
+                    ]
+                },
+                {
+                    "id": "acheter",
+                    "text": "acheter",
+                    "phonetics": "/a.ʃə.te/",
+                    "partOfSpeech": "verb",
+                    "definition": "Donner de l'argent pour obtenir quelque chose",
+                    "examples": [
+                        "J'achète des fruits au marché.",
+                        "Elle achète un nouveau livre."
+                    ]
+                },
+                {
+                    "id": "vendre",
+                    "text": "vendre",
+                    "phonetics": "/vɑ̃dʁ/",
+                    "partOfSpeech": "verb",
+                    "definition": "Donner quelque chose contre de l'argent",
+                    "examples": [
+                        "Je vends ma voiture.",
+                        "Ce magasin vend des chaussures."
+                    ]
+                },
+                {
+                    "id": "le_prix",
+                    "text": "le prix",
+                    "phonetics": "/lə.pʁi/",
+                    "partOfSpeech": "noun",
+                    "definition": "Montant d'argent qu'on doit payer",
+                    "examples": [
+                        "Le prix de cette robe est 50 euros.",
+                        "Ce prix est très raisonnable."
+                    ]
+                },
+                {
+                    "id": "cher",
+                    "text": "cher",
+                    "phonetics": "/ʃɛʁ/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Qui coûte beaucoup d'argent",
+                    "examples": [
+                        "Cette voiture est très chère.",
+                        "Le restaurant est cher mais bon."
+                    ]
+                },
+                {
+                    "id": "bon_marché",
+                    "text": "bon marché",
+                    "phonetics": "/bɔ̃.maʁ.ʃe/",
+                    "partOfSpeech": "adjective",
+                    "definition": "Qui ne coûte pas beaucoup d'argent",
+                    "examples": [
+                        "Ces chaussures sont bon marché.",
+                        "Je cherche quelque chose de bon marché."
+                    ]
+                },
+                {
+                    "id": "payer",
+                    "text": "payer",
+                    "phonetics": "/pe.je/",
+                    "partOfSpeech": "verb",
+                    "definition": "Donner de l'argent pour quelque chose",
+                    "examples": [
+                        "Je paie avec ma carte bancaire.",
+                        "Elle paie en espèces."
+                    ]
+                },
+                {
+                    "id": "l_argent",
+                    "text": "l'argent",
+                    "phonetics": "/laʁ.ʒɑ̃/",
+                    "partOfSpeech": "noun",
+                    "definition": "Moyen d'échange qu'on utilise pour acheter",
+                    "examples": [
+                        "J'ai besoin d'argent pour acheter.",
+                        "L'argent ne fait pas le bonheur."
+                    ]
+                },
+                {
+                    "id": "l_euro",
+                    "text": "l'euro",
+                    "phonetics": "/lø.ʁo/",
+                    "partOfSpeech": "noun",
+                    "definition": "Monnaie utilisée en Europe",
+                    "examples": [
+                        "Cela coûte 10 euros.",
+                        "Je paie en euros."
+                    ]
+                },
+                {
+                    "id": "la_carte_bancaire",
+                    "text": "la carte bancaire",
+                    "phonetics": "/la.kaʁt.bɑ̃.kaʁ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Petite carte qui permet de payer",
+                    "examples": [
+                        "Je paie avec ma carte bancaire.",
+                        "Ma carte bancaire ne fonctionne plus."
+                    ]
+                },
+                {
+                    "id": "les_espèces",
+                    "text": "les espèces",
+                    "phonetics": "/le.zɛs.pɛs/",
+                    "partOfSpeech": "noun",
+                    "definition": "Argent en pièces et billets",
+                    "examples": [
+                        "Je paie en espèces.",
+                        "Avez-vous de la monnaie ?"
+                    ]
+                },
+                {
+                    "id": "la_monnaie",
+                    "text": "la monnaie",
+                    "phonetics": "/la.mɔ.nɛ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Argent qu'on rend après un achat",
+                    "examples": [
+                        "Voici votre monnaie.",
+                        "J'ai besoin de monnaie."
+                    ]
+                },
+                {
+                    "id": "la_caisse",
+                    "text": "la caisse",
+                    "phonetics": "/la.kɛs/",
+                    "partOfSpeech": "noun",
+                    "definition": "Endroit où on paie dans un magasin",
+                    "examples": [
+                        "Je vais à la caisse.",
+                        "La caisse est fermée."
+                    ]
+                },
+                {
+                    "id": "la_facture",
+                    "text": "la facture",
+                    "phonetics": "/la.fak.tyʁ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Papier qui montre ce qu'on a acheté et combien ça coûte",
+                    "examples": [
+                        "Voici votre facture.",
+                        "Je garde toutes mes factures."
+                    ]
+                },
+                {
+                    "id": "le_ticket",
+                    "text": "le ticket",
+                    "phonetics": "/lə.ti.kɛ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Petit papier qui prouve qu'on a payé",
+                    "examples": [
+                        "Gardez votre ticket.",
+                        "Le ticket de caisse est important."
+                    ]
+                },
+                {
+                    "id": "le_solde",
+                    "text": "le solde",
+                    "phonetics": "/lə.sɔld/",
+                    "partOfSpeech": "noun",
+                    "definition": "Réduction de prix sur des articles",
+                    "examples": [
+                        "Il y a des soldes en janvier.",
+                        "Cet article est en solde."
+                    ]
+                },
+                {
+                    "id": "la_réduction",
+                    "text": "la réduction",
+                    "phonetics": "/la.ʁe.dyk.sjɔ̃/",
+                    "partOfSpeech": "noun",
+                    "definition": "Diminution du prix",
+                    "examples": [
+                        "J'ai une réduction de 20%.",
+                        "Cette réduction est intéressante."
+                    ]
+                },
+                {
+                    "id": "le_panier",
+                    "text": "le panier",
+                    "phonetics": "/lə.pa.nje/",
+                    "partOfSpeech": "noun",
+                    "definition": "Contenant où on met les articles qu'on veut acheter",
+                    "examples": [
+                        "Mon panier est plein.",
+                        "Je mets les articles dans le panier."
+                    ]
+                },
+                {
+                    "id": "choisir",
+                    "text": "choisir",
+                    "phonetics": "/ʃwa.ziʁ/",
+                    "partOfSpeech": "verb",
+                    "definition": "Prendre une chose parmi plusieurs",
+                    "examples": [
+                        "Je choisis cette robe.",
+                        "Elle choisit avec soin."
+                    ]
+                },
+                {
+                    "id": "le_choix",
+                    "text": "le choix",
+                    "phonetics": "/lə.ʃwa/",
+                    "partOfSpeech": "noun",
+                    "definition": "Possibilité de prendre quelque chose",
+                    "examples": [
+                        "Il y a beaucoup de choix.",
+                        "Mon choix est fait."
+                    ]
+                },
+                {
+                    "id": "essayer",
+                    "text": "essayer",
+                    "phonetics": "/e.sɛ.je/",
+                    "partOfSpeech": "verb",
+                    "definition": "Mettre quelque chose pour voir si ça va",
+                    "examples": [
+                        "Je veux essayer cette veste.",
+                        "Elle essaie plusieurs chaussures."
+                    ]
+                },
+                {
+                    "id": "la_taille",
+                    "text": "la taille",
+                    "phonetics": "/la.taj/",
+                    "partOfSpeech": "noun",
+                    "definition": "Mesure qui correspond à la grandeur",
+                    "examples": [
+                        "Quelle est votre taille ?",
+                        "Cette taille me va bien."
+                    ]
+                },
+                {
+                    "id": "la_couleur",
+                    "text": "la couleur",
+                    "phonetics": "/la.ku.lœʁ/",
+                    "partOfSpeech": "noun",
+                    "definition": "Aspect visuel d'une chose (rouge, bleu, etc.)",
+                    "examples": [
+                        "J'aime cette couleur.",
+                        "Quelle couleur préférez-vous ?"
+                    ]
+                },
+                {
+                    "id": "la_qualité",
+                    "text": "la qualité",
+                    "phonetics": "/la.ka.li.te/",
+                    "partOfSpeech": "noun",
+                    "definition": "Niveau de bien d'un produit",
+                    "examples": [
+                        "La qualité de ce produit est excellente.",
+                        "Je préfère la qualité au prix."
+                    ]
+                },
+                {
+                    "id": "rendre",
+                    "text": "rendre",
+                    "phonetics": "/ʁɑ̃dʁ/",
+                    "partOfSpeech": "verb",
+                    "definition": "Remettre quelque chose qu'on a acheté",
+                    "examples": [
+                        "Je rends cet article.",
+                        "Elle rend sa commande."
+                    ]
+                }
+            ]
+        },
+        {
             "id": "french_business_work",
             "title": "Affaires et Travail",
             "description": "Vocabulaire professionnel pour le monde du travail et des affaires",
@@ -1148,7 +1724,7 @@
             "languageCode": "fr",
             "localImageName": "office-1",
             "isPremium": true,
-            "isFeatured": false,
+            "isFeatured": true,
             "words": [
                 {
                     "id": "le_travail",
@@ -1423,294 +1999,6 @@
                     "examples": [
                         "Ma présentation est prête.",
                         "La présentation dure 30 minutes."
-                    ]
-                }
-            ]
-        },
-        {
-            "id": "french_family_relationships",
-            "title": "Famille et Relations",
-            "description": "Vocabulaire pour parler de la famille et des relations personnelles",
-            "level": "A1",
-            "tagValue": "français",
-            "languageCode": "fr",
-            "localImageName": "family2",
-            "isPremium": false,
-            "isFeatured": false,
-            "words": [
-                {
-                    "id": "la_famille",
-                    "text": "la famille",
-                    "phonetics": "/la.fa.mij/",
-                    "partOfSpeech": "noun",
-                    "definition": "Groupe de personnes qui sont liées par le sang ou l'amour",
-                    "examples": [
-                        "Ma famille est très importante pour moi.",
-                        "J'aime passer du temps avec ma famille."
-                    ]
-                },
-                {
-                    "id": "le_père",
-                    "text": "le père",
-                    "phonetics": "/lə.pɛʁ/",
-                    "partOfSpeech": "noun",
-                    "definition": "Homme qui a des enfants",
-                    "examples": [
-                        "Mon père travaille dans un bureau.",
-                        "Le père de Marie est médecin."
-                    ]
-                },
-                {
-                    "id": "la_mère",
-                    "text": "la mère",
-                    "phonetics": "/la.mɛʁ/",
-                    "partOfSpeech": "noun",
-                    "definition": "Femme qui a des enfants",
-                    "examples": [
-                        "Ma mère cuisine très bien.",
-                        "La mère de Pierre est enseignante."
-                    ]
-                },
-                {
-                    "id": "l_enfant",
-                    "text": "l'enfant",
-                    "phonetics": "/lɑ̃.fɑ̃/",
-                    "partOfSpeech": "noun",
-                    "definition": "Jeune personne qui n'est pas encore adulte",
-                    "examples": [
-                        "Cet enfant joue dans le jardin.",
-                        "Les enfants vont à l'école."
-                    ]
-                },
-                {
-                    "id": "le_fils",
-                    "text": "le fils",
-                    "phonetics": "/lə.fis/",
-                    "partOfSpeech": "noun",
-                    "definition": "Garçon par rapport à ses parents",
-                    "examples": [
-                        "Mon fils a 10 ans.",
-                        "Le fils de ma sœur est très gentil."
-                    ]
-                },
-                {
-                    "id": "la_fille",
-                    "text": "la fille",
-                    "phonetics": "/la.fij/",
-                    "partOfSpeech": "noun",
-                    "definition": "Femme par rapport à ses parents",
-                    "examples": [
-                        "Ma fille étudie à l'université.",
-                        "La fille de mon voisin est très belle."
-                    ]
-                },
-                {
-                    "id": "le_frère",
-                    "text": "le frère",
-                    "phonetics": "/lə.fʁɛʁ/",
-                    "partOfSpeech": "noun",
-                    "definition": "Garçon qui a les mêmes parents",
-                    "examples": [
-                        "Mon frère est plus âgé que moi.",
-                        "J'ai deux frères et une sœur."
-                    ]
-                },
-                {
-                    "id": "la_sœur",
-                    "text": "la sœur",
-                    "phonetics": "/la.sœʁ/",
-                    "partOfSpeech": "noun",
-                    "definition": "Femme qui a les mêmes parents",
-                    "examples": [
-                        "Ma sœur habite à Paris.",
-                        "J'ai une grande sœur et un petit frère."
-                    ]
-                },
-                {
-                    "id": "le_grand_père",
-                    "text": "le grand-père",
-                    "phonetics": "/lə.ɡʁɑ̃.pɛʁ/",
-                    "partOfSpeech": "noun",
-                    "definition": "Père du père ou de la mère",
-                    "examples": [
-                        "Mon grand-père raconte de belles histoires.",
-                        "Le grand-père de Jean est très âgé."
-                    ]
-                },
-                {
-                    "id": "la_grand_mère",
-                    "text": "la grand-mère",
-                    "phonetics": "/la.ɡʁɑ̃.mɛʁ/",
-                    "partOfSpeech": "noun",
-                    "definition": "Mère du père ou de la mère",
-                    "examples": [
-                        "Ma grand-mère fait de bons gâteaux.",
-                        "La grand-mère de Marie est très gentille."
-                    ]
-                },
-                {
-                    "id": "l_oncle",
-                    "text": "l'oncle",
-                    "phonetics": "/lɔ̃kl/",
-                    "partOfSpeech": "noun",
-                    "definition": "Frère du père ou de la mère",
-                    "examples": [
-                        "Mon oncle habite en Angleterre.",
-                        "L'oncle de Pierre est très drôle."
-                    ]
-                },
-                {
-                    "id": "la_tante",
-                    "text": "la tante",
-                    "phonetics": "/la.tɑ̃t/",
-                    "partOfSpeech": "noun",
-                    "definition": "Sœur du père ou de la mère",
-                    "examples": [
-                        "Ma tante nous rend visite souvent.",
-                        "La tante de Marie est très généreuse."
-                    ]
-                },
-                {
-                    "id": "le_cousin",
-                    "text": "le cousin",
-                    "phonetics": "/lə.ku.zɛ̃/",
-                    "partOfSpeech": "noun",
-                    "definition": "Fils de l'oncle ou de la tante",
-                    "examples": [
-                        "Mon cousin joue au football.",
-                        "Le cousin de Jean est très intelligent."
-                    ]
-                },
-                {
-                    "id": "la_cousine",
-                    "text": "la cousine",
-                    "phonetics": "/la.ku.zin/",
-                    "partOfSpeech": "noun",
-                    "definition": "Fille de l'oncle ou de la tante",
-                    "examples": [
-                        "Ma cousine danse très bien.",
-                        "La cousine de Pierre est très jolie."
-                    ]
-                },
-                {
-                    "id": "le_mari",
-                    "text": "le mari",
-                    "phonetics": "/lə.ma.ʁi/",
-                    "partOfSpeech": "noun",
-                    "definition": "Homme qui est marié à une femme",
-                    "examples": [
-                        "Mon mari travaille dans une banque.",
-                        "Le mari de Marie est très gentil."
-                    ]
-                },
-                {
-                    "id": "la_femme",
-                    "text": "la femme",
-                    "phonetics": "/la.fam/",
-                    "partOfSpeech": "noun",
-                    "definition": "Femme qui est mariée à un homme",
-                    "examples": [
-                        "Ma femme est professeur.",
-                        "La femme de Jean est très belle."
-                    ]
-                },
-                {
-                    "id": "l_ami",
-                    "text": "l'ami",
-                    "phonetics": "/la.mi/",
-                    "partOfSpeech": "noun",
-                    "definition": "Personne qu'on aime bien et qu'on connaît",
-                    "examples": [
-                        "Mon ami habite près de chez moi.",
-                        "L'ami de Pierre est très sympa."
-                    ]
-                },
-                {
-                    "id": "l_amie",
-                    "text": "l'amie",
-                    "phonetics": "/la.mi/",
-                    "partOfSpeech": "noun",
-                    "definition": "Femme qu'on aime bien et qu'on connaît",
-                    "examples": [
-                        "Mon amie travaille dans un magasin.",
-                        "L'amie de Marie est très drôle."
-                    ]
-                },
-                {
-                    "id": "aimer",
-                    "text": "aimer",
-                    "phonetics": "/ɛ.me/",
-                    "partOfSpeech": "verb",
-                    "definition": "Avoir de l'affection pour quelqu'un",
-                    "examples": [
-                        "J'aime beaucoup ma famille.",
-                        "Elle aime ses amis."
-                    ]
-                },
-                {
-                    "id": "l_amour",
-                    "text": "l'amour",
-                    "phonetics": "/la.muʁ/",
-                    "partOfSpeech": "noun",
-                    "definition": "Sentiment très fort qu'on a pour quelqu'un",
-                    "examples": [
-                        "L'amour de ma famille est important.",
-                        "L'amour rend heureux."
-                    ]
-                },
-                {
-                    "id": "se_marier",
-                    "text": "se marier",
-                    "phonetics": "/sə.ma.ʁje/",
-                    "partOfSpeech": "verb",
-                    "definition": "Devenir mari et femme officiellement",
-                    "examples": [
-                        "Ils vont se marier en juin.",
-                        "Mes parents se sont mariés il y a 20 ans."
-                    ]
-                },
-                {
-                    "id": "le_mariage",
-                    "text": "le mariage",
-                    "phonetics": "/lə.ma.ʁjaʒ/",
-                    "partOfSpeech": "noun",
-                    "definition": "Cérémonie où deux personnes se marient",
-                    "examples": [
-                        "Le mariage de ma sœur est demain.",
-                        "Le mariage a lieu dans une église."
-                    ]
-                },
-                {
-                    "id": "naître",
-                    "text": "naître",
-                    "phonetics": "/nɛtʁ/",
-                    "partOfSpeech": "verb",
-                    "definition": "Venir au monde",
-                    "examples": [
-                        "Je suis né en France.",
-                        "Le bébé va naître bientôt."
-                    ]
-                },
-                {
-                    "id": "grandir",
-                    "text": "grandir",
-                    "phonetics": "/ɡʁɑ̃.diʁ/",
-                    "partOfSpeech": "verb",
-                    "definition": "Devenir plus grand et plus âgé",
-                    "examples": [
-                        "Les enfants grandissent vite.",
-                        "Je grandis chaque année."
-                    ]
-                },
-                {
-                    "id": "la_maison",
-                    "text": "la maison",
-                    "phonetics": "/la.mɛ.zɔ̃/",
-                    "partOfSpeech": "noun",
-                    "definition": "Endroit où habite une famille",
-                    "examples": [
-                        "Notre maison est très confortable.",
-                        "La maison de mes parents est grande."
                     ]
                 }
             ]
@@ -1999,294 +2287,6 @@
                     "examples": [
                         "Je partage mes photos.",
                         "Elle partage ses idées."
-                    ]
-                }
-            ]
-        },
-        {
-            "id": "french_shopping_consumption",
-            "title": "Achats et Consommation",
-            "description": "Vocabulaire pour faire des achats et gérer ses dépenses",
-            "level": "A2",
-            "tagValue": "français",
-            "languageCode": "fr",
-            "localImageName": "market",
-            "isPremium": false,
-            "isFeatured": false,
-            "words": [
-                {
-                    "id": "le_magasin",
-                    "text": "le magasin",
-                    "phonetics": "/lə.ma.ɡa.zɛ̃/",
-                    "partOfSpeech": "noun",
-                    "definition": "Endroit où on peut acheter des choses",
-                    "examples": [
-                        "Je vais au magasin pour acheter du pain.",
-                        "Ce magasin a de beaux vêtements."
-                    ]
-                },
-                {
-                    "id": "acheter",
-                    "text": "acheter",
-                    "phonetics": "/a.ʃə.te/",
-                    "partOfSpeech": "verb",
-                    "definition": "Donner de l'argent pour obtenir quelque chose",
-                    "examples": [
-                        "J'achète des fruits au marché.",
-                        "Elle achète un nouveau livre."
-                    ]
-                },
-                {
-                    "id": "vendre",
-                    "text": "vendre",
-                    "phonetics": "/vɑ̃dʁ/",
-                    "partOfSpeech": "verb",
-                    "definition": "Donner quelque chose contre de l'argent",
-                    "examples": [
-                        "Je vends ma voiture.",
-                        "Ce magasin vend des chaussures."
-                    ]
-                },
-                {
-                    "id": "le_prix",
-                    "text": "le prix",
-                    "phonetics": "/lə.pʁi/",
-                    "partOfSpeech": "noun",
-                    "definition": "Montant d'argent qu'on doit payer",
-                    "examples": [
-                        "Le prix de cette robe est 50 euros.",
-                        "Ce prix est très raisonnable."
-                    ]
-                },
-                {
-                    "id": "cher",
-                    "text": "cher",
-                    "phonetics": "/ʃɛʁ/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Qui coûte beaucoup d'argent",
-                    "examples": [
-                        "Cette voiture est très chère.",
-                        "Le restaurant est cher mais bon."
-                    ]
-                },
-                {
-                    "id": "bon_marché",
-                    "text": "bon marché",
-                    "phonetics": "/bɔ̃.maʁ.ʃe/",
-                    "partOfSpeech": "adjective",
-                    "definition": "Qui ne coûte pas beaucoup d'argent",
-                    "examples": [
-                        "Ces chaussures sont bon marché.",
-                        "Je cherche quelque chose de bon marché."
-                    ]
-                },
-                {
-                    "id": "payer",
-                    "text": "payer",
-                    "phonetics": "/pe.je/",
-                    "partOfSpeech": "verb",
-                    "definition": "Donner de l'argent pour quelque chose",
-                    "examples": [
-                        "Je paie avec ma carte bancaire.",
-                        "Elle paie en espèces."
-                    ]
-                },
-                {
-                    "id": "l_argent",
-                    "text": "l'argent",
-                    "phonetics": "/laʁ.ʒɑ̃/",
-                    "partOfSpeech": "noun",
-                    "definition": "Moyen d'échange qu'on utilise pour acheter",
-                    "examples": [
-                        "J'ai besoin d'argent pour acheter.",
-                        "L'argent ne fait pas le bonheur."
-                    ]
-                },
-                {
-                    "id": "l_euro",
-                    "text": "l'euro",
-                    "phonetics": "/lø.ʁo/",
-                    "partOfSpeech": "noun",
-                    "definition": "Monnaie utilisée en Europe",
-                    "examples": [
-                        "Cela coûte 10 euros.",
-                        "Je paie en euros."
-                    ]
-                },
-                {
-                    "id": "la_carte_bancaire",
-                    "text": "la carte bancaire",
-                    "phonetics": "/la.kaʁt.bɑ̃.kaʁ/",
-                    "partOfSpeech": "noun",
-                    "definition": "Petite carte qui permet de payer",
-                    "examples": [
-                        "Je paie avec ma carte bancaire.",
-                        "Ma carte bancaire ne fonctionne plus."
-                    ]
-                },
-                {
-                    "id": "les_espèces",
-                    "text": "les espèces",
-                    "phonetics": "/le.zɛs.pɛs/",
-                    "partOfSpeech": "noun",
-                    "definition": "Argent en pièces et billets",
-                    "examples": [
-                        "Je paie en espèces.",
-                        "Avez-vous de la monnaie ?"
-                    ]
-                },
-                {
-                    "id": "la_monnaie",
-                    "text": "la monnaie",
-                    "phonetics": "/la.mɔ.nɛ/",
-                    "partOfSpeech": "noun",
-                    "definition": "Argent qu'on rend après un achat",
-                    "examples": [
-                        "Voici votre monnaie.",
-                        "J'ai besoin de monnaie."
-                    ]
-                },
-                {
-                    "id": "la_caisse",
-                    "text": "la caisse",
-                    "phonetics": "/la.kɛs/",
-                    "partOfSpeech": "noun",
-                    "definition": "Endroit où on paie dans un magasin",
-                    "examples": [
-                        "Je vais à la caisse.",
-                        "La caisse est fermée."
-                    ]
-                },
-                {
-                    "id": "la_facture",
-                    "text": "la facture",
-                    "phonetics": "/la.fak.tyʁ/",
-                    "partOfSpeech": "noun",
-                    "definition": "Papier qui montre ce qu'on a acheté et combien ça coûte",
-                    "examples": [
-                        "Voici votre facture.",
-                        "Je garde toutes mes factures."
-                    ]
-                },
-                {
-                    "id": "le_ticket",
-                    "text": "le ticket",
-                    "phonetics": "/lə.ti.kɛ/",
-                    "partOfSpeech": "noun",
-                    "definition": "Petit papier qui prouve qu'on a payé",
-                    "examples": [
-                        "Gardez votre ticket.",
-                        "Le ticket de caisse est important."
-                    ]
-                },
-                {
-                    "id": "le_solde",
-                    "text": "le solde",
-                    "phonetics": "/lə.sɔld/",
-                    "partOfSpeech": "noun",
-                    "definition": "Réduction de prix sur des articles",
-                    "examples": [
-                        "Il y a des soldes en janvier.",
-                        "Cet article est en solde."
-                    ]
-                },
-                {
-                    "id": "la_réduction",
-                    "text": "la réduction",
-                    "phonetics": "/la.ʁe.dyk.sjɔ̃/",
-                    "partOfSpeech": "noun",
-                    "definition": "Diminution du prix",
-                    "examples": [
-                        "J'ai une réduction de 20%.",
-                        "Cette réduction est intéressante."
-                    ]
-                },
-                {
-                    "id": "le_panier",
-                    "text": "le panier",
-                    "phonetics": "/lə.pa.nje/",
-                    "partOfSpeech": "noun",
-                    "definition": "Contenant où on met les articles qu'on veut acheter",
-                    "examples": [
-                        "Mon panier est plein.",
-                        "Je mets les articles dans le panier."
-                    ]
-                },
-                {
-                    "id": "choisir",
-                    "text": "choisir",
-                    "phonetics": "/ʃwa.ziʁ/",
-                    "partOfSpeech": "verb",
-                    "definition": "Prendre une chose parmi plusieurs",
-                    "examples": [
-                        "Je choisis cette robe.",
-                        "Elle choisit avec soin."
-                    ]
-                },
-                {
-                    "id": "le_choix",
-                    "text": "le choix",
-                    "phonetics": "/lə.ʃwa/",
-                    "partOfSpeech": "noun",
-                    "definition": "Possibilité de prendre quelque chose",
-                    "examples": [
-                        "Il y a beaucoup de choix.",
-                        "Mon choix est fait."
-                    ]
-                },
-                {
-                    "id": "essayer",
-                    "text": "essayer",
-                    "phonetics": "/e.sɛ.je/",
-                    "partOfSpeech": "verb",
-                    "definition": "Mettre quelque chose pour voir si ça va",
-                    "examples": [
-                        "Je veux essayer cette veste.",
-                        "Elle essaie plusieurs chaussures."
-                    ]
-                },
-                {
-                    "id": "la_taille",
-                    "text": "la taille",
-                    "phonetics": "/la.taj/",
-                    "partOfSpeech": "noun",
-                    "definition": "Mesure qui correspond à la grandeur",
-                    "examples": [
-                        "Quelle est votre taille ?",
-                        "Cette taille me va bien."
-                    ]
-                },
-                {
-                    "id": "la_couleur",
-                    "text": "la couleur",
-                    "phonetics": "/la.ku.lœʁ/",
-                    "partOfSpeech": "noun",
-                    "definition": "Aspect visuel d'une chose (rouge, bleu, etc.)",
-                    "examples": [
-                        "J'aime cette couleur.",
-                        "Quelle couleur préférez-vous ?"
-                    ]
-                },
-                {
-                    "id": "la_qualité",
-                    "text": "la qualité",
-                    "phonetics": "/la.ka.li.te/",
-                    "partOfSpeech": "noun",
-                    "definition": "Niveau de bien d'un produit",
-                    "examples": [
-                        "La qualité de ce produit est excellente.",
-                        "Je préfère la qualité au prix."
-                    ]
-                },
-                {
-                    "id": "rendre",
-                    "text": "rendre",
-                    "phonetics": "/ʁɑ̃dʁ/",
-                    "partOfSpeech": "verb",
-                    "definition": "Remettre quelque chose qu'on a acheté",
-                    "examples": [
-                        "Je rends cet article.",
-                        "Elle rend sa commande."
                     ]
                 }
             ]
