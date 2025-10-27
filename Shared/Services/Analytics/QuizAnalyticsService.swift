@@ -190,17 +190,76 @@ final class QuizAnalyticsService {
             daysWithQuizzes.insert(dateString)
         }
         
-        // Count consecutive days starting from today
+        // Count consecutive days starting from today or yesterday
         var streak = 0
         var currentDate = today
         
-        // Check if today has quizzes
+        // Check if today has quizzes, if not check yesterday
         let todayString = currentDate.description
-        guard daysWithQuizzes.contains(todayString) else {
-            return 0
+        if !daysWithQuizzes.contains(todayString) {
+            // If no quiz today, check if there was a quiz yesterday
+            if let yesterday = calendar.date(byAdding: .day, value: -1, to: today) {
+                let yesterdayString = yesterday.description
+                if daysWithQuizzes.contains(yesterdayString) {
+                    // There was a quiz yesterday but not today, streak continues
+                    currentDate = yesterday
+                } else {
+                    // No quiz today or yesterday, check for gaps
+                    return calculateStreakFromLastQuiz(daysWithQuizzes: daysWithQuizzes, calendar: calendar, today: today)
+                }
+            } else {
+                return 0
+            }
         }
         
         // Count backwards through consecutive days
+        while true {
+            let dateString = currentDate.description
+            
+            if daysWithQuizzes.contains(dateString) {
+                streak += 1
+                // Move to previous day
+                if let previousDay = calendar.date(byAdding: .day, value: -1, to: currentDate) {
+                    currentDate = previousDay
+                } else {
+                    break
+                }
+            } else {
+                // Gap found, stop counting
+                break
+            }
+        }
+        
+        return streak
+    }
+    
+    private func calculateStreakFromLastQuiz(daysWithQuizzes: Set<String>, calendar: Calendar, today: Date) -> Int {
+        // Find the most recent day with a quiz
+        var currentDate = today
+        var daysBack = 0
+        let maxDaysBack = 30 // Don't look back more than 30 days
+        
+        while daysBack < maxDaysBack {
+            if let previousDay = calendar.date(byAdding: .day, value: -1, to: currentDate) {
+                let dateString = previousDay.description
+                if daysWithQuizzes.contains(dateString) {
+                    // Found the last quiz day, now count consecutive days backwards from there
+                    return countConsecutiveDaysBackwards(from: previousDay, daysWithQuizzes: daysWithQuizzes, calendar: calendar)
+                }
+                currentDate = previousDay
+                daysBack += 1
+            } else {
+                break
+            }
+        }
+        
+        return 0
+    }
+    
+    private func countConsecutiveDaysBackwards(from startDate: Date, daysWithQuizzes: Set<String>, calendar: Calendar) -> Int {
+        var streak = 0
+        var currentDate = startDate
+        
         while true {
             let dateString = currentDate.description
             
