@@ -18,6 +18,7 @@ struct MyDictionaryApp: App {
 
     @Environment(\.openWindow) private var openWindow
     @NSApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    @StateObject private var migrationService = DataMigrationService.shared
 
     init() {
         // Configure Firebase FIRST
@@ -33,7 +34,11 @@ struct MyDictionaryApp: App {
     var body: some Scene {
         Window(Loc.Onboarding.myDictionary, id: WindowID.main) {
             SideBarView()
-                .migrationAware()
+                .task {
+                    if migrationService.needsMigration && !migrationService.isInProgress {
+                        try? await migrationService.performMigration()
+                    }
+                }
                 .fontDesign(.rounded)
                 .tint(.accent)
                 .frame(minWidth: 1000, minHeight: 640)
