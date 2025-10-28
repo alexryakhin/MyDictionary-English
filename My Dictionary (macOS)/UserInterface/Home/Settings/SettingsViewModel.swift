@@ -17,6 +17,7 @@ final class SettingsViewModel: BaseViewModel {
     @Published var exportWordsUrl: URL?
     @Published var showingTagManagement = false
     @Published var showingSharedDictionaries = false
+    @Published var showingDeleteWords = false
     @Published var dailyRemindersTime = UDService.dailyRemindersTime
     @Published var difficultWordsTime = UDService.difficultWordsTime
 
@@ -239,5 +240,9 @@ final class SettingsViewModel: BaseViewModel {
         if difficultWordsEnabled {
             notificationService.scheduleNotificationsForSettings()
         }
+    }
+    
+    func showDeleteWords() {
+        showingDeleteWords = true
     }
 }

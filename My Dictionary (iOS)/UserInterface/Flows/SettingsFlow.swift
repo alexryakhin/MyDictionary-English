@@ -37,6 +37,8 @@ struct SettingsFlow: View {
             navigationManager.navigationPath.append(NavigationDestination.authentication)
         case .showProfile:
             navigationManager.navigationPath.append(NavigationDestination.profile)
+        case .showDeleteWords:
+            navigationManager.navigationPath.append(NavigationDestination.deleteWords)
         }
     }
 }

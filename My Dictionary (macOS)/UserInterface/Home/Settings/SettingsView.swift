@@ -267,6 +267,13 @@ struct SettingsView: View {
                         ) {
                             await viewModel.cleanupDuplicates()
                         }
+                        
+                        ActionButton(
+                            Loc.Settings.deleteWords,
+                            systemImage: "trash.circle"
+                        ) {
+                            viewModel.showDeleteWords()
+                        }
                     }
                     .padding(.bottom, 12)
                 }
@@ -314,6 +321,9 @@ struct SettingsView: View {
         }
         .sheet(isPresented: $showingLearningPreferences) {
             LearningPreferencesView()
+        }
+        .sheet(isPresented: $viewModel.showingDeleteWords) {
+            DeleteWordsView()
         }
         .onAppear {
             AnalyticsService.shared.logEvent(.settingsOpened)

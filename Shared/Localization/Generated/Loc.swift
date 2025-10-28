@@ -31,6 +31,8 @@ public enum Loc {
     public static let create = Loc.tr("Actions", "create", fallback: "Create")
     /// Delete
     public static let delete = Loc.tr("Actions", "delete", fallback: "Delete")
+    /// Deselect All
+    public static let deselectAll = Loc.tr("Actions", "deselect_all", fallback: "Deselect All")
     /// Done
     public static let done = Loc.tr("Actions", "done", fallback: "Done")
     /// Download
@@ -91,6 +93,8 @@ public enum Loc {
     public static let search = Loc.tr("Actions", "search", fallback: "Search")
     /// Select
     public static let select = Loc.tr("Actions", "select", fallback: "Select")
+    /// Select All
+    public static let selectAll = Loc.tr("Actions", "select_all", fallback: "Select All")
     /// Select a collection
     public static let selectCollection = Loc.tr("Actions", "select_collection", fallback: "Select a collection")
     /// Select an idiom
@@ -1617,6 +1621,26 @@ public enum Loc {
     public static let dataMaintenance = Loc.tr("Settings", "data_maintenance", fallback: "Data Maintenance")
     /// Clean up duplicate words and meanings to improve app performance
     public static let dataMaintenanceDescription = Loc.tr("Settings", "data_maintenance_description", fallback: "Clean up duplicate words and meanings to improve app performance")
+    /// Delete All
+    public static let deleteAllWords = Loc.tr("Settings", "delete_all_words", fallback: "Delete All")
+    /// Delete All Words
+    public static let deleteAllWordsConfirmation = Loc.tr("Settings", "delete_all_words_confirmation", fallback: "Delete All Words")
+    /// Are you sure you want to delete all %d words from your dictionary? This action cannot be undone.
+    public static func deleteAllWordsConfirmationMessage(_ p1: Int) -> String {
+      return Loc.tr("Settings", "delete_all_words_confirmation_message", p1, fallback: "Are you sure you want to delete all %d words from your dictionary? This action cannot be undone.")
+    }
+    /// Delete Selected
+    public static let deleteSelectedWords = Loc.tr("Settings", "delete_selected_words", fallback: "Delete Selected")
+    /// Delete Words
+    public static let deleteWords = Loc.tr("Settings", "delete_words", fallback: "Delete Words")
+    /// Delete Words
+    public static let deleteWordsConfirmation = Loc.tr("Settings", "delete_words_confirmation", fallback: "Delete Words")
+    /// Are you sure you want to delete %d selected words? This action cannot be undone.
+    public static func deleteWordsConfirmationMessage(_ p1: Int) -> String {
+      return Loc.tr("Settings", "delete_words_confirmation_message", p1, fallback: "Are you sure you want to delete %d selected words? This action cannot be undone.")
+    }
+    /// Select and delete words from your dictionary
+    public static let deleteWordsDescription = Loc.tr("Settings", "delete_words_description", fallback: "Select and delete words from your dictionary")
     /// Difficult Words
     public static let difficultWords = Loc.tr("Settings", "difficult_words", fallback: "Difficult Words")
     /// Get reminded to practice difficult words
@@ -1689,6 +1713,10 @@ public enum Loc {
     public static let noWordsImported = Loc.tr("Settings", "no_words_imported", fallback: "No words imported")
     /// We couldn't find any new words to import
     public static let noWordsImportedMessage = Loc.tr("Settings", "no_words_imported_message", fallback: "We couldn't find any new words to import")
+    /// No Words
+    public static let noWordsToDelete = Loc.tr("Settings", "no_words_to_delete", fallback: "No Words")
+    /// Your dictionary is empty. There are no words to delete.
+    public static let noWordsToDeleteMessage = Loc.tr("Settings", "no_words_to_delete_message", fallback: "Your dictionary is empty. There are no words to delete.")
     /// Notifications
     public static let notifications = Loc.tr("Settings", "notifications", fallback: "Notifications")
     /// Organization
@@ -1745,6 +1773,12 @@ public enum Loc {
     public static let wordStudyReminders = Loc.tr("Settings", "word_study_reminders", fallback: "Word Study Reminders")
     /// Get random vocabulary during your study time
     public static let wordStudyRemindersDescription = Loc.tr("Settings", "word_study_reminders_description", fallback: "Get random vocabulary during your study time")
+    /// Words Deleted
+    public static let wordsDeletedSuccessfully = Loc.tr("Settings", "words_deleted_successfully", fallback: "Words Deleted")
+    /// Successfully deleted %d words from your dictionary.
+    public static func wordsDeletedSuccessfullyMessage(_ p1: Int) -> String {
+      return Loc.tr("Settings", "words_deleted_successfully_message", p1, fallback: "Successfully deleted %d words from your dictionary.")
+    }
   }
   public enum SharedDictionaries {
     /// Add Collaborator

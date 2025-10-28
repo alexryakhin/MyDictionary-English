@@ -214,7 +214,8 @@ struct FillInTheBlankQuizContentView: View {
             }
 
             InteractiveText(
-                text: story.story
+                text: story.story,
+                font: .headline
             )
         }
         .padding(20)

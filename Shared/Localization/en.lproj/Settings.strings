@@ -83,3 +83,15 @@
 "no_duplicates_message" = "No duplicate words, meanings, or tags were found in your dictionary.";
 "cleanup_completed" = "Cleanup Completed";
 "cleanup_completed_message" = "Successfully cleaned up %d duplicates:\n• %d duplicate words\n• %d duplicate meanings\n• %d duplicate tags\n• %d meanings merged\n• %d tag relationships merged";
+"delete_words" = "Delete Words";
+"delete_words_description" = "Select and delete words from your dictionary";
+"delete_all_words" = "Delete All";
+"delete_selected_words" = "Delete Selected";
+"no_words_to_delete" = "No Words";
+"no_words_to_delete_message" = "Your dictionary is empty. There are no words to delete.";
+"delete_words_confirmation" = "Delete Words";
+"delete_words_confirmation_message" = "Are you sure you want to delete %d selected words? This action cannot be undone.";
+"delete_all_words_confirmation" = "Delete All Words";
+"delete_all_words_confirmation_message" = "Are you sure you want to delete all %d words from your dictionary? This action cannot be undone.";
+"words_deleted_successfully" = "Words Deleted";
+"words_deleted_successfully_message" = "Successfully deleted %d words from your dictionary.";

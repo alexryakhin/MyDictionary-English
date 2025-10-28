@@ -62,3 +62,5 @@
 "load_more" = "Load more";
 "loading_more" = "Loading more...";
 "copy_email" = "Copy Email";
+"select_all" = "Select All";
+"deselect_all" = "Deselect All";

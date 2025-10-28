@@ -96,6 +96,73 @@ final class WordsProvider: ObservableObject {
         request.predicate = NSPredicate(format: "wordItself CONTAINS[cd] %@", text)
         return (try? coreDataService.context.fetch(request)) ?? []
     }
+    
+    /// Deletes multiple words by their IDs
+    func deleteWords(with ids: [String]) throws {
+        guard !ids.isEmpty else { return }
+        
+        let fetchRequest = CDWord.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id IN %@", ids)
+        let objectsToDelete = try coreDataService.context.fetch(fetchRequest)
+        
+        // Clean up associated image files before deleting words
+        for object in objectsToDelete {
+            if let imageLocalPath = object.imageLocalPath, !imageLocalPath.isEmpty {
+                do {
+                    try PexelsService.shared.deleteImage(at: imageLocalPath)
+                    print("🗑️ [WordsProvider] Deleted image file: \(imageLocalPath)")
+                } catch {
+                    print("⚠️ [WordsProvider] Failed to delete image file: \(error.localizedDescription)")
+                    // Continue with word deletion even if image cleanup fails
+                }
+            }
+        }
+        
+        // Delete all objects
+        for object in objectsToDelete {
+            coreDataService.context.delete(object)
+        }
+        
+        #if os(macOS)
+        SideBarManager.shared.selectedWord = nil
+        #endif
+        
+        try coreDataService.saveContext()
+        // Manually refresh the words list after deletion
+        try fetchWords()
+    }
+    
+    /// Deletes all words from the dictionary
+    func deleteAllWords() throws {
+        let fetchRequest = CDWord.fetchRequest()
+        let allWords = try coreDataService.context.fetch(fetchRequest)
+        
+        // Clean up associated image files before deleting words
+        for word in allWords {
+            if let imageLocalPath = word.imageLocalPath, !imageLocalPath.isEmpty {
+                do {
+                    try PexelsService.shared.deleteImage(at: imageLocalPath)
+                    print("🗑️ [WordsProvider] Deleted image file: \(imageLocalPath)")
+                } catch {
+                    print("⚠️ [WordsProvider] Failed to delete image file: \(error.localizedDescription)")
+                    // Continue with word deletion even if image cleanup fails
+                }
+            }
+        }
+        
+        // Delete all words
+        for word in allWords {
+            coreDataService.context.delete(word)
+        }
+        
+        #if os(macOS)
+        SideBarManager.shared.selectedWord = nil
+        #endif
+        
+        try coreDataService.saveContext()
+        // Manually refresh the words list after deletion
+        try fetchWords()
+    }
 
     private func setupBindings() {
         coreDataService.dataUpdatedPublisher

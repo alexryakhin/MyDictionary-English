@@ -259,6 +259,13 @@ struct SettingsView: View {
                         ) {
                             await viewModel.cleanupDuplicates()
                         }
+                        
+                        ActionButton(
+                            Loc.Settings.deleteWords,
+                            systemImage: "trash.circle"
+                        ) {
+                            viewModel.showDeleteWords()
+                        }
                     }
                     .padding(.bottom, 12)
                 }

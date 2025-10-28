@@ -189,7 +189,7 @@ struct ContextMultipleChoiceQuizContentView: View {
 
     private func questionSection(_ contextQuestion: AIContextQuestion) -> some View {
         VStack(alignment: .leading, spacing: 12) {
-            let question = Loc.Quizzes.AiQuiz.chooseCorrectSentence(contextQuestion.word)
+            let question = contextQuestion.question
             HStack {
                 Image(systemName: "text.quote")
                     .font(.title2)
@@ -210,7 +210,9 @@ struct ContextMultipleChoiceQuizContentView: View {
                 }
                 .disabled(ttsPlayer.isPlaying || question.isEmpty)
             }
-            
+
+            Text(contextQuestion.explanation)
+
             HStack(spacing: 12) {
                 VStack(alignment: .leading) {
                      InteractiveText(

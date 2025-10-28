@@ -40,7 +40,11 @@ final class TTSPlayer: NSObject, ObservableObject {
 
     func play(_ text: String, languageCode: String? = nil) async throws {
         guard text.isNotEmpty, !isPlaying else { return }
-        let detectedLanguageCode = languageCode ?? LanguageDetector.shared.detectLanguage(for: text).languageCode
+        
+        // Preprocess text for TTS - remove underscores and other non-speech characters
+        let processedText = preprocessTextForTTS(text)
+        
+        let detectedLanguageCode = languageCode ?? LanguageDetector.shared.detectLanguage(for: processedText).languageCode
         
         // Build locale code with selected region (e.g., "en-US", "es-MX")
         let localeCode = selectedTTSRegion.localeCode(for: detectedLanguageCode)
@@ -58,15 +62,15 @@ final class TTSPlayer: NSObject, ObservableObject {
         do {
             switch provider {
             case .google:
-                try await playWithGoogle(text: text, targetLanguage: localeCode)
+                try await playWithGoogle(text: processedText, targetLanguage: localeCode)
             case .speechify:
                 try await playWithSpeechify(
-                    text: text,
+                    text: processedText,
                     voice: selectedSpeechifyVoice,
                     targetLanguage: detectedLanguageCode
                 )
             case .system:
-                try await playWithSystem(text: text, languageCode: localeCode)
+                try await playWithSystem(text: processedText, languageCode: localeCode)
             }
 
             // Track usage
@@ -80,7 +84,7 @@ final class TTSPlayer: NSObject, ObservableObject {
             }
         } catch TTSError.premiumFeatureRequired {
             // Fallback to Google TTS if premium feature is required but not available
-            try await playWithGoogle(text: text, targetLanguage: localeCode)
+            try await playWithGoogle(text: processedText, targetLanguage: localeCode)
 
             // Track fallback usage
             await MainActor.run {
@@ -92,7 +96,7 @@ final class TTSPlayer: NSObject, ObservableObject {
             }
         } catch TTSError.monthlyLimitExceeded {
             // Fallback to Google TTS if monthly limit is exceeded
-            try await playWithGoogle(text: text, targetLanguage: localeCode)
+            try await playWithGoogle(text: processedText, targetLanguage: localeCode)
 
             // Track fallback usage
             await MainActor.run {
@@ -105,6 +109,30 @@ final class TTSPlayer: NSObject, ObservableObject {
         } catch {
             throw error
         }
+    }
+    
+    // MARK: - Text Preprocessing
+    
+    private func preprocessTextForTTS(_ text: String) -> String {
+        var processedText = text
+        
+        // Remove underscores (commonly used for blanks in quizzes)
+        processedText = processedText.replacingOccurrences(of: "_", with: "")
+        
+        // Remove multiple consecutive underscores
+        processedText = processedText.replacingOccurrences(of: "___+", with: "", options: .regularExpression)
+        
+        // Remove other non-speech characters that might interfere with TTS
+        processedText = processedText.replacingOccurrences(of: "[", with: "")
+        processedText = processedText.replacingOccurrences(of: "]", with: "")
+        processedText = processedText.replacingOccurrences(of: "(", with: "")
+        processedText = processedText.replacingOccurrences(of: ")", with: "")
+        
+        // Clean up extra spaces that might have been created
+        processedText = processedText.replacingOccurrences(of: "\\s+", with: " ", options: .regularExpression)
+        processedText = processedText.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        return processedText
     }
 
     func previewSpeechifyVoice(_ voice: SpeechifyVoice) async throws {
@@ -352,8 +380,19 @@ final class TTSPlayer: NSObject, ObservableObject {
     
     private func generateCacheKey(text: String, language: String, provider: TTSProvider, voice: String?) -> String {
         let voicePart = voice != nil ? "_\(voice!)" : ""
-        let keyString = "\(provider.rawValue)_\(language)\(voicePart)_\(text)"
-        return keyString.data(using: .utf8)?.base64EncodedString().replacingOccurrences(of: "/", with: "_").replacingOccurrences(of: "+", with: "-") ?? UUID().uuidString
+        
+        // Create a hash of the text to avoid filename length issues
+        let textHash = text.data(using: .utf8)?.sha256Hash ?? UUID().uuidString
+        let keyString = "\(provider.rawValue)_\(language)\(voicePart)_\(textHash)"
+        
+        // Ensure the key is not too long for filesystem (max 255 chars on most systems)
+        if keyString.count > 200 {
+            // If still too long, create a shorter hash
+            let shortHash = keyString.data(using: .utf8)?.sha256Hash ?? UUID().uuidString
+            return "tts_\(shortHash.prefix(50))"
+        }
+        
+        return keyString
     }
     
     private func getCachedAudioFile(for cacheKey: String) -> URL? {

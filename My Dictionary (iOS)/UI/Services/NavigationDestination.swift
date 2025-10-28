@@ -44,4 +44,5 @@ enum NavigationDestination: Hashable {
     case authentication
     case profile
     case ttsDashboard
+    case deleteWords
 }

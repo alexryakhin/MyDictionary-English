@@ -10,6 +10,7 @@ final class SettingsViewModel: BaseViewModel {
         case showSharedDictionaries
         case showAuthentication
         case showProfile
+        case showDeleteWords
     }
 
     enum Input {
@@ -28,6 +29,7 @@ final class SettingsViewModel: BaseViewModel {
     @Published var exportWordsUrl: URL?
     @Published var showingTagManagement = false
     @Published var showingSharedDictionaries = false
+    @Published var showingDeleteWords = false
     @Published var dailyRemindersTime = UDService.dailyRemindersTime
     @Published var difficultWordsTime = UDService.difficultWordsTime
 
@@ -261,5 +263,9 @@ final class SettingsViewModel: BaseViewModel {
         } catch {
             errorReceived(error)
         }
+    }
+    
+    func showDeleteWords() {
+        output.send(.showDeleteWords)
     }
 }

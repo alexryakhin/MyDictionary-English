@@ -16,8 +16,14 @@ struct InteractiveText: View {
     }
 
     let text: String
-    
+    let font: Font
+
     @State private var selectedWord: SelectedWord?
+
+    init(text: String, font: Font = .body) {
+        self.text = text
+        self.font = font
+    }
 
     var body: some View {
         HFlow(alignment: .top, spacing: .zero) {
@@ -40,7 +46,7 @@ struct InteractiveText: View {
                     }
                 } label: {
                     Text(word)
-                        .font(.body)
+                        .font(font)
                         .padding(vertical: 1, horizontal: 2)
                         .foregroundStyle(.primary)
                 }

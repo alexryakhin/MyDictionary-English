@@ -449,7 +449,8 @@ final class AIService: ObservableObject {
         7. Make the question challenging but fair
         8. Consider different meanings and contexts of the word in \(wordLanguage)
         9. Ensure the correct answer is clearly the best choice
-        10. Use the word as a \(partOfSpeech ?? "word") in all sentences - maintain proper grammatical usage
+        10. Use the word as a \(partOfSpeech ?? "word") in all sentences
+        11. Question might include some context that is important
         """
         
         return prompt
@@ -483,6 +484,10 @@ final class AIService: ObservableObject {
         
         Create one story with 4 answer options.
         
+        EXAMPLE FORMAT:
+        - Story: "Juan no pudo venir a la fiesta ___ tenía que trabajar."
+        - Options should be: "porque", "pero", "aunque", "sin embargo" (just the words, not the full sentence)
+        
         IMPORTANT RULES:
         1. Provide exactly 4 options: 1 correct and 3 incorrect
         2. All story content and options must be in \(wordLanguage) (the word's language)
@@ -493,6 +498,8 @@ final class AIService: ObservableObject {
         7. The correct word should be the best choice for the blank
         8. Use the word as a \(partOfSpeech ?? "word") in the story - maintain proper grammatical usage
         9. Don't put blanks inside answers. Only the story can have it.
+        10. CRITICAL: Each option's "text" field should contain ONLY the word/phrase that fills the blank, NOT the full sentence with the blank
+        11. The story should contain the blank (use "___" to represent it), but the options should only contain the actual words that could fill that blank
         """
         
         return prompt

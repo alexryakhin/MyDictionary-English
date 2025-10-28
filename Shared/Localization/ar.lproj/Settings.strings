@@ -77,4 +77,16 @@
 "no_duplicates_message" = "لم يتم العثور على كلمات أو معاني أو علامات مكررة في قاموسك.";
 "cleanup_completed" = "اكتمل التنظيف";
 "cleanup_completed_message" = "تم تنظيف %d مكرر بنجاح:\n• %d كلمة مكررة\n• %d معنى مكرر\n• %d علامة مكررة\n• %d معنى مدمج\n• %d علاقة علامة مدمجة";
+"delete_words" = "حذف الكلمات";
+"delete_words_description" = "اختر واحذف الكلمات من قاموسك";
+"delete_all_words" = "حذف الكل";
+"delete_selected_words" = "حذف المحدد";
+"no_words_to_delete" = "لا توجد كلمات";
+"no_words_to_delete_message" = "قاموسك فارغ. لا توجد كلمات للحذف.";
+"delete_words_confirmation" = "حذف الكلمات";
+"delete_words_confirmation_message" = "هل أنت متأكد من أنك تريد حذف %d كلمة محددة؟ لا يمكن التراجع عن هذا الإجراء.";
+"delete_all_words_confirmation" = "حذف جميع الكلمات";
+"delete_all_words_confirmation_message" = "هل أنت متأكد من أنك تريد حذف جميع %d كلمة من قاموسك؟ لا يمكن التراجع عن هذا الإجراء.";
+"words_deleted_successfully" = "تم حذف الكلمات";
+"words_deleted_successfully_message" = "تم حذف %d كلمة بنجاح من قاموسك.";
 
