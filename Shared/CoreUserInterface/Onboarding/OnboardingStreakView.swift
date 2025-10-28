@@ -102,7 +102,7 @@ extension OnboardingFlow {
                 
                 // Generate AI paywall content in background so it's ready when user reaches paywall
                 Task {
-                    await PaywallContentService.shared.checkAndGenerateIfNeeded()
+                    await PaywallContentService.shared.forceCheckAndGenerateIfNeeded()
                 }
             }
         }

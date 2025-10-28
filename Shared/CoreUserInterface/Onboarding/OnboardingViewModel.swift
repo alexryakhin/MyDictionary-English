@@ -134,9 +134,9 @@ extension OnboardingFlow {
                     ]
                     AnalyticsService.shared.logEvent(.onboardingCompleted, parameters: profileData)
 
-                    // Generate AI paywall content in background
+                    // Generate AI paywall content in background (only if needed)
                     Task {
-                        await PaywallContentService.shared.generatePaywallContent()
+                        await PaywallContentService.shared.forceCheckAndGenerateIfNeeded()
                     }
 
                     isLoading = false

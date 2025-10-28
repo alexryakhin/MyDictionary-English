@@ -137,7 +137,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             await RemoteConfigService.shared.fetchConfiguration()
             
             // Check and generate AI paywall content if needed (after services are ready)
-            await PaywallContentService.shared.checkAndGenerateIfNeeded()
+            await PaywallContentService.shared.forceCheckAndGenerateIfNeeded()
         }
 
         // Log analytics event
