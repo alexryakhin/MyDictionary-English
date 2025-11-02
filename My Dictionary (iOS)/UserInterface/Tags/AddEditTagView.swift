@@ -61,7 +61,7 @@ struct AddEditTagView: View {
                 if subscriptionService.isProUser || viewModel.tags.count < 5 {
                     saveTag()
                 } else {
-                    PaywallService.shared.isShowingPaywall = true
+                    PaywallService.shared.presentPaywall(for: .tagManagement)
                 }
             }
             .padding(vertical: 12, horizontal: 16)

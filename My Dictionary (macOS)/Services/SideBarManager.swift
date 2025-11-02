@@ -10,6 +10,7 @@ final class SideBarManager: ObservableObject {
         case sentenceWriting(QuizPreset)
         case contextMultipleChoice(QuizPreset)
         case fillInTheBlank(QuizPreset)
+        case storyLab(StoryLabConfig)
     }
 
     enum DetailItem: Hashable {

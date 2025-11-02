@@ -200,6 +200,11 @@ struct SideBarView: View {
                     .id(sideBarManager.selectedQuiz)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .layoutPriority(1)
+            case .storyLab(let config):
+                StoryLabReadingView(config: config, isPresentedModally: false)
+                    .id(sideBarManager.selectedQuiz)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .layoutPriority(1)
             }
         case .wordCollection(let collection):
             WordCollectionDetailsView(collection: collection)

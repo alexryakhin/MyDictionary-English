@@ -177,7 +177,7 @@ struct AboutAppContentView: View {
             preferredStyle: .alert
         )
         alert.addAction(UIAlertAction(title: Loc.Actions.copyEmail, style: .default) { _ in
-            UIPasteboard.general.string = GlobalConstant.email
+            copyToClipboard(GlobalConstant.email)
         })
         alert.addAction(UIAlertAction(title: Loc.Actions.ok, style: .cancel))
         

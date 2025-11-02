@@ -37,7 +37,7 @@ struct SharedDictionariesListView: View {
                     } trailingContent: {
                         if userOwnedDictionaryCount >= 1 {
                             HeaderButton(Loc.Subscription.Paywall.upgradeToPro, size: .small) {
-                                paywallService.isShowingPaywall = true
+                                paywallService.presentPaywall(for: .createSharedDictionaries)
                             }
                         }
                     }
@@ -64,7 +64,7 @@ struct SharedDictionariesListView: View {
                             if dictionaryService.canCreateMoreSharedDictionaries() {
                                 showingAddDictionary = true
                             } else {
-                                PaywallService.shared.isShowingPaywall = true
+                                paywallService.presentPaywall(for: .createSharedDictionaries)
                             }
                         }
                     }

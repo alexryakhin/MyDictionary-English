@@ -156,6 +156,10 @@ struct MainTabView: View {
             ContextMultipleChoiceQuizContentView(preset: preset)
         case .fillInTheBlankQuiz(let preset):
             FillInTheBlankQuizContentView(preset: preset)
+        case .storyLab(let config):
+            StoryLabReadingView(config: config)
+        case .storyLabHistory:
+            StoryLabHistoryView()
         case .wordDetails(let word):
             WordDetailsContentView(word: word)
         case .wordMeaningsList(let word):

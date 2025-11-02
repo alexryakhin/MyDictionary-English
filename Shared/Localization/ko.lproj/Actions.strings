@@ -52,7 +52,7 @@
 "toggle_like" = "좋아요 토글";
 "toggle_favorite" = "즐겨찾기 토글";
 "settings" = "설정";
-
+"translate" = "번역";
 "select_value" = "값 선택";
 "email_address" = "이메일 주소";
 "name" = "이름";

@@ -1,4 +1,5 @@
 // MARK: - Quizzes
+"new_badge" = "НОВАЯ";
 "quiz_unavailable" = "Викторина недоступна";
 "back_to_quizzes" = "Вернуться к викторинам";
 "your_answer" = "Ваш ответ";

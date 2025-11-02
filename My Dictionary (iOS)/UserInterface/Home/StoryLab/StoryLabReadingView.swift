@@ -1,0 +1,265 @@
+//
+//  StoryLabReadingView.swift
+//  My Dictionary
+//
+//  Created by AI Assistant
+//
+
+import SwiftUI
+
+struct StoryLabReadingView: View {
+    let config: StoryLabConfig
+    @StateObject private var viewModel: StoryLabViewModel
+    @StateObject private var ttsPlayer = TTSPlayer.shared
+    @Environment(\.dismiss) private var dismiss
+
+    @State private var discoveredWord: InteractiveText.SelectedWord?
+
+    init(config: StoryLabConfig) {
+        self.config = config
+        self._viewModel = StateObject(wrappedValue: StoryLabViewModel(config: config))
+    }
+
+    var body: some View {
+        Group {
+            if case .idle = viewModel.loadingStatus {
+                // Show configuration view if config is incomplete
+                if config.savedWords == nil && config.customText == nil {
+                    StoryLabConfigurationView(viewModel: viewModel)
+                } else {
+                    // Config is complete, should have auto-generated
+                    // Wait a moment for generation to start
+                    loadingView
+                }
+            } else if case .generating = viewModel.loadingStatus {
+                loadingView
+            } else if case .error(let message) = viewModel.loadingStatus {
+                errorView(message)
+            } else if let story = viewModel.story, let session = viewModel.session, case .ready = viewModel.loadingStatus {
+                // Only show results if story is actually complete
+                if session.isComplete {
+                    StoryLabResultsView(
+                        session: session,
+                        story: story,
+                        config: config,
+                        showStreak: viewModel.showStreakAnimation,
+                        currentDayStreak: viewModel.currentDayStreak
+                    )
+                } else {
+                    readingContentView(story: story, session: session)
+                }
+            }
+        }
+        .onReceive(viewModel.dismissPublisher) {
+            dismiss()
+        }
+    }
+
+    // MARK: - Loading View
+
+    private var loadingView: some View {
+        VStack(spacing: 24) {
+            AICircularProgressAnimation()
+                .frame(maxWidth: 300)
+
+            Text(Loc.StoryLab.Configuration.generating)
+                .font(.headline)
+                .foregroundStyle(.primary)
+
+            Text(Loc.StoryLab.Configuration.description)
+                .font(.body)
+                .foregroundStyle(.secondary)
+                .multilineTextAlignment(.center)
+                .lineSpacing(4)
+        }
+        .padding(.horizontal, 32)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .groupedBackground()
+    }
+
+    // MARK: - Error View
+
+    private func errorView(_ message: String) -> some View {
+        VStack(spacing: 24) {
+            Spacer()
+
+            Image(systemName: "exclamationmark.triangle.fill")
+                .font(.system(size: 60))
+                .foregroundStyle(.red)
+
+            Text(Loc.StoryLab.Error.generationFailed)
+                .font(.title2)
+                .fontWeight(.bold)
+
+            Text(message)
+                .font(.body)
+                .foregroundStyle(.secondary)
+                .multilineTextAlignment(.center)
+
+            ActionButton(
+                Loc.Actions.retry,
+                style: .borderedProminent
+            ) {
+                viewModel.handle(.retry)
+                viewModel.handle(.generateStory(config))
+            }
+
+            ActionButton(
+                Loc.Actions.cancel,
+                style: .bordered
+            ) {
+                dismiss()
+            }
+
+            Spacer()
+        }
+        .padding(32)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .groupedBackground()
+    }
+
+    // MARK: - Reading Content View
+
+    private func readingContentView(story: AIStoryResponse, session: StorySession) -> some View {
+        ScrollView {
+            VStack(spacing: 16) {
+                // Story Content
+                storyContentSection(session: session)
+
+                // Quiz Section
+                if let currentPage = viewModel.currentPage {
+                    StoryLabQuizView(
+                        page: currentPage,
+                        pageIndex: session.currentPageIndex,
+                        viewModel: viewModel
+                    )
+                }
+
+                // Navigation
+                navigationSection(session: session)
+            }
+            .padding(16)
+        }
+        .groupedBackground()
+        .navigation(
+            title: story.title,
+            mode: .inline,
+            trailingContent: {
+                HeaderButton(Loc.Actions.exit) {
+                    dismiss()
+                }
+            },
+            bottomContent: {
+                Text(Loc.StoryLab.Reading.page(session.currentPageIndex + 1, story.pages.count))
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            }
+        )
+        .sheet(item: $discoveredWord) { word in
+            AddWordView(input: word.text, isWord: true)
+                .onDisappear {
+                    // Word was saved if sheet dismissed normally
+                    // Call handler to attach word to story
+                    if let savedWord = discoveredWord?.text {
+                        viewModel.onWordSaved?(savedWord)
+                    }
+                }
+        }
+        .interactiveDismissDisabled()
+    }
+
+    // MARK: - Story Content Section
+
+    private func storyContentSection(session: StorySession) -> some View {
+        VStack(alignment: .leading, spacing: 12) {
+            // Story text with highlighting
+            if let currentPage = viewModel.currentPage {
+                HighlightedStoryText(
+                    text: currentPage.storyText,
+                    font: .body,
+                    currentChunk: ttsPlayer.currentPlayingChunk,
+                    sourceLanguageCode: config.targetLanguage.rawValue
+                )
+                .onDisappear {
+                    // Stop playback when navigating to different page or exiting
+                    ttsPlayer.stop()
+                }
+            }
+
+            // Play button for audio narration
+            if let currentPage = viewModel.currentPage {
+                playButton(for: currentPage.storyText)
+            }
+        }
+        .padding()
+        .background(Color.secondarySystemGroupedBackground)
+        .cornerRadius(12)
+    }
+
+    // MARK: - Play Button
+
+    private func playButton(for text: String) -> some View {
+        ActionButton(
+            ttsPlayer.isPlaying ? Loc.StoryLab.Reading.pause : Loc.StoryLab.Reading.listenToStory,
+            systemImage: ttsPlayer.isPlaying ? "pause.circle.fill" : "play.circle.fill"
+        ) {
+            Task {
+                if ttsPlayer.isPlaying {
+                    // Pause playback but keep state for resume
+                    ttsPlayer.pause()
+                } else {
+                    do {
+                        // Resume if paused, otherwise start new
+                        try await ttsPlayer.resume()
+                    } catch {
+                        // If resume fails (not paused), start new playback
+                        do {
+                            try await ttsPlayer.play(text, languageCode: config.targetLanguage.rawValue)
+                        } catch {
+                            print("Error playing story audio: \(error)")
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // MARK: - Navigation Section
+
+    private func navigationSection(session: StorySession) -> some View {
+        HStack(spacing: 16) {
+            ActionButton(
+                Loc.StoryLab.Reading.previousPage,
+                style: .bordered
+            ) {
+                viewModel.handle(.previousPage)
+                ttsPlayer.stop()
+            }
+            .disabled(!viewModel.canNavigatePrevious)
+
+            if session.currentPageIndex == (viewModel.story?.pages.count ?? 0) - 1 {
+                ActionButton(
+                    Loc.StoryLab.Quiz.finishStory,
+                    style: .borderedProminent
+                ) {
+                    // Check if quiz is complete before finishing
+                    if viewModel.isCurrentPageQuizComplete {
+                        // Story will be marked complete automatically
+                    }
+                }
+                .disabled(!viewModel.isCurrentPageQuizComplete)
+            } else {
+                ActionButton(
+                    Loc.StoryLab.Reading.nextPage,
+                    style: .borderedProminent
+                ) {
+                    viewModel.handle(.nextPage)
+                    ttsPlayer.stop()
+                }
+                .disabled(!viewModel.canNavigateNext || !viewModel.isCurrentPageQuizComplete)
+            }
+        }
+        .padding(.top, 8)
+    }
+}

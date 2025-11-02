@@ -85,7 +85,7 @@ struct AnalyticsView: View {
                 if subscriptionService.isProUser {
                     showingQuizActivity = true
                 } else {
-                    PaywallService.shared.isShowingPaywall = true
+                    PaywallService.shared.presentPaywall(for: .advancedAnalytics)
                 }
             }
         )
@@ -168,7 +168,7 @@ struct AnalyticsView: View {
                 if subscriptionService.isProUser {
                     showingQuizResults = true
                 } else {
-                    PaywallService.shared.isShowingPaywall = true
+                    PaywallService.shared.presentPaywall(for: .advancedAnalytics)
                 }
             }
         }

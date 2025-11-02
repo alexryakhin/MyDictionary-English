@@ -23,10 +23,21 @@ final class TTSPlayer: NSObject, ObservableObject {
     @AppStorage(UDKeys.ttsVolume) var volume: Double = 1.0
 
     private let speechifyService: SpeechifyTTSService = .shared
+    
+    // Chunking support
+    private var textChunks: [String] = []
+    private var currentChunkIndex: Int = 0
+    private var currentLanguageCode: String?
+    private var currentLocaleCode: String? // Store the computed locale code for chunks
+    private var chunkProvider: TTSProvider?
+    private var currentChunkFinished = false // Track when current chunk finishes
+    private var isPaused = false // Track if playback is paused (not stopped)
+    private var pausedOriginalText: String? // Store original text for resume
 
     @Published var isPlaying = false
     @Published var availableVoices: [SpeechifyVoice] = []
     @Published var testText: String = "Hello there! How are you?"
+    @Published var currentPlayingChunk: String? = nil // Currently playing chunk text for highlighting
 
     var selectedSpeechifyVoiceModel: SpeechifyVoice? {
         availableVoices.first(where: { $0.id == selectedSpeechifyVoice })
@@ -41,17 +52,66 @@ final class TTSPlayer: NSObject, ObservableObject {
     func play(_ text: String, languageCode: String? = nil) async throws {
         guard text.isNotEmpty, !isPlaying else { return }
         
+        // If there's paused chunked playback, stop it first when playing a single word
+        // (don't want to resume story when playing a word)
+        if isPaused && chunkProvider != nil {
+            stop()
+        }
+        
         // Preprocess text for TTS - remove underscores and other non-speech characters
         let processedText = preprocessTextForTTS(text)
         
         let detectedLanguageCode = languageCode ?? LanguageDetector.shared.detectLanguage(for: processedText).languageCode
         
-        // Build locale code with selected region (e.g., "en-US", "es-MX")
-        let localeCode = selectedTTSRegion.localeCode(for: detectedLanguageCode)
+        // Build locale code with appropriate region (e.g., "en-US", "es-MX")
+        // If languageCode was explicitly provided (e.g., from Story Lab), use an appropriate region for that language
+        // Otherwise, use the user's TTS region preference
+        let localeCode: String
+        if let explicitLanguageCode = languageCode {
+            // Language is known from context (e.g., Story Lab), use appropriate region for that language
+            let popularRegions = CountryRegion.popularRegions(for: explicitLanguageCode)
+            // Check if we have a meaningful region (not just the default fallback)
+            // For languages without explicit support, popularRegions will return [.unitedStates] as default
+            // We want to avoid "ru-US" and instead use just "ru"
+            if !popularRegions.isEmpty && explicitLanguageCode.lowercased() == "en" {
+                // English always has regions, use the first one
+                localeCode = popularRegions.first!.localeCode(for: explicitLanguageCode)
+            } else if !popularRegions.isEmpty && popularRegions.first != .unitedStates {
+                // We have a specific region for this language (not the default fallback)
+                localeCode = popularRegions.first!.localeCode(for: explicitLanguageCode)
+            } else {
+                // No appropriate region found, use just the language code (Google TTS accepts this)
+                localeCode = explicitLanguageCode
+            }
+        } else {
+            // Auto-detected language, use user's TTS region preference
+            localeCode = selectedTTSRegion.localeCode(for: detectedLanguageCode)
+        }
 
         // Determine which provider to use
         let provider = determineProvider(for: localeCode)
 
+        // Check if text is long (>= 200 characters) and needs chunking
+        if processedText.count >= 200 {
+            // Split text into sentences for chunking
+            let chunks = splitIntoSentences(processedText)
+            
+            // Check Speechify usage limits if using Speechify
+            if provider == .speechify {
+                let totalChars = processedText.count
+                if await !TTSUsageTracker.shared.canUseSpeechify(text: processedText) {
+                    // Fallback to Google for chunked text
+                    try await playChunkedText(chunks: chunks, targetLanguage: localeCode, detectedLanguage: detectedLanguageCode, provider: .google, originalText: processedText)
+                    return
+                }
+            }
+            
+            // Play chunks sequentially
+            try await playChunkedText(chunks: chunks, targetLanguage: localeCode, detectedLanguage: detectedLanguageCode, provider: provider, originalText: processedText)
+            return
+        }
+        
+        // For short text, use existing behavior
         // Check Speechify usage limits if using Speechify
         if provider == .speechify {
             if await !TTSUsageTracker.shared.canUseSpeechify(text: text) {
@@ -108,6 +168,216 @@ final class TTSPlayer: NSObject, ObservableObject {
             }
         } catch {
             throw error
+        }
+    }
+    
+    // MARK: - Chunking Support
+    
+    private func splitIntoSentences(_ text: String) -> [String] {
+        // Split by sentence terminators (. ! ?) while keeping the terminators
+        // Use regex to match: text ending with . ! or ? followed by space or end of string
+        let pattern = #"([^.!?]+[.!?])\s*"#
+        
+        guard let regex = try? NSRegularExpression(pattern: pattern, options: []) else {
+            // Fallback: simple split by terminators and reconstruct
+            return simpleSentenceSplit(text)
+        }
+        
+        let range = NSRange(location: 0, length: text.utf16.count)
+        let matches = regex.matches(in: text, options: [], range: range)
+        
+        var sentences: [String] = []
+        var lastIndex = 0
+        
+        for match in matches {
+            if let sentenceRange = Range(match.range, in: text) {
+                let sentence = String(text[sentenceRange]).trimmingCharacters(in: .whitespacesAndNewlines)
+                if !sentence.isEmpty {
+                    sentences.append(sentence)
+                }
+                lastIndex = match.range.location + match.range.length
+            }
+        }
+        
+        // Add remaining text if any (might not end with terminator)
+        if lastIndex < text.utf16.count {
+            let remainingStartIndex = String.Index(utf16Offset: lastIndex, in: text)
+            let remaining = String(text[remainingStartIndex...]).trimmingCharacters(in: .whitespacesAndNewlines)
+            if !remaining.isEmpty {
+                sentences.append(remaining)
+            }
+        }
+        
+        // Fallback if no matches found
+        if sentences.isEmpty {
+            return simpleSentenceSplit(text)
+        }
+        
+        return sentences.filter { !$0.isEmpty }
+    }
+    
+    private func simpleSentenceSplit(_ text: String) -> [String] {
+        // Simple fallback: split by sentence terminators
+        var sentences: [String] = []
+        var currentSentence = ""
+        
+        for char in text {
+            currentSentence.append(char)
+            if ".!?".contains(char) {
+                let trimmed = currentSentence.trimmingCharacters(in: .whitespacesAndNewlines)
+                if !trimmed.isEmpty {
+                    sentences.append(trimmed)
+                }
+                currentSentence = ""
+            }
+        }
+        
+        // Add remaining text if any
+        let trimmed = currentSentence.trimmingCharacters(in: .whitespacesAndNewlines)
+        if !trimmed.isEmpty {
+            sentences.append(trimmed)
+        }
+        
+        return sentences.isEmpty ? [text] : sentences
+    }
+    
+    private func playChunkedText(chunks: [String], targetLanguage: String, detectedLanguage: String, provider: TTSProvider, originalText: String) async throws {
+        guard !chunks.isEmpty else { return }
+        
+        // Initialize chunking state and set isPlaying to true for entire session
+        await MainActor.run {
+            textChunks = chunks
+            currentLanguageCode = detectedLanguage
+            currentLocaleCode = targetLanguage // Store the computed locale code
+            chunkProvider = provider
+            pausedOriginalText = originalText
+            isPaused = false
+            // Only reset currentChunkIndex if starting fresh (not resuming)
+            if currentChunkIndex >= textChunks.count {
+                currentChunkIndex = 0
+            }
+            isPlaying = true // Set to true for entire chunked session
+        }
+        
+        // Play from current chunk
+        try await playNextChunk(originalText: originalText, detectedLanguage: detectedLanguage, provider: provider)
+    }
+    
+    private func playNextChunk(originalText: String, detectedLanguage: String, provider: TTSProvider) async throws {
+        guard await MainActor.run(body: { currentChunkIndex < textChunks.count }) else {
+            // All chunks played
+            await MainActor.run {
+                textChunks = []
+                currentChunkIndex = 0
+                currentLanguageCode = nil
+                currentLocaleCode = nil
+                chunkProvider = nil
+                currentChunkFinished = false
+                currentPlayingChunk = nil
+                isPlaying = false
+            }
+            
+            // Track total usage for all chunks
+            await MainActor.run {
+                TTSUsageTracker.shared.trackTTSUsage(
+                    text: originalText,
+                    provider: provider,
+                    language: detectedLanguage,
+                    voice: provider == .speechify ? selectedSpeechifyVoice : nil
+                )
+            }
+            return
+        }
+        
+        let chunk: String = textChunks[currentChunkIndex]
+        // Use the stored locale code if available (from explicit language context), otherwise compute it
+        let localeCode: String = await MainActor.run {
+            if let storedLocaleCode = currentLocaleCode {
+                return storedLocaleCode
+            } else {
+                // Fallback to user's TTS region preference for auto-detected languages
+                return selectedTTSRegion.localeCode(for: detectedLanguage)
+            }
+        }
+
+        // Update current playing chunk for highlighting
+        await MainActor.run {
+            currentPlayingChunk = chunk.trimmingCharacters(in: .whitespacesAndNewlines)
+        }
+
+        do {
+            switch provider {
+            case .google:
+                try await playWithGoogle(text: chunk, targetLanguage: localeCode)
+            case .speechify:
+                try await playWithSpeechify(
+                    text: chunk,
+                    voice: selectedSpeechifyVoice,
+                    targetLanguage: detectedLanguage
+                )
+            case .system:
+                try await playWithSystem(text: chunk, languageCode: localeCode)
+            }
+            
+            // Wait for this chunk to finish playing before playing next
+            // The delegate will call continueChunking() when done
+            await waitForChunkCompletion()
+            
+        } catch {
+            // If error occurs, stop chunking
+            await MainActor.run {
+                textChunks = []
+                currentChunkIndex = 0
+                currentLanguageCode = nil
+                currentLocaleCode = nil
+                chunkProvider = nil
+                currentChunkFinished = false
+                currentPlayingChunk = nil
+                isPlaying = false
+            }
+            throw error
+        }
+    }
+    
+    private func waitForChunkCompletion() async {
+        // Reset chunk finished flag
+        await MainActor.run {
+            currentChunkFinished = false
+        }
+        
+        // Wait for current chunk to finish (tracked by delegate methods)
+        while await MainActor.run(body: { !currentChunkFinished && chunkProvider != nil }) {
+            try? await Task.sleep(nanoseconds: 100_000_000) // 0.1 seconds
+        }
+        
+        // Small delay before next chunk for natural flow
+        try? await Task.sleep(nanoseconds: 200_000_000) // 0.2 seconds
+        
+        // Move to next chunk
+        await MainActor.run {
+            currentChunkIndex += 1
+        }
+        
+        // Play next chunk if available
+        guard let provider = await MainActor.run(body: { chunkProvider }),
+              let language = await MainActor.run(body: { currentLanguageCode }) else {
+            return
+        }
+        
+        // Continue with next chunk
+        do {
+            try await playNextChunk(originalText: await MainActor.run(body: { textChunks.joined(separator: " ") }), detectedLanguage: language, provider: provider)
+        } catch {
+            // Handle error silently or propagate
+            await MainActor.run {
+                textChunks = []
+                currentChunkIndex = 0
+                currentLanguageCode = nil
+                currentLocaleCode = nil
+                chunkProvider = nil
+                currentChunkFinished = false
+                isPlaying = false
+            }
         }
     }
     
@@ -237,28 +507,36 @@ final class TTSPlayer: NSObject, ObservableObject {
         let _ = try setupAudioSession()
 #endif
 
-        // Stop any current speech
-        if synthesizer.isSpeaking {
-            synthesizer.stopSpeaking(at: .immediate)
+        // Resume if paused
+        if await MainActor.run(body: { isPaused }) && synthesizer.isPaused {
+            synthesizer.continueSpeaking()
+            await MainActor.run {
+                isPlaying = true
+            }
+        } else {
+            // Stop any current speech
+            if synthesizer.isSpeaking {
+                synthesizer.stopSpeaking(at: .immediate)
+            }
+
+            // Create utterance with the text
+            let utterance = AVSpeechUtterance(string: text)
+
+            // Set language
+            utterance.voice = AVSpeechSynthesisVoice(language: languageCode)
+
+            // Apply user preferences
+            utterance.rate = Float(speechRate * 0.5) // Scale down for better control
+            utterance.volume = Float(volume)
+            utterance.pitchMultiplier = 1.0
+
+            // Update UI state
+            await MainActor.run {
+                isPlaying = true
+            }
+
+            synthesizer.speak(utterance)
         }
-
-        // Create utterance with the text
-        let utterance = AVSpeechUtterance(string: text)
-
-        // Set language
-        utterance.voice = AVSpeechSynthesisVoice(language: languageCode)
-
-        // Apply user preferences
-        utterance.rate = Float(speechRate * 0.5) // Scale down for better control
-        utterance.volume = Float(volume)
-        utterance.pitchMultiplier = 1.0
-
-        // Update UI state
-        await MainActor.run {
-            isPlaying = true
-        }
-
-        synthesizer.speak(utterance)
     }
 
     private func saveAudioDataToTempFile(_ audioData: Data, cacheKey: String? = nil) throws -> URL {
@@ -350,19 +628,26 @@ final class TTSPlayer: NSObject, ObservableObject {
     @MainActor
     private func play(from url: URL) throws {
         do {
-            player = try AVAudioPlayer(contentsOf: url)
-            player?.delegate = self
+            // Resume if paused and player exists for same URL
+            if isPaused, let existingPlayer = player, existingPlayer.url == url {
+                existingPlayer.play()
+                isPlaying = true
+            } else {
+                // Create new player
+                player = try AVAudioPlayer(contentsOf: url)
+                player?.delegate = self
 
-            // Enable rate modification
-            player?.enableRate = true
+                // Enable rate modification
+                player?.enableRate = true
 
-            // Apply audio settings
-            player?.rate = Float(speechRate)
-            player?.volume = Float(volume)
+                // Apply audio settings
+                player?.rate = Float(speechRate)
+                player?.volume = Float(volume)
 
-            player?.prepareToPlay()
-            player?.play()
-            isPlaying = true
+                player?.prepareToPlay()
+                player?.play()
+                isPlaying = true
+            }
         } catch {
             isPlaying = false
             logError("Cannot play audio file: \(error), url: \(url)")
@@ -370,10 +655,63 @@ final class TTSPlayer: NSObject, ObservableObject {
         }
     }
 
+    func pause() {
+        Task { @MainActor in
+            // Pause but keep chunk state for resume
+            player?.pause()
+            speechSynthesizer?.pauseSpeaking(at: .immediate)
+            isPlaying = false
+            isPaused = true
+            // Keep currentPlayingChunk so highlight remains visible when paused
+        }
+    }
+    
+    func resume() async throws {
+        guard isPaused else {
+            // Not in paused state - start new playback
+            throw CoreError.internalError(.cannotSetupAudioSession)
+        }
+
+        await MainActor.run {
+            isPaused = false
+            isPlaying = true
+        }
+
+        // Resume the current player if it exists
+        if let existingPlayer = player {
+            existingPlayer.play()
+        } else if let synthesizer = speechSynthesizer, synthesizer.isPaused {
+            synthesizer.continueSpeaking()
+        } else if chunkProvider != nil {
+            // Resume chunked playback from current chunk
+            guard let provider = chunkProvider,
+                  let language = currentLanguageCode,
+                  let originalText = pausedOriginalText else {
+                return
+            }
+            
+            // Continue from current chunk
+            try await playNextChunk(originalText: originalText, detectedLanguage: language, provider: provider)
+        }
+    }
+
     func stop() {
-        player?.stop()
-        speechSynthesizer?.stopSpeaking(at: .immediate)
-        isPlaying = false
+        Task { @MainActor in
+            player?.stop()
+            speechSynthesizer?.stopSpeaking(at: .immediate)
+            isPlaying = false
+            isPaused = false
+
+            // Clear chunking state
+            textChunks = []
+            currentChunkIndex = 0
+            currentLanguageCode = nil
+            currentLocaleCode = nil
+            chunkProvider = nil
+            currentChunkFinished = false
+            currentPlayingChunk = nil
+            pausedOriginalText = nil
+        }
     }
     
     // MARK: - Caching Methods
@@ -442,12 +780,26 @@ final class TTSPlayer: NSObject, ObservableObject {
 extension TTSPlayer: AVAudioPlayerDelegate {
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         Task { @MainActor in
-            isPlaying = false
+            // If chunking is in progress, mark current chunk as finished
+            // Otherwise, set isPlaying to false for normal playback
+            if chunkProvider != nil {
+                currentChunkFinished = true
+            } else {
+                isPlaying = false
+            }
         }
     }
 
     func audioPlayerDecodeErrorDidOccur(_ player: AVAudioPlayer, error: Error?) {
         Task { @MainActor in
+            // Stop chunking if there's an error
+            textChunks = []
+            currentChunkIndex = 0
+            currentLanguageCode = nil
+            currentLocaleCode = nil
+            chunkProvider = nil
+            currentChunkFinished = false
+            currentPlayingChunk = nil
             isPlaying = false
         }
     }
@@ -458,18 +810,40 @@ extension TTSPlayer: AVAudioPlayerDelegate {
 extension TTSPlayer: AVSpeechSynthesizerDelegate {
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
         Task { @MainActor in
-            isPlaying = false
+            // If chunking is in progress, mark current chunk as finished
+            // Otherwise, set isPlaying to false for normal playback
+            if chunkProvider != nil {
+                currentChunkFinished = true
+            } else {
+                isPlaying = false
+            }
         }
     }
 
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didCancel utterance: AVSpeechUtterance) {
         Task { @MainActor in
+            // Stop chunking if cancelled
+            textChunks = []
+            currentChunkIndex = 0
+            currentLanguageCode = nil
+            currentLocaleCode = nil
+            chunkProvider = nil
+            currentChunkFinished = false
+            currentPlayingChunk = nil
             isPlaying = false
         }
     }
 
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didPause utterance: AVSpeechUtterance) {
         Task { @MainActor in
+            // Pause should stop chunking
+            textChunks = []
+            currentChunkIndex = 0
+            currentLanguageCode = nil
+            currentLocaleCode = nil
+            chunkProvider = nil
+            currentChunkFinished = false
+            currentPlayingChunk = nil
             isPlaying = false
         }
     }

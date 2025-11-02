@@ -1,4 +1,5 @@
 // MARK: - Quizzes
+"new_badge" = "NYT";
 "quiz_unavailable" = "Quiz ikke tilgængelig";
 "back_to_quizzes" = "Tilbage til quizzer";
 "your_answer" = "Dit svar";

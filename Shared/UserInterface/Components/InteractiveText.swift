@@ -17,13 +17,42 @@ struct InteractiveText: View {
 
     let text: String
     let font: Font
+    let highlighted: Bool
+    let sourceLanguageCode: String?
 
     @State private var selectedWord: SelectedWord?
+    @State private var translationWord: String?
+    @State private var translationResult: String?
+    @State private var isTranslating: Bool = false
     @StateObject private var ttsPlayer = TTSPlayer.shared
+    
+    private let translationService: TranslationService = GoogleTranslateService.shared
+    private let languageDetector = LanguageDetector.shared
+    
+    private var currentLocaleLanguageCode: String {
+        Locale.current.languageCode ?? "en"
+    }
+    
+    private var shouldShowTranslateButton: Bool {
+        // Determine source language code
+        let sourceLangCode: String
+        if let providedSourceLanguage = sourceLanguageCode {
+            sourceLangCode = providedSourceLanguage
+        } else {
+            // If not provided, we'll need to detect it - but for the button visibility,
+            // we can default to showing it if source is unknown
+            return true
+        }
+        
+        // Hide translate button if source language is the same as current locale
+        return sourceLangCode.lowercased() != currentLocaleLanguageCode.lowercased()
+    }
 
-    init(text: String, font: Font = .body) {
+    init(text: String, font: Font = .body, highlighted: Bool = false, sourceLanguageCode: String? = nil) {
         self.text = text
         self.font = font
+        self.highlighted = highlighted
+        self.sourceLanguageCode = sourceLanguageCode
     }
 
     var body: some View {
@@ -36,12 +65,14 @@ struct InteractiveText: View {
                     let cleanWord = word.trimmingCharacters(in: .punctuationCharacters).lowercased()
                     if cleanWord.isNotEmpty {
                         Section {
+                            // Add word button
                             Button {
                                 selectedWord = .init(text: cleanWord)
                             } label: {
                                 Label(Loc.Words.addWord, systemImage: "plus")
                             }
                             
+                            // Listen button
                             Button {
                                 Task {
                                     do {
@@ -55,6 +86,26 @@ struct InteractiveText: View {
                                 Label(Loc.Actions.listen, systemImage: "speaker.wave.2.fill")
                             }
                             .disabled(ttsPlayer.isPlaying)
+                        
+                            // Copy button
+                            Button {
+                                copyToClipboard(cleanWord)
+                                HapticManager.shared.triggerNotification(type: .success)
+                            } label: {
+                                Label(Loc.Actions.copy, systemImage: "doc.on.doc")
+                            }
+
+                            // Translate button (only show if source language differs from locale)
+                            if shouldShowTranslateButton {
+                                Button {
+                                    Task {
+                                        await translateWord(cleanWord)
+                                    }
+                                } label: {
+                                    Label(Loc.Actions.translate, systemImage: "globe")
+                                }
+                                .disabled(isTranslating)
+                            }
                         } header: {
                             Text(cleanWord)
                         }
@@ -64,6 +115,8 @@ struct InteractiveText: View {
                         .font(font)
                         .padding(vertical: 1, horizontal: 2)
                         .foregroundStyle(.primary)
+                        .background(highlighted ? Color.accentColor.opacity(0.2) : Color.clear)
+                        .cornerRadius(4)
                 }
                 .buttonStyle(.plain)
             }
@@ -71,6 +124,76 @@ struct InteractiveText: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .sheet(item: $selectedWord) { word in
             AddWordView(input: word.text, isWord: true)
+        }
+        .alert(
+            translationWord ?? "",
+            isPresented: Binding(
+                get: { translationResult != nil && translationWord != nil },
+                set: { if !$0 { translationResult = nil; translationWord = nil } }
+            )
+        ) {
+            Button(Loc.Actions.ok) {
+                translationResult = nil
+                translationWord = nil
+            }
+        } message: {
+            Text(translationResult ?? "")
+        }
+    }
+    
+    // MARK: - Translation
+    
+    private func translateWord(_ word: String) async {
+        guard !isTranslating else { return }
+        
+        let targetLanguageCode = currentLocaleLanguageCode
+        
+        // Use provided source language or detect it
+        let detectedSourceLanguageCode: String
+        if let providedSourceLanguage = sourceLanguageCode {
+            detectedSourceLanguageCode = providedSourceLanguage
+        } else {
+            // Fallback to detection if not provided
+            let detectedLanguage = languageDetector.detectLanguage(for: word)
+            detectedSourceLanguageCode = detectedLanguage.languageCode
+        }
+        
+        // If source language is the same as current locale, no translation needed
+        if detectedSourceLanguageCode.lowercased() == targetLanguageCode.lowercased() {
+            await MainActor.run {
+                translationWord = word
+                translationResult = word // No translation needed
+                isTranslating = false
+            }
+            return
+        }
+        
+        isTranslating = true
+        
+        do {
+            let translatedText = try await translationService.translateDefinition(
+                word,
+                from: detectedSourceLanguageCode,
+                to: targetLanguageCode
+            )
+            
+            await MainActor.run {
+                translationWord = word
+                translationResult = translatedText
+                isTranslating = false
+                HapticManager.shared.triggerNotification(type: .success)
+            }
+        } catch {
+            await MainActor.run {
+                isTranslating = false
+                HapticManager.shared.triggerNotification(type: .error)
+                AlertCenter.shared.showAlert(
+                    with: .error(
+                        title: Loc.Errors.translationFailed,
+                        message: error.localizedDescription
+                    )
+                )
+            }
         }
     }
 }

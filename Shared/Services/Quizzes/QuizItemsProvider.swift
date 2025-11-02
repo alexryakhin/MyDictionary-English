@@ -49,9 +49,19 @@ final class QuizItemsProvider: ObservableObject {
 
     /// Resets the service state (useful when user signs out/in)
     func reset() {
-        availableItems = []
-        availableDictionaries = []
-        selectedDictionary = .privateDictionary
+        // Ensure @Published updates happen on main thread
+        if Thread.isMainThread {
+            availableItems = []
+            availableDictionaries = []
+            selectedDictionary = .privateDictionary
+        } else {
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                self.availableItems = []
+                self.availableDictionaries = []
+                self.selectedDictionary = .privateDictionary
+            }
+        }
     }
 
     /// Manually loads words for a shared dictionary
@@ -207,6 +217,9 @@ final class QuizItemsProvider: ObservableObject {
     }
 
     private func updateAvailableDictionaries() {
+        // Ensure @Published updates happen on main thread
+        assert(Thread.isMainThread, "updateAvailableDictionaries() must update @Published on main thread")
+        
         var dictionaries: [QuizDictionary] = [.privateDictionary]
 
         // Add ALL shared dictionaries that the user has access to
@@ -223,6 +236,9 @@ final class QuizItemsProvider: ObservableObject {
     }
 
     private func updateAvailableItems() {
+        // Ensure @Published updates happen on main thread
+        assert(Thread.isMainThread, "updateAvailableItems() must update @Published on main thread")
+        
         switch selectedDictionary {
         case .privateDictionary:
             // After migration, expressions (idioms/phrases) are part of wordsProvider.expressions
@@ -236,6 +252,9 @@ final class QuizItemsProvider: ObservableObject {
     }
     
     private func updateAvailableLanguages() {
+        // Ensure @Published updates happen on main thread
+        assert(Thread.isMainThread, "updateAvailableLanguages() must update @Published on main thread")
+        
         let languages = availableItems.compactMap { item -> InputLanguage? in
             if let word = item as? CDWord {
                 return InputLanguage(rawValue: word.languageCode ?? "en")

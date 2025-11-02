@@ -14,6 +14,7 @@ enum Quiz: String, CaseIterable, Identifiable {
     case sentenceWriting = "sentence_writing"
     case contextMultipleChoice = "context_multiple_choice"
     case fillInTheBlank = "fill_in_the_blank"
+    case storyLab = "story_lab"
 
     var id: String { rawValue }
 
@@ -29,6 +30,8 @@ enum Quiz: String, CaseIterable, Identifiable {
             return .orange
         case .fillInTheBlank:
             return .purple
+        case .storyLab:
+            return .pink
         }
     }
 
@@ -44,6 +47,8 @@ enum Quiz: String, CaseIterable, Identifiable {
             return "questionmark.circle"
         case .fillInTheBlank:
             return "textformat.abc"
+        case .storyLab:
+            return "books.vertical.fill"
         }
     }
 
@@ -59,6 +64,8 @@ enum Quiz: String, CaseIterable, Identifiable {
             return Loc.Quizzes.QuizTypes.contextMultipleChoice
         case .fillInTheBlank:
             return Loc.Quizzes.QuizTypes.fillInTheBlank
+        case .storyLab:
+            return Loc.StoryLab.title
         }
     }
 
@@ -74,6 +81,8 @@ enum Quiz: String, CaseIterable, Identifiable {
             return Loc.Quizzes.QuizTypes.chooseCorrectUsage
         case .fillInTheBlank:
             return Loc.Quizzes.QuizTypes.fillBlanksInContext
+        case .storyLab:
+            return Loc.StoryLab.description
         }
     }
 
@@ -89,12 +98,23 @@ enum Quiz: String, CaseIterable, Identifiable {
             return Loc.Quizzes.QuizTypes.greatJobCompletedContextQuiz
         case .fillInTheBlank:
             return Loc.Quizzes.QuizTypes.greatJobCompletedFillInTheBlankQuiz
+        case .storyLab:
+            return Loc.StoryLab.completionDescription
         }
     }
 
     var isOnlineQuiz: Bool {
         switch self {
-        case .sentenceWriting, .contextMultipleChoice, .fillInTheBlank:
+        case .sentenceWriting, .contextMultipleChoice, .fillInTheBlank, .storyLab:
+            return true
+        default:
+            return false
+        }
+    }
+
+    var isNewQuiz: Bool {
+        switch self {
+        case .storyLab:
             return true
         default:
             return false

@@ -37,6 +37,8 @@ struct QuizzesFlow: View {
             navigationManager.navigationPath.append(NavigationDestination.contextMultipleChoiceQuiz(preset))
         case .showFillInTheBlankQuiz(let preset):
             navigationManager.navigationPath.append(NavigationDestination.fillInTheBlankQuiz(preset))
+        case .showStoryLab(let config):
+            navigationManager.navigationPath.append(NavigationDestination.storyLab(config))
         case .showSharedDictionary(let dictionary):
             navigationManager.navigationPath.append(NavigationDestination.sharedDictionaryWords(dictionary))
         }

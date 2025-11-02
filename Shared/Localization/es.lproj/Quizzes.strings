@@ -1,4 +1,5 @@
 // MARK: - Quizzes
+"new_badge" = "NUEVO";
 "quiz_unavailable" = "Cuestionario no disponible";
 "back_to_quizzes" = "Volver a cuestionarios";
 "your_answer" = "Tu respuesta";

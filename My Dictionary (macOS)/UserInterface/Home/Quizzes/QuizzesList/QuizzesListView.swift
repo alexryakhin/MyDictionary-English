@@ -33,30 +33,32 @@ struct QuizzesListView: View {
         .navigationTitle(Loc.Navigation.Tabbar.quizzes)
         .toolbarTitleDisplayMode(.inlineLarge)
         .toolbar {
-            ToolbarItem(placement: .primaryAction) {
-                // Dictionary picker
-                Menu {
-                    ForEach(viewModel.availableDictionaries) { dictionary in
-                        Button {
-                            viewModel.handle(.dictionarySelected(dictionary))
-                        } label: {
-                            HStack {
-                                Image(systemName: dictionary.icon)
-                                Text(dictionary.name)
-                                Spacer()
-                                Text("\(dictionary.wordCount)")
-                                    .foregroundStyle(.secondary)
+            if viewModel.availableDictionaries.count > 1 {
+                ToolbarItem(placement: .primaryAction) {
+                    // Dictionary picker
+                    Menu {
+                        ForEach(viewModel.availableDictionaries) { dictionary in
+                            Button {
+                                viewModel.handle(.dictionarySelected(dictionary))
+                            } label: {
+                                HStack {
+                                    Image(systemName: dictionary.icon)
+                                    Text(dictionary.name)
+                                    Spacer()
+                                    Text("\(dictionary.wordCount)")
+                                        .foregroundStyle(.secondary)
+                                }
                             }
                         }
+                    } label: {
+                        HStack {
+                            Image(systemName: viewModel.selectedDictionary.icon)
+                            Text(viewModel.selectedDictionary.name)
+                        }
                     }
-                } label: {
-                    HStack {
-                        Image(systemName: viewModel.selectedDictionary.icon)
-                        Text(viewModel.selectedDictionary.name)
-                    }
+                    .help(Loc.Quizzes.selectDictionary)
+                    .hideIfOffline()
                 }
-                .help(Loc.Quizzes.selectDictionary)
-                .hideIfOffline()
             }
         }
         .onAppear {
@@ -92,6 +94,16 @@ struct QuizzesListView: View {
                                     sideBarManager.selectedQuiz = .contextMultipleChoice(preset)
                                 case .fillInTheBlank:
                                     sideBarManager.selectedQuiz = .fillInTheBlank(preset)
+                                case .storyLab:
+                                    // Create default config - will show configuration view since savedWords and customText are nil
+                                    let config = StoryLabConfig(
+                                        savedWords: nil,
+                                        customText: nil,
+                                        targetLanguage: viewModel.selectedLanguage ?? .english,
+                                        cefrLevel: .b1,
+                                        pageCount: 1
+                                    )
+                                    sideBarManager.selectedQuiz = .storyLab(config)
                                 }
                             } label: {
                                 QuizCardView(quiz: quiz)
@@ -103,6 +115,17 @@ struct QuizzesListView: View {
                             )
                             .if(quiz.isOnlineQuiz) {
                                 $0.hideIfOffline()
+                            }
+                            .overlay(alignment: .topTrailing) {
+                                if quiz.isNewQuiz {
+                                    TagView(
+                                        text: Loc.Quizzes.newBadge,
+                                        systemImage: "sparkles",
+                                        color: quiz.color,
+                                        style: .selected
+                                    )
+                                    .offset(x: 8, y: -4)
+                                }
                             }
                         }
                     }

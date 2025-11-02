@@ -119,7 +119,7 @@ struct SharedDictionarySelectionView: View {
                             if dictionaryService.canCreateMoreSharedDictionaries() {
                                 showingAddDictionary = true
                             } else {
-                                PaywallService.shared.isShowingPaywall = true
+                                PaywallService.shared.presentPaywall(for: .createSharedDictionaries)
                             }
                         }
                         .padding(.bottom, 12)

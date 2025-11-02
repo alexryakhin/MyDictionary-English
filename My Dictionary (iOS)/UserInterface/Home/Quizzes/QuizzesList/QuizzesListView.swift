@@ -40,7 +40,9 @@ struct QuizzesListView: View {
             title: Loc.Navigation.Tabbar.quizzes,
             mode: .large,
             trailingContent: {
-                dictionaryPicker
+                if viewModel.availableDictionaries.count > 1 {
+                    dictionaryPicker
+                }
             }
         )
         .onAppear {
@@ -98,6 +100,17 @@ struct QuizzesListView: View {
                             )
                             .if(quiz.isOnlineQuiz) {
                                 $0.hideIfOffline()
+                            }
+                            .overlay(alignment: .topTrailing) {
+                                if quiz.isNewQuiz {
+                                    TagView(
+                                        text: Loc.Quizzes.newBadge,
+                                        systemImage: "sparkles",
+                                        color: quiz.color,
+                                        style: .selected
+                                    )
+                                    .offset(x: 8, y: -4)
+                                }
                             }
                         }
                     }

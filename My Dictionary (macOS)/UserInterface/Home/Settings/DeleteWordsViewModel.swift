@@ -10,9 +10,6 @@ final class DeleteWordsViewModel: ObservableObject {
             sortWords()
         }
     }
-    @Published var showDeleteAllConfirmation = false
-    @Published var showDeleteSelectedConfirmation = false
-    @Published var showSuccessAlert = false
     @Published var deletedCount = 0
     
     private let wordsProvider = WordsProvider.shared
@@ -115,7 +112,12 @@ final class DeleteWordsViewModel: ObservableObject {
             try wordsProvider.deleteWords(with: Array(selectedWordIds))
             deletedCount = selectedWordIds.count
             selectedWordIds.removeAll()
-            showSuccessAlert = true
+            AlertCenter.shared.showAlert(
+                with: .info(
+                    title: Loc.Settings.wordsDeletedSuccessfully,
+                    message: Loc.Settings.wordsDeletedSuccessfullyMessage(deletedCount)
+                )
+            )
         } catch {
             print("Failed to delete selected words: \(error)")
             // Handle error appropriately
@@ -129,7 +131,12 @@ final class DeleteWordsViewModel: ObservableObject {
             try wordsProvider.deleteAllWords()
             deletedCount = wordCount
             selectedWordIds.removeAll()
-            showSuccessAlert = true
+            AlertCenter.shared.showAlert(
+                with: .info(
+                    title: Loc.Settings.wordsDeletedSuccessfully,
+                    message: Loc.Settings.wordsDeletedSuccessfullyMessage(deletedCount)
+                )
+            )
         } catch {
             print("Failed to delete all words: \(error)")
             // Handle error appropriately

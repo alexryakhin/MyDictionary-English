@@ -69,6 +69,8 @@ struct QuizResultRow: View {
                 return Loc.Quizzes.QuizTypes.spellingQuiz
             case "definition":
                 return Loc.Quizzes.QuizTypes.chooseDefinition
+            case "story_lab":
+                return Loc.StoryLab.title
             default:
                 return quizType.capitalized
             }
@@ -96,6 +98,8 @@ struct QuizResultRow: View {
                 return "pencil.and.outline"
             case "definition":
                 return "list.bullet.circle"
+            case "story_lab":
+                return "book.closed"
             default:
                 return "questionmark.circle"
             }
@@ -123,6 +127,8 @@ struct QuizResultRow: View {
                 return .blue
             case "definition":
                 return .accent
+            case "story_lab":
+                return .pink
             default:
                 return .gray
             }

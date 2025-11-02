@@ -80,7 +80,7 @@ extension BannerView {
             message: Loc.Ai.AiError.proRequired,
             buttonTitle: Loc.Actions.upgrade
         ) {
-            PaywallService.shared.isShowingPaywall = true
+            PaywallService.shared.presentPaywall(for: .aiDefinitions)
         }
     }
 }

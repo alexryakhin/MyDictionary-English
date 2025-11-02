@@ -127,6 +127,8 @@ public enum Loc {
     public static let toggleFavorite = Loc.tr("Actions", "toggle_favorite", fallback: "Toggle Favorite")
     /// Toggle Like
     public static let toggleLike = Loc.tr("Actions", "toggle_like", fallback: "Toggle Like")
+    /// Translate
+    public static let translate = Loc.tr("Actions", "translate", fallback: "Translate")
     /// Try Again
     public static let tryAgain = Loc.tr("Actions", "try_again", fallback: "Try Again")
     /// Upgrade
@@ -1002,6 +1004,10 @@ public enum Loc {
     }
   }
   public enum Plurals {
+    /// Plural format key: "%#@COUNT@"
+    public static func pagesCount(_ p1: Int) -> String {
+      return Loc.tr("Plurals", "pages_count", p1, fallback: "Plural format key: \"%#@COUNT@\"")
+    }
     public enum Analytics {
       /// Plural format key: "%#@COUNT@"
       public static func pointsCount(_ p1: Int) -> String {
@@ -1256,6 +1262,8 @@ public enum Loc {
     public static func needsAtLeastWordsStartQuizzes(_ p1: Any, _ p2: Int) -> String {
       return Loc.tr("Quizzes", "needs_at_least_words_start_quizzes", String(describing: p1), p2, fallback: "The shared dictionary '%@' needs at least 10 words to start quizzes. It currently has %d words.")
     }
+    /// NEW
+    public static let newBadge = Loc.tr("Quizzes", "new_badge", fallback: "NEW")
     /// Next Word
     public static let nextWord = Loc.tr("Quizzes", "next_word", fallback: "Next Word")
     /// No difficult words available for quiz
@@ -1962,6 +1970,134 @@ public enum Loc {
       public static let selectDictionary = Loc.tr("SharedDictionaries", "shared_dictionary_selection.select_dictionary", fallback: "Select Dictionary")
       /// unknown
       public static let unknown = Loc.tr("SharedDictionaries", "shared_dictionary_selection.unknown", fallback: "unknown")
+    }
+  }
+  public enum StoryLab {
+    /// Great job! You've completed the story.
+    public static let completionDescription = Loc.tr("StoryLab", "completion_description", fallback: "Great job! You've completed the story.")
+    /// Read AI-generated stories with comprehension quizzes
+    public static let description = Loc.tr("StoryLab", "description", fallback: "Read AI-generated stories with comprehension quizzes")
+    /// Story Lab
+    public static let title = Loc.tr("StoryLab", "title", fallback: "Story Lab")
+    public enum Configuration {
+      /// CEFR Level
+      public static let cefrLevel = Loc.tr("StoryLab", "configuration.cefr_level", fallback: "CEFR Level")
+      /// Custom Text
+      public static let customText = Loc.tr("StoryLab", "configuration.custom_text", fallback: "Custom Text")
+      /// Enter text, idiom, or expression...
+      public static let customTextPlaceholder = Loc.tr("StoryLab", "configuration.custom_text_placeholder", fallback: "Enter text, idiom, or expression...")
+      /// Generate a personalized story based on your words or a theme
+      public static let description = Loc.tr("StoryLab", "configuration.description", fallback: "Generate a personalized story based on your words or a theme")
+      /// Complete a story quiz to see it here
+      public static let emptySessionsDescription = Loc.tr("StoryLab", "configuration.empty_sessions_description", fallback: "Complete a story quiz to see it here")
+      /// No past sessions yet
+      public static let emptySessionsTitle = Loc.tr("StoryLab", "configuration.empty_sessions_title", fallback: "No past sessions yet")
+      /// Generate Story
+      public static let generateStory = Loc.tr("StoryLab", "configuration.generate_story", fallback: "Generate Story")
+      /// Generating Story...
+      public static let generating = Loc.tr("StoryLab", "configuration.generating", fallback: "Generating Story...")
+      /// Input Mode
+      public static let inputMode = Loc.tr("StoryLab", "configuration.input_mode", fallback: "Input Mode")
+      /// My Words
+      public static let myWords = Loc.tr("StoryLab", "configuration.my_words", fallback: "My Words")
+      /// Number of Pages
+      public static let pageCount = Loc.tr("StoryLab", "configuration.page_count", fallback: "Number of Pages")
+      /// Past Sessions
+      public static let pastSessions = Loc.tr("StoryLab", "configuration.past_sessions", fallback: "Past Sessions")
+      /// Select Words
+      public static let selectWords = Loc.tr("StoryLab", "configuration.select_words", fallback: "Select Words")
+      /// Target Language
+      public static let targetLanguage = Loc.tr("StoryLab", "configuration.target_language", fallback: "Target Language")
+      /// Create Your Story
+      public static let title = Loc.tr("StoryLab", "configuration.title", fallback: "Create Your Story")
+    }
+    public enum Error {
+      /// Failed to generate story. Please try again.
+      public static let generationFailed = Loc.tr("StoryLab", "error.generation_failed", fallback: "Failed to generate story. Please try again.")
+      /// Not enough words available. Please select at least 5 words.
+      public static let insufficientWords = Loc.tr("StoryLab", "error.insufficient_words", fallback: "Not enough words available. Please select at least 5 words.")
+      /// Network error. Please check your connection.
+      public static let networkError = Loc.tr("StoryLab", "error.network_error", fallback: "Network error. Please check your connection.")
+      /// Story Lab requires a Pro subscription.
+      public static let proRequired = Loc.tr("StoryLab", "error.pro_required", fallback: "Story Lab requires a Pro subscription.")
+    }
+    public enum History {
+      /// Complete a story quiz to see it here
+      public static let emptyDescription = Loc.tr("StoryLab", "history.empty_description", fallback: "Complete a story quiz to see it here")
+      /// No Past Quizzes
+      public static let emptyTitle = Loc.tr("StoryLab", "history.empty_title", fallback: "No Past Quizzes")
+      /// Past Quizzes
+      public static let title = Loc.tr("StoryLab", "history.title", fallback: "Past Quizzes")
+    }
+    public enum Quiz {
+      /// Correct!
+      public static let correct = Loc.tr("StoryLab", "quiz.correct", fallback: "Correct!")
+      /// Finish Story
+      public static let finishStory = Loc.tr("StoryLab", "quiz.finish_story", fallback: "Finish Story")
+      /// Incorrect
+      public static let incorrect = Loc.tr("StoryLab", "quiz.incorrect", fallback: "Incorrect")
+      /// Next Page
+      public static let nextPage = Loc.tr("StoryLab", "quiz.next_page", fallback: "Next Page")
+      /// Next Question
+      public static let nextQuestion = Loc.tr("StoryLab", "quiz.next_question", fallback: "Next Question")
+      /// Questions for Page %d
+      public static func pageQuestions(_ p1: Int) -> String {
+        return Loc.tr("StoryLab", "quiz.page_questions", p1, fallback: "Questions for Page %d")
+      }
+      /// Select an answer
+      public static let selectAnswer = Loc.tr("StoryLab", "quiz.select_answer", fallback: "Select an answer")
+      /// Comprehension Quiz
+      public static let title = Loc.tr("StoryLab", "quiz.title", fallback: "Comprehension Quiz")
+    }
+    public enum Reading {
+      /// Complete Quiz
+      public static let completeQuiz = Loc.tr("StoryLab", "reading.complete_quiz", fallback: "Complete Quiz")
+      /// Listen to Story
+      public static let listenToStory = Loc.tr("StoryLab", "reading.listen_to_story", fallback: "Listen to Story")
+      /// Next page
+      public static let nextPage = Loc.tr("StoryLab", "reading.next_page", fallback: "Next page")
+      /// Page %d of %d
+      public static func page(_ p1: Int, _ p2: Int) -> String {
+        return Loc.tr("StoryLab", "reading.page", p1, p2, fallback: "Page %d of %d")
+      }
+      /// Pause
+      public static let pause = Loc.tr("StoryLab", "reading.pause", fallback: "Pause")
+      /// Previous page
+      public static let previousPage = Loc.tr("StoryLab", "reading.previous_page", fallback: "Previous page")
+      /// Story
+      public static let title = Loc.tr("StoryLab", "reading.title", fallback: "Story")
+    }
+    public enum Results {
+      /// Correct Answers
+      public static let correctAnswers = Loc.tr("StoryLab", "results.correct_answers", fallback: "Correct Answers")
+      /// New Story
+      public static let newStory = Loc.tr("StoryLab", "results.new_story", fallback: "New Story")
+      /// Retry Story
+      public static let retryStory = Loc.tr("StoryLab", "results.retry_story", fallback: "Retry Story")
+      /// Your Score
+      public static let score = Loc.tr("StoryLab", "results.score", fallback: "Your Score")
+      /// Summary
+      public static let summary = Loc.tr("StoryLab", "results.summary", fallback: "Summary")
+      /// Story Complete!
+      public static let title = Loc.tr("StoryLab", "results.title", fallback: "Story Complete!")
+      /// Total Questions
+      public static let totalQuestions = Loc.tr("StoryLab", "results.total_questions", fallback: "Total Questions")
+      /// Words Discovered
+      public static let wordsDiscovered = Loc.tr("StoryLab", "results.words_discovered", fallback: "Words Discovered")
+    }
+    public enum Session {
+      /// Story
+      public static let defaultTitle = Loc.tr("StoryLab", "session.default_title", fallback: "Story")
+      /// words discovered
+      public static let wordsDiscovered = Loc.tr("StoryLab", "session.words_discovered", fallback: "words discovered")
+    }
+    public enum WordSelection {
+      /// No words available
+      public static let noWordsAvailable = Loc.tr("StoryLab", "word_selection.no_words_available", fallback: "No words available")
+      /// No words available for the selected language.
+      public static let noWordsDescription = Loc.tr("StoryLab", "word_selection.no_words_description", fallback: "No words available for the selected language.")
+      /// No words found
+      public static let noWordsFound = Loc.tr("StoryLab", "word_selection.no_words_found", fallback: "No words found")
     }
   }
   public enum Subscription {

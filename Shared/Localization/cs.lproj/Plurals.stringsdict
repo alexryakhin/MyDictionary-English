@@ -1,189 +1,241 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <plist version="1.0">
-<dict>
-	<key>words.words_count</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@COUNT@</string>
-		<key>COUNT</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
-			<key>one</key>
-			<string>%d slovo</string>
-			<key>few</key>
-			<string>%d slova</string>
-			<key>many</key>
-			<string>%d slov</string>
-			<key>other</key>
-			<string>%d slov</string>
-		</dict>
-	</dict>
-	<key>idioms.idioms_count</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@COUNT@</string>
-		<key>COUNT</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
-			<key>one</key>
-			<string>%d rčení</string>
-			<key>few</key>
-			<string>%d rčení</string>
-			<key>many</key>
-			<string>%d rčení</string>
-			<key>other</key>
-			<string>%d rčení</string>
-		</dict>
-	</dict>
-	<key>shared_dictionaries.collaborators</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@COUNT@</string>
-		<key>COUNT</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
-			<key>one</key>
-			<string>%d spolupracovník</string>
-			<key>few</key>
-			<string>%d spolupracovníci</string>
-			<key>many</key>
-			<string>%d spolupracovníků</string>
-			<key>other</key>
-			<string>%d spolupracovníků</string>
-		</dict>
-	</dict>
-	<key>shared_dictionaries.dictionary_count_created</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@COUNT@ ze slovníku vytvořeno</string>
-		<key>COUNT</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
-			<key>one</key>
-			<string>%d</string>
-			<key>few</key>
-			<string>%d</string>
-			<key>many</key>
-			<string>%d</string>
-			<key>other</key>
-			<string>%d</string>
-		</dict>
-	</dict>
-	<key>analytics.points_count</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@COUNT@</string>
-		<key>COUNT</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
-			<key>one</key>
-			<string>%d bod</string>
-			<key>few</key>
-			<string>%d body</string>
-			<key>many</key>
-			<string>%d bodů</string>
-			<key>other</key>
-			<string>%d bodů</string>
-		</dict>
-	</dict>
-	<key>analytics.quizzes_count</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@COUNT@</string>
-		<key>COUNT</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
-			<key>zero</key>
-			<string>Žádné kvízy</string>
-			<key>one</key>
-			<string>%d kvíz</string>
-			<key>few</key>
-			<string>%d kvízy</string>
-			<key>many</key>
-			<string>%d kvízů</string>
-			<key>other</key>
-			<string>%d kvízů</string>
-		</dict>
-	</dict>
-	<key>analytics.quizzes_completed_this_month</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>Dokončil jste %#@COUNT@ tento měsíc.</string>
-		<key>COUNT</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
-			<key>zero</key>
-			<string>žádné kvízy</string>
-			<key>one</key>
-			<string>%d kvíz</string>
-			<key>few</key>
-			<string>%d kvízy</string>
-			<key>many</key>
-			<string>%d kvízů</string>
-			<key>other</key>
-			<string>%d kvízů</string>
-		</dict>
-	</dict>
-	<key>word_collections.collections_count</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@COUNT@</string>
-		<key>COUNT</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
-			<key>one</key>
-			<string>%d kolekce</string>
-			<key>few</key>
-			<string>%d kolekce</string>
-			<key>many</key>
-			<string>%d kolekcí</string>
-			<key>other</key>
-			<string>%d kolekcí</string>
-		</dict>
-	</dict>
-	<key>word_collections.collections_available</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@COUNT@</string>
-		<key>COUNT</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
-			<key>one</key>
-			<string>%d kolekce k dispozici</string>
-			<key>few</key>
-			<string>%d kolekce k dispozici</string>
-			<key>many</key>
-			<string>%d kolekcí k dispozici</string>
-			<key>other</key>
-			<string>%d kolekcí k dispozici</string>
-		</dict>
-	</dict>
-<key>onboarding.languages_count</key><dict><key>NSStringLocalizedFormatKey</key><string>%#@COUNT@</string><key>COUNT</key><dict><key>NSStringFormatSpecTypeKey</key><string>NSStringPluralRuleType</string><key>NSStringFormatValueTypeKey</key><string>d</string><key>one</key><string>%d jazyk</string><key>other</key><string>%d jazyky</string></dict></dict><key>onboarding.languages_count_wn</key><dict><key>NSStringLocalizedFormatKey</key><string>%#@COUNT@</string><key>COUNT</key><dict><key>NSStringFormatSpecTypeKey</key><string>NSStringPluralRuleType</string><key>NSStringFormatValueTypeKey</key><string>d</string><key>one</key><string>Jazyk</string><key>other</key><string>Jazyky</string></dict></dict></dict>
+    <dict>
+        <key>words.words_count</key>
+        <dict>
+            <key>NSStringLocalizedFormatKey</key>
+            <string>%#@COUNT@</string>
+            <key>COUNT</key>
+            <dict>
+                <key>NSStringFormatSpecTypeKey</key>
+                <string>NSStringPluralRuleType</string>
+                <key>NSStringFormatValueTypeKey</key>
+                <string>d</string>
+                <key>one</key>
+                <string>%d slovo</string>
+                <key>few</key>
+                <string>%d slova</string>
+                <key>many</key>
+                <string>%d slov</string>
+                <key>other</key>
+                <string>%d slov</string>
+            </dict>
+        </dict>
+        <key>idioms.idioms_count</key>
+        <dict>
+            <key>NSStringLocalizedFormatKey</key>
+            <string>%#@COUNT@</string>
+            <key>COUNT</key>
+            <dict>
+                <key>NSStringFormatSpecTypeKey</key>
+                <string>NSStringPluralRuleType</string>
+                <key>NSStringFormatValueTypeKey</key>
+                <string>d</string>
+                <key>one</key>
+                <string>%d rčení</string>
+                <key>few</key>
+                <string>%d rčení</string>
+                <key>many</key>
+                <string>%d rčení</string>
+                <key>other</key>
+                <string>%d rčení</string>
+            </dict>
+        </dict>
+        <key>shared_dictionaries.collaborators</key>
+        <dict>
+            <key>NSStringLocalizedFormatKey</key>
+            <string>%#@COUNT@</string>
+            <key>COUNT</key>
+            <dict>
+                <key>NSStringFormatSpecTypeKey</key>
+                <string>NSStringPluralRuleType</string>
+                <key>NSStringFormatValueTypeKey</key>
+                <string>d</string>
+                <key>one</key>
+                <string>%d spolupracovník</string>
+                <key>few</key>
+                <string>%d spolupracovníci</string>
+                <key>many</key>
+                <string>%d spolupracovníků</string>
+                <key>other</key>
+                <string>%d spolupracovníků</string>
+            </dict>
+        </dict>
+        <key>shared_dictionaries.dictionary_count_created</key>
+        <dict>
+            <key>NSStringLocalizedFormatKey</key>
+            <string>%#@COUNT@ ze slovníku vytvořeno</string>
+            <key>COUNT</key>
+            <dict>
+                <key>NSStringFormatSpecTypeKey</key>
+                <string>NSStringPluralRuleType</string>
+                <key>NSStringFormatValueTypeKey</key>
+                <string>d</string>
+                <key>one</key>
+                <string>%d</string>
+                <key>few</key>
+                <string>%d</string>
+                <key>many</key>
+                <string>%d</string>
+                <key>other</key>
+                <string>%d</string>
+            </dict>
+        </dict>
+        <key>analytics.points_count</key>
+        <dict>
+            <key>NSStringLocalizedFormatKey</key>
+            <string>%#@COUNT@</string>
+            <key>COUNT</key>
+            <dict>
+                <key>NSStringFormatSpecTypeKey</key>
+                <string>NSStringPluralRuleType</string>
+                <key>NSStringFormatValueTypeKey</key>
+                <string>d</string>
+                <key>one</key>
+                <string>%d bod</string>
+                <key>few</key>
+                <string>%d body</string>
+                <key>many</key>
+                <string>%d bodů</string>
+                <key>other</key>
+                <string>%d bodů</string>
+            </dict>
+        </dict>
+        <key>analytics.quizzes_count</key>
+        <dict>
+            <key>NSStringLocalizedFormatKey</key>
+            <string>%#@COUNT@</string>
+            <key>COUNT</key>
+            <dict>
+                <key>NSStringFormatSpecTypeKey</key>
+                <string>NSStringPluralRuleType</string>
+                <key>NSStringFormatValueTypeKey</key>
+                <string>d</string>
+                <key>zero</key>
+                <string>Žádné kvízy</string>
+                <key>one</key>
+                <string>%d kvíz</string>
+                <key>few</key>
+                <string>%d kvízy</string>
+                <key>many</key>
+                <string>%d kvízů</string>
+                <key>other</key>
+                <string>%d kvízů</string>
+            </dict>
+        </dict>
+        <key>analytics.quizzes_completed_this_month</key>
+        <dict>
+            <key>NSStringLocalizedFormatKey</key>
+            <string>Dokončil jste %#@COUNT@ tento měsíc.</string>
+            <key>COUNT</key>
+            <dict>
+                <key>NSStringFormatSpecTypeKey</key>
+                <string>NSStringPluralRuleType</string>
+                <key>NSStringFormatValueTypeKey</key>
+                <string>d</string>
+                <key>zero</key>
+                <string>žádné kvízy</string>
+                <key>one</key>
+                <string>%d kvíz</string>
+                <key>few</key>
+                <string>%d kvízy</string>
+                <key>many</key>
+                <string>%d kvízů</string>
+                <key>other</key>
+                <string>%d kvízů</string>
+            </dict>
+        </dict>
+        <key>word_collections.collections_count</key>
+        <dict>
+            <key>NSStringLocalizedFormatKey</key>
+            <string>%#@COUNT@</string>
+            <key>COUNT</key>
+            <dict>
+                <key>NSStringFormatSpecTypeKey</key>
+                <string>NSStringPluralRuleType</string>
+                <key>NSStringFormatValueTypeKey</key>
+                <string>d</string>
+                <key>one</key>
+                <string>%d kolekce</string>
+                <key>few</key>
+                <string>%d kolekce</string>
+                <key>many</key>
+                <string>%d kolekcí</string>
+                <key>other</key>
+                <string>%d kolekcí</string>
+            </dict>
+        </dict>
+        <key>word_collections.collections_available</key>
+        <dict>
+            <key>NSStringLocalizedFormatKey</key>
+            <string>%#@COUNT@</string>
+            <key>COUNT</key>
+            <dict>
+                <key>NSStringFormatSpecTypeKey</key>
+                <string>NSStringPluralRuleType</string>
+                <key>NSStringFormatValueTypeKey</key>
+                <string>d</string>
+                <key>one</key>
+                <string>%d kolekce k dispozici</string>
+                <key>few</key>
+                <string>%d kolekce k dispozici</string>
+                <key>many</key>
+                <string>%d kolekcí k dispozici</string>
+                <key>other</key>
+                <string>%d kolekcí k dispozici</string>
+            </dict>
+        </dict>
+        <key>onboarding.languages_count</key>
+        <dict>
+            <key>NSStringLocalizedFormatKey</key>
+            <string>%#@COUNT@</string>
+            <key>COUNT</key>
+            <dict>
+                <key>NSStringFormatSpecTypeKey</key>
+                <string>NSStringPluralRuleType</string>
+                <key>NSStringFormatValueTypeKey</key>
+                <string>d</string>
+                <key>one</key>
+                <string>%d jazyk</string>
+                <key>other</key>
+                <string>%d jazyky</string>
+            </dict>
+        </dict>
+        <key>onboarding.languages_count_wn</key>
+        <dict>
+            <key>NSStringLocalizedFormatKey</key>
+            <string>%#@COUNT@</string>
+            <key>COUNT</key>
+            <dict>
+                <key>NSStringFormatSpecTypeKey</key>
+                <string>NSStringPluralRuleType</string>
+                <key>NSStringFormatValueTypeKey</key>
+                <string>d</string>
+                <key>one</key>
+                <string>Jazyk</string>
+                <key>other</key>
+                <string>Jazyky</string>
+            </dict>
+        </dict>
+        <key>pages_count</key>
+        <dict>
+            <key>NSStringLocalizedFormatKey</key>
+            <string>%#@COUNT@</string>
+            <key>COUNT</key>
+            <dict>
+                <key>NSStringFormatSpecTypeKey</key>
+                <string>NSStringPluralRuleType</string>
+                <key>NSStringFormatValueTypeKey</key>
+                <string>d</string>
+                <key>one</key>
+                <string>%d strana</string>
+                <key>few</key>
+                <string>%d strany</string>
+                <key>many</key>
+                <string>%d stran</string>
+                <key>other</key>
+                <string>%d stran</string>
+            </dict>
+        </dict>
+    </dict>
 </plist>

@@ -1,153 +1,196 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <plist version="1.0">
-<dict>
-	<key>words.words_count</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@COUNT@</string>
-		<key>COUNT</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
-			<key>one</key>
-			<string>%d palavra</string>
-			<key>other</key>
-			<string>%d palavras</string>
-		</dict>
-	</dict>
-	<key>idioms.idioms_count</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@COUNT@</string>
-		<key>COUNT</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
-			<key>one</key>
-			<string>%d expressão</string>
-			<key>other</key>
-			<string>%d expressões</string>
-		</dict>
-	</dict>
-	<key>shared_dictionaries.collaborators</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@COUNT@</string>
-		<key>COUNT</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
-			<key>one</key>
-			<string>%d colaborador</string>
-			<key>other</key>
-			<string>%d colaboradores</string>
-		</dict>
-	</dict>
-	<key>shared_dictionaries.dictionary_count_created</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@COUNT@ de 1 dicionário criado</string>
-		<key>COUNT</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
-			<key>one</key>
-			<string>%d</string>
-			<key>other</key>
-			<string>%d</string>
-		</dict>
-	</dict>
-	<key>analytics.points_count</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@COUNT@</string>
-		<key>COUNT</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
-			<key>one</key>
-			<string>%d ponto</string>
-			<key>other</key>
-			<string>%d pontos</string>
-		</dict>
-	</dict>
-	<key>analytics.quizzes_count</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@COUNT@</string>
-		<key>COUNT</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
-			<key>zero</key>
-			<string>Nenhum questionário</string>
-			<key>one</key>
-			<string>%d questionário</string>
-			<key>other</key>
-			<string>%d questionários</string>
-		</dict>
-	</dict>
-	<key>analytics.quizzes_completed_this_month</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>Completou %#@COUNT@ este mês.</string>
-		<key>COUNT</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
-			<key>zero</key>
-			<string>nenhum questionário</string>
-			<key>one</key>
-			<string>%d questionário</string>
-			<key>other</key>
-			<string>%d questionários</string>
-		</dict>
-	</dict>
-	<key>word_collections.collections_count</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@COUNT@</string>
-		<key>COUNT</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
-			<key>one</key>
-			<string>%d coleção</string>
-			<key>other</key>
-			<string>%d coleções</string>
-		</dict>
-	</dict>
-	<key>word_collections.collections_available</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@COUNT@</string>
-		<key>COUNT</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
-			<key>one</key>
-			<string>%d coleção disponível</string>
-			<key>other</key>
-			<string>%d coleções disponíveis</string>
-		</dict>
-	</dict>
-<key>onboarding.languages_count</key><dict><key>NSStringLocalizedFormatKey</key><string>%#@COUNT@</string><key>COUNT</key><dict><key>NSStringFormatSpecTypeKey</key><string>NSStringPluralRuleType</string><key>NSStringFormatValueTypeKey</key><string>d</string><key>one</key><string>%d idioma</string><key>other</key><string>%d idiomas</string></dict></dict><key>onboarding.languages_count_wn</key><dict><key>NSStringLocalizedFormatKey</key><string>%#@COUNT@</string><key>COUNT</key><dict><key>NSStringFormatSpecTypeKey</key><string>NSStringPluralRuleType</string><key>NSStringFormatValueTypeKey</key><string>d</string><key>one</key><string>Idioma</string><key>other</key><string>Idiomas</string></dict></dict></dict>
+    <dict>
+        <key>words.words_count</key>
+        <dict>
+            <key>NSStringLocalizedFormatKey</key>
+            <string>%#@COUNT@</string>
+            <key>COUNT</key>
+            <dict>
+                <key>NSStringFormatSpecTypeKey</key>
+                <string>NSStringPluralRuleType</string>
+                <key>NSStringFormatValueTypeKey</key>
+                <string>d</string>
+                <key>one</key>
+                <string>%d palavra</string>
+                <key>other</key>
+                <string>%d palavras</string>
+            </dict>
+        </dict>
+        <key>idioms.idioms_count</key>
+        <dict>
+            <key>NSStringLocalizedFormatKey</key>
+            <string>%#@COUNT@</string>
+            <key>COUNT</key>
+            <dict>
+                <key>NSStringFormatSpecTypeKey</key>
+                <string>NSStringPluralRuleType</string>
+                <key>NSStringFormatValueTypeKey</key>
+                <string>d</string>
+                <key>one</key>
+                <string>%d expressão</string>
+                <key>other</key>
+                <string>%d expressões</string>
+            </dict>
+        </dict>
+        <key>shared_dictionaries.collaborators</key>
+        <dict>
+            <key>NSStringLocalizedFormatKey</key>
+            <string>%#@COUNT@</string>
+            <key>COUNT</key>
+            <dict>
+                <key>NSStringFormatSpecTypeKey</key>
+                <string>NSStringPluralRuleType</string>
+                <key>NSStringFormatValueTypeKey</key>
+                <string>d</string>
+                <key>one</key>
+                <string>%d colaborador</string>
+                <key>other</key>
+                <string>%d colaboradores</string>
+            </dict>
+        </dict>
+        <key>shared_dictionaries.dictionary_count_created</key>
+        <dict>
+            <key>NSStringLocalizedFormatKey</key>
+            <string>%#@COUNT@ de 1 dicionário criado</string>
+            <key>COUNT</key>
+            <dict>
+                <key>NSStringFormatSpecTypeKey</key>
+                <string>NSStringPluralRuleType</string>
+                <key>NSStringFormatValueTypeKey</key>
+                <string>d</string>
+                <key>one</key>
+                <string>%d</string>
+                <key>other</key>
+                <string>%d</string>
+            </dict>
+        </dict>
+        <key>analytics.points_count</key>
+        <dict>
+            <key>NSStringLocalizedFormatKey</key>
+            <string>%#@COUNT@</string>
+            <key>COUNT</key>
+            <dict>
+                <key>NSStringFormatSpecTypeKey</key>
+                <string>NSStringPluralRuleType</string>
+                <key>NSStringFormatValueTypeKey</key>
+                <string>d</string>
+                <key>one</key>
+                <string>%d ponto</string>
+                <key>other</key>
+                <string>%d pontos</string>
+            </dict>
+        </dict>
+        <key>analytics.quizzes_count</key>
+        <dict>
+            <key>NSStringLocalizedFormatKey</key>
+            <string>%#@COUNT@</string>
+            <key>COUNT</key>
+            <dict>
+                <key>NSStringFormatSpecTypeKey</key>
+                <string>NSStringPluralRuleType</string>
+                <key>NSStringFormatValueTypeKey</key>
+                <string>d</string>
+                <key>zero</key>
+                <string>Nenhum questionário</string>
+                <key>one</key>
+                <string>%d questionário</string>
+                <key>other</key>
+                <string>%d questionários</string>
+            </dict>
+        </dict>
+        <key>analytics.quizzes_completed_this_month</key>
+        <dict>
+            <key>NSStringLocalizedFormatKey</key>
+            <string>Completou %#@COUNT@ este mês.</string>
+            <key>COUNT</key>
+            <dict>
+                <key>NSStringFormatSpecTypeKey</key>
+                <string>NSStringPluralRuleType</string>
+                <key>NSStringFormatValueTypeKey</key>
+                <string>d</string>
+                <key>zero</key>
+                <string>nenhum questionário</string>
+                <key>one</key>
+                <string>%d questionário</string>
+                <key>other</key>
+                <string>%d questionários</string>
+            </dict>
+        </dict>
+        <key>word_collections.collections_count</key>
+        <dict>
+            <key>NSStringLocalizedFormatKey</key>
+            <string>%#@COUNT@</string>
+            <key>COUNT</key>
+            <dict>
+                <key>NSStringFormatSpecTypeKey</key>
+                <string>NSStringPluralRuleType</string>
+                <key>NSStringFormatValueTypeKey</key>
+                <string>d</string>
+                <key>one</key>
+                <string>%d coleção</string>
+                <key>other</key>
+                <string>%d coleções</string>
+            </dict>
+        </dict>
+        <key>word_collections.collections_available</key>
+        <dict>
+            <key>NSStringLocalizedFormatKey</key>
+            <string>%#@COUNT@</string>
+            <key>COUNT</key>
+            <dict>
+                <key>NSStringFormatSpecTypeKey</key>
+                <string>NSStringPluralRuleType</string>
+                <key>NSStringFormatValueTypeKey</key>
+                <string>d</string>
+                <key>one</key>
+                <string>%d coleção disponível</string>
+                <key>other</key>
+                <string>%d coleções disponíveis</string>
+            </dict>
+        </dict>
+        <key>onboarding.languages_count</key>
+        <dict>
+            <key>NSStringLocalizedFormatKey</key>
+            <string>%#@COUNT@</string>
+            <key>COUNT</key>
+            <dict><key>NSStringFormatSpecTypeKey</key>
+                <string>NSStringPluralRuleType</string>
+                <key>NSStringFormatValueTypeKey</key>
+                <string>d</string>
+                <key>one</key>
+                <string>%d idioma</string>
+                <key>other</key>
+                <string>%d idiomas</string>
+            </dict>
+        </dict>
+        <key>onboarding.languages_count_wn</key>
+        <dict><key>NSStringLocalizedFormatKey</key>
+            <string>%#@COUNT@</string>
+            <key>COUNT</key>
+            <dict><key>NSStringFormatSpecTypeKey</key>
+                <string>NSStringPluralRuleType</string>
+                <key>NSStringFormatValueTypeKey</key>
+                <string>d</string>
+                <key>one</key>
+                <string>Idioma</string>
+                <key>other</key>
+                <string>Idiomas</string>
+            </dict>
+        </dict>
+        <key>pages_count</key>
+        <dict><key>NSStringLocalizedFormatKey</key>
+            <string>%#@COUNT@</string>
+            <key>COUNT</key>
+            <dict><key>NSStringFormatSpecTypeKey</key>
+                <string>NSStringPluralRuleType</string>
+                <key>NSStringFormatValueTypeKey</key>
+                <string>d</string>
+                <key>one</key>
+                <string>%d página</string>
+                <key>other</key>
+                <string>%d páginas</string>
+            </dict>
+        </dict>
+    </dict>
 </plist>

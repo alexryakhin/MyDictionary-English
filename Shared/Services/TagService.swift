@@ -26,11 +26,27 @@ final class TagService: ObservableObject {
     
     // MARK: - Tag Management
     
+    /// Fetches all tags from Core Data
+    /// Note: This method must be called from main thread when updating @Published properties
     func getAllTags() {
+        // Ensure we're on main thread for @Published property updates
+        if Thread.isMainThread {
+            _fetchTags()
+        } else {
+            DispatchQueue.main.async { [weak self] in
+                self?._fetchTags()
+            }
+        }
+    }
+    
+    private func _fetchTags() {
+        assert(Thread.isMainThread, "getAllTags() must update @Published on main thread")
+        
         let request = CDTag.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         
         do {
+            // viewContext is main thread, so fetch is safe
             tags = try coreDataService.context.fetch(request)
         } catch {
             print("Error fetching tags: \(error)")
@@ -258,8 +274,12 @@ final class TagService: ObservableObject {
     }
 
     private func setupBindings() {
+        // Listen to Core Data updates (from CloudKit sync or local saves)
+        // Ensure we receive on main thread to update @Published properties safely
         coreDataService.dataUpdatedPublisher
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
+                // Fetch tags on main thread - @Published updates will be safe
                 self?.getAllTags()
             }
             .store(in: &cancellables)

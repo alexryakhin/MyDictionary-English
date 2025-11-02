@@ -90,8 +90,8 @@ final class AIService: ObservableObject {
                 prompt: buildWordInformationPrompt(
                     word: word,
                     maxDefinitions: maxDefinitions,
-                    inputLanguage: inputLanguage.englishName,
-                    userLanguage: getCurrentAppLanguage()
+                    inputLanguage: inputLanguage,
+                    userLanguage: InputLanguage(rawValue: Locale.current.language.languageCode?.identifier ?? "en") ?? InputLanguage.english
                 ),
                 responseType: AIWordResponse.self
             )
@@ -208,6 +208,33 @@ final class AIService: ObservableObject {
         }
     }
 
+    func generateStory(input: StoryInput) async throws -> AIStoryResponse {
+        guard reachabilityService.isOffline == false else {
+            throw AIError.networkError
+        }
+        
+        do {
+            // Check if AI service is initialized
+            guard isInitialized else {
+                throw AIError.notInitialized
+            }
+            
+            // Check if user has Pro subscription
+            guard SubscriptionService.shared.isProUser else {
+                throw AIError.proRequired
+            }
+            
+            let response = try await makeAIRequest(
+                prompt: buildStoryPrompt(input: input),
+                responseType: AIStoryResponse.self
+            )
+            
+            return response
+        } catch {
+            throw error
+        }
+    }
+    
     func canMakeAIRequest() -> Bool {
         return isInitialized && SubscriptionService.shared.isProUser
     }
@@ -226,7 +253,7 @@ final class AIService: ObservableObject {
     /// - Returns: true if the quiz uses AI, false otherwise
     func isAIQuiz(_ quizType: Quiz) -> Bool {
         switch quizType {
-        case .contextMultipleChoice, .fillInTheBlank, .sentenceWriting:
+        case .contextMultipleChoice, .fillInTheBlank, .sentenceWriting, .storyLab:
             return true
         case .spelling, .chooseDefinition:
             return false
@@ -236,7 +263,7 @@ final class AIService: ObservableObject {
     /// Gets all AI quiz types
     /// - Returns: Array of AI-powered quiz types
     func getAIQuizzes() -> [Quiz] {
-        return [.contextMultipleChoice, .fillInTheBlank, .sentenceWriting]
+        return [.contextMultipleChoice, .fillInTheBlank, .sentenceWriting, .storyLab]
     }
 
     // MARK: - Private Methods
@@ -357,14 +384,14 @@ final class AIService: ObservableObject {
     private func buildWordInformationPrompt(
         word: String,
         maxDefinitions: Int,
-        inputLanguage: String,
-        userLanguage: String
+        inputLanguage: InputLanguage,
+        userLanguage: InputLanguage
     ) -> String {
         return """
-        IMPORTANT: This is for EDUCATIONAL PURPOSES in a language learning application. User's language is \(userLanguage), and he/she learns \(inputLanguage). Provide comprehensive information for the word/phrase '\(word)' in \(userLanguage) and examples in \(inputLanguage).
+        IMPORTANT: This is for EDUCATIONAL PURPOSES in a language learning application. User's language is \(userLanguage.englishName), and he/she learns \(inputLanguage.englishName). Provide comprehensive information for the word/phrase '\(word)' in \(userLanguage.englishName) and examples in \(inputLanguage.englishName).
         
         IMPORTANT RULES:
-        1. Definition must be in the \(userLanguage). Examples must be in \(inputLanguage) (the language of the input word).
+        1. Definition must be in the \(userLanguage.englishName). Examples must be in \(inputLanguage.englishName) (the language of the input word).
         2. Part of speech should be chosen from: 'noun', 'verb', 'adjective', 'adverb', 'conjunction', 'pronoun', 'preposition', 'exclamation', 'interjection', 'idiom', 'phrase', 'unknown'.
         3. Pronunciation should be of the original input word using International Phonetic Alphabet
         4. Focus on COMMON, EVERYDAY meanings and uses first, not just religious or specialized meanings
@@ -500,6 +527,86 @@ final class AIService: ObservableObject {
         9. Don't put blanks inside answers. Only the story can have it.
         10. CRITICAL: Each option's "text" field should contain ONLY the word/phrase that fills the blank, NOT the full sentence with the blank
         11. The story should contain the blank (use "___" to represent it), but the options should only contain the actual words that could fill that blank
+        """
+        
+        return prompt
+    }
+    
+    private func buildStoryPrompt(input: StoryInput) -> String {
+        let userLanguage = getCurrentAppLanguage()
+        let targetLanguageName = input.targetLanguage.englishName
+        let cefrLevel = input.cefrLevel.rawValue
+        
+        var prompt = """
+        IMPORTANT: This is for EDUCATIONAL PURPOSES in a language learning application. Create an engaging, coherent story with comprehension quizzes for language learning.
+        
+        Target Language: \(targetLanguageName) (\(input.targetLanguage.rawValue))
+        User Language: \(userLanguage)
+        CEFR Level: \(cefrLevel)
+        Number of Pages: \(input.pageCount)
+        
+        """
+        
+        // Handle input words or custom text
+        if let savedWords = input.savedWords, !savedWords.isEmpty {
+            let wordsList = savedWords.joined(separator: ", ")
+            prompt += """
+            Words to incorporate naturally into the story:
+            \(wordsList)
+            
+            These words should appear naturally in the narrative. Do not force them - they should fit the story context naturally.
+            
+            """
+        } else if let customText = input.customText?.nilIfEmpty {
+            prompt += """
+            CUSTOM STORY INPUT: "\(customText)"
+            - Use this custom text as the theme, inspiration, or starting point for the story
+            - Maintain appropriate vocabulary and complexity for \(cefrLevel) level throughout
+            - Ensure the story flows naturally across all \(input.pageCount) pages and builds upon the custom text theme/expression
+            """
+        }
+        
+        // Determine paragraph length based on CEFR level
+        let paragraphLength: String
+        switch input.cefrLevel {
+        case .a1, .a2:
+            paragraphLength = "100-200 words"
+        case .b1, .b2:
+            paragraphLength = "200-300 words"
+        case .c1, .c2:
+            paragraphLength = "300-400 words"
+        }
+        
+        prompt += """
+        STORY REQUIREMENTS:
+        - Create a coherent, engaging story across \(input.pageCount) pages
+        - Each page: ONE substantial paragraph (~\(paragraphLength))
+        - Vocabulary and complexity: \(cefrLevel) level
+        - All content must be in \(targetLanguageName)
+        - Story must flow naturally between pages
+        
+        COMPREHENSION QUIZ (per page):
+        - Create 3-5 questions per page (aim for 4)
+        - Test understanding: main ideas, inference, context, cause/effect, vocabulary
+        - Each question: 4 multiple-choice options
+        - CRITICAL: Options must be ANSWERS (short phrases/words/statements), NOT other questions
+          Example: "¿Quién juega?" → ["La niña", "El niño", "La mujer", "El hombre"]
+          NOT: ["¿Quién juega?", "¿Qué come?", ...]
+        - CRITICAL: Each option must have a "text" field (the answer text) and an "isCorrect" field (true for the correct answer, false for others)
+        - CRITICAL: Exactly ONE option must have isCorrect: true - this option must be explicitly stated in or clearly inferable from the story text on that page
+        - Each question must include a brief explanation (max 200 characters) of why the correct answer is right
+        - Only ONE correct answer; incorrect options should be plausible but wrong
+        - Questions in \(targetLanguageName), appropriate for \(cefrLevel) level
+        
+        OUTPUT JSON STRUCTURE (order matters):
+        - Title: Short, engaging title
+        - Pages: Array of page objects with the following fields IN THIS EXACT ORDER:
+          1. pageNumber: Integer (page number, starting from 1)
+          2. storyText: String (the story paragraph for this page) - MUST come before questions
+          3. questions: Array of question objects
+        - Metadata: CEFR level, target language, word count, vocabulary words
+        
+        CRITICAL: In each page object, storyText MUST come before questions in the JSON. The order is: pageNumber, storyText, questions.
         """
         
         return prompt

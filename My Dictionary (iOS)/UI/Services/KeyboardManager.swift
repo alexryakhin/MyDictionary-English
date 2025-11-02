@@ -29,10 +29,14 @@ final class KeyboardManager: ObservableObject {
     }
     
     @objc private func keyboardWillShow(_ notification: Notification) {
-        isKeyboardPresented = true
+        Task { @MainActor in
+            isKeyboardPresented = true
+        }
     }
     
     @objc private func keyboardWillHide(_ notification: Notification) {
-        isKeyboardPresented = false
+        Task { @MainActor in
+            isKeyboardPresented = false
+        }
     }
 }

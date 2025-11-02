@@ -42,6 +42,15 @@ final class QuizAnalyticsService {
         itemsPracticed: [any Quizable],
         correctItemIds: [String] = []
     ) {
+        // Ensure we're on main thread for Core Data operations
+        assert(Thread.isMainThread, "saveQuizSession must be called on main thread")
+        
+        // Validate inputs
+        guard !quizType.isEmpty else {
+            print("⚠️ [QuizAnalyticsService] Cannot save quiz session with empty quizType")
+            return
+        }
+        
         let session = CDQuizSession(context: coreDataService.context)
         session.id = UUID()
         session.date = Date()
@@ -49,16 +58,25 @@ final class QuizAnalyticsService {
         session.totalWords = Int32(totalItems)
         session.correctAnswers = Int32(correctAnswers)
         session.score = Int32(score)
-        session.duration = duration
-        session.accuracy = accuracy
+        session.duration = max(0, duration) // Ensure non-negative
+        session.accuracy = max(0, min(1.0, accuracy)) // Clamp between 0 and 1
         
-        // Encode words practiced as word IDs
-        let itemIds = itemsPracticed.map { $0.quiz_id }
+        // Encode words practiced as word IDs - filter out any empty IDs
+        let itemIds = itemsPracticed.compactMap { item -> String? in
+            let id = item.quiz_id
+            return id.isEmpty ? nil : id
+        }
         session.wordsPracticed = try? JSONEncoder().encode(itemIds)
 
         // Update word progress for each practiced word
         for item in itemsPracticed {
             let itemId = item.quiz_id
+            // Skip if itemId is empty (shouldn't happen, but defensive)
+            guard !itemId.isEmpty else {
+                print("⚠️ [QuizAnalyticsService] Skipping item with empty ID")
+                continue
+            }
+            
             let wasCorrect = correctItemIds.contains(itemId)
             switch item.quiz_itemType {
             case .word:
@@ -72,7 +90,14 @@ final class QuizAnalyticsService {
         
         // Update user stats
         updateUserStats(session: session)
-        try? coreDataService.saveContext()
+        
+        // Save context and handle errors properly
+        do {
+            try coreDataService.saveContext()
+        } catch {
+            print("❌ [QuizAnalyticsService] Failed to save quiz session: \(error.localizedDescription)")
+            // Re-throw or handle as needed
+        }
     }
     
     // MARK: - Word Progress Management
@@ -113,6 +138,7 @@ final class QuizAnalyticsService {
         let results = try? coreDataService.context.fetch(request)
         let stats = results?.first ?? CDUserStats(context: coreDataService.context)
 
+        // Ensure all required fields are initialized for new stats
         if stats.id == nil {
             stats.id = UUID()
             stats.totalPracticeTime = 0
@@ -122,16 +148,29 @@ final class QuizAnalyticsService {
             stats.currentStreak = 0
             stats.longestStreak = 0
             stats.vocabularySize = 0
+            stats.lastPracticeDate = nil // Initialize to nil explicitly
+        }
+
+        // Validate session has valid values before updating
+        guard session.id != nil else {
+            print("⚠️ [QuizAnalyticsService] Session has nil id, skipping user stats update")
+            return
         }
 
         // Update stats
         stats.totalPracticeTime += session.duration
         stats.totalSessions += 1
-        stats.totalWordsStudied += session.totalWords
+        stats.totalWordsStudied += Int32(session.totalWords)
         stats.lastPracticeDate = Date()
 
-        // Update accuracy
+        // Update accuracy - ensure we don't divide by zero
         let totalSessions = Double(stats.totalSessions)
+        guard totalSessions > 0 else {
+            stats.averageAccuracy = session.accuracy
+            updateVocabularySize(stats: stats)
+            return
+        }
+        
         let sessionAccuracy = session.accuracy
         let currentAccuracy = stats.averageAccuracy
         let newAccuracy = (currentAccuracy * (totalSessions - 1) + sessionAccuracy) / totalSessions

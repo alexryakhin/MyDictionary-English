@@ -126,11 +126,7 @@ struct QuizResultsView<AdditionalAction: View>: View {
 
                 Spacer()
             }
-            .background(
-                Color.systemGroupedBackground
-                    .displayConfetti(isActive: .constant(calculatedAccuracy() >= 80))
-                    .ignoresSafeArea()
-            )
+            .groupedBackgroundWithConfetti(isActive: .constant(calculatedAccuracy() >= 80))
             
             // Streak animation overlay
             if showStreakAnimation, let streak = currentDayStreak {

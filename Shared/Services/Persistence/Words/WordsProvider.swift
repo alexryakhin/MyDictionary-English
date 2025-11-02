@@ -14,15 +14,29 @@ final class WordsProvider: ObservableObject {
 
     private init() {
         setupBindings()
-        try? fetchWords()
+        // Initial fetch - ensure it happens on main thread for @Published safety
+        if Thread.isMainThread {
+            try? fetchWords()
+        } else {
+            DispatchQueue.main.async { [weak self] in
+                try? self?.fetchWords()
+            }
+        }
     }
 
     /// Fetches latest data from Core Data
+    /// Note: This method must be called from main thread when updating @Published properties
+    /// The setupBindings() ensures we receive updates on main thread via receive(on:)
     func fetchWords() throws {
+        // Ensure we're on main thread for @Published property updates
+        assert(Thread.isMainThread, "fetchWords() must be called from main thread")
+        
         let request = CDWord.fetchRequest()
+        // viewContext is main thread, so fetch is safe
         let allWords = try coreDataService.context.fetch(request)
 
         // Separate regular words from expressions
+        // This happens on main thread, so @Published updates are safe
         self.words = allWords.filter { $0.isRegularWord }
         self.expressions = allWords.filter { $0.isExpression }
     }
@@ -70,7 +84,14 @@ final class WordsProvider: ObservableObject {
             #endif
             try coreDataService.saveContext()
             // Manually refresh the words list after deletion
-            try fetchWords()
+            // Ensure @Published update happens on main thread
+            if Thread.isMainThread {
+                try fetchWords()
+            } else {
+                DispatchQueue.main.async { [weak self] in
+                    try? self?.fetchWords()
+                }
+            }
         } else {
             throw CoreError.internalError(.removingWordFailed)
         }
@@ -129,7 +150,14 @@ final class WordsProvider: ObservableObject {
         
         try coreDataService.saveContext()
         // Manually refresh the words list after deletion
-        try fetchWords()
+        // Ensure @Published update happens on main thread
+        if Thread.isMainThread {
+            try fetchWords()
+        } else {
+            DispatchQueue.main.async { [weak self] in
+                try? self?.fetchWords()
+            }
+        }
     }
     
     /// Deletes all words from the dictionary
@@ -161,12 +189,23 @@ final class WordsProvider: ObservableObject {
         
         try coreDataService.saveContext()
         // Manually refresh the words list after deletion
-        try fetchWords()
+        // Ensure @Published update happens on main thread
+        if Thread.isMainThread {
+            try fetchWords()
+        } else {
+            DispatchQueue.main.async { [weak self] in
+                try? self?.fetchWords()
+            }
+        }
     }
 
     private func setupBindings() {
+        // Listen to Core Data updates (from CloudKit sync or local saves)
+        // Ensure we receive on main thread to update @Published properties safely
         coreDataService.dataUpdatedPublisher
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
+                // Fetch words on main thread - @Published updates will be safe
                 try? self?.fetchWords()
             }
             .store(in: &cancellables)

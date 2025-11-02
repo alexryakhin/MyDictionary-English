@@ -1,189 +1,241 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <plist version="1.0">
-<dict>
-	<key>words.words_count</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@COUNT@</string>
-		<key>COUNT</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
-			<key>one</key>
-			<string>%d слово</string>
-			<key>few</key>
-			<string>%d слова</string>
-			<key>many</key>
-			<string>%d слів</string>
-			<key>other</key>
-			<string>%d слів</string>
-		</dict>
-	</dict>
-	<key>idioms.idioms_count</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@COUNT@</string>
-		<key>COUNT</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
-			<key>one</key>
-			<string>%d вираз</string>
-			<key>few</key>
-			<string>%d вирази</string>
-			<key>many</key>
-			<string>%d виразів</string>
-			<key>other</key>
-			<string>%d виразів</string>
-		</dict>
-	</dict>
-	<key>shared_dictionaries.collaborators</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@COUNT@</string>
-		<key>COUNT</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
-			<key>one</key>
-			<string>%d учасник</string>
-			<key>few</key>
-			<string>%d учасники</string>
-			<key>many</key>
-			<string>%d учасників</string>
-			<key>other</key>
-			<string>%d учасників</string>
-		</dict>
-	</dict>
-	<key>shared_dictionaries.dictionary_count_created</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@COUNT@ з 1 словника створено</string>
-		<key>COUNT</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
-			<key>one</key>
-			<string>%d</string>
-			<key>few</key>
-			<string>%d</string>
-			<key>many</key>
-			<string>%d</string>
-			<key>other</key>
-			<string>%d</string>
-		</dict>
-	</dict>
-	<key>analytics.points_count</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@COUNT@</string>
-		<key>COUNT</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
-			<key>one</key>
-			<string>%d бал</string>
-			<key>few</key>
-			<string>%d бали</string>
-			<key>many</key>
-			<string>%d балів</string>
-			<key>other</key>
-			<string>%d балів</string>
-		</dict>
-	</dict>
-	<key>analytics.quizzes_count</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@COUNT@</string>
-		<key>COUNT</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
-			<key>zero</key>
-			<string>Немає вікторин</string>
-			<key>one</key>
-			<string>%d вікторина</string>
-			<key>few</key>
-			<string>%d вікторини</string>
-			<key>many</key>
-			<string>%d вікторин</string>
-			<key>other</key>
-			<string>%d вікторин</string>
-		</dict>
-	</dict>
-	<key>analytics.quizzes_completed_this_month</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>Ви завершили %#@COUNT@ цього місяця.</string>
-		<key>COUNT</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
-			<key>zero</key>
-			<string>немає вікторин</string>
-			<key>one</key>
-			<string>%d вікторину</string>
-			<key>few</key>
-			<string>%d вікторини</string>
-			<key>many</key>
-			<string>%d вікторин</string>
-			<key>other</key>
-			<string>%d вікторин</string>
-		</dict>
-	</dict>
-	<key>word_collections.collections_count</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@COUNT@</string>
-		<key>COUNT</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
-			<key>one</key>
-			<string>%d колекція</string>
-			<key>few</key>
-			<string>%d колекції</string>
-			<key>many</key>
-			<string>%d колекцій</string>
-			<key>other</key>
-			<string>%d колекцій</string>
-		</dict>
-	</dict>
-	<key>word_collections.collections_available</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@COUNT@</string>
-		<key>COUNT</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
-			<key>one</key>
-			<string>%d колекція доступна</string>
-			<key>few</key>
-			<string>%d колекції доступні</string>
-			<key>many</key>
-			<string>%d колекцій доступно</string>
-			<key>other</key>
-			<string>%d колекцій доступно</string>
-		</dict>
-	</dict>
-<key>onboarding.languages_count</key><dict><key>NSStringLocalizedFormatKey</key><string>%#@COUNT@</string><key>COUNT</key><dict><key>NSStringFormatSpecTypeKey</key><string>NSStringPluralRuleType</string><key>NSStringFormatValueTypeKey</key><string>d</string><key>one</key><string>%d мова</string><key>other</key><string>%d мов</string></dict></dict><key>onboarding.languages_count_wn</key><dict><key>NSStringLocalizedFormatKey</key><string>%#@COUNT@</string><key>COUNT</key><dict><key>NSStringFormatSpecTypeKey</key><string>NSStringPluralRuleType</string><key>NSStringFormatValueTypeKey</key><string>d</string><key>one</key><string>Мова</string><key>other</key><string>Мов</string></dict></dict></dict>
+    <dict>
+        <key>words.words_count</key>
+        <dict>
+            <key>NSStringLocalizedFormatKey</key>
+            <string>%#@COUNT@</string>
+            <key>COUNT</key>
+            <dict>
+                <key>NSStringFormatSpecTypeKey</key>
+                <string>NSStringPluralRuleType</string>
+                <key>NSStringFormatValueTypeKey</key>
+                <string>d</string>
+                <key>one</key>
+                <string>%d слово</string>
+                <key>few</key>
+                <string>%d слова</string>
+                <key>many</key>
+                <string>%d слів</string>
+                <key>other</key>
+                <string>%d слів</string>
+            </dict>
+        </dict>
+        <key>idioms.idioms_count</key>
+        <dict>
+            <key>NSStringLocalizedFormatKey</key>
+            <string>%#@COUNT@</string>
+            <key>COUNT</key>
+            <dict>
+                <key>NSStringFormatSpecTypeKey</key>
+                <string>NSStringPluralRuleType</string>
+                <key>NSStringFormatValueTypeKey</key>
+                <string>d</string>
+                <key>one</key>
+                <string>%d вираз</string>
+                <key>few</key>
+                <string>%d вирази</string>
+                <key>many</key>
+                <string>%d виразів</string>
+                <key>other</key>
+                <string>%d виразів</string>
+            </dict>
+        </dict>
+        <key>shared_dictionaries.collaborators</key>
+        <dict>
+            <key>NSStringLocalizedFormatKey</key>
+            <string>%#@COUNT@</string>
+            <key>COUNT</key>
+            <dict>
+                <key>NSStringFormatSpecTypeKey</key>
+                <string>NSStringPluralRuleType</string>
+                <key>NSStringFormatValueTypeKey</key>
+                <string>d</string>
+                <key>one</key>
+                <string>%d учасник</string>
+                <key>few</key>
+                <string>%d учасники</string>
+                <key>many</key>
+                <string>%d учасників</string>
+                <key>other</key>
+                <string>%d учасників</string>
+            </dict>
+        </dict>
+        <key>shared_dictionaries.dictionary_count_created</key>
+        <dict>
+            <key>NSStringLocalizedFormatKey</key>
+            <string>%#@COUNT@ з 1 словника створено</string>
+            <key>COUNT</key>
+            <dict>
+                <key>NSStringFormatSpecTypeKey</key>
+                <string>NSStringPluralRuleType</string>
+                <key>NSStringFormatValueTypeKey</key>
+                <string>d</string>
+                <key>one</key>
+                <string>%d</string>
+                <key>few</key>
+                <string>%d</string>
+                <key>many</key>
+                <string>%d</string>
+                <key>other</key>
+                <string>%d</string>
+            </dict>
+        </dict>
+        <key>analytics.points_count</key>
+        <dict>
+            <key>NSStringLocalizedFormatKey</key>
+            <string>%#@COUNT@</string>
+            <key>COUNT</key>
+            <dict>
+                <key>NSStringFormatSpecTypeKey</key>
+                <string>NSStringPluralRuleType</string>
+                <key>NSStringFormatValueTypeKey</key>
+                <string>d</string>
+                <key>one</key>
+                <string>%d бал</string>
+                <key>few</key>
+                <string>%d бали</string>
+                <key>many</key>
+                <string>%d балів</string>
+                <key>other</key>
+                <string>%d балів</string>
+            </dict>
+        </dict>
+        <key>analytics.quizzes_count</key>
+        <dict>
+            <key>NSStringLocalizedFormatKey</key>
+            <string>%#@COUNT@</string>
+            <key>COUNT</key>
+            <dict>
+                <key>NSStringFormatSpecTypeKey</key>
+                <string>NSStringPluralRuleType</string>
+                <key>NSStringFormatValueTypeKey</key>
+                <string>d</string>
+                <key>zero</key>
+                <string>Немає вікторин</string>
+                <key>one</key>
+                <string>%d вікторина</string>
+                <key>few</key>
+                <string>%d вікторини</string>
+                <key>many</key>
+                <string>%d вікторин</string>
+                <key>other</key>
+                <string>%d вікторин</string>
+            </dict>
+        </dict>
+        <key>analytics.quizzes_completed_this_month</key>
+        <dict>
+            <key>NSStringLocalizedFormatKey</key>
+            <string>Ви завершили %#@COUNT@ цього місяця.</string>
+            <key>COUNT</key>
+            <dict>
+                <key>NSStringFormatSpecTypeKey</key>
+                <string>NSStringPluralRuleType</string>
+                <key>NSStringFormatValueTypeKey</key>
+                <string>d</string>
+                <key>zero</key>
+                <string>немає вікторин</string>
+                <key>one</key>
+                <string>%d вікторину</string>
+                <key>few</key>
+                <string>%d вікторини</string>
+                <key>many</key>
+                <string>%d вікторин</string>
+                <key>other</key>
+                <string>%d вікторин</string>
+            </dict>
+        </dict>
+        <key>word_collections.collections_count</key>
+        <dict>
+            <key>NSStringLocalizedFormatKey</key>
+            <string>%#@COUNT@</string>
+            <key>COUNT</key>
+            <dict>
+                <key>NSStringFormatSpecTypeKey</key>
+                <string>NSStringPluralRuleType</string>
+                <key>NSStringFormatValueTypeKey</key>
+                <string>d</string>
+                <key>one</key>
+                <string>%d колекція</string>
+                <key>few</key>
+                <string>%d колекції</string>
+                <key>many</key>
+                <string>%d колекцій</string>
+                <key>other</key>
+                <string>%d колекцій</string>
+            </dict>
+        </dict>
+        <key>word_collections.collections_available</key>
+        <dict>
+            <key>NSStringLocalizedFormatKey</key>
+            <string>%#@COUNT@</string>
+            <key>COUNT</key>
+            <dict>
+                <key>NSStringFormatSpecTypeKey</key>
+                <string>NSStringPluralRuleType</string>
+                <key>NSStringFormatValueTypeKey</key>
+                <string>d</string>
+                <key>one</key>
+                <string>%d колекція доступна</string>
+                <key>few</key>
+                <string>%d колекції доступні</string>
+                <key>many</key>
+                <string>%d колекцій доступно</string>
+                <key>other</key>
+                <string>%d колекцій доступно</string>
+            </dict>
+        </dict>
+        <key>onboarding.languages_count</key>
+        <dict>
+            <key>NSStringLocalizedFormatKey</key>
+            <string>%#@COUNT@</string>
+            <key>COUNT</key>
+            <dict>
+                <key>NSStringFormatSpecTypeKey</key>
+                <string>NSStringPluralRuleType</string>
+                <key>NSStringFormatValueTypeKey</key>
+                <string>d</string>
+                <key>one</key>
+                <string>%d мова</string>
+                <key>other</key>
+                <string>%d мов</string>
+            </dict>
+        </dict>
+        <key>onboarding.languages_count_wn</key>
+        <dict>
+            <key>NSStringLocalizedFormatKey</key>
+            <string>%#@COUNT@</string>
+            <key>COUNT</key>
+            <dict>
+                <key>NSStringFormatSpecTypeKey</key>
+                <string>NSStringPluralRuleType</string>
+                <key>NSStringFormatValueTypeKey</key>
+                <string>d</string>
+                <key>one</key>
+                <string>Мова</string>
+                <key>other</key>
+                <string>Мов</string>
+            </dict>
+        </dict>
+        <key>pages_count</key>
+        <dict>
+            <key>NSStringLocalizedFormatKey</key>
+            <string>%#@COUNT@</string>
+            <key>COUNT</key>
+            <dict>
+                <key>NSStringFormatSpecTypeKey</key>
+                <string>NSStringPluralRuleType</string>
+                <key>NSStringFormatValueTypeKey</key>
+                <string>d</string>
+                <key>one</key>
+                <string>%d сторінка</string>
+                <key>few</key>
+                <string>%d сторінки</string>
+                <key>many</key>
+                <string>%d сторінок</string>
+                <key>other</key>
+                <string>%d сторінок</string>
+            </dict>
+        </dict>
+    </dict>
 </plist>

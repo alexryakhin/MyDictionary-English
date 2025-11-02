@@ -101,6 +101,15 @@ extension View {
     func groupedBackground() -> some View {
         self.background(Color.systemGroupedBackground.ignoresSafeArea())
     }
+
+    func groupedBackgroundWithConfetti(isActive: Binding<Bool>) -> some View {
+        self
+            .background(
+                Color.systemGroupedBackground
+                    .displayConfetti(isActive: isActive)
+                    .ignoresSafeArea()
+            )
+    }
 }
 
 extension Image {

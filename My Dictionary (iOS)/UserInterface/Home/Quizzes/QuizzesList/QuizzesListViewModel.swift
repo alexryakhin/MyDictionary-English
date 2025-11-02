@@ -17,6 +17,7 @@ final class QuizzesListViewModel: BaseViewModel {
         case showSentenceWritingQuiz(QuizPreset)
         case showContextMultipleChoiceQuiz(QuizPreset)
         case showFillInTheBlankQuiz(QuizPreset)
+        case showStoryLab(StoryLabConfig)
         case showSharedDictionary(SharedDictionary)
     }
 
@@ -80,6 +81,21 @@ final class QuizzesListViewModel: BaseViewModel {
                     return
                 }
                 output.send(.showFillInTheBlankQuiz(preset))
+            case .storyLab:
+                // Allow all users to go inside, isProUser will be checked before generation
+                guard aiService.isInitialized else {
+                    showAlert(withModel: .error(message: Loc.Ai.AiError.notInitialized))
+                    return
+                }
+                // Create default config - can be enhanced later with user-selected words
+                let config = StoryLabConfig(
+                    savedWords: nil,
+                    customText: nil,
+                    targetLanguage: selectedLanguage ?? .english,
+                    cefrLevel: .b1,
+                    pageCount: 1
+                )
+                output.send(.showStoryLab(config))
             }
         }
     }
@@ -201,7 +217,7 @@ final class QuizzesListViewModel: BaseViewModel {
                     additionalActionText: Loc.Subscription.Paywall.upgradeToPro,
                     action: {},
                     additionalAction: {
-                        PaywallService.shared.isShowingPaywall = true
+                        PaywallService.shared.presentPaywall(for: .aiQuizzes)
                     }
                 )
             )

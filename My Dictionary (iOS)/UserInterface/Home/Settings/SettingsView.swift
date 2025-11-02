@@ -215,7 +215,7 @@ struct SettingsView: View {
                             if subscriptionService.isProUser || wordsCount < 50 {
                                 viewModel.isImporting = true
                             } else {
-                                paywallService.isShowingPaywall = true
+                                paywallService.presentPaywall(for: .unlimitedExport)
                             }
                             AnalyticsService.shared.logEvent(.importFromCSVButtonTapped)
                         }
@@ -223,7 +223,7 @@ struct SettingsView: View {
                             if subscriptionService.isProUser || wordsCount < 50 {
                                 viewModel.exportWords()
                             } else {
-                                paywallService.isShowingPaywall = true
+                                paywallService.presentPaywall(for: .unlimitedExport)
                             }
                             AnalyticsService.shared.logEvent(.exportToCSVButtonTapped)
                         }
@@ -269,16 +269,6 @@ struct SettingsView: View {
                     }
                     .padding(.bottom, 12)
                 }
-
-                // MARK: - About app
-
-                CustomSectionView(
-                    header: Loc.Settings.aboutApp
-                ) {
-                    ActionButton(Loc.Settings.learnMore, systemImage: "info.circle") {
-                        viewModel.output.send(.showAboutApp)
-                    }
-                }
             }
             .padding(vertical: 12, horizontal: 16)
             .if(isPad) { view in
@@ -289,7 +279,18 @@ struct SettingsView: View {
         }
         .groupedBackground()
         .multilineTextAlignment(.leading)
-        .navigation(title: Loc.Navigation.Tabbar.settings, mode: .large)
+        .navigation(
+            title: Loc.Navigation.Tabbar.settings,
+            mode: .large,
+            trailingContent: {
+                HeaderButton(
+                    Loc.Navigation.about,
+                    style: .borderedProminent
+                ) {
+                    viewModel.output.send(.showAboutApp)
+                }
+            }
+        )
         .fileImporter(
             isPresented: $viewModel.isImporting,
             allowedContentTypes: [UTType.commaSeparatedText, UTType.json],

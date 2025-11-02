@@ -223,7 +223,7 @@ struct SettingsView: View {
                             if subscriptionService.isProUser || wordsCount < 50 {
                                 viewModel.isImporting = true
                             } else {
-                                paywallService.isShowingPaywall = true
+                                paywallService.presentPaywall(for: .unlimitedExport)
                             }
                             AnalyticsService.shared.logEvent(.importFromCSVButtonTapped)
                         }
@@ -231,7 +231,7 @@ struct SettingsView: View {
                             if subscriptionService.isProUser || wordsCount < 50 {
                                 viewModel.exportWords()
                             } else {
-                                paywallService.isShowingPaywall = true
+                                paywallService.presentPaywall(for: .unlimitedExport)
                             }
                             AnalyticsService.shared.logEvent(.exportToCSVButtonTapped)
                         }

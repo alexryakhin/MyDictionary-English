@@ -23,6 +23,7 @@ enum NavigationDestination: Hashable {
     case sentenceWritingQuiz(QuizPreset)
     case contextMultipleChoiceQuiz(QuizPreset)
     case fillInTheBlankQuiz(QuizPreset)
+    case storyLab(StoryLabConfig)
 
     // MARK: - Analytics destinations
     case quizResultsList
@@ -45,4 +46,7 @@ enum NavigationDestination: Hashable {
     case profile
     case ttsDashboard
     case deleteWords
+    
+    // MARK: - Story Lab destinations
+    case storyLabHistory
 }

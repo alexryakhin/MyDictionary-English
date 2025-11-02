@@ -143,12 +143,16 @@ final class WordListViewModel: BaseViewModel {
     }
 
     private func setupBindings() {
+        // Listen to words changes from WordsProvider
+        // Use DispatchQueue.main for consistency (RunLoop.main also works but DispatchQueue.main is more explicit)
         wordsProvider.$words
-            .receive(on: RunLoop.main)
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] words in
-                self?.words = words
-                self?.sortWords()
-                self?.availableLanguages = words.compactMap {
+                guard let self = self else { return }
+                // Update @Published properties on main thread
+                self.words = words
+                self.sortWords()
+                self.availableLanguages = words.compactMap {
                     InputLanguage(rawValue: $0.languageCode ?? "en")
                 }
             }
