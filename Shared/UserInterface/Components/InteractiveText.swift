@@ -19,6 +19,7 @@ struct InteractiveText: View {
     let font: Font
 
     @State private var selectedWord: SelectedWord?
+    @StateObject private var ttsPlayer = TTSPlayer.shared
 
     init(text: String, font: Font = .body) {
         self.text = text
@@ -40,6 +41,20 @@ struct InteractiveText: View {
                             } label: {
                                 Label(Loc.Words.addWord, systemImage: "plus")
                             }
+                            
+                            Button {
+                                Task {
+                                    do {
+                                        try await ttsPlayer.play(cleanWord)
+                                    } catch {
+                                        // Handle error silently
+                                        print("TTS error: \(error.localizedDescription)")
+                                    }
+                                }
+                            } label: {
+                                Label(Loc.Actions.listen, systemImage: "speaker.wave.2.fill")
+                            }
+                            .disabled(ttsPlayer.isPlaying)
                         } header: {
                             Text(cleanWord)
                         }
