@@ -169,7 +169,7 @@ struct SpellingQuizContentView: View {
                 }
             }
 
-            Text(viewModel.randomItem?.quiz_definition ?? "")
+            Text(viewModel.currentDefinition)
                 .font(.body)
                 .lineSpacing(4)
                 .multilineTextAlignment(.leading)

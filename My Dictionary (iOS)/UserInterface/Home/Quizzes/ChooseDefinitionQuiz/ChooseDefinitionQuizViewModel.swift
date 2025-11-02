@@ -19,6 +19,12 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
     var correctItem: any Quizable {
         items[correctAnswerIndex]
     }
+    
+    /// Get cached definition for an item at the given index
+    func definitionForItem(at index: Int) -> String {
+        guard index < items.count else { return "" }
+        return getDefinition(for: items[index])
+    }
 
     let preset: QuizPreset
 
@@ -47,6 +53,18 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
     private var usedItems: Set<String> = []
     private var feedbackTimer: Timer?
     private var sessionStartTime: Date = Date()
+    // Cache definitions to prevent random changes on view updates
+    private var cachedDefinitions: [String: String] = [:]
+    
+    /// Get cached definition for an item, or generate and cache a random one
+    private func getDefinition(for item: any Quizable) -> String {
+        if let cached = cachedDefinitions[item.quiz_id] {
+            return cached
+        }
+        let definition = item.getRandomDefinition()
+        cachedDefinitions[item.quiz_id] = definition
+        return definition
+    }
 
     init(preset: QuizPreset) {
         self.preset = preset
@@ -257,6 +275,7 @@ final class ChooseDefinitionQuizViewModel: BaseViewModel {
         sessionStartTime = Date()
         showStreakAnimation = false
         currentDayStreak = nil
+        cachedDefinitions.removeAll() // Clear cached definitions when restarting
         
         // Set up the first question
         getNextQuestion()

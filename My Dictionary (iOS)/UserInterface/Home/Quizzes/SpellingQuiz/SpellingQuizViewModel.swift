@@ -51,6 +51,19 @@ final class SpellingQuizViewModel: BaseViewModel {
     private var feedbackTimer: Timer?
     private var sessionStartTime: Date = Date()
     private let preset: QuizPreset
+    // Cache current item's definition to prevent random changes on view updates
+    private var cachedDefinition: String?
+    
+    /// Get the cached definition for the current randomItem
+    var currentDefinition: String {
+        return cachedDefinition ?? ""
+    }
+    
+    /// Set randomItem and cache its definition
+    private func setRandomItem(_ item: any Quizable) {
+        self.randomItem = item
+        self.cachedDefinition = item.getRandomDefinition()
+    }
 
     init(preset: QuizPreset) {
         self.preset = preset
@@ -173,11 +186,14 @@ final class SpellingQuizViewModel: BaseViewModel {
         // Check if quiz is complete
         if items.isEmpty {
             self.randomItem = nil
+            self.cachedDefinition = nil
             isQuizComplete = true
             saveQuizSession()
         } else {
             // Get next item
-            self.randomItem = items.randomElement()
+            if let nextItem = items.randomElement() {
+                setRandomItem(nextItem)
+            }
             attemptCount = 0
             isCorrectAnswer = true
             isShowingHint = false
@@ -190,7 +206,9 @@ final class SpellingQuizViewModel: BaseViewModel {
     private func restartQuiz() {
         // Reset all game state
         items = originalItems.shuffled()
-        randomItem = items.randomElement()
+        if let firstItem = items.randomElement() {
+            setRandomItem(firstItem)
+        }
         answerTextField = ""
         isCorrectAnswer = true
         attemptCount = 0
@@ -260,16 +278,20 @@ final class SpellingQuizViewModel: BaseViewModel {
         // Check if we've reached the target item count
         if itemsPlayed.count >= preset.itemCount {
             self.randomItem = nil
+            self.cachedDefinition = nil
             isQuizComplete = true
             saveQuizSession()
         } else if !items.isEmpty {
             // Move to next item
-            self.randomItem = items.randomElement()
+            if let nextItem = items.randomElement() {
+                setRandomItem(nextItem)
+            }
             // Check if this will be the last question
             isLastQuestion = itemsPlayed.count + 1 >= preset.itemCount
         } else {
             // No more items available, complete quiz
             self.randomItem = nil
+            self.cachedDefinition = nil
             isQuizComplete = true
             saveQuizSession()
         }
@@ -292,7 +314,9 @@ final class SpellingQuizViewModel: BaseViewModel {
         self.originalItems = availableItems.shuffled()
         // Use all available items for better variety, but track the target count
         self.items = self.originalItems
-        self.randomItem = self.items.randomElement()
+        if let firstItem = self.items.randomElement() {
+            setRandomItem(firstItem)
+        }
         self.totalQuestions = preset.itemCount
     }
 

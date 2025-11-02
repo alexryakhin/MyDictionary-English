@@ -321,7 +321,7 @@ final class FillInTheBlankQuizViewModel: BaseViewModel {
                 let story = try await aiService.generateSingleFillInTheBlankStory(
                     word: word, 
                     wordLanguage: wordLanguage,
-                    meaning: item.quiz_definition,
+                    meaning: item.getRandomDefinition(),
                     partOfSpeech: item.quiz_partOfSpeech
                 )
                 
@@ -401,7 +401,7 @@ final class FillInTheBlankQuizViewModel: BaseViewModel {
                 let story = try await aiService.generateSingleFillInTheBlankStory(
                     word: firstWord, 
                     wordLanguage: wordLanguage,
-                    meaning: firstItem.quiz_definition,
+                    meaning: firstItem.getRandomDefinition(),
                     partOfSpeech: firstItem.quiz_partOfSpeech
                 )
 
@@ -456,7 +456,7 @@ final class FillInTheBlankQuizViewModel: BaseViewModel {
                 let story = try await aiService.generateSingleFillInTheBlankStory(
                     word: nextWord, 
                     wordLanguage: wordLanguage,
-                    meaning: nextItem.quiz_definition,
+                    meaning: nextItem.getRandomDefinition(),
                     partOfSpeech: nextItem.quiz_partOfSpeech
                 )
                 

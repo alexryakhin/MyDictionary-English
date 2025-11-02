@@ -110,7 +110,7 @@ struct SpellingQuizView: View {
 
             HStack(spacing: 12) {
                 VStack(alignment: .leading) {
-                    Text(viewModel.randomItem?.quiz_definition ?? "")
+                    Text(viewModel.currentDefinition)
                         .font(.body)
                         .lineSpacing(4)
                         .multilineTextAlignment(.leading)

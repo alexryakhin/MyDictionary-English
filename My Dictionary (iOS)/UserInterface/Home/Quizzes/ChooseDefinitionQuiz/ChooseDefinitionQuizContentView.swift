@@ -216,7 +216,7 @@ struct ChooseDefinitionQuizContentView: View {
                         }
                     } label: {
                         HStack {
-                            Text(viewModel.items[index].quiz_definition)
+                            Text(viewModel.definitionForItem(at: index))
                                 .font(.body)
                                 .foregroundStyle(.primary)
                                 .multilineTextAlignment(.leading)

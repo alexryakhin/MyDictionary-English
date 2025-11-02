@@ -31,6 +31,11 @@ protocol Quizable: Identifiable {
     var difficultyLevel: Difficulty { get }
     var quiz_imageUrl: String? { get } // Optional image URL from Pexels
     var quiz_imageLocalPath: String? { get } // Optional local image path
+    
+    /// Returns a random definition from available meanings for quiz variety
+    /// This should be called once per quiz session to get a stable definition
+    /// - Returns: A random definition from available meanings
+    func getRandomDefinition() -> String
 
     /// Updates the difficulty score of the item based on quiz performance
     /// - Parameter points: Points to add (positive for correct, negative for incorrect)
@@ -60,6 +65,12 @@ extension CDWord: Quizable {
     }
     
     var quiz_definition: String {
+        // Return primary definition for backward compatibility
+        // For variety, use getRandomDefinition() in quiz view models
+        return self.primaryDefinition ?? self.definition ?? ""
+    }
+    
+    func getRandomDefinition() -> String {
         // Randomly select from available meanings to provide variety in quizzes
         let availableMeanings = self.meaningsArray
         if !availableMeanings.isEmpty {
@@ -154,6 +165,11 @@ extension CDIdiom: Quizable {
         return self.definition ?? ""
     }
     
+    func getRandomDefinition() -> String {
+        // Idioms only have one definition
+        return self.definition ?? ""
+    }
+    
     var quiz_partOfSpeech: String? {
         return nil // Idioms don't have parts of speech
     }
@@ -228,6 +244,17 @@ extension SharedWord: Quizable {
     }
     
     var quiz_definition: String {
+        return self.definition
+    }
+    
+    func getRandomDefinition() -> String {
+        // Randomly select from available meanings to provide variety in quizzes
+        if !self.meanings.isEmpty {
+            // Randomly select a meaning for quiz variety
+            let randomMeaning = meanings.randomElement()!
+            return randomMeaning.definition
+        }
+        // Fallback to primary meaning if no meanings available
         return self.definition
     }
     
