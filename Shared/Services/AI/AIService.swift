@@ -525,7 +525,7 @@ extension AIWordResponse {
 extension AIService {
     /// Generates personalized paywall content based on user profile
     /// Note: This method does NOT check for Pro subscription as non-subscribers need to see the paywall
-    func generatePaywallContent(userProfile: UserOnboardingProfile, userLanguage: String) async throws -> AIPaywallContent {
+    func generatePaywallContent(userProfile: UserOnboardingProfile, userLanguage: InputLanguage) async throws -> AIPaywallContent {
         // Check if AI service is initialized (but not Pro status)
         guard isInitialized else {
             throw AIError.notInitialized
@@ -535,9 +535,9 @@ extension AIService {
         return try await makeAIRequest(prompt: prompt, responseType: AIPaywallContent.self)
     }
     
-    private func buildPaywallPrompt(userProfile: UserOnboardingProfile, userLanguage: String) -> String {
+    private func buildPaywallPrompt(userProfile: UserOnboardingProfile, userLanguage: InputLanguage) -> String {
         return """
-        Create a compelling, personalized paywall for a language learning app. Generate content in \(userLanguage) that:
+        Create a compelling, personalized paywall for a language learning app. Generate content in \(userLanguage.englishName) that:
 
         1. Creates a compelling title that addresses the user by name and highlights their primary learning goal
         2. Writes a subtitle that emphasizes the target language and learning benefits  

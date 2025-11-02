@@ -372,7 +372,7 @@ struct WordDetailsContentView: View {
                     HeaderButton(Loc.Actions.done, size: .small) {
                         isDefinitionFocused = false
                         AnalyticsService.shared.logEvent(.wordDefinitionChanged)
-                        saveContext()
+                        addNewMeaning(word.definition)
                     }
                 } else {
                     AsyncHeaderButton(
@@ -669,9 +669,10 @@ struct WordDetailsContentView: View {
         .padding(vertical: 12, horizontal: 16)
     }
 
-    private func addNewMeaning() {
+    private func addNewMeaning(_ text: String? = nil) {
+        let text = text?.nilIfEmpty ?? Loc.Words.newDefinition
         do {
-            let _ = try word.addMeaning(definition: Loc.Words.newDefinition, examples: [])
+            let _ = try word.addMeaning(definition: text, examples: [])
             saveContext()
         } catch {
             errorReceived(error)
