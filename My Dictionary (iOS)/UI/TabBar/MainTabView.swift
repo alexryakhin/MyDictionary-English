@@ -47,6 +47,15 @@ struct MainTabView: View {
                         }
                         .tag(TabBarItem.quizzes)
 
+                    DiscoverFlow()
+                        .tabItem {
+                            Label(
+                                TabBarItem.discover.title,
+                                systemImage: TabBarItem.discover.image
+                            )
+                        }
+                        .tag(TabBarItem.discover)
+
                     AnalyticsFlow(viewModel: analyticsViewModel)
                         .tabItem {
                             Label(
@@ -82,6 +91,8 @@ struct MainTabView: View {
                             )
                         case .quizzes:
                             QuizzesFlow(viewModel: quizzesViewModel)
+                        case .discover:
+                            DiscoverFlow()
                         case .analytics:
                             AnalyticsFlow(viewModel: analyticsViewModel)
                         case .settings:

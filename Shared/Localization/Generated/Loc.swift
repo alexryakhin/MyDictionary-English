@@ -660,14 +660,16 @@ public enum Loc {
     /// Word Details
     public static let wordDetails = Loc.tr("Navigation", "word_details", fallback: "Word Details")
     public enum Tabbar {
-      /// Learn
-      public static let learn = Loc.tr("Navigation", "tabbar.learn", fallback: "Learn")
+      /// Discover
+      public static let discover = Loc.tr("Navigation", "tabbar.discover", fallback: "Discover")
       /// Progress
       public static let progress = Loc.tr("Navigation", "tabbar.progress", fallback: "Progress")
       /// Quizzes
       public static let quizzes = Loc.tr("Navigation", "tabbar.quizzes", fallback: "Quizzes")
       /// Settings
       public static let settings = Loc.tr("Navigation", "tabbar.settings", fallback: "Settings")
+      /// My Dictionary
+      public static let vocabulary = Loc.tr("Navigation", "tabbar.vocabulary", fallback: "My Dictionary")
     }
   }
   public enum Notifications {
