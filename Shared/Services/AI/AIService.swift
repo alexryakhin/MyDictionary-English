@@ -657,3 +657,188 @@ extension AIService {
         """
     }
 }
+
+// MARK: - Music Discovering Content Generation
+
+extension AIService {
+    /// Generates comprehensive music discovering content including explanations, vocabulary, and quiz
+    /// - Parameters:
+    ///   - song: The song to analyze
+    ///   - lyrics: The song lyrics
+    ///   - targetLanguage: The language being learned
+    ///   - cefrLevel: User's proficiency level
+    /// - Returns: Music discovering response with explanations, vocabulary, and quiz
+    func generateMusicDiscoveringContent(
+        song: Song,
+        lyrics: SongLyrics,
+        targetLanguage: InputLanguage,
+        cefrLevel: CEFRLevel
+    ) async throws -> MusicDiscoveringResponse {
+        guard reachabilityService.isOffline == false else {
+            throw AIError.networkError
+        }
+        
+        guard isInitialized else {
+            throw AIError.notInitialized
+        }
+        
+        guard SubscriptionService.shared.isProUser else {
+            throw AIError.proRequired
+        }
+        
+        let lyricsText = lyrics.bestLyrics ?? lyrics.plainLyrics ?? ""
+        guard !lyricsText.isEmpty else {
+            throw AIError.invalidResponse
+        }
+        
+        let prompt = buildMusicDiscoveringPrompt(
+            song: song,
+            lyrics: lyricsText,
+            targetLanguage: targetLanguage,
+            cefrLevel: cefrLevel,
+            userLanguage: getCurrentAppLanguage()
+        )
+        
+        return try await makeAIRequest(
+            prompt: prompt,
+            responseType: MusicDiscoveringResponse.self
+        )
+    }
+    
+    /// Generates a comprehension quiz based on song lyrics
+    /// - Parameters:
+    ///   - song: The song
+    ///   - lyrics: The song lyrics
+    ///   - targetLanguage: The language being learned
+    /// - Returns: Comprehension quiz with questions
+    func generateMusicQuiz(
+        song: Song,
+        lyrics: SongLyrics,
+        targetLanguage: InputLanguage
+    ) async throws -> AIComprehensionQuiz {
+        guard reachabilityService.isOffline == false else {
+            throw AIError.networkError
+        }
+        
+        guard isInitialized else {
+            throw AIError.notInitialized
+        }
+        
+        guard SubscriptionService.shared.isProUser else {
+            throw AIError.proRequired
+        }
+        
+        let lyricsText = lyrics.bestLyrics ?? lyrics.plainLyrics ?? ""
+        guard !lyricsText.isEmpty else {
+            throw AIError.invalidResponse
+        }
+        
+        let prompt = buildMusicQuizPrompt(
+            song: song,
+            lyrics: lyricsText,
+            targetLanguage: targetLanguage,
+            userLanguage: getCurrentAppLanguage()
+        )
+        
+        return try await makeAIRequest(
+            prompt: prompt,
+            responseType: AIComprehensionQuiz.self
+        )
+    }
+    
+    // MARK: - Prompt Building Methods
+    
+    private func buildMusicDiscoveringPrompt(
+        song: Song,
+        lyrics: String,
+        targetLanguage: InputLanguage,
+        cefrLevel: CEFRLevel,
+        userLanguage: String
+    ) -> String {
+        return """
+        IMPORTANT: This is for EDUCATIONAL PURPOSES in a language learning application. Analyze a song and its lyrics to help a user learn \(targetLanguage.englishName).
+        
+        Song Information:
+        - Title: "\(song.title)"
+        - Artist: "\(song.artist)"
+        - Album: "\(song.album ?? "Unknown")"
+        
+        Target Language: \(targetLanguage.englishName) (\(targetLanguage.rawValue))
+        User Language: \(userLanguage)
+        CEFR Level: \(cefrLevel.rawValue)
+        
+        Lyrics:
+        \(lyrics)
+        
+        Generate comprehensive learning content:
+        
+        1. SONG INFO: Create a SongInfo object with title, artist, album, and detected language
+        
+        2. EXPLANATIONS: Provide explanations for key lyric lines (5-10 explanations):
+           - Focus on lines with interesting vocabulary, idioms, or cultural references
+           - Explain meaning, context, and cultural significance when relevant
+           - Keep explanations appropriate for \(cefrLevel.rawValue) level
+           - All explanations in \(userLanguage)
+        
+        3. VOCABULARY WORDS: Extract 10-20 important vocabulary words from the lyrics:
+           - Focus on words that are useful for language learning
+           - Include part of speech (noun, verb, adjective, etc.)
+           - Provide clear definitions in \(userLanguage)
+           - Include 2-3 example sentences showing word usage
+           - Include the context line from lyrics where word appears
+        
+        4. CULTURAL CONTEXT: Provide a brief paragraph explaining:
+           - Cultural themes or references in the song
+           - Historical or social context if relevant
+           - Why this song is culturally significant
+           - Written in \(userLanguage)
+        
+        5. QUIZ (optional): Create a comprehension quiz with 3-5 questions:
+           - Questions should test understanding of lyrics, vocabulary, or cultural context
+           - Each question: 4 multiple choice options, 1 correct answer
+           - Include explanations for correct answers
+           - Questions in \(targetLanguage.englishName), explanations in \(userLanguage)
+        
+        Focus on making the content educational and accessible for \(cefrLevel.rawValue) level learners.
+        """
+    }
+    
+    private func buildMusicQuizPrompt(
+        song: Song,
+        lyrics: String,
+        targetLanguage: InputLanguage,
+        userLanguage: String
+    ) -> String {
+        return """
+        IMPORTANT: This is for EDUCATIONAL PURPOSES in a language learning application. Create a comprehension quiz based on song lyrics.
+        
+        Song Information:
+        - Title: "\(song.title)"
+        - Artist: "\(song.artist)"
+        
+        Target Language: \(targetLanguage.englishName)
+        User Language: \(userLanguage)
+        
+        Lyrics:
+        \(lyrics)
+        
+        Create a comprehension quiz with 5-8 questions:
+        
+        Each question should:
+        - Test understanding of lyrics, vocabulary, idioms, or cultural references
+        - Have 4 multiple choice options
+        - Have exactly ONE correct answer
+        - Include a brief explanation (max 200 characters) for why the correct answer is right
+        - Questions should be in \(targetLanguage.englishName)
+        - Explanations should be in \(userLanguage)
+        
+        Question types can include:
+        - Understanding specific lyric meanings
+        - Identifying vocabulary usage
+        - Grasping cultural or contextual references
+        - Understanding figurative language or idioms
+        
+        Ensure questions are fair and test genuine comprehension, not trivial details.
+        """
+    }
+}

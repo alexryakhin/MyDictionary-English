@@ -26,36 +26,31 @@ final class AppleMusicService: MusicServiceProtocol {
     
     private var isAuthorized: Bool {
         #if canImport(MusicKit)
-        if #available(iOS 15.0, macOS 12.0, *) {
-            let currentStatus = MusicAuthorization.currentStatus == .authorized
-            // Update stored status
-            authManager.saveAppleMusicStatus(isAuthorized: currentStatus)
-            return currentStatus
-        }
-        #endif
+        let currentStatus = MusicAuthorization.currentStatus == .authorized
+        // Update stored status
+        authManager.saveAppleMusicStatus(isAuthorized: currentStatus)
+        return currentStatus
+        #else
         return false
+        #endif
     }
     
     private init() {}
     
     func authenticate() async throws {
         #if canImport(MusicKit)
-        if #available(iOS 15.0, macOS 12.0, *) {
-            let status = await MusicAuthorization.request()
-            
-            switch status {
-            case .authorized:
-                authManager.saveAppleMusicStatus(isAuthorized: true)
-                return
-            case .denied, .notDetermined, .restricted:
-                authManager.saveAppleMusicStatus(isAuthorized: false)
-                throw MusicError.authenticationFailed("MusicKit authorization was denied")
-            @unknown default:
-                authManager.saveAppleMusicStatus(isAuthorized: false)
-                throw MusicError.authenticationFailed("Unknown authorization status")
-            }
-        } else {
-            throw MusicError.serviceUnavailable
+        let status = await MusicAuthorization.request()
+        
+        switch status {
+        case .authorized:
+            authManager.saveAppleMusicStatus(isAuthorized: true)
+            return
+        case .denied, .notDetermined, .restricted:
+            authManager.saveAppleMusicStatus(isAuthorized: false)
+            throw MusicError.authenticationFailed("MusicKit authorization was denied")
+        @unknown default:
+            authManager.saveAppleMusicStatus(isAuthorized: false)
+            throw MusicError.authenticationFailed("Unknown authorization status")
         }
         #else
         throw MusicError.serviceUnavailable
@@ -68,28 +63,24 @@ final class AppleMusicService: MusicServiceProtocol {
     
     func searchSongs(query: String, language: String?) async throws -> [Song] {
         #if canImport(MusicKit)
-        if #available(iOS 15.0, macOS 12.0, *) {
-            guard isAuthorized else {
-                throw MusicError.authenticationRequired
+        guard isAuthorized else {
+            throw MusicError.authenticationRequired
+        }
+        
+        var searchRequest = MusicCatalogSearchRequest(term: query, types: [MusicKit.Song.self])
+        
+        if let language = language {
+            // Language filtering can be added if MusicKit supports it
+            // For now, we'll search without language filter
+        }
+        
+        do {
+            let response = try await searchRequest.response()
+            return response.songs.compactMap { musicKitSong in
+                convertToUnifiedSong(from: musicKitSong)
             }
-            
-            var searchRequest = MusicCatalogSearchRequest(term: query, types: [MusicKit.Song.self])
-            
-            if let language = language {
-                // Language filtering can be added if MusicKit supports it
-                // For now, we'll search without language filter
-            }
-            
-            do {
-                let response = try await searchRequest.response()
-                return response.songs.compactMap { musicKitSong in
-                    convertToUnifiedSong(from: musicKitSong)
-                }
-            } catch {
-                throw MusicError.networkError(error.localizedDescription)
-            }
-        } else {
-            throw MusicError.serviceUnavailable
+        } catch {
+            throw MusicError.networkError(error.localizedDescription)
         }
         #else
         throw MusicError.serviceUnavailable
@@ -159,28 +150,24 @@ final class AppleMusicService: MusicServiceProtocol {
     
     func getSongMetadata(id: String) async throws -> Song {
         #if canImport(MusicKit)
-        if #available(iOS 15.0, macOS 12.0, *) {
-            guard isAuthorized else {
-                throw MusicError.authenticationRequired
+        guard isAuthorized else {
+            throw MusicError.authenticationRequired
+        }
+        
+        // Try to find song by ID
+        let searchRequest = MusicCatalogSearchRequest(term: id, types: [MusicKit.Song.self])
+        
+        do {
+            let response = try await searchRequest.response()
+            if let musicKitSong = response.songs.first,
+               let unifiedSong = convertToUnifiedSong(from: musicKitSong) {
+                return unifiedSong
             }
-            
-            // Try to find song by ID
-            let searchRequest = MusicCatalogSearchRequest(term: id, types: [MusicKit.Song.self])
-            
-            do {
-                let response = try await searchRequest.response()
-                if let musicKitSong = response.songs.first,
-                   let unifiedSong = convertToUnifiedSong(from: musicKitSong) {
-                    return unifiedSong
-                }
-                throw MusicError.songNotFound
-            } catch let error as MusicError {
-                throw error
-            } catch {
-                throw MusicError.networkError(error.localizedDescription)
-            }
-        } else {
-            throw MusicError.serviceUnavailable
+            throw MusicError.songNotFound
+        } catch let error as MusicError {
+            throw error
+        } catch {
+            throw MusicError.networkError(error.localizedDescription)
         }
         #else
         throw MusicError.serviceUnavailable
@@ -204,7 +191,6 @@ final class AppleMusicService: MusicServiceProtocol {
     // MARK: - Private Helpers
     
     #if canImport(MusicKit)
-    @available(iOS 15.0, macOS 12.0, *)
     private func convertToUnifiedSong(from musicKitSong: MusicKit.Song) -> Song? {
         // Convert MusicItemID to String
         let id = String(describing: musicKitSong.id)
