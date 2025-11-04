@@ -18,6 +18,8 @@ enum MusicError: Error, LocalizedError {
     case serviceUnavailable
     case invalidResponse
     case tokenRefreshFailed
+    case appleMusicNotRegistered
+    case appleMusicSubscriptionRequired
     
     var errorDescription: String? {
         switch self {
@@ -41,6 +43,10 @@ enum MusicError: Error, LocalizedError {
             return "Invalid response from music service"
         case .tokenRefreshFailed:
             return "Failed to refresh authentication token"
+        case .appleMusicNotRegistered:
+            return "This app needs to be registered for MusicKit in App Store Connect. Please contact support."
+        case .appleMusicSubscriptionRequired:
+            return "An Apple Music subscription is required to use this feature. You can subscribe in the Music app or Settings."
         }
     }
 }

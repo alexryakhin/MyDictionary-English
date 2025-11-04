@@ -15,7 +15,6 @@ struct Song: Identifiable, Codable, Hashable {
     let albumArtURL: URL?
     let duration: TimeInterval // Critical for LRCLIB matching
     let previewURL: URL?
-    let serviceType: MusicServiceType
     let serviceId: String // Original service ID
     
     init(
@@ -26,7 +25,6 @@ struct Song: Identifiable, Codable, Hashable {
         albumArtURL: URL? = nil,
         duration: TimeInterval,
         previewURL: URL? = nil,
-        serviceType: MusicServiceType,
         serviceId: String
     ) {
         self.id = id
@@ -36,7 +34,6 @@ struct Song: Identifiable, Codable, Hashable {
         self.albumArtURL = albumArtURL
         self.duration = duration
         self.previewURL = previewURL
-        self.serviceType = serviceType
         self.serviceId = serviceId
     }
     
@@ -48,7 +45,6 @@ struct Song: Identifiable, Codable, Hashable {
         case albumArtURL
         case duration
         case previewURL
-        case serviceType
         case serviceId
     }
     
@@ -58,7 +54,6 @@ struct Song: Identifiable, Codable, Hashable {
         title = try container.decode(String.self, forKey: .title)
         artist = try container.decode(String.self, forKey: .artist)
         album = try container.decodeIfPresent(String.self, forKey: .album)
-        serviceType = try container.decode(MusicServiceType.self, forKey: .serviceType)
         serviceId = try container.decode(String.self, forKey: .serviceId)
         duration = try container.decode(TimeInterval.self, forKey: .duration)
         
@@ -82,7 +77,6 @@ struct Song: Identifiable, Codable, Hashable {
         try container.encode(title, forKey: .title)
         try container.encode(artist, forKey: .artist)
         try container.encodeIfPresent(album, forKey: .album)
-        try container.encode(serviceType, forKey: .serviceType)
         try container.encode(serviceId, forKey: .serviceId)
         try container.encode(duration, forKey: .duration)
         try container.encodeIfPresent(albumArtURL?.absoluteString, forKey: .albumArtURL)

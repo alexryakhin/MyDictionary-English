@@ -11,6 +11,7 @@ struct MusicDiscoveringView<ContentPicker: View>: View {
     @ObservedObject private var discoverViewModel: DiscoverViewModel
     private let contentPicker: ContentPicker
 
+    @AppStorage(UDKeys.appleMusicAuthorized) private var isAppleMusicAuthorized: Bool = false
     @StateObject private var viewModel = MusicDiscoveringViewModel()
     @StateObject private var musicPlayer = MusicPlayerService.shared
     @State private var selectedTab: MusicTab = .suggestions
@@ -39,17 +40,24 @@ struct MusicDiscoveringView<ContentPicker: View>: View {
     
     var body: some View {
         ScrollView {
-            LazyVStack(spacing: 20) {
-                switch selectedTab {
-                case .suggestions:
-                    suggestionsSection
-                case .history:
-                    historySection
-                case .nowPlaying:
-                    nowPlayingSection
+            if isAppleMusicAuthorized {
+                LazyVStack(spacing: 20) {
+                    switch selectedTab {
+                    case .suggestions:
+                        suggestionsSection
+                    case .history:
+                        historySection
+                    case .nowPlaying:
+                        nowPlayingSection
+                    }
                 }
+                .padding(vertical: 12, horizontal: 16)
+            } else {
+                MusicAuthenticationView()
+                    .onDisappear {
+                        viewModel.loadData()
+                    }
             }
-            .padding(.vertical)
         }
         .groupedBackground()
         .navigation(
@@ -58,11 +66,15 @@ struct MusicDiscoveringView<ContentPicker: View>: View {
                 contentPicker
             },
             bottomContent: {
-                tabSelector
+                if isAppleMusicAuthorized {
+                    tabSelector
+                }
             }
         )
         .overlay {
-            emptyOverlayView
+            if isAppleMusicAuthorized {
+                emptyOverlayView
+            }
         }
         .task {
             viewModel.loadData()
@@ -100,6 +112,7 @@ struct MusicDiscoveringView<ContentPicker: View>: View {
                     .padding(.vertical, 8)
                 }
                 .scrollTargetBehavior(.viewAligned)
+                .scrollClipDisabled()
             }
         }
     }
@@ -138,16 +151,12 @@ struct MusicDiscoveringView<ContentPicker: View>: View {
     }
 
     // MARK: - Empty overlay
-
+    
     private var emptySuggestionsView: some View {
         ContentUnavailableView {
             Label("No suggestions available", systemImage: "music.note.list")
         } description: {
-            Text("Connect to Apple Music or Spotify to get personalized song recommendations")
-        } actions: {
-            HeaderButton("Connect", size: .large, style: .borderedProminent) {
-                // TODO: present auth with Spotify, I guess, since if user had Apple Music, user would not see this view
-            }
+            Text("No song suggestions available at the moment")
         }
     }
 
@@ -171,7 +180,9 @@ struct MusicDiscoveringView<ContentPicker: View>: View {
     private var emptyOverlayView: some View {
         switch selectedTab {
         case .suggestions:
-            if viewModel.suggestedSongs.isEmpty {
+            if case .loadingSuggestions = viewModel.loadingStatus {
+                loadingSuggestionsView
+            } else if viewModel.suggestedSongs.isEmpty {
                 emptySuggestionsView
             }
         case .history:
@@ -183,5 +194,19 @@ struct MusicDiscoveringView<ContentPicker: View>: View {
                 emptyNowPlayingSection
             }
         }
+    }
+    
+    private var loadingSuggestionsView: some View {
+        VStack(spacing: 24) {
+            ProgressView()
+                .progressViewStyle(.circular)
+                .scaleEffect(1.5)
+                .tint(.accent)
+            
+            Text("Loading suggestions...")
+                .font(.title3)
+                .foregroundColor(.secondaryLabel)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }

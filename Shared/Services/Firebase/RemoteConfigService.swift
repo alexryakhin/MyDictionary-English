@@ -35,8 +35,6 @@ final class RemoteConfigService: ObservableObject {
         case openaiOrganization = "openai_organization"
         case openaiProjectID = "openai_project_id"
         case speechifyAPIKey = "speechify_api_key"
-        case spotifyClientID = "spotify_client_id"
-        case spotifyClientSecret = "spotify_client_secret"
         
         // Feature Toggles are handled via FeatureToggleItem enum
 
@@ -122,16 +120,6 @@ final class RemoteConfigService: ObservableObject {
         return remoteConfig.configValue(forKey: ConfigKey.speechifyAPIKey.rawValue).stringValue.nilIfEmpty
     }
     
-    /// Gets the Spotify Client ID from Remote Config
-    func getSpotifyClientID() -> String? {
-        return remoteConfig.configValue(forKey: ConfigKey.spotifyClientID.rawValue).stringValue.nilIfEmpty
-    }
-    
-    /// Gets the Spotify Client Secret from Remote Config
-    func getSpotifyClientSecret() -> String? {
-        return remoteConfig.configValue(forKey: ConfigKey.spotifyClientSecret.rawValue).stringValue.nilIfEmpty
-    }
-    
     /// Checks if RemoteConfig is ready to use
     var isReady: Bool {
         return isInitialized && !isLoading
@@ -169,8 +157,6 @@ final class RemoteConfigService: ObservableObject {
             ConfigKey.openaiOrganization.rawValue: "" as NSObject,
             ConfigKey.openaiProjectID.rawValue: "" as NSObject,
             ConfigKey.speechifyAPIKey.rawValue: "" as NSObject,
-            ConfigKey.spotifyClientID.rawValue: "" as NSObject,
-            ConfigKey.spotifyClientSecret.rawValue: "" as NSObject,
             
             // Feature Toggles (use enum defaults)
             // Feature toggles will be added dynamically from FeatureToggleItem enum

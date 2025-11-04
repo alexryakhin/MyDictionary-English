@@ -6,63 +6,64 @@
 //
 
 import Foundation
-
-#if canImport(MusicKit)
 import MusicKit
-#endif
-
-#if canImport(MediaPlayer)
 import MediaPlayer
-#endif
 
-final class AppleMusicService: MusicServiceProtocol {
+/// Basic playlist info structure
+struct PlaylistInfo: Identifiable, Codable {
+    let id: String
+    let name: String
+    let description: String?
+    let artworkURL: URL?
+    let trackCount: Int
+}
+
+final class AppleMusicService {
+
     static let shared = AppleMusicService()
-    
-    var serviceType: MusicServiceType {
-        return .appleMusic
-    }
-    
-    private let authManager = MusicAuthenticationManager.shared
-    
-    private var isAuthorized: Bool {
-        #if canImport(MusicKit)
-        let currentStatus = MusicAuthorization.currentStatus == .authorized
-        // Update stored status
-        authManager.saveAppleMusicStatus(isAuthorized: currentStatus)
-        return currentStatus
-        #else
-        return false
-        #endif
+
+    private(set) var isAuthorized: Bool {
+        get { UDService.appleMusicAuthorized }
+        set { UDService.appleMusicAuthorized = newValue }
     }
     
     private init() {}
     
     func authenticate() async throws {
-        #if canImport(MusicKit)
         let status = await MusicAuthorization.request()
         
         switch status {
         case .authorized:
-            authManager.saveAppleMusicStatus(isAuthorized: true)
-            return
+            // Test if MusicKit is properly registered by attempting a simple search
+            do {
+                let testRequest = MusicCatalogSearchRequest(term: "test", types: [MusicKit.Song.self])
+                _ = try await testRequest.response()
+                isAuthorized = true
+                return
+            } catch {
+                // Check if it's a registration/subscription error
+                let errorDescription = error.localizedDescription.lowercased()
+                if errorDescription.contains("404") || errorDescription.contains("client not found") || errorDescription.contains("not registered") {
+                    isAuthorized = false
+                    throw MusicError.appleMusicNotRegistered
+                } else if errorDescription.contains("subscription") || errorDescription.contains("not found") {
+                    isAuthorized = false
+                    throw MusicError.appleMusicSubscriptionRequired
+                } else {
+                    isAuthorized = false
+                    throw MusicError.authenticationFailed(error.localizedDescription)
+                }
+            }
         case .denied, .notDetermined, .restricted:
-            authManager.saveAppleMusicStatus(isAuthorized: false)
+            isAuthorized = false
             throw MusicError.authenticationFailed("MusicKit authorization was denied")
         @unknown default:
-            authManager.saveAppleMusicStatus(isAuthorized: false)
+            isAuthorized = false
             throw MusicError.authenticationFailed("Unknown authorization status")
         }
-        #else
-        throw MusicError.serviceUnavailable
-        #endif
     }
-    
-    func isAuthenticated() -> Bool {
-        return isAuthorized
-    }
-    
+
     func searchSongs(query: String, language: String?) async throws -> [Song] {
-        #if canImport(MusicKit)
         guard isAuthorized else {
             throw MusicError.authenticationRequired
         }
@@ -82,13 +83,9 @@ final class AppleMusicService: MusicServiceProtocol {
         } catch {
             throw MusicError.networkError(error.localizedDescription)
         }
-        #else
-        throw MusicError.serviceUnavailable
-        #endif
     }
     
     func getUserLibrary(limit: Int) async throws -> [Song] {
-        #if canImport(MediaPlayer)
         guard isAuthorized else {
             throw MusicError.authenticationRequired
         }
@@ -106,14 +103,9 @@ final class AppleMusicService: MusicServiceProtocol {
         return Array(items.prefix(limit)).compactMap { item in
             convertToUnifiedSong(from: item)
         }
-        #else
-        // Fallback: return empty array if MediaPlayer not available
-        return []
-        #endif
     }
     
     func getUserPlaylists() async throws -> [PlaylistInfo] {
-        #if canImport(MediaPlayer)
         guard isAuthorized else {
             throw MusicError.authenticationRequired
         }
@@ -139,17 +131,12 @@ final class AppleMusicService: MusicServiceProtocol {
                 name: playlistName,
                 description: nil,
                 artworkURL: nil, // MPMediaItem artwork is not URL-based
-                trackCount: trackCount,
-                serviceType: .appleMusic
+                trackCount: trackCount
             )
         }
-        #else
-        return []
-        #endif
     }
     
     func getSongMetadata(id: String) async throws -> Song {
-        #if canImport(MusicKit)
         guard isAuthorized else {
             throw MusicError.authenticationRequired
         }
@@ -169,9 +156,6 @@ final class AppleMusicService: MusicServiceProtocol {
         } catch {
             throw MusicError.networkError(error.localizedDescription)
         }
-        #else
-        throw MusicError.serviceUnavailable
-        #endif
     }
     
     func detectLanguage(for song: Song) async throws -> String {
@@ -181,16 +165,13 @@ final class AppleMusicService: MusicServiceProtocol {
         return "en" // Default to English, can be enhanced later
     }
     
-    func signOut() async throws {
+    func signOut() {
         // Apple Music doesn't require explicit sign out
-        // Authorization is managed by system
-        // Clear stored status
-        authManager.clearAppleMusicStatus()
+        isAuthorized = false
     }
     
     // MARK: - Private Helpers
     
-    #if canImport(MusicKit)
     private func convertToUnifiedSong(from musicKitSong: MusicKit.Song) -> Song? {
         // Convert MusicItemID to String
         let id = String(describing: musicKitSong.id)
@@ -211,13 +192,10 @@ final class AppleMusicService: MusicServiceProtocol {
             albumArtURL: artworkURL,
             duration: duration,
             previewURL: nil,
-            serviceType: .appleMusic,
             serviceId: id
         )
     }
-    #endif
     
-    #if canImport(MediaPlayer)
     private func convertToUnifiedSong(from mediaItem: MPMediaItem) -> Song? {
         guard let title = mediaItem.title,
               let artist = mediaItem.artist else {
@@ -243,10 +221,8 @@ final class AppleMusicService: MusicServiceProtocol {
             albumArtURL: artworkURL,
             duration: duration,
             previewURL: nil,
-            serviceType: .appleMusic,
             serviceId: id
         )
     }
-    #endif
 }
 

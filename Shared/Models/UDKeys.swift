@@ -61,6 +61,9 @@ enum UDKeys {
     // AI Paywall Content Cache
     static let aiPaywallContent = "aiPaywallContent"
     static let aiPaywallContentTimestamp = "aiPaywallContentTimestamp"
+    
+    // Apple Music
+    static let appleMusicAuthorized = "apple_music_authorized"
 }
 
 enum UDService {
@@ -303,5 +306,11 @@ enum UDService {
         set {
             UserDefaults.standard.set(newValue?.timeIntervalSince1970 ?? 0, forKey: UDKeys.aiPaywallContentTimestamp)
         }
+    }
+
+    // Apple Music
+    static var appleMusicAuthorized: Bool {
+        get { UserDefaults.standard.bool(forKey: UDKeys.appleMusicAuthorized) }
+        set { UserDefaults.standard.set(newValue, forKey: UDKeys.appleMusicAuthorized) }
     }
 }

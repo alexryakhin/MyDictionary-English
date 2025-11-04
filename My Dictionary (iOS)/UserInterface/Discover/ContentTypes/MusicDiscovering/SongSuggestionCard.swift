@@ -36,11 +36,7 @@ struct SongSuggestionCard: View {
                 }
                 .frame(width: 140, height: 140)
                 .clipShape(RoundedRectangle(cornerRadius: 8))
-                .overlay(alignment: .topTrailing) {
-                    // Service badge
-                    serviceBadge
-                }
-                
+
                 VStack(alignment: .leading, spacing: 4) {
                     Text(song.title)
                         .font(.subheadline)
@@ -62,32 +58,10 @@ struct SongSuggestionCard: View {
                     }
                 }
             }
-            .frame(width: 140, alignment: .leading)
+            .frame(maxHeight: .infinity, alignment: .top)
+            .frame(width: 140, alignment: .topLeading)
         }
         .buttonStyle(.plain)
-    }
-    
-    private var serviceBadge: some View {
-        Group {
-            switch song.serviceType {
-            case .appleMusic:
-                Image(systemName: "apple.logo")
-                    .font(.caption2)
-                    .foregroundColor(.white)
-                    .padding(4)
-                    .background(Color.black.opacity(0.6))
-                    .clipShape(Circle())
-            case .spotify:
-                Text("S")
-                    .font(.caption2)
-                    .fontWeight(.bold)
-                    .foregroundColor(.white)
-                    .padding(4)
-                    .background(Color.green.opacity(0.8))
-                    .clipShape(Circle())
-            }
-        }
-        .padding(4)
     }
 }
 
@@ -102,7 +76,6 @@ struct SongSuggestionCard: View {
                 albumArtURL: nil,
                 duration: 233,
                 previewURL: nil,
-                serviceType: .appleMusic,
                 serviceId: "1"
             ),
             onTap: {}

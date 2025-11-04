@@ -19,43 +19,29 @@ struct MusicPlayerView: View {
     @State private var showingVocabulary = false
     
     var body: some View {
-        ScrollView {
-            VStack(spacing: 24) {
-                // Album Artwork
-                albumArtworkView
-                
-                // Song Info
-                songInfoView
-                
-                // Progress Slider
-                progressSlider
-                
-                // Controls
-                playbackControls
-                
-                // Lyrics Section
-                if let lyrics = lyrics {
-                    lyricsSection(lyrics: lyrics)
-                } else {
-                    lyricsUnavailableView
-                }
-                
-                // AI Features Section
-                aiFeaturesSection
+        VStack(spacing: 24) {
+            // Album Artwork
+            albumArtworkView
+
+            // Song Info
+            songInfoView
+
+            // Progress Slider
+            progressSlider
+
+            // Controls
+            playbackControls
+
+            // Lyrics Section
+            if let lyrics = lyrics {
+                lyricsSection(lyrics: lyrics)
+            } else {
+                lyricsUnavailableView
             }
-            .padding()
+
+            // AI Features Section
+            aiFeaturesSection
         }
-        .groupedBackground()
-        .navigation(
-            title: song.title,
-            mode: .inline,
-            trailingContent: {
-                HeaderButton(Loc.Navigation.close) {
-                    musicPlayer.stop()
-                    dismiss()
-                }
-            }
-        )
         .sheet(isPresented: $showingExplanation) {
             if let aiContent = viewModel.aiContent {
                 AIExplanationView(
@@ -137,7 +123,16 @@ struct MusicPlayerView: View {
                     get: { musicPlayer.currentTime },
                     set: { musicPlayer.seek(to: $0) }
                 ),
-                in: 0...max(musicPlayer.duration, 1)
+                in: 0...max(musicPlayer.duration, 1),
+                onEditingChanged: { editing in
+                    if editing {
+                        // User started dragging
+                        musicPlayer.startSeeking()
+                    } else {
+                        // User finished dragging
+                        musicPlayer.finishSeeking(to: musicPlayer.currentTime)
+                    }
+                }
             )
             
             HStack {
@@ -159,8 +154,16 @@ struct MusicPlayerView: View {
     private var playbackControls: some View {
         HStack(spacing: 40) {
             Button(action: {
-                // Previous song - for now, just seek to beginning
-                musicPlayer.seek(to: 0)
+                Task {
+                    do {
+                        try await musicPlayer.skipToPrevious()
+                        // Reload lyrics for the new song
+                        await viewModel.updateLyricsForCurrentSong()
+                    } catch {
+                        // If error, just seek to beginning
+                        musicPlayer.seek(to: 0)
+                    }
+                }
             }) {
                 Image(systemName: "backward.fill")
                     .font(.title2)
@@ -176,8 +179,16 @@ struct MusicPlayerView: View {
             }
             
             Button(action: {
-                // Next song - for now, just stop
-                musicPlayer.stop()
+                Task {
+                    do {
+                        try await musicPlayer.skipToNext()
+                        // Reload lyrics for the new song
+                        await viewModel.updateLyricsForCurrentSong()
+                    } catch {
+                        // If no next song, just stop
+                        musicPlayer.stop()
+                    }
+                }
             }) {
                 Image(systemName: "forward.fill")
                     .font(.title2)
@@ -318,7 +329,6 @@ struct MusicPlayerView: View {
                 albumArtURL: nil,
                 duration: 233,
                 previewURL: nil,
-                serviceType: .appleMusic,
                 serviceId: "1"
             ),
             lyrics: nil,

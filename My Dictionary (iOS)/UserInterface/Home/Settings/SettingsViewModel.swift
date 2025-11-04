@@ -36,6 +36,7 @@ final class SettingsViewModel: BaseViewModel {
     private let wordsProvider: WordsProvider = .shared
     private let csvManager: CSVManager = .shared
     private let notificationService: NotificationService = .shared
+    private let appleMusicService = AppleMusicService.shared
 
     private var words: [CDWord] = []
     private var cancellables: Set<AnyCancellable> = []
@@ -267,5 +268,12 @@ final class SettingsViewModel: BaseViewModel {
     
     func showDeleteWords() {
         output.send(.showDeleteWords)
+    }
+    
+    // MARK: - Music Services
+    
+    func signOutFromAppleMusic() {
+        appleMusicService.signOut()
+        MusicPlayerService.shared.stop()
     }
 }

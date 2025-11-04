@@ -14,6 +14,8 @@ struct SettingsView: View {
 
     @Environment(\.requestReview) var requestReview
     @ObservedObject var viewModel: SettingsViewModel
+
+    @AppStorage(UDKeys.appleMusicAuthorized) private var appleMusicAuthorized: Bool = false
     @StateObject private var authenticationService = AuthenticationService.shared
     @StateObject private var subscriptionService = SubscriptionService.shared
     @StateObject private var paywallService = PaywallService.shared
@@ -133,8 +135,8 @@ struct SettingsView: View {
                     ? Loc.Settings.manualSyncModeDescription
                     : Loc.Settings.signInToCreateShareWordLists
                 ) {
-                    if authenticationService.isSignedIn {
-                        VStack(spacing: 8) {
+                    VStack(spacing: 8) {
+                        if authenticationService.isSignedIn {
                             HStack(spacing: 8) {
                                 Image(systemName: "person.fill")
                                     .foregroundStyle(.accent)
@@ -161,24 +163,25 @@ struct SettingsView: View {
                                 HapticManager.shared.triggerSelection()
                                 viewModel.output.send(.showProfile)
                             }
-
-                        }
-                        .padding(.bottom, 12)
-                    } else {
-                        VStack(alignment: .leading, spacing: 8) {
-                            ActionButton(Loc.Settings.signInToSyncWordLists, systemImage: "person.circle") {
-                                viewModel.output.send(.showAuthentication)
-                            }
-                            
-                            ActionButton(
-                                Loc.Profile.learningPreferencesTitle,
-                                systemImage: "person.crop.circle.badge.ellipsis.fill"
-                            ) {
-                                showLearningPreferences.toggle()
+                        } else {
+                            VStack(alignment: .leading, spacing: 8) {
+                                ActionButton(Loc.Settings.signInToSyncWordLists, systemImage: "person.circle") {
+                                    viewModel.output.send(.showAuthentication)
+                                }
+                                
+                                ActionButton(
+                                    Loc.Profile.learningPreferencesTitle,
+                                    systemImage: "person.crop.circle.badge.ellipsis.fill"
+                                ) {
+                                    showLearningPreferences.toggle()
+                                }
                             }
                         }
-                        .padding(.bottom, 12)
+                        
+                        // Music Services Sign Out
+                        musicServicesSignOutSection
                     }
+                    .padding(.bottom, 12)
                 }
                 .hideIfOffline()
 
@@ -313,6 +316,21 @@ struct SettingsView: View {
         }
         .sheet(isPresented: $showLearningPreferences) {
             LearningPreferencesView()
+        }
+    }
+    
+    // MARK: - Music Services Sign Out Section
+    
+    private var musicServicesSignOutSection: some View {
+        VStack(spacing: 8) {
+            if appleMusicAuthorized {
+                AsyncActionButton(
+                    "Sign Out from Apple Music",
+                    systemImage: "music.note"
+                ) {
+                    await viewModel.signOutFromAppleMusic()
+                }
+            }
         }
     }
 

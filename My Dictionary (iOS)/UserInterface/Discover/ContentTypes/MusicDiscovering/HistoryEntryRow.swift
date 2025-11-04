@@ -68,9 +68,6 @@ struct HistoryEntryRow: View {
                 }
                 
                 Spacer()
-                
-                // Service indicator
-                serviceIcon
             }
             .padding(.vertical, 4)
         }
@@ -93,21 +90,6 @@ struct HistoryEntryRow: View {
             return "Just now"
         }
     }
-    
-    private var serviceIcon: some View {
-        Group {
-            switch historyEntry.song.serviceType {
-            case .appleMusic:
-                Image(systemName: "apple.logo")
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-            case .spotify:
-                Image(systemName: "circle.fill")
-                    .font(.caption2)
-                    .foregroundColor(.green)
-            }
-        }
-    }
 }
 
 #Preview {
@@ -121,7 +103,6 @@ struct HistoryEntryRow: View {
                 albumArtURL: nil,
                 duration: 233,
                 previewURL: nil,
-                serviceType: .appleMusic,
                 serviceId: "1"
             ),
             listeningDuration: 180,

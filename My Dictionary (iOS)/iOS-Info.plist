@@ -24,6 +24,16 @@
 				<string>com.googleusercontent.apps.893718973950-5av1vtgnpdjue8848ked462oika10dqd</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>MyDictionary</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>mydictionary</string>
+			</array>
+		</dict>
 	</array>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>My Dictionary needs access to Apple Music to discover personalized songs for language learning. This allows the app to search for songs in your target language and provide recommendations based on your learning profile.</string>
 </dict>
 </plist>

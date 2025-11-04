@@ -197,7 +197,6 @@ struct VocabularyWordsView: View {
             albumArtURL: nil,
             duration: 233,
             previewURL: nil,
-            serviceType: .appleMusic,
             serviceId: "1"
         )
     )

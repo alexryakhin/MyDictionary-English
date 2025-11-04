@@ -210,6 +210,13 @@ final class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCent
             await MessagingService.shared.unregisterCurrentDevice()
         }
     }
+    
+    // MARK: - URL Handling
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        // URL handling for other features if needed
+        return false
+    }
 
     // MARK: - Notification Badge Management
 
