@@ -124,7 +124,8 @@ final class SentenceWritingQuizViewModel: BaseViewModel {
         
         Task {
             do {
-                let evaluations = try await aiService.evaluateSentences(sentences: userSentences)
+                let response: AISentenceEvaluations = try await aiService.request(.sentences(sentences: userSentences))
+                let evaluations = response.sentences
                 
                 await MainActor.run {
                     self.allEvaluations = evaluations

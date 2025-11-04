@@ -2,7 +2,7 @@
 //  AIService.swift
 //  My Dictionary
 //
-//  Created by AI Assistant on 1/27/25.
+//  Created by Aleksandr Riakhin on 1/27/25.
 //
 
 import Foundation
@@ -19,7 +19,7 @@ enum AIError: LocalizedError {
     case invalidResponse
     case apiError(String)
     case networkError
-    
+
     var errorDescription: String? {
         switch self {
         case .notInitialized:
@@ -41,206 +41,37 @@ enum AIError: LocalizedError {
 // MARK: - AI Service
 
 final class AIService: ObservableObject {
-    
+
     // MARK: - Singleton
-    
+
     static let shared = AIService()
-    
+
     // MARK: - Published Properties
-    
+
     @Published var isInitialized = false
     @Published var isGenerating = false
-    
+
     // MARK: - Private Properties
-    
+
     private var openAI: OpenAI?
     private let remoteConfigService = RemoteConfigService.shared
     private let reachabilityService = ReachabilityService.shared
     private let onboardingService = OnboardingService.shared
-    
+
     // MARK: - Initialization
-    
+
     private init() {
         initializeClient()
     }
-    
-    // MARK: - Public Methods
-    
-    func generateWordInformation(
-        for word: String,
-        maxDefinitions: Int = 5,
-        inputLanguage: InputLanguage
-    ) async throws -> AIWordResponse {
-        guard reachabilityService.isOffline == false else {
-            throw AIError.networkError
-        }
-        
-        do {
-            // Check if AI service is initialized
-            guard isInitialized else {
-                throw AIError.notInitialized
-            }
-            
-            // Check if user has Pro subscription
-            guard SubscriptionService.shared.isProUser else {
-                throw AIError.proRequired
-            }
 
-            let response = try await makeAIRequest(
-                prompt: buildWordInformationPrompt(
-                    word: word,
-                    maxDefinitions: maxDefinitions,
-                    inputLanguage: inputLanguage,
-                    userLanguage: InputLanguage(rawValue: Locale.current.language.languageCode?.identifier ?? "en") ?? InputLanguage.english
-                ),
-                responseType: AIWordResponse.self
-            )
-            
-            return response
-        } catch {
-            throw error
-        }
-    }
-    
-    func evaluateSentences(
-        sentences: [(sentence: String, targetWord: String)]
-    ) async throws -> [AISentenceEvaluation] {
-        guard reachabilityService.isOffline == false else {
-            throw AIError.networkError
-        }
+    // MARK: - Public API
 
-        do {
-            // Check if AI service is initialized
-            guard isInitialized else {
-                throw AIError.notInitialized
-            }
-            
-            // Check if user has Pro subscription
-            guard SubscriptionService.shared.isProUser else {
-                throw AIError.proRequired
-            }
-
-            let response = try await makeAIRequest(
-                prompt: buildSentencesEvaluationPrompt(
-                    sentences: sentences,
-                    userLanguage: getCurrentAppLanguage()
-                ),
-                responseType: AISentenceEvaluations.self
-            )
-
-            return response.sentences
-        } catch {
-            throw error
-        }
-    }
-
-    func generateSingleContextQuestion(
-        word: String,
-        wordLanguage: String,
-        partOfSpeech: String? = nil
-    ) async throws -> AIContextQuestion {
-        guard reachabilityService.isOffline == false else {
-            throw AIError.networkError
-        }
-
-        do {
-            // Check if AI service is initialized
-            guard isInitialized else {
-                throw AIError.notInitialized
-            }
-            
-            // Check if user has Pro subscription
-            guard SubscriptionService.shared.isProUser else {
-                throw AIError.proRequired
-            }
-
-            let response = try await makeAIRequest(
-                prompt: buildSingleContextQuestionPrompt(
-                    word: word,
-                    wordLanguage: wordLanguage,
-                    userLanguage: getCurrentAppLanguage(),
-                    partOfSpeech: partOfSpeech
-                ),
-                responseType: AIContextQuestion.self
-            )
-
-            return response
-        } catch {
-            throw error
-        }
-    }
-    
-    func generateSingleFillInTheBlankStory(
-        word: String,
-        wordLanguage: String,
-        meaning: String? = nil,
-        partOfSpeech: String? = nil
-    ) async throws -> AIFillInTheBlankStory {
-        guard reachabilityService.isOffline == false else {
-            throw AIError.networkError
-        }
-
-        do {
-            // Check if AI service is initialized
-            guard isInitialized else {
-                throw AIError.notInitialized
-            }
-            
-            // Check if user has Pro subscription
-            guard SubscriptionService.shared.isProUser else {
-                throw AIError.proRequired
-            }
-
-            let response = try await makeAIRequest(
-                prompt: buildSingleFillInTheBlankStoryPrompt(
-                    word: word,
-                    wordLanguage: wordLanguage,
-                    userLanguage: getCurrentAppLanguage(),
-                    meaning: meaning,
-                    partOfSpeech: partOfSpeech
-                ),
-                responseType: AIFillInTheBlankStory.self
-            )
-
-            return response
-        } catch {
-            throw error
-        }
-    }
-
-    func generateStory(input: StoryInput) async throws -> AIStoryResponse {
-        guard reachabilityService.isOffline == false else {
-            throw AIError.networkError
-        }
-        
-        do {
-            // Check if AI service is initialized
-            guard isInitialized else {
-                throw AIError.notInitialized
-            }
-            
-            // Check if user has Pro subscription
-            guard SubscriptionService.shared.isProUser else {
-                throw AIError.proRequired
-            }
-            
-            let response = try await makeAIRequest(
-                prompt: buildStoryPrompt(input: input),
-                responseType: AIStoryResponse.self
-            )
-            
-            return response
-        } catch {
-            throw error
-        }
-    }
-    
     func canMakeAIRequest() -> Bool {
         return isInitialized && SubscriptionService.shared.isProUser
     }
-    
+
     // MARK: - Quiz Access Control
-    
+
     /// Checks if the user can run a specific AI quiz (premium only)
     /// - Parameter quizType: The type of quiz to check
     /// - Returns: true if user can run the quiz, false otherwise
@@ -259,86 +90,57 @@ final class AIService: ObservableObject {
             return false
         }
     }
-    
+
     /// Gets all AI quiz types
     /// - Returns: Array of AI-powered quiz types
     func getAIQuizzes() -> [Quiz] {
         return [.contextMultipleChoice, .fillInTheBlank, .sentenceWriting, .storyLab]
     }
 
-    // MARK: - Private Methods
-    
-    /// Gets user profile context for AI personalization
-    private func getUserProfileContext() -> AIUserProfileContext? {
-        guard let profile = onboardingService.userProfile else { return nil }
-        return AIUserProfileContext(from: profile)
+    // MARK: - Request Enum
+
+    public enum Request {
+        case wordInfo(word: String, maxDefinitions: Int, inputLanguage: InputLanguage)
+        case sentences(sentences: [(sentence: String, targetWord: String)])
+        case contextQuestion(word: String, wordLanguage: String, partOfSpeech: String?)
+        case fillBlank(word: String, wordLanguage: String, meaning: String?, partOfSpeech: String?)
+        case story(input: StoryInput)
+        case paywall(userProfile: UserOnboardingProfile, userLanguage: InputLanguage)
+        case musicContent(song: Song, lyrics: SongLyrics, targetLanguage: InputLanguage, cefrLevel: CEFRLevel)
+        case musicQuiz(song: Song, lyrics: SongLyrics, targetLanguage: InputLanguage)
     }
-    
-    /// Builds system prompt with user profile context
-    private func buildSystemPrompt() -> String {
-        var systemPrompt = """
-        You are an AI assistant for a language learning application. 
-        Provide educational content that helps users learn and understand language concepts.
-        """
-        
-        // Add user profile context if available
-        if let userProfile = getUserProfileContext() {
-            systemPrompt += """
-            
-            USER PROFILE CONTEXT:
-            - Name: \(userProfile.userName)
-            - User Type: \(userProfile.userType)
-            - Age Group: \(userProfile.ageGroup)
-            - Learning Goals: \(userProfile.learningGoals.joined(separator: ", "))
-            - Study Languages: \(userProfile.studyLanguages.joined(separator: ", "))
-            - Interests: \(userProfile.interests.joined(separator: ", "))
-            - Weekly Word Goal: \(userProfile.weeklyWordGoal) words
-            - Preferred Study Time: \(userProfile.preferredStudyTime)
-            
-            Use this information to personalize your responses and make them more relevant to the user's learning goals and preferences.
-            """
+
+    // MARK: - Centralized Request Handler
+
+    public func request<T: Codable & JSONSchemaConvertible>(_ r: Request) async throws -> T {
+        // Validate network connectivity
+        guard !reachabilityService.isOffline else {
+            throw AIError.networkError
         }
-        
-        return systemPrompt
-    }
-    
-    private func initializeClient() {
-        let apiKey = remoteConfigService.getOpenAIAPIKey()
-        
-        guard !apiKey.isEmpty else {
-            debugPrint("⚠️ OpenAI API key not configured")
-            isInitialized = false
-            return
-        }
-        
-        let configuration = OpenAI.Configuration(
-            token: apiKey,
-            timeoutInterval: 60.0
-        )
-        openAI = OpenAI(configuration: configuration)
-        isInitialized = true
-        
-        debugPrint("✅ AI service initialized")
-    }
-    
-    private func makeAIRequest<T: Codable & JSONSchemaConvertible>(
-        prompt: String,
-        responseType: T.Type
-    ) async throws -> T {
+
+        // Validate service initialization
         guard isInitialized else {
             throw AIError.notInitialized
         }
 
-        guard let openAI = openAI else {
-            throw AIError.notInitialized
+        // Validate Pro subscription (except for paywall)
+        if case .paywall = r {
+            // Paywall doesn't require Pro subscription
+        } else {
+            guard SubscriptionService.shared.isProUser else {
+                throw AIError.proRequired
+            }
         }
-        
+
         isGenerating = true
         defer { isGenerating = false }
-        
+
+        // Build prompt based on request type
+        let prompt = buildPrompt(for: r)
+
         // Create system prompt with user profile context
         let systemPrompt = buildSystemPrompt()
-        
+
         // Create chat query with structured output
         let query = ChatQuery(
             messages: [
@@ -353,34 +155,159 @@ final class AIService: ObservableObject {
                 strict: true
             ))
         )
-        
+
+        guard let openAI = openAI else {
+            throw AIError.notInitialized
+        }
+
         let result = try await openAI.chats(query: query)
-        
+
         // Validate response
         guard let jsonString = result.choices.first?.message.content,
               let jsonData = jsonString.data(using: String.Encoding.utf8) else {
             throw AIError.invalidResponse
         }
-        
+
         // Parse response
         let response = try JSONDecoder().decode(T.self, from: jsonData)
-        
+
         // Log usage
         if let usage = result.usage {
             debugPrint("📊 OpenAI tokens used: \(usage.totalTokens) (prompt: \(usage.promptTokens), completion: \(usage.completionTokens))")
         }
-        
+
         return response
     }
-    
-    
+
+    // MARK: - Prompt Builder
+
+    private func buildPrompt(for r: Request) -> String {
+        switch r {
+        case .wordInfo(let word, let maxDefinitions, let inputLanguage):
+            let userLanguage = InputLanguage(rawValue: Locale.current.language.languageCode?.identifier ?? "en") ?? InputLanguage.english
+            return buildWordInformationPrompt(
+                word: word,
+                maxDefinitions: maxDefinitions,
+                inputLanguage: inputLanguage,
+                userLanguage: userLanguage
+            )
+
+        case .sentences(let sentences):
+            return buildSentencesEvaluationPrompt(
+                sentences: sentences,
+                userLanguage: getCurrentAppLanguage()
+            )
+
+        case .contextQuestion(let word, let wordLanguage, let partOfSpeech):
+            return buildSingleContextQuestionPrompt(
+                word: word,
+                wordLanguage: wordLanguage,
+                userLanguage: getCurrentAppLanguage(),
+                partOfSpeech: partOfSpeech
+            )
+
+        case .fillBlank(let word, let wordLanguage, let meaning, let partOfSpeech):
+            return buildSingleFillInTheBlankStoryPrompt(
+                word: word,
+                wordLanguage: wordLanguage,
+                userLanguage: getCurrentAppLanguage(),
+                meaning: meaning,
+                partOfSpeech: partOfSpeech
+            )
+
+        case .story(let input):
+            return buildStoryPrompt(input: input)
+
+        case .paywall(let userProfile, let userLanguage):
+            return buildPaywallPrompt(userProfile: userProfile, userLanguage: userLanguage)
+
+        case .musicContent(let song, let lyrics, let targetLanguage, let cefrLevel):
+            let lyricsText = lyrics.bestLyrics ?? lyrics.plainLyrics ?? ""
+            return buildMusicDiscoveringPrompt(
+                song: song,
+                lyrics: lyricsText,
+                targetLanguage: targetLanguage,
+                cefrLevel: cefrLevel,
+                userLanguage: getCurrentAppLanguage()
+            )
+
+        case .musicQuiz(let song, let lyrics, let targetLanguage):
+            let lyricsText = lyrics.bestLyrics ?? lyrics.plainLyrics ?? ""
+            return buildMusicQuizPrompt(
+                song: song,
+                lyrics: lyricsText,
+                targetLanguage: targetLanguage,
+                userLanguage: getCurrentAppLanguage()
+            )
+        }
+    }
+
+    // MARK: - Private Methods
+
+    /// Gets user profile context for AI personalization
+    private func getUserProfileContext() -> AIUserProfileContext? {
+        guard let profile = onboardingService.userProfile else { return nil }
+        return AIUserProfileContext(from: profile)
+    }
+
+    /// Builds system prompt with user profile context
+    private func buildSystemPrompt() -> String {
+        var systemPrompt = """
+        You are **Maestro**, a world-class AI language teacher trained at top universities in Paris, Kyoto, Madrid, and beyond.
+        
+        **Core Belief**: Language and culture are inseparable. Teach vocabulary, grammar, and idioms *through real cultural moments* — food, festivals, etiquette, history, humor.
+        
+        Teach with clarity, warmth, and precision. Use the user’s interests to make every example vivid and memorable.
+    """
+
+        // Add user profile context if available
+        if let userProfile = getUserProfileContext() {
+            systemPrompt += """
+            
+            USER PROFILE CONTEXT:
+            - Name: \(userProfile.userName)
+            - User Type: \(userProfile.userType)
+            - Age Group: \(userProfile.ageGroup)
+            - Learning Goals: \(userProfile.learningGoals.joined(separator: ", "))
+            - Study Languages: \(userProfile.studyLanguages.joined(separator: ", "))
+            - Interests: \(userProfile.interests.joined(separator: ", "))
+            - Weekly Word Goal: \(userProfile.weeklyWordGoal) words
+            - Preferred Study Time: \(userProfile.preferredStudyTime)
+            
+            Use this information to personalize your responses - provide accurate word descriptions and quizzes that would match with the user's interests.
+            """
+        }
+
+        return systemPrompt
+    }
+
+    private func initializeClient() {
+        let apiKey = remoteConfigService.getOpenAIAPIKey()
+
+        guard !apiKey.isEmpty else {
+            debugPrint("⚠️ OpenAI API key not configured")
+            isInitialized = false
+            return
+        }
+
+        let configuration = OpenAI.Configuration(
+            token: apiKey,
+            timeoutInterval: 60.0
+        )
+        openAI = OpenAI(configuration: configuration)
+        isInitialized = true
+
+        debugPrint("✅ AI service initialized")
+    }
+
+
     private func getCurrentAppLanguage() -> String {
         let currentLanguageCode = Locale.current.language.languageCode?.identifier ?? "en"
         return Locale(identifier: "en_US").localizedString(forLanguageCode: currentLanguageCode) ?? "English"
     }
-    
+
     // MARK: - Prompt Building Methods
-    
+
     private func buildWordInformationPrompt(
         word: String,
         maxDefinitions: Int,
@@ -410,7 +337,7 @@ final class AIService: ObservableObject {
         17. Don't provide duplicate definitions that basically mean the same thing but in different words.
         """
     }
-    
+
     private func buildSentencesEvaluationPrompt(
         sentences: [(sentence: String, targetWord: String)],
         userLanguage: String
@@ -442,7 +369,7 @@ final class AIService: ObservableObject {
         10. All feedback and suggestions must be in \(userLanguage)
         """
     }
-    
+
     private func buildSingleContextQuestionPrompt(
         word: String,
         wordLanguage: String,
@@ -457,11 +384,11 @@ final class AIService: ObservableObject {
         
         Word to create question for: '\(word)' (in \(wordLanguage))
         """
-        
+
         if let partOfSpeech = partOfSpeech, !partOfSpeech.isEmpty {
             prompt += "\nPart of Speech: \(partOfSpeech)"
         }
-        
+
         prompt += """
         
         Create one question with 4 options.
@@ -479,10 +406,10 @@ final class AIService: ObservableObject {
         10. Use the word as a \(partOfSpeech ?? "word") in all sentences
         11. Question might include some context that is important
         """
-        
+
         return prompt
     }
-    
+
     private func buildSingleFillInTheBlankStoryPrompt(
         word: String,
         wordLanguage: String,
@@ -498,15 +425,15 @@ final class AIService: ObservableObject {
         
         Word to create story for: '\(word)' (in \(wordLanguage))
         """
-        
+
         if let partOfSpeech = partOfSpeech, !partOfSpeech.isEmpty {
             prompt += "\nPart of Speech: \(partOfSpeech)"
         }
-        
+
         if let meaning = meaning, !meaning.isEmpty {
             prompt += "\n\nSpecific meaning to focus on: '\(meaning)'"
         }
-        
+
         prompt += """
         
         Create one story with 4 answer options.
@@ -528,15 +455,15 @@ final class AIService: ObservableObject {
         10. CRITICAL: Each option's "text" field should contain ONLY the word/phrase that fills the blank, NOT the full sentence with the blank
         11. The story should contain the blank (use "___" to represent it), but the options should only contain the actual words that could fill that blank
         """
-        
+
         return prompt
     }
-    
+
     private func buildStoryPrompt(input: StoryInput) -> String {
         let userLanguage = getCurrentAppLanguage()
         let targetLanguageName = input.targetLanguage.englishName
         let cefrLevel = input.cefrLevel.rawValue
-        
+
         var prompt = """
         IMPORTANT: This is for EDUCATIONAL PURPOSES in a language learning application. Create an engaging, coherent story with comprehension quizzes for language learning.
         
@@ -546,7 +473,7 @@ final class AIService: ObservableObject {
         Number of Pages: \(input.pageCount)
         
         """
-        
+
         // Handle input words or custom text
         if let savedWords = input.savedWords, !savedWords.isEmpty {
             let wordsList = savedWords.joined(separator: ", ")
@@ -565,7 +492,7 @@ final class AIService: ObservableObject {
             - Ensure the story flows naturally across all \(input.pageCount) pages and builds upon the custom text theme/expression
             """
         }
-        
+
         // Determine paragraph length based on CEFR level
         let paragraphLength: String
         switch input.cefrLevel {
@@ -576,7 +503,7 @@ final class AIService: ObservableObject {
         case .c1, .c2:
             paragraphLength = "300-400 words"
         }
-        
+
         prompt += """
         STORY REQUIREMENTS:
         - Create a coherent, engaging story across \(input.pageCount) pages
@@ -608,7 +535,7 @@ final class AIService: ObservableObject {
         
         CRITICAL: In each page object, storyText MUST come before questions in the JSON. The order is: pageNumber, storyText, questions.
         """
-        
+
         return prompt
     }
 }
@@ -630,29 +557,17 @@ extension AIWordResponse {
 // MARK: - Paywall Content Generation
 
 extension AIService {
-    /// Generates personalized paywall content based on user profile
-    /// Note: This method does NOT check for Pro subscription as non-subscribers need to see the paywall
-    func generatePaywallContent(userProfile: UserOnboardingProfile, userLanguage: InputLanguage) async throws -> AIPaywallContent {
-        // Check if AI service is initialized (but not Pro status)
-        guard isInitialized else {
-            throw AIError.notInitialized
-        }
-        
-        let prompt = buildPaywallPrompt(userProfile: userProfile, userLanguage: userLanguage)
-        return try await makeAIRequest(prompt: prompt, responseType: AIPaywallContent.self)
-    }
-    
     private func buildPaywallPrompt(userProfile: UserOnboardingProfile, userLanguage: InputLanguage) -> String {
         return """
         Create a compelling, personalized paywall for a language learning app. Generate content in \(userLanguage.englishName) that:
-
+        
         1. Creates a compelling title that addresses the user by name and highlights their primary learning goal
         2. Writes a subtitle that emphasizes the target language and learning benefits  
         3. Selects 3-5 SubscriptionFeature benefits that are most relevant to their user type, goals, and interests
         4. Writes SHORT, concise descriptions for each selected feature (maximum 3 lines, focus on key benefits)
-
+        
         Available SubscriptionFeature options: aiDefinitions, aiQuizzes, images, wordCollections, premiumTTS, unlimitedExport, createSharedDictionaries, tagManagement, advancedAnalytics, prioritySupport
-
+        
         IMPORTANT: Keep feature descriptions brief and punchy. Each description should be 1-2 sentences maximum. Focus on the core benefit, not detailed explanations.
         """
     }
@@ -661,93 +576,8 @@ extension AIService {
 // MARK: - Music Discovering Content Generation
 
 extension AIService {
-    /// Generates comprehensive music discovering content including explanations, vocabulary, and quiz
-    /// - Parameters:
-    ///   - song: The song to analyze
-    ///   - lyrics: The song lyrics
-    ///   - targetLanguage: The language being learned
-    ///   - cefrLevel: User's proficiency level
-    /// - Returns: Music discovering response with explanations, vocabulary, and quiz
-    func generateMusicDiscoveringContent(
-        song: Song,
-        lyrics: SongLyrics,
-        targetLanguage: InputLanguage,
-        cefrLevel: CEFRLevel
-    ) async throws -> MusicDiscoveringResponse {
-        guard reachabilityService.isOffline == false else {
-            throw AIError.networkError
-        }
-        
-        guard isInitialized else {
-            throw AIError.notInitialized
-        }
-        
-        guard SubscriptionService.shared.isProUser else {
-            throw AIError.proRequired
-        }
-        
-        let lyricsText = lyrics.bestLyrics ?? lyrics.plainLyrics ?? ""
-        guard !lyricsText.isEmpty else {
-            throw AIError.invalidResponse
-        }
-        
-        let prompt = buildMusicDiscoveringPrompt(
-            song: song,
-            lyrics: lyricsText,
-            targetLanguage: targetLanguage,
-            cefrLevel: cefrLevel,
-            userLanguage: getCurrentAppLanguage()
-        )
-        
-        return try await makeAIRequest(
-            prompt: prompt,
-            responseType: MusicDiscoveringResponse.self
-        )
-    }
-    
-    /// Generates a comprehension quiz based on song lyrics
-    /// - Parameters:
-    ///   - song: The song
-    ///   - lyrics: The song lyrics
-    ///   - targetLanguage: The language being learned
-    /// - Returns: Comprehension quiz with questions
-    func generateMusicQuiz(
-        song: Song,
-        lyrics: SongLyrics,
-        targetLanguage: InputLanguage
-    ) async throws -> AIComprehensionQuiz {
-        guard reachabilityService.isOffline == false else {
-            throw AIError.networkError
-        }
-        
-        guard isInitialized else {
-            throw AIError.notInitialized
-        }
-        
-        guard SubscriptionService.shared.isProUser else {
-            throw AIError.proRequired
-        }
-        
-        let lyricsText = lyrics.bestLyrics ?? lyrics.plainLyrics ?? ""
-        guard !lyricsText.isEmpty else {
-            throw AIError.invalidResponse
-        }
-        
-        let prompt = buildMusicQuizPrompt(
-            song: song,
-            lyrics: lyricsText,
-            targetLanguage: targetLanguage,
-            userLanguage: getCurrentAppLanguage()
-        )
-        
-        return try await makeAIRequest(
-            prompt: prompt,
-            responseType: AIComprehensionQuiz.self
-        )
-    }
-    
     // MARK: - Prompt Building Methods
-    
+
     private func buildMusicDiscoveringPrompt(
         song: Song,
         lyrics: String,
@@ -802,7 +632,7 @@ extension AIService {
         Focus on making the content educational and accessible for \(cefrLevel.rawValue) level learners.
         """
     }
-    
+
     private func buildMusicQuizPrompt(
         song: Song,
         lyrics: String,

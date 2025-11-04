@@ -117,11 +117,11 @@ final class AddWordViewModel: BaseViewModel {
                     AnalyticsService.shared.logEvent(.aiRequested)
 
                     // Use AI service to get definitions
-                    let aiResponse = try await aiService.generateWordInformation(
-                        for: inputWord,
+                    let aiResponse: AIWordResponse = try await aiService.request(.wordInfo(
+                        word: inputWord,
                         maxDefinitions: 10,
                         inputLanguage: selectedInputLanguage
-                    )
+                    ))
 
                     self.definitions = aiResponse.toWordDefinitions()
                     self.pronunciation = aiResponse.pronunciation

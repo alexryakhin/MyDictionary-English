@@ -317,7 +317,11 @@ final class ContextMultipleChoiceQuizViewModel: BaseViewModel {
             do {
                 let word = item.quiz_text.trimmed.lowercased()
                 let wordLanguage = item.quiz_languageCode
-                let question = try await aiService.generateSingleContextQuestion(word: word, wordLanguage: wordLanguage, partOfSpeech: item.quiz_partOfSpeech)
+                let question: AIContextQuestion = try await aiService.request(.contextQuestion(
+                    word: word,
+                    wordLanguage: wordLanguage,
+                    partOfSpeech: item.quiz_partOfSpeech
+                ))
                 
                 await MainActor.run {
                     if !Task.isCancelled {
@@ -392,7 +396,11 @@ final class ContextMultipleChoiceQuizViewModel: BaseViewModel {
                 let firstItem = items.first!
                 let firstWord = firstItem.quiz_text.lowercased()
                 let wordLanguage = firstItem.quiz_languageCode
-                let contextQuestion = try await aiService.generateSingleContextQuestion(word: firstWord, wordLanguage: wordLanguage, partOfSpeech: firstItem.quiz_partOfSpeech)
+                let contextQuestion: AIContextQuestion = try await aiService.request(.contextQuestion(
+                    word: firstWord,
+                    wordLanguage: wordLanguage,
+                    partOfSpeech: firstItem.quiz_partOfSpeech
+                ))
 
                 await MainActor.run {
                     self.allContextQuestions = [contextQuestion]
@@ -442,7 +450,11 @@ final class ContextMultipleChoiceQuizViewModel: BaseViewModel {
                 // Don't change loading status to prefetching - keep current item visible
                 let nextWord = nextItem.quiz_text.trimmed.lowercased()
                 let wordLanguage = nextItem.quiz_languageCode
-                let contextQuestion = try await aiService.generateSingleContextQuestion(word: nextWord, wordLanguage: wordLanguage, partOfSpeech: nextItem.quiz_partOfSpeech)
+                let contextQuestion: AIContextQuestion = try await aiService.request(.contextQuestion(
+                    word: nextWord,
+                    wordLanguage: wordLanguage,
+                    partOfSpeech: nextItem.quiz_partOfSpeech
+                ))
                 
                 await MainActor.run {
                     if !Task.isCancelled {

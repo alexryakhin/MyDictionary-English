@@ -2,7 +2,7 @@
 //  ImageSelectionView.swift
 //  My Dictionary
 //
-//  Created by AI Assistant on 1/8/25.
+//  Created by Aleksandr Riakhin on 1/8/25.
 //
 
 import SwiftUI

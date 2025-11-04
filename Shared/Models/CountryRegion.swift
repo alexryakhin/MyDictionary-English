@@ -2,7 +2,7 @@
 //  CountryRegion.swift
 //  My Dictionary
 //
-//  Created by AI Assistant on 1/10/25.
+//  Created by Aleksandr Riakhin on 1/10/25.
 //
 
 import Foundation

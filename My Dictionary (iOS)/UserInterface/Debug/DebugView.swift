@@ -631,10 +631,11 @@ struct DebugView: View {
             do {
                 print("🚀 [DebugView] Starting OpenAI connection test...")
                 let aiService = AIService.shared
-                let testDefinition = try await aiService.generateWordInformation(
-                    for: "test",
+                let testDefinition: AIWordResponse = try await aiService.request(.wordInfo(
+                    word: "test",
+                    maxDefinitions: 5,
                     inputLanguage: .english
-                )
+                ))
                 
                 print("✅ [DebugView] OpenAI connection test successful")
                 print("🔍 [DebugView] Test definition: \(testDefinition)")

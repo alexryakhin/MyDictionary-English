@@ -1,0 +1,329 @@
+//
+//  MusicPlayerView.swift
+//  My Dictionary
+//
+//  Created by Aleksandr Riakhin
+//
+
+import SwiftUI
+
+struct MusicPlayerView: View {
+    let song: Song
+    let lyrics: SongLyrics?
+    @ObservedObject var viewModel: MusicDiscoveringViewModel
+    @StateObject private var musicPlayer = MusicPlayerService.shared
+    @Environment(\.dismiss) private var dismiss
+    
+    @State private var showingExplanation = false
+    @State private var showingQuiz = false
+    @State private var showingVocabulary = false
+    
+    var body: some View {
+        ScrollView {
+            VStack(spacing: 24) {
+                // Album Artwork
+                albumArtworkView
+                
+                // Song Info
+                songInfoView
+                
+                // Progress Slider
+                progressSlider
+                
+                // Controls
+                playbackControls
+                
+                // Lyrics Section
+                if let lyrics = lyrics {
+                    lyricsSection(lyrics: lyrics)
+                } else {
+                    lyricsUnavailableView
+                }
+                
+                // AI Features Section
+                aiFeaturesSection
+            }
+            .padding()
+        }
+        .groupedBackground()
+        .navigation(
+            title: song.title,
+            mode: .inline,
+            trailingContent: {
+                HeaderButton(Loc.Navigation.close) {
+                    musicPlayer.stop()
+                    dismiss()
+                }
+            }
+        )
+        .sheet(isPresented: $showingExplanation) {
+            if let aiContent = viewModel.aiContent {
+                AIExplanationView(
+                    explanations: aiContent.explanations,
+                    culturalContext: aiContent.culturalContext
+                )
+            }
+        }
+        .sheet(isPresented: $showingQuiz) {
+            if let aiContent = viewModel.aiContent,
+               let quiz = aiContent.quiz {
+                MusicQuizView(quiz: quiz, viewModel: viewModel)
+            }
+        }
+        .sheet(isPresented: $showingVocabulary) {
+            if let aiContent = viewModel.aiContent {
+                VocabularyWordsView(
+                    vocabularyWords: aiContent.vocabularyWords,
+                    song: song
+                )
+            }
+        }
+    }
+    
+    // MARK: - Album Artwork
+    
+    private var albumArtworkView: some View {
+        AsyncImage(url: song.albumArtURL) { image in
+            image
+                .resizable()
+                .scaledToFill()
+        } placeholder: {
+            RoundedRectangle(cornerRadius: 16)
+                .fill(
+                    LinearGradient(
+                        colors: [.blue.opacity(0.4), .purple.opacity(0.4)],
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
+                    )
+                )
+                .overlay(
+                    Image(systemName: "music.note")
+                        .font(.system(size: 60))
+                        .foregroundColor(.white)
+                )
+        }
+        .frame(width: 300, height: 300)
+        .clipShape(RoundedRectangle(cornerRadius: 16))
+        .shadow(radius: 10)
+    }
+    
+    // MARK: - Song Info
+    
+    private var songInfoView: some View {
+        VStack(spacing: 8) {
+            Text(song.title)
+                .font(.title2)
+                .fontWeight(.bold)
+                .multilineTextAlignment(.center)
+            
+            Text(song.artist)
+                .font(.title3)
+                .foregroundColor(.secondary)
+            
+            if let album = song.album {
+                Text(album)
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+            }
+        }
+    }
+    
+    // MARK: - Progress Slider
+    
+    private var progressSlider: some View {
+        VStack(spacing: 8) {
+            Slider(
+                value: Binding(
+                    get: { musicPlayer.currentTime },
+                    set: { musicPlayer.seek(to: $0) }
+                ),
+                in: 0...max(musicPlayer.duration, 1)
+            )
+            
+            HStack {
+                Text(formatTime(musicPlayer.currentTime))
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+                
+                Spacer()
+                
+                Text(formatTime(musicPlayer.duration))
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+            }
+        }
+    }
+    
+    // MARK: - Playback Controls
+    
+    private var playbackControls: some View {
+        HStack(spacing: 40) {
+            Button(action: {
+                // Previous song - for now, just seek to beginning
+                musicPlayer.seek(to: 0)
+            }) {
+                Image(systemName: "backward.fill")
+                    .font(.title2)
+                    .foregroundColor(.primary)
+            }
+            
+            Button(action: {
+                viewModel.playPause()
+            }) {
+                Image(systemName: musicPlayer.isPlaying ? "pause.circle.fill" : "play.circle.fill")
+                    .font(.system(size: 64))
+                    .foregroundColor(.primary)
+            }
+            
+            Button(action: {
+                // Next song - for now, just stop
+                musicPlayer.stop()
+            }) {
+                Image(systemName: "forward.fill")
+                    .font(.title2)
+                    .foregroundColor(.primary)
+            }
+        }
+    }
+    
+    // MARK: - Lyrics Section
+    
+    private func lyricsSection(lyrics: SongLyrics) -> some View {
+        CustomSectionView(header: "Lyrics") {
+            LyricsDisplayView(
+                lyrics: lyrics,
+                currentTime: musicPlayer.currentTime
+            )
+        }
+    }
+    
+    private var lyricsUnavailableView: some View {
+        CustomSectionView(header: "Lyrics") {
+            VStack(spacing: 12) {
+                Image(systemName: "music.note.text")
+                    .font(.title)
+                    .foregroundColor(.secondary)
+                
+                Text("Lyrics not available")
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+            }
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, 20)
+        }
+    }
+    
+    // MARK: - AI Features Section
+    
+    private var aiFeaturesSection: some View {
+        CustomSectionView(header: "AI Learning Features") {
+            VStack(spacing: 12) {
+                // Get Explanation Button
+                Button(action: {
+                    if viewModel.aiContent == nil {
+                        Task {
+                            await viewModel.generateExplanation()
+                            showingExplanation = true
+                        }
+                    } else {
+                        showingExplanation = true
+                    }
+                }) {
+                    HStack {
+                        Image(systemName: "text.bubble")
+                        Text("Get Explanation")
+                        Spacer()
+                        if viewModel.isLoadingExplanation {
+                            ProgressView()
+                                .scaleEffect(0.8)
+                        } else {
+                            Image(systemName: "chevron.right")
+                                .foregroundColor(.secondary)
+                        }
+                    }
+                    .padding()
+                    .background(Color.secondarySystemGroupedBackground)
+                    .cornerRadius(12)
+                }
+                .disabled(viewModel.isLoadingExplanation)
+                
+                // Take Quiz Button
+                Button(action: {
+                    if viewModel.aiContent?.quiz == nil {
+                        Task {
+                            await viewModel.generateQuiz()
+                            showingQuiz = true
+                        }
+                    } else {
+                        showingQuiz = true
+                    }
+                }) {
+                    HStack {
+                        Image(systemName: "questionmark.circle")
+                        Text("Take Quiz")
+                        Spacer()
+                        if viewModel.isLoadingQuiz {
+                            ProgressView()
+                                .scaleEffect(0.8)
+                        } else {
+                            Image(systemName: "chevron.right")
+                                .foregroundColor(.secondary)
+                        }
+                    }
+                    .padding()
+                    .background(Color.secondarySystemGroupedBackground)
+                    .cornerRadius(12)
+                }
+                .disabled(viewModel.isLoadingQuiz)
+                
+                // Extract Vocabulary Button
+                Button(action: {
+                    viewModel.extractVocabulary()
+                    showingVocabulary = true
+                }) {
+                    HStack {
+                        Image(systemName: "text.magnifyingglass")
+                        Text("Extract Vocabulary")
+                        Spacer()
+                        if viewModel.aiContent?.vocabularyWords.isEmpty != false {
+                            Image(systemName: "chevron.right")
+                                .foregroundColor(.secondary)
+                        }
+                    }
+                    .padding()
+                    .background(Color.secondarySystemGroupedBackground)
+                    .cornerRadius(12)
+                }
+            }
+        }
+    }
+    
+    // MARK: - Helper Methods
+    
+    private func formatTime(_ time: TimeInterval) -> String {
+        let minutes = Int(time) / 60
+        let seconds = Int(time) % 60
+        return String(format: "%d:%02d", minutes, seconds)
+    }
+}
+
+#Preview {
+    NavigationStack {
+        MusicPlayerView(
+            song: Song(
+                id: "1",
+                title: "La Vida Es Un Carnaval",
+                artist: "Celia Cruz",
+                album: "Mi Vida Es Cantar",
+                albumArtURL: nil,
+                duration: 233,
+                previewURL: nil,
+                serviceType: .appleMusic,
+                serviceId: "1"
+            ),
+            lyrics: nil,
+            viewModel: MusicDiscoveringViewModel()
+        )
+    }
+}
+

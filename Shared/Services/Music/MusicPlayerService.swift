@@ -2,7 +2,7 @@
 //  MusicPlayerService.swift
 //  My Dictionary
 //
-//  Created by AI Assistant
+//  Created by Aleksandr Riakhin
 //
 
 import Foundation
@@ -50,6 +50,9 @@ final class MusicPlayerService: NSObject, ObservableObject {
         setupAudioSession()
         setupTimeObserver()
         loadVolume()
+        #if os(iOS)
+        setupRemoteCommandCenter()
+        #endif
     }
     
     // MARK: - Public Methods

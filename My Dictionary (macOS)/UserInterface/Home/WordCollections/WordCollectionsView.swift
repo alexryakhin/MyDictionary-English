@@ -2,7 +2,7 @@
 //  WordCollectionsView.swift
 //  My Dictionary
 //
-//  Created by AI Assistant on 1/27/25.
+//  Created by Aleksandr Riakhin on 1/27/25.
 //
 
 // TODO: Add AI button to create personal word collection

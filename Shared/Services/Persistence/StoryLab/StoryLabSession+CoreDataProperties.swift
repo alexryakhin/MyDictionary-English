@@ -2,7 +2,7 @@
 //  StoryLabSession+CoreDataProperties.swift
 //  My Dictionary
 //
-//  Created by AI Assistant
+//  Created by Aleksandr Riakhin
 //
 
 import Foundation

@@ -2,7 +2,7 @@
 //  StoryLabViewModel.swift
 //  My Dictionary
 //
-//  Created by AI Assistant
+//  Created by Aleksandr Riakhin
 //
 
 import Foundation
@@ -139,7 +139,7 @@ final class StoryLabViewModel: BaseViewModel {
         Task { @MainActor in
             do {
                 let storyInput = config.toStoryInput()
-                let generatedStory = try await aiService.generateStory(input: storyInput)
+                let generatedStory: AIStoryResponse = try await aiService.request(.story(input: storyInput))
                 
                 self.story = generatedStory
                 let newSession = StorySession(story: generatedStory)

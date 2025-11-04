@@ -2,7 +2,7 @@
 //  MusicDiscoveringViewModel.swift
 //  My Dictionary
 //
-//  Created by AI Assistant
+//  Created by Aleksandr Riakhin
 //
 
 import Foundation
@@ -115,9 +115,16 @@ final class MusicDiscoveringViewModel: ObservableObject {
         
         currentSong = song
         
-        // Create new session
-        let session = MusicDiscoveringSession(song: song)
-        currentSession = session
+        // Create or update session
+        if var existingSession = currentSession, existingSession.song.id == song.id {
+            // Update existing session
+            existingSession.lastPlayedAt = Date()
+            currentSession = existingSession
+        } else {
+            // Create new session
+            let session = MusicDiscoveringSession(song: song)
+            currentSession = session
+        }
         
         // Load lyrics
         do {
@@ -148,7 +155,7 @@ final class MusicDiscoveringViewModel: ObservableObject {
         
         // Save to history
         await historyService.addToHistory(song: song)
-        await loadHistory()
+        loadHistory()
     }
     
     func playPause() {
@@ -162,7 +169,11 @@ final class MusicDiscoveringViewModel: ObservableObject {
     func seek(to time: TimeInterval) {
         musicPlayerService.seek(to: time)
     }
-    
+
+    func updateCurrentSession(_ session: MusicDiscoveringSession? = nil) {
+        self.currentSession = session
+    }
+
     // MARK: - AI Content Generation
     
     func generateExplanation() async {
@@ -191,12 +202,16 @@ final class MusicDiscoveringViewModel: ObservableObject {
             let cefrLevel = firstStudyLanguage.proficiencyLevel
             let targetLanguage = firstStudyLanguage.language
             
-            let response = try await aiService.generateMusicDiscoveringContent(
+            let lyricsText = lyrics.bestLyrics ?? lyrics.plainLyrics ?? ""
+            guard !lyricsText.isEmpty else {
+                throw AIError.invalidResponse
+            }
+            let response: MusicDiscoveringResponse = try await aiService.request(.musicContent(
                 song: song,
                 lyrics: lyrics,
                 targetLanguage: targetLanguage,
                 cefrLevel: cefrLevel
-            )
+            ))
             
             await MainActor.run {
                 self.aiContent = response
@@ -240,11 +255,15 @@ final class MusicDiscoveringViewModel: ObservableObject {
             
             let targetLanguage = firstStudyLanguage.language
             
-            let quiz = try await aiService.generateMusicQuiz(
+            let lyricsText = lyrics.bestLyrics ?? lyrics.plainLyrics ?? ""
+            guard !lyricsText.isEmpty else {
+                throw AIError.invalidResponse
+            }
+            let quiz: AIComprehensionQuiz = try await aiService.request(.musicQuiz(
                 song: song,
                 lyrics: lyrics,
                 targetLanguage: targetLanguage
-            )
+            ))
             
             await MainActor.run {
                 // Update AI content with quiz

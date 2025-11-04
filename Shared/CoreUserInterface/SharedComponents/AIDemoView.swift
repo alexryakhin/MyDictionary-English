@@ -262,11 +262,11 @@ final class AIDemoViewModel: ObservableObject {
         
         do {
             print("🔍 [AIDemoView] Generating comprehensive word information...")
-            wordInformation = try await aiService.generateWordInformation(
-                for: inputWord,
+            wordInformation = try await aiService.request(.wordInfo(
+                word: inputWord,
                 maxDefinitions: 10,
                 inputLanguage: .english
-            )
+            ))
             print("✅ [AIDemoView] Word information generation completed")
             print("🎉 [AIDemoView] Successfully generated \(wordInformation?.definitions.count ?? 0) definitions")
             

@@ -2,7 +2,7 @@
 //  MusicAuthenticationManager.swift
 //  My Dictionary
 //
-//  Created by AI Assistant
+//  Created by Aleksandr Riakhin
 //
 
 import Foundation
@@ -10,6 +10,7 @@ import Foundation
 final class MusicAuthenticationManager {
     static let shared = MusicAuthenticationManager()
     
+    private let keychainService = KeychainService.shared
     private let userDefaults = UserDefaults.standard
     
     private enum Keys {
@@ -19,37 +20,40 @@ final class MusicAuthenticationManager {
         static let appleMusicAuthorized = "apple_music_authorized"
     }
     
-    private init() {}
-    
+    private init() { }
+
     // MARK: - Spotify Token Management
     
-    /// Save Spotify tokens to secure storage
+    /// Save Spotify tokens to secure storage (Keychain)
     func saveSpotifyTokens(accessToken: String, refreshToken: String, expiresIn: TimeInterval) {
         let expirationDate = Date().addingTimeInterval(expiresIn)
         
-        userDefaults.set(accessToken, forKey: Keys.spotifyAccessToken)
-        userDefaults.set(refreshToken, forKey: Keys.spotifyRefreshToken)
+        // Store sensitive tokens in Keychain
+        keychainService.save(accessToken, forKey: Keys.spotifyAccessToken)
+        keychainService.save(refreshToken, forKey: Keys.spotifyRefreshToken)
+        
+        // Store expiration date in UserDefaults (not sensitive, but needed for quick access)
         userDefaults.set(expirationDate.timeIntervalSince1970, forKey: Keys.spotifyTokenExpiration)
         
-        // TODO: Enhance to use Keychain for better security
-        // For now, using UserDefaults - sensitive data should be in Keychain in production
+        print("✅ [MusicAuthManager] Spotify tokens saved to Keychain. Expires: \(expirationDate)")
     }
     
-    /// Load Spotify tokens from secure storage
+    /// Load Spotify tokens from secure storage (Keychain)
     func loadSpotifyTokens() -> (accessToken: String?, refreshToken: String?, expirationDate: Date?) {
-        let accessToken = userDefaults.string(forKey: Keys.spotifyAccessToken)
-        let refreshToken = userDefaults.string(forKey: Keys.spotifyRefreshToken)
+        let accessToken = keychainService.loadString(forKey: Keys.spotifyAccessToken)
+        let refreshToken = keychainService.loadString(forKey: Keys.spotifyRefreshToken)
         let expirationTimeInterval = userDefaults.double(forKey: Keys.spotifyTokenExpiration)
         let expirationDate = expirationTimeInterval > 0 ? Date(timeIntervalSince1970: expirationTimeInterval) : nil
         
         return (accessToken, refreshToken, expirationDate)
     }
     
-    /// Clear Spotify tokens from storage
+    /// Clear Spotify tokens from storage (Keychain and UserDefaults)
     func clearSpotifyTokens() {
-        userDefaults.removeObject(forKey: Keys.spotifyAccessToken)
-        userDefaults.removeObject(forKey: Keys.spotifyRefreshToken)
+        keychainService.delete(forKey: Keys.spotifyAccessToken)
+        keychainService.delete(forKey: Keys.spotifyRefreshToken)
         userDefaults.removeObject(forKey: Keys.spotifyTokenExpiration)
+        print("🗑️ [MusicAuthManager] Spotify tokens cleared from Keychain.")
     }
     
     /// Check if Spotify token is valid (not expired)

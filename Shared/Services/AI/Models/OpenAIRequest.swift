@@ -26,7 +26,7 @@ struct AIUserProfileContext: Codable {
         self.userType = profile.userType.rawValue
         self.ageGroup = profile.ageGroup.rawValue
         self.learningGoals = profile.learningGoals.map { $0.rawValue }
-        self.studyLanguages = profile.studyLanguages.map { "\($0.language.rawValue) (\($0.proficiencyLevel.rawValue))" }
+        self.studyLanguages = profile.studyLanguages.map { "\($0.language.englishName) (\($0.proficiencyLevel.rawValue))" }
         self.interests = profile.interests.map { $0.rawValue }
         self.weeklyWordGoal = profile.weeklyWordGoal
         self.preferredStudyTime = profile.preferredStudyTime.rawValue

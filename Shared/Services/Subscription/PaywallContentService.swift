@@ -120,10 +120,10 @@ final class PaywallContentService: ObservableObject {
         
         do {
             let userLanguage = InputLanguage(rawValue: Locale.current.language.languageCode?.identifier ?? "en") ?? .english
-            let content = try await aiService.generatePaywallContent(
+            let content: AIPaywallContent = try await aiService.request(.paywall(
                 userProfile: userProfile,
                 userLanguage: userLanguage
-            )
+            ))
             
             aiContent = content
             hasGenerated = true

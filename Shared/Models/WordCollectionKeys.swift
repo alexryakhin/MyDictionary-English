@@ -2,7 +2,7 @@
 //  WordCollectionKeys.swift
 //  My Dictionary
 //
-//  Created by AI Assistant on 1/27/25.
+//  Created by Aleksandr Riakhin on 1/27/25.
 //
 
 import Foundation

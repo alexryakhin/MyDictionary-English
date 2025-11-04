@@ -318,12 +318,12 @@ final class FillInTheBlankQuizViewModel: BaseViewModel {
             do {
                 let word = item.quiz_text.trimmed.lowercased()
                 let wordLanguage = item.quiz_languageCode
-                let story = try await aiService.generateSingleFillInTheBlankStory(
-                    word: word, 
+                let story: AIFillInTheBlankStory = try await aiService.request(.fillBlank(
+                    word: word,
                     wordLanguage: wordLanguage,
                     meaning: item.getRandomDefinition(),
                     partOfSpeech: item.quiz_partOfSpeech
-                )
+                ))
                 
                 await MainActor.run {
                     if !Task.isCancelled {
@@ -398,12 +398,12 @@ final class FillInTheBlankQuizViewModel: BaseViewModel {
                 let firstItem = items.first!
                 let firstWord = firstItem.quiz_text.lowercased()
                 let wordLanguage = firstItem.quiz_languageCode
-                let story = try await aiService.generateSingleFillInTheBlankStory(
-                    word: firstWord, 
+                let story: AIFillInTheBlankStory = try await aiService.request(.fillBlank(
+                    word: firstWord,
                     wordLanguage: wordLanguage,
                     meaning: firstItem.getRandomDefinition(),
                     partOfSpeech: firstItem.quiz_partOfSpeech
-                )
+                ))
 
                 await MainActor.run {
                     self.allStories = [story]
@@ -453,12 +453,12 @@ final class FillInTheBlankQuizViewModel: BaseViewModel {
                 // Don't change loading status to prefetching - keep current item visible
                 let nextWord = nextItem.quiz_text.trimmed.lowercased()
                 let wordLanguage = nextItem.quiz_languageCode
-                let story = try await aiService.generateSingleFillInTheBlankStory(
-                    word: nextWord, 
+                let story: AIFillInTheBlankStory = try await aiService.request(.fillBlank(
+                    word: nextWord,
                     wordLanguage: wordLanguage,
                     meaning: nextItem.getRandomDefinition(),
                     partOfSpeech: nextItem.quiz_partOfSpeech
-                )
+                ))
                 
                 await MainActor.run {
                     if !Task.isCancelled {

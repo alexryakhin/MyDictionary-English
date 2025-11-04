@@ -2,7 +2,7 @@
 //  ImagesOnboardingView.swift
 //  My Dictionary
 //
-//  Created by AI Assistant on 1/9/25.
+//  Created by Aleksandr Riakhin on 1/9/25.
 //
 
 import SwiftUI
