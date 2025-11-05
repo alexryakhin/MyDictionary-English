@@ -12,6 +12,7 @@ enum MusicError: Error, LocalizedError {
     case authenticationFailed(String)
     case songNotFound
     case lyricsNotFound
+    case lessonNotFound
     case invalidDuration
     case playbackNotSupported
     case networkError(String)
@@ -31,6 +32,8 @@ enum MusicError: Error, LocalizedError {
             return "Song not found"
         case .lyricsNotFound:
             return "Lyrics not available for this song"
+        case .lessonNotFound:
+            return "Lesson not found"
         case .invalidDuration:
             return "Invalid song duration"
         case .playbackNotSupported:

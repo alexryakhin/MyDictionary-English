@@ -62,6 +62,10 @@ enum UDKeys {
     static let aiPaywallContent = "aiPaywallContent"
     static let aiPaywallContentTimestamp = "aiPaywallContentTimestamp"
     
+    // Music Suggestions Cache
+    static let musicSuggestionsCache = "musicSuggestionsCache"
+    static let musicSuggestionsCacheTimestamp = "musicSuggestionsCacheTimestamp"
+    
     // Apple Music
     static let appleMusicAuthorized = "apple_music_authorized"
 }
@@ -305,6 +309,22 @@ enum UDService {
         }
         set {
             UserDefaults.standard.set(newValue?.timeIntervalSince1970 ?? 0, forKey: UDKeys.aiPaywallContentTimestamp)
+        }
+    }
+    
+    // Music Suggestions Cache
+    static var musicSuggestionsCacheData: Data? {
+        get { UserDefaults.standard.data(forKey: UDKeys.musicSuggestionsCache) }
+        set { UserDefaults.standard.set(newValue, forKey: UDKeys.musicSuggestionsCache) }
+    }
+    
+    static var musicSuggestionsCacheTimestamp: Date? {
+        get {
+            let timeInterval = UserDefaults.standard.double(forKey: UDKeys.musicSuggestionsCacheTimestamp)
+            return timeInterval > 0 ? Date(timeIntervalSince1970: timeInterval) : nil
+        }
+        set {
+            UserDefaults.standard.set(newValue?.timeIntervalSince1970 ?? 0, forKey: UDKeys.musicSuggestionsCacheTimestamp)
         }
     }
 

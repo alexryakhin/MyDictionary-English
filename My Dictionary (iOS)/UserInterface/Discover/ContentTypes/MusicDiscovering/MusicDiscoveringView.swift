@@ -97,12 +97,41 @@ struct MusicDiscoveringView<ContentPicker: View>: View {
 
     @ViewBuilder
     private var suggestionsSection: some View {
+        // Daily 5 Section
         if viewModel.suggestedSongs.isNotEmpty {
-            CustomSectionView(header: "Suggested Songs") {
+            CustomSectionView(header: "Your Daily 5") {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 16) {
-                        ForEach(viewModel.suggestedSongs) { song in
-                            SongSuggestionCard(song: song) {
+                        ForEach(Array(viewModel.suggestedSongs.prefix(5))) { song in
+                            SongSuggestionCard(
+                                song: song,
+                                songTag: viewModel.songTags[song.id],
+                                generationCount: viewModel.songGenerationCounts[song.id]
+                            ) {
+                                Task {
+                                    await viewModel.selectSong(song)
+                                }
+                            }
+                        }
+                    }
+                    .padding(.vertical, 8)
+                }
+                .scrollTargetBehavior(.viewAligned)
+                .scrollClipDisabled()
+            }
+        }
+        
+        // Because you mastered section
+        if viewModel.dictionaryWordSongs.isNotEmpty {
+            CustomSectionView(header: "Because you mastered...") {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 16) {
+                        ForEach(viewModel.dictionaryWordSongs) { song in
+                            SongSuggestionCard(
+                                song: song,
+                                songTag: viewModel.songTags[song.id],
+                                generationCount: viewModel.songGenerationCounts[song.id]
+                            ) {
                                 Task {
                                     await viewModel.selectSong(song)
                                 }
@@ -182,7 +211,7 @@ struct MusicDiscoveringView<ContentPicker: View>: View {
         case .suggestions:
             if case .loadingSuggestions = viewModel.loadingStatus {
                 loadingSuggestionsView
-            } else if viewModel.suggestedSongs.isEmpty {
+            } else if viewModel.suggestedSongs.isEmpty && viewModel.dictionaryWordSongs.isEmpty {
                 emptySuggestionsView
             }
         case .history:

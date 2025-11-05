@@ -124,4 +124,28 @@
         <attribute name="totalAttempts" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="wordId" optional="YES" attributeType="String" defaultValueString=""/>
     </entity>
+    <entity name="MusicLesson" representedClassName="CDMusicLesson" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="songId" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="adaptedContent" optional="YES" attributeType="Binary"/>
+        <attribute name="userLevel" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="savedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="lastAccessed" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="isFavorite" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="MusicLike" representedClassName="CDMusicLike" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="songId" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="itemId" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="itemType" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="likedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="MusicQuizPerformance" representedClassName="CDMusicQuizPerformance" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="songId" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="quizItemId" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="isCorrect" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="answeredAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="timeSpent" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+    </entity>
 </model>

@@ -199,3 +199,33 @@ struct AIFillInTheBlankOption: Codable, JSONSchemaConvertible {
     }()
 }
 
+// MARK: - AI Music Suggestions Response Models
+
+struct AISongSuggestion: Codable, JSONSchemaConvertible {
+    let title: String
+    let artist: String
+    let language: String
+    let reason: String
+    
+    static let example: Self = {
+        .init(
+            title: "Despacito",
+            artist: "Luis Fonsi",
+            language: "es",
+            reason: "Popular Spanish song with clear pronunciation, good for learning Spanish vocabulary"
+        )
+    }()
+}
+
+struct AISongSuggestionsResponse: Codable, JSONSchemaConvertible {
+    let suggestedSongs: [AISongSuggestion]
+    let dictionaryWordSongs: [AISongSuggestion]
+    
+    static let example: Self = {
+        .init(
+            suggestedSongs: [AISongSuggestion.example],
+            dictionaryWordSongs: [AISongSuggestion.example]
+        )
+    }()
+}
+

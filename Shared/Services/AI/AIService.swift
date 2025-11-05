@@ -108,6 +108,8 @@ final class AIService: ObservableObject {
         case paywall(userProfile: UserOnboardingProfile, userLanguage: InputLanguage)
         case musicContent(song: Song, lyrics: SongLyrics, targetLanguage: InputLanguage, cefrLevel: CEFRLevel)
         case musicQuiz(song: Song, lyrics: SongLyrics, targetLanguage: InputLanguage)
+        case musicSuggestions(userProfile: UserOnboardingProfile, dictionaryWords: [String]?)
+        case musicPreListenHook(song: Song, lyrics: String, targetLanguage: InputLanguage, cefrLevel: CEFRLevel)
     }
 
     // MARK: - Centralized Request Handler
@@ -237,6 +239,22 @@ final class AIService: ObservableObject {
                 song: song,
                 lyrics: lyricsText,
                 targetLanguage: targetLanguage,
+                userLanguage: getCurrentAppLanguage()
+            )
+            
+        case .musicSuggestions(let userProfile, let dictionaryWords):
+            return buildMusicSuggestionsPrompt(
+                userProfile: userProfile,
+                dictionaryWords: dictionaryWords,
+                userLanguage: getCurrentAppLanguage()
+            )
+            
+        case .musicPreListenHook(let song, let lyrics, let targetLanguage, let cefrLevel):
+            return buildMusicPreListenHookPrompt(
+                song: song,
+                lyrics: lyrics,
+                targetLanguage: targetLanguage,
+                cefrLevel: cefrLevel,
                 userLanguage: getCurrentAppLanguage()
             )
         }
@@ -670,5 +688,128 @@ extension AIService {
         
         Ensure questions are fair and test genuine comprehension, not trivial details.
         """
+    }
+    
+    private func buildMusicPreListenHookPrompt(
+        song: Song,
+        lyrics: String,
+        targetLanguage: InputLanguage,
+        cefrLevel: CEFRLevel,
+        userLanguage: String
+    ) -> String {
+        return """
+        IMPORTANT: This is for EDUCATIONAL PURPOSES in a language learning application. Create a pre-listen hook to prepare a learner for listening to a song.
+        
+        Song Information:
+        - Title: "\(song.title)"
+        - Artist: "\(song.artist)"
+        
+        Target Language: \(targetLanguage.englishName) (\(targetLanguage.rawValue))
+        User Language: \(userLanguage)
+        CEFR Level: \(cefrLevel.rawValue)
+        
+        Lyrics:
+        \(lyrics)
+        
+        Create a pre-listen hook with the following components:
+        
+        1. HOOK: A brief, engaging introduction (30-50 words) that:
+           - Captures the song's theme or mood
+           - Highlights what the learner should focus on while listening
+           - Sets expectations for vocabulary and grammar they'll encounter
+           - Written in \(userLanguage)
+        
+        2. TARGET PHRASES: Exactly 3 key phrases to watch for:
+           - Select phrases that are important for understanding the song
+           - Include the original phrase in \(targetLanguage.englishName)
+           - Provide translation in \(userLanguage)
+           - Assign appropriate CEFR level (A1, A2, B1, B2, C1, C2)
+           - Include brief context about where/when it appears in the song
+        
+        3. GRAMMAR HIGHLIGHT (optional): One grammar point to watch for:
+           - Should be relevant to the song's lyrics
+           - Appropriate for \(cefrLevel.rawValue) level learners
+           - Brief explanation (1-2 sentences) in \(userLanguage)
+        
+        4. CULTURAL NOTE (optional): Brief cultural context:
+           - Historical or social significance if relevant
+           - Why this song matters culturally
+           - Written in \(userLanguage)
+        
+        Make the hook engaging and motivating, helping the learner prepare for an enjoyable learning experience.
+        """
+    }
+    
+    private func buildMusicSuggestionsPrompt(
+        userProfile: UserOnboardingProfile,
+        dictionaryWords: [String]?,
+        userLanguage: String
+    ) -> String {
+        let studyLanguages = userProfile.studyLanguages.map { "\($0.language.englishName) (\($0.proficiencyLevel.rawValue))" }.joined(separator: ", ")
+        let interests = userProfile.interests.map { $0.rawValue }.joined(separator: ", ")
+        let ageGroup = userProfile.ageGroup.rawValue
+        
+        var prompt = """
+        IMPORTANT: This is for EDUCATIONAL PURPOSES in a language learning application. Suggest songs that will help the user learn their target languages.
+        
+        USER PROFILE:
+        - Study Languages: \(studyLanguages)
+        - Age Group: \(ageGroup)
+        - Interests: \(interests)
+        - Learning Goals: \(userProfile.learningGoals.map { $0.rawValue }.joined(separator: ", "))
+        - Weekly Word Goal: \(userProfile.weeklyWordGoal) words
+        
+        """
+        
+        if let dictionaryWords = dictionaryWords, !dictionaryWords.isEmpty {
+            let wordsList = Array(dictionaryWords.prefix(30)).joined(separator: ", ")
+            prompt += """
+            USER'S DICTIONARY WORDS (top 30):
+            \(wordsList)
+            
+            """
+        }
+        
+        prompt += """
+        TASK:
+        Suggest 15-20 songs that:
+        1. Are in the user's study languages ONLY (do not suggest songs in other languages)
+        2. Match the user's interests and age group
+        3. Are appropriate for language learning (clear lyrics, good pronunciation)
+        4. Include songs that contain words from the user's dictionary (if provided)
+        5. Include a mix of popular and educational songs
+        6. Consider the user's proficiency levels
+        
+        OUTPUT REQUIREMENTS:
+        - Provide song title and artist name for each song
+        - Include a brief reason why each song is suggested (1-2 sentences)
+        - Group suggestions into two categories:
+          * "Suggested Songs" - based on interests, age, and language learning goals
+          * "Songs for Your Words" - songs that contain words from the user's dictionary
+        
+        CRITICAL: Only suggest songs in the user's study languages. Do NOT suggest English songs unless English is one of the study languages.
+        
+        Response should be in JSON format with the following structure:
+        {
+          "suggestedSongs": [
+            {
+              "title": "Song Title",
+              "artist": "Artist Name",
+              "language": "es",
+              "reason": "Why this song is suggested"
+            }
+          ],
+          "dictionaryWordSongs": [
+            {
+              "title": "Song Title",
+              "artist": "Artist Name",
+              "language": "es",
+              "reason": "Contains words from user's dictionary"
+            }
+          ]
+        }
+        """
+        
+        return prompt
     }
 }

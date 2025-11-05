@@ -17,30 +17,36 @@ struct MusicPlayerView: View {
     @State private var showingExplanation = false
     @State private var showingQuiz = false
     @State private var showingVocabulary = false
+    @State private var showingPreListen = false
+    @State private var showingDeepDive = false
+    @State private var showingPractice = false
+    @State private var currentStage: LearningStage = .preListen
     
     var body: some View {
-        VStack(spacing: 24) {
-            // Album Artwork
-            albumArtworkView
+        ScrollView {
+            VStack(spacing: 24) {
+                // 5-Stage Progress Indicator
+                learningStagesIndicator
+                
+                // Album Artwork
+                albumArtworkView
 
-            // Song Info
-            songInfoView
+                // Song Info
+                songInfoView
 
-            // Progress Slider
-            progressSlider
+                // Progress Slider
+                progressSlider
 
-            // Controls
-            playbackControls
+                // Controls
+                playbackControls
+                
+                // Stage-specific content
+                stageContent
 
-            // Lyrics Section
-            if let lyrics = lyrics {
-                lyricsSection(lyrics: lyrics)
-            } else {
-                lyricsUnavailableView
+                // AI Features Section
+                aiFeaturesSection
             }
-
-            // AI Features Section
-            aiFeaturesSection
+            .padding()
         }
         .sheet(isPresented: $showingExplanation) {
             if let aiContent = viewModel.aiContent {
@@ -64,6 +70,137 @@ struct MusicPlayerView: View {
                 )
             }
         }
+        .sheet(isPresented: $showingPreListen) {
+            if let hook = viewModel.preListenHook {
+                PreListenView(hook: hook, song: song)
+            }
+        }
+        .sheet(isPresented: $showingDeepDive) {
+            if let adaptedLesson = getAdaptedLesson() {
+                DeepDiveCardsView(lesson: adaptedLesson)
+            }
+        }
+        .sheet(isPresented: $showingPractice) {
+            if let lyrics = lyrics {
+                PracticeView(song: song, lyrics: lyrics, viewModel: viewModel)
+            }
+        }
+        .onAppear {
+            // Generate pre-listen hook on appear
+            if viewModel.preListenHook == nil && lyrics?.hasLyrics == true {
+                Task {
+                    await viewModel.generatePreListenHook()
+                }
+            }
+        }
+    }
+    
+    // MARK: - Learning Stages Indicator
+    
+    private var learningStagesIndicator: some View {
+        VStack(spacing: 12) {
+            HStack(spacing: 8) {
+                ForEach(LearningStage.allCases) { stage in
+                    Button(action: {
+                        currentStage = stage
+                    }) {
+                        StageIndicator(
+                            stage: stage,
+                            isActive: currentStage == stage,
+                            isCompleted: isStageCompleted(stage)
+                        )
+                    }
+                    .buttonStyle(.plain)
+                }
+            }
+            
+            Text(currentStage.description)
+                .font(.caption)
+                .foregroundColor(.secondary)
+        }
+        .padding(.vertical, 8)
+    }
+    
+    private func isStageCompleted(_ stage: LearningStage) -> Bool {
+        switch stage {
+        case .preListen:
+            return viewModel.preListenHook != nil
+        case .listenRead:
+            return musicPlayer.currentTime > 0
+        case .deepDive:
+            return viewModel.aiContent != nil
+        case .practice:
+            return false // Will be tracked when practice is implemented
+        case .quiz:
+            return viewModel.currentSession?.hasCompletedQuiz == true
+        }
+    }
+    
+    // MARK: - Stage Content
+    
+    @ViewBuilder
+    private var stageContent: some View {
+        switch currentStage {
+        case .preListen:
+            if let hook = viewModel.preListenHook {
+                PreListenView(hook: hook, song: song)
+            } else if viewModel.isLoadingPreListenHook {
+                ProgressView("Loading pre-listen guide...")
+                    .padding()
+            } else {
+                Button("Generate Pre-Listen Guide") {
+                    Task {
+                        await viewModel.generatePreListenHook()
+                    }
+                }
+                .padding()
+            }
+            
+        case .listenRead:
+            if let lyrics = lyrics {
+                lyricsSection(lyrics: lyrics)
+            } else {
+                lyricsUnavailableView
+            }
+            
+        case .deepDive:
+            if let adaptedLesson = getAdaptedLesson() {
+                DeepDiveCardsView(lesson: adaptedLesson)
+            } else {
+                Button("Generate Deep Dive") {
+                    Task {
+                        await viewModel.generateExplanation()
+                    }
+                }
+                .padding()
+            }
+            
+        case .practice:
+            if let lyrics = lyrics {
+                PracticeView(song: song, lyrics: lyrics, viewModel: viewModel)
+            } else {
+                Text("Lyrics needed for practice")
+                    .foregroundColor(.secondary)
+                    .padding()
+            }
+            
+        case .quiz:
+            if let quiz = viewModel.aiContent?.quiz {
+                MusicQuizView(quiz: quiz, viewModel: viewModel)
+            } else {
+                Button("Generate Quiz") {
+                    Task {
+                        await viewModel.generateQuiz()
+                    }
+                }
+                .padding()
+            }
+        }
+    }
+    
+    private func getAdaptedLesson() -> AdaptedLesson? {
+        // Get adapted lesson from viewModel
+        return viewModel.adaptedLesson
     }
     
     // MARK: - Album Artwork
@@ -201,9 +338,10 @@ struct MusicPlayerView: View {
     
     private func lyricsSection(lyrics: SongLyrics) -> some View {
         CustomSectionView(header: "Lyrics") {
-            LyricsDisplayView(
+            EnhancedLyricsView(
                 lyrics: lyrics,
-                currentTime: musicPlayer.currentTime
+                currentTime: musicPlayer.currentTime,
+                viewModel: viewModel
             )
         }
     }
