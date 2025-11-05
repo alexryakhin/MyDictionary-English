@@ -22,7 +22,7 @@ struct MusicDiscoveringView<ContentPicker: View>: View {
     }
 
     enum MusicTab: String, CaseIterable {
-        case suggestions = "Suggestions"
+        case suggestions = "For you"
         case history = "History"
         case nowPlaying = "Now Playing"
         
@@ -97,12 +97,12 @@ struct MusicDiscoveringView<ContentPicker: View>: View {
 
     @ViewBuilder
     private var suggestionsSection: some View {
-        // Daily 5 Section
-        if viewModel.suggestedSongs.isNotEmpty {
+        // "Your Daily 5" - Only show songs with artwork
+        if viewModel.recommendationSongs.isNotEmpty {
             CustomSectionView(header: "Your Daily 5") {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 16) {
-                        ForEach(Array(viewModel.suggestedSongs.prefix(5))) { song in
+                        ForEach(Array(viewModel.recommendationSongs.prefix(5))) { song in
                             SongSuggestionCard(
                                 song: song,
                                 songTag: viewModel.songTags[song.id],
@@ -121,12 +121,12 @@ struct MusicDiscoveringView<ContentPicker: View>: View {
             }
         }
         
-        // Because you mastered section
-        if viewModel.dictionaryWordSongs.isNotEmpty {
+        // Because you mastered section (only if user has mastered songs)
+        if viewModel.hasMasteredSongs() && viewModel.masteredSongs.isNotEmpty {
             CustomSectionView(header: "Because you mastered...") {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 16) {
-                        ForEach(viewModel.dictionaryWordSongs) { song in
+                        ForEach(viewModel.masteredSongs) { song in
                             SongSuggestionCard(
                                 song: song,
                                 songTag: viewModel.songTags[song.id],
@@ -144,6 +144,22 @@ struct MusicDiscoveringView<ContentPicker: View>: View {
                 .scrollClipDisabled()
             }
         }
+    }
+    
+    // MARK: - Helper Methods
+    
+    private func getSongTag(for item: RecommendationItem) -> SongTag? {
+        if case .song(let recommendationSong) = item {
+            return viewModel.songTags[recommendationSong.id]
+        }
+        return nil
+    }
+    
+    private func getGenerationCount(for item: RecommendationItem) -> Int? {
+        if case .song(let recommendationSong) = item {
+            return viewModel.songGenerationCounts[recommendationSong.id]
+        }
+        return nil
     }
 
     // MARK: - History Section
@@ -211,7 +227,7 @@ struct MusicDiscoveringView<ContentPicker: View>: View {
         case .suggestions:
             if case .loadingSuggestions = viewModel.loadingStatus {
                 loadingSuggestionsView
-            } else if viewModel.suggestedSongs.isEmpty && viewModel.dictionaryWordSongs.isEmpty {
+            } else if viewModel.recommendationSongs.isEmpty && viewModel.masteredSongs.isEmpty {
                 emptySuggestionsView
             }
         case .history:

@@ -60,7 +60,6 @@ final class MusicLessonService {
         // Generate lesson with AI
         let response: MusicDiscoveringResponse = try await aiService.request(.musicContent(
             song: song,
-            lyrics: lyrics,
             targetLanguage: targetLanguage,
             cefrLevel: userLevel
         ))
@@ -346,7 +345,6 @@ final class MusicLessonService {
         let hook: PreListenHook = try await aiService.request(
             .musicPreListenHook(
                 song: song,
-                lyrics: lyrics,
                 targetLanguage: targetLanguage,
                 cefrLevel: userLevel
             )

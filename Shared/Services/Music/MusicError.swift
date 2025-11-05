@@ -21,6 +21,7 @@ enum MusicError: Error, LocalizedError {
     case tokenRefreshFailed
     case appleMusicNotRegistered
     case appleMusicSubscriptionRequired
+    case invalidCEFRLevel
     
     var errorDescription: String? {
         switch self {
@@ -50,6 +51,8 @@ enum MusicError: Error, LocalizedError {
             return "This app needs to be registered for MusicKit in App Store Connect. Please contact support."
         case .appleMusicSubscriptionRequired:
             return "An Apple Music subscription is required to use this feature. You can subscribe in the Music app or Settings."
+        case .invalidCEFRLevel:
+            return "Invalid CEFR level"
         }
     }
 }

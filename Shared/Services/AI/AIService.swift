@@ -102,14 +102,15 @@ final class AIService: ObservableObject {
     public enum Request {
         case wordInfo(word: String, maxDefinitions: Int, inputLanguage: InputLanguage)
         case sentences(sentences: [(sentence: String, targetWord: String)])
-        case contextQuestion(word: String, wordLanguage: String, partOfSpeech: String?)
-        case fillBlank(word: String, wordLanguage: String, meaning: String?, partOfSpeech: String?)
+        case contextQuestion(word: String, wordLanguage: InputLanguage, partOfSpeech: String?)
+        case fillBlank(word: String, wordLanguage: InputLanguage, meaning: String?, partOfSpeech: String?)
         case story(input: StoryInput)
         case paywall(userProfile: UserOnboardingProfile, userLanguage: InputLanguage)
-        case musicContent(song: Song, lyrics: SongLyrics, targetLanguage: InputLanguage, cefrLevel: CEFRLevel)
-        case musicQuiz(song: Song, lyrics: SongLyrics, targetLanguage: InputLanguage)
+        case musicContent(song: Song, targetLanguage: InputLanguage, cefrLevel: CEFRLevel)
+        case musicQuiz(song: Song, targetLanguage: InputLanguage)
         case musicSuggestions(userProfile: UserOnboardingProfile, dictionaryWords: [String]?)
-        case musicPreListenHook(song: Song, lyrics: String, targetLanguage: InputLanguage, cefrLevel: CEFRLevel)
+        case musicPreListenHook(song: Song, targetLanguage: InputLanguage, cefrLevel: CEFRLevel)
+        case musicRecommendations(language: InputLanguage, cefrLevel: CEFRLevel, userProfile: UserOnboardingProfile)
     }
 
     // MARK: - Centralized Request Handler
@@ -223,21 +224,18 @@ final class AIService: ObservableObject {
         case .paywall(let userProfile, let userLanguage):
             return buildPaywallPrompt(userProfile: userProfile, userLanguage: userLanguage)
 
-        case .musicContent(let song, let lyrics, let targetLanguage, let cefrLevel):
-            let lyricsText = lyrics.bestLyrics ?? lyrics.plainLyrics ?? ""
+        case .musicContent(let song, let targetLanguage, let cefrLevel):
+            // DO NOT send lyrics text - only song info
             return buildMusicDiscoveringPrompt(
                 song: song,
-                lyrics: lyricsText,
                 targetLanguage: targetLanguage,
                 cefrLevel: cefrLevel,
                 userLanguage: getCurrentAppLanguage()
             )
 
-        case .musicQuiz(let song, let lyrics, let targetLanguage):
-            let lyricsText = lyrics.bestLyrics ?? lyrics.plainLyrics ?? ""
+        case .musicQuiz(let song, let targetLanguage):
             return buildMusicQuizPrompt(
                 song: song,
-                lyrics: lyricsText,
                 targetLanguage: targetLanguage,
                 userLanguage: getCurrentAppLanguage()
             )
@@ -249,12 +247,19 @@ final class AIService: ObservableObject {
                 userLanguage: getCurrentAppLanguage()
             )
             
-        case .musicPreListenHook(let song, let lyrics, let targetLanguage, let cefrLevel):
+        case .musicPreListenHook(let song, let targetLanguage, let cefrLevel):
             return buildMusicPreListenHookPrompt(
                 song: song,
-                lyrics: lyrics,
                 targetLanguage: targetLanguage,
                 cefrLevel: cefrLevel,
+                userLanguage: getCurrentAppLanguage()
+            )
+            
+        case .musicRecommendations(let language, let cefrLevel, let userProfile):
+            return buildMusicRecommendationsPrompt(
+                language: language,
+                cefrLevel: cefrLevel,
+                userProfile: userProfile,
                 userLanguage: getCurrentAppLanguage()
             )
         }
@@ -319,9 +324,9 @@ final class AIService: ObservableObject {
     }
 
 
-    private func getCurrentAppLanguage() -> String {
+    private func getCurrentAppLanguage() -> InputLanguage {
         let currentLanguageCode = Locale.current.language.languageCode?.identifier ?? "en"
-        return Locale(identifier: "en_US").localizedString(forLanguageCode: currentLanguageCode) ?? "English"
+        return InputLanguage(rawValue: currentLanguageCode) ?? .english
     }
 
     // MARK: - Prompt Building Methods
@@ -358,7 +363,7 @@ final class AIService: ObservableObject {
 
     private func buildSentencesEvaluationPrompt(
         sentences: [(sentence: String, targetWord: String)],
-        userLanguage: String
+        userLanguage: InputLanguage
     ) -> String {
         let sentencesList = sentences.enumerated().map { index, item in
             "\(index + 1). Target Word: '\(item.targetWord)' | Sentence: '\(item.sentence)'"
@@ -367,40 +372,40 @@ final class AIService: ObservableObject {
         return """
         IMPORTANT: This is for EDUCATIONAL PURPOSES in a language learning application. Evaluate the given sentences for correct usage of their target words.
         
-        User Language: \(userLanguage)
+        User Language: \(userLanguage.englishName)
         
         Sentences to evaluate:
         \(sentencesList)
         
-        Evaluate each sentence and provide feedback in \(userLanguage).
+        Evaluate each sentence and provide feedback in \(userLanguage.englishName).
         
         IMPORTANT RULES:
         1. Evaluate each sentence independently
         2. Usage score focuses on whether the word is used correctly in context
         3. Grammar score focuses on sentence structure and syntax
         4. Overall score should be a weighted average (usage 70%, grammar 30%)
-        5. Feedback should be educational and constructive in \(userLanguage)
+        5. Feedback should be educational and constructive in \(userLanguage.englishName)
         6. isCorrect should be true if the word is used correctly (overall score >= 60)
-        7. Suggestions should be specific and actionable in \(userLanguage)
+        7. Suggestions should be specific and actionable in \(userLanguage.englishName)
         8. Be encouraging but honest about mistakes
         9. Consider context, meaning, and natural language usage
-        10. All feedback and suggestions must be in \(userLanguage)
+        10. All feedback and suggestions must be in \(userLanguage.englishName)
         """
     }
 
     private func buildSingleContextQuestionPrompt(
         word: String,
-        wordLanguage: String,
-        userLanguage: String,
+        wordLanguage: InputLanguage,
+        userLanguage: InputLanguage,
         partOfSpeech: String? = nil
     ) -> String {
         var prompt = """
         IMPORTANT: This is for EDUCATIONAL PURPOSES in a language learning application. Create a multiple choice question to test understanding of word usage in context.
         
-        Word Language: \(wordLanguage)
-        User Language: \(userLanguage)
+        Word Language: \(wordLanguage.englishName)
+        User Language: \(userLanguage.englishName)
         
-        Word to create question for: '\(word)' (in \(wordLanguage))
+        Word to create question for: '\(word)' (in \(wordLanguage.englishName))
         """
 
         if let partOfSpeech = partOfSpeech, !partOfSpeech.isEmpty {
@@ -413,13 +418,13 @@ final class AIService: ObservableObject {
         
         IMPORTANT RULES:
         1. Only ONE option should be correct
-        2. All sentences must be in \(wordLanguage) (the word's language)
-        3. Only explanations should be in \(userLanguage) (the user's language)
-        4. Incorrect options should show common mistakes or wrong contexts in \(wordLanguage)
-        5. Sentences should be natural and realistic in \(wordLanguage)
-        6. Explanations should be educational and clear in \(userLanguage)
+        2. All sentences must be in \(wordLanguage.englishName) (the word's language)
+        3. Only explanations should be in \(userLanguage.englishName) (the user's language)
+        4. Incorrect options should show common mistakes or wrong contexts in \(wordLanguage.englishName)
+        5. Sentences should be natural and realistic in \(wordLanguage.englishName)
+        6. Explanations should be educational and clear in \(userLanguage.englishName)
         7. Make the question challenging but fair
-        8. Consider different meanings and contexts of the word in \(wordLanguage)
+        8. Consider different meanings and contexts of the word in \(wordLanguage.englishName)
         9. Ensure the correct answer is clearly the best choice
         10. Use the word as a \(partOfSpeech ?? "word") in all sentences
         11. Question might include some context that is important
@@ -430,18 +435,18 @@ final class AIService: ObservableObject {
 
     private func buildSingleFillInTheBlankStoryPrompt(
         word: String,
-        wordLanguage: String,
-        userLanguage: String,
+        wordLanguage: InputLanguage,
+        userLanguage: InputLanguage,
         meaning: String? = nil,
         partOfSpeech: String? = nil
     ) -> String {
         var prompt = """
         IMPORTANT: This is for EDUCATIONAL PURPOSES in a language learning application. Create a multiple-choice fill-in-the-blank story for vocabulary practice.
         
-        Word Language: \(wordLanguage)
-        User Language: \(userLanguage)
+        Word Language: \(wordLanguage.englishName)
+        User Language: \(userLanguage.englishName)
         
-        Word to create story for: '\(word)' (in \(wordLanguage))
+        Word to create story for: '\(word)' (in \(wordLanguage.englishName))
         """
 
         if let partOfSpeech = partOfSpeech, !partOfSpeech.isEmpty {
@@ -462,10 +467,10 @@ final class AIService: ObservableObject {
         
         IMPORTANT RULES:
         1. Provide exactly 4 options: 1 correct and 3 incorrect
-        2. All story content and options must be in \(wordLanguage) (the word's language)
-        3. Only explanations should be in \(userLanguage) (the user's language)
-        4. Incorrect options should be plausible but clearly wrong in \(wordLanguage)
-        5. Each option should have a clear explanation in \(userLanguage)
+        2. All story content and options must be in \(wordLanguage.englishName) (the word's language)
+        3. Only explanations should be in \(userLanguage.englishName) (the user's language)
+        4. Incorrect options should be plausible but clearly wrong in \(wordLanguage.englishName)
+        5. Each option should have a clear explanation in \(userLanguage.englishName)
         6. Story should be appropriate for language learning
         7. The correct word should be the best choice for the blank
         8. Use the word as a \(partOfSpeech ?? "word") in the story - maintain proper grammatical usage
@@ -598,13 +603,12 @@ extension AIService {
 
     private func buildMusicDiscoveringPrompt(
         song: Song,
-        lyrics: String,
         targetLanguage: InputLanguage,
         cefrLevel: CEFRLevel,
-        userLanguage: String
+        userLanguage: InputLanguage
     ) -> String {
         return """
-        IMPORTANT: This is for EDUCATIONAL PURPOSES in a language learning application. Analyze a song and its lyrics to help a user learn \(targetLanguage.englishName).
+        IMPORTANT: This is for EDUCATIONAL PURPOSES in a language learning application. Analyze a song to help a user learn \(targetLanguage.englishName).
         
         Song Information:
         - Title: "\(song.title)"
@@ -615,47 +619,73 @@ extension AIService {
         User Language: \(userLanguage)
         CEFR Level: \(cefrLevel.rawValue)
         
-        Lyrics:
-        \(lyrics)
+        CRITICAL: DO NOT request or include the full lyrics text. Focus on educational content based on the song's title, artist, and cultural context.
         
-        Generate comprehensive learning content:
+        Generate comprehensive learning content that MUST include:
         
-        1. SONG INFO: Create a SongInfo object with title, artist, album, and detected language
+        1. PRE-LISTEN HOOK or CONTEXT SUMMARY (REQUIRED - must be first):
+           - A short introduction (30-50 words) that introduces the emotional and cultural theme
+           - Sets expectations for what the learner will discover
+           - Written in \(userLanguage)
+           - Should capture the song's mood, cultural significance, and learning value
         
-        2. EXPLANATIONS: Provide explanations for key lyric lines (5-10 explanations):
-           - Focus on lines with interesting vocabulary, idioms, or cultural references
-           - Explain meaning, context, and cultural significance when relevant
-           - Keep explanations appropriate for \(cefrLevel.rawValue) level
-           - All explanations in \(userLanguage)
+        2. SONG INFO: Create a SongInfo object with title, artist, album, and detected language
         
-        3. VOCABULARY WORDS: Extract 10-20 important vocabulary words from the lyrics:
+        3. IDIOMS, KEY PHRASES, AND EXPRESSIONS (REQUIRED):
+           - Based on the song's title, artist, and cultural context, provide 5-10 important idioms, phrases, and expressions that would typically appear in this type of song
+           - Provide clear meanings and explanations in \(userLanguage)
+           - Explain cultural and emotional interpretation (what it means beyond words)
+           - Include everyday examples showing how learners can use these phrases naturally in conversation
+           - Level-appropriate explanations for \(cefrLevel.rawValue) level
+           - For each phrase, include:
+             * The original phrase in \(targetLanguage.englishName)
+             * Literal translation
+             * Cultural/emotional meaning
+             * 2-3 example sentences showing natural usage in conversation
+        
+        4. VOCABULARY WORDS: Provide 10-20 important vocabulary words:
+           - Based on the song's theme and cultural context, suggest words that would be useful for learning
            - Focus on words that are useful for language learning
            - Include part of speech (noun, verb, adjective, etc.)
            - Provide clear definitions in \(userLanguage)
            - Include 2-3 example sentences showing word usage
-           - Include the context line from lyrics where word appears
+           - Level-appropriate for \(cefrLevel.rawValue) level
         
-        4. CULTURAL CONTEXT: Provide a brief paragraph explaining:
+        5. CULTURAL AND EMOTIONAL INTERPRETATION (REQUIRED):
+           - Explain what the song means beyond the literal words (based on title, artist, and cultural context)
            - Cultural themes or references in the song
            - Historical or social context if relevant
+           - Emotional undertones and subtext
            - Why this song is culturally significant
            - Written in \(userLanguage)
+           - Appropriate for \(cefrLevel.rawValue) level learners
         
-        5. QUIZ (optional): Create a comprehension quiz with 3-5 questions:
-           - Questions should test understanding of lyrics, vocabulary, or cultural context
+        6. EVERYDAY USAGE EXAMPLES (REQUIRED):
+           - Show how learners can use the idioms and phrases naturally in conversation
+           - Provide 5-8 example dialogues or scenarios
+           - Make examples relevant to daily life situations
+           - Written in \(targetLanguage.englishName) with translations in \(userLanguage)
+        
+        7. EXPLANATIONS: Provide explanations for key concepts (5-10 explanations):
+           - Focus on interesting vocabulary, idioms, or cultural references related to the song
+           - Explain meaning, context, and cultural significance
+           - Keep explanations appropriate for \(cefrLevel.rawValue) level
+           - All explanations in \(userLanguage)
+        
+        8. QUIZ (optional): Create a comprehension quiz with 3-5 questions:
+           - Questions should test understanding of idioms, phrases, vocabulary, or cultural context
            - Each question: 4 multiple choice options, 1 correct answer
            - Include explanations for correct answers
            - Questions in \(targetLanguage.englishName), explanations in \(userLanguage)
         
-        Focus on making the content educational and accessible for \(cefrLevel.rawValue) level learners.
+        Remember: The output MUST always begin with a short Pre-Listen Hook or Context Summary. Focus on idioms, phrases, cultural interpretation, and practical usage examples. All content should be appropriate for \(cefrLevel.rawValue) level learners.
         """
     }
 
     private func buildMusicQuizPrompt(
         song: Song,
-        lyrics: String,
         targetLanguage: InputLanguage,
-        userLanguage: String
+        userLanguage: InputLanguage
     ) -> String {
         return """
         IMPORTANT: This is for EDUCATIONAL PURPOSES in a language learning application. Create a comprehension quiz based on song lyrics.
@@ -667,9 +697,6 @@ extension AIService {
         Target Language: \(targetLanguage.englishName)
         User Language: \(userLanguage)
         
-        Lyrics:
-        \(lyrics)
-        
         Create a comprehension quiz with 5-8 questions:
         
         Each question should:
@@ -678,7 +705,7 @@ extension AIService {
         - Have exactly ONE correct answer
         - Include a brief explanation (max 200 characters) for why the correct answer is right
         - Questions should be in \(targetLanguage.englishName)
-        - Explanations should be in \(userLanguage)
+        - Explanations should be in \(userLanguage.englishName)
         
         Question types can include:
         - Understanding specific lyric meanings
@@ -692,10 +719,9 @@ extension AIService {
     
     private func buildMusicPreListenHookPrompt(
         song: Song,
-        lyrics: String,
         targetLanguage: InputLanguage,
         cefrLevel: CEFRLevel,
-        userLanguage: String
+        userLanguage: InputLanguage
     ) -> String {
         return """
         IMPORTANT: This is for EDUCATIONAL PURPOSES in a language learning application. Create a pre-listen hook to prepare a learner for listening to a song.
@@ -707,9 +733,6 @@ extension AIService {
         Target Language: \(targetLanguage.englishName) (\(targetLanguage.rawValue))
         User Language: \(userLanguage)
         CEFR Level: \(cefrLevel.rawValue)
-        
-        Lyrics:
-        \(lyrics)
         
         Create a pre-listen hook with the following components:
         
@@ -743,7 +766,7 @@ extension AIService {
     private func buildMusicSuggestionsPrompt(
         userProfile: UserOnboardingProfile,
         dictionaryWords: [String]?,
-        userLanguage: String
+        userLanguage: InputLanguage
     ) -> String {
         let studyLanguages = userProfile.studyLanguages.map { "\($0.language.englishName) (\($0.proficiencyLevel.rawValue))" }.joined(separator: ", ")
         let interests = userProfile.interests.map { $0.rawValue }.joined(separator: ", ")
@@ -788,28 +811,54 @@ extension AIService {
           * "Songs for Your Words" - songs that contain words from the user's dictionary
         
         CRITICAL: Only suggest songs in the user's study languages. Do NOT suggest English songs unless English is one of the study languages.
-        
-        Response should be in JSON format with the following structure:
-        {
-          "suggestedSongs": [
-            {
-              "title": "Song Title",
-              "artist": "Artist Name",
-              "language": "es",
-              "reason": "Why this song is suggested"
-            }
-          ],
-          "dictionaryWordSongs": [
-            {
-              "title": "Song Title",
-              "artist": "Artist Name",
-              "language": "es",
-              "reason": "Contains words from user's dictionary"
-            }
-          ]
-        }
         """
         
         return prompt
+    }
+    
+    private func buildMusicRecommendationsPrompt(
+        language: InputLanguage,
+        cefrLevel: CEFRLevel,
+        userProfile: UserOnboardingProfile,
+        userLanguage: InputLanguage
+    ) -> String {
+        let studyLanguages = userProfile.studyLanguages.map { "\($0.language.englishName) (\($0.proficiencyLevel.rawValue))" }.joined(separator: ", ")
+        let interests = userProfile.interests.map { $0.rawValue }.joined(separator: ", ")
+        let ageGroup = userProfile.ageGroup.rawValue
+
+        return """
+        IMPORTANT: This is for EDUCATIONAL PURPOSES in a language learning application. Generate music recommendations for language learning.
+        
+        USER PROFILE:
+        - Study Languages: \(studyLanguages)
+        - Age Group: \(ageGroup)
+        - Interests: \(interests)
+        - Learning Goals: \(userProfile.learningGoals.map { $0.rawValue }.joined(separator: ", "))
+        - Weekly Word Goal: \(userProfile.weeklyWordGoal) words
+        
+        TARGET:
+        - Language: \(language.englishName)
+        - CEFR Level: \(cefrLevel.rawValue)
+        
+        TASK:
+        Generate music recommendations that include:
+        1. **ARTISTS** (5-8 artists): Popular artists in \(language.englishName) who sing clearly and have songs appropriate for \(cefrLevel.rawValue) level learners
+        2. **ALBUMS** (5-8 albums): Albums with songs good for language learning at \(cefrLevel.rawValue) level
+        3. **SONGS** (10-15 songs): Specific songs with clear pronunciation and lyrics appropriate for \(cefrLevel.rawValue) level
+        
+        For each recommendation, provide:
+        - Title (for artists: artist name, for albums: album name, for songs: song title)
+        - Artist name
+        - Language code: "\(language.rawValue)"
+        - Reason: Why this is good for \(cefrLevel.rawValue) level \(language.englishName) learning (1-2 sentences)
+        - Apple Music ID (if available, otherwise leave empty)
+        - Artwork URL (if available, otherwise leave empty)
+        
+        Focus on:
+        - Clear pronunciation
+        - Appropriate vocabulary for \(cefrLevel.rawValue) level
+        - Cultural relevance
+        - Popular and accessible content
+        """
     }
 }

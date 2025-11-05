@@ -22,8 +22,9 @@ final class MusicDiscoveringViewModel: BaseViewModel {
     }
 
     @Published private(set) var loadingStatus: LoadingStatus = .idle
-    @Published private(set) var suggestedSongs: [Song] = []
-    @Published private(set) var dictionaryWordSongs: [Song] = []
+    @Published private(set) var recommendationItems: [RecommendationItem] = []
+    @Published private(set) var recommendationSongs: [Song] = [] // Actual songs with artwork for "Your Daily 5"
+    @Published private(set) var masteredSongs: [Song] = []
     @Published private(set) var songTags: [String: SongTag] = [:]
     @Published private(set) var songGenerationCounts: [String: Int] = [:]
     @Published private(set) var listeningHistory: [MusicListeningHistory] = []
@@ -50,6 +51,8 @@ final class MusicDiscoveringViewModel: BaseViewModel {
     private let lessonService = MusicLessonService.shared
     private let recommendationEngine = MusicRecommendationEngine.shared
     private let songTagService = MusicSongTagService.shared
+    private let recommendationService = MusicRecommendationService.shared
+    private let recommendationFetcher = MusicRecommendationFetcher.shared
     
     private let cacheDuration: TimeInterval = 18 * 60 * 60 // 18 hours
 
@@ -97,30 +100,19 @@ final class MusicDiscoveringViewModel: BaseViewModel {
             return
         }
         
-        // Check cache first
-        if let cachedSuggestions = getCachedSuggestions(), !isCacheExpired() {
-            suggestedSongs = cachedSuggestions.suggestedSongs
-            dictionaryWordSongs = cachedSuggestions.dictionaryWordSongs
-            loadingStatus = .ready
-            return
-        }
-
         loadingStatus = .loadingSuggestions
 
         Task {
             do {
-                async let personalizedSongs = generatePersonalizedSuggestions()
-                async let dictionarySongs = generateDictionaryWordSuggestions()
+                async let recommendations = generateRecommendations()
+                async let mastered = generateMasteredSuggestions()
                 
-                let (personalized, dictionary) = try await (personalizedSongs, dictionarySongs)
+                let (recommendationItems, masteredSongs) = try await (recommendations, mastered)
                 
                 await MainActor.run {
-                    self.suggestedSongs = personalized
-                    self.dictionaryWordSongs = dictionary
+                    self.recommendationItems = recommendationItems
+                    self.masteredSongs = masteredSongs
                     self.loadingStatus = .ready
-                    
-                    // Cache the suggestions
-                    self.saveToCache(suggestedSongs: personalized, dictionaryWordSongs: dictionary)
                 }
             } catch {
                 await MainActor.run {
@@ -142,22 +134,87 @@ final class MusicDiscoveringViewModel: BaseViewModel {
 
     // MARK: - Song Selection & Playback
 
+    /// Handle selection of recommendation item (artist, album, or song)
+    func selectRecommendationItem(_ item: RecommendationItem) async {
+        switch item {
+        case .artist(let artist):
+            // Fetch random song from artist
+            do {
+                if let song = try await recommendationFetcher.fetchRandomSong(for: artist) {
+                    await selectSong(song)
+                } else {
+                    await MainActor.run {
+                        errorReceived(MusicError.songNotFound)
+                    }
+                }
+            } catch {
+                await MainActor.run {
+                    errorReceived(error)
+                }
+            }
+            
+        case .album(let album):
+            // Fetch random song from album
+            do {
+                if let song = try await recommendationFetcher.fetchRandomSong(for: album) {
+                    await selectSong(song)
+                } else {
+                    await MainActor.run {
+                        errorReceived(MusicError.songNotFound)
+                    }
+                }
+            } catch {
+                await MainActor.run {
+                    errorReceived(error)
+                }
+            }
+            
+        case .song(let recommendationSong):
+            // Search for the actual song by title and artist
+            do {
+                let query = "\(recommendationSong.title) \(recommendationSong.artist)"
+                let songs = try await appleMusicService.searchSongs(query: query, language: nil)
+                
+                if let song = songs.first(where: {
+                    $0.title.lowercased().contains(recommendationSong.title.lowercased()) &&
+                    $0.artist.lowercased().contains(recommendationSong.artist.lowercased())
+                }) {
+                    await selectSong(song)
+                } else if let firstMatch = songs.first {
+                    await selectSong(firstMatch)
+                } else {
+                    await MainActor.run {
+                        errorReceived(MusicError.songNotFound)
+                    }
+                }
+            } catch {
+                await MainActor.run {
+                    errorReceived(error)
+                }
+            }
+        }
+    }
+
     func selectSong(_ song: Song) async {
         // Stop current playback
         musicPlayerService.stop()
 
         currentSong = song
 
-        // Set the queue to suggested songs for navigation
-        let allSuggestedSongs = suggestedSongs + dictionaryWordSongs
-        if let songIndex = allSuggestedSongs.firstIndex(where: { $0.id == song.id }) {
+        // Set the queue to mastered songs for navigation (if available)
+        // Build queue from mastered songs
+        var queueSongs = masteredSongs
+        
+        // Try to find the selected song in the queue
+        if let songIndex = queueSongs.firstIndex(where: { $0.id == song.id }) {
             await MainActor.run {
-                musicPlayerService.setQueue(allSuggestedSongs, currentIndex: songIndex)
+                musicPlayerService.setQueue(queueSongs, currentIndex: songIndex)
             }
         } else {
-            // If song not in suggestions, create a single-item queue
+            // If song not in queue, add it at the beginning and create queue
+            queueSongs.insert(song, at: 0)
             await MainActor.run {
-                musicPlayerService.setQueue([song], currentIndex: 0)
+                musicPlayerService.setQueue(queueSongs, currentIndex: 0)
             }
         }
 
@@ -243,7 +300,7 @@ final class MusicDiscoveringViewModel: BaseViewModel {
         }
         
         // Update session if needed
-        if var session = currentSession, session.song.id != song.id {
+        if let session = currentSession, session.song.id != song.id {
             let newSession = MusicDiscoveringSession(song: song)
             currentSession = newSession
         } else if currentSession == nil {
@@ -432,7 +489,295 @@ final class MusicDiscoveringViewModel: BaseViewModel {
         currentSession = session
     }
 
-    // MARK: - Suggestions Generation
+    // MARK: - Recommendations Generation
+    
+    /// Generate recommendations with Firestore → OpenAI → Search priority
+    private func generateRecommendations() async throws -> [RecommendationItem] {
+        guard let userProfile = onboardingService.userProfile,
+              let firstStudyLanguage = userProfile.studyLanguages.first else {
+            print("⚠️ [MusicDiscoveringViewModel] No user profile or study language")
+            return []
+        }
+        
+        let language = firstStudyLanguage.language
+        let cefrLevel = firstStudyLanguage.proficiencyLevel.rawValue
+        
+        print("🔍 [MusicDiscoveringViewModel] Generating recommendations for \(language.englishName)/\(cefrLevel)")
+
+        // 1. Try Firestore cache first
+        print("📥 [MusicDiscoveringViewModel] Checking Firestore cache...")
+        do {
+            if let cachedRecommendations = try await recommendationService.getRecommendations(
+                language: language,
+                cefrLevel: cefrLevel
+            ) {
+                print("✅ [MusicDiscoveringViewModel] Found recommendations in Firestore cache")
+                return await convertFirestoreRecommendationToItems(cachedRecommendations)
+            } else {
+                print("ℹ️ [MusicDiscoveringViewModel] No recommendations found in Firestore cache")
+            }
+        } catch {
+            print("⚠️ [MusicDiscoveringViewModel] Error checking Firestore: \(error.localizedDescription)")
+            // Continue to OpenAI fallback
+        }
+        
+        // 2. Try OpenAI generation
+        print("🤖 [MusicDiscoveringViewModel] Requesting recommendations from OpenAI...")
+        print("🤖 [MusicDiscoveringViewModel] Checking if AI request is allowed...")
+        print("🤖 [MusicDiscoveringViewModel] AI can make request: \(aiService.canMakeAIRequest())")
+        
+        do {
+            let aiRecommendations = try await recommendationService.generateRecommendationsWithAI(
+                language: language,
+                cefrLevel: cefrLevel,
+                userProfile: userProfile
+            )
+            print("✅ [MusicDiscoveringViewModel] Successfully received recommendations from OpenAI")
+            // AI service automatically saves to Firestore (with songs only), so next user will get it from cache
+            return await convertFirestoreRecommendationToItems(aiRecommendations)
+        } catch let error as AIError {
+            print("❌ [MusicDiscoveringViewModel] OpenAI generation failed with AIError: \(error)")
+            print("❌ [MusicDiscoveringViewModel] Error details: \(error.localizedDescription)")
+            // 3. Fallback to search
+            print("🔍 [MusicDiscoveringViewModel] Falling back to search-based recommendations...")
+            do {
+                let searchRecommendations = try await recommendationService.generateRecommendationsWithSearch(
+                    language: language,
+                    cefrLevel: cefrLevel
+                )
+                print("✅ [MusicDiscoveringViewModel] Generated search-based recommendations")
+                // Search service saves to Firestore as well
+                return await convertFirestoreRecommendationToItems(searchRecommendations)
+            } catch {
+                print("❌ [MusicDiscoveringViewModel] All recommendation methods failed: \(error.localizedDescription)")
+                throw error
+            }
+        } catch {
+            print("❌ [MusicDiscoveringViewModel] OpenAI generation failed with error: \(error)")
+            print("❌ [MusicDiscoveringViewModel] Error type: \(type(of: error))")
+            print("❌ [MusicDiscoveringViewModel] Error description: \(error.localizedDescription)")
+            // 3. Fallback to search
+            print("🔍 [MusicDiscoveringViewModel] Falling back to search-based recommendations...")
+            do {
+                let searchRecommendations = try await recommendationService.generateRecommendationsWithSearch(
+                    language: language,
+                    cefrLevel: cefrLevel
+                )
+                print("✅ [MusicDiscoveringViewModel] Generated search-based recommendations")
+                // Search service saves to Firestore as well
+                return await convertFirestoreRecommendationToItems(searchRecommendations)
+            } catch {
+                print("❌ [MusicDiscoveringViewModel] All recommendation methods failed: \(error.localizedDescription)")
+                throw error
+            }
+        }
+    }
+    
+    /// Convert FirestoreRecommendation to RecommendationItem array and fetch actual songs with artwork
+    /// "Your Daily 5" should only show songs with artwork
+    private func convertFirestoreRecommendationToItems(_ recommendation: FirestoreRecommendation) async -> [RecommendationItem] {
+        // Search Apple Music for each song recommendation to get actual Song objects with artwork
+        var songsWithArtwork: [Song] = []
+        
+        for songRec in recommendation.songs {
+            do {
+                let query = "\(songRec.title) \(songRec.artist)"
+                let songs = try await appleMusicService.searchSongs(query: query, language: nil)
+                
+                if let foundSong = songs.first(where: {
+                    $0.title.lowercased().contains(songRec.title.lowercased()) &&
+                    $0.artist.lowercased().contains(songRec.artist.lowercased())
+                }) ?? songs.first {
+                    songsWithArtwork.append(foundSong)
+                }
+            } catch {
+                print("⚠️ [MusicDiscoveringViewModel] Failed to find song \(songRec.title): \(error)")
+                continue
+            }
+        }
+        
+        // Store the actual songs with artwork
+        await MainActor.run {
+            self.recommendationSongs = songsWithArtwork
+        }
+        
+        // Convert to RecommendationItem array (only songs)
+        return recommendation.songs.map { .song($0) }
+    }
+    
+    /// Check if user has mastered any songs
+    func hasMasteredSongs() -> Bool {
+        let context = CoreDataService.shared.context
+        
+        return context.performAndWait {
+            let fetchRequest = CDMusicQuizPerformance.fetchRequest()
+            
+            // Get all quiz performances
+            guard let performances = try? context.fetch(fetchRequest) else {
+                return false
+            }
+            
+            // Check if user has any high-scoring performances (mastered)
+            // A song is considered mastered if user got most questions correct
+            let songPerformances: [String: [CDMusicQuizPerformance]] = Dictionary(grouping: performances) { $0.songId ?? "" }
+            
+            for (songId, performances) in songPerformances where !songId.isEmpty {
+                let correctCount = performances.filter { $0.isCorrect }.count
+                let totalCount = performances.count
+                
+                // Consider mastered if 80% or more correct
+                if totalCount >= 3 && Double(correctCount) / Double(totalCount) >= 0.8 {
+                    return true
+                }
+            }
+            
+            return false
+        }
+    }
+    
+    /// Generate suggestions based on mastered songs
+    private func generateMasteredSuggestions() async throws -> [Song] {
+        // Only generate if user has mastered songs
+        guard hasMasteredSongs() else {
+            return []
+        }
+        
+        guard let userProfile = onboardingService.userProfile else {
+            return []
+        }
+        
+        // Check if AI service is available
+        guard aiService.canMakeAIRequest() else {
+            return []
+        }
+        
+        // Check if Apple Music is authenticated
+        guard appleMusicService.isAuthorized else {
+            return []
+        }
+        
+        // Get user's mastered songs from CoreData
+        let context = CoreDataService.shared.context
+        let masteredSongIds = context.performAndWait {
+            let fetchRequest = CDMusicQuizPerformance.fetchRequest()
+            guard let performances = try? context.fetch(fetchRequest) else {
+                return Set<String>()
+            }
+            
+            // Group by song and check mastery
+            let songPerformances: [String: [CDMusicQuizPerformance]] = Dictionary(grouping: performances) { $0.songId ?? "" }
+            var masteredIds = Set<String>()
+            
+            for (songId, performances) in songPerformances where !songId.isEmpty {
+                let correctCount = performances.filter { $0.isCorrect }.count
+                let totalCount = performances.count
+                
+                if totalCount >= 3 && Double(correctCount) / Double(totalCount) >= 0.8 {
+                    masteredIds.insert(songId)
+                }
+            }
+            
+            return masteredIds
+        }
+        
+        guard !masteredSongIds.isEmpty else {
+            return []
+        }
+        
+        // Get user's dictionary words
+        let allWords = wordsProvider.words
+        let targetLanguages = Set(userProfile.studyLanguages.map { $0.language.rawValue })
+        let filteredWords = allWords.filter { word in
+            guard let languageCode = word.languageCode else { return false }
+            return targetLanguages.contains(languageCode)
+        }
+        
+        // Sort words by relevance
+        let sortedWords = filteredWords.sorted { word1, word2 in
+            let isFavorite1 = word1.isFavorite ? 1 : 0
+            let isFavorite2 = word2.isFavorite ? 1 : 0
+            if isFavorite1 != isFavorite2 {
+                return isFavorite1 > isFavorite2
+            }
+            return word1.difficultyScore > word2.difficultyScore
+        }
+        
+        let dictionaryWords = Array(sortedWords.prefix(30)).compactMap { $0.wordItself }
+        
+        // Request AI suggestions based on mastered songs and dictionary words
+        let aiResponse: AISongSuggestionsResponse = try await aiService.request(
+            .musicSuggestions(
+                userProfile: userProfile,
+                dictionaryWords: dictionaryWords.isEmpty ? nil : dictionaryWords
+            )
+        )
+        
+        // Search Apple Music for AI-suggested songs
+        var foundSongs: [Song] = []
+        
+        for suggestion in aiResponse.dictionaryWordSongs {
+            do {
+                let query = "\(suggestion.title) \(suggestion.artist)"
+                let songs = try await appleMusicService.searchSongs(
+                    query: query,
+                    language: suggestion.language
+                )
+                
+                if let exactMatch = songs.first(where: {
+                    $0.title.lowercased().contains(suggestion.title.lowercased()) &&
+                    $0.artist.lowercased().contains(suggestion.artist.lowercased())
+                }) {
+                    foundSongs.append(exactMatch)
+                } else if let firstMatch = songs.first {
+                    foundSongs.append(firstMatch)
+                }
+            } catch {
+                continue
+            }
+        }
+        
+        // Remove duplicates
+        var uniqueSongs: [Song] = []
+        var seenIds = Set<String>()
+        
+        for song in foundSongs {
+            if !seenIds.contains(song.id) {
+                uniqueSongs.append(song)
+                seenIds.insert(song.id)
+            }
+        }
+        
+        let finalSongs = Array(uniqueSongs.prefix(20))
+        
+        // Load song tags and generation counts
+        let songIds = finalSongs.map { $0.id }
+        let tags = await songTagService.getTags(for: songIds)
+        
+        var generationCounts: [String: Int] = [:]
+        await withTaskGroup(of: (String, Int?).self) { group in
+            for songId in songIds {
+                group.addTask {
+                    let count = await self.songTagService.getGenerationCount(for: songId)
+                    return (songId, count)
+                }
+            }
+            
+            for await (songId, count) in group {
+                if let count = count {
+                    generationCounts[songId] = count
+                }
+            }
+        }
+        
+        await MainActor.run {
+            self.songTags.merge(tags) { _, new in new }
+            self.songGenerationCounts.merge(generationCounts) { _, new in new }
+        }
+        
+        return finalSongs
+    }
+
+    // MARK: - Legacy Methods (kept for compatibility during transition)
 
     private func generatePersonalizedSuggestions() async throws -> [Song] {
         guard let userProfile = onboardingService.userProfile else {

@@ -26,6 +26,7 @@ protocol Quizable: Identifiable {
     var quiz_partOfSpeech: String? { get } // Optional part of speech (nil for idioms)
     var quiz_difficultyScore: Int { get }
     var quiz_languageCode: String { get }
+    var quiz_language: InputLanguage { get }
     var quiz_timestamp: Date { get }
     var quiz_itemType: QuizItemType { get }
     var difficultyLevel: Difficulty { get }
@@ -92,6 +93,10 @@ extension CDWord: Quizable {
     
     var quiz_languageCode: String {
         return self.languageCode ?? "en"
+    }
+    
+    var quiz_language: InputLanguage {
+        return InputLanguage(rawValue: quiz_languageCode) ?? .english
     }
 
     var quiz_timestamp: Date {
@@ -180,6 +185,10 @@ extension CDIdiom: Quizable {
 
     var quiz_languageCode: String {
         return self.languageCode ?? "en"
+    }
+
+    var quiz_language: InputLanguage {
+        return InputLanguage(rawValue: quiz_languageCode) ?? .english
     }
 
     var quiz_timestamp: Date {
@@ -272,6 +281,10 @@ extension SharedWord: Quizable {
 
     var quiz_languageCode: String {
         return self.languageCode
+    }
+
+    var quiz_language: InputLanguage {
+        return InputLanguage(rawValue: quiz_languageCode) ?? .english
     }
 
     var quiz_timestamp: Date {

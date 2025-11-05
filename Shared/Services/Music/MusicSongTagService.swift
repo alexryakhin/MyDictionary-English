@@ -115,5 +115,11 @@ final class MusicSongTagService {
             return nil
         }
     }
+    
+    /// Clear all cached song tags
+    func clearCache() {
+        cachedTags.removeAll()
+        print("✅ [MusicSongTagService] Cache cleared")
+    }
 }
 

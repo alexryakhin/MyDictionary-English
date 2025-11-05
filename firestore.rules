@@ -104,5 +104,11 @@ service cloud.firestore {
       allow read: if true; // Public read access
       allow write: if isSignedIn(); // Only authenticated users can write (admin/generation system)
     }
+    
+    // Public music recommendations cache - accessible to all users (read-only for regular users)
+    match /recommendationItems/{languageCode}/{cefrLevel}/{document=**} {
+      allow read: if true; // Public read access
+      allow write: if isSignedIn(); // Only authenticated users can write (admin/generation system)
+    }
   }
 } 

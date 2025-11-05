@@ -211,7 +211,7 @@ final class AddWordViewModel: BaseViewModel {
         if !inputWord.isEmpty, hasDefinitions {
             do {
                 if let dictionaryId = dictionaryId {
-                    saveWordToSharedDictionary(dictionaryId, languageCode: selectedInputLanguage.rawValue)
+                    saveWordToSharedDictionary(dictionaryId, language: selectedInputLanguage)
                 } else {
                     // Use new multi-meaning method if we have selected definitions
                     if !selectedDefinitions.isEmpty {
@@ -258,7 +258,7 @@ final class AddWordViewModel: BaseViewModel {
         }
     }
 
-    private func saveWordToSharedDictionary(_ dictionaryId: String, languageCode: String) {
+    private func saveWordToSharedDictionary(_ dictionaryId: String, language: InputLanguage) {
         // Create meanings from selected definitions or manual input
         let meanings: [WordMeaning]
         if !selectedDefinitions.isEmpty {
@@ -284,7 +284,7 @@ final class AddWordViewModel: BaseViewModel {
             notes: .empty,
             tags: [], // Don't include tags for shared dictionary words
             difficultyScore: 0,
-            languageCode: languageCode,
+            languageCode: language.rawValue,
             isFavorite: false,
             timestamp: Date(),
             updatedAt: Date(),

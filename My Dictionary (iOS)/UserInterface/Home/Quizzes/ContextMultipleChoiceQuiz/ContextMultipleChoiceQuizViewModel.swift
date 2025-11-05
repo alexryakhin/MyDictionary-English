@@ -316,7 +316,7 @@ final class ContextMultipleChoiceQuizViewModel: BaseViewModel {
         prefetchTask = Task {
             do {
                 let word = item.quiz_text.trimmed.lowercased()
-                let wordLanguage = item.quiz_languageCode
+                let wordLanguage = item.quiz_language
                 let question: AIContextQuestion = try await aiService.request(.contextQuestion(
                     word: word,
                     wordLanguage: wordLanguage,
@@ -395,7 +395,7 @@ final class ContextMultipleChoiceQuizViewModel: BaseViewModel {
                 loadingStatus = .generatingFirstQuestion
                 let firstItem = items.first!
                 let firstWord = firstItem.quiz_text.lowercased()
-                let wordLanguage = firstItem.quiz_languageCode
+                let wordLanguage = firstItem.quiz_language
                 let contextQuestion: AIContextQuestion = try await aiService.request(.contextQuestion(
                     word: firstWord,
                     wordLanguage: wordLanguage,
@@ -449,7 +449,7 @@ final class ContextMultipleChoiceQuizViewModel: BaseViewModel {
                 guard let nextItem = items[safe: questionIndex] ?? items.last else { return }
                 // Don't change loading status to prefetching - keep current item visible
                 let nextWord = nextItem.quiz_text.trimmed.lowercased()
-                let wordLanguage = nextItem.quiz_languageCode
+                let wordLanguage = nextItem.quiz_language
                 let contextQuestion: AIContextQuestion = try await aiService.request(.contextQuestion(
                     word: nextWord,
                     wordLanguage: wordLanguage,

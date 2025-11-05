@@ -165,6 +165,140 @@ final class AppleMusicService {
         return "en" // Default to English, can be enhanced later
     }
     
+    /// Search for artists in Apple Music
+    /// - Parameter query: Search query (artist name)
+    /// - Returns: Array of artist information
+    func searchArtists(query: String) async throws -> [ArtistInfo] {
+        guard isAuthorized else {
+            throw MusicError.authenticationRequired
+        }
+        
+        let searchRequest = MusicCatalogSearchRequest(term: query, types: [MusicKit.Artist.self])
+        
+        do {
+            let response = try await searchRequest.response()
+            return response.artists.compactMap { musicKitArtist in
+                convertToArtistInfo(from: musicKitArtist)
+            }
+        } catch {
+            throw MusicError.networkError(error.localizedDescription)
+        }
+    }
+    
+    /// Get songs from an artist
+    /// - Parameters:
+    ///   - artistId: Apple Music artist ID (can be used if available)
+    ///   - artistName: Artist name for searching (preferred)
+    ///   - limit: Maximum number of songs to return
+    /// - Returns: Array of songs from the artist
+    func getArtistSongs(artistId: String? = nil, artistName: String? = nil, limit: Int = 10) async throws -> [Song] {
+        guard isAuthorized else {
+            throw MusicError.authenticationRequired
+        }
+        
+        // Prefer searching by artist name if provided
+        let searchTerm: String
+        if let artistName = artistName, !artistName.isEmpty {
+            searchTerm = artistName
+        } else if let artistId = artistId {
+            searchTerm = artistId
+        } else {
+            throw MusicError.songNotFound
+        }
+        
+        // Search for songs by this artist
+        let songSearchRequest = MusicCatalogSearchRequest(term: searchTerm, types: [MusicKit.Song.self])
+        let songResponse = try await songSearchRequest.response()
+        
+        // Filter songs by artist name (if provided) and return selection
+        let artistSongs: [MusicKit.Song]
+        if let artistName = artistName {
+            artistSongs = songResponse.songs
+                .filter { $0.artistName.lowercased().contains(artistName.lowercased()) }
+                .shuffled()
+                .prefix(limit)
+                .map { $0 }
+        } else {
+            artistSongs = Array(songResponse.songs.prefix(limit))
+        }
+        
+        return artistSongs.compactMap { musicKitSong in
+            convertToUnifiedSong(from: musicKitSong)
+        }
+    }
+    
+    /// Search for albums in Apple Music
+    /// - Parameter query: Search query (album name or artist)
+    /// - Returns: Array of album information
+    func searchAlbums(query: String) async throws -> [AlbumInfo] {
+        guard isAuthorized else {
+            throw MusicError.authenticationRequired
+        }
+        
+        let searchRequest = MusicCatalogSearchRequest(term: query, types: [MusicKit.Album.self])
+        
+        do {
+            let response = try await searchRequest.response()
+            return response.albums.compactMap { musicKitAlbum in
+                convertToAlbumInfo(from: musicKitAlbum)
+            }
+        } catch {
+            throw MusicError.networkError(error.localizedDescription)
+        }
+    }
+    
+    /// Get songs from an album
+    /// - Parameters:
+    ///   - albumId: Apple Music album ID (can be used if available)
+    ///   - albumName: Album name for searching (preferred)
+    ///   - artistName: Artist name for better matching
+    /// - Returns: Array of songs from the album
+    func getAlbumSongs(albumId: String? = nil, albumName: String? = nil, artistName: String? = nil) async throws -> [Song] {
+        guard isAuthorized else {
+            throw MusicError.authenticationRequired
+        }
+        
+        // Prefer searching by album name and artist if provided
+        let searchTerm: String
+        if let albumName = albumName, let artistName = artistName {
+            searchTerm = "\(albumName) \(artistName)"
+        } else if let albumName = albumName {
+            searchTerm = albumName
+        } else if let albumId = albumId {
+            searchTerm = albumId
+        } else {
+            throw MusicError.songNotFound
+        }
+        
+        // Search for album
+        let searchRequest = MusicCatalogSearchRequest(term: searchTerm, types: [MusicKit.Album.self])
+        let response = try await searchRequest.response()
+        
+        // Try to find exact match if album name and artist provided
+        let album: MusicKit.Album?
+        if let albumName = albumName, let artistName = artistName {
+            album = response.albums.first(where: {
+                $0.title.lowercased().contains(albumName.lowercased()) &&
+                $0.artistName.lowercased().contains(artistName.lowercased())
+            }) ?? response.albums.first
+        } else {
+            album = response.albums.first
+        }
+        
+        guard let foundAlbum = album else {
+            throw MusicError.songNotFound
+        }
+        
+        // Get tracks from the album
+        let tracks = foundAlbum.tracks ?? []
+        return tracks.compactMap { track in
+            if let song = track as? MusicKit.Song {
+                return convertToUnifiedSong(from: song)
+            }
+            return nil
+        }
+    }
+    
     func signOut() {
         // Apple Music doesn't require explicit sign out
         isAuthorized = false
@@ -224,5 +358,49 @@ final class AppleMusicService {
             serviceId: id
         )
     }
+    
+    private func convertToArtistInfo(from musicKitArtist: MusicKit.Artist) -> ArtistInfo? {
+        let id = String(describing: musicKitArtist.id)
+        var artworkURL: URL? = nil
+        if let artwork = musicKitArtist.artwork {
+            artworkURL = artwork.url(width: 500, height: 500)
+        }
+        
+        return ArtistInfo(
+            id: id,
+            name: musicKitArtist.name,
+            artworkURL: artworkURL
+        )
+    }
+    
+    private func convertToAlbumInfo(from musicKitAlbum: MusicKit.Album) -> AlbumInfo? {
+        let id = String(describing: musicKitAlbum.id)
+        var artworkURL: URL? = nil
+        if let artwork = musicKitAlbum.artwork {
+            artworkURL = artwork.url(width: 500, height: 500)
+        }
+        
+        return AlbumInfo(
+            id: id,
+            name: musicKitAlbum.title,
+            artist: musicKitAlbum.artistName,
+            artworkURL: artworkURL
+        )
+    }
+}
+
+// MARK: - Artist and Album Info Models
+
+struct ArtistInfo: Identifiable, Codable {
+    let id: String
+    let name: String
+    let artworkURL: URL?
+}
+
+struct AlbumInfo: Identifiable, Codable {
+    let id: String
+    let name: String
+    let artist: String
+    let artworkURL: URL?
 }
 

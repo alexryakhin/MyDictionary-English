@@ -40,6 +40,7 @@ struct DebugView: View {
                 dictionaryTestingSection
                 firebaseTestingSection
                 aiTestingSection
+                musicTestingSection
                 appTestingSection
             }
             .navigationTitle("Debug Panel")
@@ -393,6 +394,24 @@ struct DebugView: View {
         }
     }
     
+    private var musicTestingSection: some View {
+        Section("Music Learning Testing") {
+            VStack(alignment: .leading, spacing: 8) {
+                HeaderButton("Reset Music Suggestions Cache") {
+                    resetMusicSuggestionsCache()
+                }
+                
+                HeaderButton("Clear Song Tags Cache") {
+                    clearSongTagsCache()
+                }
+                
+                HeaderButton("Clear Music Lessons Cache") {
+                    clearMusicLessonsCache()
+                }
+            }
+        }
+    }
+    
     private var aiTestingSection: some View {
         Section("AI Features Testing") {
             VStack(alignment: .leading, spacing: 8) {
@@ -658,6 +677,46 @@ struct DebugView: View {
         // This would clear the OpenAI service cache
         print("💾 [DebugView] AI cache cleared")
         showAlert("AI cache cleared")
+    }
+    
+    // MARK: - Music Testing
+    
+    private func resetMusicSuggestionsCache() {
+        print("🔍 [DebugView] resetMusicSuggestionsCache called")
+        // Clear music suggestions cache from ViewModel
+        // Clear UserDefaults cache
+        UDService.musicSuggestionsCacheData = nil
+        UDService.musicSuggestionsCacheTimestamp = nil
+        // Clear song tags cache
+        MusicSongTagService.shared.clearCache()
+        print("💾 [DebugView] Music suggestions cache cleared")
+        showAlert("Music suggestions cache cleared. Restart the app or reload suggestions to see fresh recommendations.")
+    }
+    
+    private func clearSongTagsCache() {
+        print("🔍 [DebugView] clearSongTagsCache called")
+        MusicSongTagService.shared.clearCache()
+        print("💾 [DebugView] Song tags cache cleared")
+        showAlert("Song tags cache cleared")
+    }
+    
+    private func clearMusicLessonsCache() {
+        print("🔍 [DebugView] clearMusicLessonsCache called")
+        // Clear music lessons cache from CoreData
+        // This would clear personal lesson adaptations
+        let context = CoreDataService.shared.context
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "MusicLesson")
+        
+        do {
+            let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+            try context.execute(deleteRequest)
+            try context.save()
+            print("💾 [DebugView] Music lessons cache cleared")
+            showAlert("Music lessons cache cleared from CoreData")
+        } catch {
+            print("❌ [DebugView] Error clearing music lessons: \(error)")
+            showAlert("Error clearing music lessons: \(error.localizedDescription)")
+        }
     }
     
     // MARK: - Sample Data Generation
