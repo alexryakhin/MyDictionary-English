@@ -10,33 +10,16 @@ import OpenAI
 
 /// AI-generated music recommendations response
 struct AIMusicRecommendationsResponse: Codable, JSONSchemaConvertible {
-    let artists: [AIRecommendationItem]
-    let albums: [AIRecommendationItem]
-    let songs: [AIRecommendationItem]
-    
+    let songs: [AIRecommendationSong]
+
     static let example: Self = {
         .init(
-            artists: [
-                AIRecommendationItem(
-                    title: "Billie Eilish",
-                    artist: "Billie Eilish",
-                    language: "en",
-                    reason: "Popular artist with clear pronunciation and modern English"
-                )
-            ],
-            albums: [
-                AIRecommendationItem(
-                    title: "Happier Than Ever",
-                    artist: "Billie Eilish",
-                    language: "en",
-                    reason: "Great album for learning contemporary English"
-                )
-            ],
             songs: [
-                AIRecommendationItem(
+                AIRecommendationSong(
                     title: "Bad Guy",
                     artist: "Billie Eilish",
-                    language: "en",
+                    language: .english,
+                    cefrLevel: .a2,
                     reason: "Clear pronunciation and repetitive lyrics"
                 )
             ]
@@ -44,19 +27,21 @@ struct AIMusicRecommendationsResponse: Codable, JSONSchemaConvertible {
     }()
 }
 
-/// AI recommendation item (artist, album, or song)
+/// AI recommendation item (song only)
 /// OpenAI only provides names and reasons - no IDs or URLs
-struct AIRecommendationItem: Codable, JSONSchemaConvertible {
-    let title: String // Artist name, album name, or song title
-    let artist: String // Artist name (required for albums and songs)
-    let language: String
+struct AIRecommendationSong: Codable, JSONSchemaConvertible {
+    let title: String // Song title
+    let artist: String // Artist name
+    let language: InputLanguage
+    let cefrLevel: CEFRLevel
     let reason: String
     
     static let example: Self = {
         .init(
             title: "Despacito",
             artist: "Luis Fonsi",
-            language: "es",
+            language: .spanish,
+            cefrLevel: .b1,
             reason: "Popular Spanish song with clear pronunciation"
         )
     }()

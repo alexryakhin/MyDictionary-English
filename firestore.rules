@@ -92,23 +92,23 @@ service cloud.firestore {
     match /test/{document=**} {
       allow read, write: if isSignedIn();
     }
-    
-    // Public music song metadata - accessible to all users (read-only for regular users)
-    match /songs/{songId} {
+        
+    // Public music lesson cache - accessible to all users
+    match /musicLessons/{languageEnglishName}/{document=**} {
       allow read: if true; // Public read access
-      allow write: if isSignedIn(); // Only authenticated users can write (admin/generation system)
+      allow write: if true; // Public write access
     }
     
-    // Public music lesson cache - accessible to all users (read-only for regular users)
-    match /lessons/{lessonId} {
+    // Public music recommendations cache - accessible to all users
+    match /recommendationSongs/{languageEnglishName}/{document=**} {
       allow read: if true; // Public read access
-      allow write: if isSignedIn(); // Only authenticated users can write (admin/generation system)
+      allow write: if true; // Public write access
     }
     
-    // Public music recommendations cache - accessible to all users (read-only for regular users)
-    match /recommendationItems/{languageCode}/{cefrLevel}/{document=**} {
+    // Public songs cache - accessible to all users
+    match /songs/{languageEnglishName}/{document=**} {
       allow read: if true; // Public read access
-      allow write: if isSignedIn(); // Only authenticated users can write (admin/generation system)
+      allow write: if true; // Public write access
     }
   }
 } 

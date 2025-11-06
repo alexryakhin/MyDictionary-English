@@ -106,11 +106,9 @@ final class AIService: ObservableObject {
         case fillBlank(word: String, wordLanguage: InputLanguage, meaning: String?, partOfSpeech: String?)
         case story(input: StoryInput)
         case paywall(userProfile: UserOnboardingProfile, userLanguage: InputLanguage)
-        case musicContent(song: Song, targetLanguage: InputLanguage, cefrLevel: CEFRLevel)
-        case musicQuiz(song: Song, targetLanguage: InputLanguage)
-        case musicSuggestions(userProfile: UserOnboardingProfile, dictionaryWords: [String]?)
-        case musicPreListenHook(song: Song, targetLanguage: InputLanguage, cefrLevel: CEFRLevel)
-        case musicRecommendations(language: InputLanguage, cefrLevel: CEFRLevel, userProfile: UserOnboardingProfile)
+        case musicPreListenHook(song: Song, targetLanguage: InputLanguage) // CEFR level is determined by AI
+        case musicLesson(song: Song, lyrics: String, targetLanguage: InputLanguage, cefrLevel: CEFRLevel) // Plain lyrics (no timestamps)
+        case musicRecommendations(language: InputLanguage, userProfile: UserOnboardingProfile) // AI generates 2 songs per CEFR level
     }
 
     // MARK: - Centralized Request Handler
@@ -224,41 +222,25 @@ final class AIService: ObservableObject {
         case .paywall(let userProfile, let userLanguage):
             return buildPaywallPrompt(userProfile: userProfile, userLanguage: userLanguage)
 
-        case .musicContent(let song, let targetLanguage, let cefrLevel):
-            // DO NOT send lyrics text - only song info
-            return buildMusicDiscoveringPrompt(
-                song: song,
-                targetLanguage: targetLanguage,
-                cefrLevel: cefrLevel,
-                userLanguage: getCurrentAppLanguage()
-            )
-
-        case .musicQuiz(let song, let targetLanguage):
-            return buildMusicQuizPrompt(
-                song: song,
-                targetLanguage: targetLanguage,
-                userLanguage: getCurrentAppLanguage()
-            )
-            
-        case .musicSuggestions(let userProfile, let dictionaryWords):
-            return buildMusicSuggestionsPrompt(
-                userProfile: userProfile,
-                dictionaryWords: dictionaryWords,
-                userLanguage: getCurrentAppLanguage()
-            )
-            
-        case .musicPreListenHook(let song, let targetLanguage, let cefrLevel):
+        case .musicPreListenHook(let song, let targetLanguage):
             return buildMusicPreListenHookPrompt(
                 song: song,
                 targetLanguage: targetLanguage,
-                cefrLevel: cefrLevel,
+                userLanguage: getCurrentAppLanguage()
+            )
+        
+        case .musicLesson(let song, let lyrics, let targetLanguage, let cefrLevel):
+            return buildMusicLessonPrompt(
+                song: song,
+                lyrics: lyrics,
+                targetLanguage: targetLanguage,
+                songCEFR: cefrLevel,
                 userLanguage: getCurrentAppLanguage()
             )
             
-        case .musicRecommendations(let language, let cefrLevel, let userProfile):
+        case .musicRecommendations(let language, let userProfile):
             return buildMusicRecommendationsPrompt(
                 language: language,
-                cefrLevel: cefrLevel,
                 userProfile: userProfile,
                 userLanguage: getCurrentAppLanguage()
             )
@@ -580,16 +562,17 @@ extension AIWordResponse {
 // MARK: - Paywall Content Generation
 
 extension AIService {
-    private func buildPaywallPrompt(userProfile: UserOnboardingProfile, userLanguage: InputLanguage) -> String {
+    private func buildPaywallPrompt(
+        userProfile: UserOnboardingProfile,
+        userLanguage: InputLanguage
+    ) -> String {
         return """
         Create a compelling, personalized paywall for a language learning app. Generate content in \(userLanguage.englishName) that:
         
         1. Creates a compelling title that addresses the user by name and highlights their primary learning goal
         2. Writes a subtitle that emphasizes the target language and learning benefits  
-        3. Selects 3-5 SubscriptionFeature benefits that are most relevant to their user type, goals, and interests
+        3. Selects 4-7 SubscriptionFeature benefits that are most relevant to their user type, goals, and interests
         4. Writes SHORT, concise descriptions for each selected feature (maximum 3 lines, focus on key benefits)
-        
-        Available SubscriptionFeature options: aiDefinitions, aiQuizzes, images, wordCollections, premiumTTS, unlimitedExport, createSharedDictionaries, tagManagement, advancedAnalytics, prioritySupport
         
         IMPORTANT: Keep feature descriptions brief and punchy. Each description should be 1-2 sentences maximum. Focus on the core benefit, not detailed explanations.
         """
@@ -601,10 +584,11 @@ extension AIService {
 extension AIService {
     // MARK: - Prompt Building Methods
 
-    private func buildMusicDiscoveringPrompt(
+    private func buildMusicLessonPrompt(
         song: Song,
+        lyrics: String,
         targetLanguage: InputLanguage,
-        cefrLevel: CEFRLevel,
+        songCEFR: CEFRLevel,
         userLanguage: InputLanguage
     ) -> String {
         return """
@@ -615,41 +599,44 @@ extension AIService {
         - Artist: "\(song.artist)"
         - Album: "\(song.album ?? "Unknown")"
         
-        Target Language: \(targetLanguage.englishName) (\(targetLanguage.rawValue))
-        User Language: \(userLanguage)
-        CEFR Level: \(cefrLevel.rawValue)
+        Lyrics (plain text, no timestamps):
+        \(lyrics)
         
-        CRITICAL: DO NOT request or include the full lyrics text. Focus on educational content based on the song's title, artist, and cultural context.
+        Target Language: \(targetLanguage.englishName) (\(targetLanguage.rawValue))
+        Song CEFR Level: \(songCEFR.rawValue) (This is the song's difficulty level, not the user's level)
+        
+        CRITICAL: The lesson content must be fully in \(targetLanguage.englishName). If it's an English song, the entire lesson is in English. If it's a Spanish song, the entire lesson is in Spanish. No translations - the lesson language matches the song language.
         
         Generate comprehensive learning content that MUST include:
         
         1. PRE-LISTEN HOOK or CONTEXT SUMMARY (REQUIRED - must be first):
            - A short introduction (30-50 words) that introduces the emotional and cultural theme
            - Sets expectations for what the learner will discover
-           - Written in \(userLanguage)
+           - Written in \(targetLanguage.englishName) (the lesson language matches the song language)
            - Should capture the song's mood, cultural significance, and learning value
         
         2. SONG INFO: Create a SongInfo object with title, artist, album, and detected language
         
         3. IDIOMS, KEY PHRASES, AND EXPRESSIONS (REQUIRED):
            - Based on the song's title, artist, and cultural context, provide 5-10 important idioms, phrases, and expressions that would typically appear in this type of song
-           - Provide clear meanings and explanations in \(userLanguage)
+           - Provide clear meanings and explanations in \(targetLanguage.englishName) (fully in the target language)
            - Explain cultural and emotional interpretation (what it means beyond words)
            - Include everyday examples showing how learners can use these phrases naturally in conversation
-           - Level-appropriate explanations for \(cefrLevel.rawValue) level
+           - Level-appropriate explanations for \(songCEFR.rawValue) level
            - For each phrase, include:
              * The original phrase in \(targetLanguage.englishName)
-             * Literal translation
+             * Meaning and explanation
              * Cultural/emotional meaning
              * 2-3 example sentences showing natural usage in conversation
+           - All content in \(targetLanguage.englishName)
         
         4. VOCABULARY WORDS: Provide 10-20 important vocabulary words:
            - Based on the song's theme and cultural context, suggest words that would be useful for learning
            - Focus on words that are useful for language learning
            - Include part of speech (noun, verb, adjective, etc.)
-           - Provide clear definitions in \(userLanguage)
+           - Provide clear definitions in \(targetLanguage.englishName) (fully in the target language)
            - Include 2-3 example sentences showing word usage
-           - Level-appropriate for \(cefrLevel.rawValue) level
+           - Level-appropriate for \(songCEFR.rawValue) level
         
         5. CULTURAL AND EMOTIONAL INTERPRETATION (REQUIRED):
            - Explain what the song means beyond the literal words (based on title, artist, and cultural context)
@@ -657,72 +644,55 @@ extension AIService {
            - Historical or social context if relevant
            - Emotional undertones and subtext
            - Why this song is culturally significant
-           - Written in \(userLanguage)
-           - Appropriate for \(cefrLevel.rawValue) level learners
+           - Written in \(targetLanguage.englishName) (fully in the target language)
+           - Appropriate for \(songCEFR.rawValue) level learners
         
         6. EVERYDAY USAGE EXAMPLES (REQUIRED):
            - Show how learners can use the idioms and phrases naturally in conversation
            - Provide 5-8 example dialogues or scenarios
            - Make examples relevant to daily life situations
-           - Written in \(targetLanguage.englishName) with translations in \(userLanguage)
+           - Written in \(targetLanguage.englishName) (fully in the target language)
         
         7. EXPLANATIONS: Provide explanations for key concepts (5-10 explanations):
            - Focus on interesting vocabulary, idioms, or cultural references related to the song
            - Explain meaning, context, and cultural significance
-           - Keep explanations appropriate for \(cefrLevel.rawValue) level
-           - All explanations in \(userLanguage)
+           - Keep explanations appropriate for \(songCEFR.rawValue) level
+           - All explanations in \(targetLanguage.englishName) (fully in the target language)
         
         8. QUIZ (optional): Create a comprehension quiz with 3-5 questions:
            - Questions should test understanding of idioms, phrases, vocabulary, or cultural context
            - Each question: 4 multiple choice options, 1 correct answer
            - Include explanations for correct answers
-           - Questions in \(targetLanguage.englishName), explanations in \(userLanguage)
+           - Questions and explanations in \(targetLanguage.englishName) (fully in the target language)
         
-        Remember: The output MUST always begin with a short Pre-Listen Hook or Context Summary. Focus on idioms, phrases, cultural interpretation, and practical usage examples. All content should be appropriate for \(cefrLevel.rawValue) level learners.
-        """
-    }
-
-    private func buildMusicQuizPrompt(
-        song: Song,
-        targetLanguage: InputLanguage,
-        userLanguage: InputLanguage
-    ) -> String {
-        return """
-        IMPORTANT: This is for EDUCATIONAL PURPOSES in a language learning application. Create a comprehension quiz based on song lyrics.
-        
-        Song Information:
-        - Title: "\(song.title)"
-        - Artist: "\(song.artist)"
-        
-        Target Language: \(targetLanguage.englishName)
-        User Language: \(userLanguage)
-        
-        Create a comprehension quiz with 5-8 questions:
-        
-        Each question should:
-        - Test understanding of lyrics, vocabulary, idioms, or cultural references
-        - Have 4 multiple choice options
-        - Have exactly ONE correct answer
-        - Include a brief explanation (max 200 characters) for why the correct answer is right
-        - Questions should be in \(targetLanguage.englishName)
-        - Explanations should be in \(userLanguage.englishName)
-        
-        Question types can include:
-        - Understanding specific lyric meanings
-        - Identifying vocabulary usage
-        - Grasping cultural or contextual references
-        - Understanding figurative language or idioms
-        
-        Ensure questions are fair and test genuine comprehension, not trivial details.
+        Remember: The output MUST always begin with a short Pre-Listen Hook or Context Summary. Focus on idioms, phrases, cultural interpretation, and practical usage examples. All content should be appropriate for \(songCEFR.rawValue) level learners and fully in \(targetLanguage.englishName).
         """
     }
     
     private func buildMusicPreListenHookPrompt(
         song: Song,
         targetLanguage: InputLanguage,
-        cefrLevel: CEFRLevel,
         userLanguage: InputLanguage
     ) -> String {
+        let cefrInstruction: String
+        if let knownLevel = song.cefrLevel {
+            // Song already has a CEFR level, don't make AI determine it again
+            cefrInstruction = """
+            1. SONG_CEFR_LEVEL (REQUIRED): Use the already determined CEFR level: \(knownLevel.rawValue)
+               - Do NOT analyze or change this level
+               - Simply return: \(knownLevel.rawValue)
+            """
+        } else {
+            // Song doesn't have a CEFR level, AI needs to determine it
+            cefrInstruction = """
+            1. SONG_CEFR_LEVEL (REQUIRED): Determine the song's CEFR level based on lyrics analysis:
+               - Analyze vocabulary complexity
+               - Consider grammar structures used
+               - Assess overall difficulty
+               - Return one of: A1, A2, B1, B2, C1, C2
+            """
+        }
+        
         return """
         IMPORTANT: This is for EDUCATIONAL PURPOSES in a language learning application. Create a pre-listen hook to prepare a learner for listening to a song.
         
@@ -731,94 +701,39 @@ extension AIService {
         - Artist: "\(song.artist)"
         
         Target Language: \(targetLanguage.englishName) (\(targetLanguage.rawValue))
-        User Language: \(userLanguage)
-        CEFR Level: \(cefrLevel.rawValue)
+        User Language: \(userLanguage.englishName)
         
         Create a pre-listen hook with the following components:
         
-        1. HOOK: A brief, engaging introduction (30-50 words) that:
+        \(cefrInstruction)
+        
+        2. HOOK: A brief, engaging introduction (30-50 words) that:
            - Captures the song's theme or mood
            - Highlights what the learner should focus on while listening
            - Sets expectations for vocabulary and grammar they'll encounter
-           - Written in \(userLanguage)
+           - Written in \(userLanguage.englishName)
         
-        2. TARGET PHRASES: Exactly 3 key phrases to watch for:
+        3. TARGET PHRASES: Exactly 3 key phrases to watch for:
            - Select phrases that are important for understanding the song
            - Include the original phrase in \(targetLanguage.englishName)
-           - Provide translation in \(userLanguage)
-           - Assign appropriate CEFR level (A1, A2, B1, B2, C1, C2)
-           - Include brief context about where/when it appears in the song
+           - Include meaning about where/when it appears in the song in \(userLanguage.englishName)
+           - Assign appropriate CEFR level (A1, A2, B1, B2, C1, C2) for each phrase
         
-        3. GRAMMAR HIGHLIGHT (optional): One grammar point to watch for:
+        4. GRAMMAR HIGHLIGHT (optional): One grammar point to watch for:
            - Should be relevant to the song's lyrics
-           - Appropriate for \(cefrLevel.rawValue) level learners
-           - Brief explanation (1-2 sentences) in \(userLanguage)
+           - Brief explanation (1-2 sentences) in \(userLanguage.englishName)
         
-        4. CULTURAL NOTE (optional): Brief cultural context:
+        5. CULTURAL NOTE (optional): Brief cultural context:
            - Historical or social significance if relevant
            - Why this song matters culturally
-           - Written in \(userLanguage)
+           - Written in \(userLanguage.englishName)
         
         Make the hook engaging and motivating, helping the learner prepare for an enjoyable learning experience.
         """
     }
     
-    private func buildMusicSuggestionsPrompt(
-        userProfile: UserOnboardingProfile,
-        dictionaryWords: [String]?,
-        userLanguage: InputLanguage
-    ) -> String {
-        let studyLanguages = userProfile.studyLanguages.map { "\($0.language.englishName) (\($0.proficiencyLevel.rawValue))" }.joined(separator: ", ")
-        let interests = userProfile.interests.map { $0.rawValue }.joined(separator: ", ")
-        let ageGroup = userProfile.ageGroup.rawValue
-        
-        var prompt = """
-        IMPORTANT: This is for EDUCATIONAL PURPOSES in a language learning application. Suggest songs that will help the user learn their target languages.
-        
-        USER PROFILE:
-        - Study Languages: \(studyLanguages)
-        - Age Group: \(ageGroup)
-        - Interests: \(interests)
-        - Learning Goals: \(userProfile.learningGoals.map { $0.rawValue }.joined(separator: ", "))
-        - Weekly Word Goal: \(userProfile.weeklyWordGoal) words
-        
-        """
-        
-        if let dictionaryWords = dictionaryWords, !dictionaryWords.isEmpty {
-            let wordsList = Array(dictionaryWords.prefix(30)).joined(separator: ", ")
-            prompt += """
-            USER'S DICTIONARY WORDS (top 30):
-            \(wordsList)
-            
-            """
-        }
-        
-        prompt += """
-        TASK:
-        Suggest 15-20 songs that:
-        1. Are in the user's study languages ONLY (do not suggest songs in other languages)
-        2. Match the user's interests and age group
-        3. Are appropriate for language learning (clear lyrics, good pronunciation)
-        4. Include songs that contain words from the user's dictionary (if provided)
-        5. Include a mix of popular and educational songs
-        6. Consider the user's proficiency levels
-        
-        OUTPUT REQUIREMENTS:
-        - Provide song title and artist name for each song
-        - Include a brief reason why each song is suggested (1-2 sentences)
-        - Group suggestions into two categories:
-          * "Suggested Songs" - based on interests, age, and language learning goals
-          * "Songs for Your Words" - songs that contain words from the user's dictionary
-        
-        CRITICAL: Only suggest songs in the user's study languages. Do NOT suggest English songs unless English is one of the study languages.
-        """
-        
-        return prompt
-    }
-    
     private func buildMusicRecommendationsPrompt(
         language: InputLanguage,
-        cefrLevel: CEFRLevel,
         userProfile: UserOnboardingProfile,
         userLanguage: InputLanguage
     ) -> String {
@@ -836,29 +751,31 @@ extension AIService {
         - Learning Goals: \(userProfile.learningGoals.map { $0.rawValue }.joined(separator: ", "))
         - Weekly Word Goal: \(userProfile.weeklyWordGoal) words
         
-        TARGET:
-        - Language: \(language.englishName)
-        - CEFR Level: \(cefrLevel.rawValue)
+        TARGET LANGUAGE: \(language.englishName)
         
         TASK:
-        Generate music recommendations that include:
-        1. **ARTISTS** (5-8 artists): Popular artists in \(language.englishName) who sing clearly and have songs appropriate for \(cefrLevel.rawValue) level learners
-        2. **ALBUMS** (5-8 albums): Albums with songs good for language learning at \(cefrLevel.rawValue) level
-        3. **SONGS** (10-15 songs): Specific songs with clear pronunciation and lyrics appropriate for \(cefrLevel.rawValue) level
+        Generate exactly 12 song recommendations (2 songs for each CEFR level: A1, A2, B1, B2, C1, C2) that are:
+        - All in \(language.englishName) language
+        - Have clear pronunciation and lyrics
+        - Culturally relevant and popular
+        - Appropriate for their assigned CEFR level
         
-        For each recommendation, provide:
-        - Title (for artists: artist name, for albums: album name, for songs: song title)
-        - Artist name
-        - Language code: "\(language.rawValue)"
-        - Reason: Why this is good for \(cefrLevel.rawValue) level \(language.englishName) learning (1-2 sentences)
-        - Apple Music ID (if available, otherwise leave empty)
-        - Artwork URL (if available, otherwise leave empty)
+        CRITICAL: You must provide exactly 2 songs for each CEFR level:
+        - 2 songs at A1 level (beginner)
+        - 2 songs at A2 level (elementary)
+        - 2 songs at B1 level (intermediate)
+        - 2 songs at B2 level (upper intermediate)
+        - 2 songs at C1 level (advanced)
+        - 2 songs at C2 level (proficient)
         
-        Focus on:
-        - Clear pronunciation
-        - Appropriate vocabulary for \(cefrLevel.rawValue) level
-        - Cultural relevance
-        - Popular and accessible content
+        For each song, provide:
+        - Title: Song title
+        - Artist: Artist name
+        - Language: \(language.rawValue)
+        - CEFR Level: Assign appropriate level (A1, A2, B1, B2, C1, or C2) based on vocabulary and grammar complexity
+        - Reason: Why this song is good for its assigned CEFR level (1-2 sentences)
+        
+        Ensure diversity across genres while maintaining educational value for each proficiency level.
         """
     }
 }

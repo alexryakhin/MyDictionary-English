@@ -128,15 +128,15 @@ struct AIComprehensionOption: Codable, JSONSchemaConvertible {
 }
 
 struct StoryMetadata: Codable, JSONSchemaConvertible {
-    let cefrLevel: String
-    let targetLanguage: String
+    let cefrLevel: CEFRLevel
+    let targetLanguage: InputLanguage
     let wordCount: Int
     let vocabularyWords: [String]
     
     static let example: Self = {
         .init(
-            cefrLevel: "B1",
-            targetLanguage: "English",
+            cefrLevel: .b1,
+            targetLanguage: .english,
             wordCount: 50,
             vocabularyWords: ["apple", "exclaimed", "curious"]
         )

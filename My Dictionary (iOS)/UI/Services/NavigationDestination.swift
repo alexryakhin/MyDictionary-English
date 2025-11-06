@@ -49,4 +49,9 @@ enum NavigationDestination: Hashable {
     
     // MARK: - Story Lab destinations
     case storyLabHistory
+    
+    // MARK: - Music Discover destinations
+    case musicPlayer(MusicPlayerConfig)
+    case songLesson(SongLessonConfig)
+    case songLessonResults(SongLessonResultsConfig)
 }

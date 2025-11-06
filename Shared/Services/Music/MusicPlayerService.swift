@@ -186,15 +186,18 @@ final class MusicPlayerService: NSObject, ObservableObject {
             // Clamp time to valid range
             let clampedTime = max(0, min(time, duration))
             
-            // Update current time for UI responsiveness during dragging
+            // Update current time for UI responsiveness
             currentTime = clampedTime
             
-            // Try to set playbackTime directly (if it's writable)
+            // Actually seek the music player
             if let musicPlayer = musicPlayer {
-                // Try setting playbackTime to seek
-                // Note: This may not work if playbackTime is read-only
-                // We'll handle the actual seek in finishSeeking()
+                musicPlayer.playbackTime = clampedTime
                 updateNowPlayingInfo()
+            }
+            
+            // Seek AVPlayer if available
+            if let player = player {
+                player.seek(to: CMTime(seconds: clampedTime, preferredTimescale: 600))
             }
         }
     }

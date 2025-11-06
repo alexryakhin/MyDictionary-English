@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MusicDiscoveringSession: Identifiable {
+struct MusicDiscoveringSession: Codable, Identifiable {
     let id: UUID
     let song: Song
     var listeningProgress: TimeInterval

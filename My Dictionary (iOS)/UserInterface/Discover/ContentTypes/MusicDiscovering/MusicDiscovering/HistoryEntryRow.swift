@@ -102,7 +102,6 @@ struct HistoryEntryRow: View {
                 album: nil,
                 albumArtURL: nil,
                 duration: 233,
-                previewURL: nil,
                 serviceId: "1"
             ),
             listeningDuration: 180,

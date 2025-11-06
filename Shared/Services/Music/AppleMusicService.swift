@@ -325,7 +325,6 @@ final class AppleMusicService {
             album: musicKitSong.albumTitle,
             albumArtURL: artworkURL,
             duration: duration,
-            previewURL: nil,
             serviceId: id
         )
     }
@@ -354,7 +353,6 @@ final class AppleMusicService {
             album: album,
             albumArtURL: artworkURL,
             duration: duration,
-            previewURL: nil,
             serviceId: id
         )
     }

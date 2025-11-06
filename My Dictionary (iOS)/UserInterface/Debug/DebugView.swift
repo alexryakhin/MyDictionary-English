@@ -29,6 +29,7 @@ struct DebugView: View {
     @State private var testNotificationEmail = ""
     @State private var showingEmailInput = false
     @State private var showingAIDemo = false
+    @State private var showingAppleMusicDebug = false
 
     var body: some View {
         NavigationView {
@@ -75,6 +76,9 @@ struct DebugView: View {
         }
         .sheet(isPresented: $showingAIDemo) {
             AIDemoView()
+        }
+        .sheet(isPresented: $showingAppleMusicDebug) {
+            AppleMusicDebugView()
         }
     }
 
@@ -397,6 +401,10 @@ struct DebugView: View {
     private var musicTestingSection: some View {
         Section("Music Learning Testing") {
             VStack(alignment: .leading, spacing: 8) {
+                HeaderButton("Apple Music Debug") {
+                    showingAppleMusicDebug = true
+                }
+                
                 HeaderButton("Reset Music Suggestions Cache") {
                     resetMusicSuggestionsCache()
                 }

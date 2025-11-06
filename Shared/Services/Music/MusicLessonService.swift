@@ -23,20 +23,37 @@ final class MusicLessonService {
     // MARK: - Public Methods
     
     /// Get lesson for a song, checking Firestore cache first
+    /// Uses song's CEFR level, not user's CEFR level
     /// - Parameters:
     ///   - song: The song to get lesson for
     ///   - lyrics: The song lyrics
-    ///   - userLevel: User's CEFR level for personalization
-    /// - Returns: Adapted lesson for the user's level
-    func getLesson(for song: Song, lyrics: SongLyrics, userLevel: CEFRLevel) async throws -> AdaptedLesson {
+    /// - Returns: Lesson adapted to song's CEFR level
+    func getLesson(for song: Song, lyrics: SongLyrics) async throws -> AdaptedLesson {
+        guard let userProfile = OnboardingService.shared.userProfile,
+              let firstStudyLanguage = userProfile.studyLanguages.first,
+              let cefrLevel = song.cefrLevel else {
+            throw MusicError.authenticationRequired
+        }
+        
+        let targetLanguage = firstStudyLanguage.language
+
         // 1. Try to get cached lesson from Firestore (public/shared)
         if let cachedLesson = try? await getLessonFromFirestore(songId: song.id) {
-            // 2. Adapt to user's CEFR level on-device
-            let adapted = adaptLesson(cachedLesson, to: userLevel)
+            // 2. Adapt lesson (lessons are language-specific, no filtering by user level)
+            let adapted = AdaptedLesson(
+                songId: cachedLesson.songId,
+                language: targetLanguage, // Use InputLanguage enum
+                phrases: cachedLesson.phrases,
+                grammarNuggets: cachedLesson.grammarNuggets,
+                cultureNotes: cachedLesson.cultureNotes,
+                quiz: generateQuizFromTemplate(cachedLesson.quizTemplate, level: cefrLevel),
+                adaptedAt: Date(),
+                userLevel: cefrLevel
+            )
             
             // 3. Save personal adaptation to CoreData
-            try? await savePersonalLesson(adapted, for: song.id, userLevel: userLevel)
-            
+            try? await savePersonalLesson(adapted, for: song.id, userLevel: cefrLevel)
+
             return adapted
         }
         
@@ -45,41 +62,45 @@ final class MusicLessonService {
             throw AIError.proRequired
         }
         
-        guard let userProfile = OnboardingService.shared.userProfile,
-              let firstStudyLanguage = userProfile.studyLanguages.first else {
-            throw MusicError.authenticationRequired
-        }
-        
-        let targetLanguage = firstStudyLanguage.language
         let lyricsText = lyrics.bestLyrics ?? lyrics.plainLyrics ?? ""
         
         guard !lyricsText.isEmpty else {
             throw AIError.invalidResponse
         }
         
-        // Generate lesson with AI
-        let response: MusicDiscoveringResponse = try await aiService.request(.musicContent(
+        // Generate lesson with AI using song's CEFR level and plain lyrics
+        let response: MusicDiscoveringResponse = try await aiService.request(.musicLesson(
             song: song,
+            lyrics: lyricsText,
             targetLanguage: targetLanguage,
-            cefrLevel: userLevel
+            cefrLevel: cefrLevel
         ))
         
         // 5. Convert to FirestoreLesson format
         let firestoreLesson = convertToFirestoreLesson(response, songId: song.id, language: targetLanguage.rawValue)
         
-        // 6. Save to Firestore (public cache)
-        try await saveLessonToFirestore(firestoreLesson, for: song.id)
+        // 6. Save to Firestore (public cache) - save after generation during listening
+        let languagePath = targetLanguage.englishName.lowercased()
+        try await saveLessonToFirestore(firestoreLesson, for: song.id, languagePath: languagePath)
         
-        // 7. Update song metadata
-        let lyricsHash = lyrics.bestLyrics?.hash.description ?? lyrics.plainLyrics?.hash.description ?? ""
-        try await updateSongMetadata(song, lyricsHash: lyricsHash)
-        
-        // 8. Adapt to user's CEFR level
-        let adapted = adaptLesson(firestoreLesson, to: userLevel)
+        // 7. Update song metadata with simplified structure (song's CEFR level)
+        try await updateSongMetadata(song, targetLanguage: targetLanguage, songCEFR: cefrLevel)
+
+        // 8. Create adapted lesson (lessons are language-specific)
+        let adapted = AdaptedLesson(
+            songId: firestoreLesson.songId,
+            language: targetLanguage, // Use InputLanguage enum
+            phrases: firestoreLesson.phrases,
+            grammarNuggets: firestoreLesson.grammarNuggets,
+            cultureNotes: firestoreLesson.cultureNotes,
+            quiz: generateQuizFromTemplate(firestoreLesson.quizTemplate, level: cefrLevel),
+            adaptedAt: Date(),
+            userLevel: cefrLevel // Use CEFRLevel enum
+        )
         
         // 9. Save personal adaptation to CoreData
-        try await savePersonalLesson(adapted, for: song.id, userLevel: userLevel)
-        
+        try await savePersonalLesson(adapted, for: song.id, userLevel: cefrLevel)
+
         return adapted
     }
     
@@ -106,7 +127,17 @@ final class MusicLessonService {
     
     /// Get lesson from Firestore cache (public/shared)
     private func getLessonFromFirestore(songId: String) async throws -> FirestoreLesson {
-        let docRef = db.collection("lessons").document(songId)
+        guard let userProfile = OnboardingService.shared.userProfile,
+              let firstStudyLanguage = userProfile.studyLanguages.first else {
+            throw MusicError.authenticationRequired
+        }
+        
+        let languagePath = firstStudyLanguage.language.englishName.lowercased()
+        let docRef = db.collection("musicLessons")
+            .document(languagePath)
+            .collection("lessons")
+            .document(songId)
+        
         let document = try await docRef.getDocument()
         
         guard document.exists,
@@ -123,42 +154,8 @@ final class MusicLessonService {
         return lesson
     }
     
-    /// Adapt lesson to user's CEFR level (on-device, no AI needed)
-    func adaptLesson(_ lesson: FirestoreLesson, to level: CEFRLevel) -> AdaptedLesson {
-        let userLevelInt = level.level
-        
-        // Filter phrases by CEFR level (show up to user's level + 1)
-        let filteredPhrases = lesson.phrases.filter { phrase in
-            guard let phraseLevel = CEFRLevel(rawValue: phrase.cefr) else { return false }
-            return phraseLevel.level <= userLevelInt + 1
-        }
-        
-        // Filter grammar nuggets by CEFR level
-        let filteredGrammar = lesson.grammarNuggets.filter { nugget in
-            guard let nuggetLevel = nugget.cefr.flatMap({ CEFRLevel(rawValue: $0) }) else { return true }
-            return nuggetLevel.level <= userLevelInt + 1
-        }
-        
-        // Filter culture notes by CEFR level
-        let filteredCulture = lesson.cultureNotes.filter { note in
-            guard let noteLevel = note.cefr.flatMap({ CEFRLevel(rawValue: $0) }) else { return true }
-            return noteLevel.level <= userLevelInt + 1
-        }
-        
-        // Generate quiz from template (randomize for user)
-        let quiz = generateQuizFromTemplate(lesson.quizTemplate, level: level)
-        
-        return AdaptedLesson(
-            songId: lesson.songId,
-            language: lesson.language,
-            phrases: filteredPhrases,
-            grammarNuggets: filteredGrammar,
-            cultureNotes: filteredCulture,
-            quiz: quiz,
-            adaptedAt: Date(),
-            userLevel: level.rawValue
-        )
-    }
+    // Note: adaptLesson method removed - lessons are now language-specific and use song's CEFR level
+    // No filtering by user level needed
     
     /// Generate quiz from template (randomized per session)
     private func generateQuizFromTemplate(_ template: QuizTemplate, level: CEFRLevel) -> AdaptedQuiz {
@@ -176,8 +173,12 @@ final class MusicLessonService {
     }
     
     /// Save lesson to Firestore (public cache)
-    private func saveLessonToFirestore(_ lesson: FirestoreLesson, for songId: String) async throws {
-        let docRef = db.collection("lessons").document(songId)
+    /// Path: musicLessons/{language.englishName.lowercased()}/{songId}
+    private func saveLessonToFirestore(_ lesson: FirestoreLesson, for songId: String, languagePath: String) async throws {
+        let docRef = db.collection("musicLessons")
+            .document(languagePath)
+            .collection("lessons")
+            .document(songId)
         
         // Convert to Firestore-compatible dictionary
         let encoder = JSONEncoder()
@@ -194,37 +195,28 @@ final class MusicLessonService {
     }
     
     /// Update song metadata in Firestore
-    private func updateSongMetadata(_ song: Song, lyricsHash: String) async throws {
-        let docRef = db.collection("songs").document(song.id)
+    /// Path: songs/{language.englishName.lowercased()}/{songId}
+    /// Saves only: id, title, artist, cefrLevel, appleMusicId
+    private func updateSongMetadata(_ song: Song, targetLanguage: InputLanguage, songCEFR: CEFRLevel) async throws {
+        let languagePath = targetLanguage.englishName.lowercased()
+        let docRef = db.collection("songs")
+            .document(languagePath)
+            .collection("songs")
+            .document(song.id)
         
-        // Check if document exists
-        let document = try await docRef.getDocument()
+        // Extract appleMusicId from song.serviceId if it's an Apple Music ID
+        let appleMusicId = song.serviceId.isEmpty ? nil : song.serviceId
         
-        if document.exists {
-            // Increment generation count
-            try await docRef.updateData([
-                "generation_count": FieldValue.increment(Int64(1))
-            ])
-        } else {
-            // Create new song document
-            let songData: [String: Any] = [
-                "id": song.id,
-                "title": song.title,
-                "artist": song.artist,
-                "duration": song.duration,
-                "language": "", // Will be set by tagging service
-                "cefr_base": "",
-                "difficulty_score": 0.0,
-                "themes": [],
-                "grammar_tags": [],
-                "embedding": [],
-                "lyrics_hash": lyricsHash,
-                "generated_at": Timestamp(date: Date()),
-                "generation_count": 1
-            ]
-            
-            try await docRef.setData(songData)
-        }
+        // Create simplified song document with song's CEFR level
+        let songData: [String: Any] = [
+            "id": song.id,
+            "title": song.title,
+            "artist": song.artist,
+            "cefr_level": songCEFR.rawValue,
+            "apple_music_id": appleMusicId as Any
+        ]
+        
+        try await docRef.setData(songData, merge: true)
     }
     
     /// Convert MusicDiscoveringResponse to FirestoreLesson
@@ -233,7 +225,7 @@ final class MusicLessonService {
         let phrases = response.vocabularyWords.map { vocab in
             LessonPhrase(
                 text: vocab.word,
-                translation: vocab.definition,
+                meaning: vocab.definition,
                 cefr: determineCEFRForWord(vocab),
                 example: vocab.examples.first ?? "",
                 audioPrompt: nil
@@ -328,29 +320,24 @@ final class MusicLessonService {
         }
     }
     
-    /// Generate pre-listen hook with AI (optional, can be cached)
-    func generatePreListenHook(for song: Song, lyrics: String, userLevel: CEFRLevel) async throws -> PreListenHook {
+    /// Generate pre-listen hook with AI and determine song's CEFR level
+    /// Hook is cached locally (user-specific, locale-specific), not in Firestore
+    /// Returns: (PreListenHook, CEFRLevel) - the hook and the determined song CEFR level
+    func generatePreListenHook(for song: Song, lyrics: String, targetLanguage: InputLanguage) async throws -> (PreListenHook, CEFRLevel) {
         guard aiService.canMakeAIRequest() else {
             throw AIError.proRequired
         }
-        
-        guard let userProfile = OnboardingService.shared.userProfile,
-              let firstStudyLanguage = userProfile.studyLanguages.first else {
-            throw MusicError.authenticationRequired
-        }
-        
-        let targetLanguage = firstStudyLanguage.language
-        
-        // Use AI service to generate hook
+
+        // Use AI service to generate hook (determines song's CEFR level)
+        // If languageToUse is nil, AI will detect language from lyrics
         let hook: PreListenHook = try await aiService.request(
             .musicPreListenHook(
                 song: song,
-                targetLanguage: targetLanguage,
-                cefrLevel: userLevel
+                targetLanguage: targetLanguage
             )
         )
-        
-        return hook
+
+        return (hook, hook.songCEFRLevel)
     }
     
     /// Convert AdaptedLesson to MusicDiscoveringResponse for UI
@@ -359,7 +346,7 @@ final class MusicLessonService {
         let explanations = lesson.phrases.map { phrase in
             LyricExplanation(
                 lyricLine: phrase.example,
-                explanation: "\(phrase.text): \(phrase.translation)",
+                explanation: "\(phrase.text): \(phrase.meaning)",
                 lineNumber: nil
             )
         }
@@ -368,7 +355,7 @@ final class MusicLessonService {
         let vocabularyWords = lesson.phrases.map { phrase in
             VocabularyWord(
                 word: phrase.text,
-                definition: phrase.translation,
+                definition: phrase.meaning,
                 examples: [phrase.example],
                 partOfSpeech: "phrase",
                 context: phrase.example
@@ -392,7 +379,7 @@ final class MusicLessonService {
                     explanation: mcq.explanation
                 )
             },
-            difficulty: lesson.userLevel
+            difficulty: lesson.userLevel.rawValue // Convert CEFRLevel to String
         )
         
         return MusicDiscoveringResponse(
@@ -400,7 +387,7 @@ final class MusicLessonService {
                 title: song.title,
                 artist: song.artist,
                 album: song.album,
-                language: lesson.language
+                language: lesson.language.englishName // Convert InputLanguage to String
             ),
             explanations: explanations,
             vocabularyWords: vocabularyWords,
@@ -412,19 +399,19 @@ final class MusicLessonService {
 
 // MARK: - Adapted Lesson Model
 
-/// User's personalized lesson (stored in CoreData)
-struct AdaptedLesson: Codable {
+/// User's personalized lesson (stored in CoreData as encoded Data)
+struct AdaptedLesson: Codable, Hashable {
     let songId: String
-    let language: String
+    let language: InputLanguage // Target language for the lesson
     let phrases: [LessonPhrase]
     let grammarNuggets: [GrammarNugget]
     let cultureNotes: [CultureNote]
     let quiz: AdaptedQuiz
     let adaptedAt: Date
-    let userLevel: String
+    let userLevel: CEFRLevel // Song's CEFR level
 }
 
-struct AdaptedQuiz: Codable {
+struct AdaptedQuiz: Codable, Hashable {
     let fillInBlanks: [FillInBlankItem]
     let meaningMCQ: [MCQItem]
     let generatedAt: Date

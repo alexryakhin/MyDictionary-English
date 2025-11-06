@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import OpenAI
 
-public enum InputLanguage: String, Codable, CaseIterable, Identifiable {
+public enum InputLanguage: String, Codable, CaseIterable, Identifiable, JSONSchemaEnumConvertible {
     case english = "en"
     case french = "fr"
     case spanish = "es"
@@ -81,5 +82,11 @@ public enum InputLanguage: String, Codable, CaseIterable, Identifiable {
 
     static var allCasesSorted: [InputLanguage] {
         Self.allCases.sorted { $0.displayName < $1.displayName }
+    }
+
+    // MARK: - JSONSchemaEnumConvertible
+
+    public var caseNames: [String] {
+        return Self.allCases.map { $0.rawValue }
     }
 }

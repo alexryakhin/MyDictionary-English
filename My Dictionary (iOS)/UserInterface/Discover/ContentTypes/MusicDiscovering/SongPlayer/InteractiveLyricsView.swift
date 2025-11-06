@@ -1,5 +1,5 @@
 //
-//  LyricsDisplayView.swift
+//  InteractiveLyricsView.swift
 //  My Dictionary
 //
 //  Created by Aleksandr Riakhin
@@ -7,25 +7,26 @@
 
 import SwiftUI
 
-struct LyricsDisplayView: View {
+struct InteractiveLyricsView: View {
     let lyrics: SongLyrics
     let currentTime: TimeInterval
-    
-    @State private var highlightedLineIndex: Int?
+    let onLineSelected: (TimeInterval) -> Void
     
     var body: some View {
         ScrollViewReader { proxy in
             ScrollView {
-                VStack(alignment: .leading, spacing: 12) {
+                VStack(alignment: .leading, spacing: 20) {
                     if let syncedLyrics = lyrics.syncedLyrics {
-                        // Display synced lyrics with highlighting
                         syncedLyricsView(lyrics: syncedLyrics, proxy: proxy)
                     } else if let plainLyrics = lyrics.plainLyrics {
-                        // Display plain lyrics
                         plainLyricsView(lyrics: plainLyrics)
+                    } else {
+                        noLyricsView
                     }
                 }
-                .padding(.vertical, 8)
+                .padding(.horizontal, 20)
+                .padding(.top, 40)
+                .padding(.bottom, 280) // Extra padding for bottom controls
             }
         }
     }
@@ -36,18 +37,23 @@ struct LyricsDisplayView: View {
         let lines = parseSyncedLyrics(lyrics)
         
         return ForEach(Array(lines.enumerated()), id: \.offset) { index, line in
+            let isCurrent = isLineCurrent(index, lines: lines)
+            
             Text(line.text)
-                .font(.body)
-                .foregroundColor(isLineCurrent(index, lines: lines) ? .primary : .secondary)
-                .fontWeight(isLineCurrent(index, lines: lines) ? .semibold : .regular)
-                .padding(.vertical, 4)
+                .font(.title2)
+                .foregroundColor(isCurrent ? .primary : .secondary)
+                .multilineTextAlignment(.leading)
+                .frame(maxWidth: .infinity, alignment: .leading)
                 .id(index)
-                .onChange(of: currentTime) {
-                    if isLineCurrent(index, lines: lines) {
-                        withAnimation {
+                .onTapGesture {
+                    // Seek to the line's timestamp when tapped
+                    onLineSelected(line.timestamp)
+                }
+                .onChange(of: currentTime) { _, _ in
+                    if isCurrent {
+                        withAnimation(.easeInOut(duration: 0.3)) {
                             proxy.scrollTo(index, anchor: .center)
                         }
-                        highlightedLineIndex = index
                     }
                 }
         }
@@ -60,11 +66,28 @@ struct LyricsDisplayView: View {
         
         return ForEach(Array(lines.enumerated()), id: \.offset) { index, line in
             Text(line)
-                .font(.body)
+                .font(.title2)
                 .foregroundColor(.primary)
-                .padding(.vertical, 4)
+                .multilineTextAlignment(.leading)
+                .frame(maxWidth: .infinity, alignment: .leading)
                 .textSelection(.enabled)
         }
+    }
+    
+    // MARK: - No Lyrics View
+    
+    private var noLyricsView: some View {
+        VStack(spacing: 16) {
+            Image(systemName: "music.note")
+                .font(.system(size: 60))
+                .foregroundColor(.secondary)
+            
+            Text("No lyrics available")
+                .font(.title3)
+                .foregroundColor(.secondary)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .padding(.top, 100)
     }
     
     // MARK: - Helper Methods
@@ -84,7 +107,11 @@ struct LyricsDisplayView: View {
                 let text = nsString.substring(with: match.range(at: 4))
                 
                 let timestamp = TimeInterval(minutes * 60 + seconds) + TimeInterval(centiseconds) / 100.0
-                lines.append(LyricLine(text: text.trimmingCharacters(in: .whitespaces), timestamp: timestamp))
+                
+                let trimmedText = text.trimmingCharacters(in: .whitespaces)
+                if !trimmedText.isEmpty {
+                    lines.append(LyricLine(text: trimmedText, timestamp: timestamp))
+                }
             }
         }
         
@@ -100,20 +127,29 @@ struct LyricsDisplayView: View {
     }
 }
 
+// MARK: - LyricLine Model
+
 struct LyricLine {
     let text: String
     let timestamp: TimeInterval
 }
 
+// MARK: - Preview
+
 #Preview {
-    LyricsDisplayView(
-        lyrics: SongLyrics(
-            plainLyrics: "La vida es un carnaval\nY las penas se van cantando",
-            syncedLyrics: "[00:17.12]La vida es un carnaval\n[00:20.45]Y las penas se van cantando",
-            instrumental: false
-        ),
-        currentTime: 18.0
-    )
-    .padding()
+    VStack {
+        InteractiveLyricsView(
+            lyrics: SongLyrics(
+                plainLyrics: nil,
+                syncedLyrics: "[00:17.12]La vida es un carnaval\n[00:20.45]Y las penas se van cantando\n[00:23.78]La vida es un carnaval\n[00:27.11]Es más bello vivir cantando",
+                instrumental: false
+            ),
+            currentTime: 18.0,
+            onLineSelected: { timestamp in
+                print("Selected line at timestamp: \(timestamp)")
+            }
+        )
+        .groupedBackground()
+    }
 }
 

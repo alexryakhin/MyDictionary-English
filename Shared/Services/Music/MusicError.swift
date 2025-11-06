@@ -22,7 +22,8 @@ enum MusicError: Error, LocalizedError {
     case appleMusicNotRegistered
     case appleMusicSubscriptionRequired
     case invalidCEFRLevel
-    
+    case noRecommendationsAvailable
+
     var errorDescription: String? {
         switch self {
         case .authenticationRequired:
@@ -53,6 +54,8 @@ enum MusicError: Error, LocalizedError {
             return "An Apple Music subscription is required to use this feature. You can subscribe in the Music app or Settings."
         case .invalidCEFRLevel:
             return "Invalid CEFR level"
+        case .noRecommendationsAvailable:
+            return "No recommendations available"
         }
     }
 }

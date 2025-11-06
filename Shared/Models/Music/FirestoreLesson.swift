@@ -92,16 +92,16 @@ struct FirestoreLesson: Codable {
 }
 
 /// Phrase with CEFR tag for on-device filtering
-struct LessonPhrase: Codable {
+struct LessonPhrase: Codable, Hashable {
     let text: String
-    let translation: String
+    let meaning: String
     let cefr: String // CEFR level (A1, A2, B1, etc.)
     let example: String
     let audioPrompt: String? // Optional TTS identifier
     
     enum CodingKeys: String, CodingKey {
         case text
-        case translation
+        case meaning
         case cefr
         case example
         case audioPrompt = "audio_prompt"
@@ -109,14 +109,14 @@ struct LessonPhrase: Codable {
 }
 
 /// Grammar rule with CEFR tag
-struct GrammarNugget: Codable {
+struct GrammarNugget: Codable, Hashable {
     let rule: String
     let example: String
     let cefr: String? // Optional CEFR level for filtering
 }
 
 /// Culture note with optional CEFR tag
-struct CultureNote: Codable {
+struct CultureNote: Codable, Hashable {
     let text: String
     let cefr: String? // Optional CEFR level for filtering
 }
@@ -132,7 +132,7 @@ struct QuizTemplate: Codable {
     }
 }
 
-struct FillInBlankItem: Codable {
+struct FillInBlankItem: Codable, Hashable {
     let line: Int
     let blankWord: String
     let options: [String]
@@ -144,7 +144,7 @@ struct FillInBlankItem: Codable {
     }
 }
 
-struct MCQItem: Codable {
+struct MCQItem: Codable, Hashable {
     let question: String
     let correctAnswer: String
     let options: [String]

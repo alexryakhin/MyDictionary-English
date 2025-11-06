@@ -148,4 +148,20 @@
         <attribute name="answeredAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="timeSpent" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
     </entity>
+    <entity name="SongLessonSession" representedClassName="CDSongLessonSession" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="songId" optional="YES" attributeType="String"/>
+        <attribute name="songData" optional="YES" attributeType="Binary"/>
+        <attribute name="lessonData" optional="YES" attributeType="Binary"/>
+        <attribute name="sessionData" optional="YES" attributeType="Binary"/>
+        <attribute name="isComplete" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="lastAccessed" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="targetLanguage" optional="YES" attributeType="String"/>
+        <attribute name="cefrLevel" optional="YES" attributeType="String"/>
+        <attribute name="score" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="correctAnswers" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="totalQuestions" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="isFavorite" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+    </entity>
 </model>

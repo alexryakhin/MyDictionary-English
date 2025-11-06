@@ -12,10 +12,10 @@ struct Song: Identifiable, Codable, Hashable {
     let title: String
     let artist: String
     let album: String?
-    let albumArtURL: URL?
+    let albumArtURL: URL? // Album artwork for display
     let duration: TimeInterval // Critical for LRCLIB matching
-    let previewURL: URL?
-    let serviceId: String // Original service ID
+    let serviceId: String // Original service ID (Apple Music ID)
+    let cefrLevel: CEFRLevel? // CEFR level if known (from Firebase/OpenAI recommendations or hook generation)
     
     init(
         id: String,
@@ -24,8 +24,8 @@ struct Song: Identifiable, Codable, Hashable {
         album: String? = nil,
         albumArtURL: URL? = nil,
         duration: TimeInterval,
-        previewURL: URL? = nil,
-        serviceId: String
+        serviceId: String,
+        cefrLevel: CEFRLevel? = nil
     ) {
         self.id = id
         self.title = title
@@ -33,8 +33,8 @@ struct Song: Identifiable, Codable, Hashable {
         self.album = album
         self.albumArtURL = albumArtURL
         self.duration = duration
-        self.previewURL = previewURL
         self.serviceId = serviceId
+        self.cefrLevel = cefrLevel
     }
     
     enum CodingKeys: String, CodingKey {
@@ -44,8 +44,8 @@ struct Song: Identifiable, Codable, Hashable {
         case album
         case albumArtURL
         case duration
-        case previewURL
         case serviceId
+        case cefrLevel
     }
     
     init(from decoder: Decoder) throws {
@@ -57,17 +57,18 @@ struct Song: Identifiable, Codable, Hashable {
         serviceId = try container.decode(String.self, forKey: .serviceId)
         duration = try container.decode(TimeInterval.self, forKey: .duration)
         
-        // Decode optional URLs
+        // Decode CEFR level as enum from string
+        if let cefrLevelString = try? container.decodeIfPresent(String.self, forKey: .cefrLevel) {
+            cefrLevel = CEFRLevel(rawValue: cefrLevelString)
+        } else {
+            cefrLevel = nil
+        }
+        
+        // Decode optional artwork URL
         if let albumArtURLString = try? container.decodeIfPresent(String.self, forKey: .albumArtURL) {
             albumArtURL = URL(string: albumArtURLString)
         } else {
             albumArtURL = nil
-        }
-        
-        if let previewURLString = try? container.decodeIfPresent(String.self, forKey: .previewURL) {
-            previewURL = URL(string: previewURLString)
-        } else {
-            previewURL = nil
         }
     }
     
@@ -79,8 +80,7 @@ struct Song: Identifiable, Codable, Hashable {
         try container.encodeIfPresent(album, forKey: .album)
         try container.encode(serviceId, forKey: .serviceId)
         try container.encode(duration, forKey: .duration)
+        try container.encodeIfPresent(cefrLevel?.rawValue, forKey: .cefrLevel)
         try container.encodeIfPresent(albumArtURL?.absoluteString, forKey: .albumArtURL)
-        try container.encodeIfPresent(previewURL?.absoluteString, forKey: .previewURL)
     }
 }
-

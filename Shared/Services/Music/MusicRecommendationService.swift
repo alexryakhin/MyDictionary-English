@@ -22,19 +22,75 @@ final class MusicRecommendationService {
     
     // MARK: - Public Methods
     
-    /// Get recommendations from Firestore cache
-    /// Path: recommendationItems/{languageCode}/{cefrLevel}
+    /// Get recommendations for all CEFR levels (2 random songs per level, 12 total)
     /// - Parameters:
-    ///   - language: InputLanguage (e.g., ".english", ".spanish")
-    ///   - cefrLevel: CEFR level (e.g., "B1", "A2")
+    ///   - language: InputLanguage
+    ///   - userProfile: User profile for AI generation if needed
+    /// - Returns: Array of RecommendationSong (2 per CEFR level, 12 total)
+    func getAllLevelRecommendations(language: InputLanguage, userProfile: UserOnboardingProfile) async throws -> [RecommendationSong] {
+        let allLevels = CEFRLevel.allCases
+        var allSongs: [RecommendationSong] = []
+        
+        // Try to get 2 random songs per level from Firestore
+        for level in allLevels {
+            // Try to get recommendations from Firestore
+            if let recommendation = try? await getRecommendations(language: language, cefrLevel: level) {
+                // Get 2 random songs from this level's recommendations
+                // All songs in this recommendation should already have the correct CEFR level
+                let randomSongs = Array(recommendation.songs.shuffled().prefix(2))
+                allSongs.append(contentsOf: randomSongs)
+                print("✅ [MusicRecommendationService] Found \(randomSongs.count) songs for \(level.rawValue) in Firestore")
+            }
+        }
+        
+        // If we don't have enough songs (less than 12), generate all levels with AI
+        if allSongs.count < 12 {
+            print("⚠️ [MusicRecommendationService] Only found \(allSongs.count) songs, generating recommendations for all levels with AI...")
+            
+            do {
+                // Generate all 12 songs (2 per level) with a single AI request
+                // We just need to call it once with any level - it generates all levels
+                let _ = try await generateRecommendationsWithAI(
+                    language: language,
+                    cefrLevel: .a1, // Placeholder - AI generates for all levels
+                    userProfile: userProfile,
+                    count: 12 // Request 12 songs (2 per level)
+                )
+                
+                // Fetch all songs again from Firestore after AI generation
+                allSongs = []
+                for level in allLevels {
+                    if let recommendation = try? await getRecommendations(language: language, cefrLevel: level) {
+                        let randomSongs = Array(recommendation.songs.shuffled().prefix(2))
+                        allSongs.append(contentsOf: randomSongs)
+                        print("✅ [MusicRecommendationService] Loaded \(randomSongs.count) songs for \(level.rawValue) after AI generation")
+                    }
+                }
+            } catch {
+                print("⚠️ [MusicRecommendationService] AI generation failed: \(error.localizedDescription)")
+            }
+        }
+        
+        // Shuffle all songs to mix levels
+        let shuffledSongs = allSongs.shuffled()
+        print("✅ [MusicRecommendationService] Returning \(shuffledSongs.count) total recommendations (target: 12)")
+        return shuffledSongs
+    }
+    
+    /// Get recommendations from Firestore cache
+    /// Path: recommendationSongs/{language.englishName.lowercased()}/{cefrLevel}
+    /// - Parameters:
+    ///   - language: InputLanguage
+    ///   - cefrLevel: CEFR level enum
     /// - Returns: FirestoreRecommendation if found, nil otherwise
-    func getRecommendations(language: InputLanguage, cefrLevel: String) async throws -> FirestoreRecommendation? {
-        let docRef = db.collection("recommendationItems")
-            .document(language.rawValue)
-            .collection(cefrLevel)
+    func getRecommendations(language: InputLanguage, cefrLevel: CEFRLevel) async throws -> FirestoreRecommendation? {
+        let languagePath = language.englishName.lowercased()
+        let docRef = db.collection("recommendationSongs")
+            .document(languagePath)
+            .collection(cefrLevel.rawValue)
             .document("recommendations")
         
-        print("📥 [MusicRecommendationService] Fetching from Firestore: recommendationItems/\(language.englishName)/\(cefrLevel)/recommendations")
+        print("📥 [MusicRecommendationService] Fetching from Firestore: recommendationSongs/\(languagePath)/\(cefrLevel)/recommendations")
 
         let document = try await docRef.getDocument()
         
@@ -70,15 +126,16 @@ final class MusicRecommendationService {
     }
     
     /// Save recommendations to Firestore
+    /// Path: recommendationSongs/{language.englishName.lowercased()}/{cefrLevel}
     /// - Parameters:
-    ///   - recommendation: The recommendation to save
+    ///   - recommendation: The recommendation to save (only songs)
     ///   - language: InputLanguage
-    ///   - cefrLevel: CEFR level
-    func saveRecommendations(_ recommendation: FirestoreRecommendation, language: InputLanguage, cefrLevel: String) async throws {
-        print("💾 [MusicRecommendationService] saveRecommendations() called - Source: \(recommendation.artists.isEmpty && recommendation.albums.isEmpty ? "Search" : "AI")")
-        let docRef = db.collection("recommendationItems")
-            .document(language.rawValue)
-            .collection(cefrLevel)
+    ///   - cefrLevel: CEFR level enum
+    func saveRecommendations(_ recommendation: FirestoreRecommendation, language: InputLanguage, cefrLevel: CEFRLevel) async throws {
+        let languagePath = language.englishName.lowercased()
+        let docRef = db.collection("recommendationSongs")
+            .document(languagePath)
+            .collection(cefrLevel.rawValue)
             .document("recommendations")
         
         // Convert to dictionary for Firestore
@@ -91,29 +148,25 @@ final class MusicRecommendationService {
         
         print("💾 [MusicRecommendationService] Writing to Firestore document...")
         try await docRef.setData(dictionary, merge: false)
-        print("✅ [MusicRecommendationService] Successfully wrote to Firestore: recommendationItems/\(language.englishName)/\(cefrLevel)/recommendations")
+        print("✅ [MusicRecommendationService] Successfully wrote to Firestore: recommendationSongs/\(languagePath)/\(cefrLevel)/recommendations")
     }
     
     /// Generate recommendations using OpenAI
     /// - Parameters:
     ///   - language: InputLanguage
-    ///   - cefrLevel: CEFR level
+    ///   - cefrLevel: CEFR level enum (used for return value only, AI generates all levels)
     ///   - userProfile: User profile for personalization
-    /// - Returns: FirestoreRecommendation generated by AI
-    func generateRecommendationsWithAI(language: InputLanguage, cefrLevel: String, userProfile: UserOnboardingProfile) async throws -> FirestoreRecommendation {
-        print("🤖 [MusicRecommendationService] Starting OpenAI recommendation generation...")
+    ///   - count: Number of songs to generate (default: 12 - 2 per level)
+    /// - Returns: FirestoreRecommendation for requested level (after generating all)
+    func generateRecommendationsWithAI(language: InputLanguage, cefrLevel: CEFRLevel, userProfile: UserOnboardingProfile, count: Int = 12) async throws -> FirestoreRecommendation {
+        print("🤖 [MusicRecommendationService] Starting OpenAI recommendation generation for all CEFR levels...")
         
         guard aiService.canMakeAIRequest() else {
             print("❌ [MusicRecommendationService] AI request not allowed (Pro required)")
             throw AIError.proRequired
         }
         
-        guard let cefrLevelEnum = CEFRLevel(rawValue: cefrLevel) else {
-            print("❌ [MusicRecommendationService] Invalid CEFR level: \(cefrLevel)")
-            throw MusicError.invalidCEFRLevel
-        }
-        
-        print("🤖 [MusicRecommendationService] Making OpenAI request for \(language.englishName)/\(cefrLevel)...")
+        print("🤖 [MusicRecommendationService] Making OpenAI request for \(language.englishName) (all levels)...")
         print("🤖 [MusicRecommendationService] Request details - User: \(userProfile.userName), Languages: \(userProfile.studyLanguages.map { $0.language.rawValue }.joined(separator: ", "))")
         
         // Request AI recommendations
@@ -122,11 +175,10 @@ final class MusicRecommendationService {
             aiResponse = try await aiService.request(
                 .musicRecommendations(
                     language: language,
-                    cefrLevel: cefrLevelEnum,
                     userProfile: userProfile
                 )
             )
-            print("✅ [MusicRecommendationService] Received response from OpenAI: \(aiResponse.artists.count) artists, \(aiResponse.albums.count) albums, \(aiResponse.songs.count) songs")
+            print("✅ [MusicRecommendationService] Received response from OpenAI: \(aiResponse.songs.count) songs across all CEFR levels")
         } catch {
             print("❌ [MusicRecommendationService] OpenAI request failed with error: \(error)")
             print("❌ [MusicRecommendationService] Error type: \(type(of: error))")
@@ -134,50 +186,60 @@ final class MusicRecommendationService {
             throw error // Re-throw to let caller handle
         }
         
-        // Convert AI response to FirestoreRecommendation
-        print("🔄 [MusicRecommendationService] Converting AI response to FirestoreRecommendation...")
-        let recommendation = convertAIResponseToFirestoreRecommendation(
-            aiResponse,
-            language: language,
-            cefrLevel: cefrLevel
-        )
-        print("✅ [MusicRecommendationService] Converted to FirestoreRecommendation: \(recommendation.artists.count) artists, \(recommendation.albums.count) albums, \(recommendation.songs.count) songs")
-        
-        // Save to Firestore immediately so next user gets it from cache
-        print("💾 [MusicRecommendationService] Saving recommendations to Firestore...")
-        try await saveRecommendations(recommendation, language: language, cefrLevel: cefrLevel)
-        print("✅ [MusicRecommendationService] Saved recommendations for \(language.englishName)/\(cefrLevel)")
-
-        // After saving, search Apple Music to get actual songs with artwork
-        // Convert artists/albums to songs, then search for all songs
+        // Convert AI response to songs by searching Apple Music
+        print("🔄 [MusicRecommendationService] Converting AI response to actual songs...")
         print("🔍 [MusicRecommendationService] Searching Apple Music for actual songs...")
-        let songsWithArtwork = try await convertRecommendationsToSongs(recommendation)
+        let allSongs = try await convertAIRecommendationsToSongs(aiResponse)
         
-        // Create a new recommendation with only songs (for "Your Daily 5")
-        let songsOnlyRecommendation = FirestoreRecommendation(
-            languageCode: language.rawValue,
-            cefrLevel: cefrLevel,
-            artists: [], // Don't include artists/albums in final recommendation
-            albums: [],
-            songs: songsWithArtwork,
-            generatedAt: Date(),
-            version: 1
-        )
+        // Group songs by CEFR level and save to Firestore
+        let songsByLevel = Dictionary(grouping: allSongs, by: { $0.cefrLevel })
         
-        // Save the songs-only version to Firestore
-        print("💾 [MusicRecommendationService] Saving songs-only recommendations to Firestore...")
-        try await saveRecommendations(songsOnlyRecommendation, language: language, cefrLevel: cefrLevel)
-        print("✅ [MusicRecommendationService] Saved \(songsWithArtwork.count) songs to Firestore")
+        print("💾 [MusicRecommendationService] Saving \(allSongs.count) songs to Firestore across \(songsByLevel.count) CEFR levels...")
         
-        return songsOnlyRecommendation
+        for (cefrLevel, songs) in songsByLevel {
+            let recommendation = FirestoreRecommendation(
+                languageCode: language.rawValue,
+                cefrLevel: cefrLevel,
+                songs: songs,
+                generatedAt: Date(),
+                version: 1
+            )
+            
+            try await saveRecommendations(recommendation, language: language, cefrLevel: cefrLevel)
+            print("✅ [MusicRecommendationService] Saved \(songs.count) songs for \(cefrLevel.rawValue)")
+        }
+        
+        // Return recommendation for requested CEFR level
+        if let songsForLevel = songsByLevel[cefrLevel] {
+            return FirestoreRecommendation(
+                languageCode: language.rawValue,
+                cefrLevel: cefrLevel,
+                songs: songsForLevel,
+                generatedAt: Date(),
+                version: 1
+            )
+        } else {
+            // Fallback: return first available level's recommendation
+            if let firstLevel = songsByLevel.keys.first,
+               let songs = songsByLevel[firstLevel] {
+                return FirestoreRecommendation(
+                    languageCode: language.rawValue,
+                    cefrLevel: firstLevel,
+                    songs: songs,
+                    generatedAt: Date(),
+                    version: 1
+                )
+            }
+            throw MusicError.noRecommendationsAvailable
+        }
     }
     
     /// Generate recommendations using Apple Music search (fallback)
     /// - Parameters:
     ///   - language: InputLanguage
-    ///   - cefrLevel: CEFR level
+    ///   - cefrLevel: CEFR level enum
     /// - Returns: FirestoreRecommendation generated from search
-    func generateRecommendationsWithSearch(language: InputLanguage, cefrLevel: String) async throws -> FirestoreRecommendation {
+    func generateRecommendationsWithSearch(language: InputLanguage, cefrLevel: CEFRLevel) async throws -> FirestoreRecommendation {
         guard appleMusicService.isAuthorized else {
             throw MusicError.authenticationRequired
         }
@@ -185,12 +247,13 @@ final class MusicRecommendationService {
         // Search for popular songs in the language
         let songs = try await appleMusicService.searchSongs(query: language.englishName, language: language.englishName)
 
-        // Convert to FirestoreRecommendation format
-        // For search fallback, we still only store names (not IDs) since IDs vary by region
+        // Convert to FirestoreRecommendation format with cefrLevel and appleMusicId
         let recommendationSongs = Array(songs.prefix(20)).map { song in
             RecommendationSong(
                 title: song.title,
                 artist: song.artist,
+                cefrLevel: cefrLevel,
+                appleMusicId: song.serviceId.isEmpty ? nil : song.serviceId,
                 reason: "Popular song in \(language.englishName)"
             )
         }
@@ -198,8 +261,6 @@ final class MusicRecommendationService {
         let recommendation = FirestoreRecommendation(
             languageCode: language.rawValue,
             cefrLevel: cefrLevel,
-            artists: [],
-            albums: [],
             songs: recommendationSongs,
             generatedAt: Date(),
             version: 1
@@ -215,77 +276,35 @@ final class MusicRecommendationService {
     
     // MARK: - Private Methods
     
-    /// Convert recommendations to actual songs by searching Apple Music
-    /// For artists/albums, gets random songs. For songs, searches by name.
-    private func convertRecommendationsToSongs(_ recommendation: FirestoreRecommendation) async throws -> [RecommendationSong] {
+    /// Convert AI recommendations to actual songs by searching Apple Music
+    /// Searches for songs from AI recommendations and includes cefrLevel from AI and appleMusicId
+    private func convertAIRecommendationsToSongs(_ aiResponse: AIMusicRecommendationsResponse) async throws -> [RecommendationSong] {
         guard appleMusicService.isAuthorized else {
             throw MusicError.authenticationRequired
         }
         
         var allSongs: [RecommendationSong] = []
         
-        // 1. Convert artist recommendations to songs
-        for artist in recommendation.artists {
+        // Search for song recommendations from AI
+        for aiSong in aiResponse.songs {
             do {
-                // Search for songs by artist name directly
-                let songs = try await appleMusicService.getArtistSongs(artistName: artist.name, limit: 20)
-                if let randomSong = songs.randomElement() {
-                    allSongs.append(RecommendationSong(
-                        title: randomSong.title,
-                        artist: randomSong.artist,
-                        reason: artist.reason ?? "Recommended artist"
-                    ))
-                    print("✅ [MusicRecommendationService] Found random song for artist \(artist.name): \(randomSong.title)")
-                } else {
-                    print("⚠️ [MusicRecommendationService] No songs found for artist \(artist.name)")
-                }
-            } catch {
-                print("⚠️ [MusicRecommendationService] Failed to get songs for artist \(artist.name): \(error.localizedDescription)")
-                continue
-            }
-        }
-        
-        // 2. Convert album recommendations to songs
-        for album in recommendation.albums {
-            do {
-                // Search for songs from album by name and artist
-                let songs = try await appleMusicService.getAlbumSongs(albumName: album.name, artistName: album.artist)
-                if let randomSong = songs.randomElement() {
-                    allSongs.append(RecommendationSong(
-                        title: randomSong.title,
-                        artist: randomSong.artist,
-                        reason: album.reason ?? "Recommended album"
-                    ))
-                    print("✅ [MusicRecommendationService] Found random song for album \(album.name): \(randomSong.title)")
-                } else {
-                    print("⚠️ [MusicRecommendationService] No songs found for album \(album.name)")
-                }
-            } catch {
-                print("⚠️ [MusicRecommendationService] Failed to get songs for album \(album.name): \(error.localizedDescription)")
-                continue
-            }
-        }
-        
-        // 3. Search for song recommendations
-        for song in recommendation.songs {
-            do {
-                let query = "\(song.title) \(song.artist)"
+                let query = "\(aiSong.title) \(aiSong.artist)"
                 let songs = try await appleMusicService.searchSongs(query: query, language: nil)
                 if let foundSong = songs.first(where: {
-                    $0.title.lowercased().contains(song.title.lowercased()) &&
-                    $0.artist.lowercased().contains(song.artist.lowercased())
+                    $0.title.lowercased().contains(aiSong.title.lowercased()) &&
+                    $0.artist.lowercased().contains(aiSong.artist.lowercased())
                 }) ?? songs.first {
-                    // Song found - keep the recommendation with reason
                     allSongs.append(RecommendationSong(
                         title: foundSong.title,
                         artist: foundSong.artist,
-                        reason: song.reason
+                        cefrLevel: aiSong.cefrLevel, // Use CEFR level from AI
+                        appleMusicId: foundSong.serviceId.isEmpty ? nil : foundSong.serviceId,
+                        reason: aiSong.reason
                     ))
+                    print("✅ [MusicRecommendationService] Found song: \(foundSong.title) (\(aiSong.cefrLevel.rawValue))")
                 }
             } catch {
-                print("⚠️ [MusicRecommendationService] Failed to find song \(song.title): \(error)")
-                // Keep the original recommendation even if search fails
-                allSongs.append(song)
+                print("⚠️ [MusicRecommendationService] Failed to find song \(aiSong.title): \(error)")
             }
         }
         
@@ -303,46 +322,4 @@ final class MusicRecommendationService {
         print("✅ [MusicRecommendationService] Converted to \(uniqueSongs.count) unique songs")
         return uniqueSongs
     }
-    
-    /// Convert AI response to FirestoreRecommendation
-    /// OpenAI only provides names and reasons - no IDs or URLs
-    private func convertAIResponseToFirestoreRecommendation(
-        _ aiResponse: AIMusicRecommendationsResponse,
-        language: InputLanguage,
-        cefrLevel: String
-    ) -> FirestoreRecommendation {
-        let artists = aiResponse.artists.map { item in
-            RecommendationArtist(
-                name: item.title, // OpenAI provides artist name as title
-                reason: item.reason
-            )
-        }
-        
-        let albums = aiResponse.albums.map { item in
-            RecommendationAlbum(
-                name: item.title, // OpenAI provides album name as title
-                artist: item.artist,
-                reason: item.reason
-            )
-        }
-        
-        let songs = aiResponse.songs.map { item in
-            RecommendationSong(
-                title: item.title, // OpenAI provides song title
-                artist: item.artist,
-                reason: item.reason
-            )
-        }
-        
-        return FirestoreRecommendation(
-            languageCode: language.rawValue,
-            cefrLevel: cefrLevel,
-            artists: artists,
-            albums: albums,
-            songs: songs,
-            generatedAt: Date(),
-            version: 1
-        )
-    }
 }
-

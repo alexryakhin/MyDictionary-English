@@ -6,8 +6,10 @@
 //
 
 import Foundation
+import OpenAI
+import SwiftUI
 
-enum CEFRLevel: String, Codable, CaseIterable {
+enum CEFRLevel: String, Codable, CaseIterable, JSONSchemaEnumConvertible {
     case a1 = "A1"
     case a2 = "A2"
     case b1 = "B1"
@@ -45,6 +47,23 @@ enum CEFRLevel: String, Codable, CaseIterable {
         case .c1: return 5
         case .c2: return 6
         }
+    }
+
+    var color: Color {
+        switch self {
+        case .a1: return .green
+        case .a2: return .green
+        case .b1: return .blue
+        case .b2: return .blue
+        case .c1: return .purple
+        case .c2: return .purple
+        }
+    }
+
+    // MARK: - JSONSchemaEnumConvertible
+
+    var caseNames: [String] {
+        return Self.allCases.map { $0.rawValue }
     }
 }
 

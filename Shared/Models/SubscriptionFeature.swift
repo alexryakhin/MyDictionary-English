@@ -11,6 +11,7 @@ enum SubscriptionFeature: String, Codable, CaseIterable, JSONSchemaEnumConvertib
     case aiDefinitions = "ai_definitions"
     case aiQuizzes = "ai_quizzes"
     case images = "images"
+    case musicLessons = "music_lessons"
     case wordCollections = "word_collections"
     case premiumTTS = "premium_tts"
     case unlimitedExport = "unlimited_export"
@@ -31,6 +32,7 @@ enum SubscriptionFeature: String, Codable, CaseIterable, JSONSchemaEnumConvertib
         case .prioritySupport: Loc.Subscription.ProFeatures.prioritySupport
         case .images: Loc.Subscription.ProFeatures.images
         case .wordCollections: Loc.Subscription.ProFeatures.wordCollections
+        case .musicLessons: "TODO: displayName for musicLessons"
         }
     }
 
@@ -46,6 +48,7 @@ enum SubscriptionFeature: String, Codable, CaseIterable, JSONSchemaEnumConvertib
         case .prioritySupport: Loc.Subscription.ProFeatures.prioritySupportTeam
         case .images: Loc.Subscription.ProFeatures.imagesDescription
         case .wordCollections: Loc.Subscription.ProFeatures.wordCollectionsDescription
+        case .musicLessons: "TODO: description for musicLessons"
         }
     }
 
@@ -60,6 +63,7 @@ enum SubscriptionFeature: String, Codable, CaseIterable, JSONSchemaEnumConvertib
         case .advancedAnalytics: "chart.bar.fill"
         case .prioritySupport: "star.fill"
         case .images: "photo.fill"
+        case .musicLessons: "note"
         case .wordCollections: "folder.fill"
         }
     }

@@ -14,12 +14,12 @@ struct PreListenHook: Codable, JSONSchemaConvertible {
     let targetPhrases: [TargetPhrase] // 3 key phrases to focus on
     let grammarHighlight: String? // Grammar point to watch for
     let culturalNote: String? // Brief cultural context
-    
+    let songCEFRLevel: CEFRLevel // CEFR level determined for the song (A1, A2, B1, etc.)
+
     struct TargetPhrase: Codable {
         let phrase: String
-        let translation: String
-        let cefr: String // CEFR level
-        let context: String? // Where it appears in lyrics (optional)
+        let cefr: CEFRLevel // CEFR level
+        let meaning: String? // Where it appears in lyrics (optional)
     }
     
     static let example: Self = {
@@ -28,25 +28,23 @@ struct PreListenHook: Codable, JSONSchemaConvertible {
             targetPhrases: [
                 TargetPhrase(
                     phrase: "La vida es un carnaval",
-                    translation: "Life is a carnival",
-                    cefr: "B1",
-                    context: "Opening line of the chorus"
+                    cefr: .b1,
+                    meaning: "Life has its share of bad moments, but these will pass. You should choose to find joy and celebrate life, even amidst adversity."
                 ),
                 TargetPhrase(
                     phrase: "todo tiene solución",
-                    translation: "everything has a solution",
-                    cefr: "B1",
-                    context: "Main message of the song"
+                    cefr: .b1,
+                    meaning: "It is used to give encouragement in times of difficulty or to emphasize the idea that things can be fixed."
                 ),
                 TargetPhrase(
                     phrase: "no te rindas",
-                    translation: "don't give up",
-                    cefr: "B2",
-                    context: "Encouragement line"
+                    cefr: .b2,
+                    meaning: "You might say it to a friend who is struggling with a difficult task or to someone facing a hard time."
                 )
             ],
             grammarHighlight: "Present tense (es, tiene) and imperative mood (no te rindas)",
-            culturalNote: "This song is a celebration of resilience in Latin American culture, particularly in Cuba."
+            culturalNote: "This song is a celebration of resilience in Latin American culture, particularly in Cuba.",
+            songCEFRLevel: .b1
         )
     }()
 }

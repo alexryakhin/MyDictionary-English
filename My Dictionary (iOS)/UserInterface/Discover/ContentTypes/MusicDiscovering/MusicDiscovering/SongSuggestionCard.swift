@@ -40,20 +40,23 @@ struct SongSuggestionCard: View {
                 .clipShape(RoundedRectangle(cornerRadius: 8))
 
                 VStack(alignment: .leading, spacing: 4) {
-                    // CEFR Badge
-                    if let cefr = songTag?.cefr {
+                    // CEFR Badge - Show from song first, fallback to songTag
+                    if let cefrLevel = song.cefrLevel {
                         HStack(spacing: 4) {
-                            Text(cefr)
-                                .font(.caption2)
-                                .fontWeight(.semibold)
-                                .foregroundColor(.white)
-                                .padding(.horizontal, 6)
-                                .padding(.vertical, 2)
-                                .background(
-                                    Capsule()
-                                        .fill(cefrColor(for: cefr))
-                                )
-                            
+                            TagView(
+                                text: cefrLevel.rawValue,
+                                color: cefrColor(for: cefrLevel.rawValue),
+                                size: .mini
+                            )
+                            Spacer()
+                        }
+                    } else if let cefr = songTag?.cefr {
+                        HStack(spacing: 4) {
+                            TagView(
+                                text: cefr,
+                                color: cefrColor(for: cefr),
+                                size: .mini
+                            )
                             Spacer()
                         }
                     }
@@ -74,15 +77,11 @@ struct SongSuggestionCard: View {
                     if let themes = songTag?.themes, !themes.isEmpty {
                         HStack(spacing: 4) {
                             ForEach(Array(themes.prefix(2)), id: \.self) { theme in
-                                Text(theme)
-                                    .font(.caption2)
-                                    .foregroundColor(.secondary)
-                                    .padding(.horizontal, 4)
-                                    .padding(.vertical, 2)
-                                    .background(
-                                        Capsule()
-                                            .fill(Color.secondary.opacity(0.1))
-                                    )
+                                TagView(
+                                    text: theme,
+                                    color: .secondary,
+                                    size: .mini
+                                )
                             }
                         }
                     }
@@ -126,8 +125,8 @@ struct SongSuggestionCard: View {
                 album: "Mi Vida Es Cantar",
                 albumArtURL: nil,
                 duration: 233,
-                previewURL: nil,
-                serviceId: "1"
+                serviceId: "1",
+                cefrLevel: .b1
             ),
             songTag: SongTag(
                 id: "1",
