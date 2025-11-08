@@ -26,6 +26,7 @@ final class RemoteConfigService: ObservableObject {
     
     private let remoteConfig = RemoteConfig.remoteConfig()
     private var cancellables = Set<AnyCancellable>()
+    private let readinessSubject = PassthroughSubject<Void, Never>()
     
     // MARK: - Configuration Keys
     
@@ -71,6 +72,7 @@ final class RemoteConfigService: ObservableObject {
             self.isLoading = false
             
             print("✅ [RemoteConfigService] Configuration loaded successfully")
+            readinessSubject.send(())
             
         } catch {
             print("❌ [RemoteConfigService] Failed to fetch configuration: \(error.localizedDescription)")
@@ -123,6 +125,12 @@ final class RemoteConfigService: ObservableObject {
     /// Checks if RemoteConfig is ready to use
     var isReady: Bool {
         return isInitialized && !isLoading
+    }
+    
+    /// Publisher that emits whenever Remote Config finishes loading successfully
+    var readinessPublisher: AnyPublisher<Void, Never> {
+        readinessSubject
+            .eraseToAnyPublisher()
     }
     
     // MARK: - Feature Toggle Accessors

@@ -116,6 +116,18 @@ final class SongLessonSessionService {
         NotificationCenter.default.post(name: .songSessionDidChange, object: nil)
     }
     
+    func deleteAllSessions() throws {
+        let fetchRequest: NSFetchRequest<CDSongLessonSession> = CDSongLessonSession.fetchRequest()
+        let sessions = try coreDataService.context.fetch(fetchRequest)
+        
+        guard !sessions.isEmpty else { return }
+        
+        sessions.forEach { coreDataService.context.delete($0) }
+        try coreDataService.saveContext()
+        
+        NotificationCenter.default.post(name: .songSessionDidChange, object: nil)
+    }
+    
     func getSession(by songId: String) -> CDSongLessonSession? {
         let fetchRequest: NSFetchRequest<CDSongLessonSession> = CDSongLessonSession.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "songId == %@", songId)

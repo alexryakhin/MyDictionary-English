@@ -420,6 +420,11 @@ struct DebugView: View {
                 HeaderButton("Clear Music Lessons Cache") {
                     clearMusicLessonsCache()
                 }
+                
+                HeaderButton("Delete All Music Sessions") {
+                    deleteAllMusicSessions()
+                }
+                .foregroundStyle(.red)
             }
         }
     }
@@ -743,6 +748,23 @@ struct DebugView: View {
         } catch {
             print("❌ [DebugView] Error clearing music lessons: \(error)")
             showAlert("Error clearing music lessons: \(error.localizedDescription)")
+        }
+    }
+    
+    private func deleteAllMusicSessions() {
+        print("🔍 [DebugView] deleteAllMusicSessions called")
+        Task {
+            do {
+                try SongLessonSessionService.shared.deleteAllSessions()
+                await MainActor.run {
+                    showAlert("All music sessions deleted")
+                }
+            } catch {
+                print("❌ [DebugView] Error deleting music sessions: \(error)")
+                await MainActor.run {
+                    showAlert("Failed to delete music sessions: \(error.localizedDescription)")
+                }
+            }
         }
     }
     

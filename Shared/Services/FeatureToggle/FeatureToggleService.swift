@@ -31,10 +31,27 @@ final class FeatureToggleService: ObservableObject {
     
     private init() {
         initializeDefaultToggles()
+        observeRemoteConfigReadiness()
         // Fetch feature toggles on initialization
         Task {
             await fetchFeatureToggles()
         }
+    }
+    private func observeRemoteConfigReadiness() {
+        if remoteConfigService.isReady {
+            Task { @MainActor [weak self] in
+                await self?.fetchFeatureToggles()
+            }
+        }
+        
+        remoteConfigService.readinessPublisher
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] in
+                Task { @MainActor in
+                    await self?.fetchFeatureToggles()
+                }
+            }
+            .store(in: &cancellables)
     }
     
     // MARK: - Public Methods

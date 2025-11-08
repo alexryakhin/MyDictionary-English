@@ -57,11 +57,13 @@ final class AIService: ObservableObject {
     private let remoteConfigService = RemoteConfigService.shared
     private let reachabilityService = ReachabilityService.shared
     private let onboardingService = OnboardingService.shared
+    private let authenticationService = AuthenticationService.shared
+    private var cancellables = Set<AnyCancellable>()
 
     // MARK: - Initialization
 
     private init() {
-        initializeClient()
+        observeRemoteConfigReadiness()
     }
 
     // MARK: - Public API
@@ -286,10 +288,28 @@ final class AIService: ObservableObject {
         return systemPrompt
     }
 
+    private func observeRemoteConfigReadiness() {
+        if remoteConfigService.isReady {
+            Task { @MainActor [weak self] in
+                self?.initializeClient()
+            }
+        }
+        
+        remoteConfigService.readinessPublisher
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] in
+                guard let self else { return }
+                Task { @MainActor in
+                    self.initializeClient()
+                }
+            }
+            .store(in: &cancellables)
+    }
+    
+    @MainActor
     private func initializeClient() {
-        let apiKey = remoteConfigService.getOpenAIAPIKey()
-
-        guard !apiKey.isEmpty else {
+        guard let apiKey = remoteConfigService.getOpenAIAPIKey(), !apiKey.isEmpty else {
+            openAI = nil
             debugPrint("⚠️ OpenAI API key not configured")
             isInitialized = false
             return
@@ -303,6 +323,14 @@ final class AIService: ObservableObject {
         isInitialized = true
 
         debugPrint("✅ AI service initialized")
+    }
+
+    private func formattedList(_ values: [String]) -> String {
+        let cleaned = values
+            .map { $0.trimmed }
+            .filter { $0.isNotEmpty }
+        
+        return cleaned.nilIfEmpty?.joined(separator: ", ") ?? "Not specified"
     }
 
 
