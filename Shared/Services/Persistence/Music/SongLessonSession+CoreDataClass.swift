@@ -46,7 +46,7 @@ public class CDSongLessonSession: NSManagedObject {
         set {
             sessionData = try? JSONEncoder().encode(newValue)
             if let session = newValue {
-                updateFromSession(session)
+                applySessionMetadata(from: session)
             }
         }
     }
@@ -72,7 +72,16 @@ public class CDSongLessonSession: NSManagedObject {
     
     func updateFromSession(_ session: MusicDiscoveringSession) {
         // Update session data
-        self.session = session
+        sessionData = try? JSONEncoder().encode(session)
+        applySessionMetadata(from: session)
+    }
+    
+    private func applySessionMetadata(from session: MusicDiscoveringSession) {
+        let song = song ?? session.song
+
+        if songId == nil {
+            songId = song.id
+        }
         
         // Update completion status
         isComplete = session.hasCompletedQuiz

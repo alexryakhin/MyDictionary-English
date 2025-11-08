@@ -29,7 +29,7 @@ struct InteractiveLyricsView: View {
                 .padding(.top, 40)
                 .padding(.bottom, 280) // Extra padding for bottom controls
             }
-            .scrollDisabled(isScrollDisabled)
+            .scrollDisabled(isScrollDisabled && lyrics.syncedLyrics != nil)
         }
     }
     

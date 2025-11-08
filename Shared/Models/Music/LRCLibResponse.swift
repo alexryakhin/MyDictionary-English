@@ -51,23 +51,27 @@ struct LRCLibResponse: Codable {
 }
 
 /// LRCLIB search response model
-struct LRCLibSearchResponse: Codable {
-    let data: [LRCLibSearchResult]
-}
+typealias LRCLibSearchResponse = [LRCLibSearchResult]
 
 struct LRCLibSearchResult: Codable {
     let id: Int
+    let name: String
     let trackName: String
     let artistName: String
     let albumName: String?
-    let duration: Int
-    
-    enum CodingKeys: String, CodingKey {
-        case id
-        case trackName
-        case artistName
-        case albumName
-        case duration
+    let duration: TimeInterval
+    let instrumental: Bool
+    let plainLyrics: String?
+
+    var roundedDurationSeconds: Int {
+        Int(duration.rounded())
+    }
+
+    func toSongLyrics() -> SongLyrics {
+        return SongLyrics(
+            plainLyrics: plainLyrics,
+            syncedLyrics: nil,
+            instrumental: instrumental
+        )
     }
 }
-
