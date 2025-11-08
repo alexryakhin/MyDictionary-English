@@ -61,10 +61,8 @@ final class MusicLessonService {
         guard aiService.canMakeAIRequest() else {
             throw AIError.proRequired
         }
-        
-        let lyricsText = lyrics.bestLyrics ?? lyrics.plainLyrics ?? ""
-        
-        guard !lyricsText.isEmpty else {
+
+        guard let lyricsText = lyrics.plainLyrics?.nilIfEmpty else {
             throw AIError.invalidResponse
         }
         
@@ -82,11 +80,8 @@ final class MusicLessonService {
         // 6. Save to Firestore (public cache) - save after generation during listening
         let languagePath = targetLanguage.englishName.lowercased()
         try await saveLessonToFirestore(firestoreLesson, for: song.id, languagePath: languagePath)
-        
-        // 7. Update song metadata with simplified structure (song's CEFR level)
-        try await updateSongMetadata(song, targetLanguage: targetLanguage, songCEFR: cefrLevel)
 
-        // 8. Create adapted lesson (lessons are language-specific)
+        // 7. Create adapted lesson (lessons are language-specific)
         let adapted = AdaptedLesson(
             songId: firestoreLesson.songId,
             language: targetLanguage, // Use InputLanguage enum
@@ -98,7 +93,7 @@ final class MusicLessonService {
             userLevel: cefrLevel // Use CEFRLevel enum
         )
         
-        // 9. Save personal adaptation to CoreData
+        // 8. Save personal adaptation to CoreData
         try await savePersonalLesson(adapted, for: song.id, userLevel: cefrLevel)
 
         return adapted
@@ -192,31 +187,6 @@ final class MusicLessonService {
         }
         
         try await docRef.setData(firestoreDict, merge: false)
-    }
-    
-    /// Update song metadata in Firestore
-    /// Path: songs/{language.englishName.lowercased()}/{songId}
-    /// Saves only: id, title, artist, cefrLevel, appleMusicId
-    private func updateSongMetadata(_ song: Song, targetLanguage: InputLanguage, songCEFR: CEFRLevel) async throws {
-        let languagePath = targetLanguage.englishName.lowercased()
-        let docRef = db.collection("songs")
-            .document(languagePath)
-            .collection("songs")
-            .document(song.id)
-        
-        // Extract appleMusicId from song.serviceId if it's an Apple Music ID
-        let appleMusicId = song.serviceId.isEmpty ? nil : song.serviceId
-        
-        // Create simplified song document with song's CEFR level
-        let songData: [String: Any] = [
-            "id": song.id,
-            "title": song.title,
-            "artist": song.artist,
-            "cefr_level": songCEFR.rawValue,
-            "apple_music_id": appleMusicId as Any
-        ]
-        
-        try await docRef.setData(songData, merge: true)
     }
     
     /// Convert MusicDiscoveringResponse to FirestoreLesson

@@ -28,11 +28,13 @@ final class SongPlayerViewModel: ObservableObject {
     @Published private(set) var isGeneratingLesson: Bool = false
     @Published private(set) var lessonReady: Bool = false
     @Published private(set) var adaptedLesson: AdaptedLesson?
+    @Published private(set) var session: MusicDiscoveringSession?
     
     private let musicPlayerService = MusicPlayerService.shared
     private let lyricsService = LRCLibService.shared
     private let lessonService = MusicLessonService.shared
     private let historyService = MusicListeningHistoryService.shared
+    private let songLessonSessionService = SongLessonSessionService.shared
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -123,6 +125,16 @@ final class SongPlayerViewModel: ObservableObject {
     }
     
     private func generateLesson() async {
+        if let cached = await cachedLesson() {
+            await MainActor.run {
+                self.adaptedLesson = cached.lesson
+                self.session = cached.session
+                self.lessonReady = true
+                self.isGeneratingLesson = false
+            }
+            return
+        }
+        
         guard let lyrics = lyrics, lyrics.hasLyrics else {
             return
         }
@@ -141,9 +153,17 @@ final class SongPlayerViewModel: ObservableObject {
                 for: song,
                 lyrics: lyrics
             )
+            var session = MusicDiscoveringSession(song: song)
+            
+            try await songLessonSessionService.saveOrUpdateSession(
+                session,
+                lesson: adaptedLesson,
+                song: song
+            )
             
             await MainActor.run {
                 self.adaptedLesson = adaptedLesson
+                self.session = session
                 self.isGeneratingLesson = false
                 self.lessonReady = true
             }
@@ -151,6 +171,18 @@ final class SongPlayerViewModel: ObservableObject {
             await MainActor.run {
                 self.isGeneratingLesson = false
             }
+        }
+    }
+
+    private func cachedLesson() async -> (lesson: AdaptedLesson, session: MusicDiscoveringSession)? {
+        await MainActor.run {
+            guard let stored = songLessonSessionService.getSession(by: song.id),
+                  let storedLesson = stored.lesson,
+                  let storedSession = stored.toMusicDiscoveringSession() else {
+                return nil
+            }
+            
+            return (storedLesson, storedSession)
         }
     }
 }

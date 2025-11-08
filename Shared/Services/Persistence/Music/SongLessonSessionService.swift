@@ -103,6 +103,19 @@ final class SongLessonSessionService {
         }
     }
     
+    func clearFavoriteSongs() throws {
+        let fetchRequest: NSFetchRequest<CDSongLessonSession> = CDSongLessonSession.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "isFavorite == YES")
+        
+        let favorites = try coreDataService.context.fetch(fetchRequest)
+        guard !favorites.isEmpty else { return }
+        
+        favorites.forEach { $0.isFavorite = false }
+        try coreDataService.saveContext()
+        
+        NotificationCenter.default.post(name: .songSessionDidChange, object: nil)
+    }
+    
     func getSession(by songId: String) -> CDSongLessonSession? {
         let fetchRequest: NSFetchRequest<CDSongLessonSession> = CDSongLessonSession.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "songId == %@", songId)

@@ -174,7 +174,7 @@ struct MainTabView: View {
         case .musicPlayer(let config):
             SongPlayerView(song: config.song, lyrics: config.lyrics)
         case .songLesson(let config):
-            SongLessonView(song: config.song)
+            SongLessonView(config: config)
         case .songLessonResults(let config):
             SongLessonResultsView(session: config.session, song: config.song)
         case .wordDetails(let word):

@@ -146,8 +146,10 @@ struct SongPlayerView: View {
             // Lesson Button or Progress
             if viewModel.isGeneratingLesson {
                 lessonGenerationProgress
-            } else if viewModel.lessonReady {
-                continueToLessonButton
+            } else if viewModel.lessonReady,
+                      let lesson = viewModel.adaptedLesson,
+                      let session = viewModel.session {
+                continueToLessonButton(lesson: lesson, session: session)
             }
         }
         .padding(.horizontal, 20)
@@ -182,12 +184,12 @@ struct SongPlayerView: View {
         .padding(.vertical, 12)
     }
     
-    private var continueToLessonButton: some View {
+    private func continueToLessonButton(lesson: AdaptedLesson, session: MusicDiscoveringSession) -> some View {
         ActionButton(
             "Continue to Lesson",
             style: .borderedProminent
         ) {
-            let config = SongLessonConfig(song: song)
+            let config = SongLessonConfig(song: song, lesson: lesson, session: session)
             NavigationManager.shared.navigate(to: .songLesson(config))
         }
     }

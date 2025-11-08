@@ -54,7 +54,6 @@ final class MusicDiscoveringViewModel: BaseViewModel {
     private let aiService = AIService.shared
     private let onboardingService = OnboardingService.shared
     private let historyService = MusicListeningHistoryService.shared
-    private let songTagService = MusicSongTagService.shared
     private let recommendationService = MusicRecommendationService.shared
     private let songLessonSessionService = SongLessonSessionService.shared
     
@@ -404,5 +403,3 @@ final class MusicDiscoveringViewModel: BaseViewModel {
         loadData()
     }
 }
-
-

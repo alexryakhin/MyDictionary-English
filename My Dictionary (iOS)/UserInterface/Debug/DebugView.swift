@@ -405,12 +405,16 @@ struct DebugView: View {
                     showingAppleMusicDebug = true
                 }
                 
-                HeaderButton("Reset Music Suggestions Cache") {
-                    resetMusicSuggestionsCache()
+                HeaderButton("Clear Favorite Songs") {
+                    clearFavoriteSongs()
                 }
                 
-                HeaderButton("Clear Song Tags Cache") {
-                    clearSongTagsCache()
+                HeaderButton("Clear Listening History") {
+                    clearListeningHistory()
+                }
+                
+                HeaderButton("Reset Music Suggestions Cache") {
+                    resetMusicSuggestionsCache()
                 }
                 
                 HeaderButton("Clear Music Lessons Cache") {
@@ -559,6 +563,30 @@ struct DebugView: View {
             showAlert("Dictionary cache cleared")
         }
     }
+    
+    private func clearFavoriteSongs() {
+        Task {
+            do {
+                try SongLessonSessionService.shared.clearFavoriteSongs()
+                await MainActor.run {
+                    showAlert("Favorite songs cleared")
+                }
+            } catch {
+                await MainActor.run {
+                    showAlert("Failed to clear favorite songs: \(error.localizedDescription)")
+                }
+            }
+        }
+    }
+    
+    private func clearListeningHistory() {
+        Task {
+            await MusicListeningHistoryService.shared.clearHistory()
+            await MainActor.run {
+                showAlert("Listening history cleared")
+            }
+        }
+    }
 
     // MARK: - Firebase Testing
 
@@ -695,17 +723,8 @@ struct DebugView: View {
         // Clear UserDefaults cache
         UDService.musicSuggestionsCacheData = nil
         UDService.musicSuggestionsCacheTimestamp = nil
-        // Clear song tags cache
-        MusicSongTagService.shared.clearCache()
         print("💾 [DebugView] Music suggestions cache cleared")
         showAlert("Music suggestions cache cleared. Restart the app or reload suggestions to see fresh recommendations.")
-    }
-    
-    private func clearSongTagsCache() {
-        print("🔍 [DebugView] clearSongTagsCache called")
-        MusicSongTagService.shared.clearCache()
-        print("💾 [DebugView] Song tags cache cleared")
-        showAlert("Song tags cache cleared")
     }
     
     private func clearMusicLessonsCache() {

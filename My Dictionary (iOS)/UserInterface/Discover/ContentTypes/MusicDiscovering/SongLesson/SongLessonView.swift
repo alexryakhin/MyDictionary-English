@@ -9,19 +9,21 @@ import SwiftUI
 
 struct SongLessonConfig: Hashable {
     let song: Song
+    let lesson: AdaptedLesson
+    let session: MusicDiscoveringSession
     
     static func == (lhs: SongLessonConfig, rhs: SongLessonConfig) -> Bool {
-        return lhs.song.id == rhs.song.id
+        return lhs.session.id == rhs.session.id
     }
     
     func hash(into hasher: inout Hasher) {
-        hasher.combine(song.id)
+        hasher.combine(session.id)
     }
 }
 
 struct SongLessonView: View {
-    let song: Song
-    @StateObject private var viewModel = SongLessonViewModel()
+    private let config: SongLessonConfig
+    @StateObject private var viewModel: SongLessonViewModel
     @Environment(\.dismiss) private var dismiss
     
     @State private var selectedTab: LessonTab = .phrases
@@ -29,6 +31,17 @@ struct SongLessonView: View {
     @State private var selectedAnswerIndex: Int?
     @State private var showFeedback: Bool = false
     @State private var quizAnswers: [Int: Int] = [:]
+    
+    init(config: SongLessonConfig) {
+        self.config = config
+        _viewModel = StateObject(
+            wrappedValue: SongLessonViewModel(
+                song: config.song,
+                lesson: config.lesson,
+                session: config.session
+            )
+        )
+    }
     
     enum LessonTab: String, CaseIterable {
         case phrases = "Phrases"
@@ -49,55 +62,17 @@ struct SongLessonView: View {
     }
     
     var body: some View {
-        Group {
-            switch viewModel.loadingState {
-            case .idle, .loading:
-                loadingView
-            case .loaded(let lesson):
-                lessonContent(lesson)
-            case .error(let message):
-                errorView(message)
-            }
-        }
+        lessonContent(viewModel.lesson)
         .navigation(
-            title: song.title,
+            title: config.song.title,
             mode: .inline
         )
         .onChange(of: viewModel.shouldNavigateToResults) { _, shouldNavigate in
-            if shouldNavigate, let session = viewModel.currentSession {
-                let config = SongLessonResultsConfig(session: session, song: song)
+            if shouldNavigate {
+                let config = SongLessonResultsConfig(session: viewModel.currentSession, song: self.config.song)
                 NavigationManager.shared.navigate(to: .songLessonResults(config))
             }
         }
-        .task {
-            viewModel.handle(.loadLesson(song))
-        }
-    }
-    
-    // MARK: - Loading View
-    
-    private var loadingView: some View {
-        VStack(spacing: 24) {
-            ProgressView()
-                .progressViewStyle(.circular)
-                .scaleEffect(1.5)
-                .tint(.accent)
-            
-            Text("Loading lesson...")
-                .font(.title3)
-                .foregroundColor(.secondaryLabel)
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-    }
-    
-    // MARK: - Error View
-    
-    private func errorView(_ message: String) -> some View {
-        ContentUnavailableView(
-            "Failed to load lesson",
-            systemImage: "exclamationmark.triangle",
-            description: Text(message)
-        )
     }
     
     // MARK: - Lesson Content
@@ -567,15 +542,72 @@ struct SongLessonView: View {
 
 #Preview {
     NavigationStack {
-        SongLessonView(song: Song(
+        let song = Song(
             id: "1",
             title: "Sample Song",
             artist: "Sample Artist",
             album: "Sample Album",
-            albumArtURL: nil,
             duration: 180,
-            serviceId: "1"
-        ))
+            serviceId: "1",
+            cefrLevel: .b1
+        )
+        
+        let lesson = AdaptedLesson(
+            songId: song.id,
+            language: .english,
+            phrases: [
+                LessonPhrase(
+                    text: "We keep dancing through the night",
+                    meaning: "We continue dancing all night long",
+                    cefr: "B1",
+                    example: "They kept dancing through the night despite the rain.",
+                    audioPrompt: nil
+                )
+            ],
+            grammarNuggets: [
+                GrammarNugget(
+                    rule: "Use present continuous to describe ongoing actions.",
+                    example: "We are dancing right now.",
+                    cefr: "A2"
+                )
+            ],
+            cultureNotes: [
+                CultureNote(
+                    text: "This song references festivals common in summer along the coast.",
+                    cefr: "B1"
+                )
+            ],
+            quiz: AdaptedQuiz(
+                fillInBlanks: [
+                    FillInBlankItem(
+                        line: 12,
+                        blankWord: "dancing",
+                        options: ["dancing", "sleeping", "talking", "running"]
+                    )
+                ],
+                meaningMCQ: [
+                    MCQItem(
+                        question: "What does 'through the night' mean in the song?",
+                        correctAnswer: "For the entire night",
+                        options: [
+                            "At some point in the night",
+                            "For the entire night",
+                            "Before the night",
+                            "After the night"
+                        ],
+                        explanation: "The phrase 'through the night' expresses continuity across the whole night."
+                    )
+                ],
+                generatedAt: Date()
+            ),
+            adaptedAt: Date(),
+            userLevel: .b1
+        )
+        
+        let session = MusicDiscoveringSession(song: song)
+        let config = SongLessonConfig(song: song, lesson: lesson, session: session)
+        
+        SongLessonView(config: config)
     }
 }
 
