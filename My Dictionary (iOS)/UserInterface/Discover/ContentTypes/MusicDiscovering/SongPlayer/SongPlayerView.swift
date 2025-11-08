@@ -24,6 +24,8 @@ struct SongPlayerView: View {
     let song: Song
     @StateObject private var viewModel: SongPlayerViewModel
     @Environment(\.dismiss) private var dismiss
+    @State private var isSeeking = false
+    @State private var pendingSeekTime: TimeInterval?
     
     init(song: Song, lyrics: SongLyrics? = nil) {
         self.song = song
@@ -37,6 +39,7 @@ struct SongPlayerView: View {
                 InteractiveLyricsView(
                     lyrics: lyrics,
                     currentTime: viewModel.currentTime,
+                    isScrollDisabled: viewModel.isPlaying,
                     onLineSelected: { timestamp in
                         viewModel.handle(.seek(to: timestamp))
                     }
@@ -112,15 +115,33 @@ struct SongPlayerView: View {
             VStack(spacing: 8) {
                 Slider(
                     value: Binding(
-                        get: { viewModel.currentTime },
-                        set: { viewModel.handle(.seek(to: $0)) }
+                        get: { pendingSeekTime ?? viewModel.currentTime },
+                        set: { newValue in
+                            if isSeeking {
+                                pendingSeekTime = newValue
+                            } else {
+                                viewModel.handle(.seek(to: newValue))
+                            }
+                        }
                     ),
-                    in: 0...max(viewModel.duration, 1)
+                    in: 0...max(viewModel.duration, 1),
+                    onEditingChanged: { editing in
+                        if editing {
+                            isSeeking = true
+                            pendingSeekTime = viewModel.currentTime
+                        } else {
+                            isSeeking = false
+                            if let pendingSeekTime {
+                                viewModel.handle(.seek(to: pendingSeekTime))
+                            }
+                            pendingSeekTime = nil
+                        }
+                    }
                 )
                 .tint(.accentColor)
                 
                 HStack {
-                    Text(formatTime(viewModel.currentTime))
+                    Text(formatTime(displayedCurrentTime))
                         .font(.caption)
                         .foregroundColor(.secondary)
                         .monospacedDigit()
@@ -146,7 +167,9 @@ struct SongPlayerView: View {
             // Lesson Button or Progress
             if viewModel.isGeneratingLesson {
                 lessonGenerationProgress
-            } else if viewModel.lessonReady,
+            } 
+            
+            if viewModel.lessonReady,
                       let lesson = viewModel.adaptedLesson,
                       let session = viewModel.session {
                 continueToLessonButton(lesson: lesson, session: session)
@@ -200,6 +223,10 @@ struct SongPlayerView: View {
         let minutes = Int(time) / 60
         let seconds = Int(time) % 60
         return String(format: "%d:%02d", minutes, seconds)
+    }
+    
+    private var displayedCurrentTime: TimeInterval {
+        pendingSeekTime ?? viewModel.currentTime
     }
 }
 

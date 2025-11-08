@@ -10,6 +10,7 @@ import SwiftUI
 struct InteractiveLyricsView: View {
     let lyrics: SongLyrics
     let currentTime: TimeInterval
+    let isScrollDisabled: Bool
     let onLineSelected: (TimeInterval) -> Void
     
     var body: some View {
@@ -28,6 +29,7 @@ struct InteractiveLyricsView: View {
                 .padding(.top, 40)
                 .padding(.bottom, 280) // Extra padding for bottom controls
             }
+            .scrollDisabled(isScrollDisabled)
         }
     }
     
@@ -145,6 +147,7 @@ struct LyricLine {
                 instrumental: false
             ),
             currentTime: 18.0,
+            isScrollDisabled: false,
             onLineSelected: { timestamp in
                 print("Selected line at timestamp: \(timestamp)")
             }
