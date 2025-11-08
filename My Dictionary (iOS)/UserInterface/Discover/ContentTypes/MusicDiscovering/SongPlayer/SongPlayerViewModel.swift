@@ -12,6 +12,13 @@ import SwiftUI
 @MainActor
 final class SongPlayerViewModel: ObservableObject {
     
+    enum LyricsState {
+        case empty
+        case loading
+        case content(SongLyrics)
+        case error(message: String)
+    }
+    
     enum Input {
         case loadData
         case playPause
@@ -21,7 +28,7 @@ final class SongPlayerViewModel: ObservableObject {
     
     let song: Song
     
-    @Published private(set) var lyrics: SongLyrics?
+    @Published private(set) var lyricsState: LyricsState
     @Published private(set) var currentTime: TimeInterval = 0
     @Published private(set) var duration: TimeInterval = 0
     @Published private(set) var isPlaying: Bool = false
@@ -38,9 +45,16 @@ final class SongPlayerViewModel: ObservableObject {
     
     private var cancellables = Set<AnyCancellable>()
     
+    private var currentLyrics: SongLyrics? {
+        guard case let .content(lyrics) = lyricsState else {
+            return nil
+        }
+        return lyrics
+    }
+    
     init(song: Song, lyrics: SongLyrics? = nil) {
         self.song = song
-        self.lyrics = lyrics // Use provided lyrics if available
+        self.lyricsState = lyrics.map { .content($0) } ?? .empty
         setupBindings()
     }
     
@@ -72,7 +86,9 @@ final class SongPlayerViewModel: ObservableObject {
     
     private func loadData() {
         // Load lyrics only if not already provided
-        if lyrics == nil {
+        switch lyricsState {
+        case .empty, .error:
+            lyricsState = .loading
             Task {
                 do {
                     let lyrics = try await lyricsService.getLyrics(
@@ -82,14 +98,17 @@ final class SongPlayerViewModel: ObservableObject {
                         duration: song.duration
                     )
                     await MainActor.run {
-                        self.lyrics = lyrics
+                        self.lyricsState = .content(lyrics)
                     }
+                    await self.generateLesson()
                 } catch {
                     await MainActor.run {
-                        self.lyrics = nil
+                        self.lyricsState = .error(message: error.localizedDescription)
                     }
                 }
             }
+        case .loading, .content:
+            break
         }
         
         // Start playback
@@ -135,7 +154,7 @@ final class SongPlayerViewModel: ObservableObject {
             return
         }
         
-        guard let lyrics = lyrics, lyrics.hasLyrics else {
+        guard let lyrics = currentLyrics, lyrics.hasLyrics else {
             return
         }
         
@@ -186,5 +205,3 @@ final class SongPlayerViewModel: ObservableObject {
         }
     }
 }
-
-

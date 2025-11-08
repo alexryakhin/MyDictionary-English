@@ -35,7 +35,8 @@ struct SongPlayerView: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             // Main scrollable lyrics content
-            if let lyrics = viewModel.lyrics {
+            switch viewModel.lyricsState {
+            case .content(let lyrics):
                 InteractiveLyricsView(
                     lyrics: lyrics,
                     currentTime: viewModel.currentTime,
@@ -44,8 +45,12 @@ struct SongPlayerView: View {
                         viewModel.handle(.seek(to: timestamp))
                     }
                 )
-            } else {
-                lyricsUnavailableView
+            case .loading:
+                lyricsLoadingView
+            case .empty:
+                lyricsUnavailableView(message: "Lyrics not available")
+            case .error(_):
+                lyricsUnavailableView(message: "Unable to load lyrics right now")
             }
             
             // Bottom pinned controls
@@ -180,13 +185,18 @@ struct SongPlayerView: View {
         .padding(.bottom, 8)
     }
     
-    private var lyricsUnavailableView: some View {
+    private var lyricsLoadingView: some View {
+        LyricsSkeletonView()
+            .transition(.opacity)
+    }
+    
+    private func lyricsUnavailableView(message: String) -> some View {
         VStack(spacing: 16) {
             Image(systemName: "music.note.text")
                 .font(.system(size: 60))
                 .foregroundColor(.secondary)
             
-            Text("Lyrics not available")
+            Text(message)
                 .font(.title3)
                 .foregroundColor(.secondary)
         }
@@ -230,4 +240,35 @@ struct SongPlayerView: View {
     }
 }
 
+// MARK: - Lyrics Skeleton View
 
+private struct LyricsSkeletonView: View {
+    private let placeholderWidths: [CGFloat] = [280, 240, 300, 220, 260, 250]
+    private let lineCount = 12
+    
+    var body: some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 24) {
+                ForEach(0..<lineCount, id: \.self) { index in
+                    lyricPlaceholder(for: index)
+                }
+            }
+            .padding(.horizontal, 20)
+            .padding(.top, 40)
+            .padding(.bottom, 280)
+        }
+        .scrollDisabled(true)
+        .allowsHitTesting(false)
+    }
+    
+    private func lyricPlaceholder(for index: Int) -> some View {
+        let baseWidth = placeholderWidths[index % placeholderWidths.count]
+        
+        return VStack(alignment: .leading, spacing: 10) {
+            ShimmerView(width: baseWidth, height: 18)
+                .clipShape(RoundedRectangle(cornerRadius: 8))
+            ShimmerView(width: baseWidth * 0.85, height: 18)
+                .clipShape(RoundedRectangle(cornerRadius: 8))
+        }
+    }
+}

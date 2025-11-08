@@ -42,7 +42,7 @@ struct InteractiveLyricsView: View {
             let isCurrent = isLineCurrent(index, lines: lines)
             
             Text(line.text)
-                .font(.title2)
+                .font(.system(.title, design: .default, weight: .bold))
                 .foregroundColor(isCurrent ? .primary : .secondary)
                 .multilineTextAlignment(.leading)
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -68,7 +68,7 @@ struct InteractiveLyricsView: View {
         
         return ForEach(Array(lines.enumerated()), id: \.offset) { index, line in
             Text(line)
-                .font(.title2)
+                .font(.system(.title, design: .default, weight: .bold))
                 .foregroundColor(.primary)
                 .multilineTextAlignment(.leading)
                 .frame(maxWidth: .infinity, alignment: .leading)
