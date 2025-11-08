@@ -8,13 +8,11 @@
 import SwiftUI
 
 struct SongLessonInfoSheetView: View {
-    let song: Song
-    let onStartLesson: (Song, SongLyrics?) -> Void
+    let onStartLesson: (Song, SongLyrics) -> Void
     @StateObject private var viewModel: SongLessonInfoSheetViewModel
     @Environment(\.dismiss) private var dismiss
     
-    init(song: Song, onStartLesson: @escaping (Song, SongLyrics?) -> Void) {
-        self.song = song
+    init(song: Song, onStartLesson: @escaping (Song, SongLyrics) -> Void) {
         self.onStartLesson = onStartLesson
         _viewModel = StateObject(wrappedValue: SongLessonInfoSheetViewModel(song: song))
     }
@@ -24,7 +22,7 @@ struct SongLessonInfoSheetView: View {
             VStack(spacing: 20) {
                 // Artwork with Favorite Button
                 ZStack(alignment: .topTrailing) {
-                    AsyncImage(url: song.albumArtURL) { image in
+                    AsyncImage(url: viewModel.song.albumArtURL) { image in
                         image
                             .resizable()
                             .scaledToFill()
@@ -66,41 +64,47 @@ struct SongLessonInfoSheetView: View {
                 
                 // Title and Artist
                 VStack(spacing: 6) {
-                    Text(song.title)
+                    Text(viewModel.song.title)
                         .font(.title)
                         .fontWeight(.bold)
                         .multilineTextAlignment(.center)
                     
-                    Text(song.artist)
+                    Text(viewModel.song.artist)
                         .font(.title3)
                         .foregroundColor(.secondary)
                         .multilineTextAlignment(.center)
                 }
                 
                 // AI Hook - Show full pre-listen hook, loading skeleton, or error
-                if viewModel.isGenerating {
+                switch viewModel.hookState {
+                case .loaded(_, let preListenHook):
+                    PreListenHookView(hook: preListenHook)
+                case .failed(let musicError):
+                    if case .lyricsNotFound = musicError {
+                        LyricsErrorView()
+                    }
+                case .loading:
                     HookLoadingSkeleton()
-                } else if viewModel.requiresPremium {
-                    PremiumRequiredView()
-                } else if viewModel.lyricsError {
-                    LyricsErrorView()
-                } else if let hook = viewModel.preListenHook {
-                    PreListenHookView(hook: hook)
                 }
-                
-                Spacer()
             }
             .padding()
         }
         .safeAreaBarIfAvailable {
             ActionButton(
-                viewModel.lessonExists ? "Revisit Lesson" : "Start Lesson",
+                "To lesson",
                 style: .borderedProminent
             ) {
-                // Trigger navigation in parent view
-                onStartLesson(song, viewModel.lyrics)
+                switch viewModel.hookState {
+                case .loaded(let songLyrics, _):
+                    guard viewModel.song.cefrLevel != nil else { return }
+                    onStartLesson(viewModel.song, songLyrics)
+                case .failed(let string):
+                    viewModel.handle(.loadData)
+                case .loading:
+                    break
+                }
             }
-            .disabled(viewModel.isGenerating || viewModel.lyricsError || viewModel.requiresPremium)
+            .disabled(viewModel.hookState == .loading)
             .padding(vertical: 12, horizontal: 16)
         }
         .task {

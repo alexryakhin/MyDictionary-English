@@ -15,8 +15,8 @@ struct Song: Identifiable, Codable, Hashable {
     let albumArtURL: URL? // Album artwork for display
     let duration: TimeInterval // Critical for LRCLIB matching
     let serviceId: String // Original service ID (Apple Music ID)
-    let cefrLevel: CEFRLevel? // CEFR level if known (from Firebase/OpenAI recommendations or hook generation)
-    
+    var cefrLevel: CEFRLevel? // CEFR level if known (from Firebase/OpenAI recommendations or hook generation)
+
     init(
         id: String,
         title: String,

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MusicPlayerConfig: Hashable {
     let song: Song
-    let lyrics: SongLyrics?
+    let lyrics: SongLyrics
     
     static func == (lhs: MusicPlayerConfig, rhs: MusicPlayerConfig) -> Bool {
         return lhs.song.id == rhs.song.id
@@ -21,186 +21,93 @@ struct MusicPlayerConfig: Hashable {
 }
 
 struct SongPlayerView: View {
-    let song: Song
+    let config: MusicPlayerConfig
     @StateObject private var viewModel: SongPlayerViewModel
     @Environment(\.dismiss) private var dismiss
     @State private var isSeeking = false
     @State private var pendingSeekTime: TimeInterval?
     
-    init(song: Song, lyrics: SongLyrics? = nil) {
-        self.song = song
-        _viewModel = StateObject(wrappedValue: SongPlayerViewModel(song: song, lyrics: lyrics))
+    private var song: Song { config.song }
+    
+    init(config: MusicPlayerConfig) {
+        self.config = config
+        _viewModel = StateObject(wrappedValue: SongPlayerViewModel(song: config.song, lyrics: config.lyrics))
     }
     
     var body: some View {
-        ZStack(alignment: .bottom) {
-            // Main scrollable lyrics content
-            switch viewModel.lyricsState {
-            case .content(let lyrics):
-                InteractiveLyricsView(
-                    lyrics: lyrics,
-                    currentTime: viewModel.currentTime,
-                    isScrollDisabled: viewModel.isPlaying,
-                    onLineSelected: { timestamp in
-                        viewModel.handle(.seek(to: timestamp))
-                    }
-                )
-            case .loading:
-                lyricsLoadingView
-            case .empty:
-                lyricsUnavailableView(message: "Lyrics not available")
-            case .error(_):
-                lyricsUnavailableView(message: "Unable to load lyrics right now")
+        InteractiveLyricsView(
+            lyrics: viewModel.lyrics,
+            currentTime: viewModel.currentTime,
+            isScrollDisabled: viewModel.isPlaying,
+            onLineSelected: { timestamp in
+                viewModel.handle(.seek(to: timestamp))
             }
-            
-            // Bottom pinned controls
-            bottomControlsView
-                .background(.ultraThinMaterial)
-                .ignoresSafeArea(edges: .bottom)
-        }
+        )
         .groupedBackground()
-        .toolbar {
-            ToolbarItem(placement: .principal) {
-                navigationTitleView
-            }
-        }
-        .task {
-            viewModel.handle(.loadData)
-        }
-    }
-    
-    // MARK: - Navigation Title View
-    
-    private var navigationTitleView: some View {
-        HStack(spacing: 12) {
-            // Small album artwork
-            AsyncImage(url: song.albumArtURL) { image in
-                image
-                    .resizable()
-                    .scaledToFill()
-            } placeholder: {
-                RoundedRectangle(cornerRadius: 8)
-                    .fill(
-                        LinearGradient(
-                            colors: [.blue.opacity(0.4), .purple.opacity(0.4)],
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
-                        )
-                    )
-                    .overlay(
-                        Image(systemName: "music.note")
-                            .font(.system(size: 20))
-                            .foregroundColor(.white)
-                    )
-            }
-            .frame(width: 60, height: 60)
-            .clipShape(RoundedRectangle(cornerRadius: 8))
-            
-            // Song info
-            VStack(alignment: .leading, spacing: 2) {
-                Text(song.title)
-                    .font(.headline)
-                    .lineLimit(1)
-                
-                Text(song.artist)
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-                    .lineLimit(1)
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-        }
-        .padding(.vertical, 4)
-    }
-    
-    // MARK: - Bottom Controls View
-    
-    private var bottomControlsView: some View {
-        VStack(spacing: 16) {
-            // Progress Slider
-            VStack(spacing: 8) {
-                Slider(
-                    value: Binding(
-                        get: { pendingSeekTime ?? viewModel.currentTime },
-                        set: { newValue in
-                            if isSeeking {
-                                pendingSeekTime = newValue
+        .navigation(
+            title: song.title,
+            mode: .regular,
+            showsBackButton: true,
+            trailingContent: {
+                HeaderButton(icon: viewModel.isPlaying ? "pause" : "play") {
+                    viewModel.handle(.playPause)
+                }
+            },
+            bottomContent: {
+                VStack(spacing: 2) {
+                    Slider(
+                        value: Binding(
+                            get: { pendingSeekTime ?? viewModel.currentTime },
+                            set: { newValue in
+                                if isSeeking {
+                                    pendingSeekTime = newValue
+                                } else {
+                                    viewModel.handle(.seek(to: newValue))
+                                }
+                            }
+                        ),
+                        in: 0...max(viewModel.duration, 1),
+                        onEditingChanged: { editing in
+                            if editing {
+                                isSeeking = true
+                                pendingSeekTime = viewModel.currentTime
                             } else {
-                                viewModel.handle(.seek(to: newValue))
+                                isSeeking = false
+                                if let pendingSeekTime {
+                                    viewModel.handle(.seek(to: pendingSeekTime))
+                                }
+                                pendingSeekTime = nil
                             }
                         }
-                    ),
-                    in: 0...max(viewModel.duration, 1),
-                    onEditingChanged: { editing in
-                        if editing {
-                            isSeeking = true
-                            pendingSeekTime = viewModel.currentTime
-                        } else {
-                            isSeeking = false
-                            if let pendingSeekTime {
-                                viewModel.handle(.seek(to: pendingSeekTime))
-                            }
-                            pendingSeekTime = nil
-                        }
+                    )
+                    .tint(.accentColor)
+
+                    HStack {
+                        Text(formatTime(displayedCurrentTime))
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                            .monospacedDigit()
+
+                        Spacer()
+
+                        Text(formatTime(viewModel.duration))
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                            .monospacedDigit()
                     }
-                )
-                .tint(.accentColor)
-                
-                HStack {
-                    Text(formatTime(displayedCurrentTime))
-                        .font(.caption)
-                        .foregroundColor(.secondary)
-                        .monospacedDigit()
-                    
-                    Spacer()
-                    
-                    Text(formatTime(viewModel.duration))
-                        .font(.caption)
-                        .foregroundColor(.secondary)
-                        .monospacedDigit()
                 }
             }
-            
-            // Play/Pause Button
-            Button(action: {
-                viewModel.handle(.playPause)
-            }) {
-                Image(systemName: viewModel.isPlaying ? "pause.circle.fill" : "play.circle.fill")
-                    .font(.system(size: 56))
-                    .foregroundColor(.primary)
+        )
+        .safeAreaBarIfAvailable {
+            ActionButton(
+                lessonButtonTitle,
+                style: .borderedProminent
+            ) {
+                lessonButtonAction()
             }
-            
-            // Lesson Button or Progress
-            if viewModel.isGeneratingLesson {
-                lessonGenerationProgress
-            } 
-            
-            if viewModel.lessonReady,
-                      let lesson = viewModel.adaptedLesson,
-                      let session = viewModel.session {
-                continueToLessonButton(lesson: lesson, session: session)
-            }
+            .disabled(isLessonButtonDisabled)
+            .padding(vertical: 12, horizontal: 16)
         }
-        .padding(.horizontal, 20)
-        .padding(.top, 16)
-        .padding(.bottom, 8)
-    }
-    
-    private var lyricsLoadingView: some View {
-        LyricsSkeletonView()
-            .transition(.opacity)
-    }
-    
-    private func lyricsUnavailableView(message: String) -> some View {
-        VStack(spacing: 16) {
-            Image(systemName: "music.note.text")
-                .font(.system(size: 60))
-                .foregroundColor(.secondary)
-            
-            Text(message)
-                .font(.title3)
-                .foregroundColor(.secondary)
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
     
     // MARK: - Lesson Generation Progress
@@ -217,16 +124,6 @@ struct SongPlayerView: View {
         .padding(.vertical, 12)
     }
     
-    private func continueToLessonButton(lesson: AdaptedLesson, session: MusicDiscoveringSession) -> some View {
-        ActionButton(
-            "Continue to Lesson",
-            style: .borderedProminent
-        ) {
-            let config = SongLessonConfig(song: song, lesson: lesson, session: session)
-            NavigationManager.shared.navigate(to: .songLesson(config))
-        }
-    }
-    
     // MARK: - Helper Methods
     
     private func formatTime(_ time: TimeInterval) -> String {
@@ -238,37 +135,34 @@ struct SongPlayerView: View {
     private var displayedCurrentTime: TimeInterval {
         pendingSeekTime ?? viewModel.currentTime
     }
-}
-
-// MARK: - Lyrics Skeleton View
-
-private struct LyricsSkeletonView: View {
-    private let placeholderWidths: [CGFloat] = [280, 240, 300, 220, 260, 250]
-    private let lineCount = 12
     
-    var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 24) {
-                ForEach(0..<lineCount, id: \.self) { index in
-                    lyricPlaceholder(for: index)
-                }
-            }
-            .padding(.horizontal, 20)
-            .padding(.top, 40)
-            .padding(.bottom, 280)
+    private var lessonButtonTitle: String {
+        switch viewModel.lessonState {
+        case .loading:
+            "Lesson is loading..."
+        case .ready:
+            "Continue to Lesson"
+        case .failed:
+            "Error loading lesson, retry?"
         }
-        .scrollDisabled(true)
-        .allowsHitTesting(false)
     }
     
-    private func lyricPlaceholder(for index: Int) -> some View {
-        let baseWidth = placeholderWidths[index % placeholderWidths.count]
-        
-        return VStack(alignment: .leading, spacing: 10) {
-            ShimmerView(width: baseWidth, height: 18)
-                .clipShape(RoundedRectangle(cornerRadius: 8))
-            ShimmerView(width: baseWidth * 0.85, height: 18)
-                .clipShape(RoundedRectangle(cornerRadius: 8))
+    private var isLessonButtonDisabled: Bool {
+        switch viewModel.lessonState {
+        case .ready: false
+        default: true
+        }
+    }
+    
+    private func lessonButtonAction() {
+        switch viewModel.lessonState {
+        case .loading:
+            break
+        case .ready(let lesson, let session):
+            let config = SongLessonConfig(song: song, lesson: lesson, session: session)
+            NavigationManager.shared.navigate(to: .songLesson(config))
+        case .failed:
+            viewModel.handle(.generateLesson)
         }
     }
 }

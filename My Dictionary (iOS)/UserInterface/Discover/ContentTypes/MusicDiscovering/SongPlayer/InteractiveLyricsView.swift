@@ -16,7 +16,7 @@ struct InteractiveLyricsView: View {
     var body: some View {
         ScrollViewReader { proxy in
             ScrollView {
-                VStack(alignment: .leading, spacing: 20) {
+                VStack(alignment: .leading, spacing: 16) {
                     if let syncedLyrics = lyrics.syncedLyrics {
                         syncedLyricsView(lyrics: syncedLyrics, proxy: proxy)
                     } else if let plainLyrics = lyrics.plainLyrics {
@@ -25,9 +25,7 @@ struct InteractiveLyricsView: View {
                         noLyricsView
                     }
                 }
-                .padding(.horizontal, 20)
-                .padding(.top, 40)
-                .padding(.bottom, 280) // Extra padding for bottom controls
+                .padding(vertical: 12, horizontal: 16)
             }
             .scrollDisabled(isScrollDisabled && lyrics.syncedLyrics != nil)
         }

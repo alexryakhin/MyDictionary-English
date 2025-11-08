@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SongLyrics: Codable {
+struct SongLyrics: Codable, Hashable {
     let plainLyrics: String?
     let syncedLyrics: String? // LRC format: [00:17.12] ... [03:20.31] ...
     let instrumental: Bool
@@ -31,5 +31,9 @@ struct SongLyrics: Codable {
     var bestLyrics: String? {
         return syncedLyrics ?? plainLyrics
     }
-}
 
+    var detectedLanguage: InputLanguage? {
+        guard let bestLyrics else { return nil }
+        return LanguageDetector.shared.detectLanguage(for: bestLyrics)
+    }
+}

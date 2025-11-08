@@ -9,7 +9,19 @@ import SwiftUI
 
 enum NavigationTitleMode {
     case inline
+    case regular
     case large
+
+    var font: Font {
+        switch self {
+        case .inline:
+            return .headline
+        case .regular:
+            return .title
+        case .large:
+            return .largeTitle
+        }
+    }
 }
 
 struct NavigationTitleModifier<TrailingContent: View, BottomContent: View>: ViewModifier {
@@ -40,7 +52,7 @@ struct NavigationTitleModifier<TrailingContent: View, BottomContent: View>: View
                             .padding(.trailing, 6)
                         }
                         Text(title)
-                            .font(mode == .inline ? .headline : .largeTitle)
+                            .font(mode.font)
                             .bold()
                             .foregroundStyle(.primary)
                             .lineLimit(1)

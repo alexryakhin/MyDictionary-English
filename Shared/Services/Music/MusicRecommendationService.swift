@@ -241,7 +241,7 @@ final class MusicRecommendationService {
     /// - Returns: FirestoreRecommendation generated from search
     func generateRecommendationsWithSearch(language: InputLanguage, cefrLevel: CEFRLevel) async throws -> FirestoreRecommendation {
         guard appleMusicService.isAuthorized else {
-            throw MusicError.authenticationRequired
+            throw MusicError.appleMusicNotRegistered
         }
         
         // Search for popular songs in the language
@@ -280,7 +280,7 @@ final class MusicRecommendationService {
     /// Searches for songs from AI recommendations and includes cefrLevel from AI and appleMusicId
     private func convertAIRecommendationsToSongs(_ aiResponse: AIMusicRecommendationsResponse) async throws -> [RecommendationSong] {
         guard appleMusicService.isAuthorized else {
-            throw MusicError.authenticationRequired
+            throw MusicError.appleMusicNotRegistered
         }
         
         var allSongs: [RecommendationSong] = []

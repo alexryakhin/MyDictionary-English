@@ -31,18 +31,17 @@ final class MusicLessonService {
     func getLesson(for song: Song, lyrics: SongLyrics) async throws -> AdaptedLesson {
         guard let userProfile = OnboardingService.shared.userProfile,
               let firstStudyLanguage = userProfile.studyLanguages.first,
-              let cefrLevel = song.cefrLevel else {
-            throw MusicError.authenticationRequired
+              let cefrLevel = song.cefrLevel,
+              let targetLanguage = lyrics.detectedLanguage else {
+            throw MusicError.userProfileNotCompleted
         }
-        
-        let targetLanguage = firstStudyLanguage.language
 
         // 1. Try to get cached lesson from Firestore (public/shared)
         if let cachedLesson = try? await getLessonFromFirestore(songId: song.id) {
             // 2. Adapt lesson (lessons are language-specific, no filtering by user level)
             let adapted = AdaptedLesson(
                 songId: cachedLesson.songId,
-                language: targetLanguage, // Use InputLanguage enum
+                language: targetLanguage,
                 phrases: cachedLesson.phrases,
                 grammarNuggets: cachedLesson.grammarNuggets,
                 cultureNotes: cachedLesson.cultureNotes,
@@ -124,7 +123,7 @@ final class MusicLessonService {
     private func getLessonFromFirestore(songId: String) async throws -> FirestoreLesson {
         guard let userProfile = OnboardingService.shared.userProfile,
               let firstStudyLanguage = userProfile.studyLanguages.first else {
-            throw MusicError.authenticationRequired
+            throw MusicError.userProfileNotCompleted
         }
         
         let languagePath = firstStudyLanguage.language.englishName.lowercased()
@@ -293,21 +292,19 @@ final class MusicLessonService {
     /// Generate pre-listen hook with AI and determine song's CEFR level
     /// Hook is cached locally (user-specific, locale-specific), not in Firestore
     /// Returns: (PreListenHook, CEFRLevel) - the hook and the determined song CEFR level
-    func generatePreListenHook(for song: Song, lyrics: String, targetLanguage: InputLanguage) async throws -> (PreListenHook, CEFRLevel) {
+    func generatePreListenHook(for song: Song, lyrics: String, targetLanguage: InputLanguage) async throws -> PreListenHook {
         guard aiService.canMakeAIRequest() else {
             throw AIError.proRequired
         }
 
         // Use AI service to generate hook (determines song's CEFR level)
         // If languageToUse is nil, AI will detect language from lyrics
-        let hook: PreListenHook = try await aiService.request(
+        return try await aiService.request(
             .musicPreListenHook(
                 song: song,
                 targetLanguage: targetLanguage
             )
         )
-
-        return (hook, hook.songCEFRLevel)
     }
     
     /// Convert AdaptedLesson to MusicDiscoveringResponse for UI

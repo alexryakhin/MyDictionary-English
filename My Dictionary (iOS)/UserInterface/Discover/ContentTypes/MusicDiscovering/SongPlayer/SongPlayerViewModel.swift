@@ -12,50 +12,39 @@ import SwiftUI
 @MainActor
 final class SongPlayerViewModel: ObservableObject {
     
-    enum LyricsState {
-        case empty
-        case loading
-        case content(SongLyrics)
-        case error(message: String)
-    }
-    
     enum Input {
         case loadData
         case playPause
         case seek(to: TimeInterval)
         case generateLesson
     }
-    
+
+    enum LessonState: Hashable {
+        case loading
+        case ready(AdaptedLesson, MusicDiscoveringSession)
+        case failed(String)
+    }
+
     let song: Song
-    
-    @Published private(set) var lyricsState: LyricsState
+    let lyrics: SongLyrics
+
     @Published private(set) var currentTime: TimeInterval = 0
     @Published private(set) var duration: TimeInterval = 0
     @Published private(set) var isPlaying: Bool = false
-    @Published private(set) var isGeneratingLesson: Bool = false
-    @Published private(set) var lessonReady: Bool = false
-    @Published private(set) var adaptedLesson: AdaptedLesson?
-    @Published private(set) var session: MusicDiscoveringSession?
-    
+    @Published private(set) var lessonState: LessonState = .loading
+
     private let musicPlayerService = MusicPlayerService.shared
-    private let lyricsService = LRCLibService.shared
     private let lessonService = MusicLessonService.shared
     private let historyService = MusicListeningHistoryService.shared
     private let songLessonSessionService = SongLessonSessionService.shared
     
     private var cancellables = Set<AnyCancellable>()
     
-    private var currentLyrics: SongLyrics? {
-        guard case let .content(lyrics) = lyricsState else {
-            return nil
-        }
-        return lyrics
-    }
-    
-    init(song: Song, lyrics: SongLyrics? = nil) {
+    init(song: Song, lyrics: SongLyrics) {
         self.song = song
-        self.lyricsState = lyrics.map { .content($0) } ?? .empty
+        self.lyrics = lyrics
         setupBindings()
+        loadData()
     }
     
     func handle(_ input: Input) {
@@ -85,32 +74,6 @@ final class SongPlayerViewModel: ObservableObject {
     }
     
     private func loadData() {
-        // Load lyrics only if not already provided
-        switch lyricsState {
-        case .empty, .error:
-            lyricsState = .loading
-            Task {
-                do {
-                    let lyrics = try await lyricsService.getLyrics(
-                        trackName: song.title,
-                        artistName: song.artist,
-                        albumName: song.album,
-                        duration: song.duration
-                    )
-                    await MainActor.run {
-                        self.lyricsState = .content(lyrics)
-                    }
-                    await self.generateLesson()
-                } catch {
-                    await MainActor.run {
-                        self.lyricsState = .error(message: error.localizedDescription)
-                    }
-                }
-            }
-        case .loading, .content:
-            break
-        }
-        
         // Start playback
         Task {
             do {
@@ -124,8 +87,8 @@ final class SongPlayerViewModel: ObservableObject {
         Task {
             await historyService.addToHistory(song: song)
         }
-        
-        // Generate lesson in background
+
+        // Load lesson
         Task {
             await generateLesson()
         }
@@ -144,36 +107,30 @@ final class SongPlayerViewModel: ObservableObject {
     }
     
     private func generateLesson() async {
+        guard lyrics.hasLyrics, AIService.shared.canMakeAIRequest() else {
+            logError("\(#file) Unable to generate lesson")
+            self.lessonState = .failed("Unable to generate lesson")
+            return
+        }
+
         if let cached = await cachedLesson() {
             await MainActor.run {
-                self.adaptedLesson = cached.lesson
-                self.session = cached.session
-                self.lessonReady = true
-                self.isGeneratingLesson = false
+                self.lessonState = .ready(cached.lesson, cached.session)
             }
             return
         }
-        
-        guard let lyrics = currentLyrics, lyrics.hasLyrics else {
-            return
-        }
-        
-        guard AIService.shared.canMakeAIRequest() else {
-            return
-        }
-        
+
         await MainActor.run {
-            isGeneratingLesson = true
+            self.lessonState = .loading
         }
         
         do {
-            // Generate lesson (uses song's CEFR level)
             let adaptedLesson = try await lessonService.getLesson(
                 for: song,
                 lyrics: lyrics
             )
-            var session = MusicDiscoveringSession(song: song)
-            
+            let session = MusicDiscoveringSession(song: song)
+
             try await songLessonSessionService.saveOrUpdateSession(
                 session,
                 lesson: adaptedLesson,
@@ -181,14 +138,12 @@ final class SongPlayerViewModel: ObservableObject {
             )
             
             await MainActor.run {
-                self.adaptedLesson = adaptedLesson
-                self.session = session
-                self.isGeneratingLesson = false
-                self.lessonReady = true
+                self.lessonState = .ready(adaptedLesson, session)
             }
         } catch {
             await MainActor.run {
-                self.isGeneratingLesson = false
+                logError("\(#file) Unable to generate lesson with error: \(error)")
+                self.lessonState = .failed(error.localizedDescription)
             }
         }
     }
@@ -203,5 +158,17 @@ final class SongPlayerViewModel: ObservableObject {
             
             return (storedLesson, storedSession)
         }
+    }
+}
+
+extension SongPlayerViewModel {
+    func formatTime(_ timeInterval: TimeInterval) -> String {
+        let minutes = Int(timeInterval) / 60
+        let seconds = Int(timeInterval) % 60
+        return String(format: "%d:%02d", minutes, seconds)
+    }
+    
+    var hasLyrics: Bool {
+        lyrics.hasLyrics
     }
 }

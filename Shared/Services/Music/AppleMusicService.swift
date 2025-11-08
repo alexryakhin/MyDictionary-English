@@ -65,7 +65,7 @@ final class AppleMusicService {
 
     func searchSongs(query: String, language: String?) async throws -> [Song] {
         guard isAuthorized else {
-            throw MusicError.authenticationRequired
+            throw MusicError.appleMusicNotRegistered
         }
         
         var searchRequest = MusicCatalogSearchRequest(term: query, types: [MusicKit.Song.self])
@@ -87,7 +87,7 @@ final class AppleMusicService {
     
     func getUserLibrary(limit: Int) async throws -> [Song] {
         guard isAuthorized else {
-            throw MusicError.authenticationRequired
+            throw MusicError.appleMusicNotRegistered
         }
         
         let query = MPMediaQuery.songs()
@@ -107,7 +107,7 @@ final class AppleMusicService {
     
     func getUserPlaylists() async throws -> [PlaylistInfo] {
         guard isAuthorized else {
-            throw MusicError.authenticationRequired
+            throw MusicError.appleMusicNotRegistered
         }
         
         let query = MPMediaQuery.playlists()
@@ -138,7 +138,7 @@ final class AppleMusicService {
     
     func getSongMetadata(id: String) async throws -> Song {
         guard isAuthorized else {
-            throw MusicError.authenticationRequired
+            throw MusicError.appleMusicNotRegistered
         }
         
         // Try to find song by ID
@@ -170,7 +170,7 @@ final class AppleMusicService {
     /// - Returns: Array of artist information
     func searchArtists(query: String) async throws -> [ArtistInfo] {
         guard isAuthorized else {
-            throw MusicError.authenticationRequired
+            throw MusicError.appleMusicNotRegistered
         }
         
         let searchRequest = MusicCatalogSearchRequest(term: query, types: [MusicKit.Artist.self])
@@ -193,7 +193,7 @@ final class AppleMusicService {
     /// - Returns: Array of songs from the artist
     func getArtistSongs(artistId: String? = nil, artistName: String? = nil, limit: Int = 10) async throws -> [Song] {
         guard isAuthorized else {
-            throw MusicError.authenticationRequired
+            throw MusicError.appleMusicNotRegistered
         }
         
         // Prefer searching by artist name if provided
@@ -232,7 +232,7 @@ final class AppleMusicService {
     /// - Returns: Array of album information
     func searchAlbums(query: String) async throws -> [AlbumInfo] {
         guard isAuthorized else {
-            throw MusicError.authenticationRequired
+            throw MusicError.appleMusicNotRegistered
         }
         
         let searchRequest = MusicCatalogSearchRequest(term: query, types: [MusicKit.Album.self])
@@ -255,7 +255,7 @@ final class AppleMusicService {
     /// - Returns: Array of songs from the album
     func getAlbumSongs(albumId: String? = nil, albumName: String? = nil, artistName: String? = nil) async throws -> [Song] {
         guard isAuthorized else {
-            throw MusicError.authenticationRequired
+            throw MusicError.appleMusicNotRegistered
         }
         
         // Prefer searching by album name and artist if provided

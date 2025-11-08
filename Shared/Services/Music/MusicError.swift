@@ -7,11 +7,12 @@
 
 import Foundation
 
-enum MusicError: Error, LocalizedError {
-    case authenticationRequired
+enum MusicError: Error, LocalizedError, Hashable {
+    case userProfileNotCompleted
     case authenticationFailed(String)
     case songNotFound
     case lyricsNotFound
+    case lyricsLanguageNotDetermined
     case lessonNotFound
     case invalidDuration
     case playbackNotSupported
@@ -23,17 +24,21 @@ enum MusicError: Error, LocalizedError {
     case appleMusicSubscriptionRequired
     case invalidCEFRLevel
     case noRecommendationsAvailable
+    case premiumRequired
+    case hookGenerationFailed
 
     var errorDescription: String? {
         switch self {
-        case .authenticationRequired:
-            return "Authentication is required to access music services"
+        case .userProfileNotCompleted:
+            return "User Profile not completed"
         case .authenticationFailed(let message):
             return "Authentication failed: \(message)"
         case .songNotFound:
             return "Song not found"
         case .lyricsNotFound:
             return "Lyrics not available for this song"
+        case .lyricsLanguageNotDetermined:
+            return "Lyrics language not determined"
         case .lessonNotFound:
             return "Lesson not found"
         case .invalidDuration:
@@ -56,6 +61,10 @@ enum MusicError: Error, LocalizedError {
             return "Invalid CEFR level"
         case .noRecommendationsAvailable:
             return "No recommendations available"
+        case .premiumRequired:
+            return "Premium access is required to use this feature"
+        case .hookGenerationFailed:
+            return "Failed to generate a preview for this song"
         }
     }
 }

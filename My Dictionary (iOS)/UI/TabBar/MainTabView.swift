@@ -172,7 +172,7 @@ struct MainTabView: View {
         case .storyLabHistory:
             StoryLabHistoryView()
         case .musicPlayer(let config):
-            SongPlayerView(song: config.song, lyrics: config.lyrics)
+            SongPlayerView(config: config)
         case .songLesson(let config):
             SongLessonView(config: config)
         case .songLessonResults(let config):
