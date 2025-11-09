@@ -123,7 +123,13 @@ struct InteractiveText: View {
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .sheet(item: $selectedWord) { word in
-            AddWordView(input: word.text, isWord: true)
+            let config = AddWordConfig(
+                input: word.text,
+                inputLanguage: InputLanguage(rawValue: sourceLanguageCode ?? "en"),
+                selectedDictionaryId: nil,
+                isWord: true
+            )
+            AddWordView(config: config)
         }
         .alert(
             translationWord ?? "",

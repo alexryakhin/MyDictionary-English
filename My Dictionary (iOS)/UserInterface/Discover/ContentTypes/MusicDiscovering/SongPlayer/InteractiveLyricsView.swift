@@ -13,25 +13,24 @@ struct InteractiveLyricsView: View {
     @State private var isTranslating: Bool = false
     @State private var translationSource: String?
     @State private var translationResult: String?
-    @State private var selectedWord: SelectedWord?
+    @State private var showMenu: LyricLine?
+    @State private var addToDictionary: LyricLine?
     @StateObject private var ttsPlayer = TTSPlayer.shared
-    
+
     private let translationService: TranslationService = GoogleTranslateService.shared
     private let languageDetector = LanguageDetector.shared
     
     private var localeLanguageCode: String {
         Locale.current.language.languageCode?.identifier ?? "en"
     }
-    
-    private var lyrics: SongLyrics { viewModel.lyrics }
-    
+
     var body: some View {
         ScrollViewReader { proxy in
             ScrollView {
-                LazyVStack(alignment: .leading, spacing: 16) {
-                    if let syncedLyrics = lyrics.syncedLyrics {
-                        syncedLyricsView(lyrics: syncedLyrics, proxy: proxy)
-                    } else if let plainLyrics = lyrics.plainLyrics {
+                VStack(alignment: .leading, spacing: 16) {
+                    if viewModel.parsedSyncedLines.isNotEmpty {
+                        syncedLyricsView()
+                    } else if let plainLyrics = viewModel.lyrics.plainLyrics {
                         plainLyricsView(lyrics: plainLyrics)
                     } else {
                         noLyricsView
@@ -39,7 +38,13 @@ struct InteractiveLyricsView: View {
                 }
                 .padding(vertical: 12, horizontal: 16)
             }
-            .scrollDisabled(viewModel.isPlaying && lyrics.syncedLyrics != nil)
+            .onChange(of: viewModel.currentLineIndex) { _, newIndex in
+                if let newIndex {
+                    withAnimation {
+                        proxy.scrollTo(newIndex, anchor: .center)
+                    }
+                }
+            }
         }
         .alert(translationSource ?? "", isPresented: Binding(
             get: { translationResult != nil && translationSource != nil },
@@ -52,49 +57,58 @@ struct InteractiveLyricsView: View {
         } message: {
             Text(translationResult ?? "")
         }
-        .sheet(item: $selectedWord) { word in
-            AddWordView(input: word.text, isWord: true)
+        .sheet(item: $addToDictionary) { line in
+            let config = AddWordConfig(
+                input: line.text,
+                inputLanguage: viewModel.lyrics.detectedLanguage,
+                selectedDictionaryId: nil,
+                isWord: line.text.components(separatedBy: .init(charactersIn: " ")).count == 1
+            )
+            AddWordView(config: config)
+        }
+        .sheet(item: $showMenu) { line in
+            List {
+                Section(line.text) {
+                    if viewModel.parsedSyncedLines.isNotEmpty {
+                        Button {
+                            play(from: line.timestamp)
+                            showMenu = nil
+                        } label: {
+                            Label(Loc.Actions.playFromHere, systemImage: "play.fill")
+                        }
+                    }
+                    addToDictionaryButton(for: line)
+                    listenButton(for: line)
+                    copyButton(for: line)
+                    if shouldShowTranslate(for: line.text) {
+                        translateButton(for: line)
+                    }
+                }
+            }
+            .navigation(title: "Options", mode: .regular, trailingContent: {
+                HeaderButton(Loc.Actions.done) {
+                    showMenu = nil
+                }
+            })
+            .presentationDetents([.medium])
         }
     }
     
     // MARK: - Synced Lyrics
     
     @ViewBuilder
-    private func syncedLyricsView(lyrics: String, proxy: ScrollViewProxy) -> some View {
-        let lines = parseSyncedLyrics(lyrics)
-        ForEach(Array(lines.enumerated()), id: \.offset) { index, line in
-            let isCurrent = isLineCurrent(index, lines: lines)
-            Menu {
-                Section(line.text) {
-                    Button {
-                        play(from: line.timestamp)
-                    } label: {
-                        Label(Loc.Actions.playFromHere, systemImage: "play.fill")
-                    }
-                    addToDictionaryButton(for: line.text)
-                    listenButton(for: line.text)
-                    copyButton(for: line.text)
-                    if shouldShowTranslate(for: line.text) {
-                        translateButton(for: line.text)
-                    }
+    private func syncedLyricsView() -> some View {
+        ForEach(Array(viewModel.parsedSyncedLines.enumerated()), id: \.offset) { index, line in
+            Text(line.text)
+                .font(.system(.title, design: .default, weight: .bold))
+                .foregroundColor(viewModel.currentLineIndex == index ? .primary : .secondary)
+                .multilineTextAlignment(.leading)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.vertical, 4)
+                .id(index)
+                .onTapGesture {
+                    showMenu = line
                 }
-            } label: {
-                Text(line.text)
-                    .font(.system(.title, design: .default, weight: .bold))
-                    .foregroundColor(isCurrent ? .primary : .secondary)
-                    .multilineTextAlignment(.leading)
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.vertical, 4)
-            .id(index)
-            .buttonStyle(.plain)
-            .onChange(of: viewModel.currentTime) { _, _ in
-                if isCurrent {
-                    withAnimation {
-                        proxy.scrollTo(index, anchor: .center)
-                    }
-                }
-            }
         }
     }
     
@@ -103,26 +117,17 @@ struct InteractiveLyricsView: View {
     @ViewBuilder
     private func plainLyricsView(lyrics: String) -> some View {
         let lines = lyrics.components(separatedBy: .newlines)
-        ForEach(Array(lines.enumerated()), id: \.offset) { _, line in
-            let trimmed = line.trimmingCharacters(in: .whitespacesAndNewlines)
-            Menu {
-                Section(line) {
-                    addToDictionaryButton(for: trimmed)
-                    listenButton(for: trimmed)
-                    copyButton(for: trimmed)
-                    if shouldShowTranslate(for: trimmed) {
-                        translateButton(for: trimmed)
-                    }
+        ForEach(Array(lines.enumerated()), id: \.offset) { _, lineText in
+            Text(lineText)
+                .font(.system(.title, design: .default, weight: .bold))
+                .foregroundColor(.primary)
+                .multilineTextAlignment(.leading)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.vertical, 4)
+                .onTapGesture {
+                    let trimmed = lineText.trimmingCharacters(in: .whitespacesAndNewlines)
+                    showMenu = .init(text: trimmed, timestamp: .zero)
                 }
-            } label: {
-                Text(line)
-                    .font(.system(.title, design: .default, weight: .bold))
-                    .foregroundColor(.primary)
-                    .multilineTextAlignment(.leading)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.vertical, 4)
-            }
-            .buttonStyle(.plain)
         }
     }
     
@@ -137,10 +142,11 @@ struct InteractiveLyricsView: View {
     
     // MARK: - Action Buttons
     
-    private func translateButton(for text: String) -> some View {
+    private func translateButton(for line: LyricLine) -> some View {
         Button {
             Task {
-                await translateLine(text)
+                await translateLine(line)
+                showMenu = nil
             }
         } label: {
             Label(Loc.Actions.translate, systemImage: "globe")
@@ -148,21 +154,26 @@ struct InteractiveLyricsView: View {
         .disabled(isTranslating)
     }
     
-    private func addToDictionaryButton(for text: String) -> some View {
-        let cleaned = text.trimmingCharacters(in: .whitespacesAndNewlines)
+    private func addToDictionaryButton(for line: LyricLine) -> some View {
+        let cleaned = line.text.trimmingCharacters(in: .whitespacesAndNewlines)
         return Button {
             guard cleaned.isNotEmpty else { return }
-            selectedWord = SelectedWord(text: cleaned)
+            showMenu = nil
+            addToDictionary = LyricLine(text: cleaned, timestamp: .zero)
         } label: {
             Label(Loc.WordCollections.addToMyDictionary, systemImage: "plus")
         }
     }
     
-    private func listenButton(for text: String) -> some View {
+    private func listenButton(for line: LyricLine) -> some View {
         Button {
             Task {
                 do {
-                    try await ttsPlayer.play(text)
+                    try await ttsPlayer.play(line.text)
+                    if viewModel.isPlaying {
+                        viewModel.handle(.playPause)
+                    }
+                    showMenu = nil
                 } catch {
                     print("TTS error: \(error.localizedDescription)")
                 }
@@ -173,10 +184,11 @@ struct InteractiveLyricsView: View {
         .disabled(ttsPlayer.isPlaying)
     }
     
-    private func copyButton(for text: String) -> some View {
+    private func copyButton(for line: LyricLine) -> some View {
         Button {
-            copyToClipboard(text)
+            copyToClipboard(line.text)
             HapticManager.shared.triggerNotification(type: .success)
+            showMenu = nil
         } label: {
             Label(Loc.Actions.copy, systemImage: "doc.on.doc")
         }
@@ -184,8 +196,8 @@ struct InteractiveLyricsView: View {
     
     // MARK: - Helpers
     
-    private func translateLine(_ text: String) async {
-        let cleaned = text.trimmingCharacters(in: .whitespacesAndNewlines)
+    private func translateLine(_ line: LyricLine) async {
+        let cleaned = line.text.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !cleaned.isEmpty, !isTranslating else { return }
         let sourceLanguage = detectedLanguageCode(for: cleaned)
         let targetLanguage = localeLanguageCode
@@ -222,7 +234,7 @@ struct InteractiveLyricsView: View {
     }
     
     private func detectedLanguageCode(for text: String) -> String {
-        if let detected = lyrics.detectedLanguage?.rawValue {
+        if let detected = viewModel.lyrics.detectedLanguage?.rawValue {
             return detected
         }
         return languageDetector.detectLanguage(for: text).languageCode
@@ -235,31 +247,6 @@ struct InteractiveLyricsView: View {
     
     private func copyToClipboard(_ text: String) {
         UIPasteboard.general.string = text
-    }
-    
-    private func parseSyncedLyrics(_ lyrics: String) -> [LyricLine] {
-        var lines: [LyricLine] = []
-        let pattern = #"\[(\d{2}):(\d{2})\.(\d{2})\](.*)"#
-        let regex = try? NSRegularExpression(pattern: pattern, options: [])
-        let nsString = lyrics as NSString
-        let matches = regex?.matches(in: lyrics, options: [], range: NSRange(location: 0, length: nsString.length)) ?? []
-        for match in matches where match.numberOfRanges >= 4 {
-            let minutes = Int(nsString.substring(with: match.range(at: 1))) ?? 0
-            let seconds = Int(nsString.substring(with: match.range(at: 2))) ?? 0
-            let centiseconds = Int(nsString.substring(with: match.range(at: 3))) ?? 0
-            let text = nsString.substring(with: match.range(at: 4)).trimmingCharacters(in: .whitespaces)
-            guard text.isNotEmpty else { continue }
-            let timestamp = TimeInterval(minutes * 60 + seconds) + TimeInterval(centiseconds) / 100.0
-            lines.append(LyricLine(text: text, timestamp: timestamp))
-        }
-        return lines
-    }
-    
-    private func isLineCurrent(_ index: Int, lines: [LyricLine]) -> Bool {
-        guard index < lines.count else { return false }
-        let line = lines[index]
-        let nextTimestamp = index + 1 < lines.count ? lines[index + 1].timestamp : .infinity
-        return viewModel.currentTime >= line.timestamp && viewModel.currentTime < nextTimestamp
     }
     
     private var noLyricsView: some View {
@@ -276,13 +263,8 @@ struct InteractiveLyricsView: View {
     }
 }
 
-private struct SelectedWord: Identifiable {
+struct LyricLine: Identifiable {
     let id = UUID()
-    let text: String
-}
-
-struct LyricLine {
     let text: String
     let timestamp: TimeInterval
 }
-

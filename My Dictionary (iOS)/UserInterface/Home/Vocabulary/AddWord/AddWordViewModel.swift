@@ -60,8 +60,13 @@ final class AddWordViewModel: BaseViewModel {
     private let localeLanguageCode: String
     private var cancellables = Set<AnyCancellable>()
 
-    init(input: String = "", isWord: Bool) {
-        self.inputWord = input
+    init(input: String?, inputLanguage: InputLanguage?, isWord: Bool) {
+        if let input {
+            self.inputWord = input
+        }
+        if let inputLanguage {
+            self.selectedInputLanguage = inputLanguage
+        }
         self.isWord = isWord
         self.localeLanguageCode = Locale.current.language.languageCode?.identifier ?? "en"
 

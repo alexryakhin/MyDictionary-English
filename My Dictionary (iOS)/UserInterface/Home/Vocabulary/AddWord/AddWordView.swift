@@ -15,10 +15,16 @@ struct AddWordView: View {
 
     private let isWord: Bool
 
-    init(input: String, selectedDictionaryId: String? = nil, isWord: Bool) {
-        self._viewModel = .init(wrappedValue: .init(input: input, isWord: isWord))
-        self._selectedDictionaryId = State(initialValue: selectedDictionaryId)
-        self.isWord = isWord
+    init(config: AddWordConfig) {
+        self._viewModel = .init(
+            wrappedValue: .init(
+                input: config.input,
+                inputLanguage: config.inputLanguage,
+                isWord: config.isWord
+            )
+        )
+        self._selectedDictionaryId = State(initialValue: config.selectedDictionaryId)
+        self.isWord = config.isWord
     }
 
     var body: some View {

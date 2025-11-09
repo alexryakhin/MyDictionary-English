@@ -157,7 +157,13 @@ struct StoryLabReadingView: View {
             }
         )
         .sheet(item: $discoveredWord) { word in
-            AddWordView(input: word.text, isWord: true)
+            let config = AddWordConfig(
+                input: word.text,
+                inputLanguage: config.targetLanguage,
+                selectedDictionaryId: nil,
+                isWord: true
+            )
+            AddWordView(config: config)
                 .onDisappear {
                     // Word was saved if sheet dismissed normally
                     // Call handler to attach word to story

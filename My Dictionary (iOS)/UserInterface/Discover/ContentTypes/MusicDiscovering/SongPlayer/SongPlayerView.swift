@@ -24,9 +24,7 @@ struct SongPlayerView: View {
     let config: MusicPlayerConfig
     @StateObject private var viewModel: SongPlayerViewModel
     @Environment(\.dismiss) private var dismiss
-    @State private var isSeeking = false
-    @State private var pendingSeekTime: TimeInterval?
-    
+
     private var song: Song { config.song }
     
     init(config: MusicPlayerConfig) {
@@ -42,20 +40,18 @@ struct SongPlayerView: View {
         .navigation(
             title: song.title,
             mode: .regular,
-            showsBackButton: true,
-            trailingContent: {
-                HeaderButton(icon: viewModel.isPlaying ? "pause" : "play") {
-                    viewModel.handle(.playPause)
-                }
-            },
-            bottomContent: {
+            showsBackButton: true
+        )
+        .safeAreaBarIfAvailable {
+            VStack(spacing: 8) {
                 VStack(spacing: 2) {
                     Slider(
                         value: Binding(
-                            get: { pendingSeekTime ?? viewModel.currentTime },
+                            get: { viewModel.currentTime },
                             set: { newValue in
-                                if isSeeking {
-                                    pendingSeekTime = newValue
+                                if viewModel.isPlaying {
+                                    viewModel.handle(.playPause)
+                                    viewModel.handle(.seek(to: newValue))
                                 } else {
                                     viewModel.handle(.seek(to: newValue))
                                 }
@@ -63,15 +59,8 @@ struct SongPlayerView: View {
                         ),
                         in: 0...max(viewModel.duration, 1),
                         onEditingChanged: { editing in
-                            if editing {
-                                isSeeking = true
-                                pendingSeekTime = viewModel.currentTime
-                            } else {
-                                isSeeking = false
-                                if let pendingSeekTime {
-                                    viewModel.handle(.seek(to: pendingSeekTime))
-                                }
-                                pendingSeekTime = nil
+                            if !editing && !viewModel.isPlaying {
+                                viewModel.handle(.playPause)
                             }
                         }
                     )
@@ -91,16 +80,21 @@ struct SongPlayerView: View {
                             .monospacedDigit()
                     }
                 }
+                ActionButton(
+                    viewModel.isPlaying ? Loc.Actions.pause : Loc.Actions.play,
+                    systemImage: viewModel.isPlaying ? "pause" : "play"
+                ) {
+                    viewModel.handle(.playPause)
+                }
+
+                ActionButton(
+                    lessonButtonTitle,
+                    style: .borderedProminent
+                ) {
+                    lessonButtonAction()
+                }
+                .disabled(isLessonButtonDisabled)
             }
-        )
-        .safeAreaBarIfAvailable {
-            ActionButton(
-                lessonButtonTitle,
-                style: .borderedProminent
-            ) {
-                lessonButtonAction()
-            }
-            .disabled(isLessonButtonDisabled)
             .padding(vertical: 12, horizontal: 16)
         }
         .onDisappear {
@@ -133,7 +127,7 @@ struct SongPlayerView: View {
     }
     
     private var displayedCurrentTime: TimeInterval {
-        pendingSeekTime ?? viewModel.currentTime
+        viewModel.currentTime
     }
     
     private var lessonButtonTitle: String {

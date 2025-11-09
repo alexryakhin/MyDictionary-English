@@ -93,10 +93,22 @@ struct VocabularyListView: View {
             idiomListViewModel.searchText = searchText
         }
         .sheet(isPresented: $showAddWord) {
-            AddWordView(input: searchText, selectedDictionaryId: nil, isWord: true)
+            let config = AddWordConfig(
+                input: searchText,
+                inputLanguage: nil,
+                selectedDictionaryId: nil,
+                isWord: true
+            )
+            AddWordView(config: config)
         }
         .sheet(isPresented: $showAddIdiom) {
-            AddWordView(input: searchText, selectedDictionaryId: nil, isWord: false)
+            let config = AddWordConfig(
+                input: searchText,
+                inputLanguage: nil,
+                selectedDictionaryId: nil,
+                isWord: false
+            )
+            AddWordView(config: config)
         }
         .sheet(item: $wordToAddToSharedDictionary) { word in
             AddExistingWordToSharedView(word: word)

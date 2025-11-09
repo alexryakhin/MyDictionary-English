@@ -16,6 +16,8 @@ final class SongPlayerViewModel: ObservableObject {
         case loadData
         case playPause
         case seek(to: TimeInterval)
+        case beginSeek
+        case endSeek(TimeInterval)
         case generateLesson
     }
 
@@ -25,11 +27,12 @@ final class SongPlayerViewModel: ObservableObject {
         case failed(String)
     }
 
-    let song: Song
-    let lyrics: SongLyrics
-
+    @Published private(set) var song: Song
+    @Published private(set) var lyrics: SongLyrics
+    @Published private(set) var parsedSyncedLines: [LyricLine] = []
     @Published private(set) var currentTime: TimeInterval = 0
     @Published private(set) var duration: TimeInterval = 0
+    @Published private(set) var currentLineIndex: Int?
     @Published private(set) var isPlaying: Bool = false
     @Published private(set) var lessonState: LessonState = .loading
 
@@ -43,6 +46,7 @@ final class SongPlayerViewModel: ObservableObject {
     init(song: Song, lyrics: SongLyrics) {
         self.song = song
         self.lyrics = lyrics
+        self.parsedSyncedLines = parseSyncedLyrics(lyrics.syncedLyrics.orEmpty)
         setupBindings()
         loadData()
     }
@@ -55,6 +59,10 @@ final class SongPlayerViewModel: ObservableObject {
             playPause()
         case .seek(let time):
             seek(to: time)
+        case .beginSeek:
+            beginSeek()
+        case .endSeek(let time):
+            endSeek(to: time)
         case .generateLesson:
             Task {
                 await generateLesson()
@@ -64,13 +72,27 @@ final class SongPlayerViewModel: ObservableObject {
     
     private func setupBindings() {
         musicPlayerService.$currentTime
+            .receive(on: DispatchQueue.main)
             .assign(to: &$currentTime)
-        
+
         musicPlayerService.$duration
+            .receive(on: DispatchQueue.main)
             .assign(to: &$duration)
         
         musicPlayerService.$isPlaying
+            .receive(on: DispatchQueue.main)
             .assign(to: &$isPlaying)
+
+        $currentTime
+            .receive(on: DispatchQueue.main)
+            .map { [weak self] time in
+                guard let self, parsedSyncedLines.isNotEmpty else { return nil }
+                for index in parsedSyncedLines.indices where isLineCurrent(index) {
+                    return index
+                }
+                return nil
+            }
+            .assign(to: &$currentLineIndex)
     }
     
     private func loadData() {
@@ -104,6 +126,14 @@ final class SongPlayerViewModel: ObservableObject {
     
     private func seek(to time: TimeInterval) {
         musicPlayerService.seek(to: time)
+    }
+    
+    private func beginSeek() {
+        musicPlayerService.startSeeking()
+    }
+    
+    private func endSeek(to time: TimeInterval) {
+        musicPlayerService.finishSeeking(to: time)
     }
     
     private func generateLesson() async {
@@ -158,6 +188,31 @@ final class SongPlayerViewModel: ObservableObject {
             
             return (storedLesson, storedSession)
         }
+    }
+
+    private func parseSyncedLyrics(_ lyrics: String) -> [LyricLine] {
+        var lines: [LyricLine] = []
+        let pattern = #"\[(\d{2}):(\d{2})\.(\d{2})\](.*)"#
+        let regex = try? NSRegularExpression(pattern: pattern, options: [])
+        let nsString = lyrics as NSString
+        let matches = regex?.matches(in: lyrics, options: [], range: NSRange(location: 0, length: nsString.length)) ?? []
+        for match in matches where match.numberOfRanges >= 4 {
+            let minutes = Int(nsString.substring(with: match.range(at: 1))) ?? 0
+            let seconds = Int(nsString.substring(with: match.range(at: 2))) ?? 0
+            let centiseconds = Int(nsString.substring(with: match.range(at: 3))) ?? 0
+            let text = nsString.substring(with: match.range(at: 4)).trimmingCharacters(in: .whitespaces)
+            guard text.isNotEmpty else { continue }
+            let timestamp = TimeInterval(minutes * 60 + seconds) + TimeInterval(centiseconds) / 100.0
+            lines.append(LyricLine(text: text, timestamp: timestamp))
+        }
+        return lines
+    }
+
+    private func isLineCurrent(_ index: Int) -> Bool {
+        guard index < parsedSyncedLines.count else { return false }
+        let line = parsedSyncedLines[index]
+        let nextTimestamp = index + 1 < parsedSyncedLines.count ? parsedSyncedLines[index + 1].timestamp : .infinity
+        return currentTime >= line.timestamp && currentTime < nextTimestamp
     }
 }
 
