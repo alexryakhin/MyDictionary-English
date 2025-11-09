@@ -65,10 +65,9 @@ struct WordCollectionItemDetailsView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.horizontal, 24)
         }
-        .groupedBackground()
         .navigation(
             title: Loc.WordCollections.details,
-            mode: .inline,
+            mode: .regular,
             trailingContent: {
                 HeaderButton(Loc.Actions.done) {
                     dismiss()

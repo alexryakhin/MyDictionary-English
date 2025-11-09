@@ -66,4 +66,3 @@ enum CEFRLevel: String, Codable, CaseIterable, JSONSchemaEnumConvertible {
         return Self.allCases.map { $0.rawValue }
     }
 }
-

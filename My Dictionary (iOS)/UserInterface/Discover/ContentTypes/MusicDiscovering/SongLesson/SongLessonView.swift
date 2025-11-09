@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Flow
 
 struct SongLessonConfig: Hashable {
     let song: Song
@@ -26,11 +27,12 @@ struct SongLessonView: View {
     @StateObject private var viewModel: SongLessonViewModel
     @Environment(\.dismiss) private var dismiss
     
-    @State private var selectedTab: LessonTab = .phrases
     @State private var currentQuestionIndex: Int = 0
     @State private var selectedAnswerIndex: Int?
     @State private var showFeedback: Bool = false
     @State private var quizAnswers: [Int: Int] = [:]
+    @State private var phraseCollectionForSheet: WordCollection?
+    @State private var selectedPhraseItem: WordCollectionItem?
     
     init(config: SongLessonConfig) {
         self.config = config
@@ -43,30 +45,23 @@ struct SongLessonView: View {
         )
     }
     
-    enum LessonTab: String, CaseIterable {
-        case phrases = "Phrases"
-        case grammar = "Grammar"
-        case culture = "Culture"
-        case fillInBlanks = "Fill-in"
-        case multipleChoice = "Quiz"
-        
-        var icon: String {
-            switch self {
-            case .phrases: return "quote.bubble"
-            case .grammar: return "book"
-            case .culture: return "globe"
-            case .fillInBlanks: return "text.insert"
-            case .multipleChoice: return "questionmark.circle"
-            }
-        }
-    }
-    
     var body: some View {
         lessonContent(viewModel.lesson)
         .navigation(
             title: config.song.title,
-            mode: .inline
+            mode: .regular,
+            showsBackButton: true
         )
+        .sheet(item: $phraseCollectionForSheet) { collection in
+            AddCollectionToDictionaryView(collection: collection)
+        }
+        .sheet(item: $selectedPhraseItem) { word in
+            WordCollectionItemDetailsView(
+                word: word,
+                collection: viewModel.phraseWordCollection
+            )
+            .presentationDetents([.medium])
+        }
         .onChange(of: viewModel.shouldNavigateToResults) { _, shouldNavigate in
             if shouldNavigate {
                 let config = SongLessonResultsConfig(session: viewModel.currentSession, song: self.config.song)
@@ -78,130 +73,118 @@ struct SongLessonView: View {
     // MARK: - Lesson Content
     
     private func lessonContent(_ lesson: AdaptedLesson) -> some View {
-        VStack(spacing: 0) {
-            // Tab selector
-            tabSelector
-            
-            // Content
-            ScrollView {
-                VStack(spacing: 20) {
-                    switch selectedTab {
-                    case .phrases:
-                        phrasesSection(lesson.phrases)
-                    case .grammar:
-                        grammarSection(lesson.grammarNuggets)
-                    case .culture:
-                        cultureSection(lesson.cultureNotes)
-                    case .fillInBlanks:
-                        fillInBlanksSection(lesson.quiz.fillInBlanks)
-                    case .multipleChoice:
-                        multipleChoiceSection(lesson.quiz.meaningMCQ)
-                    }
-                }
-                .padding()
+        ScrollView {
+            VStack(spacing: 24) {
+                lessonOverviewSection(lesson)
+                phrasesSection()
+                grammarSection(lesson.grammarNuggets)
+                cultureSection(lesson.cultureNotes)
+                fillInBlanksSection(lesson.quiz.fillInBlanks)
+                multipleChoiceSection(lesson.quiz.meaningMCQ)
+                reflectionSection(lesson)
             }
-            .groupedBackground()
+            .padding()
+            .frame(maxWidth: .infinity, alignment: .leading)
+        }
+        .groupedBackground()
+    }
+    
+    // MARK: - Overview
+    
+    private func lessonOverviewSection(_ lesson: AdaptedLesson) -> some View {
+        CustomSectionView(header: "Lesson Path", headerFontStyle: .large) {
+            VStack(alignment: .leading, spacing: 12) {
+                Text("Immerse yourself in **\(config.song.title)** by \(config.song.artist). This lesson guides you from lyrical meaning to cultural context before challenging you with active recall.")
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
+
+                HFlow(spacing: 8) {
+                    lessonTag(title: lesson.language.englishName, systemImage: "globe.europe.africa")
+                    lessonTag(title: lesson.userLevel.rawValue.uppercased(), systemImage: "chart.line.uptrend.xyaxis")
+                    lessonTag(title: "\(lesson.phrases.count) phrases", systemImage: "quote.bubble")
+                    lessonTag(title: "\(lesson.quiz.fillInBlanks.count + lesson.quiz.meaningMCQ.count) practice", systemImage: "slider.horizontal.3")
+                }
+                .font(.caption)
+                .foregroundColor(.secondary)
+                .frame(maxWidth: .infinity, alignment: .leading)
+            }
         }
     }
     
-    // MARK: - Tab Selector
-    
-    private var tabSelector: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 12) {
-                ForEach(LessonTab.allCases, id: \.self) { tab in
-                    tabButton(tab)
-                }
-            }
-            .padding(.horizontal)
-            .padding(.vertical, 8)
+    private func lessonTag(title: String, systemImage: String) -> some View {
+        HStack(spacing: 4) {
+            Image(systemName: systemImage)
+            Text(title)
         }
-        .background(Color.secondarySystemGroupedBackground)
-    }
-    
-    private func tabButton(_ tab: LessonTab) -> some View {
-        Button(action: {
-            withAnimation {
-                selectedTab = tab
-            }
-        }) {
-            HStack(spacing: 8) {
-                Image(systemName: tab.icon)
-                Text(tab.rawValue)
-            }
-            .font(.subheadline)
-            .fontWeight(selectedTab == tab ? .semibold : .regular)
-            .padding(.horizontal, 16)
-            .padding(.vertical, 8)
-            .background(
-                selectedTab == tab
-                    ? Color.accentColor
-                    : Color.tertiarySystemGroupedBackground
-            )
-            .foregroundColor(selectedTab == tab ? .white : .primary)
-            .cornerRadius(20)
-        }
-        .buttonStyle(.plain)
+        .padding(.horizontal, 10)
+        .padding(.vertical, 6)
+        .background(Color.tertiarySystemGroupedBackground)
+        .cornerRadius(12)
     }
     
     // MARK: - Phrases Section
-    
-    private func phrasesSection(_ phrases: [LessonPhrase]) -> some View {
-        LazyVStack(spacing: 12) {
-            ForEach(Array(phrases.enumerated()), id: \.offset) { index, phrase in
-                phraseCard(phrase)
+
+    @ViewBuilder
+    private func phrasesSection() -> some View {
+        let phraseItems = viewModel.phraseItems
+        CustomSectionView(
+            header: "Key Phrases",
+            headerSubtitle: "Learn the expressions that shape the song’s story.",
+            hPadding: .zero
+        ) {
+            VStack(alignment: .leading, spacing: 12) {
+                if phraseItems.isEmpty {
+                    ContentUnavailableView(
+                        Loc.WordCollections.noWordsFound,
+                        systemImage: "magnifyingglass",
+                        description: Text("No phrases available yet.")
+                    )
+                    .padding(.vertical, 24)
+                } else {
+                    ListWithDivider(phraseItems) { item in
+                        WordCollectionItemRow(word: item) {
+                            selectedPhraseItem = item
+                        }
+                    }
+                }
+            }
+        } trailingContent: {
+            HeaderButtonMenu(
+                icon: viewModel.isTranslatingPhrases ? "timer" : "ellipsis",
+                size: .small
+            ) {
+                Button {
+                    phraseCollectionForSheet = viewModel.phraseWordCollection
+                } label: {
+                    Label(Loc.WordCollections.addToMyDictionary, systemImage: "plus.circle")
+                }
+                
+                if viewModel.canTranslatePhrases {
+                    Button {
+                        Task {
+                            await viewModel.translatePhrases()
+                        }
+                    } label: {
+                        Label(Loc.WordCollections.translateDefinitions, systemImage: "globe")
+                    }
+                    .disabled(viewModel.isTranslatingPhrases)
+                }
             }
         }
-    }
-    
-    private func phraseCard(_ phrase: LessonPhrase) -> some View {
-        VStack(alignment: .leading, spacing: 12) {
-            // Text
-            Text(phrase.text)
-                .font(.headline)
-            
-            // Translation
-            Text(phrase.meaning)
-                .font(.subheadline)
-                .foregroundColor(.secondary)
-            
-            // Example
-            if !phrase.example.isEmpty {
-                Text(phrase.example)
-                    .font(.caption)
-                    .foregroundColor(.secondaryLabel)
-                    .italic()
-                    .padding(.top, 4)
-            }
-            
-            // CEFR Badge
-            Text(phrase.cefr)
-                .font(.caption2)
-                .fontWeight(.semibold)
-                .padding(.horizontal, 8)
-                .padding(.vertical, 4)
-                .background(Color.accentColor.opacity(0.2))
-                .foregroundColor(.accentColor)
-                .cornerRadius(4)
-        }
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .padding()
-        .background(Color.secondarySystemGroupedBackground)
-        .cornerRadius(12)
     }
     
     // MARK: - Grammar Section
     
     private func grammarSection(_ nuggets: [GrammarNugget]) -> some View {
-        LazyVStack(spacing: 12) {
+        CustomSectionView(header: "Grammar Spotlight", headerSubtitle: "Notice these structures while you listen.") {
             if nuggets.isEmpty {
-                Text("No grammar rules available")
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-                    .padding()
+                emptySectionPlaceholder("No grammar highlights for this lesson.")
             } else {
-                ForEach(Array(nuggets.enumerated()), id: \.offset) { index, nugget in
-                    grammarCard(nugget)
+                LazyVStack(spacing: 12) {
+                    ForEach(Array(nuggets.enumerated()), id: \.offset) { _, nugget in
+                        grammarCard(nugget)
+                    }
                 }
             }
         }
@@ -218,36 +201,26 @@ struct SongLessonView: View {
                 .font(.subheadline)
                 .foregroundColor(.secondary)
             
-            // CEFR Badge (optional)
-            if let cefr = nugget.cefr {
-                Text(cefr)
-                    .font(.caption2)
-                    .fontWeight(.semibold)
-                    .padding(.horizontal, 8)
-                    .padding(.vertical, 4)
-                    .background(Color.accentColor.opacity(0.2))
-                    .foregroundColor(.accentColor)
-                    .cornerRadius(4)
-            }
+            TagView(
+                text: nugget.cefr.displayName,
+                size: .small
+            )
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .padding()
-        .background(Color.secondarySystemGroupedBackground)
-        .cornerRadius(12)
+        .clippedWithPaddingAndBackground(.tertiarySystemGroupedBackground, in: .rect(cornerRadius: 12))
     }
     
     // MARK: - Culture Section
     
     private func cultureSection(_ notes: [CultureNote]) -> some View {
-        LazyVStack(spacing: 12) {
+        CustomSectionView(header: "Cultural Notes", headerSubtitle: "Context that brings the lyrics to life.") {
             if notes.isEmpty {
-                Text("No culture notes available")
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-                    .padding()
+                emptySectionPlaceholder("No cultural context provided.")
             } else {
-                ForEach(Array(notes.enumerated()), id: \.offset) { index, note in
-                    cultureCard(note)
+                LazyVStack(spacing: 12) {
+                    ForEach(Array(notes.enumerated()), id: \.offset) { _, note in
+                        cultureCard(note)
+                    }
                 }
             }
         }
@@ -259,48 +232,26 @@ struct SongLessonView: View {
             Text(note.text)
                 .font(.body)
             
-            // CEFR Badge (optional)
-            if let cefr = note.cefr {
-                Text(cefr)
-                    .font(.caption2)
-                    .fontWeight(.semibold)
-                    .padding(.horizontal, 8)
-                    .padding(.vertical, 4)
-                    .background(Color.accentColor.opacity(0.2))
-                    .foregroundColor(.accentColor)
-                    .cornerRadius(4)
-            }
+            TagView(
+                text: note.cefr.displayName,
+                size: .small
+            )
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .padding()
-        .background(Color.secondarySystemGroupedBackground)
-        .cornerRadius(12)
+        .clippedWithPaddingAndBackground(.tertiarySystemGroupedBackground, in: .rect(cornerRadius: 12))
     }
     
     // MARK: - Fill in the Blanks Section
     
     private func fillInBlanksSection(_ items: [FillInBlankItem]) -> some View {
-        LazyVStack(spacing: 16) {
+        CustomSectionView(header: "Practice • Fill the Blank", headerSubtitle: "Test recall with lyric-based prompts.") {
             if items.isEmpty {
-                Text("No fill-in-the-blank questions available")
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-                    .padding()
+                emptySectionPlaceholder("Fill-in-the-blank practice will appear once available.")
             } else {
-                ForEach(Array(items.enumerated()), id: \.offset) { index, item in
-                    fillInBlankCard(item: item, index: index)
-                }
-                
-                // Complete button
-                if !items.isEmpty {
-                    ActionButton(
-                        "Complete Fill-in-the-Blanks",
-                        style: .borderedProminent
-                    ) {
-                        // All fill-in-the-blanks completed
-                        selectedTab = .multipleChoice
+                LazyVStack(spacing: 16) {
+                    ForEach(Array(items.enumerated()), id: \.offset) { index, item in
+                        fillInBlankCard(item: item, index: index)
                     }
-                    .padding(.top, 8)
                 }
             }
         }
@@ -308,13 +259,16 @@ struct SongLessonView: View {
     
     private func fillInBlankCard(item: FillInBlankItem, index: Int) -> some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("Question \(index + 1)")
-                .font(.caption)
-                .foregroundColor(.secondary)
-            
-            Text("Line \(item.line): Fill in the blank with '\(item.blankWord)'")
-                .font(.subheadline)
-            
+            VStack(alignment: .leading, spacing: 4) {
+                Text(item.prompt)
+                    .font(.subheadline)
+                    .foregroundColor(.primary)
+
+                Text(item.lyricReference)
+                    .font(.headline)
+                    .foregroundColor(.primary)
+            }
+
             LazyVGrid(columns: [
                 GridItem(.flexible()),
                 GridItem(.flexible())
@@ -349,51 +303,42 @@ struct SongLessonView: View {
                 }
             }
         }
-        .padding()
-        .background(Color.secondarySystemGroupedBackground)
-        .cornerRadius(12)
+        .clippedWithPaddingAndBackground(.tertiarySystemGroupedBackground, in: .rect(cornerRadius: 12))
     }
     
     // MARK: - Multiple Choice Section
     
     private func multipleChoiceSection(_ items: [MCQItem]) -> some View {
-        LazyVStack(spacing: 16) {
+        CustomSectionView(header: "Practice • Comprehension Quiz", headerSubtitle: "Choose the best answer to reinforce meaning.") {
             if items.isEmpty {
-                Text("No multiple choice questions available")
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-                    .padding()
+                emptySectionPlaceholder("Multiple-choice practice will appear once available.")
             } else {
-                // Progress indicator
-                VStack(alignment: .leading, spacing: 8) {
+                VStack(alignment: .leading, spacing: 12) {
                     ProgressView(
                         value: Double(currentQuestionIndex + 1),
                         total: Double(items.count)
                     )
                     .progressViewStyle(.linear)
-                    
+
                     Text("Question \(currentQuestionIndex + 1) of \(items.count)")
                         .font(.caption)
                         .foregroundColor(.secondary)
+
+                    if currentQuestionIndex < items.count {
+                        multipleChoiceCard(
+                            item: items[currentQuestionIndex],
+                            questionIndex: currentQuestionIndex
+                        )
+                    }
+
+                    questionNavigation(totalQuestions: items.count)
                 }
-                .padding(.horizontal)
-                
-                // Current question
-                if currentQuestionIndex < items.count {
-                    multipleChoiceCard(
-                        item: items[currentQuestionIndex],
-                        questionIndex: currentQuestionIndex
-                    )
-                }
-                
-                // Navigation buttons
-                questionNavigation(totalQuestions: items.count)
             }
         }
     }
     
     private func multipleChoiceCard(item: MCQItem, questionIndex: Int) -> some View {
-        VStack(alignment: .leading, spacing: 16) {
+        VStack(alignment: .leading, spacing: 12) {
             // Question
             Text(item.question)
                 .font(.headline)
@@ -429,9 +374,7 @@ struct SongLessonView: View {
                 .cornerRadius(8)
             }
         }
-        .padding()
-        .background(Color.secondarySystemGroupedBackground)
-        .cornerRadius(12)
+        .clippedWithPaddingAndBackground(.tertiarySystemGroupedBackground, in: .rect(cornerRadius: 12))
     }
     
     private func multipleChoiceButton(
@@ -492,7 +435,7 @@ struct SongLessonView: View {
     
     private func questionNavigation(totalQuestions: Int) -> some View {
         HStack {
-            Button(action: {
+            ActionButton("Previous", systemImage: "chevron.left", action: {
                 if currentQuestionIndex > 0 {
                     withAnimation {
                         currentQuestionIndex -= 1
@@ -500,20 +443,13 @@ struct SongLessonView: View {
                         showFeedback = quizAnswers[currentQuestionIndex] != nil
                     }
                 }
-            }) {
-                HStack {
-                    Image(systemName: "chevron.left")
-                    Text("Previous")
-                }
-                .padding()
-                .background(Color.secondarySystemGroupedBackground)
-                .cornerRadius(8)
-            }
+            })
             .disabled(currentQuestionIndex == 0)
             
-            Spacer()
-            
-            Button(action: {
+            ActionButton(
+                currentQuestionIndex < totalQuestions - 1 ? "Next" : "Finish",
+                systemImage: "chevron.right",
+                action: {
                 if currentQuestionIndex < totalQuestions - 1 {
                     withAnimation {
                         currentQuestionIndex += 1
@@ -525,89 +461,48 @@ struct SongLessonView: View {
                     viewModel.handle(.markQuizComplete)
                     viewModel.handle(.navigateToResults)
                 }
-            }) {
-                HStack {
-                    Text(currentQuestionIndex < totalQuestions - 1 ? "Next" : "Finish")
-                    Image(systemName: "chevron.right")
+            })
+        }
+    }
+    
+    // MARK: - Reflection Section
+
+    @ViewBuilder
+    private func reflectionSection(_ lesson: AdaptedLesson) -> some View {
+        let totalQuestions = lesson.quiz.fillInBlanks.count + lesson.quiz.meaningMCQ.count
+        let answeredQuestions = viewModel.currentSession.quizAnswers.count
+        let isReadyToFinish = totalQuestions == 0 || answeredQuestions >= totalQuestions
+
+        CustomSectionView(header: "Reflect & Wrap-up", headerSubtitle: "Capture what resonated and continue your streak.") {
+            VStack(alignment: .leading, spacing: 12) {
+                Text("When you finish the quizzes, tap **Finish** to save your progress and view lesson results.")
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+
+                if totalQuestions > 0 {
+                    Text("Progress: \(answeredQuestions)/\(totalQuestions) questions answered")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
                 }
-                .padding()
-                .background(Color.accentColor)
-                .foregroundColor(.white)
-                .cornerRadius(8)
+
+                ActionButton("View Lesson Results", style: .borderedProminent) {
+                    viewModel.handle(.markQuizComplete)
+                    viewModel.handle(.navigateToResults)
+                }
+                .disabled(!isReadyToFinish)
             }
         }
-        .padding()
+    }
+    
+    // MARK: - Helpers
+
+    private func emptySectionPlaceholder(_ message: String) -> some View {
+        Text(message)
+            .font(.subheadline)
+            .foregroundColor(.secondary)
+            .padding()
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(Color.tertiarySystemGroupedBackground)
+            .cornerRadius(12)
     }
 }
-
-#Preview {
-    NavigationStack {
-        let song = Song(
-            id: "1",
-            title: "Sample Song",
-            artist: "Sample Artist",
-            album: "Sample Album",
-            duration: 180,
-            serviceId: "1",
-            cefrLevel: .b1
-        )
-        
-        let lesson = AdaptedLesson(
-            songId: song.id,
-            language: .english,
-            phrases: [
-                LessonPhrase(
-                    text: "We keep dancing through the night",
-                    meaning: "We continue dancing all night long",
-                    cefr: "B1",
-                    example: "They kept dancing through the night despite the rain.",
-                    audioPrompt: nil
-                )
-            ],
-            grammarNuggets: [
-                GrammarNugget(
-                    rule: "Use present continuous to describe ongoing actions.",
-                    example: "We are dancing right now.",
-                    cefr: "A2"
-                )
-            ],
-            cultureNotes: [
-                CultureNote(
-                    text: "This song references festivals common in summer along the coast.",
-                    cefr: "B1"
-                )
-            ],
-            quiz: AdaptedQuiz(
-                fillInBlanks: [
-                    FillInBlankItem(
-                        line: 12,
-                        blankWord: "dancing",
-                        options: ["dancing", "sleeping", "talking", "running"]
-                    )
-                ],
-                meaningMCQ: [
-                    MCQItem(
-                        question: "What does 'through the night' mean in the song?",
-                        correctAnswer: "For the entire night",
-                        options: [
-                            "At some point in the night",
-                            "For the entire night",
-                            "Before the night",
-                            "After the night"
-                        ],
-                        explanation: "The phrase 'through the night' expresses continuity across the whole night."
-                    )
-                ],
-                generatedAt: Date()
-            ),
-            adaptedAt: Date(),
-            userLevel: .b1
-        )
-        
-        let session = MusicDiscoveringSession(song: song)
-        let config = SongLessonConfig(song: song, lesson: lesson, session: session)
-        
-        SongLessonView(config: config)
-    }
-}
-

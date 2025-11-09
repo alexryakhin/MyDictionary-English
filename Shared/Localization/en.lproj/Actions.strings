@@ -64,3 +64,6 @@
 "copy_email" = "Copy Email";
 "select_all" = "Select All";
 "deselect_all" = "Deselect All";
+"play" = "Play";
+"pause" = "Pause";
+"playFromHere" = "Play from here";

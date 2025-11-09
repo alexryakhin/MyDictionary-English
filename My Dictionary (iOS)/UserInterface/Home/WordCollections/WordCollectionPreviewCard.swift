@@ -72,8 +72,8 @@ struct WordCollectionPreviewCard: View {
                         .foregroundColor(.secondary)
 
                     TagView(
-                        text: collection.level.displayName,
-                        color: collection.level.color,
+                        text: collection.levelDisplayName,
+                        color: collection.levelColor,
                         size: .small
                     )
                 }
@@ -168,8 +168,8 @@ struct WordCollectionGridPreviewCard: View {
                         .foregroundColor(.secondary)
 
                     TagView(
-                        text: collection.level.displayName,
-                        color: collection.level.color,
+                        text: collection.levelDisplayName,
+                        color: collection.levelColor,
                         size: .small
                     )
                 }
@@ -197,7 +197,7 @@ struct WordCollectionGridPreviewCard: View {
 }
 
 #Preview {
-    WordCollectionPreviewCard(collection: WordCollection(
+        WordCollectionPreviewCard(collection: WordCollection(
         title: "Business English",
         words: [],
         level: .b2,

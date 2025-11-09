@@ -376,5 +376,3 @@ struct SongCardSkeleton: View {
         .padding()
         .groupedBackground()
 }
-
-

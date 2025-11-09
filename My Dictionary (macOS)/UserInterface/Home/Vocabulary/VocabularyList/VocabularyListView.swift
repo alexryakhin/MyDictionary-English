@@ -104,7 +104,8 @@ struct VocabularyListView: View {
         .sheet(isPresented: $sessionManager.showCoffeeBanner) {
             CoffeeBanner()
                 .presentationDetents([.medium])
-                .presentationDragIndicator(.visible)
+                .presentationDragIndicator(.hidden)
+                .interactiveDismissDisabled()
         }
     }
 

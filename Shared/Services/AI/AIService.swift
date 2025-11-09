@@ -687,11 +687,18 @@ extension AIService {
            - Keep explanations appropriate for \(songCEFR.rawValue) level
            - All explanations in \(targetLanguage.englishName) (fully in the target language)
         
-        8. QUIZ (optional): Create a comprehension quiz with 3-5 questions:
-           - Questions should test understanding of idioms, phrases, vocabulary, or cultural context
-           - Each question: 4 multiple choice options, 1 correct answer
-           - Include explanations for correct answers
-           - Questions and explanations in \(targetLanguage.englishName) (fully in the target language)
+        8. QUIZ (REQUIRED): Always create BOTH multiple-choice and fill-in-the-blank activities:
+           - Provide 3-4 multiple-choice comprehension questions and 3-4 fill-in-the-blank items (minimum 6 total prompts)
+           - MCQ requirements:
+             * Each question has exactly 4 options
+             * Exactly one option is correct
+             * Include a concise explanation for the correct answer
+           - Fill-in-the-blank requirements:
+             * Provide the sentence with a single blank and the correct answer stated separately
+             * Supply 4 distinct options, including the correct answer
+           - Focus questions on idioms, phrases, vocabulary, or cultural context from this lesson
+           - IMPORTANT: Never return a null quiz. If song data is sparse, create original questions based on the provided explanations and vocabulary.
+           - Write all questions, options, and explanations in \(targetLanguage.englishName)
         
         Remember: The output MUST always begin with a short Pre-Listen Hook or Context Summary. Focus on idioms, phrases, cultural interpretation, and practical usage examples. All content should be appropriate for \(songCEFR.rawValue) level learners and fully in \(targetLanguage.englishName).
         """

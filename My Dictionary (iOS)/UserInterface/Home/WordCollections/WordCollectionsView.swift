@@ -20,7 +20,7 @@ struct WordCollectionsView: View {
     @StateObject private var collectionsManager = WordCollectionsManager.shared
     @StateObject private var onboardingService = OnboardingService.shared
     @State private var selectedLanguage: String = "all"
-    @State private var selectedLevel: WordLevel?
+    @State private var selectedLevel: CEFRLevel?
     @State private var searchText = ""
     @State private var showingPaywall = false
     
@@ -174,10 +174,10 @@ struct WordCollectionsView: View {
                 HeaderButtonMenu(levelMenuTitle, icon: "chevron.down", size: .small) {
                     Picker(Loc.WordCollections.level, selection: $selectedLevel) {
                         Text(Loc.WordCollections.allLevels)
-                            .tag(nil as WordLevel?)
-                        ForEach(WordLevel.allCases, id: \.self) { level in
+                            .tag(nil as CEFRLevel?)
+                        ForEach(CEFRLevel.allCases, id: \.self) { level in
                             Text(level.displayName)
-                                .tag(level as WordLevel?)
+                                .tag(level as CEFRLevel?)
                         }
                     }
                     .pickerStyle(.inline)

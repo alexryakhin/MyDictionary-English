@@ -88,6 +88,7 @@ struct WordCollectionDetailsView: View {
         }
         .sheet(item: $selectedWord) { word in
             WordCollectionItemDetailsView(word: word, collection: viewModel.collection)
+                .presentationDetents([.medium])
         }
         .alert(Loc.WordCollections.importComplete, isPresented: $showSuccessAlert) {
             Button(Loc.Actions.ok) {
@@ -124,11 +125,11 @@ struct WordCollectionDetailsView: View {
                             color: .blue,
                             size: .small
                         )
-                        TagView(
-                            text: viewModel.collection.level.displayName,
-                            color: viewModel.collection.level.color,
-                            size: .small
-                        )
+                    TagView(
+                        text: viewModel.collection.levelDisplayName,
+                        color: viewModel.collection.levelColor,
+                        size: .small
+                    )
 
                         Spacer()
                     }

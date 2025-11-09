@@ -125,11 +125,11 @@ struct WordCollectionDetailsView: View {
                             color: .blue,
                             size: .small
                         )
-                        TagView(
-                            text: viewModel.collection.level.displayName,
-                            color: viewModel.collection.level.color,
-                            size: .small
-                        )
+                    TagView(
+                        text: viewModel.collection.levelDisplayName,
+                        color: viewModel.collection.levelColor,
+                        size: .small
+                    )
 
                         Spacer()
                     }

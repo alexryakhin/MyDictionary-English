@@ -39,7 +39,7 @@ struct WordCollection: Codable, Identifiable, Hashable {
     let id: String
     let title: String
     let words: [WordCollectionItem]
-    let level: WordLevel
+    let level: CEFRLevel
     let tagValue: String
     let languageCode: String
     let description: String?
@@ -66,7 +66,7 @@ struct WordCollection: Codable, Identifiable, Hashable {
         id: String = UUID().uuidString,
         title: String,
         words: [WordCollectionItem],
-        level: WordLevel,
+        level: CEFRLevel,
         tagValue: String,
         languageCode: String,
         description: String? = nil,
@@ -96,7 +96,7 @@ struct WordCollection: Codable, Identifiable, Hashable {
         id = try container.decode(String.self, forKey: .id)
         title = try container.decode(String.self, forKey: .title)
         words = try container.decode([WordCollectionItem].self, forKey: .words)
-        level = try container.decode(WordLevel.self, forKey: .level)
+        level = try container.decode(CEFRLevel.self, forKey: .level)
         tagValue = try container.decode(String.self, forKey: .tagValue)
         languageCode = try container.decode(String.self, forKey: .languageCode)
         description = try container.decodeIfPresent(String.self, forKey: .description)
@@ -120,48 +120,13 @@ struct WordCollection: Codable, Identifiable, Hashable {
         guard let imageUrl else { return nil }
         return URL(string: imageUrl)
     }
-}
-
-/// Represents the difficulty level of a word collection
-enum WordLevel: String, Codable, CaseIterable {
-    case a1 = "A1"
-    case a2 = "A2"
-    case b1 = "B1"
-    case b2 = "B2"
-    case c1 = "C1"
-    case c2 = "C2"
     
-    /// Returns a display name for the level
-    var displayName: String {
-        switch self {
-        case .a1: Loc.WordCollections.Level.a1
-        case .a2: Loc.WordCollections.Level.a2
-        case .b1: Loc.WordCollections.Level.b1
-        case .b2: Loc.WordCollections.Level.b2
-        case .c1: Loc.WordCollections.Level.c1
-        case .c2: Loc.WordCollections.Level.c2
-        }
+    var levelDisplayName: String {
+        level.displayName
     }
     
-    /// Returns a description for the level
-    var description: String {
-        switch self {
-        case .a1: Loc.WordCollections.Level.a1Title
-        case .a2: Loc.WordCollections.Level.a2Title
-        case .b1: Loc.WordCollections.Level.b1Title
-        case .b2: Loc.WordCollections.Level.b2Title
-        case .c1: Loc.WordCollections.Level.c1Title
-        case .c2: Loc.WordCollections.Level.c2Title
-        }
-    }
-    
-    /// Returns the color associated with the level
-    var color: Color {
-        switch self {
-        case .a1, .a2: .green
-        case .b1, .b2: .orange
-        case .c1, .c2: .red
-        }
+    var levelColor: Color {
+        level.color
     }
 }
 

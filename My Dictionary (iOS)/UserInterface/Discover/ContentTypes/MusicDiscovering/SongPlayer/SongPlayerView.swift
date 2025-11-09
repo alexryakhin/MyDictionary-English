@@ -36,12 +36,7 @@ struct SongPlayerView: View {
     
     var body: some View {
         InteractiveLyricsView(
-            lyrics: viewModel.lyrics,
-            currentTime: viewModel.currentTime,
-            isScrollDisabled: viewModel.isPlaying,
-            onLineSelected: { timestamp in
-                viewModel.handle(.seek(to: timestamp))
-            }
+            viewModel: viewModel
         )
         .groupedBackground()
         .navigation(
@@ -107,6 +102,11 @@ struct SongPlayerView: View {
             }
             .disabled(isLessonButtonDisabled)
             .padding(vertical: 12, horizontal: 16)
+        }
+        .onDisappear {
+            if viewModel.isPlaying {
+                viewModel.handle(.playPause)
+            }
         }
     }
     

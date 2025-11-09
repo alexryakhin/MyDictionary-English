@@ -24,15 +24,24 @@ final class SongLessonViewModel: BaseViewModel {
     
     @Published private(set) var currentSession: MusicDiscoveringSession
     @Published private(set) var lesson: AdaptedLesson
+    @Published private(set) var isTranslatingPhrases: Bool = false
     @Published var shouldNavigateToResults: Bool = false
     
     private let songLessonSessionService = SongLessonSessionService.shared
     private let song: Song
+    private let translationService: TranslationService
+    private var hasTranslatedPhrases = false
 
-    init(song: Song, lesson: AdaptedLesson, session: MusicDiscoveringSession) {
+    init(
+        song: Song,
+        lesson: AdaptedLesson,
+        session: MusicDiscoveringSession,
+        translationService: TranslationService = GoogleTranslateService.shared
+    ) {
         self.song = song
         self.lesson = lesson
         self.currentSession = session
+        self.translationService = translationService
         super.init()
         
         Task {
@@ -46,6 +55,41 @@ final class SongLessonViewModel: BaseViewModel {
                 logError("Failed to persist initial session: \(error.localizedDescription)")
             }
         }
+    }
+
+    // MARK: - Computed Helpers
+    
+    var phraseItems: [WordCollectionItem] {
+        lesson.phrases.enumerated().map { index, phrase in
+            WordCollectionItem(
+                id: "\(index)-\(phrase.text)",
+                text: phrase.text,
+                phonetics: phrase.phonetics,
+                partOfSpeech: phrase.partOfSpeech,
+                definition: phrase.meaning,
+                examples: phrase.example.nilIfEmpty.map { [$0] } ?? []
+            )
+        }
+    }
+    
+    var phraseWordCollection: WordCollection {
+        WordCollection(
+            title: "\(song.title) — Key Phrases",
+            words: phraseItems,
+            level: lesson.userLevel,
+            tagValue: lesson.language.englishName,
+            languageCode: lesson.language.rawValue,
+            description: nil,
+            imageUrl: nil,
+            localImageName: nil,
+            isPremium: false,
+            isFeatured: false
+        )
+    }
+    
+    var canTranslatePhrases: Bool {
+        guard !hasTranslatedPhrases else { return false }
+        return Locale.current.language.languageCode?.identifier.lowercased() != lesson.language.rawValue.lowercased()
     }
 
     // MARK: - Input Handler
@@ -76,6 +120,54 @@ final class SongLessonViewModel: BaseViewModel {
             handle(input)
             return nil
         }
+    }
+    
+    func translatePhrases() async {
+        guard canTranslatePhrases else { return }
+        guard !isTranslatingPhrases else { return }
+        isTranslatingPhrases = true
+        defer { isTranslatingPhrases = false }
+        
+        let sourceLanguage = lesson.language.rawValue
+        let targetLanguage = Locale.current.language.languageCode?.identifier ?? "en"
+        var translatedPhrases: [LessonPhrase] = []
+        translatedPhrases.reserveCapacity(lesson.phrases.count)
+        
+        for phrase in lesson.phrases {
+            do {
+                let translatedMeaning = try await translationService.translateDefinition(
+                    phrase.meaning,
+                    from: sourceLanguage,
+                    to: targetLanguage
+                )
+                translatedPhrases.append(
+                    LessonPhrase(
+                        text: phrase.text,
+                        meaning: translatedMeaning,
+                        phonetics: phrase.phonetics,
+                        cefr: phrase.cefr,
+                        example: phrase.example,
+                        partOfSpeech: phrase.partOfSpeech
+                    )
+                )
+            } catch {
+                logWarning("[SongLessonViewModel] Failed to translate phrase '\(phrase.text)': \(error.localizedDescription)")
+                translatedPhrases.append(phrase)
+            }
+        }
+        
+        lesson = AdaptedLesson(
+            songId: lesson.songId,
+            language: lesson.language,
+            phrases: translatedPhrases,
+            grammarNuggets: lesson.grammarNuggets,
+            cultureNotes: lesson.cultureNotes,
+            quiz: lesson.quiz,
+            adaptedAt: lesson.adaptedAt,
+            userLevel: lesson.userLevel
+        )
+        
+        hasTranslatedPhrases = true
     }
     
     // MARK: - Private Methods

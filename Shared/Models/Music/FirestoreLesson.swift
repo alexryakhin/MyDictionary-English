@@ -12,7 +12,7 @@ import FirebaseFirestore
 /// CEFR-agnostic core content, personalized on-device
 struct FirestoreLesson: Codable {
     let songId: String
-    let language: String
+    let language: InputLanguage
     let phrases: [LessonPhrase]
     let grammarNuggets: [GrammarNugget]
     let cultureNotes: [CultureNote]
@@ -35,7 +35,7 @@ struct FirestoreLesson: Codable {
 
     init(
         songId: String,
-        language: String,
+        language: InputLanguage,
         phrases: [LessonPhrase],
         grammarNuggets: [GrammarNugget],
         cultureNotes: [CultureNote],
@@ -58,7 +58,7 @@ struct FirestoreLesson: Codable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         songId = try container.decode(String.self, forKey: .songId)
-        language = try container.decode(String.self, forKey: .language)
+        language = try container.decode(InputLanguage.self, forKey: .language)
         phrases = try container.decode([LessonPhrase].self, forKey: .phrases)
         grammarNuggets = try container.decode([GrammarNugget].self, forKey: .grammarNuggets)
         cultureNotes = try container.decode([CultureNote].self, forKey: .cultureNotes)
@@ -95,16 +95,18 @@ struct FirestoreLesson: Codable {
 struct LessonPhrase: Codable, Hashable {
     let text: String
     let meaning: String
-    let cefr: String // CEFR level (A1, A2, B1, etc.)
+    let phonetics: String
+    let cefr: CEFRLevel
     let example: String
-    let audioPrompt: String? // Optional TTS identifier
-    
+    let partOfSpeech: PartOfSpeech
+
     enum CodingKeys: String, CodingKey {
         case text
         case meaning
+        case phonetics
         case cefr
         case example
-        case audioPrompt = "audio_prompt"
+        case partOfSpeech = "part_of_speech"
     }
 }
 
@@ -112,13 +114,13 @@ struct LessonPhrase: Codable, Hashable {
 struct GrammarNugget: Codable, Hashable {
     let rule: String
     let example: String
-    let cefr: String? // Optional CEFR level for filtering
+    let cefr: CEFRLevel
 }
 
 /// Culture note with optional CEFR tag
 struct CultureNote: Codable, Hashable {
     let text: String
-    let cefr: String? // Optional CEFR level for filtering
+    let cefr: CEFRLevel
 }
 
 /// Quiz template for generating quizzes on-device
@@ -133,14 +135,18 @@ struct QuizTemplate: Codable {
 }
 
 struct FillInBlankItem: Codable, Hashable {
-    let line: Int
+    let lyricReference: String
     let blankWord: String
     let options: [String]
-    
+    let prompt: String
+    let explanation: String
+
     enum CodingKeys: String, CodingKey {
-        case line
+        case lyricReference = "lyric_reference"
         case blankWord = "blank_word"
         case options
+        case prompt
+        case explanation
     }
 }
 

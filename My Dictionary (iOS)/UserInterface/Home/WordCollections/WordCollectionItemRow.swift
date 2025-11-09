@@ -28,7 +28,7 @@ struct WordCollectionItemRow: View {
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
 
-                    TagView(text: word.partOfSpeech.displayNameShort, color: .blue, size: .mini)
+                    TagView(text: word.partOfSpeech.displayNameShort.lowercased(), color: .blue, size: .mini)
                 }
 
                 Text(word.definition)

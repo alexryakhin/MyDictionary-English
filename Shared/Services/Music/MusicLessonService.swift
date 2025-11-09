@@ -74,7 +74,15 @@ final class MusicLessonService {
         ))
         
         // 5. Convert to FirestoreLesson format
-        let firestoreLesson = convertToFirestoreLesson(response, songId: song.id, language: targetLanguage.rawValue)
+        let quizTemplate = try prepareQuizTemplate(for: response, song: song)
+        
+        let firestoreLesson = convertToFirestoreLesson(
+            response,
+            songId: song.id,
+            language: targetLanguage,
+            cefr: cefrLevel,
+            quizTemplateOverride: quizTemplate
+        )
         
         // 6. Save to Firestore (public cache) - save after generation during listening
         let languagePath = targetLanguage.englishName.lowercased()
@@ -189,15 +197,22 @@ final class MusicLessonService {
     }
     
     /// Convert MusicDiscoveringResponse to FirestoreLesson
-    private func convertToFirestoreLesson(_ response: MusicDiscoveringResponse, songId: String, language: String) -> FirestoreLesson {
+    private func convertToFirestoreLesson(
+        _ response: MusicDiscoveringResponse,
+        songId: String,
+        language: InputLanguage,
+        cefr: CEFRLevel,
+        quizTemplateOverride: QuizTemplate? = nil
+    ) -> FirestoreLesson {
         // Convert vocabulary words to phrases
         let phrases = response.vocabularyWords.map { vocab in
             LessonPhrase(
                 text: vocab.word,
                 meaning: vocab.definition,
+                phonetics: vocab.phonetics,
                 cefr: determineCEFRForWord(vocab),
                 example: vocab.examples.first ?? "",
-                audioPrompt: nil
+                partOfSpeech: vocab.partOfSpeech
             )
         }
         
@@ -210,25 +225,14 @@ final class MusicLessonService {
             cultureNotes = [
                 CultureNote(
                     text: culturalContext,
-                    cefr: nil
+                    cefr: cefr
                 )
             ]
         } else {
             cultureNotes = []
         }
-
-        // Convert quiz to template
-        let quizTemplate = QuizTemplate(
-            fillInBlanks: [],
-            meaningMCQ: response.quiz?.questions.map { question in
-                MCQItem(
-                    question: question.question,
-                    correctAnswer: question.options.first(where: { $0.isCorrect })?.text ?? "",
-                    options: question.options.map { $0.text },
-                    explanation: question.explanation
-                )
-            } ?? []
-        )
+        
+        let quizTemplate = quizTemplateOverride ?? buildQuizTemplate(from: response.quiz)
         
         return FirestoreLesson(
             songId: songId,
@@ -243,20 +247,138 @@ final class MusicLessonService {
         )
     }
     
+    func prepareQuizTemplate(
+        for response: MusicDiscoveringResponse,
+        song: Song
+    ) throws -> QuizTemplate {
+        do {
+            try validateQuiz(response.quiz, song: song)
+            logSuccess("[MusicLessonService] Using AI-provided quiz for '\(song.title)' (MCQ: \(response.quiz.multipleChoice.count), Fill-in: \(response.quiz.fillInBlanks.count))")
+            return buildQuizTemplate(from: response.quiz)
+        } catch {
+            logWarning("[MusicLessonService] Falling back to on-device quiz generation for '\(song.title)': \(error.localizedDescription)")
+            throw error
+        }
+    }
+    
+    private func validateQuiz(_ quiz: AIMusicLessonQuiz, song: Song) throws {
+        if quiz.multipleChoice.isEmpty || quiz.fillInBlanks.isEmpty {
+            logError("[MusicLessonService] Quiz missing sections for song '\(song.title)' – MCQ count: \(quiz.multipleChoice.count), Fill-in count: \(quiz.fillInBlanks.count)")
+            throw MusicError.invalidResponse
+        }
+        
+        for (index, question) in quiz.multipleChoice.enumerated() {
+            if question.options.count != 4 {
+                logError("[MusicLessonService] MCQ \(index + 1) for '\(song.title)' does not have 4 options (found \(question.options.count))")
+                throw MusicError.invalidResponse
+            }
+            
+            let correctCount = question.options.filter { $0.isCorrect }.count
+            if correctCount != 1 {
+                logError("[MusicLessonService] MCQ \(index + 1) for '\(song.title)' has \(correctCount) correct options (expected 1)")
+                throw MusicError.invalidResponse
+            }
+        }
+        
+        for (index, item) in quiz.fillInBlanks.enumerated() {
+            if item.options.count != 4 {
+                logError("[MusicLessonService] Fill-in-the-blank \(index + 1) for '\(song.title)' does not have 4 options (found \(item.options.count))")
+                throw MusicError.invalidResponse
+            }
+            
+            if !item.options.contains(where: { $0.caseInsensitiveCompare(item.correctAnswer) == .orderedSame }) {
+                logError("[MusicLessonService] Fill-in-the-blank \(index + 1) for '\(song.title)' is missing the correct answer in options")
+                throw MusicError.invalidResponse
+            }
+        }
+    }
+    
+    private func buildQuizTemplate(from quiz: AIMusicLessonQuiz) -> QuizTemplate {
+        let fillInItems: [FillInBlankItem] = quiz.fillInBlanks.enumerated().map { index, item in
+            var options = item.options
+            if !options.contains(item.correctAnswer) {
+                options.insert(item.correctAnswer, at: 0)
+            }
+            return FillInBlankItem(
+                lyricReference: item.lyricReference,
+                blankWord: item.correctAnswer,
+                options: options,
+                prompt: item.prompt,
+                explanation: item.explanation
+            )
+        }
+        
+        let meaningItems: [MCQItem] = quiz.multipleChoice.enumerated().compactMap { index, question in
+            guard let correct = question.options.first(where: { $0.isCorrect }) else {
+                logWarning("[MusicLessonService] Missing correct option for MCQ at index \(index)")
+                return nil
+            }
+            
+            return MCQItem(
+                question: question.question,
+                correctAnswer: correct.text,
+                options: question.options.map { $0.text },
+                explanation: question.explanation
+            )
+        }
+        
+        return QuizTemplate(
+            fillInBlanks: fillInItems,
+            meaningMCQ: meaningItems
+        )
+    }
+    
+    private func buildFallbackMCQItems(from vocabulary: [VocabularyWord]) -> [MCQItem] {
+        let candidates = vocabulary.filter { !$0.definition.isEmpty }
+        var items: [MCQItem] = []
+        
+        for word in candidates.shuffled() {
+            var options: [String] = []
+            appendUniqueOption(word.definition, to: &options)
+            
+            for candidate in candidates.shuffled() {
+                guard candidate.word.caseInsensitiveCompare(word.word) != .orderedSame else { continue }
+                appendUniqueOption(candidate.definition, to: &options)
+                if options.count == 4 { break }
+            }
+            
+            guard options.count == 4 else { continue }
+            
+            let shuffled = options.shuffled()
+            items.append(
+                MCQItem(
+                    question: "What best matches \"\(word.word)\" in this song?",
+                    correctAnswer: word.definition,
+                    options: shuffled,
+                    explanation: word.definition
+                )
+            )
+            
+            if items.count == 4 { break }
+        }
+        
+        return items
+    }
+    
+    private func appendUniqueOption(_ value: String, to array: inout [String]) {
+        guard array.first(where: { $0.caseInsensitiveCompare(value) == .orderedSame }) == nil else { return }
+        array.append(value)
+    }
+    
     /// Determine CEFR level for a word (simplified - can be enhanced)
-    private func determineCEFRForWord(_ vocab: VocabularyWord) -> String {
+    private func determineCEFRForWord(_ vocab: VocabularyWord) -> CEFRLevel {
         // Simple heuristic: common words are A1-A2, complex are B1+
         let wordLength = vocab.word.count
         let definitionLength = vocab.definition.count
         
         if wordLength < 5 && definitionLength < 50 {
-            return "A1"
+            return .a1
         } else if wordLength < 8 && definitionLength < 100 {
-            return "A2"
+            return .a2
         } else if definitionLength < 150 {
-            return "B1"
+            return .b1
         } else {
-            return "B2"
+            return .b2
         }
     }
     
@@ -323,8 +445,9 @@ final class MusicLessonService {
             VocabularyWord(
                 word: phrase.text,
                 definition: phrase.meaning,
+                phonetics: phrase.phonetics,
                 examples: [phrase.example],
-                partOfSpeech: "phrase",
+                partOfSpeech: phrase.partOfSpeech,
                 context: phrase.example
             )
         }
@@ -332,21 +455,34 @@ final class MusicLessonService {
         // Combine culture notes
         let culturalContext = lesson.cultureNotes.map { $0.text }.joined(separator: "\n\n")
         
-        // Convert quiz to AIComprehensionQuiz
-        let quiz = AIComprehensionQuiz(
-            questions: lesson.quiz.meaningMCQ.map { mcq in
-                AIComprehensionQuestion(
-                    question: mcq.question,
-                    options: mcq.options.map { option in
-                        AIComprehensionOption(
-                            text: option,
-                            isCorrect: option == mcq.correctAnswer
-                        )
-                    },
-                    explanation: mcq.explanation
-                )
-            },
-            difficulty: lesson.userLevel.rawValue // Convert CEFRLevel to String
+        // Convert quiz to AIMusicLessonQuiz
+        let multipleChoice = lesson.quiz.meaningMCQ.map { mcq in
+            AIComprehensionQuestion(
+                question: mcq.question,
+                options: mcq.options.map { option in
+                    AIComprehensionOption(
+                        text: option,
+                        isCorrect: option == mcq.correctAnswer
+                    )
+                },
+                explanation: mcq.explanation
+            )
+        }
+        
+        let fillInBlanks = lesson.quiz.fillInBlanks.map { item in
+            AIMusicFillInBlankQuestion(
+                prompt: item.prompt ?? "Complete the sentence using the best option.",
+                correctAnswer: item.blankWord,
+                options: item.options,
+                explanation: item.explanation,
+                lyricReference: item.lyricReference
+            )
+        }
+        
+        let quiz = AIMusicLessonQuiz(
+            multipleChoice: multipleChoice,
+            fillInBlanks: fillInBlanks,
+            difficulty: lesson.userLevel.rawValue
         )
         
         return MusicDiscoveringResponse(
@@ -359,7 +495,7 @@ final class MusicLessonService {
             explanations: explanations,
             vocabularyWords: vocabularyWords,
             culturalContext: culturalContext.isEmpty ? nil : culturalContext,
-            quiz: quiz.questions.isEmpty ? nil : quiz
+            quiz: quiz
         )
     }
 }

@@ -77,8 +77,8 @@ final class WordCollectionsManager: ObservableObject {
     }
     
     /// Returns collections grouped by level
-    func collectionsGroupedByLevel() -> [WordLevel: [WordCollection]] {
-        var grouped: [WordLevel: [WordCollection]] = [:]
+    func collectionsGroupedByLevel() -> [CEFRLevel: [WordCollection]] {
+        var grouped: [CEFRLevel: [WordCollection]] = [:]
         
         for collection in collections {
             if grouped[collection.level] == nil {

@@ -32,6 +32,7 @@ struct CustomSectionView<Content: View, TrailingContent: View>: View {
     }
 
     private var header: String
+    private var headerSubtitle: String
     private var headerFontStyle: HeaderFontStyle
     private var footer: String?
     private var hPadding: CGFloat
@@ -40,6 +41,7 @@ struct CustomSectionView<Content: View, TrailingContent: View>: View {
 
     init(
         header: String,
+        headerSubtitle: String = .empty,
         headerFontStyle: HeaderFontStyle = .regular,
         footer: String? = nil,
         hPadding: CGFloat = 16,
@@ -47,6 +49,7 @@ struct CustomSectionView<Content: View, TrailingContent: View>: View {
         @ViewBuilder trailingContent: @escaping () -> TrailingContent = { EmptyView() }
     ) {
         self.header = header
+        self.headerSubtitle = headerSubtitle
         self.headerFontStyle = headerFontStyle
         self.footer = footer
         self.hPadding = hPadding
@@ -57,11 +60,18 @@ struct CustomSectionView<Content: View, TrailingContent: View>: View {
     var body: some View {
         VStack(spacing: 0) {
             HStack(spacing: 2) {
-                Text(header)
-                    .font(headerFontStyle.font)
-                    .foregroundStyle(headerFontStyle.style)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .multilineTextAlignment(.leading)
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(header)
+                        .font(headerFontStyle.font)
+                        .foregroundStyle(headerFontStyle.style)
+                    if headerSubtitle.isNotEmpty {
+                        Text(headerSubtitle)
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .multilineTextAlignment(.leading)
 
                 HStack(spacing: 6) {
                     trailingContent()

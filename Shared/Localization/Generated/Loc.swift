@@ -75,6 +75,12 @@ public enum Loc {
     public static let no = Loc.tr("Actions", "no", fallback: "No")
     /// OK
     public static let ok = Loc.tr("Actions", "ok", fallback: "OK")
+    /// Pause
+    public static let pause = Loc.tr("Actions", "pause", fallback: "Pause")
+    /// Play
+    public static let play = Loc.tr("Actions", "play", fallback: "Play")
+    /// Play from here
+    public static let playFromHere = Loc.tr("Actions", "playFromHere", fallback: "Play from here")
     /// Refresh
     public static let refresh = Loc.tr("Actions", "refresh", fallback: "Refresh")
     /// Remove
@@ -862,8 +868,8 @@ public enum Loc {
     public static let select2To5Interests = Loc.tr("Onboarding", "select_2_to_5_interests", fallback: "Select 2-5 interests")
     /// Select at least one language
     public static let selectAtLeastOneLanguage = Loc.tr("Onboarding", "select_at_least_one_language", fallback: "Select at least one language")
-    /// Select proficiency level
-    public static let selectProficiencyLevel = Loc.tr("Onboarding", "select_proficiency_level", fallback: "Select proficiency level")
+    /// Select your current proficiency level
+    public static let selectProficiencyLevel = Loc.tr("Onboarding", "select_proficiency_level", fallback: "Select your current proficiency level")
     /// Share dictionaries with friends and family
     public static let shareDictionaries = Loc.tr("Onboarding", "share_dictionaries", fallback: "Share dictionaries with friends and family")
     /// Cloud backup
