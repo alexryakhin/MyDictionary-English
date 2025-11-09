@@ -367,7 +367,11 @@ final class MusicPlayerService: NSObject, ObservableObject {
                 if self.duration > 0 {
                     self.currentTime = min(self.currentTime, self.duration)
                 }
-                
+
+                if playbackTime == .zero {
+                    self.isPlaying = false
+                }
+
                 // Update MPNowPlayingInfoCenter
                 self.updateNowPlayingInfo()
             }

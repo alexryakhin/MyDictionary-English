@@ -73,6 +73,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		5326D4F52EC0C3A4001F8377 /* Exceptions for "Shared" folder in "My Dictionary (macOS)" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Models/SongLessonQuizModels.swift,
+			);
+			target = 530D2C322D9836920040C247 /* My Dictionary (macOS) */;
+		};
 		53DEC9282E5B176300915563 /* Exceptions for "My Dictionary (iOS)" folder in "My Dictionary (macOS)" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -98,6 +105,9 @@
 		};
 		53E9A9F92D7C439B007E9F28 /* Shared */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				5326D4F52EC0C3A4001F8377 /* Exceptions for "Shared" folder in "My Dictionary (macOS)" target */,
+			);
 			path = Shared;
 			sourceTree = "<group>";
 		};

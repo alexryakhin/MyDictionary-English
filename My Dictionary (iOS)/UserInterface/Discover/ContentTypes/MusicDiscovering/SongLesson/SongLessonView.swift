@@ -27,10 +27,6 @@ struct SongLessonView: View {
     @StateObject private var viewModel: SongLessonViewModel
     @Environment(\.dismiss) private var dismiss
     
-    @State private var currentQuestionIndex: Int = 0
-    @State private var selectedAnswerIndex: Int?
-    @State private var showFeedback: Bool = false
-    @State private var quizAnswers: [Int: Int] = [:]
     @State private var phraseCollectionForSheet: WordCollection?
     @State private var selectedPhraseItem: WordCollectionItem?
     
@@ -80,7 +76,10 @@ struct SongLessonView: View {
                 grammarSection(lesson.grammarNuggets)
                 cultureSection(lesson.cultureNotes)
                 fillInBlanksSection(lesson.quiz.fillInBlanks)
-                multipleChoiceSection(lesson.quiz.meaningMCQ)
+                multipleChoiceSection(
+                    lesson.quiz.meaningMCQ,
+                    questionOffset: lesson.quiz.fillInBlanks.count
+                )
                 reflectionSection(lesson)
             }
             .padding()
@@ -248,220 +247,58 @@ struct SongLessonView: View {
             if items.isEmpty {
                 emptySectionPlaceholder("Fill-in-the-blank practice will appear once available.")
             } else {
-                LazyVStack(spacing: 16) {
-                    ForEach(Array(items.enumerated()), id: \.offset) { index, item in
-                        fillInBlankCard(item: item, index: index)
-                    }
-                }
+                SongLesson.FillInBlankQuizView(
+                    config: SongLesson.FillInBlankQuizConfig(
+                        items: items,
+                        initialAnswers: quizAnswersDictionary(
+                            totalQuestions: items.count,
+                            offset: 0
+                        ),
+                        questionIndexOffset: 0,
+                        onAnswer: { submission in
+                            viewModel.handle(.submitQuizAnswer(
+                                questionIndex: submission.questionIndex,
+                                answerIndex: submission.selectedAnswerIndex,
+                                isCorrect: submission.isCorrect
+                            ))
+                        },
+                        onCompletion: { _ in
+                            viewModel.handle(.saveSession)
+                        }
+                    )
+                )
             }
         }
-    }
-    
-    private func fillInBlankCard(item: FillInBlankItem, index: Int) -> some View {
-        VStack(alignment: .leading, spacing: 12) {
-            VStack(alignment: .leading, spacing: 4) {
-                Text(item.prompt)
-                    .font(.subheadline)
-                    .foregroundColor(.primary)
-
-                Text(item.lyricReference)
-                    .font(.headline)
-                    .foregroundColor(.primary)
-            }
-
-            LazyVGrid(columns: [
-                GridItem(.flexible()),
-                GridItem(.flexible())
-            ], spacing: 8) {
-                ForEach(Array(item.options.enumerated()), id: \.offset) { optionIndex, option in
-                    Button(action: {
-                        // Handle answer selection
-                        quizAnswers[index] = optionIndex
-                        let isCorrect = option == item.blankWord
-                        viewModel.handle(.submitQuizAnswer(
-                            questionIndex: index,
-                            answerIndex: optionIndex,
-                            isCorrect: isCorrect
-                        ))
-                    }) {
-                        Text(option)
-                            .font(.body)
-                            .padding()
-                            .frame(maxWidth: .infinity)
-                            .background(
-                                quizAnswers[index] == optionIndex
-                                    ? (option == item.blankWord ? Color.green : Color.red)
-                                    : Color.secondarySystemGroupedBackground
-                            )
-                            .foregroundColor(
-                                quizAnswers[index] == optionIndex ? .white : .primary
-                            )
-                            .cornerRadius(8)
-                    }
-                    .buttonStyle(.plain)
-                    .disabled(quizAnswers[index] != nil)
-                }
-            }
-        }
-        .clippedWithPaddingAndBackground(.tertiarySystemGroupedBackground, in: .rect(cornerRadius: 12))
     }
     
     // MARK: - Multiple Choice Section
     
-    private func multipleChoiceSection(_ items: [MCQItem]) -> some View {
+    private func multipleChoiceSection(_ items: [MCQItem], questionOffset: Int) -> some View {
         CustomSectionView(header: "Practice • Comprehension Quiz", headerSubtitle: "Choose the best answer to reinforce meaning.") {
             if items.isEmpty {
                 emptySectionPlaceholder("Multiple-choice practice will appear once available.")
             } else {
-                VStack(alignment: .leading, spacing: 12) {
-                    ProgressView(
-                        value: Double(currentQuestionIndex + 1),
-                        total: Double(items.count)
+                SongLesson.ComprehensionQuizView(
+                    config: SongLesson.ComprehensionQuizConfig(
+                        items: items,
+                        initialAnswers: quizAnswersDictionary(
+                            totalQuestions: items.count,
+                            offset: questionOffset
+                        ),
+                        questionIndexOffset: questionOffset,
+                        onAnswer: { submission in
+                            viewModel.handle(.submitQuizAnswer(
+                                questionIndex: submission.questionIndex,
+                                answerIndex: submission.selectedAnswerIndex,
+                                isCorrect: submission.isCorrect
+                            ))
+                        },
+                        onCompletion: { _ in
+                            viewModel.handle(.saveSession)
+                        }
                     )
-                    .progressViewStyle(.linear)
-
-                    Text("Question \(currentQuestionIndex + 1) of \(items.count)")
-                        .font(.caption)
-                        .foregroundColor(.secondary)
-
-                    if currentQuestionIndex < items.count {
-                        multipleChoiceCard(
-                            item: items[currentQuestionIndex],
-                            questionIndex: currentQuestionIndex
-                        )
-                    }
-
-                    questionNavigation(totalQuestions: items.count)
-                }
-            }
-        }
-    }
-    
-    private func multipleChoiceCard(item: MCQItem, questionIndex: Int) -> some View {
-        VStack(alignment: .leading, spacing: 12) {
-            // Question
-            Text(item.question)
-                .font(.headline)
-                .padding(.bottom, 8)
-            
-            // Options
-            ForEach(Array(item.options.enumerated()), id: \.offset) { optionIndex, option in
-                multipleChoiceButton(
-                    option: option,
-                    optionIndex: optionIndex,
-                    questionIndex: questionIndex,
-                    correctAnswer: item.correctAnswer
                 )
             }
-            
-            // Show feedback if answered
-            if let selectedIndex = selectedAnswerIndex, showFeedback {
-                let selectedOption = item.options[selectedIndex]
-                let isCorrect = selectedOption == item.correctAnswer
-                
-                HStack(spacing: 8) {
-                    Image(systemName: isCorrect ? "checkmark.circle.fill" : "xmark.circle.fill")
-                        .foregroundColor(isCorrect ? .green : .red)
-                    
-                    if let explanation = item.explanation {
-                        Text(explanation)
-                            .font(.caption)
-                            .foregroundColor(.secondary)
-                    }
-                }
-                .padding()
-                .background(isCorrect ? Color.green.opacity(0.1) : Color.red.opacity(0.1))
-                .cornerRadius(8)
-            }
-        }
-        .clippedWithPaddingAndBackground(.tertiarySystemGroupedBackground, in: .rect(cornerRadius: 12))
-    }
-    
-    private func multipleChoiceButton(
-        option: String,
-        optionIndex: Int,
-        questionIndex: Int,
-        correctAnswer: String
-    ) -> some View {
-        let isSelected = selectedAnswerIndex == optionIndex
-        let isCorrect = option == correctAnswer
-        let isQuestionAnswered = quizAnswers[questionIndex] != nil
-        
-        return Button(action: {
-            if !isQuestionAnswered {
-                selectedAnswerIndex = optionIndex
-                quizAnswers[questionIndex] = optionIndex
-                showFeedback = true
-                
-                viewModel.handle(.submitQuizAnswer(
-                    questionIndex: questionIndex,
-                    answerIndex: optionIndex,
-                    isCorrect: isCorrect
-                ))
-                
-                HapticManager.shared.triggerImpact(style: isCorrect ? .medium : .light)
-            }
-        }) {
-            HStack {
-                Text(option)
-                    .font(.body)
-                    .multilineTextAlignment(.leading)
-                    .foregroundColor(
-                        isSelected
-                            ? .white
-                            : .primary
-                    )
-                
-                Spacer()
-                
-                if isSelected {
-                    Image(systemName: isCorrect ? "checkmark.circle.fill" : "xmark.circle.fill")
-                        .foregroundColor(.white)
-                }
-            }
-            .padding()
-            .background(
-                isSelected
-                    ? (isCorrect ? Color.green : Color.red)
-                    : Color.secondarySystemGroupedBackground
-            )
-            .cornerRadius(8)
-        }
-        .buttonStyle(.plain)
-        .disabled(isQuestionAnswered)
-    }
-    
-    // MARK: - Question Navigation
-    
-    private func questionNavigation(totalQuestions: Int) -> some View {
-        HStack {
-            ActionButton("Previous", systemImage: "chevron.left", action: {
-                if currentQuestionIndex > 0 {
-                    withAnimation {
-                        currentQuestionIndex -= 1
-                        selectedAnswerIndex = quizAnswers[currentQuestionIndex]
-                        showFeedback = quizAnswers[currentQuestionIndex] != nil
-                    }
-                }
-            })
-            .disabled(currentQuestionIndex == 0)
-            
-            ActionButton(
-                currentQuestionIndex < totalQuestions - 1 ? "Next" : "Finish",
-                systemImage: "chevron.right",
-                action: {
-                if currentQuestionIndex < totalQuestions - 1 {
-                    withAnimation {
-                        currentQuestionIndex += 1
-                        selectedAnswerIndex = quizAnswers[currentQuestionIndex]
-                        showFeedback = quizAnswers[currentQuestionIndex] != nil
-                    }
-                } else {
-                    // Quiz completed
-                    viewModel.handle(.markQuizComplete)
-                    viewModel.handle(.navigateToResults)
-                }
-            })
         }
     }
     
@@ -495,6 +332,17 @@ struct SongLessonView: View {
     }
     
     // MARK: - Helpers
+
+    private func quizAnswersDictionary(totalQuestions: Int, offset: Int) -> [Int: Int] {
+        guard totalQuestions > 0 else { return [:] }
+        var dictionary: [Int: Int] = [:]
+        for answer in viewModel.currentSession.quizAnswers {
+            let relativeIndex = answer.questionIndex - offset
+            guard relativeIndex >= 0, relativeIndex < totalQuestions else { continue }
+            dictionary[relativeIndex] = answer.selectedAnswerIndex
+        }
+        return dictionary
+    }
 
     private func emptySectionPlaceholder(_ message: String) -> some View {
         Text(message)
