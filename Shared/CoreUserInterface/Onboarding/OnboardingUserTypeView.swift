@@ -51,6 +51,7 @@ extension OnboardingFlow {
                                 isSelected: viewModel.selectedUserType == userType
                             ) {
                                 withAnimation(.spring(response: 0.4, dampingFraction: 0.7)) {
+                                    logInfo("[OnboardingUserTypeView] Selected userType=\(userType.rawValue)")
                                     viewModel.selectedUserType = userType
                                 }
                             }
@@ -66,12 +67,14 @@ extension OnboardingFlow {
             .withGradientBackground()
             .safeAreaBarIfAvailable {
                 ActionButton(Loc.Onboarding.continue, style: .borderedProminent) {
+                    logInfo("[OnboardingUserTypeView] Continue tapped – selectedUserType=\(viewModel.selectedUserType?.rawValue ?? "nil")")
                     viewModel.navigate(to: .ageGroup)
                 }
                 .disabled(viewModel.selectedUserType == nil)
                 .padding(vertical: 12, horizontal: 16)
             }
             .onAppear {
+                logInfo("[OnboardingUserTypeView] Appeared – current selection=\(viewModel.selectedUserType?.rawValue ?? "nil")")
                 withAnimation {
                     animateContent = true
                 }

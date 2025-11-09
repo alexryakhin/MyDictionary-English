@@ -84,11 +84,13 @@ extension OnboardingFlow {
             .withGradientBackground()
             .safeAreaBarIfAvailable {
                 ActionButton(Loc.Onboarding.soundsGreat, style: .borderedProminent) {
+                    logInfo("[OnboardingStreakView] Continue tapped – preparing to request notifications step")
                     viewModel.navigate(to: .notifications)
                 }
                 .padding(vertical: 12, horizontal: 16)
             }
             .onAppear {
+                logInfo("[OnboardingStreakView] Appeared")
                 withAnimation(.easeInOut(duration: 1.0)) {
                     animateContent = true
                 }
@@ -102,7 +104,9 @@ extension OnboardingFlow {
                 
                 // Generate AI paywall content in background so it's ready when user reaches paywall
                 Task {
-                    await PaywallContentService.shared.forceCheckAndGenerateIfNeeded()
+                    logInfo("[OnboardingStreakView] Triggering paywall content prefetch")
+                    await PaywallContentService.shared.generatePaywallContent()
+                    logInfo("[OnboardingStreakView] Paywall content prefetch completed")
                 }
             }
         }

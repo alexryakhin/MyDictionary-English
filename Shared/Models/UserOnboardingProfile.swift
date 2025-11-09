@@ -28,21 +28,21 @@ struct UserOnboardingProfile: Codable {
     var lastUpdated: Date
     
     init(
-        id: UUID = UUID(),
-        cloudKitRecordID: String? = nil,
-        userName: String = "",
-        userType: UserType = .hobbyist,
-        ageGroup: AgeGroup = .adult,
-        learningGoals: [LearningGoal] = [],
-        studyLanguages: [StudyLanguage] = [],
-        interests: [Interest] = [],
-        weeklyWordGoal: Int = 100,
-        preferredStudyTime: StudyTime = .evening,
-        completedAt: Date = Date(),
-        isCompleted: Bool = false,
-        skippedPaywall: Bool = false,
-        enabledNotifications: Bool = false,
-        signedIn: Bool = false,
+        id: UUID,
+        cloudKitRecordID: String,
+        userName: String,
+        userType: UserType,
+        ageGroup: AgeGroup,
+        learningGoals: [LearningGoal],
+        studyLanguages: [StudyLanguage],
+        interests: [Interest],
+        weeklyWordGoal: Int,
+        preferredStudyTime: StudyTime,
+        completedAt: Date,
+        isCompleted: Bool,
+        skippedPaywall: Bool,
+        enabledNotifications: Bool,
+        signedIn: Bool,
         lastUpdated: Date = Date()
     ) {
         self.id = id
@@ -67,12 +67,12 @@ struct UserOnboardingProfile: Codable {
     
     init?(from entity: CDUserProfile) {
         guard let id = entity.id,
-              let userName = entity.userName,
-              let userTypeRaw = entity.userType,
+              let userName = entity.userName?.nilIfEmpty,
+              let userTypeRaw = entity.userType?.nilIfEmpty,
               let userType = UserType(rawValue: userTypeRaw),
-              let ageGroupRaw = entity.ageGroup,
+              let ageGroupRaw = entity.ageGroup?.nilIfEmpty,
               let ageGroup = AgeGroup(rawValue: ageGroupRaw),
-              let studyTimeRaw = entity.preferredStudyTime,
+              let studyTimeRaw = entity.preferredStudyTime?.nilIfEmpty,
               let studyTime = StudyTime(rawValue: studyTimeRaw),
               let completedAt = entity.completedAt,
               let lastUpdated = entity.lastUpdated else {
@@ -230,11 +230,6 @@ struct UserOnboardingProfile: Codable {
     
     var primaryLanguage: InputLanguage? {
         return studyLanguages.first?.language
-    }
-    
-    var isComplete: Bool {
-        // Profile is marked complete only when user finishes entire onboarding flow
-        return isCompleted
     }
 }
 

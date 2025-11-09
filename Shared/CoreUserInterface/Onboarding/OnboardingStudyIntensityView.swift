@@ -60,15 +60,20 @@ extension OnboardingFlow {
                         .foregroundColor(.secondary)
 
                     ActionButton(Loc.Onboarding.continue, style: .borderedProminent) {
+                        logInfo("[OnboardingStudyIntensityView] Continue tapped – weeklyWordGoal=\(viewModel.weeklyWordGoal)")
                         viewModel.navigate(to: .studyTime)
                     }
                 }
                 .padding(vertical: 12, horizontal: 16)
             }
             .onAppear {
+                logInfo("[OnboardingStudyIntensityView] Appeared – weeklyWordGoal=\(viewModel.weeklyWordGoal)")
                 withAnimation {
                     animateContent = true
                 }
+            }
+            .onChange(of: viewModel.weeklyWordGoal) { newValue in
+                logInfo("[OnboardingStudyIntensityView] Updated weeklyWordGoal to \(newValue)")
             }
         }
     }

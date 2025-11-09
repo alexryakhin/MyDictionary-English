@@ -61,6 +61,7 @@ extension OnboardingFlow {
 
                                     Button(action: {
                                         withAnimation(.spring(response: 0.4, dampingFraction: 0.7)) {
+                                            logInfo("[OnboardingLanguagesView] Removing studyLanguage=\(studyLang.language.rawValue)")
                                             viewModel.removeStudyLanguage(id: studyLang.id)
                                         }
                                     }) {
@@ -93,6 +94,7 @@ extension OnboardingFlow {
                         ForEach(Array(filteredLanguages.enumerated()), id: \.element) { index, language in
                             if !viewModel.studyLanguages.contains(where: { $0.language == language }) {
                                 Button(action: {
+                                    logInfo("[OnboardingLanguagesView] Presenting level picker for language=\(language.rawValue)")
                                     selectedLanguage = language
                                 }) {
                                     HStack {
@@ -124,6 +126,7 @@ extension OnboardingFlow {
             .withGradientBackground()
             .safeAreaBarIfAvailable {
                 ActionButton(Loc.Onboarding.continue, style: .borderedProminent) {
+                    logInfo("[OnboardingLanguagesView] Continue tapped – studyLanguages=\(viewModel.studyLanguages.map { "\($0.language.rawValue)-\($0.proficiencyLevel.rawValue)" })")
                     viewModel.navigate(to: .interests)
                 }
                 .disabled(viewModel.studyLanguages.isEmpty)
@@ -134,12 +137,14 @@ extension OnboardingFlow {
                     language: language,
                     selectedLevel: $selectedLevel,
                     onSave: {
+                        logInfo("[OnboardingLanguagesView] Level picker saved – language=\(language.rawValue) level=\(selectedLevel.rawValue)")
                         viewModel.addStudyLanguage(language: language, level: selectedLevel)
                         selectedLanguage = nil
                     }
                 )
             }
             .onAppear {
+                logInfo("[OnboardingLanguagesView] Appeared – studyLanguages=\(viewModel.studyLanguages.map { "\($0.language.rawValue)-\($0.proficiencyLevel.rawValue)" })")
                 withAnimation {
                     animateContent = true
                 }

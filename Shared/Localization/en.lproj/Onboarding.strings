@@ -82,7 +82,7 @@
 "which_languages_to_learn" = "Which languages do you want to learn?";
 "search_languages" = "Search languages";
 "add_language" = "Add Language";
-"select_proficiency_level" = "Select proficiency level";
+"select_proficiency_level" = "Select your current proficiency level";
 "select_at_least_one_language" = "Select at least one language";
 
 // CEFR Levels

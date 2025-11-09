@@ -59,6 +59,7 @@ extension OnboardingFlow {
             .withGradientBackground()
             .safeAreaBarIfAvailable {
                 ActionButton(Loc.Onboarding.startLearning, style: .borderedProminent) {
+                    logInfo("[OnboardingSuccessView] Start learning tapped – userName='\(viewModel.userName)' languages=\(viewModel.studyLanguages.count)")
                     viewModel.completeOnboarding()
                 }
                 .padding(vertical: 12, horizontal: 16)
@@ -74,6 +75,7 @@ extension OnboardingFlow {
                 }
             )
             .onAppear {
+                logInfo("[OnboardingSuccessView] Appeared – userName='\(viewModel.userName)' languages=\(viewModel.studyLanguages.count) goals=\(viewModel.selectedGoals.count)")
                 withAnimation(.easeInOut(duration: 1.0)) {
                     animateContent = true
                     animateBackground = true

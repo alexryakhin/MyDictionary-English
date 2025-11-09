@@ -15,6 +15,7 @@ enum OnboardingFlow {
 
         init(isNewUser: Bool? = nil) {
             let isNew = isNewUser ?? !UDService.hasCompletedOnboarding
+            logInfo("[OnboardingContainerView] init – isNewUser=\(isNew)")
             _viewModel = StateObject(wrappedValue: OnboardingFlow.ViewModel(isNewUser: isNew))
         }
 

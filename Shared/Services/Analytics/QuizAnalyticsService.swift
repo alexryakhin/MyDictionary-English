@@ -7,18 +7,6 @@
 
 import Foundation
 import Combine
-import FirebaseAnalytics
-
-final class AnalyticsService {
-    static let shared = AnalyticsService()
-    
-    private init() {}
-    
-    func logEvent(_ event: AnalyticsEvent, parameters: [String: Any]? = nil) {
-        Analytics.logEvent(event.rawValue, parameters: parameters ?? event.parameters)
-        print("🔹 Analytics log event: \(event.rawValue)")
-    }
-}
 
 // MARK: - Quiz Analytics Service
 

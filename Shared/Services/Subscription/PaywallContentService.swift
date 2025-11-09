@@ -30,26 +30,26 @@ final class PaywallContentService: ObservableObject {
     /// Checks if AI paywall generation is needed based on user profile, subscription status, and cache age
     func shouldGeneratePaywall() -> Bool {
         // Check if user has profile data
-        guard onboardingService.userProfile != nil else {
-            print("⚠️ [PaywallContentService] No user profile - skipping AI generation")
+        guard onboardingService.userProfile?.isCompleted == true else {
+            logWarning("[PaywallContentService] No user profile - skipping AI generation")
             return false
         }
         
         // Don't generate for Pro users
         guard !subscriptionService.isProUser else {
-            print("✅ [PaywallContentService] User is PRO - skipping AI generation")
+            logSuccess("[PaywallContentService] User is PRO - skipping AI generation")
             return false
         }
         
         // Check if AI service is ready
         guard aiService.isInitialized else {
-            print("⚠️ [PaywallContentService] AI service not ready - skipping AI generation")
+            logWarning("[PaywallContentService] AI service not ready - skipping AI generation")
             return false
         }
         
         // Check if we need to generate (no cache or expired)
         let needsGeneration = !hasValidCache()
-        print("🔍 [PaywallContentService] Should generate AI paywall: \(needsGeneration)")
+        logInfo("[PaywallContentService] shouldGeneratePaywall -> \(needsGeneration)")
         return needsGeneration
     }
     
@@ -73,7 +73,7 @@ final class PaywallContentService: ObservableObject {
         .sink { [weak self] isLoading, isProUser in
             // Only check when subscription service finishes loading
             if !isLoading {
-                print("🔄 [PaywallContentService] Subscription status updated - isProUser: \(isProUser)")
+                logInfo("[PaywallContentService] Subscription status updated – isProUser=\(isProUser)")
                 Task { @MainActor in
                     await self?.checkAndGenerateIfNeeded()
                 }
@@ -84,6 +84,7 @@ final class PaywallContentService: ObservableObject {
     
     /// Checks if paywall generation is needed and generates it if so
     func checkAndGenerateIfNeeded() async {
+        logInfo("[PaywallContentService] checkAndGenerateIfNeeded()")
         guard shouldGeneratePaywall() else {
             return
         }
@@ -93,9 +94,11 @@ final class PaywallContentService: ObservableObject {
     
     /// Manually triggers a check for paywall generation (useful for immediate checks)
     func forceCheckAndGenerateIfNeeded() async {
+        logInfo("[PaywallContentService] forceCheckAndGenerateIfNeeded()")
         // Wait for subscription service to finish loading if it's still loading
         if subscriptionService.isLoading {
             // Wait for the next subscription status update via Combine
+            logInfo("[PaywallContentService] Subscription service still loading – deferring generation")
             return
         }
         
@@ -104,8 +107,9 @@ final class PaywallContentService: ObservableObject {
     
     /// Generates AI paywall content and caches it
     func generatePaywallContent() async {
+        logInfo("[PaywallContentService] generatePaywallContent() started")
         guard let userProfile = onboardingService.userProfile else {
-            print("⚠️ [PaywallContentService] No user profile available for AI generation")
+            logWarning("[PaywallContentService] No user profile available for AI generation")
             return
         }
         
@@ -113,6 +117,7 @@ final class PaywallContentService: ObservableObject {
         if let cachedContent = getCachedContent(), !isCacheExpired() {
             aiContent = cachedContent
             hasGenerated = true
+            logInfo("[PaywallContentService] Using cached AI paywall content (still valid)")
             return
         }
         
@@ -129,13 +134,14 @@ final class PaywallContentService: ObservableObject {
             hasGenerated = true
             saveToCache(content)
             
-            print("✅ [PaywallContentService] AI paywall content generated successfully")
+            logSuccess("[PaywallContentService] AI paywall content generated successfully")
         } catch {
-            print("❌ [PaywallContentService] Failed to generate AI paywall content: \(error)")
+            logError("[PaywallContentService] Failed to generate AI paywall content: \(error)")
             // Don't set hasGenerated = true on failure, so we can retry later
         }
         
         isLoading = false
+        logInfo("[PaywallContentService] generatePaywallContent() finished – hasGenerated=\(hasGenerated)")
     }
     
     /// Gets cached content if available and not expired
@@ -146,7 +152,7 @@ final class PaywallContentService: ObservableObject {
             let content = try JSONDecoder().decode(AIPaywallContent.self, from: data)
             return content
         } catch {
-            print("❌ [PaywallContentService] Failed to decode cached content: \(error)")
+            logError("[PaywallContentService] Failed to decode cached content: \(error)")
             return nil
         }
     }
@@ -157,13 +163,14 @@ final class PaywallContentService: ObservableObject {
         UDService.aiPaywallContentTimestamp = nil
         aiContent = nil
         hasGenerated = false
-        print("🗑️ [PaywallContentService] Cache cleared")
+        logInfo("[PaywallContentService] Cache cleared")
     }
     
     private func loadCachedContent() {
         if let cachedContent = getCachedContent(), !isCacheExpired() {
             aiContent = cachedContent
             hasGenerated = true
+            logInfo("[PaywallContentService] Loaded cached AI paywall content on init")
         }
     }
     
@@ -172,9 +179,9 @@ final class PaywallContentService: ObservableObject {
             let data = try JSONEncoder().encode(content)
             UDService.aiPaywallContentData = data
             UDService.aiPaywallContentTimestamp = Date()
-            print("💾 [PaywallContentService] Content cached successfully")
+            logInfo("[PaywallContentService] AI paywall content cached successfully")
         } catch {
-            print("❌ [PaywallContentService] Failed to cache content: \(error)")
+            logError("[PaywallContentService] Failed to cache content: \(error)")
         }
     }
     

@@ -18,7 +18,7 @@ struct HapticManager {
         case soft
         case rigid
 
-        #if os(iOS)
+        #if os(iOS) && !targetEnvironment(simulator)
         var systemStyle: UIImpactFeedbackGenerator.FeedbackStyle {
             switch self {
             case .light: .light
@@ -36,7 +36,7 @@ struct HapticManager {
         case warning
         case error
 
-        #if os(iOS)
+        #if os(iOS) && !targetEnvironment(simulator)
         var systemType: UINotificationFeedbackGenerator.FeedbackType {
             switch self {
             case .success: .success
@@ -52,7 +52,7 @@ struct HapticManager {
     private init() {}
 
     func triggerImpact(style: ImpactStyle) {
-        #if os(iOS)
+        #if os(iOS) && !targetEnvironment(simulator)
         let generator = UIImpactFeedbackGenerator(style: style.systemStyle)
         generator.prepare()
         generator.impactOccurred()
@@ -60,7 +60,7 @@ struct HapticManager {
     }
 
     func triggerNotification(type: FeedbackType) {
-        #if os(iOS)
+        #if os(iOS) && !targetEnvironment(simulator)
         let generator = UINotificationFeedbackGenerator()
         generator.prepare()
         generator.notificationOccurred(type.systemType)
@@ -68,7 +68,7 @@ struct HapticManager {
     }
 
     func triggerSelection() {
-        #if os(iOS)
+        #if os(iOS) && !targetEnvironment(simulator)
         let generator = UISelectionFeedbackGenerator()
         generator.prepare()
         generator.selectionChanged()

@@ -84,28 +84,36 @@ extension OnboardingFlow {
             .safeAreaBarIfAvailable {
                 VStack(spacing: 12) {
                     AsyncActionButton(Loc.Onboarding.enableNotifications, style: .borderedProminent) {
+                        logInfo("[OnboardingNotificationsView] Requesting notification permission")
                         await NotificationService.shared.requestPermission()
                         await MainActor.run {
+                            logInfo("[OnboardingNotificationsView] Notification permission flow completed")
                             viewModel.enabledNotifications = true
                             // Enable word study notifications by default if user has a study time preference
                             if let userProfile = CoreDataService.shared.fetchUserProfile(),
                                let studyTime = userProfile.preferredStudyTime,
                                !studyTime.isEmpty {
                                 UDService.wordStudyNotificationsEnabled = true
+                                logInfo("[OnboardingNotificationsView] Enabled study notifications based on stored studyTime=\(studyTime)")
                             }
                             if viewModel.subscriptionService.isProUser {
+                                logSuccess("[OnboardingNotificationsView] User already Pro – navigating to success")
                                 viewModel.navigate(to: .success)
                             } else {
+                                logInfo("[OnboardingNotificationsView] Navigating to paywall after notification prompt")
                                 viewModel.navigate(to: .paywall)
                             }
                         }
                     }
 
                     Button(Loc.Onboarding.maybeLater) {
+                        logWarning("[OnboardingNotificationsView] User opted to skip notification permissions")
                         viewModel.enabledNotifications = false
                         if viewModel.subscriptionService.isProUser {
+                            logSuccess("[OnboardingNotificationsView] User is Pro – navigating directly to success")
                             viewModel.navigate(to: .success)
                         } else {
+                            logInfo("[OnboardingNotificationsView] Navigating to paywall without notifications")
                             viewModel.navigate(to: .paywall)
                         }
                     }
@@ -114,6 +122,7 @@ extension OnboardingFlow {
                 .padding(vertical: 12, horizontal: 16)
             }
             .onAppear {
+                logInfo("[OnboardingNotificationsView] Appeared – enabledNotifications=\(viewModel.enabledNotifications)")
                 withAnimation(.easeInOut(duration: 1.0)) {
                     animateContent = true
                 }

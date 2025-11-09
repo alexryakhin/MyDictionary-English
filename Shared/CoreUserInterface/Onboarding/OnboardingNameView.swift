@@ -57,12 +57,14 @@ extension OnboardingFlow {
             .withGradientBackground()
             .safeAreaBarIfAvailable {
                 ActionButton(Loc.Onboarding.continue, style: .borderedProminent) {
+                    logInfo("[OnboardingNameView] Continue tapped – userName='\(viewModel.userName)'")
                     viewModel.navigate(to: .userType)
                 }
                 .disabled(viewModel.userName.isEmpty)
                 .padding(vertical: 12, horizontal: 16)
             }
             .onAppear {
+                logInfo("[OnboardingNameView] Appeared – current userName='\(viewModel.userName)'")
                 withAnimation {
                     animateContent = true
                 }

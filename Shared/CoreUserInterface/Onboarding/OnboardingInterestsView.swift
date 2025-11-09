@@ -70,12 +70,14 @@ extension OnboardingFlow {
             .withGradientBackground()
             .safeAreaBarIfAvailable {
                 ActionButton(Loc.Onboarding.continue, style: .borderedProminent) {
+                    logInfo("[OnboardingInterestsView] Continue tapped – selectedInterests=\(viewModel.selectedInterests.map { $0.rawValue })")
                     viewModel.navigate(to: .studyIntensity)
                 }
                 .disabled(!(viewModel.selectedInterests.count >= 2 && viewModel.selectedInterests.count <= 5))
                 .padding(vertical: 12, horizontal: 16)
             }
             .onAppear {
+                logInfo("[OnboardingInterestsView] Appeared – selectedInterests=\(viewModel.selectedInterests.map { $0.rawValue })")
                 withAnimation {
                     animateContent = true
                 }
@@ -88,9 +90,13 @@ extension OnboardingFlow {
         
         private func toggleInterest(_ interest: Interest) {
             if viewModel.selectedInterests.contains(interest) {
+                logInfo("[OnboardingInterestsView] Deselected interest=\(interest.rawValue)")
                 viewModel.selectedInterests.remove(interest)
             } else if viewModel.selectedInterests.count < 5 {
+                logInfo("[OnboardingInterestsView] Selected interest=\(interest.rawValue)")
                 viewModel.selectedInterests.insert(interest)
+            } else {
+                logWarning("[OnboardingInterestsView] Attempted to add interest=\(interest.rawValue) but limit reached")
             }
         }
     }

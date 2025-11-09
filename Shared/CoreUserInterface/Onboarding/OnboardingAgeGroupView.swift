@@ -41,6 +41,7 @@ extension OnboardingFlow {
                         ForEach(Array(AgeGroup.allCases.enumerated()), id: \.element) { index, ageGroup in
                             Button(action: {
                                 withAnimation(.spring(response: 0.4, dampingFraction: 0.7)) {
+                                    logInfo("[OnboardingAgeGroupView] Selected ageGroup=\(ageGroup.rawValue)")
                                     viewModel.selectedAgeGroup = ageGroup
                                 }
                             }) {
@@ -88,12 +89,14 @@ extension OnboardingFlow {
             .withGradientBackground()
             .safeAreaBarIfAvailable {
                 ActionButton(Loc.Onboarding.continue, style: .borderedProminent) {
+                    logInfo("[OnboardingAgeGroupView] Continue tapped – selectedAgeGroup=\(viewModel.selectedAgeGroup?.rawValue ?? "nil")")
                     viewModel.navigate(to: .goals)
                 }
                 .disabled(viewModel.selectedAgeGroup == nil)
                 .padding(vertical: 12, horizontal: 16)
             }
             .onAppear {
+                logInfo("[OnboardingAgeGroupView] Appeared – current selection=\(viewModel.selectedAgeGroup?.rawValue ?? "nil")")
                 withAnimation {
                     animateContent = true
                 }

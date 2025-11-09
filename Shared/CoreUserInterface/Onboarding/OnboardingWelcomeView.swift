@@ -66,6 +66,7 @@ extension OnboardingFlow {
             .padding(vertical: 12, horizontal: 16)
             .withGradientBackground()
             .onAppear {
+                logInfo("[OnboardingWelcomeView] Appeared – isLoadingFromCloud=\(onboardingService.isLoadingFromCloud) hasFoundCloudProfile=\(onboardingService.hasFoundCloudProfile)")
                 withAnimation(.easeInOut(duration: 1.0)) {
                     animateContent = true
                     animateBackground = true
@@ -129,9 +130,11 @@ extension OnboardingFlow {
         }
         
         private func handleButtonAction() {
+            logInfo("[OnboardingWelcomeView] Primary button tapped – hasFoundCloudProfile=\(onboardingService.hasFoundCloudProfile)")
             if onboardingService.hasFoundCloudProfile {
                 // User wants to proceed with existing cloud profile
                 onboardingService.proceedWithCloudProfile()
+                logSuccess("[OnboardingWelcomeView] Proceeded with existing cloud profile")
             } else {
                 // Normal onboarding flow
                 viewModel.navigate(to: .name)

@@ -50,6 +50,7 @@ extension OnboardingFlow {
                                 isSelected: viewModel.preferredStudyTime == studyTime
                             ) {
                                 withAnimation(.spring(response: 0.4, dampingFraction: 0.7)) {
+                                    logInfo("[OnboardingStudyTimeView] Selected studyTime=\(studyTime.rawValue)")
                                     viewModel.preferredStudyTime = studyTime
                                 }
                             }
@@ -65,11 +66,13 @@ extension OnboardingFlow {
             .withGradientBackground()
             .safeAreaBarIfAvailable {
                 ActionButton(Loc.Onboarding.continue, style: .borderedProminent) {
+                    logInfo("[OnboardingStudyTimeView] Continue tapped – preferredStudyTime=\(viewModel.preferredStudyTime.rawValue)")
                     viewModel.navigate(to: .streak)
                 }
                 .padding(vertical: 12, horizontal: 16)
             }
             .onAppear {
+                logInfo("[OnboardingStudyTimeView] Appeared – preferredStudyTime=\(viewModel.preferredStudyTime.rawValue)")
                 withAnimation {
                     animateContent = true
                 }

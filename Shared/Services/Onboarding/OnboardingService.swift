@@ -76,7 +76,7 @@ final class OnboardingService: ObservableObject {
         if let entity = CoreDataService.shared.fetchUserProfile(),
            let profile = UserOnboardingProfile(from: entity) {
             // Profile is complete if all required fields are filled
-            hasCompleteProfile = profile.isComplete
+            hasCompleteProfile = profile.isCompleted
         } else {
             hasCompleteProfile = false
         }
@@ -137,7 +137,7 @@ final class OnboardingService: ObservableObject {
                 let hasCompletedProfile: Bool
                 if let entity = self.coreDataService.fetchUserProfile(),
                    let profile = UserOnboardingProfile(from: entity) {
-                    hasCompletedProfile = profile.isComplete
+                    hasCompletedProfile = profile.isCompleted
                 } else {
                     hasCompletedProfile = false
                 }

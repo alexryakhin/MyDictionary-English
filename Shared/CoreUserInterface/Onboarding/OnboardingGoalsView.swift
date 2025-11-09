@@ -72,12 +72,14 @@ extension OnboardingFlow {
             .withGradientBackground()
             .safeAreaBarIfAvailable {
                 ActionButton(Loc.Onboarding.continue, style: .borderedProminent) {
+                    logInfo("[OnboardingGoalsView] Continue tapped – selectedGoals=\(viewModel.selectedGoals.map { $0.rawValue })")
                     viewModel.navigate(to: .languages)
                 }
                 .disabled(!(!viewModel.selectedGoals.isEmpty && viewModel.selectedGoals.count <= 3))
                 .padding(vertical: 12, horizontal: 16)
             }
             .onAppear {
+                logInfo("[OnboardingGoalsView] Appeared – selectedGoals=\(viewModel.selectedGoals.map { $0.rawValue })")
                 withAnimation {
                     animateContent = true
                 }
@@ -90,9 +92,13 @@ extension OnboardingFlow {
 
         private func toggleGoal(_ goal: LearningGoal) {
             if viewModel.selectedGoals.contains(goal) {
+                logInfo("[OnboardingGoalsView] Deselected goal=\(goal.rawValue)")
                 viewModel.selectedGoals.remove(goal)
             } else if viewModel.selectedGoals.count < 3 {
+                logInfo("[OnboardingGoalsView] Selected goal=\(goal.rawValue)")
                 viewModel.selectedGoals.insert(goal)
+            } else {
+                logWarning("[OnboardingGoalsView] Attempted to select goal=\(goal.rawValue) but limit reached")
             }
         }
     }
