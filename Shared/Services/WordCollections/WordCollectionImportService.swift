@@ -11,6 +11,7 @@ import CoreData
 struct WordCollectionImportResult {
     let addedCount: Int
     let duplicateCount: Int
+    let addedWords: [String]
 }
 
 final class WordCollectionImportService {
@@ -61,7 +62,13 @@ final class WordCollectionImportService {
         // Batch create all words in the same context
         try await createWordsBatch(wordsToAdd: wordsToAdd, collection: collection)
         
-        return WordCollectionImportResult(addedCount: wordsToAdd.count, duplicateCount: duplicateCount)
+        let addedWordTexts = wordsToAdd.map { $0.text }
+        
+        return WordCollectionImportResult(
+            addedCount: wordsToAdd.count,
+            duplicateCount: duplicateCount,
+            addedWords: addedWordTexts
+        )
     }
     
     private func getExistingWords() throws -> [String] {

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Flow
 
 struct SongLessonResultsConfig: Hashable {
     let session: MusicDiscoveringSession
@@ -20,11 +21,23 @@ struct SongLessonResultsConfig: Hashable {
     }
 }
 
+struct SongLessonSharePreviewData: Identifiable {
+    let id = UUID()
+    let song: Song
+    let accuracy: Int
+    let correctAnswers: Int
+    let totalQuestions: Int
+    let discoveredWordsCount: Int
+    let formattedListeningTime: String
+    let cefrLevel: CEFRLevel?
+}
+
 struct SongLessonResultsView: View {
     let session: MusicDiscoveringSession
     let song: Song
     
     @StateObject private var viewModel = SongLessonResultsViewModel()
+    @State private var sharePreviewData: SongLessonSharePreviewData?
 
     var body: some View {
         ScrollView {
@@ -59,11 +72,11 @@ struct SongLessonResultsView: View {
                 }
             }
         )
-        .sheet(isPresented: $viewModel.showShareSheet) {
-            ActivityViewController(activityItems: [viewModel.shareText])
-        }
         .task {
             viewModel.handle(.loadResults(session))
+        }
+        .sheet(item: $sharePreviewData) { data in
+            SongLessonSharePreviewView(data: data)
         }
     }
     
@@ -186,9 +199,7 @@ struct SongLessonResultsView: View {
                 .font(.headline)
             
             if let sessionWords = viewModel.session?.discoveredWords {
-                LazyVGrid(columns: [
-                    GridItem(.adaptive(minimum: 100))
-                ], spacing: 8) {
+                HFlow(alignment: .top, spacing: 8) {
                     ForEach(Array(sessionWords.sorted()), id: \.self) { word in
                         Text(word)
                             .font(.subheadline)
@@ -199,6 +210,7 @@ struct SongLessonResultsView: View {
                             .cornerRadius(8)
                     }
                 }
+                .frame(maxWidth: .infinity, alignment: .leading)
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -217,8 +229,18 @@ struct SongLessonResultsView: View {
                 systemImage: "square.and.arrow.up",
                 style: .bordered
             ) {
-                viewModel.handle(.shareResults)
+                guard let session = viewModel.session else { return }
+                sharePreviewData = SongLessonSharePreviewData(
+                    song: session.song,
+                    accuracy: viewModel.accuracy,
+                    correctAnswers: viewModel.correctAnswers,
+                    totalQuestions: viewModel.totalQuestions,
+                    discoveredWordsCount: viewModel.discoveredWordsCount,
+                    formattedListeningTime: viewModel.formattedListeningTime,
+                    cefrLevel: session.song.cefrLevel
+                )
             }
+            .disabled(viewModel.session == nil)
             
             // Favorite button
             ActionButton(

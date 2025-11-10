@@ -14,15 +14,15 @@ final class SongLessonResultsViewModel: BaseViewModel {
     
     enum Input {
         case loadResults(MusicDiscoveringSession)
-        case shareResults
         case toggleFavorite
     }
     
     @Published private(set) var session: MusicDiscoveringSession?
     @Published private(set) var isFavorite: Bool = false
-    @Published var showShareSheet: Bool = false
+    @Published private(set) var resolvedListeningTime: TimeInterval = 0
     
     private let songLessonSessionService = SongLessonSessionService.shared
+    private let historyService = MusicListeningHistoryService.shared
     
     // MARK: - Computed Properties
     
@@ -47,7 +47,7 @@ final class SongLessonResultsViewModel: BaseViewModel {
     }
     
     var listeningTime: TimeInterval {
-        session?.totalListeningTime ?? 0
+        max(session?.totalListeningTime ?? 0, resolvedListeningTime)
     }
     
     var formattedListeningTime: String {
@@ -61,9 +61,9 @@ final class SongLessonResultsViewModel: BaseViewModel {
     func handle(_ input: Input) {
         switch input {
         case .loadResults(let session):
-            loadResults(session)
-        case .shareResults:
-            shareResults()
+            Task {
+                await loadResults(session)
+            }
         case .toggleFavorite:
             toggleFavorite()
         }
@@ -77,17 +77,32 @@ final class SongLessonResultsViewModel: BaseViewModel {
     
     // MARK: - Private Methods
     
-    private func loadResults(_ session: MusicDiscoveringSession) {
-        self.session = session
+    private func loadResults(_ session: MusicDiscoveringSession) async {
+        var resolvedSession = session
+        let storedSession = songLessonSessionService.getSession(by: session.song.id)
         
-        // Check if song is in favorites
-        if let cdSession = songLessonSessionService.getSession(by: session.song.id) {
-            isFavorite = cdSession.isFavorite
+        if let stored = storedSession?.toMusicDiscoveringSession() {
+            resolvedSession = stored
         }
-    }
-    
-    private func shareResults() {
-        showShareSheet = true
+        
+        // Derive listening time from multiple sources
+        var derivedListeningTime = max(resolvedSession.totalListeningTime, session.totalListeningTime)
+        
+        if let latestAnswerDate = resolvedSession.quizAnswers.max(by: { $0.answeredAt < $1.answeredAt })?.answeredAt {
+            let elapsed = latestAnswerDate.timeIntervalSince(resolvedSession.startedAt)
+            if elapsed.isFinite && elapsed > 0 {
+                derivedListeningTime = max(derivedListeningTime, elapsed)
+            }
+        }
+        
+        if let history = await historyService.getHistoryForSong(session.song.id) {
+            derivedListeningTime = max(derivedListeningTime, history.listeningDuration)
+        }
+        
+        resolvedSession.totalListeningTime = max(resolvedSession.totalListeningTime, derivedListeningTime)
+        self.session = resolvedSession
+        self.resolvedListeningTime = resolvedSession.totalListeningTime
+        self.isFavorite = storedSession?.isFavorite ?? isFavorite
     }
     
     private func toggleFavorite() {
@@ -101,13 +116,4 @@ final class SongLessonResultsViewModel: BaseViewModel {
         }
     }
 
-    var shareText: String {
-        guard let session = session else { return "" }
-        return """
-        🎵 I just completed a music lesson!
-        Song: \(session.song.title) by \(session.song.artist)
-        Score: \(accuracy)%
-        Discovered: \(discoveredWordsCount) new words
-        """
-    }
 }

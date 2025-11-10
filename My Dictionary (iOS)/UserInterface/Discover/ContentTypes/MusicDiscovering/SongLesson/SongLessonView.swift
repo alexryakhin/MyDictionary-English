@@ -65,7 +65,9 @@ struct SongLessonView: View {
             showsBackButton: true
         )
         .sheet(item: $phraseCollectionForSheet) { collection in
-            AddCollectionToDictionaryView(collection: collection)
+            AddCollectionToDictionaryView(collection: collection) { result in
+                viewModel.handle(.addDiscoveredWords(result.addedWords))
+            }
         }
         .sheet(item: $selectedPhraseItem) { word in
             WordCollectionItemDetailsView(
@@ -73,12 +75,6 @@ struct SongLessonView: View {
                 collection: viewModel.phraseWordCollection
             )
             .presentationDetents([.medium])
-        }
-        .onChange(of: viewModel.shouldNavigateToResults) { _, shouldNavigate in
-            if shouldNavigate {
-                let config = SongLessonResultsConfig(session: viewModel.currentSession, song: self.config.song)
-                NavigationManager.shared.navigate(to: .songLessonResults(config))
-            }
         }
     }
 

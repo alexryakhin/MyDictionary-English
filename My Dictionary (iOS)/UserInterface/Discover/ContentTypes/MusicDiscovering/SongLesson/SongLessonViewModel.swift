@@ -16,6 +16,7 @@ final class SongLessonViewModel: BaseViewModel {
         case submitQuizAnswer(SongLesson.QuizSubmission)
         case markQuizComplete
         case addDiscoveredWord(String)
+        case addDiscoveredWords([String])
         case markExplanationRequested
         case updateSession(MusicDiscoveringSession)
         case saveSession
@@ -25,8 +26,7 @@ final class SongLessonViewModel: BaseViewModel {
     @Published private(set) var currentSession: MusicDiscoveringSession
     @Published private(set) var lesson: AdaptedLesson
     @Published private(set) var isTranslatingPhrases: Bool = false
-    @Published var shouldNavigateToResults: Bool = false
-    
+
     private let songLessonSessionService = SongLessonSessionService.shared
     private let song: Song
     private let translationService: TranslationService
@@ -102,6 +102,8 @@ final class SongLessonViewModel: BaseViewModel {
             markQuizComplete()
         case .addDiscoveredWord(let word):
             addDiscoveredWord(word)
+        case .addDiscoveredWords(let words):
+            addDiscoveredWords(words)
         case .markExplanationRequested:
             markExplanationRequested()
         case .updateSession(let session):
@@ -193,6 +195,16 @@ final class SongLessonViewModel: BaseViewModel {
         saveSession()
     }
     
+    private func addDiscoveredWords(_ words: [String]) {
+        guard words.isNotEmpty else { return }
+        var session = currentSession
+        for word in words {
+            session.addDiscoveredWord(word)
+        }
+        currentSession = session
+        saveSession()
+    }
+    
     private func markExplanationRequested() {
         var session = currentSession
         session.markExplanationRequested()
@@ -220,7 +232,7 @@ final class SongLessonViewModel: BaseViewModel {
     }
     
     private func navigateToResults() {
-        shouldNavigateToResults = true
+        let config = SongLessonResultsConfig(session: currentSession, song: song)
+        NavigationManager.shared.navigate(to: .songLessonResults(config))
     }
 }
-
