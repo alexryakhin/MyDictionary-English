@@ -25,11 +25,10 @@ struct SongLessonResultsView: View {
     let song: Song
     
     @StateObject private var viewModel = SongLessonResultsViewModel()
-    @Environment(\.dismiss) private var dismiss
-    
+
     var body: some View {
         ScrollView {
-            VStack(spacing: 24) {
+            VStack(spacing: 16) {
                 // Celebration header
                 celebrationHeader
                 
@@ -47,15 +46,16 @@ struct SongLessonResultsView: View {
                 // Actions
                 actionsSection
             }
-            .padding()
+            .padding(vertical: 12, horizontal: 16)
         }
-        .groupedBackground()
+        .groupedBackgroundWithConfetti(isActive: .constant(viewModel.accuracy >= 80))
         .navigation(
             title: "Lesson Complete",
-            mode: .inline,
+            mode: .regular,
+            showsBackButton: true,
             trailingContent: {
                 HeaderButton(Loc.Actions.done) {
-                    dismiss()
+                    NavigationManager.shared.popToRoot()
                 }
             }
         )
@@ -102,7 +102,8 @@ struct SongLessonResultsView: View {
                         .fill(Color.secondarySystemGroupedBackground)
                 }
                 .frame(width: 80, height: 80)
-                .cornerRadius(12)
+                .cornerRadius(8)
+                .shadow(color: .label.opacity(0.3), radius: 3)
             }
             
             // Song details
@@ -119,18 +120,16 @@ struct SongLessonResultsView: View {
             
             Spacer()
         }
-        .padding()
-        .background(Color.secondarySystemGroupedBackground)
-        .cornerRadius(12)
+        .clippedWithPaddingAndBackground(in: .rect(cornerRadius: 16))
     }
     
     // MARK: - Stats Grid
     
     private var statsGrid: some View {
-        LazyVGrid(columns: [
-            GridItem(.flexible()),
-            GridItem(.flexible())
-        ], spacing: 12) {
+        LazyVGrid(
+            columns: Array(repeating: GridItem(.flexible(), spacing: 16), count: 2),
+            spacing: 16
+        ) {
             statCard(
                 title: "Accuracy",
                 value: "\(viewModel.accuracy)%",
@@ -164,21 +163,19 @@ struct SongLessonResultsView: View {
     private func statCard(title: String, value: String, icon: String, color: Color) -> some View {
         VStack(spacing: 12) {
             Image(systemName: icon)
-                .font(.system(size: 32))
-                .foregroundColor(color)
-            
+                .font(.system(.largeTitle, design: .rounded, weight: .medium))
+                .foregroundStyle(color)
+
             Text(value)
-                .font(.title2)
-                .fontWeight(.bold)
-            
+                .font(.system(.title2, design: .rounded, weight: .bold))
+                .foregroundStyle(.primary)
+
             Text(title)
-                .font(.caption)
-                .foregroundColor(.secondary)
+                .font(.footnote)
+                .foregroundStyle(.secondary)
         }
-        .frame(maxWidth: .infinity)
-        .padding()
-        .background(Color.secondarySystemGroupedBackground)
-        .cornerRadius(12)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .clippedWithPaddingAndBackground(in: .rect(cornerRadius: 16))
     }
     
     // MARK: - Discovered Words Section
@@ -237,7 +234,7 @@ struct SongLessonResultsView: View {
                 "Back to Discover",
                 style: .borderedProminent
             ) {
-                dismiss()
+                NavigationManager.shared.popToRoot()
             }
         }
     }

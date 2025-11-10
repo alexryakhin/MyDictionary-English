@@ -20,6 +20,13 @@ final class MusicDiscoveringViewModel: BaseViewModel {
         case error(String)
     }
     
+    enum RecommendationPhase: Hashable {
+        case idle
+        case loadingRecommendations
+        case generatingRecommendations
+        case loadingAppleMusic
+    }
+    
     enum Input {
         case loadData
         case loadIncompleteSessions
@@ -36,8 +43,7 @@ final class MusicDiscoveringViewModel: BaseViewModel {
 
     @Published private(set) var loadingStatus: LoadingStatus = .idle
     @Published private(set) var recommendationSongs: [Song] = []
-    @Published private(set) var songTags: [String: SongTag] = [:]
-    @Published private(set) var songGenerationCounts: [String: Int] = [:]
+    @Published private(set) var recommendationPhase: RecommendationPhase = .idle
     @Published private(set) var listeningHistory: [MusicListeningHistory] = []
     
     // Song lesson sessions
@@ -62,6 +68,28 @@ final class MusicDiscoveringViewModel: BaseViewModel {
     override init() {
         super.init()
         setupNotificationObserver()
+    }
+    
+    var recommendationStatusMessage: String? {
+        switch recommendationPhase {
+        case .idle:
+            return nil
+        case .loadingRecommendations:
+            return String(
+                localized: "music.recommendations.loading",
+                defaultValue: "Loading recommendations"
+            )
+        case .generatingRecommendations:
+            return String(
+                localized: "music.recommendations.generating",
+                defaultValue: "Generating recommendations"
+            )
+        case .loadingAppleMusic:
+            return String(
+                localized: "music.recommendations.fetching_data",
+                defaultValue: "Getting Apple Music data"
+            )
+        }
     }
     
     deinit {
@@ -219,6 +247,7 @@ final class MusicDiscoveringViewModel: BaseViewModel {
         
         guard appleMusicService.isAuthorized else {
             loadingStatus = .idle
+            recommendationPhase = .idle
             return
         }
         
@@ -262,6 +291,7 @@ final class MusicDiscoveringViewModel: BaseViewModel {
         guard let userProfile = onboardingService.userProfile,
               let firstStudyLanguage = userProfile.studyLanguages.first else {
             print("⚠️ [MusicDiscoveringViewModel] No user profile or study language")
+            recommendationPhase = .idle
             return
         }
         
@@ -275,6 +305,7 @@ final class MusicDiscoveringViewModel: BaseViewModel {
             
             // Use cached Song objects directly - no need to search Apple Music again!
             await MainActor.run {
+                self.recommendationPhase = .idle
                 self.recommendationSongs = cachedSongs
             }
             
@@ -282,21 +313,81 @@ final class MusicDiscoveringViewModel: BaseViewModel {
         }
         
         print("📥 [MusicDiscoveringViewModel] Cache miss or expired, fetching fresh recommendations...")
+        recommendationPhase = .loadingRecommendations
 
         // Get recommendations for all CEFR levels (2 per level, 12 total)
         // This will try Firestore first, then OpenAI if needed
         do {
             let recommendationSongs = try await recommendationService.getAllLevelRecommendations(
                 language: language,
-                userProfile: userProfile
+                userProfile: userProfile,
+                statusHandler: { [weak self] phase in
+                    Task { @MainActor in
+                        guard let self else { return }
+                        switch phase {
+                        case .checkingCache:
+                            self.recommendationPhase = .loadingRecommendations
+                        case .generatingWithAI:
+                            self.recommendationPhase = .generatingRecommendations
+                        }
+                    }
+                }
             )
             
             print("✅ [MusicDiscoveringViewModel] Got \(recommendationSongs.count) recommendations from all levels")
             
+            let listeningHistory = await historyService.getHistory()
+            let completedHistory = listeningHistory.filter { $0.completed }
+            let completedAppleMusicIds = Set(completedHistory.map { $0.song.serviceId }.filter { !$0.isEmpty })
+            let completedTitleArtistPairs = Set(completedHistory.map {
+                [$0.song.title.folding(options: [.caseInsensitive, .diacriticInsensitive], locale: .current),
+                 $0.song.artist.folding(options: [.caseInsensitive, .diacriticInsensitive], locale: .current)].joined(separator: "|")
+            })
+            
+            let filteredRecommendations = recommendationSongs.filter { recommendation in
+                if let appleMusicId = recommendation.appleMusicId, completedAppleMusicIds.contains(appleMusicId) {
+                    return false
+                }
+                
+                let normalizedTitle = recommendation.title.folding(options: [.caseInsensitive, .diacriticInsensitive], locale: .current)
+                let normalizedArtist = recommendation.artist.folding(options: [.caseInsensitive, .diacriticInsensitive], locale: .current)
+                return !completedTitleArtistPairs.contains([normalizedTitle, normalizedArtist].joined(separator: "|"))
+            }
+            
+            if filteredRecommendations.count != recommendationSongs.count {
+                print("ℹ️ [MusicDiscoveringViewModel] Filtered out \(recommendationSongs.count - filteredRecommendations.count) completed songs from recommendations")
+            }
+            
+            let groupedByLevel = Dictionary(grouping: filteredRecommendations) { $0.cefrLevel }
+            var prioritized: [RecommendationSong] = []
+            var overflow: [RecommendationSong] = []
+            
+            for level in CEFRLevel.allCases {
+                guard let songs = groupedByLevel[level], !songs.isEmpty else { continue }
+                let shuffled = songs.shuffled()
+                let primary = Array(shuffled.prefix(2))
+                prioritized.append(contentsOf: primary)
+                if shuffled.count > 2 {
+                    overflow.append(contentsOf: shuffled.dropFirst(2))
+                }
+            }
+            
+            overflow.shuffle()
+            let combined = prioritized + overflow
+            let recommendationQueue = combined.isEmpty ? filteredRecommendations.shuffled() : combined
+            let limitedQueue = Array(recommendationQueue.prefix(12))
+            
             // Convert RecommendationSong to Song objects with artwork
             var songsWithArtwork: [Song] = []
+            var seenSongs = Set<String>()
             
-            for songRec in recommendationSongs {
+            recommendationPhase = .loadingAppleMusic
+            
+            for songRec in limitedQueue {
+                let identity = "\(songRec.title.lowercased())-\(songRec.artist.lowercased())"
+                if seenSongs.contains(identity) {
+                    continue
+                }
                 do {
                     let query = "\(songRec.artist) \(songRec.title)"
                     let songs = try await appleMusicService.searchSongs(query: query, language: nil)
@@ -315,6 +406,7 @@ final class MusicDiscoveringViewModel: BaseViewModel {
                             cefrLevel: songRec.cefrLevel
                         )
                         songsWithArtwork.append(songWithCEFR)
+                        seenSongs.insert(identity)
                     } else {
                         print("⚠️ [MusicDiscoveringViewModel] No results found for \(songRec.artist) - \(songRec.title), skipping")
                     }
@@ -326,6 +418,7 @@ final class MusicDiscoveringViewModel: BaseViewModel {
             
             // Update recommendationSongs for UI
             await MainActor.run {
+                self.recommendationPhase = .idle
                 self.recommendationSongs = songsWithArtwork
             }
             
@@ -333,6 +426,7 @@ final class MusicDiscoveringViewModel: BaseViewModel {
             saveCachedSongs(songsWithArtwork)
         } catch {
             print("❌ [MusicDiscoveringViewModel] Failed to generate recommendations: \(error.localizedDescription)")
+            recommendationPhase = .idle
             throw error
         }
     }

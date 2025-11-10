@@ -19,7 +19,7 @@ struct MusicDiscoveringView<ContentPicker: View>: View {
         self.discoverViewModel = discoverViewModel
         self.contentPicker = contentPicker
     }
-    
+
     private var isSearchActive: Bool {
         !viewModel.searchText.isEmpty
     }
@@ -62,11 +62,6 @@ struct MusicDiscoveringView<ContentPicker: View>: View {
                 }
             }
         )
-        .overlay {
-            if isAppleMusicAuthorized {
-                emptyOverlayView
-            }
-        }
         .onChange(of: viewModel.searchText) { _, newValue in
             if !newValue.isEmpty {
                 viewModel.handle(.filterSectionsBySearch(query: newValue))
@@ -92,83 +87,74 @@ struct MusicDiscoveringView<ContentPicker: View>: View {
     }
 
     // MARK: - Sections
-    
+
     @ViewBuilder
     private var notFinishedSection: some View {
         if !viewModel.incompleteSessions.isEmpty {
             CustomSectionView(header: "Not Finished") {
                 ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 16) {
+                    LazyHStack(spacing: 16) {
                         ForEach(viewModel.incompleteSessions) { session in
                             if let song = session.song {
-                                SongSuggestionCard(
-                                    song: song,
-                                    songTag: viewModel.songTags[song.id],
-                                    generationCount: viewModel.songGenerationCounts[song.id]
-                                ) {
+                                SongSuggestionCard(song: song) {
                                     selectedSong = song
                                 }
                             }
                         }
                     }
-                    .padding(.vertical, 8)
+                    .scrollTargetLayout()
                 }
                 .scrollTargetBehavior(.viewAligned)
                 .scrollClipDisabled()
             }
         }
     }
-    
-    @ViewBuilder
+
     private var recommendedForYouSection: some View {
-        if viewModel.recommendationSongs.isNotEmpty {
-            CustomSectionView(header: "Recommended For You") {
+        CustomSectionView(header: "Recommended For You") {
+            if viewModel.recommendationPhase != .idle {
+                RecommendationSectionSkeleton(statusMessage: viewModel.recommendationStatusMessage)
+            } else if viewModel.recommendationSongs.isEmpty {
+                RecommendationEmptyView()
+            } else {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 16) {
                         ForEach(viewModel.recommendationSongs) { song in
-                            SongSuggestionCard(
-                                song: song,
-                                songTag: viewModel.songTags[song.id],
-                                generationCount: viewModel.songGenerationCounts[song.id]
-                            ) {
+                            SongSuggestionCard(song: song) {
                                 selectedSong = song
                             }
                         }
                     }
-                    .padding(.vertical, 8)
+                    .scrollTargetLayout()
                 }
                 .scrollTargetBehavior(.viewAligned)
                 .scrollClipDisabled()
             }
         }
     }
-    
+
     @ViewBuilder
     private var favoriteSongsSection: some View {
         if !viewModel.favoriteSongs.isEmpty {
             CustomSectionView(header: "Favorite Songs") {
                 ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 16) {
+                    LazyHStack(spacing: 16) {
                         ForEach(viewModel.favoriteSongs) { session in
                             if let song = session.song {
-                                SongSuggestionCard(
-                                    song: song,
-                                    songTag: viewModel.songTags[song.id],
-                                    generationCount: viewModel.songGenerationCounts[song.id]
-                                ) {
+                                SongSuggestionCard(song: song) {
                                     selectedSong = song
                                 }
                             }
                         }
                     }
-                    .padding(.vertical, 8)
+                    .scrollTargetLayout()
                 }
                 .scrollTargetBehavior(.viewAligned)
                 .scrollClipDisabled()
             }
         }
     }
-    
+
     @ViewBuilder
     private var searchResultsSection: some View {
         if viewModel.isSearching {
@@ -178,18 +164,34 @@ struct MusicDiscoveringView<ContentPicker: View>: View {
             }
         } else if !viewModel.searchResults.isEmpty {
             CustomSectionView(header: "Search Results") {
-                LazyVStack(spacing: 12) {
+                LazyVGrid(
+                    columns: Array(repeating: GridItem(.flexible(), spacing: 12), count: 2),
+                    spacing: 12
+                ) {
                     ForEach(viewModel.searchResults) { song in
-                        SongSuggestionCard(
-                            song: song,
-                            songTag: viewModel.songTags[song.id],
-                            generationCount: viewModel.songGenerationCounts[song.id]
-                        ) {
+                        SongSuggestionCard(song: song) {
                             selectedSong = song
                         }
                     }
                 }
                 .padding(.vertical, 8)
+            }
+        } else {
+            CustomSectionView(header: "Search Results") {
+                ContentUnavailableView(
+                    String(
+                        localized: "music.search.empty.title",
+                        defaultValue: "No results found"
+                    ),
+                    systemImage: "magnifyingglass",
+                    description: Text(
+                        String(
+                            localized: "music.search.empty.subtitle",
+                            defaultValue: "Try a different song title or artist."
+                        )
+                    )
+                )
+                .padding(.vertical, 24)
             }
         }
     }
@@ -200,133 +202,20 @@ struct MusicDiscoveringView<ContentPicker: View>: View {
     private var historySection: some View {
         if !viewModel.completedSessions.isEmpty {
             CustomSectionView(header: "History") {
-                LazyVStack(spacing: 12) {
-                    ForEach(viewModel.completedSessions) { session in
-                        if let song = session.song {
-                            SongSuggestionCard(
-                                song: song,
-                                songTag: viewModel.songTags[song.id],
-                                generationCount: viewModel.songGenerationCounts[song.id]
-                            ) {
-                                selectedSong = song
+                ScrollView(.horizontal, showsIndicators: false) {
+                    LazyHStack(spacing: 12) {
+                        ForEach(viewModel.completedSessions) { session in
+                            if let song = session.song {
+                                SongSuggestionCard(song: song) {
+                                    selectedSong = song
+                                }
                             }
                         }
                     }
+                    .scrollTargetLayout()
                 }
-                .padding(.vertical, 8)
-            }
-        }
-    }
-
-    // MARK: - Empty overlay
-    
-    @ViewBuilder
-    private var emptyOverlayView: some View {
-        if isSearchActive && !viewModel.searchText.isEmpty {
-            if !viewModel.isSearching && viewModel.searchResults.isEmpty {
-                emptySearchResultsView
-            }
-        } else {
-            if case .loadingSuggestions = viewModel.loadingStatus {
-                loadingSuggestionsView
-            } else if viewModel.incompleteSessions.isEmpty &&
-                      viewModel.recommendationSongs.isEmpty &&
-                      viewModel.favoriteSongs.isEmpty &&
-                      viewModel.completedSessions.isEmpty {
-                emptyAllSectionsView
-            }
-        }
-    }
-    
-    private var emptySearchResultsView: some View {
-        ContentUnavailableView(
-            "No results found",
-            systemImage: "magnifyingglass",
-            description: Text("Try searching for a different song")
-        )
-    }
-    
-    private var emptyAllSectionsView: some View {
-        ContentUnavailableView(
-            "No songs available",
-            systemImage: "music.note.list",
-            description: Text("Start exploring songs to build your collection")
-        )
-    }
-    
-    private var loadingSuggestionsView: some View {
-        MusicDiscoveringSkeletonView()
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-    }
-}
-
-// MARK: - Skeleton Loading Views
-
-struct MusicDiscoveringSkeletonView: View {
-    var body: some View {
-        ScrollView {
-            LazyVStack(spacing: 20) {
-                // Recommended For You Section Skeleton
-                recommendedSectionSkeleton
-                
-                // Favorite Songs Section Skeleton
-                favoriteSectionSkeleton
-                
-                // History Section Skeleton
-                historySectionSkeleton
-            }
-            .padding(vertical: 12, horizontal: 16)
-        }
-    }
-    
-    private var recommendedSectionSkeleton: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            // Section header shimmer
-            ShimmerView(width: 180, height: 24)
-                .clipShape(RoundedRectangle(cornerRadius: 6))
-            
-            // Horizontal scrolling cards
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 16) {
-                    ForEach(0..<4, id: \.self) { _ in
-                        SongCardSkeleton()
-                    }
-                }
-            }
-        }
-    }
-    
-    private var favoriteSectionSkeleton: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            // Section header shimmer
-            ShimmerView(width: 140, height: 24)
-                .clipShape(RoundedRectangle(cornerRadius: 6))
-            
-            // Horizontal scrolling cards
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 16) {
-                    ForEach(0..<3, id: \.self) { _ in
-                        SongCardSkeleton()
-                    }
-                }
-            }
-        }
-    }
-    
-    private var historySectionSkeleton: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            // Section header shimmer
-            ShimmerView(width: 100, height: 24)
-                .clipShape(RoundedRectangle(cornerRadius: 6))
-            
-            // Vertical list of cards
-            VStack(spacing: 12) {
-                ForEach(0..<3, id: \.self) { _ in
-                    HStack(spacing: 12) {
-                        SongCardSkeleton()
-                        Spacer()
-                    }
-                }
+                .scrollTargetBehavior(.viewAligned)
+                .scrollClipDisabled()
             }
         }
     }
@@ -364,10 +253,56 @@ struct SongCardSkeleton: View {
     }
 }
 
+private struct RecommendationSectionSkeleton: View {
+    let statusMessage: String?
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            if let statusMessage {
+                Text(statusMessage)
+                    .font(.footnote)
+                    .foregroundStyle(.secondary)
+                    .padding(.bottom, 4)
+            }
+            
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 16) {
+                    ForEach(0..<4, id: \.self) { _ in
+                        SongCardSkeleton()
+                    }
+                }
+                .scrollTargetLayout()
+            }
+            .scrollTargetBehavior(.viewAligned)
+            .scrollClipDisabled()
+        }
+    }
+}
+
+private struct RecommendationEmptyView: View {
+    var body: some View {
+        ContentUnavailableView(
+            String(
+                localized: "music.recommendations.empty.title",
+                defaultValue: "No recommendations yet"
+            ),
+            systemImage: "sparkles",
+            description: Text(
+                String(
+                    localized: "music.recommendations.empty.subtitle",
+                    defaultValue: "Try generating a lesson to seed new songs."
+                )
+            )
+        )
+        .padding(.vertical, 24)
+    }
+}
+
 // MARK: - Previews
 
 #Preview("Skeleton Loading") {
-    MusicDiscoveringSkeletonView()
+    RecommendationSectionSkeleton(statusMessage: "Generating recommendations")
+        .padding()
         .groupedBackground()
 }
 

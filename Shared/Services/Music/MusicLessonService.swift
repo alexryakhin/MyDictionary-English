@@ -17,6 +17,7 @@ final class MusicLessonService {
     private let db = Firestore.firestore()
     private let aiService = AIService.shared
     private let coreDataService = CoreDataService.shared
+    private let recommendationService = MusicRecommendationService.shared
     
     private init() {}
     
@@ -91,6 +92,18 @@ final class MusicLessonService {
         // 6. Save to Firestore (public cache) - save after generation during listening
         let languagePath = targetLanguage.englishName.lowercased()
         try await saveLessonToFirestore(firestoreLesson, for: song.id, languagePath: languagePath)
+        
+        // 6a. Append song to shared recommendations for other users
+        do {
+            try await recommendationService.addSongToRecommendations(
+                from: song,
+                language: targetLanguage,
+                cefrLevel: cefrLevel,
+                reason: "User generated lesson"
+            )
+        } catch {
+            logWarning("[MusicLessonService] Failed to append song '\(song.title)' to recommendations: \(error.localizedDescription)")
+        }
 
         // 7. Create adapted lesson (lessons are language-specific)
         let adapted = AdaptedLesson(
