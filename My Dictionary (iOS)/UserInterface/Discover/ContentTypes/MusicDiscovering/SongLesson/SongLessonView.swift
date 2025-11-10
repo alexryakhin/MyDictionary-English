@@ -42,7 +42,23 @@ struct SongLessonView: View {
     }
     
     var body: some View {
-        lessonContent(viewModel.lesson)
+        ScrollView {
+            VStack(spacing: 24) {
+                lessonOverviewSection(viewModel.lesson)
+                phrasesSection()
+                grammarSection(viewModel.lesson.grammarNuggets)
+                cultureSection(viewModel.lesson.cultureNotes)
+                fillInBlanksSection(viewModel.lesson.quiz.fillInBlanks)
+                multipleChoiceSection(
+                    viewModel.lesson.quiz.meaningMCQ,
+                    questionOffset: viewModel.lesson.quiz.fillInBlanks.count
+                )
+                reflectionSection(viewModel.lesson)
+            }
+            .padding()
+            .frame(maxWidth: .infinity, alignment: .leading)
+        }
+        .groupedBackground()
         .navigation(
             title: config.song.title,
             mode: .regular,
@@ -65,33 +81,14 @@ struct SongLessonView: View {
             }
         }
     }
-    
-    // MARK: - Lesson Content
-    
-    private func lessonContent(_ lesson: AdaptedLesson) -> some View {
-        ScrollView {
-            VStack(spacing: 24) {
-                lessonOverviewSection(lesson)
-                phrasesSection()
-                grammarSection(lesson.grammarNuggets)
-                cultureSection(lesson.cultureNotes)
-                fillInBlanksSection(lesson.quiz.fillInBlanks)
-                multipleChoiceSection(
-                    lesson.quiz.meaningMCQ,
-                    questionOffset: lesson.quiz.fillInBlanks.count
-                )
-                reflectionSection(lesson)
-            }
-            .padding()
-            .frame(maxWidth: .infinity, alignment: .leading)
-        }
-        .groupedBackground()
-    }
-    
+
     // MARK: - Overview
     
     private func lessonOverviewSection(_ lesson: AdaptedLesson) -> some View {
-        CustomSectionView(header: "Lesson Path", headerFontStyle: .large) {
+        CustomSectionView(
+            header: "Lesson Path",
+            headerFontStyle: .large
+        ) {
             VStack(alignment: .leading, spacing: 12) {
                 Text("Immerse yourself in **\(config.song.title)** by \(config.song.artist). This lesson guides you from lyrical meaning to cultural context before challenging you with active recall.")
                     .font(.subheadline)
@@ -191,19 +188,25 @@ struct SongLessonView: View {
     
     private func grammarCard(_ nugget: GrammarNugget) -> some View {
         VStack(alignment: .leading, spacing: 12) {
-            // Rule
-            Text(nugget.rule)
-                .font(.headline)
-            
-            // Example
+            HStack {
+                Text(nugget.rule)
+                    .font(.headline)
+                    .multilineTextAlignment(.leading)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+
+                TagView(
+                    text: nugget.cefr.displayName,
+                    size: .small
+                )
+            }
+
             Text(nugget.example)
                 .font(.subheadline)
                 .foregroundColor(.secondary)
-            
-            TagView(
-                text: nugget.cefr.displayName,
-                size: .small
-            )
+
+            Text(nugget.explanation)
+                .font(.footnote)
+                .foregroundColor(.secondary)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .clippedWithPaddingAndBackground(.tertiarySystemGroupedBackground, in: .rect(cornerRadius: 12))
@@ -211,39 +214,29 @@ struct SongLessonView: View {
     
     // MARK: - Culture Section
     
-    private func cultureSection(_ notes: [CultureNote]) -> some View {
-        CustomSectionView(header: "Cultural Notes", headerSubtitle: "Context that brings the lyrics to life.") {
-            if notes.isEmpty {
+    private func cultureSection(_ note: String) -> some View {
+        CustomSectionView(
+            header: "Cultural Notes",
+            headerSubtitle: "Context that brings the lyrics to life."
+        ) {
+            if note.isEmpty {
                 emptySectionPlaceholder("No cultural context provided.")
             } else {
-                LazyVStack(spacing: 12) {
-                    ForEach(Array(notes.enumerated()), id: \.offset) { _, note in
-                        cultureCard(note)
-                    }
-                }
+                Text(note)
+                    .font(.body)
+                    .multilineTextAlignment(.leading)
+                    .frame(maxWidth: .infinity, alignment: .leading)
             }
         }
     }
-    
-    private func cultureCard(_ note: CultureNote) -> some View {
-        VStack(alignment: .leading, spacing: 12) {
-            // Text
-            Text(note.text)
-                .font(.body)
-            
-            TagView(
-                text: note.cefr.displayName,
-                size: .small
-            )
-        }
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .clippedWithPaddingAndBackground(.tertiarySystemGroupedBackground, in: .rect(cornerRadius: 12))
-    }
-    
+
     // MARK: - Fill in the Blanks Section
     
     private func fillInBlanksSection(_ items: [FillInBlankItem]) -> some View {
-        CustomSectionView(header: "Practice • Fill the Blank", headerSubtitle: "Test recall with lyric-based prompts.") {
+        CustomSectionView(
+            header: "Practice • Fill the Blank",
+            headerSubtitle: "Test recall with lyric-based prompts."
+        ) {
             if items.isEmpty {
                 emptySectionPlaceholder("Fill-in-the-blank practice will appear once available.")
             } else {
@@ -252,15 +245,12 @@ struct SongLessonView: View {
                         items: items,
                         initialAnswers: quizAnswersDictionary(
                             totalQuestions: items.count,
-                            offset: 0
+                            offset: 0,
+                            type: .fillInBlank
                         ),
                         questionIndexOffset: 0,
                         onAnswer: { submission in
-                            viewModel.handle(.submitQuizAnswer(
-                                questionIndex: submission.questionIndex,
-                                answerIndex: submission.selectedAnswerIndex,
-                                isCorrect: submission.isCorrect
-                            ))
+                            viewModel.handle(.submitQuizAnswer(submission))
                         },
                         onCompletion: { _ in
                             viewModel.handle(.saveSession)
@@ -274,7 +264,10 @@ struct SongLessonView: View {
     // MARK: - Multiple Choice Section
     
     private func multipleChoiceSection(_ items: [MCQItem], questionOffset: Int) -> some View {
-        CustomSectionView(header: "Practice • Comprehension Quiz", headerSubtitle: "Choose the best answer to reinforce meaning.") {
+        CustomSectionView(
+            header: "Practice • Comprehension Quiz",
+            headerSubtitle: "Choose the best answer to reinforce meaning."
+        ) {
             if items.isEmpty {
                 emptySectionPlaceholder("Multiple-choice practice will appear once available.")
             } else {
@@ -283,15 +276,12 @@ struct SongLessonView: View {
                         items: items,
                         initialAnswers: quizAnswersDictionary(
                             totalQuestions: items.count,
-                            offset: questionOffset
+                            offset: questionOffset,
+                            type: .meaningMCQ
                         ),
                         questionIndexOffset: questionOffset,
                         onAnswer: { submission in
-                            viewModel.handle(.submitQuizAnswer(
-                                questionIndex: submission.questionIndex,
-                                answerIndex: submission.selectedAnswerIndex,
-                                isCorrect: submission.isCorrect
-                            ))
+                            viewModel.handle(.submitQuizAnswer(submission))
                         },
                         onCompletion: { _ in
                             viewModel.handle(.saveSession)
@@ -310,7 +300,10 @@ struct SongLessonView: View {
         let answeredQuestions = viewModel.currentSession.quizAnswers.count
         let isReadyToFinish = totalQuestions == 0 || answeredQuestions >= totalQuestions
 
-        CustomSectionView(header: "Reflect & Wrap-up", headerSubtitle: "Capture what resonated and continue your streak.") {
+        CustomSectionView(
+            header: "Reflect & Wrap-up",
+            headerSubtitle: "Capture what resonated and continue your streak."
+        ) {
             VStack(alignment: .leading, spacing: 12) {
                 Text("When you finish the quizzes, tap **Finish** to save your progress and view lesson results.")
                     .font(.subheadline)
@@ -333,10 +326,15 @@ struct SongLessonView: View {
     
     // MARK: - Helpers
 
-    private func quizAnswersDictionary(totalQuestions: Int, offset: Int) -> [Int: Int] {
+    private func quizAnswersDictionary(
+        totalQuestions: Int,
+        offset: Int,
+        type: MusicDiscoveringSession.QuizAnswer.QuizType
+    ) -> [Int: Int] {
         guard totalQuestions > 0 else { return [:] }
         var dictionary: [Int: Int] = [:]
         for answer in viewModel.currentSession.quizAnswers {
+            guard answer.type == type else { continue }
             let relativeIndex = answer.questionIndex - offset
             guard relativeIndex >= 0, relativeIndex < totalQuestions else { continue }
             dictionary[relativeIndex] = answer.selectedAnswerIndex

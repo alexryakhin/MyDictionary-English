@@ -217,4 +217,3 @@ struct StorySession: Identifiable {
         discoveredWords.insert(word.lowercased())
     }
 }
-

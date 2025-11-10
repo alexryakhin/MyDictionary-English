@@ -137,7 +137,6 @@ struct PremiumRequiredView: View {
                 style: .borderedProminent
             ) {
                 PaywallService.shared.presentPaywall(for: .musicLessons)
-
             }
             .padding(.top, 8)
         }

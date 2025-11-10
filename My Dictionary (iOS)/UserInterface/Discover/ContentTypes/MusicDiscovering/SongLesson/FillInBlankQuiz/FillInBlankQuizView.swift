@@ -42,11 +42,11 @@ extension SongLesson {
         private func quizCard(for item: FillInBlankItem) -> some View {
             VStack(alignment: .leading, spacing: 12) {
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(item.prompt)
+                    Text("Complete the lyric by choosing the missing word.")
                         .font(.subheadline)
                         .foregroundColor(.primary)
 
-                    Text(item.lyricReference)
+                    Text(item.lyricReference.replacingOccurrences(of: item.blankWord, with: "___"))
                         .font(.headline)
                         .foregroundColor(.primary)
                 }
@@ -75,6 +75,9 @@ extension SongLesson {
                 viewModel.selectOption(at: optionIndex)
                 if !wasAnswered, let isCorrect = viewModel.currentSelectionIsCorrect {
                     HapticManager.shared.triggerImpact(style: isCorrect ? .medium : .light)
+                }
+                if viewModel.currentQuestionIndex == viewModel.items.count - 1 {
+                    viewModel.finishQuiz()
                 }
             } label: {
                 HStack {
@@ -118,22 +121,21 @@ extension SongLesson {
 
         private func questionNavigation() -> some View {
             HStack {
-                ActionButton("Previous", systemImage: "chevron.left") {
+                ActionButton(
+                    "Previous",
+                    systemImage: "chevron.left"
+                ) {
                     viewModel.goToPreviousQuestion()
                 }
                 .disabled(viewModel.currentQuestionIndex == 0)
 
                 ActionButton(
-                    viewModel.currentQuestionIndex < viewModel.items.count - 1 ? "Next" : "Finish",
+                    "Next",
                     systemImage: "chevron.right"
                 ) {
-                    if viewModel.currentQuestionIndex < viewModel.items.count - 1 {
-                        viewModel.goToNextQuestion()
-                    } else {
-                        viewModel.finishQuiz()
-                    }
+                    viewModel.goToNextQuestion()
                 }
-                .disabled(!viewModel.allQuestionsAnswered && viewModel.currentQuestionIndex == viewModel.items.count - 1)
+                .disabled(viewModel.currentQuestionIndex == viewModel.items.count - 1)
             }
         }
     }

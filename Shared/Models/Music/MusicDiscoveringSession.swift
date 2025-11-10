@@ -20,10 +20,34 @@ struct MusicDiscoveringSession: Codable, Hashable, Identifiable {
     var lastPlayedAt: Date
     
     struct QuizAnswer: Hashable, Codable {
+        enum QuizType: String, Codable {
+            case fillInBlank
+            case meaningMCQ
+        }
+        
         let questionIndex: Int
         let selectedAnswerIndex: Int
         let isCorrect: Bool
         let answeredAt: Date
+        let type: QuizType
+        
+        init(
+            questionIndex: Int,
+            selectedAnswerIndex: Int,
+            isCorrect: Bool,
+            type: QuizType,
+            answeredAt: Date = Date()
+        ) {
+            self.questionIndex = questionIndex
+            self.selectedAnswerIndex = selectedAnswerIndex
+            self.isCorrect = isCorrect
+            self.answeredAt = answeredAt
+            self.type = type
+        }
+        
+        func matches(questionIndex: Int, type: QuizType) -> Bool {
+            self.questionIndex == questionIndex && self.type == type
+        }
     }
     
     init(song: Song) {
@@ -84,15 +108,16 @@ struct MusicDiscoveringSession: Codable, Hashable, Identifiable {
         lastPlayedAt = Date()
     }
     
-    mutating func submitQuizAnswer(questionIndex: Int, answerIndex: Int, isCorrect: Bool) {
+    mutating func submitQuizAnswer(_ submission: SongLesson.QuizSubmission) {
+        let quizType = submission.type.sessionQuizType
         let answer = QuizAnswer(
-            questionIndex: questionIndex,
-            selectedAnswerIndex: answerIndex,
-            isCorrect: isCorrect,
+            questionIndex: submission.questionIndex,
+            selectedAnswerIndex: submission.selectedAnswerIndex,
+            isCorrect: submission.isCorrect,
+            type: quizType,
             answeredAt: Date()
         )
-        // Remove existing answer for same question if any
-        quizAnswers.removeAll { $0.questionIndex == questionIndex }
+        quizAnswers.removeAll { $0.matches(questionIndex: answer.questionIndex, type: quizType) }
         quizAnswers.append(answer)
     }
     

@@ -74,7 +74,11 @@ final class MusicLessonService {
         ))
         
         // 5. Convert to FirestoreLesson format
-        let quizTemplate = try prepareQuizTemplate(for: response, song: song)
+        let quizTemplate = try prepareQuizTemplate(
+            for: response,
+            song: song,
+            lyrics: lyricsText
+        )
         
         let firestoreLesson = convertToFirestoreLesson(
             response,
@@ -161,8 +165,8 @@ final class MusicLessonService {
     
     /// Generate quiz from template (randomized per session)
     private func generateQuizFromTemplate(_ template: QuizTemplate, level: CEFRLevel) -> AdaptedQuiz {
-        // Randomly select fill-in-blank items (up to 5)
-        let fillInItems = Array(template.fillInBlanks.shuffled().prefix(5))
+        // Use all available fill-in-blank items (already limited when generated)
+        let fillInItems = template.fillInBlanks.shuffled()
         
         // Randomly select MCQ items (up to 5)
         let mcqItems = Array(template.meaningMCQ.shuffled().prefix(5))
@@ -216,30 +220,23 @@ final class MusicLessonService {
             )
         }
         
-        // Convert explanations to grammar nuggets (simplified)
-        let grammarNuggets: [GrammarNugget] = [] // Will be enhanced by AI
-        
-        // Convert cultural context to culture notes
-        let cultureNotes: [CultureNote]
-        if let culturalContext = response.culturalContext {
-            cultureNotes = [
-                CultureNote(
-                    text: culturalContext,
-                    cefr: cefr
-                )
-            ]
-        } else {
-            cultureNotes = []
+        let grammarNuggets: [GrammarNugget] = response.grammarNuggets.map {
+            GrammarNugget(
+                rule: $0.rule,
+                example: $0.example,
+                explanation: $0.explanation,
+                cefr: $0.cefr
+            )
         }
-        
-        let quizTemplate = quizTemplateOverride ?? buildQuizTemplate(from: response.quiz)
-        
+
+        let quizTemplate = quizTemplateOverride ?? buildQuizTemplate(from: response.comprehensionQuestions, fillInItems: [])
+
         return FirestoreLesson(
             songId: songId,
             language: language,
             phrases: phrases,
             grammarNuggets: grammarNuggets,
-            cultureNotes: cultureNotes,
+            cultureNotes: response.culturalContext,
             quizTemplate: quizTemplate,
             generatedBy: "gpt-4o-mini",
             generatedAt: Date(),
@@ -249,25 +246,38 @@ final class MusicLessonService {
     
     func prepareQuizTemplate(
         for response: MusicDiscoveringResponse,
-        song: Song
+        song: Song,
+        lyrics: String
     ) throws -> QuizTemplate {
         do {
-            try validateQuiz(response.quiz, song: song)
-            logSuccess("[MusicLessonService] Using AI-provided quiz for '\(song.title)' (MCQ: \(response.quiz.multipleChoice.count), Fill-in: \(response.quiz.fillInBlanks.count))")
-            return buildQuizTemplate(from: response.quiz)
+            try validateQuiz(
+                comprehensionQuestions: response.comprehensionQuestions,
+                song: song
+            )
+
+            let fillInItems = try generateFillInBlankItems(from: lyrics, song: song)
+
+            let template = buildQuizTemplate(
+                from: response.comprehensionQuestions,
+                fillInItems: fillInItems
+            )
+
+            logSuccess("[MusicLessonService] Prepared quiz for '\(song.title)' (MCQ: \(template.meaningMCQ.count), Fill-in: \(template.fillInBlanks.count))")
+
+            return template
         } catch {
             logWarning("[MusicLessonService] Falling back to on-device quiz generation for '\(song.title)': \(error.localizedDescription)")
             throw error
         }
     }
     
-    private func validateQuiz(_ quiz: AIMusicLessonQuiz, song: Song) throws {
-        if quiz.multipleChoice.isEmpty || quiz.fillInBlanks.isEmpty {
-            logError("[MusicLessonService] Quiz missing sections for song '\(song.title)' – MCQ count: \(quiz.multipleChoice.count), Fill-in count: \(quiz.fillInBlanks.count)")
+    private func validateQuiz(comprehensionQuestions: [AIComprehensionQuestion], song: Song) throws {
+        if comprehensionQuestions.isEmpty {
+            logError("[MusicLessonService] Quiz missing MCQ section for song '\(song.title)'")
             throw MusicError.invalidResponse
         }
-        
-        for (index, question) in quiz.multipleChoice.enumerated() {
+
+        for (index, question) in comprehensionQuestions.enumerated() {
             if question.options.count != 4 {
                 logError("[MusicLessonService] MCQ \(index + 1) for '\(song.title)' does not have 4 options (found \(question.options.count))")
                 throw MusicError.invalidResponse
@@ -279,36 +289,13 @@ final class MusicLessonService {
                 throw MusicError.invalidResponse
             }
         }
-        
-        for (index, item) in quiz.fillInBlanks.enumerated() {
-            if item.options.count != 4 {
-                logError("[MusicLessonService] Fill-in-the-blank \(index + 1) for '\(song.title)' does not have 4 options (found \(item.options.count))")
-                throw MusicError.invalidResponse
-            }
-            
-            if !item.options.contains(where: { $0.caseInsensitiveCompare(item.correctAnswer) == .orderedSame }) {
-                logError("[MusicLessonService] Fill-in-the-blank \(index + 1) for '\(song.title)' is missing the correct answer in options")
-                throw MusicError.invalidResponse
-            }
-        }
     }
     
-    private func buildQuizTemplate(from quiz: AIMusicLessonQuiz) -> QuizTemplate {
-        let fillInItems: [FillInBlankItem] = quiz.fillInBlanks.enumerated().map { index, item in
-            var options = item.options
-            if !options.contains(item.correctAnswer) {
-                options.insert(item.correctAnswer, at: 0)
-            }
-            return FillInBlankItem(
-                lyricReference: item.lyricReference,
-                blankWord: item.correctAnswer,
-                options: options,
-                prompt: item.prompt,
-                explanation: item.explanation
-            )
-        }
-        
-        let meaningItems: [MCQItem] = quiz.multipleChoice.enumerated().compactMap { index, question in
+    private func buildQuizTemplate(
+        from comprehensionQuestions: [AIComprehensionQuestion],
+        fillInItems: [FillInBlankItem]
+    ) -> QuizTemplate {
+        let meaningItems: [MCQItem] = comprehensionQuestions.enumerated().compactMap { index, question in
             guard let correct = question.options.first(where: { $0.isCorrect }) else {
                 logWarning("[MusicLessonService] Missing correct option for MCQ at index \(index)")
                 return nil
@@ -328,7 +315,7 @@ final class MusicLessonService {
         )
     }
     
-    private func buildFallbackMCQItems(from vocabulary: [VocabularyWord]) -> [MCQItem] {
+    private func buildFallbackMCQItems(from vocabulary: [MusicDiscoveringResponse.VocabularyWord]) -> [MCQItem] {
         let candidates = vocabulary.filter { !$0.definition.isEmpty }
         var items: [MCQItem] = []
         
@@ -360,13 +347,106 @@ final class MusicLessonService {
         return items
     }
     
+    private func generateFillInBlankItems(from lyrics: String, song: Song) throws -> [FillInBlankItem] {
+        let rawLines = lyrics
+            .components(separatedBy: .newlines)
+            .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+            .filter { !$0.isEmpty }
+        
+        var uniqueLines: [String] = []
+        var seenLines = Set<String>()
+        for line in rawLines {
+            let key = line.lowercased()
+            if !seenLines.contains(key) {
+                uniqueLines.append(line)
+                seenLines.insert(key)
+            }
+        }
+        
+        let globalWordPool = uniqueLines
+            .flatMap { tokenizeWords(in: $0) }
+        
+        let uniqueWordPool = Dictionary(grouping: globalWordPool, by: { $0.normalized })
+            .compactMap { $0.value.first }
+            .filter { $0.original.count >= 3 }
+        
+        guard uniqueLines.count >= 5, uniqueWordPool.count >= 4 else {
+            logError("[MusicLessonService] Not enough lyrics content to build fill-in blanks for '\(song.title)'")
+            throw MusicError.invalidResponse
+        }
+        
+        let maxQuestions = min(10, uniqueLines.count)
+        let minQuestions = min(5, maxQuestions)
+        guard minQuestions > 0 else {
+            throw MusicError.invalidResponse
+        }
+        let questionRange = minQuestions == maxQuestions ? minQuestions...maxQuestions : minQuestions...maxQuestions
+        let questionCount = questionRange.lowerBound == questionRange.upperBound ? questionRange.lowerBound : Int.random(in: questionRange)
+        
+        var generatedItems: [FillInBlankItem] = []
+        let shuffledLines = uniqueLines.shuffled()
+        
+        for line in shuffledLines {
+            guard generatedItems.count < questionCount else { break }
+            let candidates = tokenizeWords(in: line)
+            var uniqueCandidates: [WordCandidate] = []
+            var seen = Set<String>()
+            for candidate in candidates where candidate.original.count >= 3 {
+                if seen.insert(candidate.normalized).inserted {
+                    uniqueCandidates.append(candidate)
+                }
+            }
+            guard let answer = uniqueCandidates.randomElement() else { continue }
+            
+            let distractorPool = uniqueWordPool.filter { $0.normalized != answer.normalized }
+            guard distractorPool.count >= 3 else { continue }
+            
+            let distractors = Array(distractorPool.shuffled().prefix(3))
+            guard distractors.count == 3 else { continue }
+            
+            var options = [answer.original] + distractors.map { $0.original }
+            options.shuffle()
+            
+            let item = FillInBlankItem(
+                lyricReference: line,
+                blankWord: answer.original,
+                options: options
+            )
+            generatedItems.append(item)
+        }
+        
+        guard generatedItems.count >= minQuestions else {
+            logError("[MusicLessonService] Generated only \(generatedItems.count) fill-in questions for '\(song.title)' (needs at least \(minQuestions))")
+            throw MusicError.invalidResponse
+        }
+        
+        return generatedItems
+    }
+    
+    private func tokenizeWords(in line: String) -> [WordCandidate] {
+        var tokens: [WordCandidate] = []
+        var current = ""
+        for character in line {
+            if character.isLetter || character.isNumber || character == "'" {
+                current.append(character)
+            } else if !current.isEmpty {
+                tokens.append(WordCandidate(original: current))
+                current.removeAll(keepingCapacity: true)
+            }
+        }
+        if !current.isEmpty {
+            tokens.append(WordCandidate(original: current))
+        }
+        return tokens
+    }
+    
     private func appendUniqueOption(_ value: String, to array: inout [String]) {
         guard array.first(where: { $0.caseInsensitiveCompare(value) == .orderedSame }) == nil else { return }
         array.append(value)
     }
     
     /// Determine CEFR level for a word (simplified - can be enhanced)
-    private func determineCEFRForWord(_ vocab: VocabularyWord) -> CEFRLevel {
+    private func determineCEFRForWord(_ vocab: MusicDiscoveringResponse.VocabularyWord) -> CEFRLevel {
         // Simple heuristic: common words are A1-A2, complex are B1+
         let wordLength = vocab.word.count
         let definitionLength = vocab.definition.count
@@ -428,78 +508,14 @@ final class MusicLessonService {
             )
         )
     }
-    
-    /// Convert AdaptedLesson to MusicDiscoveringResponse for UI
-    func convertToMusicDiscoveringResponse(_ lesson: AdaptedLesson, song: Song) -> MusicDiscoveringResponse {
-        // Convert phrases to explanations
-        let explanations = lesson.phrases.map { phrase in
-            LyricExplanation(
-                lyricLine: phrase.example,
-                explanation: "\(phrase.text): \(phrase.meaning)",
-                lineNumber: nil
-            )
-        }
-        
-        // Convert phrases to vocabulary words
-        let vocabularyWords = lesson.phrases.map { phrase in
-            VocabularyWord(
-                word: phrase.text,
-                definition: phrase.meaning,
-                phonetics: phrase.phonetics,
-                examples: [phrase.example],
-                partOfSpeech: phrase.partOfSpeech,
-                context: phrase.example
-            )
-        }
-        
-        // Combine culture notes
-        let culturalContext = lesson.cultureNotes.map { $0.text }.joined(separator: "\n\n")
-        
-        // Convert quiz to AIMusicLessonQuiz
-        let multipleChoice = lesson.quiz.meaningMCQ.map { mcq in
-            AIComprehensionQuestion(
-                question: mcq.question,
-                options: mcq.options.map { option in
-                    AIComprehensionOption(
-                        text: option,
-                        isCorrect: option == mcq.correctAnswer
-                    )
-                },
-                explanation: mcq.explanation
-            )
-        }
-        
-        let fillInBlanks = lesson.quiz.fillInBlanks.map { item in
-            AIMusicFillInBlankQuestion(
-                prompt: item.prompt ?? "Complete the sentence using the best option.",
-                correctAnswer: item.blankWord,
-                options: item.options,
-                explanation: item.explanation,
-                lyricReference: item.lyricReference
-            )
-        }
-        
-        let quiz = AIMusicLessonQuiz(
-            multipleChoice: multipleChoice,
-            fillInBlanks: fillInBlanks,
-            difficulty: lesson.userLevel.rawValue
-        )
-        
-        return MusicDiscoveringResponse(
-            songInfo: SongInfo(
-                title: song.title,
-                artist: song.artist,
-                album: song.album,
-                language: lesson.language.englishName // Convert InputLanguage to String
-            ),
-            explanations: explanations,
-            vocabularyWords: vocabularyWords,
-            culturalContext: culturalContext.isEmpty ? nil : culturalContext,
-            quiz: quiz
-        )
-    }
 }
 
+private struct WordCandidate: Hashable {
+    let original: String
+    var normalized: String {
+        original.folding(options: [.diacriticInsensitive, .caseInsensitive], locale: .current)
+    }
+}
 // MARK: - Adapted Lesson Model
 
 /// User's personalized lesson (stored in CoreData as encoded Data)
@@ -508,7 +524,7 @@ struct AdaptedLesson: Codable, Hashable {
     let language: InputLanguage // Target language for the lesson
     let phrases: [LessonPhrase]
     let grammarNuggets: [GrammarNugget]
-    let cultureNotes: [CultureNote]
+    let cultureNotes: String
     let quiz: AdaptedQuiz
     let adaptedAt: Date
     let userLevel: CEFRLevel // Song's CEFR level

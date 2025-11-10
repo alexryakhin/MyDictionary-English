@@ -70,6 +70,9 @@ extension SongLesson {
                 if !wasAnswered, let isCorrect = viewModel.currentSelectionIsCorrect {
                     HapticManager.shared.triggerImpact(style: isCorrect ? .medium : .light)
                 }
+                if viewModel.currentQuestionIndex == viewModel.items.count - 1 {
+                    viewModel.finishQuiz()
+                }
             } label: {
                 HStack {
                     Text(text)
@@ -97,21 +100,20 @@ extension SongLesson {
         }
 
         private func feedbackView(isCorrect: Bool, explanation: String?) -> some View {
-            HStack(spacing: 8) {
-                Image(systemName: isCorrect ? "checkmark.circle.fill" : "xmark.circle.fill")
-                    .foregroundColor(isCorrect ? .green : .red)
-
-                VStack(alignment: .leading, spacing: 4) {
+            VStack(alignment: .leading, spacing: 4) {
+                HStack(spacing: 8) {
+                    Image(systemName: isCorrect ? "checkmark.circle.fill" : "xmark.circle.fill")
+                        .foregroundColor(isCorrect ? .green : .red)
                     Text(isCorrect ? "Great choice!" : "Not quite right.")
                         .font(.caption)
                         .foregroundColor(.secondary)
+                }
 
-                    if let explanation {
-                        Text(explanation)
-                            .font(.caption)
-                            .foregroundColor(.secondary)
-                            .fixedSize(horizontal: false, vertical: true)
-                    }
+                if let explanation {
+                    Text(explanation)
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                        .fixedSize(horizontal: false, vertical: true)
                 }
             }
             .padding()
@@ -121,22 +123,21 @@ extension SongLesson {
 
         private func questionNavigation() -> some View {
             HStack {
-                ActionButton("Previous", systemImage: "chevron.left") {
+                ActionButton(
+                    "Previous",
+                    systemImage: "chevron.left"
+                ) {
                     viewModel.goToPreviousQuestion()
                 }
                 .disabled(viewModel.currentQuestionIndex == 0)
 
                 ActionButton(
-                    viewModel.currentQuestionIndex < viewModel.items.count - 1 ? "Next" : "Finish",
+                    "Next",
                     systemImage: "chevron.right"
                 ) {
-                    if viewModel.currentQuestionIndex < viewModel.items.count - 1 {
-                        viewModel.goToNextQuestion()
-                    } else {
-                        viewModel.finishQuiz()
-                    }
+                    viewModel.goToNextQuestion()
                 }
-                .disabled(!viewModel.allQuestionsAnswered && viewModel.currentQuestionIndex == viewModel.items.count - 1)
+                .disabled(viewModel.currentQuestionIndex == viewModel.items.count - 1)
             }
         }
     }

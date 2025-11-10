@@ -24,29 +24,44 @@ final class SongLessonSessionService {
     // MARK: - Save Session
     
     func saveOrUpdateSession(_ session: MusicDiscoveringSession, lesson: AdaptedLesson, song: Song) async throws {
-        // Check if session already exists
-        if let existingSession = getSession(by: song.id) {
-            // Update existing session
-            existingSession.updateFromSession(session)
-            existingSession.lesson = lesson
-            existingSession.song = song
-            existingSession.lastAccessed = Date()
-        } else {
-            // Create new session
-            let cdSession = CDSongLessonSession(context: coreDataService.context)
-            cdSession.id = session.id
-            cdSession.date = Date()
-            cdSession.lastAccessed = Date()
-            cdSession.song = song
-            cdSession.lesson = lesson
-            cdSession.session = session
-            cdSession.isComplete = session.hasCompletedQuiz
-            cdSession.totalQuestions = Int32((lesson.quiz.fillInBlanks.count + lesson.quiz.meaningMCQ.count))
+        let context = coreDataService.context
+        var thrownError: Error?
+        
+        context.performAndWait {
+            do {
+                let fetchRequest: NSFetchRequest<CDSongLessonSession> = CDSongLessonSession.fetchRequest()
+                fetchRequest.predicate = NSPredicate(format: "songId == %@", song.id)
+                fetchRequest.fetchLimit = 1
+                
+                if let existingSession = try context.fetch(fetchRequest).first {
+                    existingSession.updateFromSession(session)
+                    existingSession.lesson = lesson
+                    existingSession.song = song
+                    existingSession.lastAccessed = Date()
+                } else {
+                    let cdSession = CDSongLessonSession(context: context)
+                    cdSession.id = session.id
+                    cdSession.date = Date()
+                    cdSession.lastAccessed = Date()
+                    cdSession.song = song
+                    cdSession.lesson = lesson
+                    cdSession.session = session
+                    cdSession.isComplete = session.hasCompletedQuiz
+                    cdSession.totalQuestions = Int32((lesson.quiz.fillInBlanks.count + lesson.quiz.meaningMCQ.count))
+                }
+                
+                if context.hasChanges {
+                    try context.save()
+                }
+            } catch {
+                thrownError = error
+            }
         }
         
-        try coreDataService.saveContext()
+        if let error = thrownError {
+            throw error
+        }
         
-        // Notify that session data changed
         NotificationCenter.default.post(name: .songSessionDidChange, object: nil)
     }
     

@@ -66,7 +66,8 @@ extension SongLesson {
             let submission = QuizSubmission(
                 questionIndex: questionIndexOffset + currentQuestionIndex,
                 selectedAnswerIndex: optionIndex,
-                isCorrect: isCorrect
+                isCorrect: isCorrect,
+                type: .meaningMCQ
             )
             onAnswer(submission)
         }
@@ -92,7 +93,8 @@ extension SongLesson {
                 return QuizSubmission(
                     questionIndex: questionIndexOffset + index,
                     selectedAnswerIndex: answerIndex,
-                    isCorrect: isCorrect
+                    isCorrect: isCorrect,
+                    type: .meaningMCQ
                 )
             }
             onCompletion(submissions)

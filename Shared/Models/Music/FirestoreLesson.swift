@@ -15,7 +15,7 @@ struct FirestoreLesson: Codable {
     let language: InputLanguage
     let phrases: [LessonPhrase]
     let grammarNuggets: [GrammarNugget]
-    let cultureNotes: [CultureNote]
+    let cultureNotes: String
     let quizTemplate: QuizTemplate
     let generatedBy: String
     let generatedAt: Date
@@ -38,7 +38,7 @@ struct FirestoreLesson: Codable {
         language: InputLanguage,
         phrases: [LessonPhrase],
         grammarNuggets: [GrammarNugget],
-        cultureNotes: [CultureNote],
+        cultureNotes: String,
         quizTemplate: QuizTemplate,
         generatedBy: String,
         generatedAt: Date,
@@ -61,7 +61,7 @@ struct FirestoreLesson: Codable {
         language = try container.decode(InputLanguage.self, forKey: .language)
         phrases = try container.decode([LessonPhrase].self, forKey: .phrases)
         grammarNuggets = try container.decode([GrammarNugget].self, forKey: .grammarNuggets)
-        cultureNotes = try container.decode([CultureNote].self, forKey: .cultureNotes)
+        cultureNotes = try container.decode(String.self, forKey: .cultureNotes)
         quizTemplate = try container.decode(QuizTemplate.self, forKey: .quizTemplate)
         generatedBy = try container.decode(String.self, forKey: .generatedBy)
 
@@ -114,12 +114,7 @@ struct LessonPhrase: Codable, Hashable {
 struct GrammarNugget: Codable, Hashable {
     let rule: String
     let example: String
-    let cefr: CEFRLevel
-}
-
-/// Culture note with optional CEFR tag
-struct CultureNote: Codable, Hashable {
-    let text: String
+    let explanation: String
     let cefr: CEFRLevel
 }
 
@@ -138,15 +133,11 @@ struct FillInBlankItem: Codable, Hashable {
     let lyricReference: String
     let blankWord: String
     let options: [String]
-    let prompt: String
-    let explanation: String
 
     enum CodingKeys: String, CodingKey {
         case lyricReference = "lyric_reference"
         case blankWord = "blank_word"
         case options
-        case prompt
-        case explanation
     }
 }
 

@@ -13,7 +13,7 @@ import SwiftUI
 final class SongLessonViewModel: BaseViewModel {
     
     enum Input {
-        case submitQuizAnswer(questionIndex: Int, answerIndex: Int, isCorrect: Bool)
+        case submitQuizAnswer(SongLesson.QuizSubmission)
         case markQuizComplete
         case addDiscoveredWord(String)
         case markExplanationRequested
@@ -96,8 +96,8 @@ final class SongLessonViewModel: BaseViewModel {
     
     func handle(_ input: Input) {
         switch input {
-        case .submitQuizAnswer(let questionIndex, let answerIndex, let isCorrect):
-            submitQuizAnswer(questionIndex: questionIndex, answerIndex: answerIndex, isCorrect: isCorrect)
+        case .submitQuizAnswer(let submission):
+            submitQuizAnswer(submission)
         case .markQuizComplete:
             markQuizComplete()
         case .addDiscoveredWord(let word):
@@ -172,9 +172,9 @@ final class SongLessonViewModel: BaseViewModel {
     
     // MARK: - Private Methods
     
-    private func submitQuizAnswer(questionIndex: Int, answerIndex: Int, isCorrect: Bool) {
+    private func submitQuizAnswer(_ submission: SongLesson.QuizSubmission) {
         var session = currentSession
-        session.submitQuizAnswer(questionIndex: questionIndex, answerIndex: answerIndex, isCorrect: isCorrect)
+        session.submitQuizAnswer(submission)
         currentSession = session
         saveSession()
     }

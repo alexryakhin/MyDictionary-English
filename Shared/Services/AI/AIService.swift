@@ -352,7 +352,7 @@ final class AIService: ObservableObject {
         
         IMPORTANT RULES:
         1. Definition must be in the \(userLanguage.englishName). Examples must be in \(inputLanguage.englishName) (the language of the input word).
-        2. Part of speech should be chosen from: 'noun', 'verb', 'adjective', 'adverb', 'conjunction', 'pronoun', 'preposition', 'exclamation', 'interjection', 'idiom', 'phrase', 'unknown'.
+        2. Part of speech should be chosen from available values.
         3. Pronunciation should be of the original input word using International Phonetic Alphabet
         4. Focus on COMMON, EVERYDAY meanings and uses first, not just religious or specialized meanings
         5. Include different meanings and contexts - avoid repetitive definitions that mean the same thing
@@ -637,36 +637,33 @@ extension AIService {
         
         Generate comprehensive learning content that MUST include:
         
-        1. PRE-LISTEN HOOK or CONTEXT SUMMARY (REQUIRED - must be first):
-           - A short introduction (30-50 words) that introduces the emotional and cultural theme
-           - Sets expectations for what the learner will discover
-           - Written in \(targetLanguage.englishName) (the lesson language matches the song language)
-           - Should capture the song's mood, cultural significance, and learning value
+        1. EXPLANATIONS: Provide explanations for key concepts (5-10 explanations):
+           - Focus on interesting vocabulary, idioms, or cultural references related to the song
+           - Explain meaning, context, and cultural significance
+           - Keep explanations appropriate for \(songCEFR.rawValue) level
+           - All explanations in \(targetLanguage.englishName) (fully in the target language)
         
-        2. SONG INFO: Create a SongInfo object with title, artist, album, and detected language
-        
-        3. IDIOMS, KEY PHRASES, AND EXPRESSIONS (REQUIRED):
-           - Based on the song's title, artist, and cultural context, provide 5-10 important idioms, phrases, and expressions that would typically appear in this type of song
+        2. VOCABULARY WORDS, IDIOMS, PHRASES, AND EXPRESSIONS:
+           - Based on the song's title, artist, and cultural context, provide 10-15 important idioms, phrases, and expressions that would typically appear in this type of song
            - Provide clear meanings and explanations in \(targetLanguage.englishName) (fully in the target language)
            - Explain cultural and emotional interpretation (what it means beyond words)
            - Include everyday examples showing how learners can use these phrases naturally in conversation
            - Level-appropriate explanations for \(songCEFR.rawValue) level
-           - For each phrase, include:
+           - For each word/phrase, include:
              * The original phrase in \(targetLanguage.englishName)
              * Meaning and explanation
              * Cultural/emotional meaning
              * 2-3 example sentences showing natural usage in conversation
+             * Phonetics in IPA standard format
            - All content in \(targetLanguage.englishName)
+
+        3. GRAMMAR NUGGETS:
+           - Provide 3-5 grammar nugget items
+           - Grammar nugget requirements:
+             * Each Grammar nugget has a rule, example from the lyrics, and explanation ALL in \(targetLanguage.englishName)
+             * Include a correct CEFR level for this particular grammar rule
         
-        4. VOCABULARY WORDS: Provide 10-20 important vocabulary words:
-           - Based on the song's theme and cultural context, suggest words that would be useful for learning
-           - Focus on words that are useful for language learning
-           - Include part of speech (noun, verb, adjective, etc.)
-           - Provide clear definitions in \(targetLanguage.englishName) (fully in the target language)
-           - Include 2-3 example sentences showing word usage
-           - Level-appropriate for \(songCEFR.rawValue) level
-        
-        5. CULTURAL AND EMOTIONAL INTERPRETATION (REQUIRED):
+        4. CULTURAL AND EMOTIONAL INTERPRETATION:
            - Explain what the song means beyond the literal words (based on title, artist, and cultural context)
            - Cultural themes or references in the song
            - Historical or social context if relevant
@@ -675,29 +672,13 @@ extension AIService {
            - Written in \(targetLanguage.englishName) (fully in the target language)
            - Appropriate for \(songCEFR.rawValue) level learners
         
-        6. EVERYDAY USAGE EXAMPLES (REQUIRED):
-           - Show how learners can use the idioms and phrases naturally in conversation
-           - Provide 5-8 example dialogues or scenarios
-           - Make examples relevant to daily life situations
-           - Written in \(targetLanguage.englishName) (fully in the target language)
-        
-        7. EXPLANATIONS: Provide explanations for key concepts (5-10 explanations):
-           - Focus on interesting vocabulary, idioms, or cultural references related to the song
-           - Explain meaning, context, and cultural significance
-           - Keep explanations appropriate for \(songCEFR.rawValue) level
-           - All explanations in \(targetLanguage.englishName) (fully in the target language)
-        
-        8. QUIZ (REQUIRED): Always create BOTH multiple-choice and fill-in-the-blank activities:
-           - Provide 3-4 multiple-choice comprehension questions and 3-4 fill-in-the-blank items (minimum 6 total prompts)
-           - MCQ requirements:
+        5. QUIZ:
+           - Provide 5-8 multiple-choice comprehension question items
+           - Comprehension Quiz requirements:
              * Each question has exactly 4 options
              * Exactly one option is correct
              * Include a concise explanation for the correct answer
-           - Fill-in-the-blank requirements:
-             * Provide the sentence with a single blank and the correct answer stated separately
-             * Supply 4 distinct options, including the correct answer
            - Focus questions on idioms, phrases, vocabulary, or cultural context from this lesson
-           - IMPORTANT: Never return a null quiz. If song data is sparse, create original questions based on the provided explanations and vocabulary.
            - Write all questions, options, and explanations in \(targetLanguage.englishName)
         
         Remember: The output MUST always begin with a short Pre-Listen Hook or Context Summary. Focus on idioms, phrases, cultural interpretation, and practical usage examples. All content should be appropriate for \(songCEFR.rawValue) level learners and fully in \(targetLanguage.englishName).
@@ -724,7 +705,6 @@ extension AIService {
                - Analyze vocabulary complexity
                - Consider grammar structures used
                - Assess overall difficulty
-               - Return one of: A1, A2, B1, B2, C1, C2
             """
         }
         
@@ -752,7 +732,7 @@ extension AIService {
            - Select phrases that are important for understanding the song
            - Include the original phrase in \(targetLanguage.englishName)
            - Include meaning about where/when it appears in the song in \(userLanguage.englishName)
-           - Assign appropriate CEFR level (A1, A2, B1, B2, C1, C2) for each phrase
+           - Assign appropriate CEFR level for each phrase
         
         4. GRAMMAR HIGHLIGHT (optional): One grammar point to watch for:
            - Should be relevant to the song's lyrics
@@ -789,19 +769,11 @@ extension AIService {
         TARGET LANGUAGE: \(language.englishName)
         
         TASK:
-        Generate exactly 12 song recommendations (2 songs for each CEFR level: A1, A2, B1, B2, C1, C2) that are:
+        Generate exactly 12 song recommendations (2 songs for each CEFR level) that are:
         - All in \(language.englishName) language
         - Have clear pronunciation and lyrics
         - Culturally relevant and popular
         - Appropriate for their assigned CEFR level
-        
-        CRITICAL: You must provide exactly 2 songs for each CEFR level:
-        - 2 songs at A1 level (beginner)
-        - 2 songs at A2 level (elementary)
-        - 2 songs at B1 level (intermediate)
-        - 2 songs at B2 level (upper intermediate)
-        - 2 songs at C1 level (advanced)
-        - 2 songs at C2 level (proficient)
         
         For each song, provide:
         - Title: Song title
