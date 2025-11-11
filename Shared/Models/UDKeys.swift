@@ -70,6 +70,9 @@ enum UDKeys {
     // Music Recommendations
     static let musicRecommendationsSelectedLanguage = "musicRecommendationsSelectedLanguage"
     
+    // Music Player
+    static let songPlayerTipsShown = "song_player_tips_shown"
+    
     // Apple Music
     static let appleMusicAuthorized = "apple_music_authorized"
 }
@@ -347,5 +350,11 @@ enum UDService {
     static var musicRecommendationsSelectedLanguage: String? {
         get { UserDefaults.standard.string(forKey: UDKeys.musicRecommendationsSelectedLanguage) }
         set { UserDefaults.standard.set(newValue, forKey: UDKeys.musicRecommendationsSelectedLanguage) }
+    }
+    
+    // Music Player
+    static var songPlayerTipsShown: Bool {
+        get { UserDefaults.standard.bool(forKey: UDKeys.songPlayerTipsShown) }
+        set { UserDefaults.standard.set(newValue, forKey: UDKeys.songPlayerTipsShown) }
     }
 }
