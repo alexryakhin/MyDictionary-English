@@ -24,6 +24,7 @@ struct SongLessonConfig: Hashable {
 
 struct SongLessonView: View {
     private let config: SongLessonConfig
+    @StateObject private var ttsPlayer: TTSPlayer = .shared
     @StateObject private var viewModel: SongLessonViewModel
     @Environment(\.dismiss) private var dismiss
     
@@ -47,7 +48,8 @@ struct SongLessonView: View {
                 lessonOverviewSection(viewModel.lesson)
                 phrasesSection()
                 grammarSection(viewModel.lesson.grammarNuggets)
-                cultureSection(viewModel.lesson.cultureNotes)
+                explanationsSection(viewModel.lesson.explanations)
+                cultureSection(viewModel.lesson.cultureNotes, languageCode: viewModel.lesson.language.rawValue)
                 fillInBlanksSection(viewModel.lesson.quiz.fillInBlanks)
                 multipleChoiceSection(
                     viewModel.lesson.quiz.meaningMCQ,
@@ -210,7 +212,46 @@ struct SongLessonView: View {
     
     // MARK: - Culture Section
     
-    private func cultureSection(_ note: String) -> some View {
+    private func explanationsSection(_ items: [LyricExplanation]) -> some View {
+        CustomSectionView(
+            header: "Lyric Insights",
+            headerSubtitle: "Line-by-line context to deepen understanding."
+        ) {
+            if items.isEmpty {
+                emptySectionPlaceholder("Lyric explanations will appear once available.")
+            } else {
+                VStack(alignment: .leading, spacing: 16) {
+                    ForEach(items.indices, id: \.self) { index in
+                        let explanation = items[index]
+                        VStack(alignment: .leading, spacing: 8) {
+                            if let lineNumber = explanation.lineNumber {
+                                Text("Line \(lineNumber)")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                            }
+                            
+                            InteractiveText(
+                                text: explanation.lyricLine,
+                                font: .headline,
+                                sourceLanguageCode: viewModel.lesson.language.rawValue
+                            )
+
+                            InteractiveText(
+                                text: explanation.explanation,
+                                font: .subheadline,
+                                sourceLanguageCode: viewModel.lesson.language.rawValue
+                            )
+                        }
+                        .padding(12)
+                        .background(Color.tertiarySystemGroupedBackground)
+                        .cornerRadius(12)
+                    }
+                }
+            }
+        }
+    }
+    
+    private func cultureSection(_ note: String, languageCode: String) -> some View {
         CustomSectionView(
             header: "Cultural Notes",
             headerSubtitle: "Context that brings the lyrics to life."
@@ -218,10 +259,24 @@ struct SongLessonView: View {
             if note.isEmpty {
                 emptySectionPlaceholder("No cultural context provided.")
             } else {
-                Text(note)
-                    .font(.body)
-                    .multilineTextAlignment(.leading)
-                    .frame(maxWidth: .infinity, alignment: .leading)
+                InteractiveText(
+                    text: note,
+                    font: .body,
+                    highlighted: false,
+                    sourceLanguageCode: languageCode
+                )
+                .frame(maxWidth: .infinity, alignment: .leading)
+            }
+        } trailingContent: {
+            if note.isNotEmpty {
+                HeaderButton(
+                    Loc.Actions.listen,
+                    icon: "speaker.wave.2.fill",
+                    size: .small
+                ) {
+                    viewModel.handle(.playCultureNotes(note))
+                }
+                .disabled(ttsPlayer.isPlaying)
             }
         }
     }

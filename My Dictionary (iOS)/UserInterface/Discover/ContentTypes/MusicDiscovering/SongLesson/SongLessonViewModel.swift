@@ -21,6 +21,7 @@ final class SongLessonViewModel: BaseViewModel {
         case updateSession(MusicDiscoveringSession)
         case saveSession
         case navigateToResults
+        case playCultureNotes(String)
     }
     
     @Published private(set) var currentSession: MusicDiscoveringSession
@@ -30,6 +31,7 @@ final class SongLessonViewModel: BaseViewModel {
     private let songLessonSessionService = SongLessonSessionService.shared
     private let song: Song
     private let translationService: TranslationService
+    private let ttsPlayer = TTSPlayer.shared
     private var hasTranslatedPhrases = false
 
     init(
@@ -112,6 +114,8 @@ final class SongLessonViewModel: BaseViewModel {
             saveSession()
         case .navigateToResults:
             navigateToResults()
+        case .playCultureNotes(let text):
+            playCultureNotes(text)
         }
     }
     
@@ -163,6 +167,7 @@ final class SongLessonViewModel: BaseViewModel {
             language: lesson.language,
             phrases: translatedPhrases,
             grammarNuggets: lesson.grammarNuggets,
+            explanations: lesson.explanations,
             cultureNotes: lesson.cultureNotes,
             quiz: lesson.quiz,
             adaptedAt: lesson.adaptedAt,
@@ -234,5 +239,21 @@ final class SongLessonViewModel: BaseViewModel {
     private func navigateToResults() {
         let config = SongLessonResultsConfig(session: currentSession, song: song)
         NavigationManager.shared.navigate(to: .songLessonResults(config))
+    }
+    
+    private func playCultureNotes(_ text: String) {
+        guard !text.isEmpty else { return }
+        
+        if ttsPlayer.isPlaying {
+            ttsPlayer.stop()
+        }
+        
+        Task {
+            do {
+                try await ttsPlayer.play(text)
+            } catch {
+                logError("Failed to play culture notes: \(error.localizedDescription)")
+            }
+        }
     }
 }

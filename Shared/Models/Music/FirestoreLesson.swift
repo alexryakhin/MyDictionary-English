@@ -15,6 +15,7 @@ struct FirestoreLesson: Codable {
     let language: InputLanguage
     let phrases: [LessonPhrase]
     let grammarNuggets: [GrammarNugget]
+    let explanations: [LyricExplanation]
     let cultureNotes: String
     let quizTemplate: QuizTemplate
     let generatedBy: String
@@ -26,6 +27,7 @@ struct FirestoreLesson: Codable {
         case language
         case phrases
         case grammarNuggets = "grammar_nuggets"
+        case explanations
         case cultureNotes = "culture_notes"
         case quizTemplate = "quiz_template"
         case generatedBy = "generated_by"
@@ -38,6 +40,7 @@ struct FirestoreLesson: Codable {
         language: InputLanguage,
         phrases: [LessonPhrase],
         grammarNuggets: [GrammarNugget],
+        explanations: [LyricExplanation],
         cultureNotes: String,
         quizTemplate: QuizTemplate,
         generatedBy: String,
@@ -48,6 +51,7 @@ struct FirestoreLesson: Codable {
         self.language = language
         self.phrases = phrases
         self.grammarNuggets = grammarNuggets
+        self.explanations = explanations
         self.cultureNotes = cultureNotes
         self.quizTemplate = quizTemplate
         self.generatedBy = generatedBy
@@ -61,6 +65,7 @@ struct FirestoreLesson: Codable {
         language = try container.decode(InputLanguage.self, forKey: .language)
         phrases = try container.decode([LessonPhrase].self, forKey: .phrases)
         grammarNuggets = try container.decode([GrammarNugget].self, forKey: .grammarNuggets)
+        explanations = try container.decode([LyricExplanation].self, forKey: .explanations)
         cultureNotes = try container.decode(String.self, forKey: .cultureNotes)
         quizTemplate = try container.decode(QuizTemplate.self, forKey: .quizTemplate)
         generatedBy = try container.decode(String.self, forKey: .generatedBy)
@@ -83,6 +88,7 @@ struct FirestoreLesson: Codable {
         try container.encode(language, forKey: .language)
         try container.encode(phrases, forKey: .phrases)
         try container.encode(grammarNuggets, forKey: .grammarNuggets)
+        try container.encode(explanations, forKey: .explanations)
         try container.encode(cultureNotes, forKey: .cultureNotes)
         try container.encode(quizTemplate, forKey: .quizTemplate)
         try container.encode(generatedBy, forKey: .generatedBy)
@@ -108,6 +114,12 @@ struct LessonPhrase: Codable, Hashable {
         case example
         case partOfSpeech = "part_of_speech"
     }
+}
+
+struct LyricExplanation: Codable, Hashable {
+    let lyricLine: String
+    let explanation: String
+    let lineNumber: Int?
 }
 
 /// Grammar rule with CEFR tag

@@ -45,6 +45,7 @@ final class MusicLessonService {
                 language: targetLanguage,
                 phrases: cachedLesson.phrases,
                 grammarNuggets: cachedLesson.grammarNuggets,
+                explanations: cachedLesson.explanations,
                 cultureNotes: cachedLesson.cultureNotes,
                 quiz: generateQuizFromTemplate(cachedLesson.quizTemplate, level: cefrLevel),
                 adaptedAt: Date(),
@@ -111,6 +112,7 @@ final class MusicLessonService {
             language: targetLanguage, // Use InputLanguage enum
             phrases: firestoreLesson.phrases,
             grammarNuggets: firestoreLesson.grammarNuggets,
+            explanations: firestoreLesson.explanations,
             cultureNotes: firestoreLesson.cultureNotes,
             quiz: generateQuizFromTemplate(firestoreLesson.quizTemplate, level: cefrLevel),
             adaptedAt: Date(),
@@ -241,6 +243,14 @@ final class MusicLessonService {
                 cefr: $0.cefr
             )
         }
+        
+        let explanations: [LyricExplanation] = response.explanations.map {
+            LyricExplanation(
+                lyricLine: $0.lyricLine,
+                explanation: $0.explanation,
+                lineNumber: $0.lineNumber
+            )
+        }
 
         let quizTemplate = quizTemplateOverride ?? buildQuizTemplate(from: response.comprehensionQuestions, fillInItems: [])
 
@@ -249,6 +259,7 @@ final class MusicLessonService {
             language: language,
             phrases: phrases,
             grammarNuggets: grammarNuggets,
+            explanations: explanations,
             cultureNotes: response.culturalContext,
             quizTemplate: quizTemplate,
             generatedBy: "gpt-4o-mini",
@@ -537,6 +548,7 @@ struct AdaptedLesson: Codable, Hashable {
     let language: InputLanguage // Target language for the lesson
     let phrases: [LessonPhrase]
     let grammarNuggets: [GrammarNugget]
+    let explanations: [LyricExplanation]
     let cultureNotes: String
     let quiz: AdaptedQuiz
     let adaptedAt: Date
