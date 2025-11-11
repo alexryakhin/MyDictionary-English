@@ -45,26 +45,11 @@ struct SongPlayerView: View {
         .safeAreaBarIfAvailable {
             VStack(spacing: 8) {
                 VStack(spacing: 2) {
-                    Slider(
-                        value: Binding(
-                            get: { viewModel.currentTime },
-                            set: { newValue in
-                                if viewModel.isPlaying {
-                                    viewModel.handle(.playPause)
-                                    viewModel.handle(.seek(to: newValue))
-                                } else {
-                                    viewModel.handle(.seek(to: newValue))
-                                }
-                            }
-                        ),
-                        in: 0...max(viewModel.duration, 1),
-                        onEditingChanged: { editing in
-                            if !editing && !viewModel.isPlaying {
-                                viewModel.handle(.playPause)
-                            }
-                        }
+                    SongProgressBar(
+                        isDragging: $viewModel.isSeeking,
+                        progress: $viewModel.currentTime,
+                        duration: viewModel.duration
                     )
-                    .tint(.accentColor)
 
                     HStack {
                         Text(formatTime(displayedCurrentTime))
@@ -86,6 +71,7 @@ struct SongPlayerView: View {
                 ) {
                     viewModel.handle(.playPause)
                 }
+                .disabled(!viewModel.sessionIsActive)
 
                 ActionButton(
                     lessonButtonTitle,

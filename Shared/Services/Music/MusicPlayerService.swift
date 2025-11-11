@@ -23,8 +23,8 @@ final class MusicPlayerService: NSObject, ObservableObject {
     @Published var duration: TimeInterval = 0
     @Published var volume: Float = 1.0
     @Published var playbackRate: Float = 1.0
-    @Published var isSeeking: Bool = false
-    
+    @Published var sessionIsActive: Bool = false
+
     // MARK: - Private Properties
     
     private var player: AVPlayer?
@@ -73,6 +73,7 @@ final class MusicPlayerService: NSObject, ObservableObject {
         await MainActor.run {
             isPlaying = true
             currentTime = 0
+            sessionIsActive = true
         }
         
         updateNowPlayingInfo()
@@ -169,10 +170,10 @@ final class MusicPlayerService: NSObject, ObservableObject {
             
             currentSong = nil
             isPlaying = false
+            sessionIsActive = false
             currentTime = 0
             duration = 0
-            isSeeking = false
-            
+
             removeTimeObserver()
             stopMusicPlayerTimeObserver()
             updateNowPlayingInfo()
@@ -201,42 +202,7 @@ final class MusicPlayerService: NSObject, ObservableObject {
             }
         }
     }
-    
-    /// Start seeking (called when user starts dragging slider)
-    func startSeeking() {
-        Task { @MainActor in
-            isSeeking = true
-            // Capture current playback time from the player when seeking starts
-            if let musicPlayer = musicPlayer {
-                currentTime = musicPlayer.playbackTime
-            }
-        }
-    }
-    
-    /// Finish seeking (called when user stops dragging slider)
-    /// - Parameter time: The final seek time
-    func finishSeeking(to time: TimeInterval) {
-        Task { @MainActor in
-            // Clamp time to valid range
-            let clampedTime = max(0, min(time, duration))
-            
-            isSeeking = false
-            currentTime = clampedTime
-            
-            // Try to set playbackTime directly to seek to the position
-            if let musicPlayer = musicPlayer {
-                // Attempt to set playbackTime to seek
-                // Note: playbackTime might be read-only, but we'll try setting it
-                // If this causes a compile error, we'll know it's read-only
-                // and will need to use a different approach
-                musicPlayer.playbackTime = clampedTime
-                
-                // Update MPNowPlayingInfoCenter with the new position
-                updateNowPlayingInfo()
-            }
-        }
-    }
-    
+
     /// Set volume
     /// - Parameter volume: Volume level (0.0 to 1.0)
     func setVolume(_ volume: Float) {
@@ -353,9 +319,6 @@ final class MusicPlayerService: NSObject, ObservableObject {
             guard let self = self else { return }
             
             Task { @MainActor in
-                // Don't update time if we're seeking (user is dragging slider)
-                guard !self.isSeeking else { return }
-                
                 // Only update time if we're playing
                 guard self.isPlaying else { return }
                 
@@ -368,7 +331,7 @@ final class MusicPlayerService: NSObject, ObservableObject {
                     self.currentTime = min(self.currentTime, self.duration)
                 }
 
-                if playbackTime == .zero {
+                if self.currentTime == self.duration {
                     self.isPlaying = false
                 }
 

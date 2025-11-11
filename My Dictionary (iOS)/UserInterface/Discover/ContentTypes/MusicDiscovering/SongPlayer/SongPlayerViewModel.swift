@@ -10,14 +10,12 @@ import Combine
 import SwiftUI
 
 @MainActor
-final class SongPlayerViewModel: ObservableObject {
-    
+final class SongPlayerViewModel: BaseViewModel {
+
     enum Input {
         case loadData
         case playPause
         case seek(to: TimeInterval)
-        case beginSeek
-        case endSeek(TimeInterval)
         case generateLesson
     }
 
@@ -26,14 +24,22 @@ final class SongPlayerViewModel: ObservableObject {
         case ready(AdaptedLesson, MusicDiscoveringSession)
         case failed(String)
     }
+    @Published var currentTime: TimeInterval = 0
+    @Published var isSeeking: Bool = false {
+        willSet {
+            if newValue == false {
+                musicPlayerService.seek(to: currentTime)
+            }
+        }
+    }
 
     @Published private(set) var song: Song
     @Published private(set) var lyrics: SongLyrics
     @Published private(set) var parsedSyncedLines: [LyricLine] = []
-    @Published private(set) var currentTime: TimeInterval = 0
     @Published private(set) var duration: TimeInterval = 0
     @Published private(set) var currentLineIndex: Int?
     @Published private(set) var isPlaying: Bool = false
+    @Published private(set) var sessionIsActive: Bool = false
     @Published private(set) var lessonState: LessonState = .loading
 
     private let musicPlayerService = MusicPlayerService.shared
@@ -46,6 +52,7 @@ final class SongPlayerViewModel: ObservableObject {
     init(song: Song, lyrics: SongLyrics) {
         self.song = song
         self.lyrics = lyrics
+        super.init()
         self.parsedSyncedLines = parseSyncedLyrics(lyrics.syncedLyrics.orEmpty)
         setupBindings()
         loadData()
@@ -59,10 +66,6 @@ final class SongPlayerViewModel: ObservableObject {
             playPause()
         case .seek(let time):
             seek(to: time)
-        case .beginSeek:
-            beginSeek()
-        case .endSeek(let time):
-            endSeek(to: time)
         case .generateLesson:
             Task {
                 await generateLesson()
@@ -73,7 +76,19 @@ final class SongPlayerViewModel: ObservableObject {
     private func setupBindings() {
         musicPlayerService.$currentTime
             .receive(on: DispatchQueue.main)
-            .assign(to: &$currentTime)
+            .sink { [weak self] time in
+                guard let self else { return }
+                if !isSeeking {
+                    currentTime = time
+                }
+
+                if parsedSyncedLines.isNotEmpty {
+                    for index in parsedSyncedLines.indices where isLineCurrent(index) {
+                        currentLineIndex = index
+                    }
+                }
+            }
+            .store(in: &cancellables)
 
         musicPlayerService.$duration
             .receive(on: DispatchQueue.main)
@@ -82,17 +97,10 @@ final class SongPlayerViewModel: ObservableObject {
         musicPlayerService.$isPlaying
             .receive(on: DispatchQueue.main)
             .assign(to: &$isPlaying)
-
-        $currentTime
+        
+        musicPlayerService.$sessionIsActive
             .receive(on: DispatchQueue.main)
-            .map { [weak self] time in
-                guard let self, parsedSyncedLines.isNotEmpty else { return nil }
-                for index in parsedSyncedLines.indices where isLineCurrent(index) {
-                    return index
-                }
-                return nil
-            }
-            .assign(to: &$currentLineIndex)
+            .assign(to: &$sessionIsActive)
     }
     
     private func loadData() {
@@ -101,7 +109,7 @@ final class SongPlayerViewModel: ObservableObject {
             do {
                 try await musicPlayerService.play(song: song)
             } catch {
-                print("Failed to play song: \(error)")
+                errorReceived(error)
             }
         }
         
@@ -122,20 +130,14 @@ final class SongPlayerViewModel: ObservableObject {
         } else {
             musicPlayerService.play()
         }
+        isSeeking = false
     }
     
     private func seek(to time: TimeInterval) {
+        currentTime = time
         musicPlayerService.seek(to: time)
     }
-    
-    private func beginSeek() {
-        musicPlayerService.startSeeking()
-    }
-    
-    private func endSeek(to time: TimeInterval) {
-        musicPlayerService.finishSeeking(to: time)
-    }
-    
+
     private func generateLesson() async {
         guard lyrics.hasLyrics, AIService.shared.canMakeAIRequest() else {
             logError("\(#file) Unable to generate lesson")
