@@ -1,0 +1,170 @@
+// MARK: - Music Discovering View
+"view.section.not_finished" = "Nedovršeno";
+"view.section.recommended_for_you" = "Preporučeno za vas";
+"view.section.favorite_songs" = "Omiljene pjesme";
+"view.section.history" = "Povijest";
+
+// MARK: - Search
+"view.search.loading" = "Pretraživanje...";
+"view.search.results_title" = "Rezultati pretraživanja";
+"view.search.empty_title" = "Nema rezultata";
+"view.search.empty_subtitle" = "Pokušajte s drugim naslovom pjesme ili izvođačem.";
+
+// MARK: - Recommendations
+"view.recommendations.empty_title" = "Još nema preporuka";
+"view.recommendations.empty_subtitle" = "Pokušajte generirati lekciju kako biste otkrili nove pjesme.";
+
+// MARK: - Recommendation Status
+"status.recommendations.loading" = "Učitavanje preporuka";
+"status.recommendations.generating" = "Stvaranje preporuka";
+"status.recommendations.fetching_data" = "Preuzimanje podataka iz Apple Musica";
+
+// MARK: - Lesson Overview
+"lesson.overview.title" = "Put lekcije";
+"lesson.overview.description" = "Urni u **%1$@** izvođača %2$@. Lekcija te vodi od značenja stihova do kulturnog konteksta, a zatim te izaziva aktivnim prisjećanjem.";
+"lesson.overview.phrases_tag" = "Frazе: %d";
+"lesson.overview.practice_tag" = "Vježbe: %d";
+"lesson.collection.title" = "%@ — Ključne fraze";
+
+// MARK: - Lesson Sections
+"lesson.phrases.header" = "Ključne fraze";
+"lesson.phrases.subtitle" = "Naučite izraze koji oblikuju priču pjesme.";
+"lesson.phrases.empty" = "Još nema dostupnih fraza.";
+
+"lesson.grammar.header" = "Gramatika u fokusu";
+"lesson.grammar.subtitle" = "Primijetite ove strukture dok slušate.";
+"lesson.grammar.empty" = "Nema gramatičkih naglasaka u ovoj lekciji.";
+
+"lesson.explanations.header" = "Uvid u stihove";
+"lesson.explanations.subtitle" = "Kontekst po stihu za dublje razumijevanje.";
+"lesson.explanations.empty" = "Objašnjenja stihova pojavit će se čim budu dostupna.";
+"lesson.explanations.line_number" = "Stih %d";
+
+"lesson.culture.header" = "Kulturne bilješke";
+"lesson.culture.subtitle" = "Kontekst koji oživljava stihove.";
+"lesson.culture.empty" = "Nije dostupan kulturni kontekst.";
+
+"lesson.practice.fill_blank.header" = "Vježba • Popuni praznine";
+"lesson.practice.fill_blank.subtitle" = "Provjerite prisjećanje uz pomoć stihova.";
+"lesson.practice.fill_blank.empty" = "Vježba popunjavanja pojavit će se čim bude dostupna.";
+
+"lesson.practice.comprehension.header" = "Vježba • Kviz razumijevanja";
+"lesson.practice.comprehension.subtitle" = "Odaberite najbolji odgovor kako biste učvrstili značenje.";
+"lesson.practice.comprehension.empty" = "Vježba s višestrukim izborom pojavit će se čim bude dostupna.";
+
+"lesson.reflection.header" = "Razmisli i zaključi";
+"lesson.reflection.subtitle" = "Zapiši što te dirnulo i nastavi niz.";
+"lesson.reflection.instructions" = "Kad završiš kvizove, dodirni **Završi** za spremanje napretka i pregled rezultata lekcije.";
+"lesson.reflection.progress" = "Napredak: odgovoreno %1$d/%2$d pitanja";
+"lesson.reflection.cta_view_results" = "Prikaži rezultate lekcije";
+
+// MARK: - History
+"history.time.days" = "prije %dd";
+"history.time.hours" = "prije %dh";
+"history.time.minutes" = "prije %dm";
+"history.time.just_now" = "Upravo sada";
+"history.play_count" = "%d×";
+
+// MARK: - Player
+"player.lesson.generating" = "Lekcija se priprema...";
+"player.lesson.loading" = "Lekcija se učitava...";
+"player.lesson.ready" = "Nastavi na lekciju";
+"player.lesson.failed" = "Pogreška pri učitavanju. Pokušati ponovno?";
+"player.lesson.unavailable" = "Lekciju nije moguće generirati";
+"player.tips.title" = "Savjeti za sat glazbe";
+"player.tips.header" = "Pripremi se za lekciju";
+"player.tips.intro" = "Pronađi miran trenutak, spoji slušalice ako ih imaš i drži bilježnicu pri ruci. Pomaže ako jednom pjevušiš prije nego što započneš vježbe.";
+"player.tips.explore_title" = "Istraži stihove red po red";
+"player.tips.explore_message" = "Dodirni bilo koji redak stihova da bi otvorio izbornik s opcijama prijevoda, rječnika, reprodukcije i kopiranja.";
+"player.tips.carry_title" = "Ponesi pjesmu u lekciju";
+"player.tips.carry_message" = "Kad nastaviš na lekciju, uvijek se možeš vratiti ovamo kako bi ponovno pregledao stihove i poslušao pjesmu.";
+"player.tips.path_title" = "Iskoristi lekciju kao put";
+"player.tips.path_message" = "Slijedi dijelove lekcije redom—fraze, gramatiku, kulturu pa zatim vježbu—kako bi učvrstio ono što si upravo čuo.";
+
+// MARK: - Lesson Info Sheet
+"sheet.cta.start_lesson" = "Idi na lekciju";
+"sheet.premium.title" = "Potrebno je Premium";
+"sheet.premium.body" = "Glazbene lekcije s uvidima koje pokreće umjetna inteligencija dostupne su s Premium pretplatom.";
+"sheet.premium.cta_upgrade" = "Nadogradi na Premium";
+"sheet.lyrics_unavailable.title" = "Stihovi nisu dostupni";
+"sheet.lyrics_unavailable.body" = "Nažalost nismo pronašli stihove ove pjesme. Bez stihova nije moguće izraditi lekciju.";
+"sheet.hook.grammar" = "Gramatika";
+"sheet.hook.cultural_note" = "Kulturna napomena";
+
+// MARK: - Results
+"results.navigation.title" = "Lekcija dovršena";
+"results.header.title" = "Odlično!";
+"results.header.subtitle" = "Završio si lekciju";
+"results.stats.accuracy" = "Točnost";
+"results.stats.questions" = "Pitanja";
+"results.stats.new_words" = "Nove riječi";
+"results.stats.time" = "Vrijeme";
+"results.discovered_words.title" = "Otkrićene riječi";
+"results.actions.share" = "Podijeli rezultate";
+"results.actions.add_to_favorites" = "Dodaj u favorite";
+"results.actions.remove_from_favorites" = "Ukloni iz favorita";
+"results.actions.back_to_discover" = "Povratak na Otkrij";
+
+// MARK: - Share Preview
+"share.navigation.title" = "Pregled dijeljenja";
+"share.accessibility.preview_card" = "Kartica pregleda za dijeljenje";
+"share.picker.aspect_ratio" = "Omjer stranica";
+"share.actions.share" = "Podijeli";
+"share.alert.generate_failed" = "Nije moguće izraditi sliku za dijeljenje.";
+"share.aspect.square" = "Kvadrat";
+"share.aspect.story" = "Story";
+"share.aspect.wide" = "Široko";
+"share.card.header" = "Lekcija dovršena";
+"share.card.cefr" = "ZEROJ %@";
+"share.card.artwork_missing" = "Omot nije dostupan";
+"share.card.by_artist" = "izvodi %@";
+"share.card.answered" = "%1$d/%2$d točnih odgovora";
+"share.card.footer.tagline" = "Nastavi učiti uz";
+"share.card.footer.brand" = "My Dictionary";
+
+// MARK: - Interactive Lyrics
+"interactive_lyrics.menu.options" = "Opcije";
+"interactive_lyrics.empty.title" = "Stihovi nisu dostupni";
+
+// MARK: - Quizzes
+"quiz.common.question_progress" = "Pitanje %1$d od %2$d";
+"quiz.navigation.previous" = "Prethodno";
+"quiz.navigation.next" = "Sljedeće";
+"quiz.comprehension.feedback.correct" = "Odličan izbor!";
+"quiz.comprehension.feedback.incorrect" = "Nije baš točno.";
+"quiz.fill_blank.prompt" = "Dovrši stih odabirom riječi koja nedostaje.";
+"quiz.fill_blank.feedback.correct" = "Sjajan posao!";
+"quiz.fill_blank.feedback.incorrect" = "Nastavi istraživati stihove i pokušaj dalje.";
+
+// MARK: - Authentication
+"auth.header.title" = "Poveži se s glazbenim servisima";
+"auth.header.subtitle" = "Poveži Apple Music i otkrij osobne preporuke pjesama za učenje jezika.";
+"auth.apple.connect" = "Poveži s Apple Musicom";
+"auth.info.title" = "Dobivaš:";
+"auth.info.recommendations" = "Osobne preporuke pjesama";
+"auth.info.library" = "Pristup svojoj glazbenoj biblioteci";
+"auth.info.lyrics" = "Stihove i obrazovni sadržaj";
+"auth.info.history" = "Praćenje povijesti slušanja";
+"auth.actions.open_music_app" = "Otvori aplikaciju Glazba";
+"auth.error.subscription_required" = "Potrebna je pretplata na Apple Music. Možeš se pretplatiti u aplikaciji Glazba ili u Postavkama.";
+"auth.error.not_registered" = "Apple Music nije dostupan. Ovu aplikaciju treba registrirati za MusicKit.";
+
+// MARK: - Music Errors
+"error.user_profile_not_completed" = "Korisnički profil nije dovršen";
+"error.authentication_failed" = "Autentifikacija nije uspjela: %@";
+"error.song_not_found" = "Pjesma nije pronađena";
+"error.lyrics_not_found" = "Stihovi za ovu pjesmu nisu dostupni";
+"error.lyrics_language_not_determined" = "Jezik stihova nije utvrđen";
+"error.lesson_not_found" = "Lekcija nije pronađena";
+"error.invalid_duration" = "Neispravno trajanje pjesme";
+"error.playback_not_supported" = "Reprodukcija ove pjesme nije podržana";
+"error.network_error" = "Mrežna pogreška: %@";
+"error.service_unavailable" = "Glazbeni servis trenutačno nije dostupan";
+"error.invalid_response" = "Neispravan odgovor glazbenog servisa";
+"error.token_refresh_failed" = "Osvježavanje autentifikacijskog tokena nije uspjelo";
+"error.apple_music_not_registered" = "Ovu aplikaciju treba registrirati za MusicKit u App Store Connectu. Obratite se podršci.";
+"error.apple_music_subscription_required" = "Za korištenje ove značajke potrebna je pretplata na Apple Music. Pretplatite se u aplikaciji Glazba ili u Postavkama.";
+"error.invalid_cefr_level" = "Neispravna ZEROJ razina";
+"error.no_recommendations_available" = "Nema dostupnih preporuka";
+"error.premium_required" = "Za ovu značajku potreban je Premium pristup";
+"error.hook_generation_failed" = "Nije uspjelo generiranje pregleda za ovu pjesmu";

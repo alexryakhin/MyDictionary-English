@@ -61,3 +61,6 @@
 "load_more" = "Ladda mer";
 "loading_more" = "Laddar...";
 "copy_email" = "Kopiera e-post";
+"play" = "Spela upp";
+"pause" = "Paus";
+"playFromHere" = "Spela upp härifrån";

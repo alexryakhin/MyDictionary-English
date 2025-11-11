@@ -1,4 +1,6 @@
 // MARK: - Tab Bar
+"tabbar.vocabulary" = "قاموسي";
+"tabbar.discover" = "استكشف";
 "tabbar.quizzes" = "الاختبارات";
 "tabbar.progress" = "التقدم";
 "tabbar.settings" = "الإعدادات";

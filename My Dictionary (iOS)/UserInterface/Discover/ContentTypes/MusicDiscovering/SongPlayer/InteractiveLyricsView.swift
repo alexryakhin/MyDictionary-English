@@ -85,7 +85,7 @@ struct InteractiveLyricsView: View {
                     }
                 }
             }
-            .navigation(title: "Options", mode: .regular, trailingContent: {
+            .navigation(title: Loc.MusicDiscovering.InteractiveLyrics.Menu.options, mode: .regular, trailingContent: {
                 HeaderButton(Loc.Actions.done) {
                     showMenu = nil
                 }
@@ -254,7 +254,7 @@ struct InteractiveLyricsView: View {
             Image(systemName: "music.note")
                 .font(.system(size: 60))
                 .foregroundColor(.secondary)
-            Text("No lyrics available")
+            Text(Loc.MusicDiscovering.InteractiveLyrics.Empty.title)
                 .font(.title3)
                 .foregroundColor(.secondary)
         }

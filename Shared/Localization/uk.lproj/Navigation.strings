@@ -1,4 +1,6 @@
 // MARK: - Tab Bar
+"tabbar.vocabulary" = "Мій словник";
+"tabbar.discover" = "Відкривай";
 "tabbar.quizzes" = "Тести";
 "tabbar.progress" = "Прогрес";
 "tabbar.settings" = "Налаштування";

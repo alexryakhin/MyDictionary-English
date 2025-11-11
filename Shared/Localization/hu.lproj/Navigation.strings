@@ -1,5 +1,7 @@
 // MARK: - Tab Bar
-"tabbar.quizzes" = "Kvizek";
+"tabbar.vocabulary" = "Szótár";
+"tabbar.discover" = "Fedezd fel";
+"tabbar.quizzes" = "Kvízek";
 "tabbar.progress" = "Haladás";
 "tabbar.settings" = "Beállítások";
 

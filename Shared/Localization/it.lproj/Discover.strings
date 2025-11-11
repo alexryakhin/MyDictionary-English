@@ -1,0 +1,6 @@
+// MARK: - Discover Flow
+"title" = "Scopri";
+"contentType.fiterTitle" = "Tipo di contenuto";
+"contentType.video" = "Video";
+"contentType.music" = "Musica";
+"contentType.podcast" = "Podcast";

@@ -1,2 +1,3 @@
 CFBundleDisplayName = "Từ Điển Của Tôi";
 CFBundleName = "Từ Điển Của Tôi";
+"NSAppleMusicUsageDescription" = "My Dictionary cần quyền truy cập Apple Music để khám phá những bài hát cá nhân hóa phục vụ học ngôn ngữ. Điều này cho phép ứng dụng tìm kiếm bài hát bằng ngôn ngữ mục tiêu của bạn và đưa ra gợi ý dựa trên hồ sơ học tập của bạn.";

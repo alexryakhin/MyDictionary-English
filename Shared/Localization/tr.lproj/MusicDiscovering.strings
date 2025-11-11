@@ -1,0 +1,170 @@
+// MARK: - Music Discovering View
+"view.section.not_finished" = "Tamamlanmadı";
+"view.section.recommended_for_you" = "Sizin için önerildi";
+"view.section.favorite_songs" = "Favori şarkılar";
+"view.section.history" = "Geçmiş";
+
+// MARK: - Search
+"view.search.loading" = "Aranıyor...";
+"view.search.results_title" = "Arama sonuçları";
+"view.search.empty_title" = "Sonuç bulunamadı";
+"view.search.empty_subtitle" = "Başka bir şarkı adı veya sanatçı deneyin.";
+
+// MARK: - Recommendations
+"view.recommendations.empty_title" = "Henüz öneri yok";
+"view.recommendations.empty_subtitle" = "Yeni şarkılar bulmak için bir ders oluşturun.";
+
+// MARK: - Recommendation Status
+"status.recommendations.loading" = "Öneriler yükleniyor";
+"status.recommendations.generating" = "Öneriler oluşturuluyor";
+"status.recommendations.fetching_data" = "Apple Music verileri alınıyor";
+
+// MARK: - Lesson Overview
+"lesson.overview.title" = "Ders yolu";
+"lesson.overview.description" = "%2$@ tarafından **%1$@** içine dalın. Bu ders, sözlerin anlamından kültürel bağlama kadar rehberlik eder ve aktif hatırlamayla sizi zorlar.";
+"lesson.overview.phrases_tag" = "İfade: %d";
+"lesson.overview.practice_tag" = "Alıştırma: %d";
+"lesson.collection.title" = "%@ — Önemli ifadeler";
+
+// MARK: - Lesson Sections
+"lesson.phrases.header" = "Önemli ifadeler";
+"lesson.phrases.subtitle" = "Şarkının hikayesini şekillendiren ifadeleri öğrenin.";
+"lesson.phrases.empty" = "Henüz ifade yok.";
+
+"lesson.grammar.header" = "Dilbilgisi odak";
+"lesson.grammar.subtitle" = "Dinlerken bu yapıları fark edin.";
+"lesson.grammar.empty" = "Bu ders için dilbilgisi vurgusu yok.";
+
+"lesson.explanations.header" = "Sözlere dair içgörüler";
+"lesson.explanations.subtitle" = "Anlamı derinleştirmek için satır satır bağlam.";
+"lesson.explanations.empty" = "Söz açıklamaları hazır olduğunda görünecek.";
+"lesson.explanations.line_number" = "%d. satır";
+
+"lesson.culture.header" = "Kültürel notlar";
+"lesson.culture.subtitle" = "Sözlere hayat veren bağlam.";
+"lesson.culture.empty" = "Kültürel bağlam sağlanmadı.";
+
+"lesson.practice.fill_blank.header" = "Alıştırma • Boşluk doldurma";
+"lesson.practice.fill_blank.subtitle" = "Sözlerden alınan ipuçlarıyla hafızanızı test edin.";
+"lesson.practice.fill_blank.empty" = "Boşluk doldurma alıştırmaları hazır olduğunda görünecek.";
+
+"lesson.practice.comprehension.header" = "Alıştırma • Anlama testi";
+"lesson.practice.comprehension.subtitle" = "Anlamı pekiştirmek için en iyi cevabı seçin.";
+"lesson.practice.comprehension.empty" = "Çoktan seçmeli alıştırmalar hazır olduğunda görünecek.";
+
+"lesson.reflection.header" = "Düşün ve tamamla";
+"lesson.reflection.subtitle" = "Seni en çok etkileyenleri kaydet ve serini sürdür.";
+"lesson.reflection.instructions" = "Testleri bitirdiğinde, ilerlemeni kaydetmek ve sonuçları görmek için **Bitir**'e dokun.";
+"lesson.reflection.progress" = "İlerleme: %1$d/%2$d soru yanıtlandı";
+"lesson.reflection.cta_view_results" = "Ders sonuçlarını göster";
+
+// MARK: - History
+"history.time.days" = "%dd gün önce";
+"history.time.hours" = "%dh saat önce";
+"history.time.minutes" = "%dm dakika önce";
+"history.time.just_now" = "Az önce";
+"history.play_count" = "%d×";
+
+// MARK: - Player
+"player.lesson.generating" = "Ders oluşturuluyor...";
+"player.lesson.loading" = "Ders yükleniyor...";
+"player.lesson.ready" = "Derse devam et";
+"player.lesson.failed" = "Ders yüklenirken hata oluştu. Tekrar denensin mi?";
+"player.lesson.unavailable" = "Ders oluşturulamadı";
+"player.tips.title" = "Müzik dersi ipuçları";
+"player.tips.header" = "Derse hazırlan";
+"player.tips.intro" = "Sessiz bir an bulun, kulaklığınız varsa takın ve bir defter bulundurun. Egzersizlerden önce melodiyi bir kez mırıldanmak yardımcı olur.";
+"player.tips.explore_title" = "Sözleri satır satır keşfedin";
+"player.tips.explore_message" = "Herhangi bir satıra dokunarak çeviri, sözlük, oynatma ve kopyalama seçeneklerine ulaşın.";
+"player.tips.carry_title" = "Şarkıyı derse taşıyın";
+"player.tips.carry_message" = "Derse devam ettiğinizde, sözleri yeniden görmek ve dinlemek için her zaman buraya dönebilirsiniz.";
+"player.tips.path_title" = "Dersi bir yol haritası gibi kullanın";
+"player.tips.path_message" = "Yeni duyduklarınızı pekiştirmek için dersi sırasıyla ifadeler, dilbilgisi, kültür ve alıştırma bölümlerinden takip edin.";
+
+// MARK: - Lesson Info Sheet
+"sheet.cta.start_lesson" = "Derse git";
+"sheet.premium.title" = "Premium gerekli";
+"sheet.premium.body" = "Yapay zekâ destekli içgörüler sunan müzik dersleri Premium aboneliğiyle kullanılabilir.";
+"sheet.premium.cta_upgrade" = "Premium'a yükselt";
+"sheet.lyrics_unavailable.title" = "Sözler kullanılamıyor";
+"sheet.lyrics_unavailable.body" = "Maalesef bu şarkının sözlerini bulamadık. Sözler olmadan ders oluşturulamaz.";
+"sheet.hook.grammar" = "Dilbilgisi";
+"sheet.hook.cultural_note" = "Kültürel not";
+
+// MARK: - Results
+"results.navigation.title" = "Ders tamamlandı";
+"results.header.title" = "Harika iş!";
+"results.header.subtitle" = "Dersi bitirdiniz";
+"results.stats.accuracy" = "Doğruluk";
+"results.stats.questions" = "Sorular";
+"results.stats.new_words" = "Yeni kelimeler";
+"results.stats.time" = "Süre";
+"results.discovered_words.title" = "Keşfedilen kelimeler";
+"results.actions.share" = "Sonuçları paylaş";
+"results.actions.add_to_favorites" = "Favorilere ekle";
+"results.actions.remove_from_favorites" = "Favorilerden kaldır";
+"results.actions.back_to_discover" = "Discover'a geri dön";
+
+// MARK: - Share Preview
+"share.navigation.title" = "Paylaşım önizlemesi";
+"share.accessibility.preview_card" = "Paylaşım önizleme kartı";
+"share.picker.aspect_ratio" = "Görüntü oranı";
+"share.actions.share" = "Paylaş";
+"share.alert.generate_failed" = "Paylaşım görseli oluşturulamadı.";
+"share.aspect.square" = "Kare";
+"share.aspect.story" = "Story";
+"share.aspect.wide" = "Geniş";
+"share.card.header" = "Ders tamamlandı";
+"share.card.cefr" = "CEFR %@";
+"share.card.artwork_missing" = "Görsel yok";
+"share.card.by_artist" = "%@ tarafından";
+"share.card.answered" = "%1$d/%2$d doğru cevap";
+"share.card.footer.tagline" = "My Dictionary ile öğrenmeye devam edin";
+"share.card.footer.brand" = "My Dictionary";
+
+// MARK: - Interactive Lyrics
+"interactive_lyrics.menu.options" = "Seçenekler";
+"interactive_lyrics.empty.title" = "Sözler mevcut değil";
+
+// MARK: - Quizzes
+"quiz.common.question_progress" = "%1$d / %2$d soru";
+"quiz.navigation.previous" = "Önceki";
+"quiz.navigation.next" = "Sonraki";
+"quiz.comprehension.feedback.correct" = "Harika seçim!";
+"quiz.comprehension.feedback.incorrect" = "Tam olarak değil.";
+"quiz.fill_blank.prompt" = "Eksik kelimeyi seçerek sözleri tamamlayın.";
+"quiz.fill_blank.feedback.correct" = "Aferin!";
+"quiz.fill_blank.feedback.incorrect" = "Sözleri keşfetmeye devam edin ve bir sonrakini deneyin.";
+
+// MARK: - Authentication
+"auth.header.title" = "Müzik servislerine bağlanın";
+"auth.header.subtitle" = "Dil öğrenimi için özel şarkı önerileri keşfetmek üzere Apple Music'e bağlanın.";
+"auth.apple.connect" = "Apple Music'e bağlan";
+"auth.info.title" = "Neler alırsınız:";
+"auth.info.recommendations" = "Kişiselleştirilmiş şarkı önerileri";
+"auth.info.library" = "Müzik kitaplığınıza erişim";
+"auth.info.lyrics" = "Şarkı sözleri ve öğrenme içerikleri";
+"auth.info.history" = "Dinleme geçmişi takibi";
+"auth.actions.open_music_app" = "Müzik uygulamasını aç";
+"auth.error.subscription_required" = "Apple Music aboneliği gerekli. Müzik uygulamasından veya Ayarlar'dan abone olabilirsiniz.";
+"auth.error.not_registered" = "Apple Music kullanılamıyor. Uygulamanın MusicKit için kaydedilmesi gerekiyor.";
+
+// MARK: - Music Errors
+"error.user_profile_not_completed" = "Kullanıcı profili tamamlanmadı";
+"error.authentication_failed" = "Kimlik doğrulama başarısız: %@";
+"error.song_not_found" = "Şarkı bulunamadı";
+"error.lyrics_not_found" = "Bu şarkı için söz bulunamadı";
+"error.lyrics_language_not_determined" = "Sözlerin dili belirlenemedi";
+"error.lesson_not_found" = "Ders bulunamadı";
+"error.invalid_duration" = "Geçersiz şarkı süresi";
+"error.playback_not_supported" = "Bu şarkının oynatılması desteklenmiyor";
+"error.network_error" = "Ağ hatası: %@";
+"error.service_unavailable" = "Müzik servisi şu anda kullanılamıyor";
+"error.invalid_response" = "Müzik servisinden geçersiz yanıt";
+"error.token_refresh_failed" = "Kimlik doğrulama belirteci yenilenemedi";
+"error.apple_music_not_registered" = "Bu uygulamanın MusicKit için App Store Connect'te kaydedilmesi gerekiyor. Lütfen destekle iletişime geçin.";
+"error.apple_music_subscription_required" = "Bu özelliği kullanmak için Apple Music aboneliği gerekiyor. Müzik uygulamasından veya Ayarlar'dan abone olabilirsiniz.";
+"error.invalid_cefr_level" = "Geçersiz CEFR seviyesi";
+"error.no_recommendations_available" = "Öneri bulunamadı";
+"error.premium_required" = "Bu özellik için Premium erişim gerekiyor";
+"error.hook_generation_failed" = "Bu şarkı için önizleme oluşturulamadı";

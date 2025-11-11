@@ -1,0 +1,170 @@
+// MARK: - Music Discovering View
+"view.section.not_finished" = "No finalitzat";
+"view.section.recommended_for_you" = "Recomanat per a tu";
+"view.section.favorite_songs" = "Cançons preferides";
+"view.section.history" = "Historial";
+
+// MARK: - Search
+"view.search.loading" = "Cercant...";
+"view.search.results_title" = "Resultats de la cerca";
+"view.search.empty_title" = "No s'han trobat resultats";
+"view.search.empty_subtitle" = "Prova amb un altre títol de cançó o artista.";
+
+// MARK: - Recommendations
+"view.recommendations.empty_title" = "Encara no hi ha recomanacions";
+"view.recommendations.empty_subtitle" = "Prova de generar una lliçó per descobrir noves cançons.";
+
+// MARK: - Recommendation Status
+"status.recommendations.loading" = "S'estan carregant les recomanacions";
+"status.recommendations.generating" = "S'estan generant recomanacions";
+"status.recommendations.fetching_data" = "S'estan obtenint dades d'Apple Music";
+
+// MARK: - Lesson Overview
+"lesson.overview.title" = "Ruta de la lliçó";
+"lesson.overview.description" = "Endinsa't en **%1$@** de %2$@. Aquesta lliçó et guia des del significat de la lletra fins al context cultural abans de desafiar la teva memòria activa.";
+"lesson.overview.phrases_tag" = "Frases: %d";
+"lesson.overview.practice_tag" = "Sessions de pràctica: %d";
+"lesson.collection.title" = "%@ — Frases clau";
+
+// MARK: - Lesson Sections
+"lesson.phrases.header" = "Frases clau";
+"lesson.phrases.subtitle" = "Aprèn les expressions que donen forma a la història de la cançó.";
+"lesson.phrases.empty" = "Encara no hi ha frases disponibles.";
+
+"lesson.grammar.header" = "Focus gramatical";
+"lesson.grammar.subtitle" = "Fixa't en aquestes estructures mentre escoltes.";
+"lesson.grammar.empty" = "No hi ha destacats gramaticals per a aquesta lliçó.";
+
+"lesson.explanations.header" = "Anàlisi de la lletra";
+"lesson.explanations.subtitle" = "Context línia per línia per aprofundir la comprensió.";
+"lesson.explanations.empty" = "Les explicacions de la lletra apareixeran quan estiguin disponibles.";
+"lesson.explanations.line_number" = "Línia %d";
+
+"lesson.culture.header" = "Notes culturals";
+"lesson.culture.subtitle" = "Context que dona vida a la lletra.";
+"lesson.culture.empty" = "No s'ha proporcionat context cultural.";
+
+"lesson.practice.fill_blank.header" = "Pràctica • Completa l'espai en blanc";
+"lesson.practice.fill_blank.subtitle" = "Posa a prova la memòria amb indicacions basades en la lletra.";
+"lesson.practice.fill_blank.empty" = "Els exercicis d'omplir buits apareixeran quan estiguin disponibles.";
+
+"lesson.practice.comprehension.header" = "Pràctica • Qüestionari de comprensió";
+"lesson.practice.comprehension.subtitle" = "Tria la millor resposta per reforçar el significat.";
+"lesson.practice.comprehension.empty" = "Els exercicis de resposta múltiple apareixeran quan estiguin disponibles.";
+
+"lesson.reflection.header" = "Reflexiona i tanca";
+"lesson.reflection.subtitle" = "Captura el que t'ha ressonat i continua la teva ratxa.";
+"lesson.reflection.instructions" = "Quan acabis els qüestionaris, toca **Finalitza** per desar el progrés i veure els resultats de la lliçó.";
+"lesson.reflection.progress" = "Progrés: %1$d/%2$d preguntes respostes";
+"lesson.reflection.cta_view_results" = "Veure resultats de la lliçó";
+
+// MARK: - History
+"history.time.days" = "Fa %dd";
+"history.time.hours" = "Fa %dh";
+"history.time.minutes" = "Fa %dm";
+"history.time.just_now" = "Ara mateix";
+"history.play_count" = "%dx";
+
+// MARK: - Player
+"player.lesson.generating" = "S'està generant la lliçó...";
+"player.lesson.loading" = "S'està carregant la lliçó...";
+"player.lesson.ready" = "Continuar cap a la lliçó";
+"player.lesson.failed" = "Error en carregar la lliçó. Vols tornar-ho a intentar?";
+"player.lesson.unavailable" = "No s'ha pogut generar la lliçó";
+"player.tips.title" = "Consells per a la lliçó de música";
+"player.tips.header" = "Prepara't per a la teva lliçó";
+"player.tips.intro" = "Busca un moment tranquil, connecta uns auriculars si en tens i tingues una llibreta a prop. Taral·lejar una vegada abans dels exercicis ajuda molt.";
+"player.tips.explore_title" = "Explora la lletra línia per línia";
+"player.tips.explore_message" = "Toca qualsevol línia de la lletra per obrir un menú amb opcions de traducció, diccionari, reproducció i còpia.";
+"player.tips.carry_title" = "Porta la cançó a la lliçó";
+"player.tips.carry_message" = "Quan continuïs amb la lliçó, sempre podràs tornar aquí per revisar la lletra i escoltar de nou.";
+"player.tips.path_title" = "Utilitza la lliçó com a camí";
+"player.tips.path_message" = "Segueix les seccions de la lliçó en ordre—frases, gramàtica, cultura i després pràctica—per consolidar allò que acabes d'escoltar.";
+
+// MARK: - Lesson Info Sheet
+"sheet.cta.start_lesson" = "Anar a la lliçó";
+"sheet.premium.title" = "Cal Premium";
+"sheet.premium.body" = "Les lliçons de música amb informació impulsada per IA estan disponibles amb una subscripció Premium.";
+"sheet.premium.cta_upgrade" = "Actualitza a Premium";
+"sheet.lyrics_unavailable.title" = "Lletra no disponible";
+"sheet.lyrics_unavailable.body" = "No hem pogut trobar la lletra d'aquesta cançó. No es pot crear una lliçó sense lletra.";
+"sheet.hook.grammar" = "Gramàtica";
+"sheet.hook.cultural_note" = "Nota cultural";
+
+// MARK: - Results
+"results.navigation.title" = "Lliçó completada";
+"results.header.title" = "Bona feina!";
+"results.header.subtitle" = "Has completat la lliçó";
+"results.stats.accuracy" = "Precisió";
+"results.stats.questions" = "Preguntes";
+"results.stats.new_words" = "Paraules noves";
+"results.stats.time" = "Temps";
+"results.discovered_words.title" = "Paraules descobertes";
+"results.actions.share" = "Comparteix els resultats";
+"results.actions.add_to_favorites" = "Afegeix als preferits";
+"results.actions.remove_from_favorites" = "Elimina dels preferits";
+"results.actions.back_to_discover" = "Torna a Descobrir";
+
+// MARK: - Share Preview
+"share.navigation.title" = "Previsualització de compartició";
+"share.accessibility.preview_card" = "Targeta de previsualització de compartició";
+"share.picker.aspect_ratio" = "Relació d'aspecte";
+"share.actions.share" = "Comparteix";
+"share.alert.generate_failed" = "No s'ha pogut crear la imatge de compartició.";
+"share.aspect.square" = "Quadrat";
+"share.aspect.story" = "Story";
+"share.aspect.wide" = "Horitzontal";
+"share.card.header" = "Lliçó completada";
+"share.card.cefr" = "MCER %@";
+"share.card.artwork_missing" = "Imatge no disponible";
+"share.card.by_artist" = "de %@";
+"share.card.answered" = "Respostes correctes %1$d/%2$d";
+"share.card.footer.tagline" = "Continua aprenent amb";
+"share.card.footer.brand" = "My Dictionary";
+
+// MARK: - Interactive Lyrics
+"interactive_lyrics.menu.options" = "Opcions";
+"interactive_lyrics.empty.title" = "No hi ha lletra disponible";
+
+// MARK: - Quizzes
+"quiz.common.question_progress" = "Pregunta %1$d de %2$d";
+"quiz.navigation.previous" = "Anterior";
+"quiz.navigation.next" = "Següent";
+"quiz.comprehension.feedback.correct" = "Molt bona elecció!";
+"quiz.comprehension.feedback.incorrect" = "No és del tot correcte.";
+"quiz.fill_blank.prompt" = "Completa la lletra triant la paraula que falta.";
+"quiz.fill_blank.feedback.correct" = "Molt bona feina!";
+"quiz.fill_blank.feedback.incorrect" = "Continua explorant la lletra i prova la següent.";
+
+// MARK: - Authentication
+"auth.header.title" = "Connecta't als serveis de música";
+"auth.header.subtitle" = "Connecta't a Apple Music per descobrir recomanacions personalitzades de cançons per aprendre idiomes.";
+"auth.apple.connect" = "Connecta amb Apple Music";
+"auth.info.title" = "Què obtindràs:";
+"auth.info.recommendations" = "Recomanacions personalitzades de cançons";
+"auth.info.library" = "Accés a la teva biblioteca musical";
+"auth.info.lyrics" = "Lletres de cançons i contingut d'aprenentatge";
+"auth.info.history" = "Seguiment de l'historial d'escolta";
+"auth.actions.open_music_app" = "Obre l'app Música";
+"auth.error.subscription_required" = "Cal una subscripció a Apple Music. Pots subscriure't a l'app Música o a Configuració.";
+"auth.error.not_registered" = "Apple Music no està disponible. Aquesta app s'ha de registrar per a MusicKit.";
+
+// MARK: - Music Errors
+"error.user_profile_not_completed" = "Perfil d'usuari incomplet";
+"error.authentication_failed" = "Ha fallat l'autenticació: %@";
+"error.song_not_found" = "No s'ha trobat la cançó";
+"error.lyrics_not_found" = "Lletra no disponible per a aquesta cançó";
+"error.lyrics_language_not_determined" = "No s'ha determinat la llengua de la lletra";
+"error.lesson_not_found" = "No s'ha trobat la lliçó";
+"error.invalid_duration" = "Durada de la cançó no vàlida";
+"error.playback_not_supported" = "La reproducció no és compatible amb aquesta cançó";
+"error.network_error" = "Error de xarxa: %@";
+"error.service_unavailable" = "El servei de música no està disponible ara mateix";
+"error.invalid_response" = "Resposta no vàlida del servei de música";
+"error.token_refresh_failed" = "No s'ha pogut actualitzar el testimoni d'autenticació";
+"error.apple_music_not_registered" = "Aquesta app s'ha de registrar per a MusicKit a App Store Connect. Contacta amb el suport.";
+"error.apple_music_subscription_required" = "Cal una subscripció a Apple Music per utilitzar aquesta funció. Pots subscriure't a l'app Música o a Configuració.";
+"error.invalid_cefr_level" = "Nivell MCER no vàlid";
+"error.no_recommendations_available" = "No hi ha recomanacions disponibles";
+"error.premium_required" = "Cal accés Premium per utilitzar aquesta funció";
+"error.hook_generation_failed" = "No s'ha pogut generar una previsualització per a aquesta cançó";

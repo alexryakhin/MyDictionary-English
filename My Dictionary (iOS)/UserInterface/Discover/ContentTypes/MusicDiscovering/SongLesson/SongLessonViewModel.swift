@@ -76,7 +76,7 @@ final class SongLessonViewModel: BaseViewModel {
     
     var phraseWordCollection: WordCollection {
         WordCollection(
-            title: "\(song.title) — Key Phrases",
+            title: Loc.MusicDiscovering.Lesson.Collection.title(song.title),
             words: phraseItems,
             level: lesson.userLevel,
             tagValue: lesson.language.englishName,

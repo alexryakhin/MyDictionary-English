@@ -1,4 +1,6 @@
 // MARK: - Tab Bar
+"tabbar.vocabulary" = "我的詞典";
+"tabbar.discover" = "探索";
 "tabbar.quizzes" = "測驗";
 "tabbar.progress" = "進度";
 "tabbar.settings" = "設置";

@@ -63,7 +63,7 @@ struct MusicDiscoveringView<ContentPicker: View>: View {
         }
         .groupedBackground()
         .navigation(
-            title: Loc.Navigation.Tabbar.discover,
+            title: Loc.Discover.title,
             trailingContent: {
                 contentPicker
             },
@@ -118,7 +118,7 @@ struct MusicDiscoveringView<ContentPicker: View>: View {
     @ViewBuilder
     private var notFinishedSection: some View {
         if !viewModel.incompleteSessions.isEmpty {
-            CustomSectionView(header: "Not Finished") {
+            CustomSectionView(header: Loc.MusicDiscovering.View.Section.notFinished) {
                 ScrollView(.horizontal, showsIndicators: false) {
                     LazyHStack(spacing: 16) {
                         ForEach(viewModel.incompleteSessions) { session in
@@ -139,7 +139,7 @@ struct MusicDiscoveringView<ContentPicker: View>: View {
 
     private var recommendedForYouSection: some View {
         CustomSectionView(
-            header: "Recommended For You",
+            header: Loc.MusicDiscovering.View.Section.recommendedForYou,
             headerSubtitle: recommendationLanguageSubtitle
         ) {
             if viewModel.recommendationPhase != .idle {
@@ -189,7 +189,7 @@ struct MusicDiscoveringView<ContentPicker: View>: View {
     @ViewBuilder
     private var favoriteSongsSection: some View {
         if !viewModel.favoriteSongs.isEmpty {
-            CustomSectionView(header: "Favorite Songs") {
+            CustomSectionView(header: Loc.MusicDiscovering.View.Section.favoriteSongs) {
                 ScrollView(.horizontal, showsIndicators: false) {
                     LazyHStack(spacing: 16) {
                         ForEach(viewModel.favoriteSongs) { session in
@@ -211,12 +211,12 @@ struct MusicDiscoveringView<ContentPicker: View>: View {
     @ViewBuilder
     private var searchResultsSection: some View {
         if viewModel.isSearching {
-            CustomSectionView(header: "Searching...") {
+            CustomSectionView(header: Loc.MusicDiscovering.View.Search.loading) {
                 ProgressView()
                     .padding()
             }
         } else if !viewModel.searchResults.isEmpty {
-            CustomSectionView(header: "Search Results") {
+            CustomSectionView(header: Loc.MusicDiscovering.View.Search.resultsTitle) {
                 LazyVGrid(
                     columns: Array(repeating: GridItem(.flexible(), spacing: 12), count: 2),
                     spacing: 12
@@ -230,18 +230,12 @@ struct MusicDiscoveringView<ContentPicker: View>: View {
                 .padding(.vertical, 8)
             }
         } else {
-            CustomSectionView(header: "Search Results") {
+            CustomSectionView(header: Loc.MusicDiscovering.View.Search.resultsTitle) {
                 ContentUnavailableView(
-                    String(
-                        localized: "music.search.empty.title",
-                        defaultValue: "No results found"
-                    ),
+                    Loc.MusicDiscovering.View.Search.emptyTitle,
                     systemImage: "magnifyingglass",
                     description: Text(
-                        String(
-                            localized: "music.search.empty.subtitle",
-                            defaultValue: "Try a different song title or artist."
-                        )
+                        Loc.MusicDiscovering.View.Search.emptySubtitle
                     )
                 )
                 .padding(.vertical, 24)
@@ -254,7 +248,7 @@ struct MusicDiscoveringView<ContentPicker: View>: View {
     @ViewBuilder
     private var historySection: some View {
         if !viewModel.completedSessions.isEmpty {
-            CustomSectionView(header: "History") {
+            CustomSectionView(header: Loc.MusicDiscovering.View.Section.history) {
                 ScrollView(.horizontal, showsIndicators: false) {
                     LazyHStack(spacing: 12) {
                         ForEach(viewModel.completedSessions) { session in
@@ -346,16 +340,10 @@ private struct RecommendationSectionSkeleton: View {
 private struct RecommendationEmptyView: View {
     var body: some View {
         ContentUnavailableView(
-            String(
-                localized: "music.recommendations.empty.title",
-                defaultValue: "No recommendations yet"
-            ),
+            Loc.MusicDiscovering.View.Recommendations.emptyTitle,
             systemImage: "sparkles",
             description: Text(
-                String(
-                    localized: "music.recommendations.empty.subtitle",
-                    defaultValue: "Try generating a lesson to seed new songs."
-                )
+                Loc.MusicDiscovering.View.Recommendations.emptySubtitle
             )
         )
         .padding(.vertical, 24)
@@ -365,7 +353,7 @@ private struct RecommendationEmptyView: View {
 // MARK: - Previews
 
 #Preview("Skeleton Loading") {
-    RecommendationSectionSkeleton(statusMessage: "Generating recommendations")
+    RecommendationSectionSkeleton(statusMessage: Loc.MusicDiscovering.Status.Recommendations.generating)
         .padding()
         .groupedBackground()
 }

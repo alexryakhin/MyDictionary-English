@@ -1,4 +1,6 @@
 // MARK: - Tab Bar
+"tabbar.vocabulary" = "Kamusku";
+"tabbar.discover" = "Temukan";
 "tabbar.quizzes" = "Kuis";
 "tabbar.progress" = "Kemajuan";
 "tabbar.settings" = "Pengaturan";

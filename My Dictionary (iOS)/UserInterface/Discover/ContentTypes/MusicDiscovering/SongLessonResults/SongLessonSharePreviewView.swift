@@ -46,11 +46,11 @@ final class SongLessonSharePreviewViewModel: ObservableObject {
         var label: String {
             switch self {
             case .square:
-                return "Square"
+                return Loc.MusicDiscovering.Share.Aspect.square
             case .portrait:
-                return "Story"
+                return Loc.MusicDiscovering.Share.Aspect.story
             case .landscape:
-                return "Wide"
+                return Loc.MusicDiscovering.Share.Aspect.wide
             }
         }
     }
@@ -129,7 +129,7 @@ struct SongLessonSharePreviewView: View {
                     .clipShape(.rect(cornerRadius: 24))
                     .shadow(color: Color.black.opacity(0.25), radius: 20, y: 10)
                     .accessibilityElement(children: .ignore)
-                    .accessibilityLabel("Share preview card")
+                    .accessibilityLabel(Loc.MusicDiscovering.Share.Accessibility.previewCard)
             } else {
                 ProgressView()
             }
@@ -138,7 +138,7 @@ struct SongLessonSharePreviewView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .groupedBackground()
         .navigation(
-            title: "Share Preview",
+            title: Loc.MusicDiscovering.Share.Navigation.title,
             mode: .regular,
             trailingContent: {
                 HeaderButton(Loc.Actions.cancel) {
@@ -166,7 +166,7 @@ struct SongLessonSharePreviewView: View {
     }
     
     private var aspectPicker: some View {
-        Picker("Aspect Ratio", selection: $viewModel.selectedAspect) {
+        Picker(Loc.MusicDiscovering.Share.Picker.aspectRatio, selection: $viewModel.selectedAspect) {
             ForEach(SongLessonSharePreviewViewModel.Aspect.allCases) { aspect in
                 Text(aspect.label)
                     .tag(aspect)
@@ -176,7 +176,7 @@ struct SongLessonSharePreviewView: View {
     }
     
     private var shareButton: some View {
-        AsyncActionButton("Share", systemImage: "square.and.arrow.up") {
+        AsyncActionButton(Loc.MusicDiscovering.Share.Actions.share, systemImage: "square.and.arrow.up") {
             await generateShareImage()
         }
     }
@@ -186,7 +186,7 @@ struct SongLessonSharePreviewView: View {
             shareImage = image
             isPresentingShareSheet = true
         } else {
-            showAlertWithMessage("Unable to create share image.")
+            showAlertWithMessage(Loc.MusicDiscovering.Share.Alert.generateFailed)
         }
     }
 }
@@ -238,13 +238,13 @@ private struct SongLessonShareCard: View {
     
     private var header: some View {
         VStack(spacing: 8) {
-            Text("Lesson Complete")
+            Text(Loc.MusicDiscovering.Share.Card.header)
                 .font(.system(size: 16, weight: .semibold, design: .rounded))
                 .textCase(.uppercase)
                 .opacity(0.9)
             
             if let cefr = data.cefrLevel {
-                Text("CEFR \(cefr.rawValue.uppercased())")
+                Text(Loc.MusicDiscovering.Share.Card.cefr(cefr.rawValue.uppercased()))
                     .font(.system(size: 13, weight: .regular, design: .rounded))
                     .padding(.horizontal, 12)
                     .padding(.vertical, 6)
@@ -276,7 +276,7 @@ private struct SongLessonShareCard: View {
                             Image(systemName: "music.note.list")
                                 .font(.system(size: 44, weight: .semibold))
                             
-                            Text("Artwork not available")
+                            Text(Loc.MusicDiscovering.Share.Card.artworkMissing)
                                 .font(.system(size: 12, weight: .regular, design: .rounded))
                                 .opacity(0.7)
                         }
@@ -293,7 +293,7 @@ private struct SongLessonShareCard: View {
                 .minimumScaleFactor(0.7)
                 .lineLimit(2)
             
-            Text("by \(data.song.artist)")
+            Text(Loc.MusicDiscovering.Share.Card.byArtist(data.song.artist))
                 .font(.system(size: 16, weight: .semibold, design: .rounded))
                 .opacity(0.85)
                 .lineLimit(1)
@@ -303,13 +303,13 @@ private struct SongLessonShareCard: View {
     private var statsSection: some View {
         VStack(spacing: 16) {
             HStack(spacing: 16) {
-                shareStat(title: "Accuracy", value: "\(data.accuracy)%", systemImage: "target")
-                shareStat(title: "New Words", value: "\(data.discoveredWordsCount)", systemImage: "book.closed")
-                shareStat(title: "Time", value: data.formattedListeningTime, systemImage: "clock")
+                shareStat(title: Loc.MusicDiscovering.Results.Stats.accuracy, value: "\(data.accuracy)%", systemImage: "target")
+                shareStat(title: Loc.MusicDiscovering.Results.Stats.newWords, value: "\(data.discoveredWordsCount)", systemImage: "book.closed")
+                shareStat(title: Loc.MusicDiscovering.Results.Stats.time, value: data.formattedListeningTime, systemImage: "clock")
             }
             
             if data.totalQuestions > 0 {
-                Text("Answered \(data.correctAnswers)/\(data.totalQuestions) correctly")
+                Text(Loc.MusicDiscovering.Share.Card.answered(data.correctAnswers, data.totalQuestions))
                     .font(.system(size: 12, weight: .regular, design: .rounded))
                     .opacity(0.8)
             }
@@ -325,7 +325,8 @@ private struct SongLessonShareCard: View {
             Text(value)
                 .font(.system(size: 22, weight: .semibold, design: .rounded))
             
-            Text(title.uppercased())
+            Text(title)
+                .textCase(.uppercase)
                 .font(.system(size: 12, weight: .regular, design: .rounded))
                 .opacity(0.7)
         }
@@ -334,14 +335,14 @@ private struct SongLessonShareCard: View {
     
     private var footer: some View {
         VStack(spacing: 4) {
-            Text("Keep learning with")
+            Text(Loc.MusicDiscovering.Share.Card.Footer.tagline)
                 .font(.system(size: 12, weight: .semibold, design: .rounded))
                 .opacity(0.7)
             
             HStack(spacing: 6) {
                 Image(systemName: "sparkles")
                     .font(.system(size: 14, weight: .semibold, design: .rounded))
-                Text("My Dictionary")
+                Text(Loc.MusicDiscovering.Share.Card.Footer.brand)
                     .font(.system(size: 14, weight: .semibold, design: .rounded))
             }
             .opacity(0.85)

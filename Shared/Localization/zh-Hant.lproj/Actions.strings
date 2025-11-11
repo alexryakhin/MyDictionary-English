@@ -61,3 +61,6 @@
 "load_more" = "載入更多";
 "loading_more" = "載入中...";
 "copy_email" = "複製電子郵件";
+"play" = "播放";
+"pause" = "暫停";
+"playFromHere" = "從這裡播放";

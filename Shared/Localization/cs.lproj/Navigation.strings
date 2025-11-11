@@ -1,5 +1,7 @@
 // MARK: - Tab Bar
-"tabbar.quizzes" = "Kvíz";
+"tabbar.vocabulary" = "Můj slovník";
+"tabbar.discover" = "Objevuj";
+"tabbar.quizzes" = "Kvízy";
 "tabbar.progress" = "Pokrok";
 "tabbar.settings" = "Nastavení";
 

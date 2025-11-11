@@ -1,0 +1,170 @@
+// MARK: - Music Discovering View
+"view.section.not_finished" = "未完了";
+"view.section.recommended_for_you" = "あなたへのおすすめ";
+"view.section.favorite_songs" = "お気に入りの曲";
+"view.section.history" = "履歴";
+
+// MARK: - Search
+"view.search.loading" = "検索中…";
+"view.search.results_title" = "検索結果";
+"view.search.empty_title" = "結果が見つかりません";
+"view.search.empty_subtitle" = "別の曲名またはアーティスト名で試してください。";
+
+// MARK: - Recommendations
+"view.recommendations.empty_title" = "まだおすすめはありません";
+"view.recommendations.empty_subtitle" = "レッスンを生成して新しい曲を見つけてみましょう。";
+
+// MARK: - Recommendation Status
+"status.recommendations.loading" = "おすすめを読み込み中";
+"status.recommendations.generating" = "おすすめを生成中";
+"status.recommendations.fetching_data" = "Apple Music のデータを取得しています";
+
+// MARK: - Lesson Overview
+"lesson.overview.title" = "レッスンの流れ";
+"lesson.overview.description" = "%2$@ の **%1$@** に浸りましょう。このレッスンは歌詞の意味から文化的背景まで案内し、その後アクティブリコールで理解を定着させます。";
+"lesson.overview.phrases_tag" = "フレーズ：%d";
+"lesson.overview.practice_tag" = "練習：%d";
+"lesson.collection.title" = "%@ — 重要フレーズ";
+
+// MARK: - Lesson Sections
+"lesson.phrases.header" = "重要フレーズ";
+"lesson.phrases.subtitle" = "曲の物語を形作る表現を学びましょう。";
+"lesson.phrases.empty" = "利用可能なフレーズはまだありません。";
+
+"lesson.grammar.header" = "文法の焦点";
+"lesson.grammar.subtitle" = "聴きながらこれらの構造に注目してください。";
+"lesson.grammar.empty" = "このレッスンには文法のハイライトはありません。";
+
+"lesson.explanations.header" = "歌詞のインサイト";
+"lesson.explanations.subtitle" = "理解を深めるための逐語的なコンテキスト。";
+"lesson.explanations.empty" = "説明は利用可能になり次第表示されます。";
+"lesson.explanations.line_number" = "%d 行目";
+
+"lesson.culture.header" = "文化メモ";
+"lesson.culture.subtitle" = "歌詞を生き生きとさせるコンテキスト。";
+"lesson.culture.empty" = "文化的背景は提供されていません。";
+
+"lesson.practice.fill_blank.header" = "練習 • 空欄補充";
+"lesson.practice.fill_blank.subtitle" = "歌詞に基づくヒントで記憶を試しましょう。";
+"lesson.practice.fill_blank.empty" = "空欄補充の練習は利用可能になり次第表示されます。";
+
+"lesson.practice.comprehension.header" = "練習 • 理解度クイズ";
+"lesson.practice.comprehension.subtitle" = "意味を強化する最適な選択肢を選びましょう。";
+"lesson.practice.comprehension.empty" = "選択式の練習は利用可能になり次第表示されます。";
+
+"lesson.reflection.header" = "振り返りとまとめ";
+"lesson.reflection.subtitle" = "心に残ったことを書き留め、連続記録を伸ばしましょう。";
+"lesson.reflection.instructions" = "クイズが終わったら **完了** をタップして進捗を保存し、レッスン結果を確認してください。";
+"lesson.reflection.progress" = "進捗：%1$d/%2$d 問に回答済み";
+"lesson.reflection.cta_view_results" = "レッスン結果を見る";
+
+// MARK: - History
+"history.time.days" = "%dd 日前";
+"history.time.hours" = "%dh 時間前";
+"history.time.minutes" = "%dm 分前";
+"history.time.just_now" = "たった今";
+"history.play_count" = "%d×";
+
+// MARK: - Player
+"player.lesson.generating" = "レッスンを生成しています…";
+"player.lesson.loading" = "レッスンを読み込み中…";
+"player.lesson.ready" = "レッスンに進む";
+"player.lesson.failed" = "レッスンの読み込みに失敗しました。再試行しますか？";
+"player.lesson.unavailable" = "レッスンを生成できませんでした";
+"player.tips.title" = "音楽レッスンのヒント";
+"player.tips.header" = "レッスンの準備をしよう";
+"player.tips.intro" = "静かな時間を見つけ、ヘッドフォンがあれば接続し、ノートを手元に置きましょう。練習前に一度ハミングすると集中しやすくなります。";
+"player.tips.explore_title" = "歌詞を一行ずつ探ろう";
+"player.tips.explore_message" = "任意の行をタップすると翻訳、辞書、再生、コピーのオプションが開きます。";
+"player.tips.carry_title" = "曲をレッスンに持ち込もう";
+"player.tips.carry_message" = "レッスンに進んでも、いつでもここに戻って歌詞を見直したり再生したりできます。";
+"player.tips.path_title" = "レッスンを道筋として使おう";
+"player.tips.path_message" = "フレーズ、文法、文化、練習の順にレッスンを進め、学んだことを確実に定着させましょう。";
+
+// MARK: - Lesson Info Sheet
+"sheet.cta.start_lesson" = "レッスンへ";
+"sheet.premium.title" = "Premium が必要です";
+"sheet.premium.body" = "AI による洞察を備えた音楽レッスンは Premium サブスクリプションでご利用いただけます。";
+"sheet.premium.cta_upgrade" = "Premium にアップグレード";
+"sheet.lyrics_unavailable.title" = "歌詞が見つかりません";
+"sheet.lyrics_unavailable.body" = "残念ながらこの曲の歌詞を見つけられませんでした。歌詞がないとレッスンは作成できません。";
+"sheet.hook.grammar" = "文法";
+"sheet.hook.cultural_note" = "文化ノート";
+
+// MARK: - Results
+"results.navigation.title" = "レッスン完了";
+"results.header.title" = "お疲れさま！";
+"results.header.subtitle" = "レッスンが完了しました";
+"results.stats.accuracy" = "正答率";
+"results.stats.questions" = "問題数";
+"results.stats.new_words" = "新しい単語";
+"results.stats.time" = "時間";
+"results.discovered_words.title" = "見つけた単語";
+"results.actions.share" = "結果を共有";
+"results.actions.add_to_favorites" = "お気に入りに追加";
+"results.actions.remove_from_favorites" = "お気に入りから削除";
+"results.actions.back_to_discover" = "Discover に戻る";
+
+// MARK: - Share Preview
+"share.navigation.title" = "共有プレビュー";
+"share.accessibility.preview_card" = "共有プレビューカード";
+"share.picker.aspect_ratio" = "アスペクト比";
+"share.actions.share" = "共有";
+"share.alert.generate_failed" = "共有用の画像を作成できませんでした。";
+"share.aspect.square" = "スクエア";
+"share.aspect.story" = "ストーリー";
+"share.aspect.wide" = "ワイド";
+"share.card.header" = "レッスン完了";
+"share.card.cefr" = "CEFR %@";
+"share.card.artwork_missing" = "アートワークなし";
+"share.card.by_artist" = "%@ 作";
+"share.card.answered" = "%1$d/%2$d 正解";
+"share.card.footer.tagline" = "My Dictionary で学び続けよう";
+"share.card.footer.brand" = "My Dictionary";
+
+// MARK: - Interactive Lyrics
+"interactive_lyrics.menu.options" = "オプション";
+"interactive_lyrics.empty.title" = "歌詞が利用できません";
+
+// MARK: - Quizzes
+"quiz.common.question_progress" = "%1$d / %2$d 問";
+"quiz.navigation.previous" = "前へ";
+"quiz.navigation.next" = "次へ";
+"quiz.comprehension.feedback.correct" = "素晴らしい選択です！";
+"quiz.comprehension.feedback.incorrect" = "もう少しです。";
+"quiz.fill_blank.prompt" = "抜けている言葉を選んで歌詞を完成させましょう。";
+"quiz.fill_blank.feedback.correct" = "よくできました！";
+"quiz.fill_blank.feedback.incorrect" = "歌詞をさらに探って次に挑戦しましょう。";
+
+// MARK: - Authentication
+"auth.header.title" = "ミュージックサービスに接続";
+"auth.header.subtitle" = "Apple Music に接続して、語学学習に合わせた曲のおすすめを見つけましょう。";
+"auth.apple.connect" = "Apple Music に接続";
+"auth.info.title" = "できること：";
+"auth.info.recommendations" = "パーソナライズされた曲のおすすめ";
+"auth.info.library" = "音楽ライブラリへのアクセス";
+"auth.info.lyrics" = "歌詞と学習コンテンツ";
+"auth.info.history" = "再生履歴のトラッキング";
+"auth.actions.open_music_app" = "ミュージック App を開く";
+"auth.error.subscription_required" = "Apple Music のサブスクリプションが必要です。ミュージック App または設定から登録できます。";
+"auth.error.not_registered" = "Apple Music が利用できません。このアプリを MusicKit に登録する必要があります。";
+
+// MARK: - Music Errors
+"error.user_profile_not_completed" = "ユーザープロファイルが未完成です";
+"error.authentication_failed" = "認証に失敗しました：%@";
+"error.song_not_found" = "曲が見つかりません";
+"error.lyrics_not_found" = "この曲の歌詞は利用できません";
+"error.lyrics_language_not_determined" = "歌詞の言語を特定できませんでした";
+"error.lesson_not_found" = "レッスンが見つかりません";
+"error.invalid_duration" = "曲の長さが無効です";
+"error.playback_not_supported" = "この曲は再生をサポートしていません";
+"error.network_error" = "ネットワークエラー：%@";
+"error.service_unavailable" = "ミュージックサービスが現在利用できません";
+"error.invalid_response" = "ミュージックサービスからの応答が無効です";
+"error.token_refresh_failed" = "認証トークンを更新できませんでした";
+"error.apple_music_not_registered" = "App Store Connect で MusicKit に登録する必要があります。サポートにお問い合わせください。";
+"error.apple_music_subscription_required" = "この機能を使用するには Apple Music のサブスクリプションが必要です。ミュージック App または設定から登録できます。";
+"error.invalid_cefr_level" = "無効な CEFR レベルです";
+"error.no_recommendations_available" = "利用できるおすすめはありません";
+"error.premium_required" = "この機能には Premium アクセスが必要です";
+"error.hook_generation_failed" = "この曲のプレビューを生成できませんでした";

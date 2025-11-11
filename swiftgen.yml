@@ -26,6 +26,8 @@ strings:
     - Shared/Localization/en.lproj/WordImages.strings
     - Shared/Localization/en.lproj/Profile.strings
     - Shared/Localization/en.lproj/StoryLab.strings
+    - Shared/Localization/en.lproj/Discover.strings
+    - Shared/Localization/en.lproj/MusicDiscovering.strings
     - Shared/Localization/en.lproj/Plurals.stringsdict
   outputs:
     templateName: structured-swift5

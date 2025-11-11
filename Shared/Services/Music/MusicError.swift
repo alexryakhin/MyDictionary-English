@@ -30,41 +30,41 @@ enum MusicError: Error, LocalizedError, Hashable {
     var errorDescription: String? {
         switch self {
         case .userProfileNotCompleted:
-            return "User Profile not completed"
+            return Loc.MusicDiscovering.Error.userProfileNotCompleted
         case .authenticationFailed(let message):
-            return "Authentication failed: \(message)"
+            return Loc.MusicDiscovering.Error.authenticationFailed(message)
         case .songNotFound:
-            return "Song not found"
+            return Loc.MusicDiscovering.Error.songNotFound
         case .lyricsNotFound:
-            return "Lyrics not available for this song"
+            return Loc.MusicDiscovering.Error.lyricsNotFound
         case .lyricsLanguageNotDetermined:
-            return "Lyrics language not determined"
+            return Loc.MusicDiscovering.Error.lyricsLanguageNotDetermined
         case .lessonNotFound:
-            return "Lesson not found"
+            return Loc.MusicDiscovering.Error.lessonNotFound
         case .invalidDuration:
-            return "Invalid song duration"
+            return Loc.MusicDiscovering.Error.invalidDuration
         case .playbackNotSupported:
-            return "Playback is not supported for this song"
+            return Loc.MusicDiscovering.Error.playbackNotSupported
         case .networkError(let message):
-            return "Network error: \(message)"
+            return Loc.MusicDiscovering.Error.networkError(message)
         case .serviceUnavailable:
-            return "Music service is currently unavailable"
+            return Loc.MusicDiscovering.Error.serviceUnavailable
         case .invalidResponse:
-            return "Invalid response from music service"
+            return Loc.MusicDiscovering.Error.invalidResponse
         case .tokenRefreshFailed:
-            return "Failed to refresh authentication token"
+            return Loc.MusicDiscovering.Error.tokenRefreshFailed
         case .appleMusicNotRegistered:
-            return "This app needs to be registered for MusicKit in App Store Connect. Please contact support."
+            return Loc.MusicDiscovering.Error.appleMusicNotRegistered
         case .appleMusicSubscriptionRequired:
-            return "An Apple Music subscription is required to use this feature. You can subscribe in the Music app or Settings."
+            return Loc.MusicDiscovering.Error.appleMusicSubscriptionRequired
         case .invalidCEFRLevel:
-            return "Invalid CEFR level"
+            return Loc.MusicDiscovering.Error.invalidCefrLevel
         case .noRecommendationsAvailable:
-            return "No recommendations available"
+            return Loc.MusicDiscovering.Error.noRecommendationsAvailable
         case .premiumRequired:
-            return "Premium access is required to use this feature"
+            return Loc.MusicDiscovering.Error.premiumRequired
         case .hookGenerationFailed:
-            return "Failed to generate a preview for this song"
+            return Loc.MusicDiscovering.Error.hookGenerationFailed
         }
     }
 }

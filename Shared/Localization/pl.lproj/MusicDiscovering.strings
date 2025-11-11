@@ -1,0 +1,170 @@
+// MARK: - Music Discovering View
+"view.section.not_finished" = "Nieukończone";
+"view.section.recommended_for_you" = "Polecane dla Ciebie";
+"view.section.favorite_songs" = "Ulubione utwory";
+"view.section.history" = "Historia";
+
+// MARK: - Search
+"view.search.loading" = "Wyszukiwanie...";
+"view.search.results_title" = "Wyniki wyszukiwania";
+"view.search.empty_title" = "Brak wyników";
+"view.search.empty_subtitle" = "Spróbuj innego tytułu utworu lub wykonawcy.";
+
+// MARK: - Recommendations
+"view.recommendations.empty_title" = "Brak rekomendacji";
+"view.recommendations.empty_subtitle" = "Spróbuj wygenerować lekcję, aby odkryć nowe utwory.";
+
+// MARK: - Recommendation Status
+"status.recommendations.loading" = "Ładowanie rekomendacji";
+"status.recommendations.generating" = "Generowanie rekomendacji";
+"status.recommendations.fetching_data" = "Pobieranie danych Apple Music";
+
+// MARK: - Lesson Overview
+"lesson.overview.title" = "Przebieg lekcji";
+"lesson.overview.description" = "Zanurz się w **%1$@** w wykonaniu %2$@. Ta lekcja poprowadzi Cię od znaczenia tekstu do kontekstu kulturowego, a na końcu sprawdzi pamięć poprzez aktywne odtwarzanie.";
+"lesson.overview.phrases_tag" = "Frazy: %d";
+"lesson.overview.practice_tag" = "Ćwiczenia: %d";
+"lesson.collection.title" = "%@ — Kluczowe frazy";
+
+// MARK: - Lesson Sections
+"lesson.phrases.header" = "Kluczowe frazy";
+"lesson.phrases.subtitle" = "Poznaj wyrażenia, które tworzą historię utworu.";
+"lesson.phrases.empty" = "Brak dostępnych fraz.";
+
+"lesson.grammar.header" = "Gramatyka w centrum";
+"lesson.grammar.subtitle" = "Zwróć uwagę na te struktury podczas słuchania.";
+"lesson.grammar.empty" = "W tej lekcji nie ma wyróżnionych zagadnień gramatycznych.";
+
+"lesson.explanations.header" = "Analiza tekstu";
+"lesson.explanations.subtitle" = "Kontekst linijka po linijce pogłębiający zrozumienie.";
+"lesson.explanations.empty" = "Wyjaśnienia tekstu pojawią się, gdy będą dostępne.";
+"lesson.explanations.line_number" = "Linia %d";
+
+"lesson.culture.header" = "Uwagi kulturowe";
+"lesson.culture.subtitle" = "Kontekst, który ożywia tekst.";
+"lesson.culture.empty" = "Brak kontekstu kulturowego.";
+
+"lesson.practice.fill_blank.header" = "Ćwiczenia • Uzupełnij lukę";
+"lesson.practice.fill_blank.subtitle" = "Sprawdź pamięć za pomocą podpowiedzi opartych na tekście.";
+"lesson.practice.fill_blank.empty" = "Ćwiczenia uzupełniania pojawią się, gdy będą dostępne.";
+
+"lesson.practice.comprehension.header" = "Ćwiczenia • Quiz ze zrozumienia";
+"lesson.practice.comprehension.subtitle" = "Wybierz najlepszą odpowiedź, aby utrwalić znaczenie.";
+"lesson.practice.comprehension.empty" = "Ćwiczenia wielokrotnego wyboru pojawią się, gdy będą dostępne.";
+
+"lesson.reflection.header" = "Refleksja i zakończenie";
+"lesson.reflection.subtitle" = "Zanotuj, co najbardziej Cię poruszyło, i kontynuuj serię.";
+"lesson.reflection.instructions" = "Po ukończeniu quizów stuknij **Zakończ**, aby zapisać postępy i zobaczyć wyniki lekcji.";
+"lesson.reflection.progress" = "Postęp: %1$d/%2$d odpowiedzi udzielonych";
+"lesson.reflection.cta_view_results" = "Zobacz wyniki lekcji";
+
+// MARK: - History
+"history.time.days" = "%dd dni temu";
+"history.time.hours" = "%dh godzin temu";
+"history.time.minutes" = "%dm minut temu";
+"history.time.just_now" = "Przed chwilą";
+"history.play_count" = "%d×";
+
+// MARK: - Player
+"player.lesson.generating" = "Generowanie lekcji...";
+"player.lesson.loading" = "Ładowanie lekcji...";
+"player.lesson.ready" = "Przejdź do lekcji";
+"player.lesson.failed" = "Błąd podczas ładowania lekcji. Spróbować ponownie?";
+"player.lesson.unavailable" = "Nie można utworzyć lekcji";
+"player.tips.title" = "Wskazówki do lekcji muzyki";
+"player.tips.header" = "Przygotuj się do lekcji";
+"player.tips.intro" = "Znajdź chwilę spokoju, podłącz słuchawki, jeśli je masz, i trzymaj pod ręką notes. Jednorazowe zanucenie melodii przed ćwiczeniami pomaga.";
+"player.tips.explore_title" = "Odkrywaj tekst linia po linii";
+"player.tips.explore_message" = "Stuknij dowolną linijkę tekstu, aby otworzyć opcje tłumaczenia, słownika, odtwarzania i kopiowania.";
+"player.tips.carry_title" = "Zabierz utwór do lekcji";
+"player.tips.carry_message" = "Gdy przejdziesz do lekcji, zawsze możesz wrócić tutaj, aby ponownie przejrzeć tekst i posłuchać utworu.";
+"player.tips.path_title" = "Traktuj lekcję jak ścieżkę";
+"player.tips.path_message" = "Podążaj kolejno przez sekcje lekcji—frazy, gramatykę, kulturę i ćwiczenia—aby utrwalić to, co właśnie usłyszałeś.";
+
+// MARK: - Lesson Info Sheet
+"sheet.cta.start_lesson" = "Przejdź do lekcji";
+"sheet.premium.title" = "Wymagany Premium";
+"sheet.premium.body" = "Lekcje muzyki z wglądem AI są dostępne w ramach subskrypcji Premium.";
+"sheet.premium.cta_upgrade" = "Przejdź na Premium";
+"sheet.lyrics_unavailable.title" = "Brak tekstu";
+"sheet.lyrics_unavailable.body" = "Niestety nie znaleźliśmy tekstu tego utworu. Bez tekstu nie możemy stworzyć lekcji.";
+"sheet.hook.grammar" = "Gramatyka";
+"sheet.hook.cultural_note" = "Nota kulturowa";
+
+// MARK: - Results
+"results.navigation.title" = "Lekcja ukończona";
+"results.header.title" = "Świetna robota!";
+"results.header.subtitle" = "Ukończyłeś lekcję";
+"results.stats.accuracy" = "Dokładność";
+"results.stats.questions" = "Pytania";
+"results.stats.new_words" = "Nowe słowa";
+"results.stats.time" = "Czas";
+"results.discovered_words.title" = "Odkryte słowa";
+"results.actions.share" = "Udostępnij wyniki";
+"results.actions.add_to_favorites" = "Dodaj do ulubionych";
+"results.actions.remove_from_favorites" = "Usuń z ulubionych";
+"results.actions.back_to_discover" = "Wróć do Odkrywaj";
+
+// MARK: - Share Preview
+"share.navigation.title" = "Podgląd udostępniania";
+"share.accessibility.preview_card" = "Karta podglądu udostępniania";
+"share.picker.aspect_ratio" = "Proporcje obrazu";
+"share.actions.share" = "Udostępnij";
+"share.alert.generate_failed" = "Nie udało się utworzyć obrazu do udostępnienia.";
+"share.aspect.square" = "Kwadrat";
+"share.aspect.story" = "Story";
+"share.aspect.wide" = "Szeroki";
+"share.card.header" = "Lekcja ukończona";
+"share.card.cefr" = "CEFR %@";
+"share.card.artwork_missing" = "Brak grafiki";
+"share.card.by_artist" = "autorstwa %@";
+"share.card.answered" = "%1$d/%2$d poprawnych odpowiedzi";
+"share.card.footer.tagline" = "Kontynuuj naukę z";
+"share.card.footer.brand" = "My Dictionary";
+
+// MARK: - Interactive Lyrics
+"interactive_lyrics.menu.options" = "Opcje";
+"interactive_lyrics.empty.title" = "Brak dostępnego tekstu";
+
+// MARK: - Quizzes
+"quiz.common.question_progress" = "Pytanie %1$d z %2$d";
+"quiz.navigation.previous" = "Poprzednie";
+"quiz.navigation.next" = "Następne";
+"quiz.comprehension.feedback.correct" = "Świetny wybór!";
+"quiz.comprehension.feedback.incorrect" = "Nie do końca.";
+"quiz.fill_blank.prompt" = "Uzupełnij tekst, wybierając brakujące słowo.";
+"quiz.fill_blank.feedback.correct" = "Dobra robota!";
+"quiz.fill_blank.feedback.incorrect" = "Kontynuuj analizę tekstu i spróbuj kolejnego.";
+
+// MARK: - Authentication
+"auth.header.title" = "Połącz z serwisami muzycznymi";
+"auth.header.subtitle" = "Połącz z Apple Music, aby odkrywać osobiste rekomendacje utworów do nauki języków.";
+"auth.apple.connect" = "Połącz z Apple Music";
+"auth.info.title" = "Co otrzymasz:";
+"auth.info.recommendations" = "Spersonalizowane rekomendacje utworów";
+"auth.info.library" = "Dostęp do biblioteki muzycznej";
+"auth.info.lyrics" = "Teksty utworów i materiały edukacyjne";
+"auth.info.history" = "Śledzenie historii odsłuchu";
+"auth.actions.open_music_app" = "Otwórz aplikację Muzyka";
+"auth.error.subscription_required" = "Wymagana jest subskrypcja Apple Music. Możesz ją aktywować w aplikacji Muzyka lub Ustawieniach.";
+"auth.error.not_registered" = "Apple Music jest niedostępne. Aplikację należy zarejestrować w MusicKit.";
+
+// MARK: - Music Errors
+"error.user_profile_not_completed" = "Profil użytkownika nie został ukończony";
+"error.authentication_failed" = "Błąd uwierzytelniania: %@";
+"error.song_not_found" = "Nie znaleziono utworu";
+"error.lyrics_not_found" = "Tekst tego utworu jest niedostępny";
+"error.lyrics_language_not_determined" = "Nie udało się ustalić języka tekstu";
+"error.lesson_not_found" = "Nie znaleziono lekcji";
+"error.invalid_duration" = "Nieprawidłowa długość utworu";
+"error.playback_not_supported" = "Odtwarzanie tego utworu nie jest obsługiwane";
+"error.network_error" = "Błąd sieci: %@";
+"error.service_unavailable" = "Serwis muzyczny jest obecnie niedostępny";
+"error.invalid_response" = "Nieprawidłowa odpowiedź z serwisu muzycznego";
+"error.token_refresh_failed" = "Nie udało się odświeżyć tokenu uwierzytelniającego";
+"error.apple_music_not_registered" = "Aplikację należy zarejestrować w MusicKit w App Store Connect. Skontaktuj się z pomocą techniczną.";
+"error.apple_music_subscription_required" = "Do korzystania z tej funkcji wymagana jest subskrypcja Apple Music. Możesz ją aktywować w aplikacji Muzyka lub Ustawieniach.";
+"error.invalid_cefr_level" = "Nieprawidłowy poziom CEFR";
+"error.no_recommendations_available" = "Brak dostępnych rekomendacji";
+"error.premium_required" = "Do tej funkcji wymagany jest dostęp Premium";
+"error.hook_generation_failed" = "Nie udało się wygenerować podglądu tego utworu";

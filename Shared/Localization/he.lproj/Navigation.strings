@@ -1,4 +1,6 @@
 // MARK: - Tab Bar
+"tabbar.vocabulary" = "מילון";
+"tabbar.discover" = "גלה";
 "tabbar.quizzes" = "חידונים";
 "tabbar.progress" = "התקדמות";
 "tabbar.settings" = "הגדרות";

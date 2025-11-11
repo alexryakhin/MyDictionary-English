@@ -1,0 +1,170 @@
+// MARK: - Music Discovering View
+"view.section.not_finished" = "Nedokončeno";
+"view.section.recommended_for_you" = "Doporučeno pro vás";
+"view.section.favorite_songs" = "Oblíbené skladby";
+"view.section.history" = "Historie";
+
+// MARK: - Search
+"view.search.loading" = "Hledám...";
+"view.search.results_title" = "Výsledky hledání";
+"view.search.empty_title" = "Nebyly nalezeny žádné výsledky";
+"view.search.empty_subtitle" = "Zkuste jiný název skladby nebo interpreta.";
+
+// MARK: - Recommendations
+"view.recommendations.empty_title" = "Zatím žádná doporučení";
+"view.recommendations.empty_subtitle" = "Zkuste vygenerovat lekci a objevte nové skladby.";
+
+// MARK: - Recommendation Status
+"status.recommendations.loading" = "Načítám doporučení";
+"status.recommendations.generating" = "Generuji doporučení";
+"status.recommendations.fetching_data" = "Stahuji data z Apple Music";
+
+// MARK: - Lesson Overview
+"lesson.overview.title" = "Průběh lekce";
+"lesson.overview.description" = "Ponořte se do **%1$@** od %2$@. Tato lekce vás provede od významu textu k kulturnímu kontextu a poté vás vyzve k aktivnímu vybavování.";
+"lesson.overview.phrases_tag" = "Frází: %d";
+"lesson.overview.practice_tag" = "Cvičení: %d";
+"lesson.collection.title" = "%@ — Klíčové fráze";
+
+// MARK: - Lesson Sections
+"lesson.phrases.header" = "Klíčové fráze";
+"lesson.phrases.subtitle" = "Naučte se výrazy, které utvářejí příběh skladby.";
+"lesson.phrases.empty" = "Zatím nejsou k dispozici žádné fráze.";
+
+"lesson.grammar.header" = "Gramatické okénko";
+"lesson.grammar.subtitle" = "Všímejte si těchto struktur během poslechu.";
+"lesson.grammar.empty" = "Pro tuto lekci nejsou žádné gramatické poznámky.";
+
+"lesson.explanations.header" = "Pohled do textu";
+"lesson.explanations.subtitle" = "Řádek po řádku pro hlubší pochopení.";
+"lesson.explanations.empty" = "Vysvětlení textu se zobrazí, jakmile budou dostupná.";
+"lesson.explanations.line_number" = "Řádek %d";
+
+"lesson.culture.header" = "Kulturní poznámky";
+"lesson.culture.subtitle" = "Kontext, který text oživí.";
+"lesson.culture.empty" = "Žádný kulturní kontext není k dispozici.";
+
+"lesson.practice.fill_blank.header" = "Procvičování • Doplňte mezery";
+"lesson.practice.fill_blank.subtitle" = "Prověřte paměť pomocí podnětů z textu.";
+"lesson.practice.fill_blank.empty" = "Cvičení na doplnění se zobrazí, jakmile budou k dispozici.";
+
+"lesson.practice.comprehension.header" = "Procvičování • Kvíz porozumění";
+"lesson.practice.comprehension.subtitle" = "Vyberte nejlepší odpověď pro upevnění významu.";
+"lesson.practice.comprehension.empty" = "Cvičení s výběrem odpovědí se zobrazí, jakmile budou k dispozici.";
+
+"lesson.reflection.header" = "Zamyslete se a zakončete";
+"lesson.reflection.subtitle" = "Zapište si, co na vás zapůsobilo, a pokračujte v sérii.";
+"lesson.reflection.instructions" = "Po dokončení kvízů klepněte na **Dokončit** pro uložení postupu a zobrazení výsledků lekce.";
+"lesson.reflection.progress" = "Postup: zodpovězeno %1$d/%2$d otázek";
+"lesson.reflection.cta_view_results" = "Zobrazit výsledky lekce";
+
+// MARK: - History
+"history.time.days" = "před %dd";
+"history.time.hours" = "před %dh";
+"history.time.minutes" = "před %dm";
+"history.time.just_now" = "Právě teď";
+"history.play_count" = "%d×";
+
+// MARK: - Player
+"player.lesson.generating" = "Lekce se připravuje...";
+"player.lesson.loading" = "Lekce se načítá...";
+"player.lesson.ready" = "Pokračovat k lekci";
+"player.lesson.failed" = "Chyba při načítání lekce. Zkusit znovu?";
+"player.lesson.unavailable" = "Lekci se nepodařilo vytvořit";
+"player.tips.title" = "Tipy pro hudební lekci";
+"player.tips.header" = "Připravte se na lekci";
+"player.tips.intro" = "Najděte si klidné místo, připojte sluchátka a mějte po ruce poznámkový blok. Pomůže, když si před cvičeními jednou pobrukujete.";
+"player.tips.explore_title" = "Prozkoumejte text řádek po řádku";
+"player.tips.explore_message" = "Klepněte na libovolný řádek textu a otevřete nabídku s možnostmi překladu, slovníku, přehrávání a kopírování.";
+"player.tips.carry_title" = "Vezměte si skladbu do lekce";
+"player.tips.carry_message" = "Jakmile budete pokračovat do lekce, můžete se sem kdykoli vrátit k textu i poslechu.";
+"player.tips.path_title" = "Použijte lekci jako cestu";
+"player.tips.path_message" = "Postupujte oddíly lekce po sobě—fráze, gramatika, kultura a potom praxe—abyste si upevnili, co jste právě slyšeli.";
+
+// MARK: - Lesson Info Sheet
+"sheet.cta.start_lesson" = "Přejít na lekci";
+"sheet.premium.title" = "Vyžaduje Premium";
+"sheet.premium.body" = "Hudební lekce s poznatky z AI jsou dostupné s předplatným Premium.";
+"sheet.premium.cta_upgrade" = "Přejít na Premium";
+"sheet.lyrics_unavailable.title" = "Text není dostupný";
+"sheet.lyrics_unavailable.body" = "Bohužel jsme nenašli text této skladby. Bez textu nelze lekci vytvořit.";
+"sheet.hook.grammar" = "Gramatika";
+"sheet.hook.cultural_note" = "Kulturní poznámka";
+
+// MARK: - Results
+"results.navigation.title" = "Lekce dokončena";
+"results.header.title" = "Skvělá práce!";
+"results.header.subtitle" = "Lekci máte splněnou";
+"results.stats.accuracy" = "Přesnost";
+"results.stats.questions" = "Otázky";
+"results.stats.new_words" = "Nová slova";
+"results.stats.time" = "Čas";
+"results.discovered_words.title" = "Objevená slova";
+"results.actions.share" = "Sdílet výsledky";
+"results.actions.add_to_favorites" = "Přidat do oblíbených";
+"results.actions.remove_from_favorites" = "Odebrat z oblíbených";
+"results.actions.back_to_discover" = "Zpět na Objevování";
+
+// MARK: - Share Preview
+"share.navigation.title" = "Náhled sdílení";
+"share.accessibility.preview_card" = "Náhledová karta sdílení";
+"share.picker.aspect_ratio" = "Poměr stran";
+"share.actions.share" = "Sdílet";
+"share.alert.generate_failed" = "Obrázek pro sdílení se nepodařilo vytvořit.";
+"share.aspect.square" = "Čtverec";
+"share.aspect.story" = "Story";
+"share.aspect.wide" = "Široký";
+"share.card.header" = "Lekce dokončena";
+"share.card.cefr" = "SERR %@";
+"share.card.artwork_missing" = "Obrázek není k dispozici";
+"share.card.by_artist" = "od %@";
+"share.card.answered" = "%1$d/%2$d správně";
+"share.card.footer.tagline" = "Pokračujte v učení s";
+"share.card.footer.brand" = "My Dictionary";
+
+// MARK: - Interactive Lyrics
+"interactive_lyrics.menu.options" = "Možnosti";
+"interactive_lyrics.empty.title" = "Žádný text není k dispozici";
+
+// MARK: - Quizzes
+"quiz.common.question_progress" = "Otázka %1$d z %2$d";
+"quiz.navigation.previous" = "Předchozí";
+"quiz.navigation.next" = "Další";
+"quiz.comprehension.feedback.correct" = "Skvělá volba!";
+"quiz.comprehension.feedback.incorrect" = "To není úplně ono.";
+"quiz.fill_blank.prompt" = "Doplňte text výběrem chybějícího slova.";
+"quiz.fill_blank.feedback.correct" = "Výborně!";
+"quiz.fill_blank.feedback.incorrect" = "Pokračujte v objevování textu a zkuste další.";
+
+// MARK: - Authentication
+"auth.header.title" = "Připojte se ke službám hudby";
+"auth.header.subtitle" = "Připojte Apple Music a objevujte personalizovaná doporučení pro studium jazyků.";
+"auth.apple.connect" = "Připojit k Apple Music";
+"auth.info.title" = "Co získáte:";
+"auth.info.recommendations" = "Personalizovaná doporučení skladeb";
+"auth.info.library" = "Přístup k hudební knihovně";
+"auth.info.lyrics" = "Texty skladeb a studijní obsah";
+"auth.info.history" = "Sledování historie poslechu";
+"auth.actions.open_music_app" = "Otevřít aplikaci Hudba";
+"auth.error.subscription_required" = "Je potřeba předplatné Apple Music. Můžete se přihlásit v aplikaci Hudba nebo v nastavení.";
+"auth.error.not_registered" = "Apple Music není dostupná. Tuto aplikaci je třeba zaregistrovat pro MusicKit.";
+
+// MARK: - Music Errors
+"error.user_profile_not_completed" = "Profil uživatele není dokončen";
+"error.authentication_failed" = "Ověření se nezdařilo: %@";
+"error.song_not_found" = "Skladba nebyla nalezena";
+"error.lyrics_not_found" = "Text pro tuto skladbu není k dispozici";
+"error.lyrics_language_not_determined" = "Jazyk textu nebyl určen";
+"error.lesson_not_found" = "Lekce nebyla nalezena";
+"error.invalid_duration" = "Neplatná délka skladby";
+"error.playback_not_supported" = "Přehrávání této skladby není podporováno";
+"error.network_error" = "Chyba sítě: %@";
+"error.service_unavailable" = "Hudební služba je momentálně nedostupná";
+"error.invalid_response" = "Neplatná odpověď hudební služby";
+"error.token_refresh_failed" = "Token ověření se nepodařilo obnovit";
+"error.apple_music_not_registered" = "Tuto aplikaci je třeba zaregistrovat pro MusicKit v App Store Connect. Kontaktujte podporu.";
+"error.apple_music_subscription_required" = "Pro využití této funkce je potřeba předplatné Apple Music. Můžete jej získat v aplikaci Hudba nebo v nastavení.";
+"error.invalid_cefr_level" = "Neplatná úroveň SERR";
+"error.no_recommendations_available" = "Nejsou k dispozici žádná doporučení";
+"error.premium_required" = "Pro tuto funkci je potřeba přístup Premium";
+"error.hook_generation_failed" = "Nepodařilo se vytvořit náhled pro tuto skladbu";

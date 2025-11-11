@@ -1,0 +1,6 @@
+// MARK: - Discover Flow
+"title" = "खोजें";
+"contentType.fiterTitle" = "सामग्री का प्रकार";
+"contentType.video" = "वीडियो";
+"contentType.music" = "संगीत";
+"contentType.podcast" = "पॉडकास्ट";

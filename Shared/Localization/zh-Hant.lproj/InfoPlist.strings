@@ -1,2 +1,3 @@
 CFBundleDisplayName = "我的詞典";
 CFBundleName = "我的詞典";
+"NSAppleMusicUsageDescription" = "My Dictionary 需要存取 Apple Music，才能為語言學習探索個人化歌曲。如此一來，App 就能搜尋你目標語言的歌曲，並依據你的學習檔案提供建議。";

@@ -1,4 +1,6 @@
 // MARK: - Tab Bar
+"tabbar.vocabulary" = "Λεξικό";
+"tabbar.discover" = "Ανακάλυψε";
 "tabbar.quizzes" = "Κουίζ";
 "tabbar.progress" = "Πρόοδος";
 "tabbar.settings" = "Ρυθμίσεις";

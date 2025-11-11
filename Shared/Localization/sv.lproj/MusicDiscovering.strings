@@ -1,0 +1,170 @@
+// MARK: - Music Discovering View
+"view.section.not_finished" = "Inte färdigt";
+"view.section.recommended_for_you" = "Rekommenderat för dig";
+"view.section.favorite_songs" = "Favoritlåtar";
+"view.section.history" = "Historik";
+
+// MARK: - Search
+"view.search.loading" = "Söker...";
+"view.search.results_title" = "Sökresultat";
+"view.search.empty_title" = "Inga resultat hittades";
+"view.search.empty_subtitle" = "Prova med en annan låttitel eller artist.";
+
+// MARK: - Recommendations
+"view.recommendations.empty_title" = "Inga rekommendationer ännu";
+"view.recommendations.empty_subtitle" = "Generera en lektion för att upptäcka nya låtar.";
+
+// MARK: - Recommendation Status
+"status.recommendations.loading" = "Laddar rekommendationer";
+"status.recommendations.generating" = "Skapar rekommendationer";
+"status.recommendations.fetching_data" = "Hämtar Apple Music-data";
+
+// MARK: - Lesson Overview
+"lesson.overview.title" = "Lektionsupplägg";
+"lesson.overview.description" = "Fördjupa dig i **%1$@** av %2$@. Lektionen tar dig från textens betydelse till kulturellt sammanhang och avslutar med aktiv återkallelse.";
+"lesson.overview.phrases_tag" = "Fraser: %d";
+"lesson.overview.practice_tag" = "Övningar: %d";
+"lesson.collection.title" = "%@ — Viktiga fraser";
+
+// MARK: - Lesson Sections
+"lesson.phrases.header" = "Viktiga fraser";
+"lesson.phrases.subtitle" = "Lär dig uttrycken som formar låtens berättelse.";
+"lesson.phrases.empty" = "Inga fraser tillgängliga ännu.";
+
+"lesson.grammar.header" = "Grammatisk fokus";
+"lesson.grammar.subtitle" = "Lägg märke till de här strukturerna när du lyssnar.";
+"lesson.grammar.empty" = "Den här lektionen har inga grammatiska höjdpunkter.";
+
+"lesson.explanations.header" = "Textinsikter";
+"lesson.explanations.subtitle" = "Kontekst rad för rad för att fördjupa förståelsen.";
+"lesson.explanations.empty" = "Förklaringar visas när de finns tillgängliga.";
+"lesson.explanations.line_number" = "Rad %d";
+
+"lesson.culture.header" = "Kulturella noter";
+"lesson.culture.subtitle" = "Ett sammanhang som väcker texten till liv.";
+"lesson.culture.empty" = "Inget kulturellt sammanhang tillgängligt.";
+
+"lesson.practice.fill_blank.header" = "Öva • Fyll i luckan";
+"lesson.practice.fill_blank.subtitle" = "Testa minnet med ledtrådar från texten.";
+"lesson.practice.fill_blank.empty" = "Övningar med luckor visas när de finns tillgängliga.";
+
+"lesson.practice.comprehension.header" = "Öva • Förståelsequiz";
+"lesson.practice.comprehension.subtitle" = "Välj det bästa svaret för att befästa betydelsen.";
+"lesson.practice.comprehension.empty" = "Flervalsövningar visas när de finns tillgängliga.";
+
+"lesson.reflection.header" = "Reflektera och avrunda";
+"lesson.reflection.subtitle" = "Anteckna det som fastnade och håll igång din streak.";
+"lesson.reflection.instructions" = "När du är klar med quizzen trycker du på **Avsluta** för att spara utvecklingen och se resultatet.";
+"lesson.reflection.progress" = "Framsteg: %1$d/%2$d frågor besvarade";
+"lesson.reflection.cta_view_results" = "Visa lektionsresultat";
+
+// MARK: - History
+"history.time.days" = "för %dd dagar sedan";
+"history.time.hours" = "för %dh timmar sedan";
+"history.time.minutes" = "för %dm minuter sedan";
+"history.time.just_now" = "Nyss";
+"history.play_count" = "%d×";
+
+// MARK: - Player
+"player.lesson.generating" = "Lektionen skapas...";
+"player.lesson.loading" = "Lektionen laddas...";
+"player.lesson.ready" = "Fortsätt till lektionen";
+"player.lesson.failed" = "Det gick inte att ladda lektionen. Försök igen?";
+"player.lesson.unavailable" = "Det går inte att skapa lektionen";
+"player.tips.title" = "Tips för musiklektionen";
+"player.tips.header" = "Förbered dig för lektionen";
+"player.tips.intro" = "Hitta en lugn stund, koppla in hörlurar och ha ett block nära till hands. Att nynnar en gång innan övningarna hjälper.";
+"player.tips.explore_title" = "Utforska texten rad för rad";
+"player.tips.explore_message" = "Tryck på valfri rad för att öppna alternativ för översättning, lexikon, uppspelning och kopiering.";
+"player.tips.carry_title" = "Ta låten med dig in i lektionen";
+"player.tips.carry_message" = "När du fortsätter in i lektionen kan du alltid hoppa tillbaka hit för att läsa texten igen och lyssna.";
+"player.tips.path_title" = "Använd lektionen som en väg";
+"player.tips.path_message" = "Följ lektionsdelarna i ordning—fraser, grammatik, kultur och sedan övningar—för att befästa det du just hörde.";
+
+// MARK: - Lesson Info Sheet
+"sheet.cta.start_lesson" = "Till lektionen";
+"sheet.premium.title" = "Premium krävs";
+"sheet.premium.body" = "Musiklektioner med AI-insikter finns tillgängliga med ett Premium-abonnemang.";
+"sheet.premium.cta_upgrade" = "Uppgradera till Premium";
+"sheet.lyrics_unavailable.title" = "Text saknas";
+"sheet.lyrics_unavailable.body" = "Vi kunde tyvärr inte hitta texten till den här låten. Utan text kan vi inte skapa en lektion.";
+"sheet.hook.grammar" = "Grammatik";
+"sheet.hook.cultural_note" = "Kultur";
+
+// MARK: - Results
+"results.navigation.title" = "Lektion klar";
+"results.header.title" = "Snyggt jobbat!";
+"results.header.subtitle" = "Du har genomfört lektionen";
+"results.stats.accuracy" = "Träffsäkerhet";
+"results.stats.questions" = "Frågor";
+"results.stats.new_words" = "Nya ord";
+"results.stats.time" = "Tid";
+"results.discovered_words.title" = "Upptäckta ord";
+"results.actions.share" = "Dela resultat";
+"results.actions.add_to_favorites" = "Lägg till i favoriter";
+"results.actions.remove_from_favorites" = "Ta bort från favoriter";
+"results.actions.back_to_discover" = "Tillbaka till Upptäck";
+
+// MARK: - Share Preview
+"share.navigation.title" = "Förhandsgranska delning";
+"share.accessibility.preview_card" = "Förhandsgranskningskort för delning";
+"share.picker.aspect_ratio" = "Bildförhållande";
+"share.actions.share" = "Dela";
+"share.alert.generate_failed" = "Det gick inte att skapa en delningsbild.";
+"share.aspect.square" = "Kvadrat";
+"share.aspect.story" = "Story";
+"share.aspect.wide" = "Bred";
+"share.card.header" = "Lektion klar";
+"share.card.cefr" = "CEFR %@";
+"share.card.artwork_missing" = "Omslag saknas";
+"share.card.by_artist" = "av %@";
+"share.card.answered" = "%1$d/%2$d rätt";
+"share.card.footer.tagline" = "Fortsätt lära med";
+"share.card.footer.brand" = "My Dictionary";
+
+// MARK: - Interactive Lyrics
+"interactive_lyrics.menu.options" = "Alternativ";
+"interactive_lyrics.empty.title" = "Ingen text tillgänglig";
+
+// MARK: - Quizzes
+"quiz.common.question_progress" = "Fråga %1$d av %2$d";
+"quiz.navigation.previous" = "Föregående";
+"quiz.navigation.next" = "Nästa";
+"quiz.comprehension.feedback.correct" = "Bra val!";
+"quiz.comprehension.feedback.incorrect" = "Inte helt rätt.";
+"quiz.fill_blank.prompt" = "Fyll i texten genom att välja det ord som saknas.";
+"quiz.fill_blank.feedback.correct" = "Snyggt jobbat!";
+"quiz.fill_blank.feedback.incorrect" = "Fortsätt utforska texten och prova nästa.";
+
+// MARK: - Authentication
+"auth.header.title" = "Anslut till musiktjänster";
+"auth.header.subtitle" = "Anslut till Apple Music för att få personliga låtrekommendationer för språkinlärning.";
+"auth.apple.connect" = "Anslut till Apple Music";
+"auth.info.title" = "Du får:";
+"auth.info.recommendations" = "Personliga låtrekommendationer";
+"auth.info.library" = "Tillgång till ditt musikbibliotek";
+"auth.info.lyrics" = "Texter och utbildningsinnehåll";
+"auth.info.history" = "Spårning av lyssnarhistorik";
+"auth.actions.open_music_app" = "Öppna Musik-appen";
+"auth.error.subscription_required" = "Apple Music-prenumeration krävs. Du kan prenumerera i Musik-appen eller i Inställningar.";
+"auth.error.not_registered" = "Apple Music är inte tillgängligt. Appen måste registreras för MusicKit.";
+
+// MARK: - Music Errors
+"error.user_profile_not_completed" = "Användarprofilen är inte färdig";
+"error.authentication_failed" = "Autentiseringen misslyckades: %@";
+"error.song_not_found" = "Låten hittades inte";
+"error.lyrics_not_found" = "Text saknas för den här låten";
+"error.lyrics_language_not_determined" = "Det gick inte att avgöra textens språk";
+"error.lesson_not_found" = "Lektionen hittades inte";
+"error.invalid_duration" = "Ogiltig låtlängd";
+"error.playback_not_supported" = "Uppspelning stöds inte för den här låten";
+"error.network_error" = "Nätverksfel: %@";
+"error.service_unavailable" = "Musiktjänsten är tillfälligt otillgänglig";
+"error.invalid_response" = "Ogiltigt svar från musiktjänsten";
+"error.token_refresh_failed" = "Det gick inte att uppdatera autentiseringstoken";
+"error.apple_music_not_registered" = "Appen måste registreras för MusicKit i App Store Connect. Kontakta supporten.";
+"error.apple_music_subscription_required" = "Funktionen kräver en Apple Music-prenumeration. Du kan prenumerera i Musik-appen eller i Inställningar.";
+"error.invalid_cefr_level" = "Ogiltig CEFR-nivå";
+"error.no_recommendations_available" = "Inga rekommendationer tillgängliga";
+"error.premium_required" = "Premiumåtkomst krävs för den här funktionen";
+"error.hook_generation_failed" = "Det gick inte att skapa en förhandsvisning för låten";

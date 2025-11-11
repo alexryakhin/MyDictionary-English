@@ -1,4 +1,6 @@
 // MARK: - Tab Bar
+"tabbar.vocabulary" = "शब्दकोश";
+"tabbar.discover" = "खोजें";
 "tabbar.quizzes" = "क्विज़";
 "tabbar.progress" = "प्रगति";
 "tabbar.settings" = "सेटिंग्स";

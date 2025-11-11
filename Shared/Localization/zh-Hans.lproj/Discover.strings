@@ -1,0 +1,6 @@
+// MARK: - Discover Flow
+"title" = "发现";
+"contentType.fiterTitle" = "内容类型";
+"contentType.video" = "视频";
+"contentType.music" = "音乐";
+"contentType.podcast" = "播客";

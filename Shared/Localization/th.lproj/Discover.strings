@@ -1,0 +1,6 @@
+// MARK: - Discover Flow
+"title" = "สำรวจ";
+"contentType.fiterTitle" = "ประเภทเนื้อหา";
+"contentType.video" = "วิดีโอ";
+"contentType.music" = "เพลง";
+"contentType.podcast" = "พอดแคสต์";

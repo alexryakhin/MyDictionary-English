@@ -141,7 +141,7 @@ final class SongPlayerViewModel: BaseViewModel {
     private func generateLesson() async {
         guard lyrics.hasLyrics, AIService.shared.canMakeAIRequest() else {
             logError("\(#file) Unable to generate lesson")
-            self.lessonState = .failed("Unable to generate lesson")
+            self.lessonState = .failed(Loc.MusicDiscovering.Player.Lesson.unavailable)
             return
         }
 

@@ -25,7 +25,10 @@ struct DiscoverContentView: View {
             viewModel.selectedContentType.displayName,
             style: .borderedProminent
         ) {
-            Picker("Content Type", selection: $viewModel.selectedContentType) {
+            Picker(
+                Loc.Discover.ContentType.fiterTitle,
+                selection: $viewModel.selectedContentType
+            ) {
                 ForEach(ContentType.allCases) { type in
                     Text(type.displayName).tag(type)
                 }

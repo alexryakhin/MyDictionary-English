@@ -63,7 +63,7 @@ struct SongLessonResultsView: View {
         }
         .groupedBackgroundWithConfetti(isActive: .constant(viewModel.accuracy >= 80))
         .navigation(
-            title: "Lesson Complete",
+            title: Loc.MusicDiscovering.Results.Navigation.title,
             mode: .regular,
             showsBackButton: true,
             trailingContent: {
@@ -89,11 +89,11 @@ struct SongLessonResultsView: View {
                 .font(.system(size: 80))
                 .foregroundColor(.green)
             
-            Text("Great Job!")
+            Text(Loc.MusicDiscovering.Results.Header.title)
                 .font(.largeTitle)
                 .fontWeight(.bold)
             
-            Text("You've completed the lesson")
+            Text(Loc.MusicDiscovering.Results.Header.subtitle)
                 .font(.subheadline)
                 .foregroundColor(.secondary)
         }
@@ -144,28 +144,28 @@ struct SongLessonResultsView: View {
             spacing: 16
         ) {
             statCard(
-                title: "Accuracy",
+                title: Loc.MusicDiscovering.Results.Stats.accuracy,
                 value: "\(viewModel.accuracy)%",
                 icon: "percent",
                 color: .green
             )
             
             statCard(
-                title: "Questions",
+                title: Loc.MusicDiscovering.Results.Stats.questions,
                 value: "\(viewModel.correctAnswers)/\(viewModel.totalQuestions)",
                 icon: "checkmark.circle",
                 color: .blue
             )
             
             statCard(
-                title: "New Words",
+                title: Loc.MusicDiscovering.Results.Stats.newWords,
                 value: "\(viewModel.discoveredWordsCount)",
                 icon: "book",
                 color: .purple
             )
             
             statCard(
-                title: "Time",
+                title: Loc.MusicDiscovering.Results.Stats.time,
                 value: viewModel.formattedListeningTime,
                 icon: "clock",
                 color: .orange
@@ -195,7 +195,7 @@ struct SongLessonResultsView: View {
     
     private var discoveredWordsSection: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("Discovered Words")
+            Text(Loc.MusicDiscovering.Results.DiscoveredWords.title)
                 .font(.headline)
             
             if let sessionWords = viewModel.session?.discoveredWords {
@@ -225,7 +225,7 @@ struct SongLessonResultsView: View {
         VStack(spacing: 12) {
             // Share button
             ActionButton(
-                "Share Results",
+                Loc.MusicDiscovering.Results.Actions.share,
                 systemImage: "square.and.arrow.up",
                 style: .bordered
             ) {
@@ -244,7 +244,7 @@ struct SongLessonResultsView: View {
             
             // Favorite button
             ActionButton(
-                viewModel.isFavorite ? "Remove from Favorites" : "Add to Favorites",
+                viewModel.isFavorite ? Loc.MusicDiscovering.Results.Actions.removeFromFavorites : Loc.MusicDiscovering.Results.Actions.addToFavorites,
                 systemImage: viewModel.isFavorite ? "heart.fill" : "heart",
                 style: .bordered
             ) {
@@ -253,7 +253,7 @@ struct SongLessonResultsView: View {
             
             // Close button
             ActionButton(
-                "Back to Discover",
+                Loc.MusicDiscovering.Results.Actions.backToDiscover,
                 style: .borderedProminent
             ) {
                 NavigationManager.shared.popToRoot()

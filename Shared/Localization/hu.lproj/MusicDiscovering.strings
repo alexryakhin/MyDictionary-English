@@ -1,0 +1,170 @@
+// MARK: - Music Discovering View
+"view.section.not_finished" = "Nincs befejezve";
+"view.section.recommended_for_you" = "Neked ajánlva";
+"view.section.favorite_songs" = "Kedvenc dalok";
+"view.section.history" = "Előzmények";
+
+// MARK: - Search
+"view.search.loading" = "Keresés folyamatban...";
+"view.search.results_title" = "Keresési eredmények";
+"view.search.empty_title" = "Nincs találat";
+"view.search.empty_subtitle" = "Próbálj meg másik dalcímet vagy előadót.";
+
+// MARK: - Recommendations
+"view.recommendations.empty_title" = "Még nincsenek ajánlások";
+"view.recommendations.empty_subtitle" = "Hozz létre egy leckét új dalok felfedezéséhez.";
+
+// MARK: - Recommendation Status
+"status.recommendations.loading" = "Ajánlások betöltése";
+"status.recommendations.generating" = "Ajánlások készítése";
+"status.recommendations.fetching_data" = "Apple Music adatok lekérése";
+
+// MARK: - Lesson Overview
+"lesson.overview.title" = "Leckeútvonal";
+"lesson.overview.description" = "Merülj el %2$@ **%1$@** című dalában. A lecke a dalszöveg jelentésétől a kulturális háttérig kísér, majd aktív felidézéssel tesz próbára.";
+"lesson.overview.phrases_tag" = "Kifejezések: %d";
+"lesson.overview.practice_tag" = "Gyakorlatok: %d";
+"lesson.collection.title" = "%@ — Kulcskifejezések";
+
+// MARK: - Lesson Sections
+"lesson.phrases.header" = "Kulcskifejezések";
+"lesson.phrases.subtitle" = "Ismerd meg a dal történetét meghatározó kifejezéseket.";
+"lesson.phrases.empty" = "Még nincsenek elérhető kifejezések.";
+
+"lesson.grammar.header" = "Nyelvtani fókusz";
+"lesson.grammar.subtitle" = "Figyeld meg ezeket a szerkezeteket hallgatás közben.";
+"lesson.grammar.empty" = "Ehhez a leckéhez nincs nyelvtani kiemelés.";
+
+"lesson.explanations.header" = "Dalszöveg-elemzés";
+"lesson.explanations.subtitle" = "Soronkénti kontextus a mélyebb megértéshez.";
+"lesson.explanations.empty" = "A dalszöveg magyarázatai megjelennek, amint elérhetők.";
+"lesson.explanations.line_number" = "%d. sor";
+
+"lesson.culture.header" = "Kulturális jegyzetek";
+"lesson.culture.subtitle" = "Környezet, amely életre kelti a dalszöveget.";
+"lesson.culture.empty" = "Nem áll rendelkezésre kulturális háttér.";
+
+"lesson.practice.fill_blank.header" = "Gyakorlat • Kiegészítés";
+"lesson.practice.fill_blank.subtitle" = "Teszteld a memóriád dalszöveg-alapú kérdésekkel.";
+"lesson.practice.fill_blank.empty" = "A kiegészítős gyakorlat elérhető lesz, amint feltöltjük.";
+
+"lesson.practice.comprehension.header" = "Gyakorlat • Szövegértési kvíz";
+"lesson.practice.comprehension.subtitle" = "Válaszd a legjobb választ a jelentés megerősítéséhez.";
+"lesson.practice.comprehension.empty" = "A feleletválasztós gyakorlat megjelenik, amint elérhető.";
+
+"lesson.reflection.header" = "Áttekintés és lezárás";
+"lesson.reflection.subtitle" = "Jegyezd fel, ami megérintett, és tartsd a lendületet.";
+"lesson.reflection.instructions" = "A kvízek befejeztével koppints a **Befejezés** gombra, hogy elmentsd az előrehaladást, és megnézd a lecke eredményeit.";
+"lesson.reflection.progress" = "Előrehaladás: %1$d/%2$d megválaszolt kérdés";
+"lesson.reflection.cta_view_results" = "Leckeeredmények megtekintése";
+
+// MARK: - History
+"history.time.days" = "%dd napja";
+"history.time.hours" = "%dh órája";
+"history.time.minutes" = "%dm perce";
+"history.time.just_now" = "Épp most";
+"history.play_count" = "%d×";
+
+// MARK: - Player
+"player.lesson.generating" = "Lecke előkészítése...";
+"player.lesson.loading" = "Lecke betöltése...";
+"player.lesson.ready" = "Tovább a leckére";
+"player.lesson.failed" = "Hiba a lecke betöltésekor. Újrapróbálod?";
+"player.lesson.unavailable" = "Nem sikerült létrehozni a leckét";
+"player.tips.title" = "Tippek a zeneleckéhez";
+"player.tips.header" = "Készülj fel a leckére";
+"player.tips.intro" = "Keress egy csendes pillanatot, csatlakoztasd a fejhallgatót, ha van, és tarts kéznél egy jegyzetfüzetet. Segít, ha a gyakorlatok előtt egyszer dúdolsz.";
+"player.tips.explore_title" = "Fedezd fel a dalszöveget soronként";
+"player.tips.explore_message" = "Érints meg bármelyik sort a fordítás, szótár, lejátszás és másolás lehetőségeihez.";
+"player.tips.carry_title" = "Vidd magaddal a dalt a leckébe";
+"player.tips.carry_message" = "Amikor továbblépsz a leckére, bármikor visszatérhetsz ide, hogy újra átnézd a dalszöveget és meghallgasd.";
+"player.tips.path_title" = "Használd a leckét útvonalként";
+"player.tips.path_message" = "Haladj sorban a lecke részein – kifejezések, nyelvtan, kultúra, majd gyakorlás –, hogy rögzítsd, amit most hallottál.";
+
+// MARK: - Lesson Info Sheet
+"sheet.cta.start_lesson" = "Ugrás a leckére";
+"sheet.premium.title" = "Premium szükséges";
+"sheet.premium.body" = "Az AI által támogatott zeneleckék Premium előfizetéssel érhetők el.";
+"sheet.premium.cta_upgrade" = "Váltás Premiumra";
+"sheet.lyrics_unavailable.title" = "Dalszöveg nem érhető el";
+"sheet.lyrics_unavailable.body" = "Sajnos nem találtuk meg ennek a dalnak a szövegét. Dalszöveg nélkül nem hozható létre lecke.";
+"sheet.hook.grammar" = "Nyelvtan";
+"sheet.hook.cultural_note" = "Kulturális megjegyzés";
+
+// MARK: - Results
+"results.navigation.title" = "Lecke befejezve";
+"results.header.title" = "Szép munka!";
+"results.header.subtitle" = "Teljesítetted a leckét";
+"results.stats.accuracy" = "Pontosság";
+"results.stats.questions" = "Kérdések";
+"results.stats.new_words" = "Új szavak";
+"results.stats.time" = "Idő";
+"results.discovered_words.title" = "Megtalált szavak";
+"results.actions.share" = "Eredmények megosztása";
+"results.actions.add_to_favorites" = "Hozzáadás a kedvencekhez";
+"results.actions.remove_from_favorites" = "Eltávolítás a kedvencekből";
+"results.actions.back_to_discover" = "Vissza a Felfedezéshez";
+
+// MARK: - Share Preview
+"share.navigation.title" = "Megosztás előnézete";
+"share.accessibility.preview_card" = "Megosztási előnézeti kártya";
+"share.picker.aspect_ratio" = "Képarány";
+"share.actions.share" = "Megosztás";
+"share.alert.generate_failed" = "Nem sikerült létrehozni a megosztási képet.";
+"share.aspect.square" = "Négyzet";
+"share.aspect.story" = "Story";
+"share.aspect.wide" = "Széles";
+"share.card.header" = "Lecke befejezve";
+"share.card.cefr" = "KER %@";
+"share.card.artwork_missing" = "Nincs elérhető borítókép";
+"share.card.by_artist" = "%@ előadásában";
+"share.card.answered" = "%1$d/%2$d helyes válasz";
+"share.card.footer.tagline" = "Tanulj tovább a";
+"share.card.footer.brand" = "My Dictionary";
+
+// MARK: - Interactive Lyrics
+"interactive_lyrics.menu.options" = "Beállítások";
+"interactive_lyrics.empty.title" = "Nem érhető el dalszöveg";
+
+// MARK: - Quizzes
+"quiz.common.question_progress" = "%1$d/%2$d. kérdés";
+"quiz.navigation.previous" = "Előző";
+"quiz.navigation.next" = "Következő";
+"quiz.comprehension.feedback.correct" = "Remek választás!";
+"quiz.comprehension.feedback.incorrect" = "Ez most nem talált.";
+"quiz.fill_blank.prompt" = "Egészítsd ki a dalszöveget a hiányzó szóval.";
+"quiz.fill_blank.feedback.correct" = "Nagyszerű munka!";
+"quiz.fill_blank.feedback.incorrect" = "Fedezd tovább a dalszöveget, és próbáld meg a következőt.";
+
+// MARK: - Authentication
+"auth.header.title" = "Csatlakozás zenei szolgáltatásokhoz";
+"auth.header.subtitle" = "Csatlakozz az Apple Musichoz, és fedezz fel személyre szabott zenei ajánlásokat nyelvtanuláshoz.";
+"auth.apple.connect" = "Csatlakozás az Apple Musichoz";
+"auth.info.title" = "Mit kapsz:";
+"auth.info.recommendations" = "Személyre szabott dalajánlások";
+"auth.info.library" = "Hozzáférés a zenei könyvtáradhoz";
+"auth.info.lyrics" = "Dalszövegek és tanulási tartalom";
+"auth.info.history" = "A hallgatási előzmények követése";
+"auth.actions.open_music_app" = "Apple Music app megnyitása";
+"auth.error.subscription_required" = "Apple Music előfizetés szükséges. Előfizethetsz a Music appban vagy a Beállításokban.";
+"auth.error.not_registered" = "Az Apple Music nem érhető el. Az alkalmazást regisztrálni kell a MusicKithez.";
+
+// MARK: - Music Errors
+"error.user_profile_not_completed" = "A felhasználói profil nincs kitöltve";
+"error.authentication_failed" = "Sikertelen hitelesítés: %@";
+"error.song_not_found" = "A dal nem található";
+"error.lyrics_not_found" = "Ehhez a dalhoz nem érhető el dalszöveg";
+"error.lyrics_language_not_determined" = "A dalszöveg nyelve nem állapítható meg";
+"error.lesson_not_found" = "A lecke nem található";
+"error.invalid_duration" = "Érvénytelen dalhossz";
+"error.playback_not_supported" = "A lejátszás nem támogatott ehhez a dalhoz";
+"error.network_error" = "Hálózati hiba: %@";
+"error.service_unavailable" = "A zenei szolgáltatás jelenleg nem érhető el";
+"error.invalid_response" = "Érvénytelen válasz a zenei szolgáltatástól";
+"error.token_refresh_failed" = "Nem sikerült frissíteni a hitelesítési tokent";
+"error.apple_music_not_registered" = "Az alkalmazást regisztrálni kell MusicKithez az App Store Connectben. Vedd fel a kapcsolatot a támogatással.";
+"error.apple_music_subscription_required" = "A funkció használatához Apple Music előfizetés szükséges. Előfizethetsz a Music appban vagy a Beállításokban.";
+"error.invalid_cefr_level" = "Érvénytelen KER-szint";
+"error.no_recommendations_available" = "Nem érhetők el ajánlások";
+"error.premium_required" = "A funkció használatához Premium hozzáférés szükséges";
+"error.hook_generation_failed" = "Nem sikerült előnézetet készíteni ehhez a dalhoz";

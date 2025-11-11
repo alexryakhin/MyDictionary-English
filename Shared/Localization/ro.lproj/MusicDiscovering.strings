@@ -1,0 +1,170 @@
+// MARK: - Music Discovering View
+"view.section.not_finished" = "Neîncheiat";
+"view.section.recommended_for_you" = "Recomandat pentru tine";
+"view.section.favorite_songs" = "Melodii favorite";
+"view.section.history" = "Istoric";
+
+// MARK: - Search
+"view.search.loading" = "Se caută...";
+"view.search.results_title" = "Rezultatele căutării";
+"view.search.empty_title" = "Nu am găsit rezultate";
+"view.search.empty_subtitle" = "Încearcă un alt titlu de melodie sau artist.";
+
+// MARK: - Recommendations
+"view.recommendations.empty_title" = "Momentan nu există recomandări";
+"view.recommendations.empty_subtitle" = "Generează o lecție pentru a descoperi melodii noi.";
+
+// MARK: - Recommendation Status
+"status.recommendations.loading" = "Se încarcă recomandările";
+"status.recommendations.generating" = "Se generează recomandările";
+"status.recommendations.fetching_data" = "Se obțin datele din Apple Music";
+
+// MARK: - Lesson Overview
+"lesson.overview.title" = "Parcursul lecției";
+"lesson.overview.description" = "Cufundă-te în **%1$@** de %2$@. Lecția te conduce de la sensul versurilor la contextul cultural înainte de a te provoca prin rememorare activă.";
+"lesson.overview.phrases_tag" = "Expresii: %d";
+"lesson.overview.practice_tag" = "Exerciții: %d";
+"lesson.collection.title" = "%@ — Expresii esențiale";
+
+// MARK: - Lesson Sections
+"lesson.phrases.header" = "Expresii esențiale";
+"lesson.phrases.subtitle" = "Învață expresiile care dau formă poveștii melodiei.";
+"lesson.phrases.empty" = "Nu există încă expresii disponibile.";
+
+"lesson.grammar.header" = "Gramatică în prim-plan";
+"lesson.grammar.subtitle" = "Observă aceste structuri în timp ce asculți.";
+"lesson.grammar.empty" = "Nu există subiecte de gramatică pentru această lecție.";
+
+"lesson.explanations.header" = "Analiza versurilor";
+"lesson.explanations.subtitle" = "Context vers cu vers pentru a aprofunda înțelegerea.";
+"lesson.explanations.empty" = "Explicațiile versurilor vor apărea când vor fi disponibile.";
+"lesson.explanations.line_number" = "Versul %d";
+
+"lesson.culture.header" = "Note culturale";
+"lesson.culture.subtitle" = "Un context care dă viață versurilor.";
+"lesson.culture.empty" = "Nu există context cultural disponibil.";
+
+"lesson.practice.fill_blank.header" = "Exersează • Completează spațiile";
+"lesson.practice.fill_blank.subtitle" = "Testează-ți memoria cu sugestii bazate pe versuri.";
+"lesson.practice.fill_blank.empty" = "Exercițiile de completare vor apărea când vor fi disponibile.";
+
+"lesson.practice.comprehension.header" = "Exersează • Quiz de înțelegere";
+"lesson.practice.comprehension.subtitle" = "Alege cel mai potrivit răspuns pentru a întări sensul.";
+"lesson.practice.comprehension.empty" = "Exercițiile de tip alegere multiplă vor apărea când vor fi disponibile.";
+
+"lesson.reflection.header" = "Reflectează și încheie";
+"lesson.reflection.subtitle" = "Notează ce te-a impresionat și continuă-ți seria.";
+"lesson.reflection.instructions" = "La finalul quiz-urilor apasă **Finalizare** pentru a salva progresul și a vedea rezultatele.";
+"lesson.reflection.progress" = "Progres: %1$d/%2$d întrebări răspunse";
+"lesson.reflection.cta_view_results" = "Vezi rezultatele lecției";
+
+// MARK: - History
+"history.time.days" = "Acum %dd zile";
+"history.time.hours" = "Acum %dh ore";
+"history.time.minutes" = "Acum %dm minute";
+"history.time.just_now" = "Chiar acum";
+"history.play_count" = "%d×";
+
+// MARK: - Player
+"player.lesson.generating" = "Se generează lecția...";
+"player.lesson.loading" = "Lecția se încarcă...";
+"player.lesson.ready" = "Continuă către lecție";
+"player.lesson.failed" = "Eroare la încărcarea lecției. Încerci din nou?";
+"player.lesson.unavailable" = "Nu am putut genera lecția";
+"player.tips.title" = "Sfaturi pentru lecția muzicală";
+"player.tips.header" = "Pregătește-te pentru lecție";
+"player.tips.intro" = "Găsește un moment liniștit, conectează căștile dacă le ai și ține un caiet aproape. Ajută să fredonezi o dată înainte să începi exercițiile.";
+"player.tips.explore_title" = "Explorează versurile linie cu linie";
+"player.tips.explore_message" = "Atinge orice vers pentru a deschide meniul cu opțiuni de traducere, dicționar, redare și copiere.";
+"player.tips.carry_title" = "Poartă melodia în lecție";
+"player.tips.carry_message" = "Când continui lecția, poți reveni oricând aici pentru a revedea versurile și a asculta din nou.";
+"player.tips.path_title" = "Folosește lecția ca traseu";
+"player.tips.path_message" = "Urmează secțiunile lecției în ordine—expresii, gramatică, cultură și apoi exerciții—pentru a fixa ceea ce tocmai ai auzit.";
+
+// MARK: - Lesson Info Sheet
+"sheet.cta.start_lesson" = "Mergi la lecție";
+"sheet.premium.title" = "Necesită Premium";
+"sheet.premium.body" = "Lecțiile muzicale cu informații generate de AI sunt disponibile cu un abonament Premium.";
+"sheet.premium.cta_upgrade" = "Upgrade la Premium";
+"sheet.lyrics_unavailable.title" = "Versuri indisponibile";
+"sheet.lyrics_unavailable.body" = "Din păcate nu am găsit versurile acestei melodii. Fără versuri nu putem crea lecția.";
+"sheet.hook.grammar" = "Gramatică";
+"sheet.hook.cultural_note" = "Notă culturală";
+
+// MARK: - Results
+"results.navigation.title" = "Lecție finalizată";
+"results.header.title" = "Bravo!";
+"results.header.subtitle" = "Ai terminat lecția";
+"results.stats.accuracy" = "Acuratețe";
+"results.stats.questions" = "Întrebări";
+"results.stats.new_words" = "Cuvinte noi";
+"results.stats.time" = "Timp";
+"results.discovered_words.title" = "Cuvinte descoperite";
+"results.actions.share" = "Distribuie rezultatele";
+"results.actions.add_to_favorites" = "Adaugă la favorite";
+"results.actions.remove_from_favorites" = "Elimină din favorite";
+"results.actions.back_to_discover" = "Înapoi la Descoperă";
+
+// MARK: - Share Preview
+"share.navigation.title" = "Previzualizare partajare";
+"share.accessibility.preview_card" = "Card previzualizare partajare";
+"share.picker.aspect_ratio" = "Raport de aspect";
+"share.actions.share" = "Partajează";
+"share.alert.generate_failed" = "Nu am putut crea imaginea pentru partajare.";
+"share.aspect.square" = "Pătrat";
+"share.aspect.story" = "Story";
+"share.aspect.wide" = "Panoramă";
+"share.card.header" = "Lecție finalizată";
+"share.card.cefr" = "CEFR %@";
+"share.card.artwork_missing" = "Lipsă ilustrație";
+"share.card.by_artist" = "de %@";
+"share.card.answered" = "%1$d/%2$d răspunsuri corecte";
+"share.card.footer.tagline" = "Continuă să înveți cu";
+"share.card.footer.brand" = "My Dictionary";
+
+// MARK: - Interactive Lyrics
+"interactive_lyrics.menu.options" = "Opțiuni";
+"interactive_lyrics.empty.title" = "Versuri indisponibile";
+
+// MARK: - Quizzes
+"quiz.common.question_progress" = "Întrebarea %1$d din %2$d";
+"quiz.navigation.previous" = "Înapoi";
+"quiz.navigation.next" = "Înainte";
+"quiz.comprehension.feedback.correct" = "Alegere excelentă!";
+"quiz.comprehension.feedback.incorrect" = "Nu chiar.";
+"quiz.fill_blank.prompt" = "Completează versul alegând cuvântul lipsă.";
+"quiz.fill_blank.feedback.correct" = "Foarte bine!";
+"quiz.fill_blank.feedback.incorrect" = "Continuă să explorezi versurile și încearcă din nou.";
+
+// MARK: - Authentication
+"auth.header.title" = "Conectează-te la servicii muzicale";
+"auth.header.subtitle" = "Conectează-te la Apple Music pentru a descoperi recomandări personalizate de melodii pentru învățarea limbilor.";
+"auth.apple.connect" = "Conectează-te la Apple Music";
+"auth.info.title" = "Ce primești:";
+"auth.info.recommendations" = "Recomandări personalizate de melodii";
+"auth.info.library" = "Acces la biblioteca ta muzicală";
+"auth.info.lyrics" = "Versuri și conținut educațional";
+"auth.info.history" = "Urmărirea istoricului de ascultare";
+"auth.actions.open_music_app" = "Deschide aplicația Muzică";
+"auth.error.subscription_required" = "Este necesar un abonament Apple Music. Îl poți activa în Muzică sau în Setări.";
+"auth.error.not_registered" = "Apple Music nu este disponibil. Aplicația trebuie înregistrată pentru MusicKit.";
+
+// MARK: - Music Errors
+"error.user_profile_not_completed" = "Profilul utilizatorului nu este complet";
+"error.authentication_failed" = "Autentificare eșuată: %@";
+"error.song_not_found" = "Melodia nu a fost găsită";
+"error.lyrics_not_found" = "Versurile nu sunt disponibile pentru această melodie";
+"error.lyrics_language_not_determined" = "Nu s-a putut identifica limba versurilor";
+"error.lesson_not_found" = "Lecția nu a fost găsită";
+"error.invalid_duration" = "Durata melodiei este nevalidă";
+"error.playback_not_supported" = "Redarea nu este disponibilă pentru această melodie";
+"error.network_error" = "Eroare de rețea: %@";
+"error.service_unavailable" = "Serviciul muzical nu este disponibil momentan";
+"error.invalid_response" = "Răspuns nevalid din partea serviciului muzical";
+"error.token_refresh_failed" = "Tokenul de autentificare nu a putut fi reînnoit";
+"error.apple_music_not_registered" = "Această aplicație trebuie înregistrată pentru MusicKit în App Store Connect. Contactează suportul.";
+"error.apple_music_subscription_required" = "Este necesar un abonament Apple Music pentru această funcție. Îl poți activa în Muzică sau în Setări.";
+"error.invalid_cefr_level" = "Nivel CEFR nevalid";
+"error.no_recommendations_available" = "Nu există recomandări disponibile";
+"error.premium_required" = "Este necesar acces Premium pentru această funcție";
+"error.hook_generation_failed" = "Nu s-a putut genera o previzualizare pentru această melodie";

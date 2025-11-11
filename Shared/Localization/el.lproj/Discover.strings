@@ -1,0 +1,6 @@
+// MARK: - Discover Flow
+"title" = "Ανακάλυψε";
+"contentType.fiterTitle" = "Τύπος περιεχομένου";
+"contentType.video" = "Βίντεο";
+"contentType.music" = "Μουσική";
+"contentType.podcast" = "Πόντκαστ";

@@ -1,4 +1,6 @@
 // MARK: - Tab Bar
+"tabbar.vocabulary" = "Sanakirja";
+"tabbar.discover" = "Löydä";
 "tabbar.quizzes" = "Visat";
 "tabbar.progress" = "Edistyminen";
 "tabbar.settings" = "Asetukset";

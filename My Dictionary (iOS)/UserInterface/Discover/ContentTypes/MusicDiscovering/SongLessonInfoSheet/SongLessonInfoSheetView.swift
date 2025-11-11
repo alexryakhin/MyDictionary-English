@@ -91,7 +91,7 @@ struct SongLessonInfoSheetView: View {
         }
         .safeAreaBarIfAvailable {
             ActionButton(
-                "To lesson",
+                Loc.MusicDiscovering.Sheet.Cta.startLesson,
                 style: .borderedProminent
             ) {
                 switch viewModel.hookState {
@@ -122,18 +122,18 @@ struct PremiumRequiredView: View {
                 .font(.system(size: 50))
                 .foregroundColor(.yellow)
             
-            Text("Premium Required")
+            Text(Loc.MusicDiscovering.Sheet.Premium.title)
                 .font(.title3)
                 .fontWeight(.semibold)
             
-            Text("Music lessons with AI-powered insights are available with a Premium subscription.")
+            Text(Loc.MusicDiscovering.Sheet.Premium.body)
                 .font(.subheadline)
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal)
             
             ActionButton(
-                "Upgrade to Premium",
+                Loc.MusicDiscovering.Sheet.Premium.ctaUpgrade,
                 style: .borderedProminent
             ) {
                 PaywallService.shared.presentPaywall(for: .musicLessons)
@@ -158,11 +158,11 @@ struct LyricsErrorView: View {
                 .font(.system(size: 50))
                 .foregroundColor(.orange)
             
-            Text("Lyrics Not Available")
+            Text(Loc.MusicDiscovering.Sheet.LyricsUnavailable.title)
                 .font(.title3)
                 .fontWeight(.semibold)
             
-            Text("Unfortunately, we couldn't find lyrics for this song. A lesson cannot be created without lyrics.")
+            Text(Loc.MusicDiscovering.Sheet.LyricsUnavailable.body)
                 .font(.subheadline)
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)
@@ -276,7 +276,7 @@ struct PreListenHookView: View {
             // Target Phrases
             if !hook.targetPhrases.isEmpty {
                 VStack(alignment: .leading, spacing: 8) {
-                    Text("Key Phrases")
+                    Text(Loc.MusicDiscovering.Lesson.Phrases.header)
                         .font(.subheadline)
                         .fontWeight(.semibold)
                         .foregroundColor(.secondary)
@@ -311,7 +311,7 @@ struct PreListenHookView: View {
             // Grammar Highlight
             if let grammar = hook.grammarHighlight, !grammar.isEmpty {
                 VStack(alignment: .leading, spacing: 4) {
-                    Label("Grammar", systemImage: "book.fill")
+                    Label(Loc.MusicDiscovering.Sheet.Hook.grammar, systemImage: "book.fill")
                         .font(.subheadline)
                         .fontWeight(.semibold)
                         .foregroundColor(.secondary)
@@ -326,7 +326,7 @@ struct PreListenHookView: View {
             // Cultural Note
             if let culture = hook.culturalNote, !culture.isEmpty {
                 VStack(alignment: .leading, spacing: 4) {
-                    Label("Cultural Note", systemImage: "globe")
+                    Label(Loc.MusicDiscovering.Sheet.Hook.culturalNote, systemImage: "globe")
                         .font(.subheadline)
                         .fontWeight(.semibold)
                         .foregroundColor(.secondary)

@@ -392,6 +392,20 @@ public enum Loc {
     /// Maybe Later
     public static let maybeLater = Loc.tr("Coffee", "maybe_later", fallback: "Maybe Later")
   }
+  public enum Discover {
+    /// Discover
+    public static let title = Loc.tr("Discover", "title", fallback: "Discover")
+    public enum ContentType {
+      /// Content Type
+      public static let fiterTitle = Loc.tr("Discover", "contentType.fiterTitle", fallback: "Content Type")
+      /// Music
+      public static let music = Loc.tr("Discover", "contentType.music", fallback: "Music")
+      /// Podcast
+      public static let podcast = Loc.tr("Discover", "contentType.podcast", fallback: "Podcast")
+      /// Video
+      public static let video = Loc.tr("Discover", "contentType.video", fallback: "Video")
+    }
+  }
   public enum Errors {
     /// Authentication required
     public static let authenticationRequired = Loc.tr("Errors", "authentication_required", fallback: "Authentication required")
@@ -637,6 +651,428 @@ public enum Loc {
     public static let pleaseDontCloseApp = Loc.tr("Migration", "please_dont_close_app", fallback: "Please don't close the app during this process")
     /// Updating Your Dictionary
     public static let updatingYourDictionary = Loc.tr("Migration", "updating_your_dictionary", fallback: "Updating Your Dictionary")
+  }
+  public enum MusicDiscovering {
+    public enum Auth {
+      public enum Actions {
+        /// Open Music App
+        public static let openMusicApp = Loc.tr("MusicDiscovering", "auth.actions.open_music_app", fallback: "Open Music App")
+      }
+      public enum Apple {
+        /// Connect with Apple Music
+        public static let connect = Loc.tr("MusicDiscovering", "auth.apple.connect", fallback: "Connect with Apple Music")
+      }
+      public enum Error {
+        /// Apple Music is not available. This app needs to be registered for MusicKit.
+        public static let notRegistered = Loc.tr("MusicDiscovering", "auth.error.not_registered", fallback: "Apple Music is not available. This app needs to be registered for MusicKit.")
+        /// Apple Music subscription is required. You can subscribe in the Music app or Settings.
+        public static let subscriptionRequired = Loc.tr("MusicDiscovering", "auth.error.subscription_required", fallback: "Apple Music subscription is required. You can subscribe in the Music app or Settings.")
+      }
+      public enum Header {
+        /// Connect to Apple Music to discover personalized song recommendations for language learning.
+        public static let subtitle = Loc.tr("MusicDiscovering", "auth.header.subtitle", fallback: "Connect to Apple Music to discover personalized song recommendations for language learning.")
+        /// Connect to Music Services
+        public static let title = Loc.tr("MusicDiscovering", "auth.header.title", fallback: "Connect to Music Services")
+      }
+      public enum Info {
+        /// Listening history tracking
+        public static let history = Loc.tr("MusicDiscovering", "auth.info.history", fallback: "Listening history tracking")
+        /// Access to your music library
+        public static let library = Loc.tr("MusicDiscovering", "auth.info.library", fallback: "Access to your music library")
+        /// Song lyrics and learning content
+        public static let lyrics = Loc.tr("MusicDiscovering", "auth.info.lyrics", fallback: "Song lyrics and learning content")
+        /// Personalized song recommendations
+        public static let recommendations = Loc.tr("MusicDiscovering", "auth.info.recommendations", fallback: "Personalized song recommendations")
+        /// What you'll get:
+        public static let title = Loc.tr("MusicDiscovering", "auth.info.title", fallback: "What you'll get:")
+      }
+    }
+    public enum Error {
+      /// This app needs to be registered for MusicKit in App Store Connect. Please contact support.
+      public static let appleMusicNotRegistered = Loc.tr("MusicDiscovering", "error.apple_music_not_registered", fallback: "This app needs to be registered for MusicKit in App Store Connect. Please contact support.")
+      /// An Apple Music subscription is required to use this feature. You can subscribe in the Music app or Settings.
+      public static let appleMusicSubscriptionRequired = Loc.tr("MusicDiscovering", "error.apple_music_subscription_required", fallback: "An Apple Music subscription is required to use this feature. You can subscribe in the Music app or Settings.")
+      /// Authentication failed: %@
+      public static func authenticationFailed(_ p1: Any) -> String {
+        return Loc.tr("MusicDiscovering", "error.authentication_failed", String(describing: p1), fallback: "Authentication failed: %@")
+      }
+      /// Failed to generate a preview for this song
+      public static let hookGenerationFailed = Loc.tr("MusicDiscovering", "error.hook_generation_failed", fallback: "Failed to generate a preview for this song")
+      /// Invalid CEFR level
+      public static let invalidCefrLevel = Loc.tr("MusicDiscovering", "error.invalid_cefr_level", fallback: "Invalid CEFR level")
+      /// Invalid song duration
+      public static let invalidDuration = Loc.tr("MusicDiscovering", "error.invalid_duration", fallback: "Invalid song duration")
+      /// Invalid response from music service
+      public static let invalidResponse = Loc.tr("MusicDiscovering", "error.invalid_response", fallback: "Invalid response from music service")
+      /// Lesson not found
+      public static let lessonNotFound = Loc.tr("MusicDiscovering", "error.lesson_not_found", fallback: "Lesson not found")
+      /// Lyrics language not determined
+      public static let lyricsLanguageNotDetermined = Loc.tr("MusicDiscovering", "error.lyrics_language_not_determined", fallback: "Lyrics language not determined")
+      /// Lyrics not available for this song
+      public static let lyricsNotFound = Loc.tr("MusicDiscovering", "error.lyrics_not_found", fallback: "Lyrics not available for this song")
+      /// Network error: %@
+      public static func networkError(_ p1: Any) -> String {
+        return Loc.tr("MusicDiscovering", "error.network_error", String(describing: p1), fallback: "Network error: %@")
+      }
+      /// No recommendations available
+      public static let noRecommendationsAvailable = Loc.tr("MusicDiscovering", "error.no_recommendations_available", fallback: "No recommendations available")
+      /// Playback is not supported for this song
+      public static let playbackNotSupported = Loc.tr("MusicDiscovering", "error.playback_not_supported", fallback: "Playback is not supported for this song")
+      /// Premium access is required to use this feature
+      public static let premiumRequired = Loc.tr("MusicDiscovering", "error.premium_required", fallback: "Premium access is required to use this feature")
+      /// Music service is currently unavailable
+      public static let serviceUnavailable = Loc.tr("MusicDiscovering", "error.service_unavailable", fallback: "Music service is currently unavailable")
+      /// Song not found
+      public static let songNotFound = Loc.tr("MusicDiscovering", "error.song_not_found", fallback: "Song not found")
+      /// Failed to refresh authentication token
+      public static let tokenRefreshFailed = Loc.tr("MusicDiscovering", "error.token_refresh_failed", fallback: "Failed to refresh authentication token")
+      /// User profile not completed
+      public static let userProfileNotCompleted = Loc.tr("MusicDiscovering", "error.user_profile_not_completed", fallback: "User profile not completed")
+    }
+    public enum History {
+      /// %dx
+      public static func playCount(_ p1: Int) -> String {
+        return Loc.tr("MusicDiscovering", "history.play_count", p1, fallback: "%dx")
+      }
+      public enum Time {
+        /// %dd ago
+        public static func days(_ p1: Int) -> String {
+          return Loc.tr("MusicDiscovering", "history.time.days", p1, fallback: "%dd ago")
+        }
+        /// %dh ago
+        public static func hours(_ p1: Int) -> String {
+          return Loc.tr("MusicDiscovering", "history.time.hours", p1, fallback: "%dh ago")
+        }
+        /// Just now
+        public static let justNow = Loc.tr("MusicDiscovering", "history.time.just_now", fallback: "Just now")
+        /// %dm ago
+        public static func minutes(_ p1: Int) -> String {
+          return Loc.tr("MusicDiscovering", "history.time.minutes", p1, fallback: "%dm ago")
+        }
+      }
+    }
+    public enum InteractiveLyrics {
+      public enum Empty {
+        /// No lyrics available
+        public static let title = Loc.tr("MusicDiscovering", "interactive_lyrics.empty.title", fallback: "No lyrics available")
+      }
+      public enum Menu {
+        /// Options
+        public static let options = Loc.tr("MusicDiscovering", "interactive_lyrics.menu.options", fallback: "Options")
+      }
+    }
+    public enum Lesson {
+      public enum Collection {
+        /// %@ — Key Phrases
+        public static func title(_ p1: Any) -> String {
+          return Loc.tr("MusicDiscovering", "lesson.collection.title", String(describing: p1), fallback: "%@ — Key Phrases")
+        }
+      }
+      public enum Culture {
+        /// No cultural context provided.
+        public static let empty = Loc.tr("MusicDiscovering", "lesson.culture.empty", fallback: "No cultural context provided.")
+        /// Cultural Notes
+        public static let header = Loc.tr("MusicDiscovering", "lesson.culture.header", fallback: "Cultural Notes")
+        /// Context that brings the lyrics to life.
+        public static let subtitle = Loc.tr("MusicDiscovering", "lesson.culture.subtitle", fallback: "Context that brings the lyrics to life.")
+      }
+      public enum Explanations {
+        /// Lyric explanations will appear once available.
+        public static let empty = Loc.tr("MusicDiscovering", "lesson.explanations.empty", fallback: "Lyric explanations will appear once available.")
+        /// Lyric Insights
+        public static let header = Loc.tr("MusicDiscovering", "lesson.explanations.header", fallback: "Lyric Insights")
+        /// Line %d
+        public static func lineNumber(_ p1: Int) -> String {
+          return Loc.tr("MusicDiscovering", "lesson.explanations.line_number", p1, fallback: "Line %d")
+        }
+        /// Line-by-line context to deepen understanding.
+        public static let subtitle = Loc.tr("MusicDiscovering", "lesson.explanations.subtitle", fallback: "Line-by-line context to deepen understanding.")
+      }
+      public enum Grammar {
+        /// No grammar highlights for this lesson.
+        public static let empty = Loc.tr("MusicDiscovering", "lesson.grammar.empty", fallback: "No grammar highlights for this lesson.")
+        /// Grammar Spotlight
+        public static let header = Loc.tr("MusicDiscovering", "lesson.grammar.header", fallback: "Grammar Spotlight")
+        /// Notice these structures while you listen.
+        public static let subtitle = Loc.tr("MusicDiscovering", "lesson.grammar.subtitle", fallback: "Notice these structures while you listen.")
+      }
+      public enum Overview {
+        /// Immerse yourself in **%1$@** by %2$@. This lesson guides you from lyrical meaning to cultural context before challenging you with active recall.
+        public static func description(_ p1: Any, _ p2: Any) -> String {
+          return Loc.tr("MusicDiscovering", "lesson.overview.description", String(describing: p1), String(describing: p2), fallback: "Immerse yourself in **%1$@** by %2$@. This lesson guides you from lyrical meaning to cultural context before challenging you with active recall.")
+        }
+        /// %d phrases
+        public static func phrasesTag(_ p1: Int) -> String {
+          return Loc.tr("MusicDiscovering", "lesson.overview.phrases_tag", p1, fallback: "%d phrases")
+        }
+        /// %d practice
+        public static func practiceTag(_ p1: Int) -> String {
+          return Loc.tr("MusicDiscovering", "lesson.overview.practice_tag", p1, fallback: "%d practice")
+        }
+        /// Lesson Path
+        public static let title = Loc.tr("MusicDiscovering", "lesson.overview.title", fallback: "Lesson Path")
+      }
+      public enum Phrases {
+        /// No phrases available yet.
+        public static let empty = Loc.tr("MusicDiscovering", "lesson.phrases.empty", fallback: "No phrases available yet.")
+        /// Key Phrases
+        public static let header = Loc.tr("MusicDiscovering", "lesson.phrases.header", fallback: "Key Phrases")
+        /// Learn the expressions that shape the song’s story.
+        public static let subtitle = Loc.tr("MusicDiscovering", "lesson.phrases.subtitle", fallback: "Learn the expressions that shape the song’s story.")
+      }
+      public enum Practice {
+        public enum Comprehension {
+          /// Multiple-choice practice will appear once available.
+          public static let empty = Loc.tr("MusicDiscovering", "lesson.practice.comprehension.empty", fallback: "Multiple-choice practice will appear once available.")
+          /// Practice • Comprehension Quiz
+          public static let header = Loc.tr("MusicDiscovering", "lesson.practice.comprehension.header", fallback: "Practice • Comprehension Quiz")
+          /// Choose the best answer to reinforce meaning.
+          public static let subtitle = Loc.tr("MusicDiscovering", "lesson.practice.comprehension.subtitle", fallback: "Choose the best answer to reinforce meaning.")
+        }
+        public enum FillBlank {
+          /// Fill-in-the-blank practice will appear once available.
+          public static let empty = Loc.tr("MusicDiscovering", "lesson.practice.fill_blank.empty", fallback: "Fill-in-the-blank practice will appear once available.")
+          /// Practice • Fill the Blank
+          public static let header = Loc.tr("MusicDiscovering", "lesson.practice.fill_blank.header", fallback: "Practice • Fill the Blank")
+          /// Test recall with lyric-based prompts.
+          public static let subtitle = Loc.tr("MusicDiscovering", "lesson.practice.fill_blank.subtitle", fallback: "Test recall with lyric-based prompts.")
+        }
+      }
+      public enum Reflection {
+        /// View Lesson Results
+        public static let ctaViewResults = Loc.tr("MusicDiscovering", "lesson.reflection.cta_view_results", fallback: "View Lesson Results")
+        /// Reflect & Wrap-up
+        public static let header = Loc.tr("MusicDiscovering", "lesson.reflection.header", fallback: "Reflect & Wrap-up")
+        /// When you finish the quizzes, tap **Finish** to save your progress and view lesson results.
+        public static let instructions = Loc.tr("MusicDiscovering", "lesson.reflection.instructions", fallback: "When you finish the quizzes, tap **Finish** to save your progress and view lesson results.")
+        /// Progress: %1$d/%2$d questions answered
+        public static func progress(_ p1: Int, _ p2: Int) -> String {
+          return Loc.tr("MusicDiscovering", "lesson.reflection.progress", p1, p2, fallback: "Progress: %1$d/%2$d questions answered")
+        }
+        /// Capture what resonated and continue your streak.
+        public static let subtitle = Loc.tr("MusicDiscovering", "lesson.reflection.subtitle", fallback: "Capture what resonated and continue your streak.")
+      }
+    }
+    public enum Player {
+      public enum Lesson {
+        /// Error loading lesson, retry?
+        public static let failed = Loc.tr("MusicDiscovering", "player.lesson.failed", fallback: "Error loading lesson, retry?")
+        /// Generating lesson...
+        public static let generating = Loc.tr("MusicDiscovering", "player.lesson.generating", fallback: "Generating lesson...")
+        /// Lesson is loading...
+        public static let loading = Loc.tr("MusicDiscovering", "player.lesson.loading", fallback: "Lesson is loading...")
+        /// Continue to Lesson
+        public static let ready = Loc.tr("MusicDiscovering", "player.lesson.ready", fallback: "Continue to Lesson")
+        /// Unable to generate lesson
+        public static let unavailable = Loc.tr("MusicDiscovering", "player.lesson.unavailable", fallback: "Unable to generate lesson")
+      }
+      public enum Tips {
+        /// When you continue to the lesson, you can always jump back here to revisit the lyrics and listen again.
+        public static let carryMessage = Loc.tr("MusicDiscovering", "player.tips.carry_message", fallback: "When you continue to the lesson, you can always jump back here to revisit the lyrics and listen again.")
+        /// Carry the song into the lesson
+        public static let carryTitle = Loc.tr("MusicDiscovering", "player.tips.carry_title", fallback: "Carry the song into the lesson")
+        /// Tap any lyric line to open a menu with translation, dictionary, playback, and copy options.
+        public static let exploreMessage = Loc.tr("MusicDiscovering", "player.tips.explore_message", fallback: "Tap any lyric line to open a menu with translation, dictionary, playback, and copy options.")
+        /// Explore lyrics line by line
+        public static let exploreTitle = Loc.tr("MusicDiscovering", "player.tips.explore_title", fallback: "Explore lyrics line by line")
+        /// Get ready for your lesson
+        public static let header = Loc.tr("MusicDiscovering", "player.tips.header", fallback: "Get ready for your lesson")
+        /// Find a quiet moment, connect headphones if you have them, and keep a notebook nearby. It helps to hum along once before you dive into the exercises.
+        public static let intro = Loc.tr("MusicDiscovering", "player.tips.intro", fallback: "Find a quiet moment, connect headphones if you have them, and keep a notebook nearby. It helps to hum along once before you dive into the exercises.")
+        /// Follow the lesson sections in order—phrases, grammar, culture, then practice—to lock in what you have just heard.
+        public static let pathMessage = Loc.tr("MusicDiscovering", "player.tips.path_message", fallback: "Follow the lesson sections in order—phrases, grammar, culture, then practice—to lock in what you have just heard.")
+        /// Use the lesson as a path
+        public static let pathTitle = Loc.tr("MusicDiscovering", "player.tips.path_title", fallback: "Use the lesson as a path")
+        /// Music Lesson Tips
+        public static let title = Loc.tr("MusicDiscovering", "player.tips.title", fallback: "Music Lesson Tips")
+      }
+    }
+    public enum Quiz {
+      public enum Common {
+        /// Question %1$d of %2$d
+        public static func questionProgress(_ p1: Int, _ p2: Int) -> String {
+          return Loc.tr("MusicDiscovering", "quiz.common.question_progress", p1, p2, fallback: "Question %1$d of %2$d")
+        }
+      }
+      public enum Comprehension {
+        public enum Feedback {
+          /// Great choice!
+          public static let correct = Loc.tr("MusicDiscovering", "quiz.comprehension.feedback.correct", fallback: "Great choice!")
+          /// Not quite right.
+          public static let incorrect = Loc.tr("MusicDiscovering", "quiz.comprehension.feedback.incorrect", fallback: "Not quite right.")
+        }
+      }
+      public enum FillBlank {
+        /// Complete the lyric by choosing the missing word.
+        public static let prompt = Loc.tr("MusicDiscovering", "quiz.fill_blank.prompt", fallback: "Complete the lyric by choosing the missing word.")
+        public enum Feedback {
+          /// Nice work!
+          public static let correct = Loc.tr("MusicDiscovering", "quiz.fill_blank.feedback.correct", fallback: "Nice work!")
+          /// Keep exploring the lyrics and try the next one.
+          public static let incorrect = Loc.tr("MusicDiscovering", "quiz.fill_blank.feedback.incorrect", fallback: "Keep exploring the lyrics and try the next one.")
+        }
+      }
+      public enum Navigation {
+        /// Next
+        public static let next = Loc.tr("MusicDiscovering", "quiz.navigation.next", fallback: "Next")
+        /// Previous
+        public static let previous = Loc.tr("MusicDiscovering", "quiz.navigation.previous", fallback: "Previous")
+      }
+    }
+    public enum Results {
+      public enum Actions {
+        /// Add to Favorites
+        public static let addToFavorites = Loc.tr("MusicDiscovering", "results.actions.add_to_favorites", fallback: "Add to Favorites")
+        /// Back to Discover
+        public static let backToDiscover = Loc.tr("MusicDiscovering", "results.actions.back_to_discover", fallback: "Back to Discover")
+        /// Remove from Favorites
+        public static let removeFromFavorites = Loc.tr("MusicDiscovering", "results.actions.remove_from_favorites", fallback: "Remove from Favorites")
+        /// Share Results
+        public static let share = Loc.tr("MusicDiscovering", "results.actions.share", fallback: "Share Results")
+      }
+      public enum DiscoveredWords {
+        /// Discovered Words
+        public static let title = Loc.tr("MusicDiscovering", "results.discovered_words.title", fallback: "Discovered Words")
+      }
+      public enum Header {
+        /// You've completed the lesson
+        public static let subtitle = Loc.tr("MusicDiscovering", "results.header.subtitle", fallback: "You've completed the lesson")
+        /// Great Job!
+        public static let title = Loc.tr("MusicDiscovering", "results.header.title", fallback: "Great Job!")
+      }
+      public enum Navigation {
+        /// Lesson Complete
+        public static let title = Loc.tr("MusicDiscovering", "results.navigation.title", fallback: "Lesson Complete")
+      }
+      public enum Stats {
+        /// Accuracy
+        public static let accuracy = Loc.tr("MusicDiscovering", "results.stats.accuracy", fallback: "Accuracy")
+        /// New Words
+        public static let newWords = Loc.tr("MusicDiscovering", "results.stats.new_words", fallback: "New Words")
+        /// Questions
+        public static let questions = Loc.tr("MusicDiscovering", "results.stats.questions", fallback: "Questions")
+        /// Time
+        public static let time = Loc.tr("MusicDiscovering", "results.stats.time", fallback: "Time")
+      }
+    }
+    public enum Share {
+      public enum Accessibility {
+        /// Share preview card
+        public static let previewCard = Loc.tr("MusicDiscovering", "share.accessibility.preview_card", fallback: "Share preview card")
+      }
+      public enum Actions {
+        /// Share
+        public static let share = Loc.tr("MusicDiscovering", "share.actions.share", fallback: "Share")
+      }
+      public enum Alert {
+        /// Unable to create share image.
+        public static let generateFailed = Loc.tr("MusicDiscovering", "share.alert.generate_failed", fallback: "Unable to create share image.")
+      }
+      public enum Aspect {
+        /// Square
+        public static let square = Loc.tr("MusicDiscovering", "share.aspect.square", fallback: "Square")
+        /// Story
+        public static let story = Loc.tr("MusicDiscovering", "share.aspect.story", fallback: "Story")
+        /// Wide
+        public static let wide = Loc.tr("MusicDiscovering", "share.aspect.wide", fallback: "Wide")
+      }
+      public enum Card {
+        /// Answered %1$d/%2$d correctly
+        public static func answered(_ p1: Int, _ p2: Int) -> String {
+          return Loc.tr("MusicDiscovering", "share.card.answered", p1, p2, fallback: "Answered %1$d/%2$d correctly")
+        }
+        /// Artwork not available
+        public static let artworkMissing = Loc.tr("MusicDiscovering", "share.card.artwork_missing", fallback: "Artwork not available")
+        /// by %@
+        public static func byArtist(_ p1: Any) -> String {
+          return Loc.tr("MusicDiscovering", "share.card.by_artist", String(describing: p1), fallback: "by %@")
+        }
+        /// CEFR %@
+        public static func cefr(_ p1: Any) -> String {
+          return Loc.tr("MusicDiscovering", "share.card.cefr", String(describing: p1), fallback: "CEFR %@")
+        }
+        /// Lesson Complete
+        public static let header = Loc.tr("MusicDiscovering", "share.card.header", fallback: "Lesson Complete")
+        public enum Footer {
+          /// My Dictionary
+          public static let brand = Loc.tr("MusicDiscovering", "share.card.footer.brand", fallback: "My Dictionary")
+          /// Keep learning with
+          public static let tagline = Loc.tr("MusicDiscovering", "share.card.footer.tagline", fallback: "Keep learning with")
+        }
+      }
+      public enum Navigation {
+        /// Share Preview
+        public static let title = Loc.tr("MusicDiscovering", "share.navigation.title", fallback: "Share Preview")
+      }
+      public enum Picker {
+        /// Aspect Ratio
+        public static let aspectRatio = Loc.tr("MusicDiscovering", "share.picker.aspect_ratio", fallback: "Aspect Ratio")
+      }
+    }
+    public enum Sheet {
+      public enum Cta {
+        /// To lesson
+        public static let startLesson = Loc.tr("MusicDiscovering", "sheet.cta.start_lesson", fallback: "To lesson")
+      }
+      public enum Hook {
+        /// Cultural Note
+        public static let culturalNote = Loc.tr("MusicDiscovering", "sheet.hook.cultural_note", fallback: "Cultural Note")
+        /// Grammar
+        public static let grammar = Loc.tr("MusicDiscovering", "sheet.hook.grammar", fallback: "Grammar")
+      }
+      public enum LyricsUnavailable {
+        /// Unfortunately, we couldn't find lyrics for this song. A lesson cannot be created without lyrics.
+        public static let body = Loc.tr("MusicDiscovering", "sheet.lyrics_unavailable.body", fallback: "Unfortunately, we couldn't find lyrics for this song. A lesson cannot be created without lyrics.")
+        /// Lyrics Not Available
+        public static let title = Loc.tr("MusicDiscovering", "sheet.lyrics_unavailable.title", fallback: "Lyrics Not Available")
+      }
+      public enum Premium {
+        /// Music lessons with AI-powered insights are available with a Premium subscription.
+        public static let body = Loc.tr("MusicDiscovering", "sheet.premium.body", fallback: "Music lessons with AI-powered insights are available with a Premium subscription.")
+        /// Upgrade to Premium
+        public static let ctaUpgrade = Loc.tr("MusicDiscovering", "sheet.premium.cta_upgrade", fallback: "Upgrade to Premium")
+        /// Premium Required
+        public static let title = Loc.tr("MusicDiscovering", "sheet.premium.title", fallback: "Premium Required")
+      }
+    }
+    public enum Status {
+      public enum Recommendations {
+        /// Getting Apple Music data
+        public static let fetchingData = Loc.tr("MusicDiscovering", "status.recommendations.fetching_data", fallback: "Getting Apple Music data")
+        /// Generating recommendations
+        public static let generating = Loc.tr("MusicDiscovering", "status.recommendations.generating", fallback: "Generating recommendations")
+        /// Loading recommendations
+        public static let loading = Loc.tr("MusicDiscovering", "status.recommendations.loading", fallback: "Loading recommendations")
+      }
+    }
+    public enum View {
+      public enum Recommendations {
+        /// Try generating a lesson to seed new songs.
+        public static let emptySubtitle = Loc.tr("MusicDiscovering", "view.recommendations.empty_subtitle", fallback: "Try generating a lesson to seed new songs.")
+        /// No recommendations yet
+        public static let emptyTitle = Loc.tr("MusicDiscovering", "view.recommendations.empty_title", fallback: "No recommendations yet")
+      }
+      public enum Search {
+        /// Try a different song title or artist.
+        public static let emptySubtitle = Loc.tr("MusicDiscovering", "view.search.empty_subtitle", fallback: "Try a different song title or artist.")
+        /// No results found
+        public static let emptyTitle = Loc.tr("MusicDiscovering", "view.search.empty_title", fallback: "No results found")
+        /// Searching...
+        public static let loading = Loc.tr("MusicDiscovering", "view.search.loading", fallback: "Searching...")
+        /// Search Results
+        public static let resultsTitle = Loc.tr("MusicDiscovering", "view.search.results_title", fallback: "Search Results")
+      }
+      public enum Section {
+        /// Favorite Songs
+        public static let favoriteSongs = Loc.tr("MusicDiscovering", "view.section.favorite_songs", fallback: "Favorite Songs")
+        /// History
+        public static let history = Loc.tr("MusicDiscovering", "view.section.history", fallback: "History")
+        /// Not Finished
+        public static let notFinished = Loc.tr("MusicDiscovering", "view.section.not_finished", fallback: "Not Finished")
+        /// Recommended For You
+        public static let recommendedForYou = Loc.tr("MusicDiscovering", "view.section.recommended_for_you", fallback: "Recommended For You")
+      }
+    }
   }
   public enum Navigation {
     /// About

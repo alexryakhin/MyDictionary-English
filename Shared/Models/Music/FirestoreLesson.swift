@@ -116,10 +116,14 @@ struct LessonPhrase: Codable, Hashable {
     }
 }
 
-struct LyricExplanation: Codable, Hashable {
+struct LyricExplanation: Codable, Hashable, Comparable {
+    static func < (lhs: LyricExplanation, rhs: LyricExplanation) -> Bool {
+        lhs.lyricLine < rhs.lyricLine
+    }
+
     let lyricLine: String
     let explanation: String
-    let lineNumber: Int?
+    let lineNumber: Int
 }
 
 /// Grammar rule with CEFR tag

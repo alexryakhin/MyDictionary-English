@@ -1,0 +1,6 @@
+// MARK: - Discover Flow
+"title" = "発見";
+"contentType.fiterTitle" = "コンテンツの種類";
+"contentType.video" = "ビデオ";
+"contentType.music" = "ミュージック";
+"contentType.podcast" = "ポッドキャスト";

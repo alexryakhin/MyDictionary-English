@@ -1,0 +1,170 @@
+// MARK: - Music Discovering View
+"view.section.not_finished" = "미완료";
+"view.section.recommended_for_you" = "당신을 위한 추천";
+"view.section.favorite_songs" = "즐겨찾는 곡";
+"view.section.history" = "기록";
+
+// MARK: - Search
+"view.search.loading" = "검색 중...";
+"view.search.results_title" = "검색 결과";
+"view.search.empty_title" = "검색 결과가 없습니다";
+"view.search.empty_subtitle" = "다른 노래 제목이나 아티스트를 시도해 보세요.";
+
+// MARK: - Recommendations
+"view.recommendations.empty_title" = "추천이 아직 없습니다";
+"view.recommendations.empty_subtitle" = "새로운 곡을 찾기 위해 레슨을 생성해 보세요.";
+
+// MARK: - Recommendation Status
+"status.recommendations.loading" = "추천을 불러오는 중";
+"status.recommendations.generating" = "추천을 생성하는 중";
+"status.recommendations.fetching_data" = "Apple Music 데이터를 가져오는 중";
+
+// MARK: - Lesson Overview
+"lesson.overview.title" = "레슨 흐름";
+"lesson.overview.description" = "%2$@의 **%1$@**에 몰입해 보세요. 이 레슨은 가사의 의미에서 문화적 맥락까지 안내한 뒤, 능동 회상으로 학습을 마무리합니다.";
+"lesson.overview.phrases_tag" = "구문: %d";
+"lesson.overview.practice_tag" = "연습: %d";
+"lesson.collection.title" = "%@ — 핵심 구문";
+
+// MARK: - Lesson Sections
+"lesson.phrases.header" = "핵심 구문";
+"lesson.phrases.subtitle" = "노래 이야기를 구성하는 표현을 익혀 보세요.";
+"lesson.phrases.empty" = "아직 사용할 수 있는 구문이 없습니다.";
+
+"lesson.grammar.header" = "문법 포커스";
+"lesson.grammar.subtitle" = "듣는 동안 이러한 구조에 주목해 보세요.";
+"lesson.grammar.empty" = "이 레슨에는 문법 하이라이트가 없습니다.";
+
+"lesson.explanations.header" = "가사 인사이트";
+"lesson.explanations.subtitle" = "이해를 돕는 행별 맥락입니다.";
+"lesson.explanations.empty" = "가사 설명은 준비되는 대로 표시됩니다.";
+"lesson.explanations.line_number" = "%d번째 줄";
+
+"lesson.culture.header" = "문화 노트";
+"lesson.culture.subtitle" = "가사에 생동감을 불어넣는 배경입니다.";
+"lesson.culture.empty" = "제공되는 문화적 배경이 없습니다.";
+
+"lesson.practice.fill_blank.header" = "연습 • 빈칸 채우기";
+"lesson.practice.fill_blank.subtitle" = "가사를 기반으로 한 프롬프트로 기억력을 확인해 보세요.";
+"lesson.practice.fill_blank.empty" = "빈칸 채우기 연습은 준비되는 대로 표시됩니다.";
+
+"lesson.practice.comprehension.header" = "연습 • 이해도 퀴즈";
+"lesson.practice.comprehension.subtitle" = "의미를 강화할 수 있도록 가장 적절한 답을 선택하세요.";
+"lesson.practice.comprehension.empty" = "선택형 연습은 준비되는 대로 표시됩니다.";
+
+"lesson.reflection.header" = "돌아보고 마무리하기";
+"lesson.reflection.subtitle" = "가장 와닿았던 점을 기록하고 연속 학습을 이어 가세요.";
+"lesson.reflection.instructions" = "퀴즈가 끝나면 **완료**를 눌러 진행 상황을 저장하고 레슨 결과를 확인하세요.";
+"lesson.reflection.progress" = "진행 상황: %1$d/%2$d문 항 완료";
+"lesson.reflection.cta_view_results" = "레슨 결과 보기";
+
+// MARK: - History
+"history.time.days" = "%dd일 전";
+"history.time.hours" = "%dh시간 전";
+"history.time.minutes" = "%dm분 전";
+"history.time.just_now" = "방금 전";
+"history.play_count" = "%d회";
+
+// MARK: - Player
+"player.lesson.generating" = "레슨을 생성하는 중...";
+"player.lesson.loading" = "레슨을 불러오는 중...";
+"player.lesson.ready" = "레슨으로 이동";
+"player.lesson.failed" = "레슨을 불러오지 못했습니다. 다시 시도할까요?";
+"player.lesson.unavailable" = "레슨을 생성할 수 없습니다";
+"player.tips.title" = "음악 레슨 팁";
+"player.tips.header" = "레슨을 준비해 보세요";
+"player.tips.intro" = "조용한 순간을 만들고, 헤드폰이 있다면 연결하고, 노트는 가까이에 두세요. 연습 전 한 번 멜로디를 흥얼거리면 도움이 됩니다.";
+"player.tips.explore_title" = "가사를 한 줄씩 살펴보세요";
+"player.tips.explore_message" = "어떤 가사 줄이든 탭하면 번역, 사전, 재생, 복사 옵션이 열립니다.";
+"player.tips.carry_title" = "노래를 레슨으로 가져가세요";
+"player.tips.carry_message" = "레슨으로 이동해도 언제든 여기로 돌아와 가사를 다시 보고 들을 수 있습니다.";
+"player.tips.path_title" = "레슨을 학습 경로로 활용하세요";
+"player.tips.path_message" = "구문, 문법, 문화, 연습 순서로 레슨을 따라가며 방금 들은 내용을 확실히 익히세요.";
+
+// MARK: - Lesson Info Sheet
+"sheet.cta.start_lesson" = "레슨으로 이동";
+"sheet.premium.title" = "Premium 필수";
+"sheet.premium.body" = "AI 통찰이 포함된 음악 레슨은 Premium 구독 시 이용할 수 있습니다.";
+"sheet.premium.cta_upgrade" = "Premium으로 업그레이드";
+"sheet.lyrics_unavailable.title" = "가사를 찾을 수 없습니다";
+"sheet.lyrics_unavailable.body" = "안타깝게도 이 곡의 가사를 찾지 못했습니다. 가사가 없으면 레슨을 만들 수 없습니다.";
+"sheet.hook.grammar" = "문법";
+"sheet.hook.cultural_note" = "문화 노트";
+
+// MARK: - Results
+"results.navigation.title" = "레슨 완료";
+"results.header.title" = "수고하셨습니다!";
+"results.header.subtitle" = "레슨을 마쳤어요";
+"results.stats.accuracy" = "정확도";
+"results.stats.questions" = "문항 수";
+"results.stats.new_words" = "새로운 단어";
+"results.stats.time" = "시간";
+"results.discovered_words.title" = "발견한 단어";
+"results.actions.share" = "결과 공유";
+"results.actions.add_to_favorites" = "즐겨찾기에 추가";
+"results.actions.remove_from_favorites" = "즐겨찾기에서 제거";
+"results.actions.back_to_discover" = "탐색으로 돌아가기";
+
+// MARK: - Share Preview
+"share.navigation.title" = "공유 미리보기";
+"share.accessibility.preview_card" = "공유 미리보기 카드";
+"share.picker.aspect_ratio" = "화면 비율";
+"share.actions.share" = "공유";
+"share.alert.generate_failed" = "공유 이미지를 생성할 수 없습니다.";
+"share.aspect.square" = "정사각형";
+"share.aspect.story" = "스토리";
+"share.aspect.wide" = "와이드";
+"share.card.header" = "레슨 완료";
+"share.card.cefr" = "CEFR %@";
+"share.card.artwork_missing" = "아트워크 없음";
+"share.card.by_artist" = "%@ 곡";
+"share.card.answered" = "%1$d/%2$d 정답";
+"share.card.footer.tagline" = "My Dictionary와 함께 계속 배우세요";
+"share.card.footer.brand" = "My Dictionary";
+
+// MARK: - Interactive Lyrics
+"interactive_lyrics.menu.options" = "옵션";
+"interactive_lyrics.empty.title" = "가사를 사용할 수 없습니다";
+
+// MARK: - Quizzes
+"quiz.common.question_progress" = "%1$d/%2$d 문제";
+"quiz.navigation.previous" = "이전";
+"quiz.navigation.next" = "다음";
+"quiz.comprehension.feedback.correct" = "아주 잘했어요!";
+"quiz.comprehension.feedback.incorrect" = "아쉽지만 다시 시도해 보세요.";
+"quiz.fill_blank.prompt" = "비어 있는 단어를 선택해 가사를 완성해 보세요.";
+"quiz.fill_blank.feedback.correct" = "잘하셨습니다!";
+"quiz.fill_blank.feedback.incorrect" = "가사를 더 살펴보고 다음 문제에 도전하세요.";
+
+// MARK: - Authentication
+"auth.header.title" = "음악 서비스에 연결";
+"auth.header.subtitle" = "Apple Music에 연결하여 언어 학습에 맞는 개인 맞춤 곡 추천을 받아 보세요.";
+"auth.apple.connect" = "Apple Music에 연결";
+"auth.info.title" = "얻을 수 있는 것:";
+"auth.info.recommendations" = "맞춤형 곡 추천";
+"auth.info.library" = "음악 라이브러리에 대한 접근";
+"auth.info.lyrics" = "가사와 학습 콘텐츠";
+"auth.info.history" = "청취 기록 추적";
+"auth.actions.open_music_app" = "음악 앱 열기";
+"auth.error.subscription_required" = "Apple Music 구독이 필요합니다. 음악 앱이나 설정에서 구독할 수 있습니다.";
+"auth.error.not_registered" = "Apple Music을 사용할 수 없습니다. 이 앱은 MusicKit에 등록되어야 합니다.";
+
+// MARK: - Music Errors
+"error.user_profile_not_completed" = "사용자 프로필이 완료되지 않았습니다";
+"error.authentication_failed" = "인증에 실패했습니다: %@";
+"error.song_not_found" = "곡을 찾을 수 없습니다";
+"error.lyrics_not_found" = "이 곡의 가사를 찾을 수 없습니다";
+"error.lyrics_language_not_determined" = "가사의 언어를 판별하지 못했습니다";
+"error.lesson_not_found" = "레슨을 찾을 수 없습니다";
+"error.invalid_duration" = "곡 길이가 올바르지 않습니다";
+"error.playback_not_supported" = "이 곡은 재생을 지원하지 않습니다";
+"error.network_error" = "네트워크 오류: %@";
+"error.service_unavailable" = "음악 서비스가 현재 이용 불가입니다";
+"error.invalid_response" = "음악 서비스에서 잘못된 응답을 받았습니다";
+"error.token_refresh_failed" = "인증 토큰을 새로고침할 수 없습니다";
+"error.apple_music_not_registered" = "이 앱은 App Store Connect에서 MusicKit에 등록해야 합니다. 지원팀에 문의하세요.";
+"error.apple_music_subscription_required" = "이 기능을 사용하려면 Apple Music 구독이 필요합니다. 음악 앱 또는 설정에서 구독할 수 있습니다.";
+"error.invalid_cefr_level" = "유효하지 않은 CEFR 레벨입니다";
+"error.no_recommendations_available" = "사용 가능한 추천이 없습니다";
+"error.premium_required" = "이 기능을 사용하려면 Premium 접근 권한이 필요합니다";
+"error.hook_generation_failed" = "이 곡의 미리보기를 생성하지 못했습니다";

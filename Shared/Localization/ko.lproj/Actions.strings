@@ -61,3 +61,6 @@
 "load_more" = "더 보기";
 "loading_more" = "로딩 중...";
 "copy_email" = "이메일 복사";
+"play" = "재생";
+"pause" = "일시 정지";
+"playFromHere" = "여기서부터 재생";

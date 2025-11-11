@@ -18,11 +18,11 @@ struct MusicAuthenticationView: View {
                     .font(.system(size: 60))
                     .foregroundStyle(.accent)
 
-                Text("Connect to Music Services")
+                Text(Loc.MusicDiscovering.Auth.Header.title)
                     .font(.title2)
                     .fontWeight(.bold)
 
-                Text("Connect to Apple Music to discover personalized song recommendations for language learning.")
+                Text(Loc.MusicDiscovering.Auth.Header.subtitle)
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
@@ -34,7 +34,7 @@ struct MusicAuthenticationView: View {
             VStack(spacing: 16) {
                 // Apple Music
                 AuthenticationButton(
-                    title: "Connect with Apple Music",
+                    title: Loc.MusicDiscovering.Auth.Apple.connect,
                     icon: "apple.logo",
                     color: .red,
                     isLoading: viewModel.isAuthenticatingAppleMusic
@@ -48,15 +48,15 @@ struct MusicAuthenticationView: View {
 
             // Info
             VStack(alignment: .leading, spacing: 8) {
-                Label("What you'll get:", systemImage: "info.circle")
+                Label(Loc.MusicDiscovering.Auth.Info.title, systemImage: "info.circle")
                     .font(.subheadline)
                     .fontWeight(.semibold)
 
                 VStack(alignment: .leading, spacing: 4) {
-                    InfoRow("Personalized song recommendations")
-                    InfoRow("Access to your music library")
-                    InfoRow("Song lyrics and learning content")
-                    InfoRow("Listening history tracking")
+                    InfoRow(Loc.MusicDiscovering.Auth.Info.recommendations)
+                    InfoRow(Loc.MusicDiscovering.Auth.Info.library)
+                    InfoRow(Loc.MusicDiscovering.Auth.Info.lyrics)
+                    InfoRow(Loc.MusicDiscovering.Auth.Info.history)
                 }
             }
             .padding()
@@ -72,8 +72,8 @@ struct MusicAuthenticationView: View {
                         .foregroundStyle(.red)
                         .multilineTextAlignment(.center)
 
-                    if error.contains("subscription") {
-                        Button("Open Music App") {
+                    if error == Loc.MusicDiscovering.Auth.Error.subscriptionRequired {
+                        Button(Loc.MusicDiscovering.Auth.Actions.openMusicApp) {
                             if let url = URL(string: "music://") {
                                 UIApplication.shared.open(url)
                             }
@@ -168,14 +168,7 @@ final class MusicAuthenticationViewModel: ObservableObject {
         do {
             try await appleMusicService.authenticate()
         } catch let error as MusicError {
-            switch error {
-            case .appleMusicSubscriptionRequired:
-                errorMessage = "Apple Music subscription is required. You can subscribe in the Music app or Settings."
-            case .appleMusicNotRegistered:
-                errorMessage = "Apple Music is not available. This app needs to be registered for MusicKit."
-            default:
-                errorMessage = error.localizedDescription
-            }
+            errorMessage = error.localizedDescription
         } catch {
             errorMessage = error.localizedDescription
         }

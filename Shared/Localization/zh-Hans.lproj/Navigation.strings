@@ -1,4 +1,6 @@
 // MARK: - Tab Bar
+"tabbar.vocabulary" = "我的词典";
+"tabbar.discover" = "发现";
 "tabbar.quizzes" = "测验";
 "tabbar.progress" = "进度";
 "tabbar.settings" = "设置";

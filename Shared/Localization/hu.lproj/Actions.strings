@@ -61,3 +61,6 @@
 "load_more" = "Több betöltése";
 "loading_more" = "Betöltés...";
 "copy_email" = "E-mail másolása";
+"play" = "Lejátszás";
+"pause" = "Szünet";
+"playFromHere" = "Lejátszás innen";

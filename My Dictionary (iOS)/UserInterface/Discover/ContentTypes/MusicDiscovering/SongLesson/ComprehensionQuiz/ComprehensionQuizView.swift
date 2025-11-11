@@ -27,7 +27,7 @@ extension SongLesson {
                 )
                 .progressViewStyle(.linear)
 
-                Text("Question \(viewModel.currentQuestionIndex + 1) of \(viewModel.items.count)")
+                Text(Loc.MusicDiscovering.Quiz.Common.questionProgress(viewModel.currentQuestionIndex + 1, viewModel.items.count))
                     .font(.caption)
                     .foregroundColor(.secondary)
 
@@ -104,7 +104,7 @@ extension SongLesson {
                 HStack(spacing: 8) {
                     Image(systemName: isCorrect ? "checkmark.circle.fill" : "xmark.circle.fill")
                         .foregroundColor(isCorrect ? .green : .red)
-                    Text(isCorrect ? "Great choice!" : "Not quite right.")
+                    Text(isCorrect ? Loc.MusicDiscovering.Quiz.Comprehension.Feedback.correct : Loc.MusicDiscovering.Quiz.Comprehension.Feedback.incorrect)
                         .font(.caption)
                         .foregroundColor(.secondary)
                 }
@@ -124,7 +124,7 @@ extension SongLesson {
         private func questionNavigation() -> some View {
             HStack {
                 ActionButton(
-                    "Previous",
+                    Loc.MusicDiscovering.Quiz.Navigation.previous,
                     systemImage: "chevron.left"
                 ) {
                     viewModel.goToPreviousQuestion()
@@ -132,7 +132,7 @@ extension SongLesson {
                 .disabled(viewModel.currentQuestionIndex == 0)
 
                 ActionButton(
-                    "Next",
+                    Loc.MusicDiscovering.Quiz.Navigation.next,
                     systemImage: "chevron.right"
                 ) {
                     viewModel.goToNextQuestion()

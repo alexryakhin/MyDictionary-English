@@ -1,0 +1,6 @@
+// MARK: - Discover Flow
+"title" = "발견";
+"contentType.fiterTitle" = "콘텐츠 유형";
+"contentType.video" = "비디오";
+"contentType.music" = "음악";
+"contentType.podcast" = "팟캐스트";

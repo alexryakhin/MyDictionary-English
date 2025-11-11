@@ -1,2 +1,3 @@
 CFBundleDisplayName = "Sözlüğüm";
 CFBundleName = "Sözlüğüm";
+"NSAppleMusicUsageDescription" = "My Dictionary, dil öğrenimi için kişiselleştirilmiş şarkıları keşfetmek amacıyla Apple Music erişimine ihtiyaç duyar. Bu sayede uygulama hedef dilinizde şarkılar arayabilir ve öğrenme profilinize göre öneriler sunabilir.";

@@ -1,5 +1,7 @@
 // MARK: - Tab Bar
-"tabbar.quizzes" = "Kui";
+"tabbar.vocabulary" = "Kamus";
+"tabbar.discover" = "Teroka";
+"tabbar.quizzes" = "Kuiz";
 "tabbar.progress" = "Kemajuan";
 "tabbar.settings" = "Tetapan";
 

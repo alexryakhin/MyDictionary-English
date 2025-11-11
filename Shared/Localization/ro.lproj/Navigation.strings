@@ -1,4 +1,6 @@
 // MARK: - Tab Bar
+"tabbar.vocabulary" = "Dicționar";
+"tabbar.discover" = "Descoperă";
 "tabbar.quizzes" = "Teste";
 "tabbar.progress" = "Progres";
 "tabbar.settings" = "Setări";

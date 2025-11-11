@@ -1,4 +1,6 @@
 // MARK: - Tab Bar
+"tabbar.vocabulary" = "マイ辞書";
+"tabbar.discover" = "発見";
 "tabbar.quizzes" = "クイズ";
 "tabbar.progress" = "進捗";
 "tabbar.settings" = "設定";

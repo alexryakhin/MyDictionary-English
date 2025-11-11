@@ -1,0 +1,170 @@
+// MARK: - Music Discovering View
+"view.section.not_finished" = "Μη ολοκληρωμένα";
+"view.section.recommended_for_you" = "Προτείνεται για εσάς";
+"view.section.favorite_songs" = "Αγαπημένα τραγούδια";
+"view.section.history" = "Ιστορικό";
+
+// MARK: - Search
+"view.search.loading" = "Αναζήτηση...";
+"view.search.results_title" = "Αποτελέσματα αναζήτησης";
+"view.search.empty_title" = "Δεν βρέθηκαν αποτελέσματα";
+"view.search.empty_subtitle" = "Δοκιμάστε διαφορετικό τίτλο τραγουδιού ή καλλιτέχνη.";
+
+// MARK: - Recommendations
+"view.recommendations.empty_title" = "Δεν υπάρχουν ακόμα προτάσεις";
+"view.recommendations.empty_subtitle" = "Δημιουργήστε ένα μάθημα για να προτείνουμε νέα τραγούδια.";
+
+// MARK: - Recommendation Status
+"status.recommendations.loading" = "Φόρτωση προτάσεων";
+"status.recommendations.generating" = "Δημιουργία προτάσεων";
+"status.recommendations.fetching_data" = "Λήψη δεδομένων Apple Music";
+
+// MARK: - Lesson Overview
+"lesson.overview.title" = "Διαδρομή μαθήματος";
+"lesson.overview.description" = "Βυθιστείτε στο **%1$@** του %2$@. Το μάθημα σάς οδηγεί από το νόημα των στίχων στο πολιτισμικό πλαίσιο και στη συνέχεια δοκιμάζει τη μνήμη σας.";
+"lesson.overview.phrases_tag" = "Φράσεις: %d";
+"lesson.overview.practice_tag" = "Συνεδρίες εξάσκησης: %d";
+"lesson.collection.title" = "%@ — Κύριες φράσεις";
+
+// MARK: - Lesson Sections
+"lesson.phrases.header" = "Κύριες φράσεις";
+"lesson.phrases.subtitle" = "Μάθετε τις εκφράσεις που διαμορφώνουν την ιστορία του τραγουδιού.";
+"lesson.phrases.empty" = "Δεν υπάρχουν ακόμα διαθέσιμες φράσεις.";
+
+"lesson.grammar.header" = "Γραμματικό επίκεντρο";
+"lesson.grammar.subtitle" = "Παρατηρήστε αυτές τις δομές όσο ακούτε.";
+"lesson.grammar.empty" = "Δεν υπάρχουν γραμματικές επισημάνσεις για αυτό το μάθημα.";
+
+"lesson.explanations.header" = "Ανάλυση στίχων";
+"lesson.explanations.subtitle" = "Πλαίσιο στίχο προς στίχο για βαθύτερη κατανόηση.";
+"lesson.explanations.empty" = "Οι εξηγήσεις των στίχων θα εμφανιστούν όταν είναι διαθέσιμες.";
+"lesson.explanations.line_number" = "Στίχος %d";
+
+"lesson.culture.header" = "Πολιτισμικές σημειώσεις";
+"lesson.culture.subtitle" = "Πλαίσιο που ζωντανεύει τους στίχους.";
+"lesson.culture.empty" = "Δεν παρέχεται πολιτισμικό πλαίσιο.";
+
+"lesson.practice.fill_blank.header" = "Εξάσκηση • Συμπλήρωση κενών";
+"lesson.practice.fill_blank.subtitle" = "Δοκιμάστε τη μνήμη σας με προτροπές από τους στίχους.";
+"lesson.practice.fill_blank.empty" = "Οι ασκήσεις συμπλήρωσης θα εμφανιστούν όταν είναι διαθέσιμες.";
+
+"lesson.practice.comprehension.header" = "Εξάσκηση • Κουίζ κατανόησης";
+"lesson.practice.comprehension.subtitle" = "Επιλέξτε την καλύτερη απάντηση για να ενισχύσετε το νόημα.";
+"lesson.practice.comprehension.empty" = "Οι ασκήσεις πολλαπλής επιλογής θα εμφανιστούν όταν είναι διαθέσιμες.";
+
+"lesson.reflection.header" = "Σκέψη και ολοκλήρωση";
+"lesson.reflection.subtitle" = "Καταγράψτε ό,τι σας συγκίνησε και συνεχίστε το σερί σας.";
+"lesson.reflection.instructions" = "Όταν ολοκληρώσετε τα κουίζ, πατήστε **Τέλος** για να αποθηκεύσετε την πρόοδό σας και να δείτε τα αποτελέσματα.";
+"lesson.reflection.progress" = "Πρόοδος: %1$d/%2$d απαντημένες ερωτήσεις";
+"lesson.reflection.cta_view_results" = "Προβολή αποτελεσμάτων μαθήματος";
+
+// MARK: - History
+"history.time.days" = "πριν από %dd";
+"history.time.hours" = "πριν από %dh";
+"history.time.minutes" = "πριν από %dm";
+"history.time.just_now" = "Μόλις τώρα";
+"history.play_count" = "%d×";
+
+// MARK: - Player
+"player.lesson.generating" = "Δημιουργία μαθήματος...";
+"player.lesson.loading" = "Φόρτωση μαθήματος...";
+"player.lesson.ready" = "Συνέχεια στο μάθημα";
+"player.lesson.failed" = "Σφάλμα φόρτωσης μαθήματος. Να γίνει νέα προσπάθεια;";
+"player.lesson.unavailable" = "Δεν ήταν δυνατή η δημιουργία μαθήματος";
+"player.tips.title" = "Συμβουλές για το μάθημα μουσικής";
+"player.tips.header" = "Ετοιμαστείτε για το μάθημα";
+"player.tips.intro" = "Βρείτε μια ήσυχη στιγμή, συνδέστε ακουστικά αν έχετε και κρατήστε ένα σημειωματάριο κοντά. Βοηθά να τραγουδήσετε μία φορά πριν ξεκινήσετε τις ασκήσεις.";
+"player.tips.explore_title" = "Εξερευνήστε τους στίχους γραμμή-γραμμή";
+"player.tips.explore_message" = "Πατήστε οποιαδήποτε γραμμή για να ανοίξετε μενού με επιλογές μετάφρασης, λεξικού, αναπαραγωγής και αντιγραφής.";
+"player.tips.carry_title" = "Φέρτε το τραγούδι στο μάθημα";
+"player.tips.carry_message" = "Όταν συνεχίσετε στο μάθημα, μπορείτε πάντα να επιστρέψετε εδώ για να δείτε τους στίχους και να ακούσετε ξανά.";
+"player.tips.path_title" = "Χρησιμοποιήστε το μάθημα ως διαδρομή";
+"player.tips.path_message" = "Ακολουθήστε τις ενότητες με σειρά—φράσεις, γραμματική, πολιτισμός και μετά εξάσκηση—για να εδραιώσετε όσα ακούσατε μόλις τώρα.";
+
+// MARK: - Lesson Info Sheet
+"sheet.cta.start_lesson" = "Μετάβαση στο μάθημα";
+"sheet.premium.title" = "Απαιτείται Premium";
+"sheet.premium.body" = "Τα μαθήματα μουσικής με πληροφορίες από AI είναι διαθέσιμα με συνδρομή Premium.";
+"sheet.premium.cta_upgrade" = "Αναβάθμιση σε Premium";
+"sheet.lyrics_unavailable.title" = "Οι στίχοι δεν είναι διαθέσιμοι";
+"sheet.lyrics_unavailable.body" = "Δυστυχώς δεν βρήκαμε στίχους για αυτό το τραγούδι. Χωρίς στίχους δεν μπορεί να δημιουργηθεί μάθημα.";
+"sheet.hook.grammar" = "Γραμματική";
+"sheet.hook.cultural_note" = "Πολιτισμική σημείωση";
+
+// MARK: - Results
+"results.navigation.title" = "Μάθημα ολοκληρώθηκε";
+"results.header.title" = "Σπουδαία δουλειά!";
+"results.header.subtitle" = "Ολοκληρώσατε το μάθημα";
+"results.stats.accuracy" = "Ακρίβεια";
+"results.stats.questions" = "Ερωτήσεις";
+"results.stats.new_words" = "Νέες λέξεις";
+"results.stats.time" = "Χρόνος";
+"results.discovered_words.title" = "Λέξεις που ανακαλύψατε";
+"results.actions.share" = "Κοινοποίηση αποτελεσμάτων";
+"results.actions.add_to_favorites" = "Προσθήκη στα αγαπημένα";
+"results.actions.remove_from_favorites" = "Αφαίρεση από τα αγαπημένα";
+"results.actions.back_to_discover" = "Επιστροφή στην Εξερεύνηση";
+
+// MARK: - Share Preview
+"share.navigation.title" = "Προεπισκόπηση κοινοποίησης";
+"share.accessibility.preview_card" = "Κάρτα προεπισκόπησης κοινοποίησης";
+"share.picker.aspect_ratio" = "Αναλογία διαστάσεων";
+"share.actions.share" = "Κοινοποίηση";
+"share.alert.generate_failed" = "Δεν ήταν δυνατή η δημιουργία εικόνας κοινοποίησης.";
+"share.aspect.square" = "Τετράγωνο";
+"share.aspect.story" = "Story";
+"share.aspect.wide" = "Πλατιά";
+"share.card.header" = "Μάθημα ολοκληρώθηκε";
+"share.card.cefr" = "ΚΕΠΑ %@";
+"share.card.artwork_missing" = "Το εξώφυλλο δεν είναι διαθέσιμο";
+"share.card.by_artist" = "του/της %@";
+"share.card.answered" = "Απαντήθηκαν σωστά %1$d/%2$d";
+"share.card.footer.tagline" = "Συνεχίστε να μαθαίνετε με";
+"share.card.footer.brand" = "My Dictionary";
+
+// MARK: - Interactive Lyrics
+"interactive_lyrics.menu.options" = "Επιλογές";
+"interactive_lyrics.empty.title" = "Δεν υπάρχουν διαθέσιμοι στίχοι";
+
+// MARK: - Quizzes
+"quiz.common.question_progress" = "Ερώτηση %1$d από %2$d";
+"quiz.navigation.previous" = "Προηγούμενο";
+"quiz.navigation.next" = "Επόμενο";
+"quiz.comprehension.feedback.correct" = "Εξαιρετική επιλογή!";
+"quiz.comprehension.feedback.incorrect" = "Δεν είναι ακριβώς σωστό.";
+"quiz.fill_blank.prompt" = "Συμπληρώστε τους στίχους επιλέγοντας τη λέξη που λείπει.";
+"quiz.fill_blank.feedback.correct" = "Πολύ καλά!";
+"quiz.fill_blank.feedback.incorrect" = "Συνεχίστε να εξερευνάτε τους στίχους και δοκιμάστε την επόμενη.";
+
+// MARK: - Authentication
+"auth.header.title" = "Συνδεθείτε με υπηρεσίες μουσικής";
+"auth.header.subtitle" = "Συνδεθείτε με το Apple Music για να ανακαλύψετε προτάσεις τραγουδιών για εκμάθηση γλωσσών.";
+"auth.apple.connect" = "Σύνδεση με το Apple Music";
+"auth.info.title" = "Τι θα λάβετε:";
+"auth.info.recommendations" = "Προσωποποιημένες προτάσεις τραγουδιών";
+"auth.info.library" = "Πρόσβαση στη μουσική βιβλιοθήκη σας";
+"auth.info.lyrics" = "Στίχοι τραγουδιών και εκπαιδευτικό περιεχόμενο";
+"auth.info.history" = "Παρακολούθηση ιστορικού ακρόασης";
+"auth.actions.open_music_app" = "Άνοιγμα εφαρμογής Μουσική";
+"auth.error.subscription_required" = "Απαιτείται συνδρομή Apple Music. Μπορείτε να εγγραφείτε στην εφαρμογή Μουσική ή στις Ρυθμίσεις.";
+"auth.error.not_registered" = "Το Apple Music δεν είναι διαθέσιμο. Η εφαρμογή πρέπει να καταχωρηθεί στο MusicKit.";
+
+// MARK: - Music Errors
+"error.user_profile_not_completed" = "Το προφίλ χρήστη δεν έχει ολοκληρωθεί";
+"error.authentication_failed" = "Αποτυχία ταυτοποίησης: %@";
+"error.song_not_found" = "Δεν βρέθηκε το τραγούδι";
+"error.lyrics_not_found" = "Δεν υπάρχουν στίχοι για αυτό το τραγούδι";
+"error.lyrics_language_not_determined" = "Δεν αναγνωρίστηκε η γλώσσα των στίχων";
+"error.lesson_not_found" = "Δεν βρέθηκε το μάθημα";
+"error.invalid_duration" = "Μη έγκυρη διάρκεια τραγουδιού";
+"error.playback_not_supported" = "Η αναπαραγωγή δεν υποστηρίζεται για αυτό το τραγούδι";
+"error.network_error" = "Σφάλμα δικτύου: %@";
+"error.service_unavailable" = "Η υπηρεσία μουσικής δεν είναι διαθέσιμη αυτή τη στιγμή";
+"error.invalid_response" = "Μη έγκυρη απόκριση από την υπηρεσία μουσικής";
+"error.token_refresh_failed" = "Αποτυχία ανανέωσης διακριτικού ταυτοποίησης";
+"error.apple_music_not_registered" = "Η εφαρμογή πρέπει να καταχωρηθεί στο MusicKit στο App Store Connect. Επικοινωνήστε με την υποστήριξη.";
+"error.apple_music_subscription_required" = "Απαιτείται συνδρομή Apple Music για αυτήν τη δυνατότητα. Μπορείτε να εγγραφείτε στην εφαρμογή Μουσική ή στις Ρυθμίσεις.";
+"error.invalid_cefr_level" = "Μη έγκυρο επίπεδο ΚΕΠΑ";
+"error.no_recommendations_available" = "Δεν υπάρχουν διαθέσιμες προτάσεις";
+"error.premium_required" = "Απαιτείται πρόσβαση Premium για αυτήν τη δυνατότητα";
+"error.hook_generation_failed" = "Αποτυχία δημιουργίας προεπισκόπησης για αυτό το τραγούδι";

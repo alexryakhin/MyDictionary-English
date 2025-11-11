@@ -61,7 +61,7 @@ struct HistoryEntryRow: View {
                                 .foregroundColor(.green)
                         }
                         
-                        Text("\(historyEntry.playCount)x")
+                        Text(Loc.MusicDiscovering.History.playCount(historyEntry.playCount))
                             .font(.caption2)
                             .foregroundColor(.secondary)
                     }
@@ -81,13 +81,13 @@ struct HistoryEntryRow: View {
         let days = Int(timeInterval / 86400)
         
         if days > 0 {
-            return "\(days)d ago"
+            return Loc.MusicDiscovering.History.Time.days(days)
         } else if hours > 0 {
-            return "\(hours)h ago"
+            return Loc.MusicDiscovering.History.Time.hours(hours)
         } else if minutes > 0 {
-            return "\(minutes)m ago"
+            return Loc.MusicDiscovering.History.Time.minutes(minutes)
         } else {
-            return "Just now"
+            return Loc.MusicDiscovering.History.Time.justNow
         }
     }
 }
@@ -112,4 +112,3 @@ struct HistoryEntryRow: View {
     )
     .padding()
 }
-

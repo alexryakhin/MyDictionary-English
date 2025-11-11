@@ -1,4 +1,6 @@
 // MARK: - Tab Bar
+"tabbar.vocabulary" = "내 사전";
+"tabbar.discover" = "발견";
 "tabbar.quizzes" = "퀴즈";
 "tabbar.progress" = "진행 상황";
 "tabbar.settings" = "설정";

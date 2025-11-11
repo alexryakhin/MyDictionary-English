@@ -1,0 +1,6 @@
+// MARK: - Discover Flow
+"title" = "Teroka";
+"contentType.fiterTitle" = "Jenis kandungan";
+"contentType.video" = "Video";
+"contentType.music" = "Muzik";
+"contentType.podcast" = "Podcast";

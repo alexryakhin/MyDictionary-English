@@ -1,0 +1,170 @@
+// MARK: - Music Discovering View
+"view.section.not_finished" = "Belum selesai";
+"view.section.recommended_for_you" = "Disyorkan untuk anda";
+"view.section.favorite_songs" = "Lagu kegemaran";
+"view.section.history" = "Sejarah";
+
+// MARK: - Search
+"view.search.loading" = "Sedang mencari...";
+"view.search.results_title" = "Hasil carian";
+"view.search.empty_title" = "Tiada hasil ditemui";
+"view.search.empty_subtitle" = "Cuba tajuk lagu atau artis yang berbeza.";
+
+// MARK: - Recommendations
+"view.recommendations.empty_title" = "Belum ada cadangan";
+"view.recommendations.empty_subtitle" = "Cuba jana pelajaran untuk menemui lagu baharu.";
+
+// MARK: - Recommendation Status
+"status.recommendations.loading" = "Memuatkan cadangan";
+"status.recommendations.generating" = "Menjana cadangan";
+"status.recommendations.fetching_data" = "Mendapatkan data Apple Music";
+
+// MARK: - Lesson Overview
+"lesson.overview.title" = "Aliran pelajaran";
+"lesson.overview.description" = "Hayati **%1$@** oleh %2$@. Pelajaran ini membawa anda daripada makna lirik kepada konteks budaya, kemudian mencabar ingatan aktif anda.";
+"lesson.overview.phrases_tag" = "Frasa: %d";
+"lesson.overview.practice_tag" = "Latihan: %d";
+"lesson.collection.title" = "%@ — Frasa penting";
+
+// MARK: - Lesson Sections
+"lesson.phrases.header" = "Frasa penting";
+"lesson.phrases.subtitle" = "Pelajari ungkapan yang membentuk cerita lagu.";
+"lesson.phrases.empty" = "Tiada frasa tersedia buat masa ini.";
+
+"lesson.grammar.header" = "Tumpuan tatabahasa";
+"lesson.grammar.subtitle" = "Perhatikan struktur ini semasa anda mendengar.";
+"lesson.grammar.empty" = "Tiada sorotan tatabahasa untuk pelajaran ini.";
+
+"lesson.explanations.header" = "Wawasan lirik";
+"lesson.explanations.subtitle" = "Konteks baris demi baris untuk memperdalam pemahaman.";
+"lesson.explanations.empty" = "Penjelasan lirik akan muncul apabila tersedia.";
+"lesson.explanations.line_number" = "Baris %d";
+
+"lesson.culture.header" = "Nota budaya";
+"lesson.culture.subtitle" = "Konteks yang menghidupkan lirik.";
+"lesson.culture.empty" = "Tiada konteks budaya disediakan.";
+
+"lesson.practice.fill_blank.header" = "Latihan • Isi tempat kosong";
+"lesson.practice.fill_blank.subtitle" = "Uji ingatan anda dengan petunjuk berasaskan lirik.";
+"lesson.practice.fill_blank.empty" = "Latihan isian tempat kosong akan muncul apabila tersedia.";
+
+"lesson.practice.comprehension.header" = "Latihan • Kuiz kefahaman";
+"lesson.practice.comprehension.subtitle" = "Pilih jawapan terbaik untuk mengukuhkan makna.";
+"lesson.practice.comprehension.empty" = "Latihan pilihan pelbagai akan muncul apabila tersedia.";
+
+"lesson.reflection.header" = "Refleksi & penutup";
+"lesson.reflection.subtitle" = "Catat apa yang memberi kesan dan kekalkan rentak pembelajaran anda.";
+"lesson.reflection.instructions" = "Selepas selesai kuiz, ketik **Tamat** untuk menyimpan kemajuan dan melihat keputusan pelajaran.";
+"lesson.reflection.progress" = "Kemajuan: %1$d/%2$d soalan dijawab";
+"lesson.reflection.cta_view_results" = "Lihat keputusan pelajaran";
+
+// MARK: - History
+"history.time.days" = "%dd hari lalu";
+"history.time.hours" = "%dh jam lalu";
+"history.time.minutes" = "%dm min lalu";
+"history.time.just_now" = "Baru sebentar tadi";
+"history.play_count" = "%d×";
+
+// MARK: - Player
+"player.lesson.generating" = "Menjana pelajaran...";
+"player.lesson.loading" = "Pelajaran sedang dimuatkan...";
+"player.lesson.ready" = "Teruskan ke pelajaran";
+"player.lesson.failed" = "Ralat memuatkan pelajaran. Cuba lagi?";
+"player.lesson.unavailable" = "Tidak dapat menjana pelajaran";
+"player.tips.title" = "Tip pelajaran muzik";
+"player.tips.header" = "Bersedia untuk pelajaran anda";
+"player.tips.intro" = "Cari masa yang tenang, sambungkan fon kepala jika ada, dan sediakan buku nota. Menyanyi perlahan sekali sebelum memulakan latihan boleh membantu.";
+"player.tips.explore_title" = "Terokai lirik baris demi baris";
+"player.tips.explore_message" = "Ketik mana-mana baris lirik untuk membuka menu terjemahan, kamus, main balik dan salin.";
+"player.tips.carry_title" = "Bawa lagu ke dalam pelajaran";
+"player.tips.carry_message" = "Sebaik anda sambung ke pelajaran, anda boleh kembali ke sini untuk meneliti lirik dan mendengar semula.";
+"player.tips.path_title" = "Gunakan pelajaran sebagai laluan";
+"player.tips.path_message" = "Ikuti bahagian pelajaran mengikut turutan—frasa, tatabahasa, budaya, kemudian latihan—untuk mengukuhkan apa yang baru didengar.";
+
+// MARK: - Lesson Info Sheet
+"sheet.cta.start_lesson" = "Pergi ke pelajaran";
+"sheet.premium.title" = "Perlu Premium";
+"sheet.premium.body" = "Pelajaran muzik dengan pandangan berkuasa AI tersedia dengan langganan Premium.";
+"sheet.premium.cta_upgrade" = "Naik taraf ke Premium";
+"sheet.lyrics_unavailable.title" = "Lirik tidak tersedia";
+"sheet.lyrics_unavailable.body" = "Kami tidak menemui lirik untuk lagu ini. Pelajaran tidak dapat dijana tanpa lirik.";
+"sheet.hook.grammar" = "Tatabahasa";
+"sheet.hook.cultural_note" = "Nota budaya";
+
+// MARK: - Results
+"results.navigation.title" = "Pelajaran selesai";
+"results.header.title" = "Syabas!";
+"results.header.subtitle" = "Anda telah menamatkan pelajaran";
+"results.stats.accuracy" = "Ketepatan";
+"results.stats.questions" = "Soalan";
+"results.stats.new_words" = "Perkataan baharu";
+"results.stats.time" = "Masa";
+"results.discovered_words.title" = "Perkataan ditemui";
+"results.actions.share" = "Kongsi keputusan";
+"results.actions.add_to_favorites" = "Tambah ke kegemaran";
+"results.actions.remove_from_favorites" = "Buang dari kegemaran";
+"results.actions.back_to_discover" = "Kembali ke Discover";
+
+// MARK: - Share Preview
+"share.navigation.title" = "Pratonton kongsi";
+"share.accessibility.preview_card" = "Kad pratonton kongsi";
+"share.picker.aspect_ratio" = "Nisbah aspek";
+"share.actions.share" = "Kongsi";
+"share.alert.generate_failed" = "Tidak dapat menjana imej kongsi.";
+"share.aspect.square" = "Segi empat sama";
+"share.aspect.story" = "Story";
+"share.aspect.wide" = "Melebar";
+"share.card.header" = "Pelajaran selesai";
+"share.card.cefr" = "CEFR %@";
+"share.card.artwork_missing" = "Karya seni tidak tersedia";
+"share.card.by_artist" = "oleh %@";
+"share.card.answered" = "%1$d/%2$d jawapan betul";
+"share.card.footer.tagline" = "Terus belajar dengan";
+"share.card.footer.brand" = "My Dictionary";
+
+// MARK: - Interactive Lyrics
+"interactive_lyrics.menu.options" = "Pilihan";
+"interactive_lyrics.empty.title" = "Tiada lirik tersedia";
+
+// MARK: - Quizzes
+"quiz.common.question_progress" = "Soalan %1$d daripada %2$d";
+"quiz.navigation.previous" = "Sebelumnya";
+"quiz.navigation.next" = "Seterusnya";
+"quiz.comprehension.feedback.correct" = "Pilihan yang hebat!";
+"quiz.comprehension.feedback.incorrect" = "Belum tepat.";
+"quiz.fill_blank.prompt" = "Lengkapkan lirik dengan memilih perkataan yang hilang.";
+"quiz.fill_blank.feedback.correct" = "Kerja yang bagus!";
+"quiz.fill_blank.feedback.incorrect" = "Terus terokai lirik dan cuba soalan seterusnya.";
+
+// MARK: - Authentication
+"auth.header.title" = "Sambungkan ke perkhidmatan muzik";
+"auth.header.subtitle" = "Sambungkan Apple Music untuk menemui cadangan lagu peribadi bagi pembelajaran bahasa.";
+"auth.apple.connect" = "Sambung dengan Apple Music";
+"auth.info.title" = "Apa yang anda akan dapat:";
+"auth.info.recommendations" = "Cadangan lagu peribadi";
+"auth.info.library" = "Akses ke perpustakaan muzik anda";
+"auth.info.lyrics" = "Lirik lagu dan kandungan pembelajaran";
+"auth.info.history" = "Penjejakan sejarah pendengaran";
+"auth.actions.open_music_app" = "Buka aplikasi Muzik";
+"auth.error.subscription_required" = "Langganan Apple Music diperlukan. Anda boleh melanggan dalam aplikasi Muzik atau Tetapan.";
+"auth.error.not_registered" = "Apple Music tidak tersedia. Aplikasi ini perlu didaftarkan untuk MusicKit.";
+
+// MARK: - Music Errors
+"error.user_profile_not_completed" = "Profil pengguna belum lengkap";
+"error.authentication_failed" = "Pengesahan gagal: %@";
+"error.song_not_found" = "Lagu tidak ditemui";
+"error.lyrics_not_found" = "Lirik tidak tersedia untuk lagu ini";
+"error.lyrics_language_not_determined" = "Bahasa lirik tidak dapat dikenal pasti";
+"error.lesson_not_found" = "Pelajaran tidak ditemui";
+"error.invalid_duration" = "Durasi lagu tidak sah";
+"error.playback_not_supported" = "Main balik tidak disokong untuk lagu ini";
+"error.network_error" = "Ralat rangkaian: %@";
+"error.service_unavailable" = "Perkhidmatan muzik tidak tersedia buat masa ini";
+"error.invalid_response" = "Respons daripada perkhidmatan muzik tidak sah";
+"error.token_refresh_failed" = "Token pengesahan tidak dapat diperbaharui";
+"error.apple_music_not_registered" = "Aplikasi ini perlu didaftarkan untuk MusicKit di App Store Connect. Sila hubungi sokongan.";
+"error.apple_music_subscription_required" = "Langganan Apple Music diperlukan untuk menggunakan ciri ini. Anda boleh melanggan melalui aplikasi Muzik atau Tetapan.";
+"error.invalid_cefr_level" = "Tahap CEFR tidak sah";
+"error.no_recommendations_available" = "Tiada cadangan tersedia";
+"error.premium_required" = "Akses Premium diperlukan untuk ciri ini";
+"error.hook_generation_failed" = "Tidak dapat menjana pratonton untuk lagu ini";

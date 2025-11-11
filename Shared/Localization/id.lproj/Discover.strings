@@ -1,0 +1,6 @@
+// MARK: - Discover Flow
+"title" = "Temukan";
+"contentType.fiterTitle" = "Jenis konten";
+"contentType.video" = "Video";
+"contentType.music" = "Musik";
+"contentType.podcast" = "Podcast";

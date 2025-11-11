@@ -1,0 +1,170 @@
+// MARK: - Music Discovering View
+"view.section.not_finished" = "Не завершено";
+"view.section.recommended_for_you" = "Рекомендовано для вас";
+"view.section.favorite_songs" = "Улюблені пісні";
+"view.section.history" = "Історія";
+
+// MARK: - Search
+"view.search.loading" = "Пошук...";
+"view.search.results_title" = "Результати пошуку";
+"view.search.empty_title" = "Нічого не знайдено";
+"view.search.empty_subtitle" = "Спробуйте іншу назву пісні або виконавця.";
+
+// MARK: - Recommendations
+"view.recommendations.empty_title" = "Поки немає рекомендацій";
+"view.recommendations.empty_subtitle" = "Створіть урок, щоб відкрити нові пісні.";
+
+// MARK: - Recommendation Status
+"status.recommendations.loading" = "Завантаження рекомендацій";
+"status.recommendations.generating" = "Створення рекомендацій";
+"status.recommendations.fetching_data" = "Отримання даних Apple Music";
+
+// MARK: - Lesson Overview
+"lesson.overview.title" = "Маршрут уроку";
+"lesson.overview.description" = "Пориньте в **%1$@** від %2$@. Цей урок проведе вас від значення тексту до культурного контексту, а потім перевірить через активне відтворення.";
+"lesson.overview.phrases_tag" = "Фрази: %d";
+"lesson.overview.practice_tag" = "Практики: %d";
+"lesson.collection.title" = "%@ — Ключові фрази";
+
+// MARK: - Lesson Sections
+"lesson.phrases.header" = "Ключові фрази";
+"lesson.phrases.subtitle" = "Вивчайте вислови, що формують історію пісні.";
+"lesson.phrases.empty" = "Фрази ще не доступні.";
+
+"lesson.grammar.header" = "Граматичний акцент";
+"lesson.grammar.subtitle" = "Звертайте увагу на ці структури під час прослуховування.";
+"lesson.grammar.empty" = "У цьому уроці немає граматичних нотаток.";
+
+"lesson.explanations.header" = "Розбір тексту";
+"lesson.explanations.subtitle" = "Контекст рядок за рядком для глибшого розуміння.";
+"lesson.explanations.empty" = "Пояснення тексту з’являться, щойно будуть доступні.";
+"lesson.explanations.line_number" = "Рядок %d";
+
+"lesson.culture.header" = "Культурні нотатки";
+"lesson.culture.subtitle" = "Контекст, що оживляє текст пісні.";
+"lesson.culture.empty" = "Культурний контекст відсутній.";
+
+"lesson.practice.fill_blank.header" = "Практика • Заповніть пропуски";
+"lesson.practice.fill_blank.subtitle" = "Перевірте пам'ять за допомогою підказок із тексту.";
+"lesson.practice.fill_blank.empty" = "Вправи на заповнення з’являться, коли будуть доступні.";
+
+"lesson.practice.comprehension.header" = "Практика • Тест на розуміння";
+"lesson.practice.comprehension.subtitle" = "Виберіть найкращу відповідь, щоб закріпити значення.";
+"lesson.practice.comprehension.empty" = "Вправи з вибором відповіді з’являться, коли будуть доступні.";
+
+"lesson.reflection.header" = "Підсумок і завершення";
+"lesson.reflection.subtitle" = "Занотовуйте, що відгукнулося, і підтримуйте серію.";
+"lesson.reflection.instructions" = "Після завершення вікторин натисніть **Завершити**, щоб зберегти прогрес і переглянути результати.";
+"lesson.reflection.progress" = "Прогрес: %1$d/%2$d відповідей";
+"lesson.reflection.cta_view_results" = "Переглянути результати уроку";
+
+// MARK: - History
+"history.time.days" = "%dd дн. тому";
+"history.time.hours" = "%dh год тому";
+"history.time.minutes" = "%dm хв тому";
+"history.time.just_now" = "Щойно";
+"history.play_count" = "%d×";
+
+// MARK: - Player
+"player.lesson.generating" = "Створення уроку...";
+"player.lesson.loading" = "Урок завантажується...";
+"player.lesson.ready" = "Перейти до уроку";
+"player.lesson.failed" = "Помилка завантаження уроку. Повторити спробу?";
+"player.lesson.unavailable" = "Не вдалося створити урок";
+"player.tips.title" = "Поради для уроку";
+"player.tips.header" = "Підготуйтеся до уроку";
+"player.tips.intro" = "Знайдіть тихий момент, підключіть навушники, якщо маєте, і тримайте блокнот під рукою. Перед вправами варто один раз наспівати мелодію.";
+"player.tips.explore_title" = "Вивчайте текст рядок за рядком";
+"player.tips.explore_message" = "Торкніться будь-якого рядка, щоб відкрити меню з перекладом, словником, відтворенням та копіюванням.";
+"player.tips.carry_title" = "Перенесіть пісню в урок";
+"player.tips.carry_message" = "Продовжуючи урок, ви завжди можете повернутися сюди, щоб перечитати текст і знову послухати.";
+"player.tips.path_title" = "Використовуйте урок як маршрут";
+"player.tips.path_message" = "Дотримуйтеся розділів уроку у порядку — фрази, граматика, культура, а потім вправи — щоб закріпити почуте.";
+
+// MARK: - Lesson Info Sheet
+"sheet.cta.start_lesson" = "До уроку";
+"sheet.premium.title" = "Потрібен Premium";
+"sheet.premium.body" = "Музичні уроки з підказками від ШІ доступні за Premium-підпискою.";
+"sheet.premium.cta_upgrade" = "Перейти на Premium";
+"sheet.lyrics_unavailable.title" = "Текст недоступний";
+"sheet.lyrics_unavailable.body" = "На жаль, нам не вдалося знайти текст цієї пісні. Без тексту урок не можна створити.";
+"sheet.hook.grammar" = "Граматика";
+"sheet.hook.cultural_note" = "Культурна нотатка";
+
+// MARK: - Results
+"results.navigation.title" = "Урок завершено";
+"results.header.title" = "Чудова робота!";
+"results.header.subtitle" = "Ви завершили урок";
+"results.stats.accuracy" = "Точність";
+"results.stats.questions" = "Питання";
+"results.stats.new_words" = "Нові слова";
+"results.stats.time" = "Час";
+"results.discovered_words.title" = "Відкриті слова";
+"results.actions.share" = "Поділитися результатами";
+"results.actions.add_to_favorites" = "Додати в обране";
+"results.actions.remove_from_favorites" = "Видалити з обраного";
+"results.actions.back_to_discover" = "Назад до «Відкривати»";
+
+// MARK: - Share Preview
+"share.navigation.title" = "Попередній перегляд";
+"share.accessibility.preview_card" = "Картка попереднього перегляду";
+"share.picker.aspect_ratio" = "Співвідношення сторін";
+"share.actions.share" = "Поділитися";
+"share.alert.generate_failed" = "Не вдалося створити зображення для публікації.";
+"share.aspect.square" = "Квадрат";
+"share.aspect.story" = "Історія";
+"share.aspect.wide" = "Широкий";
+"share.card.header" = "Урок завершено";
+"share.card.cefr" = "CEFR %@";
+"share.card.artwork_missing" = "Зображення відсутнє";
+"share.card.by_artist" = "від %@";
+"share.card.answered" = "Правильних відповідей: %1$d/%2$d";
+"share.card.footer.tagline" = "Продовжуйте навчання з";
+"share.card.footer.brand" = "My Dictionary";
+
+// MARK: - Interactive Lyrics
+"interactive_lyrics.menu.options" = "Параметри";
+"interactive_lyrics.empty.title" = "Текст недоступний";
+
+// MARK: - Quizzes
+"quiz.common.question_progress" = "Питання %1$d із %2$d";
+"quiz.navigation.previous" = "Назад";
+"quiz.navigation.next" = "Далі";
+"quiz.comprehension.feedback.correct" = "Чудовий вибір!";
+"quiz.comprehension.feedback.incorrect" = "Не зовсім так.";
+"quiz.fill_blank.prompt" = "Завершіть текст, вибравши відсутнє слово.";
+"quiz.fill_blank.feedback.correct" = "Відмінно!";
+"quiz.fill_blank.feedback.incorrect" = "Продовжуйте досліджувати текст і спробуйте наступне.";
+
+// MARK: - Authentication
+"auth.header.title" = "Підключіться до музичних сервісів";
+"auth.header.subtitle" = "Підключіться до Apple Music, щоб отримати персональні рекомендації для вивчення мов.";
+"auth.apple.connect" = "Підключити Apple Music";
+"auth.info.title" = "Ви отримаєте:";
+"auth.info.recommendations" = "Персональні рекомендації пісень";
+"auth.info.library" = "Доступ до музичної бібліотеки";
+"auth.info.lyrics" = "Тексти та навчальний контент";
+"auth.info.history" = "Відстеження історії прослуховування";
+"auth.actions.open_music_app" = "Відкрити додаток «Музика»";
+"auth.error.subscription_required" = "Потрібна підписка Apple Music. Ви можете оформити її в «Музиці» або в налаштуваннях.";
+"auth.error.not_registered" = "Apple Music недоступний. Потрібно зареєструвати додаток для MusicKit.";
+
+// MARK: - Music Errors
+"error.user_profile_not_completed" = "Профіль користувача не завершено";
+"error.authentication_failed" = "Помилка автентифікації: %@";
+"error.song_not_found" = "Пісня не знайдена";
+"error.lyrics_not_found" = "Текст цієї пісні недоступний";
+"error.lyrics_language_not_determined" = "Не вдалося визначити мову тексту";
+"error.lesson_not_found" = "Урок не знайдено";
+"error.invalid_duration" = "Недійсна тривалість пісні";
+"error.playback_not_supported" = "Відтворення цієї пісні не підтримується";
+"error.network_error" = "Помилка мережі: %@";
+"error.service_unavailable" = "Музичний сервіс тимчасово недоступний";
+"error.invalid_response" = "Недійсна відповідь музичного сервісу";
+"error.token_refresh_failed" = "Не вдалося оновити токен автентифікації";
+"error.apple_music_not_registered" = "Потрібно зареєструвати додаток у MusicKit через App Store Connect. Зверніться в підтримку.";
+"error.apple_music_subscription_required" = "Для цієї функції потрібна підписка Apple Music. Її можна оформити в «Музиці» або в налаштуваннях.";
+"error.invalid_cefr_level" = "Недійсний рівень CEFR";
+"error.no_recommendations_available" = "Рекомендації відсутні";
+"error.premium_required" = "Потрібен доступ Premium для цієї функції";
+"error.hook_generation_failed" = "Не вдалося створити попередній перегляд пісні";

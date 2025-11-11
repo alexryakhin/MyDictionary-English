@@ -1,4 +1,6 @@
 // MARK: - Tab Bar
+"tabbar.vocabulary" = "Sözlüğüm";
+"tabbar.discover" = "Keşfet";
 "tabbar.quizzes" = "Testler";
 "tabbar.progress" = "İlerleme";
 "tabbar.settings" = "Ayarlar";

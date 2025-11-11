@@ -1,0 +1,170 @@
+// MARK: - Music Discovering View
+"view.section.not_finished" = "Niet voltooid";
+"view.section.recommended_for_you" = "Aanbevolen voor jou";
+"view.section.favorite_songs" = "Favoriete nummers";
+"view.section.history" = "Geschiedenis";
+
+// MARK: - Search
+"view.search.loading" = "Zoeken...";
+"view.search.results_title" = "Zoekresultaten";
+"view.search.empty_title" = "Geen resultaten gevonden";
+"view.search.empty_subtitle" = "Probeer een andere songtitel of artiest.";
+
+// MARK: - Recommendations
+"view.recommendations.empty_title" = "Nog geen aanbevelingen";
+"view.recommendations.empty_subtitle" = "Genereer een les om nieuwe nummers te ontdekken.";
+
+// MARK: - Recommendation Status
+"status.recommendations.loading" = "Aanbevelingen laden";
+"status.recommendations.generating" = "Aanbevelingen genereren";
+"status.recommendations.fetching_data" = "Apple Music-gegevens ophalen";
+
+// MARK: - Lesson Overview
+"lesson.overview.title" = "Lesroute";
+"lesson.overview.description" = "Duik in **%1$@** van %2$@. Deze les neemt je mee van de betekenis van de lyrics naar de culturele context en eindigt met een uitdaging om actief op te halen.";
+"lesson.overview.phrases_tag" = "Frases: %d";
+"lesson.overview.practice_tag" = "Oefeningen: %d";
+"lesson.collection.title" = "%@ — Belangrijke frases";
+
+// MARK: - Lesson Sections
+"lesson.phrases.header" = "Belangrijke frases";
+"lesson.phrases.subtitle" = "Leer de uitdrukkingen die het verhaal van het nummer vormen.";
+"lesson.phrases.empty" = "Nog geen frases beschikbaar.";
+
+"lesson.grammar.header" = "Grammatica in de kijker";
+"lesson.grammar.subtitle" = "Let op deze structuren terwijl je luistert.";
+"lesson.grammar.empty" = "Geen grammaticale hoogtepunten voor deze les.";
+
+"lesson.explanations.header" = "Inzicht in lyrics";
+"lesson.explanations.subtitle" = "Context regel voor regel om je begrip te verdiepen.";
+"lesson.explanations.empty" = "Uitleg van de lyrics verschijnt zodra die beschikbaar is.";
+"lesson.explanations.line_number" = "Regel %d";
+
+"lesson.culture.header" = "Culturele notities";
+"lesson.culture.subtitle" = "Context die de lyrics tot leven brengt.";
+"lesson.culture.empty" = "Geen culturele context beschikbaar.";
+
+"lesson.practice.fill_blank.header" = "Oefenen • Vul het ontbrekende in";
+"lesson.practice.fill_blank.subtitle" = "Test je geheugen met aanwijzingen op basis van lyrics.";
+"lesson.practice.fill_blank.empty" = "Oefeningen voor invullen verschijnen zodra ze beschikbaar zijn.";
+
+"lesson.practice.comprehension.header" = "Oefenen • Begripsquiz";
+"lesson.practice.comprehension.subtitle" = "Kies het beste antwoord om de betekenis te versterken.";
+"lesson.practice.comprehension.empty" = "Meerkeuze-oefeningen verschijnen zodra ze beschikbaar zijn.";
+
+"lesson.reflection.header" = "Reflecteer en rond af";
+"lesson.reflection.subtitle" = "Leg vast wat indruk maakte en houd je streak gaande.";
+"lesson.reflection.instructions" = "Als je de quizzen hebt voltooid, tik op **Voltooien** om je voortgang op te slaan en de resultaten te bekijken.";
+"lesson.reflection.progress" = "Voortgang: %1$d/%2$d vragen beantwoord";
+"lesson.reflection.cta_view_results" = "Resultaten van de les bekijken";
+
+// MARK: - History
+"history.time.days" = "%dd dagen geleden";
+"history.time.hours" = "%dh uur geleden";
+"history.time.minutes" = "%dm minuten geleden";
+"history.time.just_now" = "Zojuist";
+"history.play_count" = "%d×";
+
+// MARK: - Player
+"player.lesson.generating" = "Les wordt gegenereerd...";
+"player.lesson.loading" = "Les wordt geladen...";
+"player.lesson.ready" = "Ga verder naar les";
+"player.lesson.failed" = "Fout bij het laden van de les. Opnieuw proberen?";
+"player.lesson.unavailable" = "Kan de les niet genereren";
+"player.tips.title" = "Tips voor de muziekles";
+"player.tips.header" = "Maak je klaar voor je les";
+"player.tips.intro" = "Zoek een rustig moment, sluit een koptelefoon aan als je die hebt en houd een notitieboekje bij de hand. Een keer meeneuriën voor je de oefeningen doet helpt.";
+"player.tips.explore_title" = "Bekijk de lyrics regel voor regel";
+"player.tips.explore_message" = "Tik op een willekeurige regel om het menu met vertaling, woordenboek, afspelen en kopiëren te openen.";
+"player.tips.carry_title" = "Neem het nummer mee de les in";
+"player.tips.carry_message" = "Wanneer je verder gaat met de les, kun je altijd terugkeren om de lyrics opnieuw te lezen en te beluisteren.";
+"player.tips.path_title" = "Gebruik de les als route";
+"player.tips.path_message" = "Volg de lesonderdelen op volgorde—frases, grammatica, cultuur en daarna oefenen—om vast te houden wat je net hebt gehoord.";
+
+// MARK: - Lesson Info Sheet
+"sheet.cta.start_lesson" = "Ga naar les";
+"sheet.premium.title" = "Premium vereist";
+"sheet.premium.body" = "Muzieklessen met AI-inzichten zijn beschikbaar met een Premium-abonnement.";
+"sheet.premium.cta_upgrade" = "Upgrade naar Premium";
+"sheet.lyrics_unavailable.title" = "Lyrics niet beschikbaar";
+"sheet.lyrics_unavailable.body" = "We hebben helaas geen lyrics voor dit nummer gevonden. Zonder lyrics kan er geen les gemaakt worden.";
+"sheet.hook.grammar" = "Grammatica";
+"sheet.hook.cultural_note" = "Culturele notitie";
+
+// MARK: - Results
+"results.navigation.title" = "Les voltooid";
+"results.header.title" = "Goed gedaan!";
+"results.header.subtitle" = "Je hebt de les afgerond";
+"results.stats.accuracy" = "Nauwkeurigheid";
+"results.stats.questions" = "Vragen";
+"results.stats.new_words" = "Nieuwe woorden";
+"results.stats.time" = "Tijd";
+"results.discovered_words.title" = "Ontdekte woorden";
+"results.actions.share" = "Resultaten delen";
+"results.actions.add_to_favorites" = "Toevoegen aan favorieten";
+"results.actions.remove_from_favorites" = "Verwijderen uit favorieten";
+"results.actions.back_to_discover" = "Terug naar Ontdekken";
+
+// MARK: - Share Preview
+"share.navigation.title" = "Voorvertoning delen";
+"share.accessibility.preview_card" = "Voorvertoningskaart delen";
+"share.picker.aspect_ratio" = "Beeldverhouding";
+"share.actions.share" = "Delen";
+"share.alert.generate_failed" = "Kon geen afbeelding om te delen maken.";
+"share.aspect.square" = "Vierkant";
+"share.aspect.story" = "Story";
+"share.aspect.wide" = "Breed";
+"share.card.header" = "Les voltooid";
+"share.card.cefr" = "CEFR %@";
+"share.card.artwork_missing" = "Artwork niet beschikbaar";
+"share.card.by_artist" = "door %@";
+"share.card.answered" = "%1$d/%2$d goed beantwoord";
+"share.card.footer.tagline" = "Blijf leren met";
+"share.card.footer.brand" = "My Dictionary";
+
+// MARK: - Interactive Lyrics
+"interactive_lyrics.menu.options" = "Opties";
+"interactive_lyrics.empty.title" = "Geen lyrics beschikbaar";
+
+// MARK: - Quizzes
+"quiz.common.question_progress" = "Vraag %1$d van %2$d";
+"quiz.navigation.previous" = "Vorige";
+"quiz.navigation.next" = "Volgende";
+"quiz.comprehension.feedback.correct" = "Geweldige keuze!";
+"quiz.comprehension.feedback.incorrect" = "Niet helemaal.";
+"quiz.fill_blank.prompt" = "Maak de lyric af door het ontbrekende woord te kiezen.";
+"quiz.fill_blank.feedback.correct" = "Goed gedaan!";
+"quiz.fill_blank.feedback.incorrect" = "Blijf de lyrics verkennen en probeer de volgende.";
+
+// MARK: - Authentication
+"auth.header.title" = "Verbind met muziekdiensten";
+"auth.header.subtitle" = "Verbind met Apple Music om persoonlijke trackaanbevelingen voor taalleren te ontdekken.";
+"auth.apple.connect" = "Verbinden met Apple Music";
+"auth.info.title" = "Dit krijg je:";
+"auth.info.recommendations" = "Persoonlijke aanbevelingen";
+"auth.info.library" = "Toegang tot je muziekbibliotheek";
+"auth.info.lyrics" = "Songteksten en leercontent";
+"auth.info.history" = "Volgen van luistergeschiedenis";
+"auth.actions.open_music_app" = "Open Muziek-app";
+"auth.error.subscription_required" = "Apple Music-abonnement vereist. Je kunt je abonneren in de Muziek-app of in Instellingen.";
+"auth.error.not_registered" = "Apple Music is niet beschikbaar. Deze app moet worden geregistreerd voor MusicKit.";
+
+// MARK: - Music Errors
+"error.user_profile_not_completed" = "Gebruikersprofiel niet voltooid";
+"error.authentication_failed" = "Authenticatie mislukt: %@";
+"error.song_not_found" = "Nummer niet gevonden";
+"error.lyrics_not_found" = "Lyrics niet beschikbaar voor dit nummer";
+"error.lyrics_language_not_determined" = "Taal van de lyrics niet bepaald";
+"error.lesson_not_found" = "Les niet gevonden";
+"error.invalid_duration" = "Ongeldige songduur";
+"error.playback_not_supported" = "Afspelen wordt niet ondersteund voor dit nummer";
+"error.network_error" = "Netwerkfout: %@";
+"error.service_unavailable" = "Muziekdienst is momenteel niet beschikbaar";
+"error.invalid_response" = "Ongeldig antwoord van de muziekdienst";
+"error.token_refresh_failed" = "Kon het authenticatietoken niet vernieuwen";
+"error.apple_music_not_registered" = "Deze app moet worden geregistreerd voor MusicKit in App Store Connect. Neem contact op met support.";
+"error.apple_music_subscription_required" = "Een Apple Music-abonnement is vereist voor deze functie. Je kunt je abonneren in de Muziek-app of in Instellingen.";
+"error.invalid_cefr_level" = "Ongeldig CEFR-niveau";
+"error.no_recommendations_available" = "Geen aanbevelingen beschikbaar";
+"error.premium_required" = "Premium-toegang vereist voor deze functie";
+"error.hook_generation_failed" = "Kon geen voorvertoning voor dit nummer genereren";

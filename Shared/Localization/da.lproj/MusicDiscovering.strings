@@ -1,0 +1,170 @@
+// MARK: - Music Discovering View
+"view.section.not_finished" = "Ikke færdig";
+"view.section.recommended_for_you" = "Anbefalet til dig";
+"view.section.favorite_songs" = "Favoritsange";
+"view.section.history" = "Historik";
+
+// MARK: - Search
+"view.search.loading" = "Søger...";
+"view.search.results_title" = "Søgeresultater";
+"view.search.empty_title" = "Ingen resultater fundet";
+"view.search.empty_subtitle" = "Prøv en anden sangtitel eller kunstner.";
+
+// MARK: - Recommendations
+"view.recommendations.empty_title" = "Ingen anbefalinger endnu";
+"view.recommendations.empty_subtitle" = "Prøv at oprette en lektion for at finde nye sange.";
+
+// MARK: - Recommendation Status
+"status.recommendations.loading" = "Indlæser anbefalinger";
+"status.recommendations.generating" = "Genererer anbefalinger";
+"status.recommendations.fetching_data" = "Henter Apple Music-data";
+
+// MARK: - Lesson Overview
+"lesson.overview.title" = "Lektionsforløb";
+"lesson.overview.description" = "Fordyb dig i **%1$@** af %2$@. Lektionen fører dig fra tekstens betydning til den kulturelle sammenhæng, før du bliver udfordret med aktiv genkaldelse.";
+"lesson.overview.phrases_tag" = "Fraser: %d";
+"lesson.overview.practice_tag" = "Øvelser: %d";
+"lesson.collection.title" = "%@ — Nøglefraser";
+
+// MARK: - Lesson Sections
+"lesson.phrases.header" = "Nøglefraser";
+"lesson.phrases.subtitle" = "Lær udtrykkene, der former sangens fortælling.";
+"lesson.phrases.empty" = "Ingen fraser tilgængelige endnu.";
+
+"lesson.grammar.header" = "Grammatisk fokus";
+"lesson.grammar.subtitle" = "Læg mærke til disse strukturer, mens du lytter.";
+"lesson.grammar.empty" = "Ingen grammatiske højdepunkter til denne lektion.";
+
+"lesson.explanations.header" = "Tekstindsigt";
+"lesson.explanations.subtitle" = "Kontekst linje for linje for at uddybe forståelsen.";
+"lesson.explanations.empty" = "Tekstforklaringer vises, når de er tilgængelige.";
+"lesson.explanations.line_number" = "Linje %d";
+
+"lesson.culture.header" = "Kulturelle noter";
+"lesson.culture.subtitle" = "Kontekst, der giver teksten liv.";
+"lesson.culture.empty" = "Ingen kulturel kontekst tilgængelig.";
+
+"lesson.practice.fill_blank.header" = "Træning • Udfyld tomrummet";
+"lesson.practice.fill_blank.subtitle" = "Test din hukommelse med tekstbaserede ledetråde.";
+"lesson.practice.fill_blank.empty" = "Øvelser med udfyldning vises, når de er tilgængelige.";
+
+"lesson.practice.comprehension.header" = "Træning • Forståelseskviz";
+"lesson.practice.comprehension.subtitle" = "Vælg det bedste svar for at styrke betydningen.";
+"lesson.practice.comprehension.empty" = "Multiple choice-øvelser vises, når de er tilgængelige.";
+
+"lesson.reflection.header" = "Reflektér og afslut";
+"lesson.reflection.subtitle" = "Notér det, der ramte dig, og hold gang i din stime.";
+"lesson.reflection.instructions" = "Når du er færdig med kvizzerne, skal du trykke på **Afslut** for at gemme dine fremskridt og se lektionsresultaterne.";
+"lesson.reflection.progress" = "Fremskridt: %1$d/%2$d besvarede spørgsmål";
+"lesson.reflection.cta_view_results" = "Se lektionsresultater";
+
+// MARK: - History
+"history.time.days" = "For %dd siden";
+"history.time.hours" = "For %dh siden";
+"history.time.minutes" = "For %dm siden";
+"history.time.just_now" = "Lige nu";
+"history.play_count" = "%d×";
+
+// MARK: - Player
+"player.lesson.generating" = "Lektion oprettes...";
+"player.lesson.loading" = "Lektion indlæses...";
+"player.lesson.ready" = "Fortsæt til lektion";
+"player.lesson.failed" = "Fejl under indlæsning af lektionen. Prøv igen?";
+"player.lesson.unavailable" = "Lektion kunne ikke oprettes";
+"player.tips.title" = "Tips til musiklektionen";
+"player.tips.header" = "Gør dig klar til lektionen";
+"player.tips.intro" = "Find et stille øjeblik, tilslut hovedtelefoner, hvis du har dem, og hav en notesbog i nærheden. Det hjælper at nynnemed én gang, før du går i gang med øvelserne.";
+"player.tips.explore_title" = "Udforsk teksten linje for linje";
+"player.tips.explore_message" = "Tryk på en vilkårlig tekstlinje for at åbne en menu med oversættelses-, ordbogs-, afspilnings- og kopieringsmuligheder.";
+"player.tips.carry_title" = "Tag sangen med ind i lektionen";
+"player.tips.carry_message" = "Når du fortsætter til lektionen, kan du altid hoppe tilbage hertil for at genlæse teksten og lytte igen.";
+"player.tips.path_title" = "Brug lektionen som et forløb";
+"player.tips.path_message" = "Følg lektionsafsnittene i rækkefølge—fraser, grammatik, kultur og derefter øvelser—for at forankre det, du lige har hørt.";
+
+// MARK: - Lesson Info Sheet
+"sheet.cta.start_lesson" = "Til lektionen";
+"sheet.premium.title" = "Premium påkrævet";
+"sheet.premium.body" = "Musiklektioner med AI-drevne indsigter er tilgængelige med et Premium-abonnement.";
+"sheet.premium.cta_upgrade" = "Opgrader til Premium";
+"sheet.lyrics_unavailable.title" = "Tekst ikke tilgængelig";
+"sheet.lyrics_unavailable.body" = "Vi kunne desværre ikke finde teksten til denne sang. Der kan ikke laves en lektion uden tekst.";
+"sheet.hook.grammar" = "Grammatik";
+"sheet.hook.cultural_note" = "Kulturel note";
+
+// MARK: - Results
+"results.navigation.title" = "Lektion fuldført";
+"results.header.title" = "Flot arbejde!";
+"results.header.subtitle" = "Du har gennemført lektionen";
+"results.stats.accuracy" = "Præcision";
+"results.stats.questions" = "Spørgsmål";
+"results.stats.new_words" = "Nye ord";
+"results.stats.time" = "Tid";
+"results.discovered_words.title" = "Opdagede ord";
+"results.actions.share" = "Del resultater";
+"results.actions.add_to_favorites" = "Føj til favoritter";
+"results.actions.remove_from_favorites" = "Fjern fra favoritter";
+"results.actions.back_to_discover" = "Tilbage til Opdag";
+
+// MARK: - Share Preview
+"share.navigation.title" = "Forhåndsvisning af deling";
+"share.accessibility.preview_card" = "Forhåndsvisningskort til deling";
+"share.picker.aspect_ratio" = "Format";
+"share.actions.share" = "Del";
+"share.alert.generate_failed" = "Kunne ikke oprette delingsbillede.";
+"share.aspect.square" = "Kvadrat";
+"share.aspect.story" = "Story";
+"share.aspect.wide" = "Bred";
+"share.card.header" = "Lektion fuldført";
+"share.card.cefr" = "CEFR %@";
+"share.card.artwork_missing" = "Illustration ikke tilgængelig";
+"share.card.by_artist" = "af %@";
+"share.card.answered" = "%1$d/%2$d rigtige svar";
+"share.card.footer.tagline" = "Bliv ved med at lære med";
+"share.card.footer.brand" = "My Dictionary";
+
+// MARK: - Interactive Lyrics
+"interactive_lyrics.menu.options" = "Muligheder";
+"interactive_lyrics.empty.title" = "Ingen tekst tilgængelig";
+
+// MARK: - Quizzes
+"quiz.common.question_progress" = "Spørgsmål %1$d af %2$d";
+"quiz.navigation.previous" = "Forrige";
+"quiz.navigation.next" = "Næste";
+"quiz.comprehension.feedback.correct" = "Godt valgt!";
+"quiz.comprehension.feedback.incorrect" = "Ikke helt rigtigt.";
+"quiz.fill_blank.prompt" = "Fuldfør teksten ved at vælge det manglende ord.";
+"quiz.fill_blank.feedback.correct" = "Flot klaret!";
+"quiz.fill_blank.feedback.incorrect" = "Bliv ved med at udforske teksten og prøv det næste.";
+
+// MARK: - Authentication
+"auth.header.title" = "Forbind til musiktjenester";
+"auth.header.subtitle" = "Opret forbindelse til Apple Music for at få personlige sanganbefalinger til sprogindlæring.";
+"auth.apple.connect" = "Forbind med Apple Music";
+"auth.info.title" = "Det får du:";
+"auth.info.recommendations" = "Personlige sanganbefalinger";
+"auth.info.library" = "Adgang til dit musikbibliotek";
+"auth.info.lyrics" = "Sangtekster og læringsindhold";
+"auth.info.history" = "Sporing af lyttelog";
+"auth.actions.open_music_app" = "Åbn Musik-app";
+"auth.error.subscription_required" = "Der kræves et Apple Music-abonnement. Du kan abonnere i Musik-appen eller i Indstillinger.";
+"auth.error.not_registered" = "Apple Music er ikke tilgængelig. Denne app skal registreres til MusicKit.";
+
+// MARK: - Music Errors
+"error.user_profile_not_completed" = "Brugerprofil er ikke fuldført";
+"error.authentication_failed" = "Godkendelse mislykkedes: %@";
+"error.song_not_found" = "Sang ikke fundet";
+"error.lyrics_not_found" = "Tekst ikke tilgængelig for denne sang";
+"error.lyrics_language_not_determined" = "Tekstens sprog er ikke identificeret";
+"error.lesson_not_found" = "Lektionen blev ikke fundet";
+"error.invalid_duration" = "Ugyldig sanglængde";
+"error.playback_not_supported" = "Afspilning understøttes ikke for denne sang";
+"error.network_error" = "Netværksfejl: %@";
+"error.service_unavailable" = "Musiktjenesten er ikke tilgængelig lige nu";
+"error.invalid_response" = "Ugyldigt svar fra musiktjenesten";
+"error.token_refresh_failed" = "Kunne ikke opdatere godkendelsestoken";
+"error.apple_music_not_registered" = "Denne app skal registreres til MusicKit i App Store Connect. Kontakt support.";
+"error.apple_music_subscription_required" = "Denne funktion kræver Apple Music-abonnement. Du kan abonnere i Musik-appen eller i Indstillinger.";
+"error.invalid_cefr_level" = "Ugyldigt CEFR-niveau";
+"error.no_recommendations_available" = "Ingen anbefalinger tilgængelige";
+"error.premium_required" = "Premium-adgang er påkrævet for denne funktion";
+"error.hook_generation_failed" = "Kunne ikke generere forhåndsvisning for denne sang";

@@ -1,0 +1,170 @@
+// MARK: - Music Discovering View
+"view.section.not_finished" = "अभी अधूरा";
+"view.section.recommended_for_you" = "आपके लिए अनुशंसित";
+"view.section.favorite_songs" = "पसंदीदा गीत";
+"view.section.history" = "इतिहास";
+
+// MARK: - Search
+"view.search.loading" = "खोज जारी...";
+"view.search.results_title" = "खोज परिणाम";
+"view.search.empty_title" = "कोई परिणाम नहीं मिला";
+"view.search.empty_subtitle" = "कृपया किसी अलग गीत शीर्षक या कलाकार को आज़माएँ।";
+
+// MARK: - Recommendations
+"view.recommendations.empty_title" = "अभी कोई अनुशंसा नहीं";
+"view.recommendations.empty_subtitle" = "नए गीत खोजने के लिए एक पाठ तैयार करें।";
+
+// MARK: - Recommendation Status
+"status.recommendations.loading" = "अनुशंसाएँ लोड हो रही हैं";
+"status.recommendations.generating" = "अनुशंसाएँ तैयार की जा रही हैं";
+"status.recommendations.fetching_data" = "Apple Music डेटा प्राप्त किया जा रहा है";
+
+// MARK: - Lesson Overview
+"lesson.overview.title" = "पाठ की रूपरेखा";
+"lesson.overview.description" = "%2$@ के **%1$@** में डूब जाएँ। यह पाठ आपको बोलों के अर्थ से सांस्कृतिक संदर्भ तक ले जाता है और फिर सक्रिय स्मरण के साथ आपको चुनौती देता है।";
+"lesson.overview.phrases_tag" = "वाक्यांश: %d";
+"lesson.overview.practice_tag" = "अभ्यास: %d";
+"lesson.collection.title" = "%@ — प्रमुख वाक्यांश";
+
+// MARK: - Lesson Sections
+"lesson.phrases.header" = "प्रमुख वाक्यांश";
+"lesson.phrases.subtitle" = "गीत की कहानी बनाने वाले अभिव्यक्तियों को सीखें।";
+"lesson.phrases.empty" = "अभी कोई वाक्यांश उपलब्ध नहीं है।";
+
+"lesson.grammar.header" = "व्याकरण पर ध्यान";
+"lesson.grammar.subtitle" = "सुनते समय इन संरचनाओं पर ध्यान दें।";
+"lesson.grammar.empty" = "इस पाठ के लिए कोई व्याकरणिक विशेषताएँ नहीं हैं।";
+
+"lesson.explanations.header" = "बोलों की समझ";
+"lesson.explanations.subtitle" = "गहन समझ के लिए पंक्ति-दर-पंक्ति संदर्भ।";
+"lesson.explanations.empty" = "बोलों की व्याख्याएँ उपलब्ध होते ही दिखाई देंगी।";
+"lesson.explanations.line_number" = "पंक्ति %d";
+
+"lesson.culture.header" = "सांस्कृतिक नोट्स";
+"lesson.culture.subtitle" = "वह संदर्भ जो बोलों को जीवंत बनाता है।";
+"lesson.culture.empty" = "कोई सांस्कृतिक संदर्भ उपलब्ध नहीं है।";
+
+"lesson.practice.fill_blank.header" = "अभ्यास • रिक्त स्थान भरें";
+"lesson.practice.fill_blank.subtitle" = "बोलों पर आधारित संकेतों से स्मरण शक्ति जाँचें।";
+"lesson.practice.fill_blank.empty" = "रिक्त स्थान भरने का अभ्यास उपलब्ध होते ही दिखाई देगा।";
+
+"lesson.practice.comprehension.header" = "अभ्यास • समझ का प्रश्नोत्तरी";
+"lesson.practice.comprehension.subtitle" = "अर्थ को मजबूत करने के लिए सर्वोत्तम उत्तर चुनें।";
+"lesson.practice.comprehension.empty" = "बहुविकल्पी अभ्यास उपलब्ध होते ही दिखाई देगा।";
+
+"lesson.reflection.header" = "चिंतन और समापन";
+"lesson.reflection.subtitle" = "जो आपको सबसे ज़्यादा प्रभावित करे उसे लिखें और अपनी श्रृंखला बनाए रखें।";
+"lesson.reflection.instructions" = "जब आप प्रश्नोत्तरी पूरी कर लें, तो अपनी प्रगति सहेजने और परिणाम देखने के लिए **समाप्त** टैप करें।";
+"lesson.reflection.progress" = "प्रगति: %1$d/%2$d प्रश्नों के उत्तर दिए गए";
+"lesson.reflection.cta_view_results" = "पाठ के परिणाम देखें";
+
+// MARK: - History
+"history.time.days" = "%dd दिन पहले";
+"history.time.hours" = "%dh घंटे पहले";
+"history.time.minutes" = "%dm मिनट पहले";
+"history.time.just_now" = "अभी अभी";
+"history.play_count" = "%d×";
+
+// MARK: - Player
+"player.lesson.generating" = "पाठ तैयार किया जा रहा है...";
+"player.lesson.loading" = "पाठ लोड हो रहा है...";
+"player.lesson.ready" = "पाठ पर आगे बढ़ें";
+"player.lesson.failed" = "पाठ लोड करने में त्रुटि। क्या फिर से प्रयास करें?";
+"player.lesson.unavailable" = "पाठ तैयार नहीं किया जा सका";
+"player.tips.title" = "संगीत पाठ सुझाव";
+"player.tips.header" = "अपने पाठ के लिए तैयार हों";
+"player.tips.intro" = "एक शांत पल चुनें, यदि आपके पास हेडफ़ोन हैं तो उन्हें जोड़ें, और पास में एक नोटबुक रखें। अभ्यास से पहले एक बार गुनगुनाना मददगार रहता है।";
+"player.tips.explore_title" = "बोलों को पंक्ति दर पंक्ति खोजें";
+"player.tips.explore_message" = "किसी भी पंक्ति पर टैप करें और अनुवाद, शब्दकोश, प्लेबैक और कॉपी विकल्प देखें।";
+"player.tips.carry_title" = "गीत को पाठ में साथ लाएँ";
+"player.tips.carry_message" = "जब आप पाठ पर आगे बढ़ें, तो बोल दोबारा देखने और सुनने के लिए आप हमेशा यहाँ वापस आ सकते हैं।";
+"player.tips.path_title" = "पाठ को मार्ग बनाकर अपनाएँ";
+"player.tips.path_message" = "जो आपने अभी सुना है उसे मजबूत करने के लिए पाठ के अनुभागों को क्रम में—वाक्यांश, व्याकरण, संस्कृति और फिर अभ्यास—पूरा करें।";
+
+// MARK: - Lesson Info Sheet
+"sheet.cta.start_lesson" = "पाठ पर जाएँ";
+"sheet.premium.title" = "प्रीमियम आवश्यक";
+"sheet.premium.body" = "AI-आधारित अंतर्दृष्टियों वाले संगीत पाठ प्रीमियम सदस्यता के साथ उपलब्ध हैं।";
+"sheet.premium.cta_upgrade" = "प्रीमियम में अपग्रेड करें";
+"sheet.lyrics_unavailable.title" = "बोल उपलब्ध नहीं हैं";
+"sheet.lyrics_unavailable.body" = "दुर्भाग्य से, हम इस गीत के बोल नहीं ढूँढ सके। बोलों के बिना पाठ तैयार नहीं किया जा सकता।";
+"sheet.hook.grammar" = "व्याकरण";
+"sheet.hook.cultural_note" = "सांस्कृतिक टिप्पणी";
+
+// MARK: - Results
+"results.navigation.title" = "पाठ पूरा हुआ";
+"results.header.title" = "बहुत खूब!";
+"results.header.subtitle" = "आपने पाठ पूरा कर लिया";
+"results.stats.accuracy" = "शुद्धता";
+"results.stats.questions" = "प्रश्न";
+"results.stats.new_words" = "नए शब्द";
+"results.stats.time" = "समय";
+"results.discovered_words.title" = "खोजे गए शब्द";
+"results.actions.share" = "परिणाम साझा करें";
+"results.actions.add_to_favorites" = "पसंदीदा में जोड़ें";
+"results.actions.remove_from_favorites" = "पसंदीदा से हटाएँ";
+"results.actions.back_to_discover" = "डिस्कवर पर वापस जाएँ";
+
+// MARK: - Share Preview
+"share.navigation.title" = "साझा करने का पूर्वावलोकन";
+"share.accessibility.preview_card" = "साझा करने का पूर्वावलोकन कार्ड";
+"share.picker.aspect_ratio" = "आकार अनुपात";
+"share.actions.share" = "साझा करें";
+"share.alert.generate_failed" = "साझा करने के लिए चित्र तैयार नहीं हो सका।";
+"share.aspect.square" = "वर्गाकार";
+"share.aspect.story" = "स्टोरी";
+"share.aspect.wide" = "चौड़ा";
+"share.card.header" = "पाठ पूरा हुआ";
+"share.card.cefr" = "CEFR %@";
+"share.card.artwork_missing" = "आर्टवर्क उपलब्ध नहीं";
+"share.card.by_artist" = "%@ द्वारा";
+"share.card.answered" = "%1$d/%2$d उत्तर सही";
+"share.card.footer.tagline" = "सीखना जारी रखें";
+"share.card.footer.brand" = "My Dictionary";
+
+// MARK: - Interactive Lyrics
+"interactive_lyrics.menu.options" = "विकल्प";
+"interactive_lyrics.empty.title" = "बोल उपलब्ध नहीं हैं";
+
+// MARK: - Quizzes
+"quiz.common.question_progress" = "प्रश्न %1$d का %2$d";
+"quiz.navigation.previous" = "पिछला";
+"quiz.navigation.next" = "अगला";
+"quiz.comprehension.feedback.correct" = "बहुत बढ़िया चुनाव!";
+"quiz.comprehension.feedback.incorrect" = "यह पूरी तरह सही नहीं है।";
+"quiz.fill_blank.prompt" = "लापता शब्द चुनकर बोलों को पूरा करें।";
+"quiz.fill_blank.feedback.correct" = "बहुत अच्छा काम!";
+"quiz.fill_blank.feedback.incorrect" = "बोलों को और खोजें और अगला प्रयास करें।";
+
+// MARK: - Authentication
+"auth.header.title" = "म्यूज़िक सेवाओं से कनेक्ट करें";
+"auth.header.subtitle" = "Apple Music से जुड़ें और भाषा सीखने के लिए व्यक्तिगत गीत अनुशंसाएँ पाएँ।";
+"auth.apple.connect" = "Apple Music से कनेक्ट करें";
+"auth.info.title" = "आपको क्या मिलेगा:";
+"auth.info.recommendations" = "व्यक्तिगत गीत अनुशंसाएँ";
+"auth.info.library" = "आपकी संगीत लाइब्रेरी तक पहुँच";
+"auth.info.lyrics" = "गीतों के बोल और शिक्षण सामग्री";
+"auth.info.history" = "सुनने के इतिहास का ट्रैक";
+"auth.actions.open_music_app" = "म्यूज़िक ऐप खोलें";
+"auth.error.subscription_required" = "Apple Music सदस्यता आवश्यक है। आप म्यूज़िक ऐप या सेटिंग्स से सदस्यता ले सकते हैं।";
+"auth.error.not_registered" = "Apple Music उपलब्ध नहीं है। इस ऐप को MusicKit के लिए पंजीकृत करने की आवश्यकता है।";
+
+// MARK: - Music Errors
+"error.user_profile_not_completed" = "उपयोगकर्ता प्रोफ़ाइल पूर्ण नहीं है";
+"error.authentication_failed" = "प्रमाणीकरण विफल: %@";
+"error.song_not_found" = "गीत नहीं मिला";
+"error.lyrics_not_found" = "इस गीत के बोल उपलब्ध नहीं हैं";
+"error.lyrics_language_not_determined" = "बोलों की भाषा निर्धारित नहीं हो सकी";
+"error.lesson_not_found" = "पाठ नहीं मिला";
+"error.invalid_duration" = "गीत की अवधि अमान्य है";
+"error.playback_not_supported" = "इस गीत के लिए प्लेबैक समर्थित नहीं है";
+"error.network_error" = "नेटवर्क त्रुटि: %@";
+"error.service_unavailable" = "म्यूज़िक सेवा फिलहाल उपलब्ध नहीं है";
+"error.invalid_response" = "म्यूज़िक सेवा से अमान्य प्रतिक्रिया";
+"error.token_refresh_failed" = "प्रमाणीकरण टोकन रिफ्रेश नहीं हो सका";
+"error.apple_music_not_registered" = "इस ऐप को App Store Connect में MusicKit के लिए पंजीकृत करना होगा। कृपया सहायता से संपर्क करें।";
+"error.apple_music_subscription_required" = "इस सुविधा का उपयोग करने के लिए Apple Music सदस्यता आवश्यक है। आप म्यूज़िक ऐप या सेटिंग्स से सदस्यता ले सकते हैं।";
+"error.invalid_cefr_level" = "अमान्य CEFR स्तर";
+"error.no_recommendations_available" = "कोई अनुशंसा उपलब्ध नहीं है";
+"error.premium_required" = "इस सुविधा के लिए प्रीमियम एक्सेस आवश्यक है";
+"error.hook_generation_failed" = "इस गीत के लिए पूर्वावलोकन तैयार नहीं हो सका";

@@ -15,7 +15,7 @@ struct MusicDiscoveringResponse: Codable, JSONSchemaConvertible {
     struct LyricExplanation: Codable, JSONSchemaConvertible {
         let lyricLine: String
         let explanation: String
-        let lineNumber: Int?
+        let lineNumber: Int
 
         static let example: Self = {
             .init(

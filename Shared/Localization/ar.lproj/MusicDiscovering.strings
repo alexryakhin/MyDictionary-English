@@ -1,0 +1,170 @@
+// MARK: - Music Discovering View
+"view.section.not_finished" = "غير مكتمل";
+"view.section.recommended_for_you" = "موصى به لك";
+"view.section.favorite_songs" = "أغاني مفضلة";
+"view.section.history" = "السجل";
+
+// MARK: - Search
+"view.search.loading" = "جاري البحث...";
+"view.search.results_title" = "نتائج البحث";
+"view.search.empty_title" = "لم يتم العثور على نتائج";
+"view.search.empty_subtitle" = "جرّب عنوان أغنية أو فناناً آخر.";
+
+// MARK: - Recommendations
+"view.recommendations.empty_title" = "لا توجد توصيات بعد";
+"view.recommendations.empty_subtitle" = "جرّب إنشاء درس للحصول على أغنيات جديدة.";
+
+// MARK: - Recommendation Status
+"status.recommendations.loading" = "جارٍ تحميل التوصيات";
+"status.recommendations.generating" = "جارٍ إنشاء التوصيات";
+"status.recommendations.fetching_data" = "جارٍ جلب بيانات Apple Music";
+
+// MARK: - Lesson Overview
+"lesson.overview.title" = "مسار الدرس";
+"lesson.overview.description" = "تعمّق في **%1$@** لـ %2$@. هذا الدرس يأخذك من معنى الكلمات إلى السياق الثقافي قبل أن يختبر ذاكرتك النشطة.";
+"lesson.overview.phrases_tag" = "عبارات: %d";
+"lesson.overview.practice_tag" = "جلسات تدريب: %d";
+"lesson.collection.title" = "%@ — عبارات أساسية";
+
+// MARK: - Lesson Sections
+"lesson.phrases.header" = "عبارات أساسية";
+"lesson.phrases.subtitle" = "تعرّف على التعابير التي تشكل قصة الأغنية.";
+"lesson.phrases.empty" = "لا توجد عبارات متاحة بعد.";
+
+"lesson.grammar.header" = "تركيز نحوي";
+"lesson.grammar.subtitle" = "لاحظ هذه التراكيب أثناء الاستماع.";
+"lesson.grammar.empty" = "لا توجد نقاط نحوية بارزة لهذا الدرس.";
+
+"lesson.explanations.header" = "تحليلات الكلمات";
+"lesson.explanations.subtitle" = "سياق سطر بسطر لتعميق الفهم.";
+"lesson.explanations.empty" = "ستظهر شروح الكلمات عند توفرها.";
+"lesson.explanations.line_number" = "السطر %d";
+
+"lesson.culture.header" = "ملاحظات ثقافية";
+"lesson.culture.subtitle" = "سياق يحيي الكلمات.";
+"lesson.culture.empty" = "لا يوجد سياق ثقافي متاح.";
+
+"lesson.practice.fill_blank.header" = "تدريب • املأ الفراغ";
+"lesson.practice.fill_blank.subtitle" = "اختبر ذاكرتك بمؤشرات مستندة إلى الكلمات.";
+"lesson.practice.fill_blank.empty" = "سيظهر تدريب ملء الفراغ عند توفره.";
+
+"lesson.practice.comprehension.header" = "تدريب • اختبار الفهم";
+"lesson.practice.comprehension.subtitle" = "اختر أفضل إجابة لتعزيز المعنى.";
+"lesson.practice.comprehension.empty" = "سيظهر تدريب الاختيار المتعدد عند توفره.";
+
+"lesson.reflection.header" = "تأمل واختتام";
+"lesson.reflection.subtitle" = "دوّن ما أثر فيك وواصل سلسلتك.";
+"lesson.reflection.instructions" = "عند الانتهاء من الاختبارات، اضغط **إنهاء** لحفظ تقدمك وعرض نتائج الدرس.";
+"lesson.reflection.progress" = "التقدم: %1$d/%2$d أسئلة مجاب عنها";
+"lesson.reflection.cta_view_results" = "عرض نتائج الدرس";
+
+// MARK: - History
+"history.time.days" = "منذ %dd";
+"history.time.hours" = "منذ %dh";
+"history.time.minutes" = "منذ %dm";
+"history.time.just_now" = "الآن";
+"history.play_count" = "%d×";
+
+// MARK: - Player
+"player.lesson.generating" = "جارٍ إنشاء الدرس...";
+"player.lesson.loading" = "يتم تحميل الدرس...";
+"player.lesson.ready" = "متابعة إلى الدرس";
+"player.lesson.failed" = "حدث خطأ أثناء تحميل الدرس. هل تريد المحاولة مرة أخرى؟";
+"player.lesson.unavailable" = "تعذّر إنشاء الدرس";
+"player.tips.title" = "نصائح لدرس الموسيقى";
+"player.tips.header" = "استعد لدرسِك";
+"player.tips.intro" = "اختر لحظة هادئة، وصل سماعات الأذن إن وُجدت، واحتفظ بدفتر ملاحظات قريباً. من المفيد أن تدندن مرة قبل بدء التمارين.";
+"player.tips.explore_title" = "استكشف الكلمات سطراً سطراً";
+"player.tips.explore_message" = "اضغط أي سطر من الكلمات لفتح قائمة خيارات الترجمة والقاموس والتشغيل والنسخ.";
+"player.tips.carry_title" = "انقل الأغنية إلى الدرس";
+"player.tips.carry_message" = "عند الانتقال إلى الدرس، يمكنك دائماً العودة إلى هنا لمراجعة الكلمات والاستماع مجدداً.";
+"player.tips.path_title" = "استخدم الدرس كطريق";
+"player.tips.path_message" = "اتبع أقسام الدرس بالتسلسل—العبارات، النحو، الثقافة ثم التدريب—لتثبيت ما استمعت إليه.";
+
+// MARK: - Lesson Info Sheet
+"sheet.cta.start_lesson" = "إلى الدرس";
+"sheet.premium.title" = "يتطلب بريميوم";
+"sheet.premium.body" = "دروس الموسيقى المزودة برؤى مدعومة بالذكاء الاصطناعي متاحة مع اشتراك بريميوم.";
+"sheet.premium.cta_upgrade" = "الترقية إلى بريميوم";
+"sheet.lyrics_unavailable.title" = "الكلمات غير متاحة";
+"sheet.lyrics_unavailable.body" = "للأسف لم نعثر على كلمات هذه الأغنية. لا يمكن إنشاء درس بدون كلمات.";
+"sheet.hook.grammar" = "قواعد";
+"sheet.hook.cultural_note" = "ملاحظة ثقافية";
+
+// MARK: - Results
+"results.navigation.title" = "انتهى الدرس";
+"results.header.title" = "عمل رائع!";
+"results.header.subtitle" = "لقد أكملت الدرس";
+"results.stats.accuracy" = "الدقة";
+"results.stats.questions" = "الأسئلة";
+"results.stats.new_words" = "كلمات جديدة";
+"results.stats.time" = "الوقت";
+"results.discovered_words.title" = "الكلمات المكتشفة";
+"results.actions.share" = "مشاركة النتائج";
+"results.actions.add_to_favorites" = "إضافة إلى المفضلة";
+"results.actions.remove_from_favorites" = "إزالة من المفضلة";
+"results.actions.back_to_discover" = "العودة إلى الاكتشاف";
+
+// MARK: - Share Preview
+"share.navigation.title" = "معاينة المشاركة";
+"share.accessibility.preview_card" = "بطاقة معاينة المشاركة";
+"share.picker.aspect_ratio" = "نسبة العرض إلى الارتفاع";
+"share.actions.share" = "مشاركة";
+"share.alert.generate_failed" = "تعذّر إنشاء صورة للمشاركة.";
+"share.aspect.square" = "مربعة";
+"share.aspect.story" = "قصة";
+"share.aspect.wide" = "عريضة";
+"share.card.header" = "انتهى الدرس";
+"share.card.cefr" = "CEFR %@";
+"share.card.artwork_missing" = "الصورة غير متاحة";
+"share.card.by_artist" = "بواسطة %@";
+"share.card.answered" = "%1$d/%2$d إجابات صحيحة";
+"share.card.footer.tagline" = "واصل التعلم مع";
+"share.card.footer.brand" = "My Dictionary";
+
+// MARK: - Interactive Lyrics
+"interactive_lyrics.menu.options" = "خيارات";
+"interactive_lyrics.empty.title" = "لا توجد كلمات متاحة";
+
+// MARK: - Quizzes
+"quiz.common.question_progress" = "السؤال %1$d من %2$d";
+"quiz.navigation.previous" = "السابق";
+"quiz.navigation.next" = "التالي";
+"quiz.comprehension.feedback.correct" = "خيار رائع!";
+"quiz.comprehension.feedback.incorrect" = "ليست الإجابة الصحيحة.";
+"quiz.fill_blank.prompt" = "أكمل الكلمات باختيار الكلمة الناقصة.";
+"quiz.fill_blank.feedback.correct" = "عمل ممتاز!";
+"quiz.fill_blank.feedback.incorrect" = "تابع استكشاف الكلمات وجرّب السؤال التالي.";
+
+// MARK: - Authentication
+"auth.header.title" = "الاتصال بخدمات الموسيقى";
+"auth.header.subtitle" = "اتصل بـ Apple Music لاكتشاف توصيات أغنيات مخصصة لتعلم اللغات.";
+"auth.apple.connect" = "الاتصال بـ Apple Music";
+"auth.info.title" = "ما الذي ستحصل عليه:";
+"auth.info.recommendations" = "توصيات أغنيات مخصصة";
+"auth.info.library" = "وصول إلى مكتبتك الموسيقية";
+"auth.info.lyrics" = "كلمات الأغنيات ومحتوى التعلم";
+"auth.info.history" = "تتبع سجل الاستماع";
+"auth.actions.open_music_app" = "فتح تطبيق الموسيقى";
+"auth.error.subscription_required" = "يلزم اشتراك Apple Music. يمكنك الاشتراك من تطبيق الموسيقى أو الإعدادات.";
+"auth.error.not_registered" = "Apple Music غير متاح. يجب تسجيل هذا التطبيق لـ MusicKit.";
+
+// MARK: - Music Errors
+"error.user_profile_not_completed" = "ملف المستخدم غير مكتمل";
+"error.authentication_failed" = "فشل التحقق: %@";
+"error.song_not_found" = "الأغنية غير موجودة";
+"error.lyrics_not_found" = "الكلمات غير متاحة لهذه الأغنية";
+"error.lyrics_language_not_determined" = "لم يتم تحديد لغة الكلمات";
+"error.lesson_not_found" = "الدرس غير موجود";
+"error.invalid_duration" = "مدة الأغنية غير صالحة";
+"error.playback_not_supported" = "التشغيل غير مدعوم لهذه الأغنية";
+"error.network_error" = "خطأ في الشبكة: %@";
+"error.service_unavailable" = "خدمة الموسيقى غير متاحة حالياً";
+"error.invalid_response" = "استجابة غير صالحة من خدمة الموسيقى";
+"error.token_refresh_failed" = "فشل في تحديث رمز المصادقة";
+"error.apple_music_not_registered" = "يجب تسجيل هذا التطبيق لـ MusicKit في App Store Connect. يرجى التواصل مع الدعم.";
+"error.apple_music_subscription_required" = "يلزم اشتراك Apple Music لاستخدام هذه الميزة. يمكنك الاشتراك من تطبيق الموسيقى أو الإعدادات.";
+"error.invalid_cefr_level" = "مستوى CEFR غير صالح";
+"error.no_recommendations_available" = "لا توجد توصيات متاحة";
+"error.premium_required" = "يلزم الاشتراك بريميوم لاستخدام هذه الميزة";
+"error.hook_generation_failed" = "تعذّر إنشاء معاينة لهذه الأغنية";

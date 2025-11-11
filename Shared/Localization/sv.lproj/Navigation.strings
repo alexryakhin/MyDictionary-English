@@ -1,4 +1,6 @@
 // MARK: - Tab Bar
+"tabbar.vocabulary" = "Min ordbok";
+"tabbar.discover" = "Upptäck";
 "tabbar.quizzes" = "Quiz";
 "tabbar.progress" = "Framsteg";
 "tabbar.settings" = "Inställningar";

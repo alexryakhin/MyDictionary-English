@@ -1,4 +1,6 @@
 // MARK: - Tab Bar
+"tabbar.vocabulary" = "Dictionnaire";
+"tabbar.discover" = "Découvrir";
 "tabbar.quizzes" = "Quiz";
 "tabbar.progress" = "Progrès";
 "tabbar.settings" = "Paramètres";

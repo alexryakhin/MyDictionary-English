@@ -1,4 +1,6 @@
 // MARK: - Tab Bar
+"tabbar.vocabulary" = "Rječnik";
+"tabbar.discover" = "Otkrij";
 "tabbar.quizzes" = "Kvizovi";
 "tabbar.progress" = "Napredak";
 "tabbar.settings" = "Postavke";

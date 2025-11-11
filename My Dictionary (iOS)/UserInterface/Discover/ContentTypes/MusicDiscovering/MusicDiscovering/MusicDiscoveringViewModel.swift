@@ -82,20 +82,11 @@ final class MusicDiscoveringViewModel: BaseViewModel {
         case .idle:
             return nil
         case .loadingRecommendations:
-            return String(
-                localized: "music.recommendations.loading",
-                defaultValue: "Loading recommendations"
-            )
+            return Loc.MusicDiscovering.Status.Recommendations.loading
         case .generatingRecommendations:
-            return String(
-                localized: "music.recommendations.generating",
-                defaultValue: "Generating recommendations"
-            )
+            return Loc.MusicDiscovering.Status.Recommendations.generating
         case .loadingAppleMusic:
-            return String(
-                localized: "music.recommendations.fetching_data",
-                defaultValue: "Getting Apple Music data"
-            )
+            return Loc.MusicDiscovering.Status.Recommendations.fetchingData
         }
     }
     

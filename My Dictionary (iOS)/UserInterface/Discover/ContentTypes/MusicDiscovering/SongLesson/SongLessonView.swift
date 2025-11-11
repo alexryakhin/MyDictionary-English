@@ -84,20 +84,27 @@ struct SongLessonView: View {
     
     private func lessonOverviewSection(_ lesson: AdaptedLesson) -> some View {
         CustomSectionView(
-            header: "Lesson Path",
+            header: Loc.MusicDiscovering.Lesson.Overview.title,
             headerFontStyle: .large
         ) {
             VStack(alignment: .leading, spacing: 12) {
-                Text("Immerse yourself in **\(config.song.title)** by \(config.song.artist). This lesson guides you from lyrical meaning to cultural context before challenging you with active recall.")
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-                    .fixedSize(horizontal: false, vertical: true)
+                Text(
+                    LocalizedStringKey(
+                        Loc.MusicDiscovering.Lesson.Overview.description(
+                            config.song.title,
+                            config.song.artist
+                        )
+                    )
+                )
+                .font(.subheadline)
+                .foregroundColor(.secondary)
+                .fixedSize(horizontal: false, vertical: true)
 
                 HFlow(spacing: 8) {
                     lessonTag(title: lesson.language.englishName, systemImage: "globe.europe.africa")
                     lessonTag(title: lesson.userLevel.rawValue.uppercased(), systemImage: "chart.line.uptrend.xyaxis")
-                    lessonTag(title: "\(lesson.phrases.count) phrases", systemImage: "quote.bubble")
-                    lessonTag(title: "\(lesson.quiz.fillInBlanks.count + lesson.quiz.meaningMCQ.count) practice", systemImage: "slider.horizontal.3")
+                    lessonTag(title: Loc.MusicDiscovering.Lesson.Overview.phrasesTag(lesson.phrases.count), systemImage: "quote.bubble")
+                    lessonTag(title: Loc.MusicDiscovering.Lesson.Overview.practiceTag(lesson.quiz.fillInBlanks.count + lesson.quiz.meaningMCQ.count), systemImage: "slider.horizontal.3")
                 }
                 .font(.caption)
                 .foregroundColor(.secondary)
@@ -123,8 +130,8 @@ struct SongLessonView: View {
     private func phrasesSection() -> some View {
         let phraseItems = viewModel.phraseItems
         CustomSectionView(
-            header: "Key Phrases",
-            headerSubtitle: "Learn the expressions that shape the song’s story.",
+            header: Loc.MusicDiscovering.Lesson.Phrases.header,
+            headerSubtitle: Loc.MusicDiscovering.Lesson.Phrases.subtitle,
             hPadding: .zero
         ) {
             VStack(alignment: .leading, spacing: 12) {
@@ -132,7 +139,7 @@ struct SongLessonView: View {
                     ContentUnavailableView(
                         Loc.WordCollections.noWordsFound,
                         systemImage: "magnifyingglass",
-                        description: Text("No phrases available yet.")
+                        description: Text(Loc.MusicDiscovering.Lesson.Phrases.empty)
                     )
                     .padding(.vertical, 24)
                 } else {
@@ -171,9 +178,9 @@ struct SongLessonView: View {
     // MARK: - Grammar Section
     
     private func grammarSection(_ nuggets: [GrammarNugget]) -> some View {
-        CustomSectionView(header: "Grammar Spotlight", headerSubtitle: "Notice these structures while you listen.") {
+        CustomSectionView(header: Loc.MusicDiscovering.Lesson.Grammar.header, headerSubtitle: Loc.MusicDiscovering.Lesson.Grammar.subtitle) {
             if nuggets.isEmpty {
-                emptySectionPlaceholder("No grammar highlights for this lesson.")
+                emptySectionPlaceholder(Loc.MusicDiscovering.Lesson.Grammar.empty)
             } else {
                 LazyVStack(spacing: 12) {
                     ForEach(Array(nuggets.enumerated()), id: \.offset) { _, nugget in
@@ -214,18 +221,18 @@ struct SongLessonView: View {
     
     private func explanationsSection(_ items: [LyricExplanation]) -> some View {
         CustomSectionView(
-            header: "Lyric Insights",
-            headerSubtitle: "Line-by-line context to deepen understanding."
+            header: Loc.MusicDiscovering.Lesson.Explanations.header,
+            headerSubtitle: Loc.MusicDiscovering.Lesson.Explanations.subtitle
         ) {
             if items.isEmpty {
-                emptySectionPlaceholder("Lyric explanations will appear once available.")
+                emptySectionPlaceholder(Loc.MusicDiscovering.Lesson.Explanations.empty)
             } else {
                 VStack(alignment: .leading, spacing: 16) {
                     ForEach(items.indices, id: \.self) { index in
                         let explanation = items[index]
                         VStack(alignment: .leading, spacing: 8) {
                             if let lineNumber = explanation.lineNumber {
-                                Text("Line \(lineNumber)")
+                                Text(Loc.MusicDiscovering.Lesson.Explanations.lineNumber(lineNumber))
                                     .font(.caption)
                                     .foregroundColor(.secondary)
                             }
@@ -253,11 +260,11 @@ struct SongLessonView: View {
     
     private func cultureSection(_ note: String, languageCode: String) -> some View {
         CustomSectionView(
-            header: "Cultural Notes",
-            headerSubtitle: "Context that brings the lyrics to life."
+            header: Loc.MusicDiscovering.Lesson.Culture.header,
+            headerSubtitle: Loc.MusicDiscovering.Lesson.Culture.subtitle
         ) {
             if note.isEmpty {
-                emptySectionPlaceholder("No cultural context provided.")
+                emptySectionPlaceholder(Loc.MusicDiscovering.Lesson.Culture.empty)
             } else {
                 InteractiveText(
                     text: note,
@@ -285,11 +292,11 @@ struct SongLessonView: View {
     
     private func fillInBlanksSection(_ items: [FillInBlankItem]) -> some View {
         CustomSectionView(
-            header: "Practice • Fill the Blank",
-            headerSubtitle: "Test recall with lyric-based prompts."
+            header: Loc.MusicDiscovering.Lesson.Practice.FillBlank.header,
+            headerSubtitle: Loc.MusicDiscovering.Lesson.Practice.FillBlank.subtitle
         ) {
             if items.isEmpty {
-                emptySectionPlaceholder("Fill-in-the-blank practice will appear once available.")
+                emptySectionPlaceholder(Loc.MusicDiscovering.Lesson.Practice.FillBlank.empty)
             } else {
                 SongLesson.FillInBlankQuizView(
                     config: SongLesson.FillInBlankQuizConfig(
@@ -316,11 +323,11 @@ struct SongLessonView: View {
     
     private func multipleChoiceSection(_ items: [MCQItem], questionOffset: Int) -> some View {
         CustomSectionView(
-            header: "Practice • Comprehension Quiz",
-            headerSubtitle: "Choose the best answer to reinforce meaning."
+            header: Loc.MusicDiscovering.Lesson.Practice.Comprehension.header,
+            headerSubtitle: Loc.MusicDiscovering.Lesson.Practice.Comprehension.subtitle
         ) {
             if items.isEmpty {
-                emptySectionPlaceholder("Multiple-choice practice will appear once available.")
+                emptySectionPlaceholder(Loc.MusicDiscovering.Lesson.Practice.Comprehension.empty)
             } else {
                 SongLesson.ComprehensionQuizView(
                     config: SongLesson.ComprehensionQuizConfig(
@@ -352,21 +359,21 @@ struct SongLessonView: View {
         let isReadyToFinish = totalQuestions == 0 || answeredQuestions >= totalQuestions
 
         CustomSectionView(
-            header: "Reflect & Wrap-up",
-            headerSubtitle: "Capture what resonated and continue your streak."
+            header: Loc.MusicDiscovering.Lesson.Reflection.header,
+            headerSubtitle: Loc.MusicDiscovering.Lesson.Reflection.subtitle
         ) {
             VStack(alignment: .leading, spacing: 12) {
-                Text("When you finish the quizzes, tap **Finish** to save your progress and view lesson results.")
+                Text(LocalizedStringKey(Loc.MusicDiscovering.Lesson.Reflection.instructions))
                     .font(.subheadline)
                     .foregroundColor(.secondary)
 
                 if totalQuestions > 0 {
-                    Text("Progress: \(answeredQuestions)/\(totalQuestions) questions answered")
+                    Text(Loc.MusicDiscovering.Lesson.Reflection.progress(answeredQuestions, totalQuestions))
                         .font(.caption)
                         .foregroundColor(.secondary)
                 }
 
-                ActionButton("View Lesson Results", style: .borderedProminent) {
+                ActionButton(Loc.MusicDiscovering.Lesson.Reflection.ctaViewResults, style: .borderedProminent) {
                     viewModel.handle(.markQuizComplete)
                     viewModel.handle(.navigateToResults)
                 }

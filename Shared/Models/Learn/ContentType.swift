@@ -18,7 +18,7 @@ enum ContentType: String, CaseIterable, Identifiable, Codable {
     var displayName: String {
         switch self {
         case .music:
-            return "Music"
+            return Loc.Discover.ContentType.music
         }
     }
 }

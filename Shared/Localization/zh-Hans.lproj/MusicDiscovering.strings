@@ -1,0 +1,170 @@
+// MARK: - Music Discovering View
+"view.section.not_finished" = "尚未完成";
+"view.section.recommended_for_you" = "为你推荐";
+"view.section.favorite_songs" = "收藏歌曲";
+"view.section.history" = "历史记录";
+
+// MARK: - Search
+"view.search.loading" = "正在搜索…";
+"view.search.results_title" = "搜索结果";
+"view.search.empty_title" = "未找到结果";
+"view.search.empty_subtitle" = "换个歌曲名称或歌手再试试。";
+
+// MARK: - Recommendations
+"view.recommendations.empty_title" = "暂时没有推荐";
+"view.recommendations.empty_subtitle" = "生成一节课来发现新歌曲。";
+
+// MARK: - Recommendation Status
+"status.recommendations.loading" = "正在加载推荐";
+"status.recommendations.generating" = "正在生成推荐";
+"status.recommendations.fetching_data" = "正在获取 Apple Music 数据";
+
+// MARK: - Lesson Overview
+"lesson.overview.title" = "课程路径";
+"lesson.overview.description" = "沉浸在 %2$@ 的 **%1$@** 中。本课程将带你从歌词含义走向文化背景，并通过主动回忆巩固所学。";
+"lesson.overview.phrases_tag" = "%d 条词组";
+"lesson.overview.practice_tag" = "%d 次练习";
+"lesson.collection.title" = "%@ — 核心词组";
+
+// MARK: - Lesson Sections
+"lesson.phrases.header" = "核心词组";
+"lesson.phrases.subtitle" = "学习塑造歌词故事的表达。";
+"lesson.phrases.empty" = "暂时没有词组内容。";
+
+"lesson.grammar.header" = "语法亮点";
+"lesson.grammar.subtitle" = "聆听时留意这些结构。";
+"lesson.grammar.empty" = "本课暂无语法亮点。";
+
+"lesson.explanations.header" = "歌词解析";
+"lesson.explanations.subtitle" = "逐行提供上下文，帮助深入理解。";
+"lesson.explanations.empty" = "歌词解析稍后提供。";
+"lesson.explanations.line_number" = "第 %d 行";
+
+"lesson.culture.header" = "文化笔记";
+"lesson.culture.subtitle" = "让歌词鲜活起来的文化背景。";
+"lesson.culture.empty" = "暂无文化背景信息。";
+
+"lesson.practice.fill_blank.header" = "练习 • 填空题";
+"lesson.practice.fill_blank.subtitle" = "用歌词提示检验记忆。";
+"lesson.practice.fill_blank.empty" = "填空练习稍后提供。";
+
+"lesson.practice.comprehension.header" = "练习 • 理解测验";
+"lesson.practice.comprehension.subtitle" = "选择最佳答案以强化理解。";
+"lesson.practice.comprehension.empty" = "选择题练习稍后提供。";
+
+"lesson.reflection.header" = "反思与总结";
+"lesson.reflection.subtitle" = "记录触动你的内容，保持学习连续性。";
+"lesson.reflection.instructions" = "完成测验后点击 **完成** 保存进度并查看结果。";
+"lesson.reflection.progress" = "进度：已回答 %1$d/%2$d 题";
+"lesson.reflection.cta_view_results" = "查看课程结果";
+
+// MARK: - History
+"history.time.days" = "%dd 天前";
+"history.time.hours" = "%dh 小时前";
+"history.time.minutes" = "%dm 分钟前";
+"history.time.just_now" = "刚刚";
+"history.play_count" = "%d×";
+
+// MARK: - Player
+"player.lesson.generating" = "正在生成课程…";
+"player.lesson.loading" = "课程加载中…";
+"player.lesson.ready" = "继续课程";
+"player.lesson.failed" = "加载课程出错，要重试吗？";
+"player.lesson.unavailable" = "无法生成课程";
+"player.tips.title" = "音乐课程小贴士";
+"player.tips.header" = "为课程做好准备";
+"player.tips.intro" = "找个安静的时间，接上耳机并准备好笔记本。练习前哼唱一遍会很有帮助。";
+"player.tips.explore_title" = "逐行探索歌词";
+"player.tips.explore_message" = "点击任意歌词行即可打开翻译、词典、播放和复制等选项。";
+"player.tips.carry_title" = "把歌曲带入课程";
+"player.tips.carry_message" = "继续课程时，可随时返回这里重温歌词并再次聆听。";
+"player.tips.path_title" = "让课程成为学习路线";
+"player.tips.path_message" = "按照课程顺序学习——词组、语法、文化再到练习——巩固刚听到的内容。";
+
+// MARK: - Lesson Info Sheet
+"sheet.cta.start_lesson" = "开始课程";
+"sheet.premium.title" = "需要 Premium";
+"sheet.premium.body" = "订阅 Premium 即可解锁 AI 驱动的音乐课程洞察。";
+"sheet.premium.cta_upgrade" = "升级到 Premium";
+"sheet.lyrics_unavailable.title" = "找不到歌词";
+"sheet.lyrics_unavailable.body" = "我们未能找到这首歌的歌词，没有歌词就无法生成课程。";
+"sheet.hook.grammar" = "语法";
+"sheet.hook.cultural_note" = "文化提示";
+
+// MARK: - Results
+"results.navigation.title" = "课程完成";
+"results.header.title" = "干得好！";
+"results.header.subtitle" = "你已完成本课";
+"results.stats.accuracy" = "准确率";
+"results.stats.questions" = "题目";
+"results.stats.new_words" = "新词";
+"results.stats.time" = "时间";
+"results.discovered_words.title" = "收获词汇";
+"results.actions.share" = "分享结果";
+"results.actions.add_to_favorites" = "加入收藏";
+"results.actions.remove_from_favorites" = "从收藏移除";
+"results.actions.back_to_discover" = "返回「发现」";
+
+// MARK: - Share Preview
+"share.navigation.title" = "分享预览";
+"share.accessibility.preview_card" = "分享预览卡片";
+"share.picker.aspect_ratio" = "比例";
+"share.actions.share" = "分享";
+"share.alert.generate_failed" = "无法生成分享图片。";
+"share.aspect.square" = "正方形";
+"share.aspect.story" = "竖屏故事";
+"share.aspect.wide" = "宽屏";
+"share.card.header" = "课程完成";
+"share.card.cefr" = "CEFR %@";
+"share.card.artwork_missing" = "暂无封面";
+"share.card.by_artist" = "来自 %@";
+"share.card.answered" = "答对 %1$d/%2$d 题";
+"share.card.footer.tagline" = "继续与";
+"share.card.footer.brand" = "My Dictionary 一起学习";
+
+// MARK: - Interactive Lyrics
+"interactive_lyrics.menu.options" = "选项";
+"interactive_lyrics.empty.title" = "暂无歌词";
+
+// MARK: - Quizzes
+"quiz.common.question_progress" = "第 %1$d/%2$d 题";
+"quiz.navigation.previous" = "上一题";
+"quiz.navigation.next" = "下一题";
+"quiz.comprehension.feedback.correct" = "选择很棒！";
+"quiz.comprehension.feedback.incorrect" = "还不太对。";
+"quiz.fill_blank.prompt" = "选择缺失的词语补全歌词。";
+"quiz.fill_blank.feedback.correct" = "干得漂亮！";
+"quiz.fill_blank.feedback.incorrect" = "继续探索歌词再试下一题吧。";
+
+// MARK: - Authentication
+"auth.header.title" = "连接音乐服务";
+"auth.header.subtitle" = "连接 Apple Music，获取适合语言学习的个性化歌曲推荐。";
+"auth.apple.connect" = "连接 Apple Music";
+"auth.info.title" = "你将获得：";
+"auth.info.recommendations" = "个性化歌曲推荐";
+"auth.info.library" = "访问你的音乐库";
+"auth.info.lyrics" = "歌曲歌词与学习内容";
+"auth.info.history" = "聆听历史追踪";
+"auth.actions.open_music_app" = "打开「音乐」App";
+"auth.error.subscription_required" = "需要 Apple Music 订阅。你可以在「音乐」App 或设置中订阅。";
+"auth.error.not_registered" = "Apple Music 暂不可用，需要先为此 App 注册 MusicKit。";
+
+// MARK: - Music Errors
+"error.user_profile_not_completed" = "用户资料尚未完成";
+"error.authentication_failed" = "身份验证失败：%@";
+"error.song_not_found" = "未找到歌曲";
+"error.lyrics_not_found" = "无法获取该歌曲的歌词";
+"error.lyrics_language_not_determined" = "无法识别歌词语言";
+"error.lesson_not_found" = "未找到课程";
+"error.invalid_duration" = "歌曲时长无效";
+"error.playback_not_supported" = "该歌曲暂不支持播放";
+"error.network_error" = "网络错误：%@";
+"error.service_unavailable" = "音乐服务当前不可用";
+"error.invalid_response" = "音乐服务返回的数据无效";
+"error.token_refresh_failed" = "无法刷新身份验证令牌";
+"error.apple_music_not_registered" = "需要在 App Store Connect 中为此 App 注册 MusicKit，请联系支持。";
+"error.apple_music_subscription_required" = "使用此功能需要 Apple Music 订阅。可在「音乐」App 或设置中订阅。";
+"error.invalid_cefr_level" = "CEFR 等级无效";
+"error.no_recommendations_available" = "暂无推荐内容";
+"error.premium_required" = "此功能需要 Premium 访问权限";
+"error.hook_generation_failed" = "生成该歌曲的预览失败";

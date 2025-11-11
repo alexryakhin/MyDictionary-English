@@ -117,7 +117,7 @@ struct SongPlayerView: View {
         HStack(spacing: 12) {
             ProgressView()
             
-            Text("Generating lesson...")
+            Text(Loc.MusicDiscovering.Player.Lesson.generating)
                 .font(.subheadline)
                 .foregroundColor(.secondary)
         }
@@ -140,11 +140,11 @@ struct SongPlayerView: View {
     private var lessonButtonTitle: String {
         switch viewModel.lessonState {
         case .loading:
-            "Lesson is loading..."
+            Loc.MusicDiscovering.Player.Lesson.loading
         case .ready:
-            "Continue to Lesson"
+            Loc.MusicDiscovering.Player.Lesson.ready
         case .failed:
-            "Error loading lesson, retry?"
+            Loc.MusicDiscovering.Player.Lesson.failed
         }
     }
     
@@ -171,11 +171,11 @@ struct SongPlayerView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
                 VStack(alignment: .leading, spacing: 8) {
-                    Text("Get ready for your lesson")
+                    Text(Loc.MusicDiscovering.Player.Tips.header)
                         .font(.title2.weight(.semibold))
                         .foregroundStyle(.primary)
 
-                    Text("Find a quiet moment, connect headphones if you have them, and keep a notebook nearby. It helps to hum along once before you dive into the exercises.")
+                    Text(Loc.MusicDiscovering.Player.Tips.intro)
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                         .fixedSize(horizontal: false, vertical: true)
@@ -184,27 +184,27 @@ struct SongPlayerView: View {
                 FormWithDivider(dividerLeadingPadding: .zero, dividerTrailingPadding: .zero) {
                     tipRow(
                         icon: "list.bullet.rectangle",
-                        title: "Explore lyrics line by line",
-                        message: "Tap any lyric line to open a menu with translation, dictionary, playback, and copy options."
+                        title: Loc.MusicDiscovering.Player.Tips.exploreTitle,
+                        message: Loc.MusicDiscovering.Player.Tips.exploreMessage
                     )
 
                     tipRow(
                         icon: "book.closed",
-                        title: "Carry the song into the lesson",
-                        message: "When you continue to the lesson, you can always jump back here to revisit the lyrics and listen again."
+                        title: Loc.MusicDiscovering.Player.Tips.carryTitle,
+                        message: Loc.MusicDiscovering.Player.Tips.carryMessage
                     )
 
                     tipRow(
                         icon: "sparkles",
-                        title: "Use the lesson as a path",
-                        message: "Follow the lesson sections in order—phrases, grammar, culture, then practice—to lock in what you have just heard."
+                        title: Loc.MusicDiscovering.Player.Tips.pathTitle,
+                        message: Loc.MusicDiscovering.Player.Tips.pathMessage
                     )
                 }
             }
             .padding(vertical: 12, horizontal: 16)
         }
         .navigation(
-            title: "Music Lesson Tips",
+            title: Loc.MusicDiscovering.Player.Tips.title,
             mode: .regular,
             trailingContent: {
                 HeaderButton(Loc.Actions.done) {

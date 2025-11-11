@@ -1,0 +1,6 @@
+// MARK: - Discover Flow
+"title" = "Descoperă";
+"contentType.fiterTitle" = "Tip de conținut";
+"contentType.video" = "Video";
+"contentType.music" = "Muzică";
+"contentType.podcast" = "Podcast";

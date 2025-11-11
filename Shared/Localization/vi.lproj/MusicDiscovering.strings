@@ -1,0 +1,170 @@
+// MARK: - Music Discovering View
+"view.section.not_finished" = "Chưa hoàn tất";
+"view.section.recommended_for_you" = "Đề xuất cho bạn";
+"view.section.favorite_songs" = "Bài hát yêu thích";
+"view.section.history" = "Lịch sử";
+
+// MARK: - Search
+"view.search.loading" = "Đang tìm kiếm...";
+"view.search.results_title" = "Kết quả tìm kiếm";
+"view.search.empty_title" = "Không tìm thấy kết quả";
+"view.search.empty_subtitle" = "Hãy thử tên bài hát hoặc nghệ sĩ khác.";
+
+// MARK: - Recommendations
+"view.recommendations.empty_title" = "Chưa có đề xuất";
+"view.recommendations.empty_subtitle" = "Hãy tạo một bài học để khám phá bài hát mới.";
+
+// MARK: - Recommendation Status
+"status.recommendations.loading" = "Đang tải đề xuất";
+"status.recommendations.generating" = "Đang tạo đề xuất";
+"status.recommendations.fetching_data" = "Đang lấy dữ liệu từ Apple Music";
+
+// MARK: - Lesson Overview
+"lesson.overview.title" = "Lộ trình bài học";
+"lesson.overview.description" = "Đắm mình trong **%1$@** của %2$@. Bài học này dẫn bạn từ ý nghĩa lời ca đến bối cảnh văn hóa rồi luyện tập ghi nhớ chủ động.";
+"lesson.overview.phrases_tag" = "Cụm từ: %d";
+"lesson.overview.practice_tag" = "Luyện tập: %d";
+"lesson.collection.title" = "%@ — Cụm từ trọng tâm";
+
+// MARK: - Lesson Sections
+"lesson.phrases.header" = "Cụm từ trọng tâm";
+"lesson.phrases.subtitle" = "Học các cách diễn đạt tạo nên câu chuyện của bài hát.";
+"lesson.phrases.empty" = "Chưa có cụm từ nào.";
+
+"lesson.grammar.header" = "Ngữ pháp nổi bật";
+"lesson.grammar.subtitle" = "Chú ý các cấu trúc này trong khi nghe.";
+"lesson.grammar.empty" = "Bài học này chưa có điểm ngữ pháp.";
+
+"lesson.explanations.header" = "Hiểu sâu lời ca";
+"lesson.explanations.subtitle" = "Bối cảnh từng dòng giúp hiểu sâu hơn.";
+"lesson.explanations.empty" = "Giải thích lời ca sẽ hiển thị khi có sẵn.";
+"lesson.explanations.line_number" = "Dòng %d";
+
+"lesson.culture.header" = "Ghi chú văn hóa";
+"lesson.culture.subtitle" = "Bối cảnh khiến lời ca sống động.";
+"lesson.culture.empty" = "Chưa có bối cảnh văn hóa.";
+
+"lesson.practice.fill_blank.header" = "Luyện tập • Điền vào chỗ trống";
+"lesson.practice.fill_blank.subtitle" = "Kiểm tra trí nhớ với gợi ý từ lời ca.";
+"lesson.practice.fill_blank.empty" = "Bài tập điền từ sẽ xuất hiện khi có sẵn.";
+
+"lesson.practice.comprehension.header" = "Luyện tập • Trắc nghiệm hiểu bài";
+"lesson.practice.comprehension.subtitle" = "Chọn đáp án tốt nhất để củng cố ý nghĩa.";
+"lesson.practice.comprehension.empty" = "Bài tập trắc nghiệm sẽ xuất hiện khi có sẵn.";
+
+"lesson.reflection.header" = "Suy ngẫm & kết thúc";
+"lesson.reflection.subtitle" = "Ghi lại điều khiến bạn đồng cảm và tiếp tục chuỗi học tập.";
+"lesson.reflection.instructions" = "Khi hoàn thành các bài kiểm tra, chạm **Hoàn tất** để lưu tiến trình và xem kết quả.";
+"lesson.reflection.progress" = "Tiến độ: đã trả lời %1$d/%2$d câu hỏi";
+"lesson.reflection.cta_view_results" = "Xem kết quả bài học";
+
+// MARK: - History
+"history.time.days" = "%dd ngày trước";
+"history.time.hours" = "%dh giờ trước";
+"history.time.minutes" = "%dm phút trước";
+"history.time.just_now" = "Vừa xong";
+"history.play_count" = "%d×";
+
+// MARK: - Player
+"player.lesson.generating" = "Đang tạo bài học...";
+"player.lesson.loading" = "Đang tải bài học...";
+"player.lesson.ready" = "Tiếp tục tới bài học";
+"player.lesson.failed" = "Lỗi tải bài học, thử lại?";
+"player.lesson.unavailable" = "Không thể tạo bài học";
+"player.tips.title" = "Mẹo cho bài học âm nhạc";
+"player.tips.header" = "Sẵn sàng cho bài học";
+"player.tips.intro" = "Hãy tìm thời gian yên tĩnh, đeo tai nghe nếu có và giữ sổ ghi chép bên cạnh. Hát ngân một lần trước khi luyện tập sẽ rất hữu ích.";
+"player.tips.explore_title" = "Khám phá lời ca từng dòng";
+"player.tips.explore_message" = "Chạm vào bất kỳ dòng nào để mở tùy chọn dịch, từ điển, phát lại và sao chép.";
+"player.tips.carry_title" = "Mang bài hát vào bài học";
+"player.tips.carry_message" = "Khi tiếp tục bài học, bạn luôn có thể quay lại đây để xem lại lời ca và nghe lần nữa.";
+"player.tips.path_title" = "Dùng bài học như một lộ trình";
+"player.tips.path_message" = "Hãy theo bài học theo thứ tự — cụm từ, ngữ pháp, văn hóa rồi luyện tập — để khắc sâu những gì bạn vừa nghe.";
+
+// MARK: - Lesson Info Sheet
+"sheet.cta.start_lesson" = "Đi tới bài học";
+"sheet.premium.title" = "Cần Premium";
+"sheet.premium.body" = "Các bài học âm nhạc với thông tin từ AI có sẵn khi đăng ký Premium.";
+"sheet.premium.cta_upgrade" = "Nâng cấp lên Premium";
+"sheet.lyrics_unavailable.title" = "Không có lời bài hát";
+"sheet.lyrics_unavailable.body" = "Chúng tôi không thể tìm thấy lời của bài hát này. Không thể tạo bài học nếu thiếu lời.";
+"sheet.hook.grammar" = "Ngữ pháp";
+"sheet.hook.cultural_note" = "Ghi chú văn hóa";
+
+// MARK: - Results
+"results.navigation.title" = "Hoàn thành bài học";
+"results.header.title" = "Làm tốt lắm!";
+"results.header.subtitle" = "Bạn đã hoàn tất bài học";
+"results.stats.accuracy" = "Độ chính xác";
+"results.stats.questions" = "Câu hỏi";
+"results.stats.new_words" = "Từ mới";
+"results.stats.time" = "Thời gian";
+"results.discovered_words.title" = "Từ đã khám phá";
+"results.actions.share" = "Chia sẻ kết quả";
+"results.actions.add_to_favorites" = "Thêm vào mục yêu thích";
+"results.actions.remove_from_favorites" = "Xóa khỏi yêu thích";
+"results.actions.back_to_discover" = "Quay lại Discover";
+
+// MARK: - Share Preview
+"share.navigation.title" = "Xem trước chia sẻ";
+"share.accessibility.preview_card" = "Thẻ xem trước chia sẻ";
+"share.picker.aspect_ratio" = "Tỷ lệ khung hình";
+"share.actions.share" = "Chia sẻ";
+"share.alert.generate_failed" = "Không thể tạo hình ảnh để chia sẻ.";
+"share.aspect.square" = "Vuông";
+"share.aspect.story" = "Story";
+"share.aspect.wide" = "Rộng";
+"share.card.header" = "Hoàn thành bài học";
+"share.card.cefr" = "CEFR %@";
+"share.card.artwork_missing" = "Không có ảnh minh họa";
+"share.card.by_artist" = "của %@";
+"share.card.answered" = "Trả lời đúng %1$d/%2$d";
+"share.card.footer.tagline" = "Tiếp tục học cùng";
+"share.card.footer.brand" = "My Dictionary";
+
+// MARK: - Interactive Lyrics
+"interactive_lyrics.menu.options" = "Tùy chọn";
+"interactive_lyrics.empty.title" = "Không có lời bài hát";
+
+// MARK: - Quizzes
+"quiz.common.question_progress" = "Câu %1$d trên %2$d";
+"quiz.navigation.previous" = "Trước";
+"quiz.navigation.next" = "Tiếp";
+"quiz.comprehension.feedback.correct" = "Lựa chọn tuyệt vời!";
+"quiz.comprehension.feedback.incorrect" = "Chưa chính xác lắm.";
+"quiz.fill_blank.prompt" = "Hoàn thiện lời ca bằng cách chọn từ còn thiếu.";
+"quiz.fill_blank.feedback.correct" = "Làm tốt lắm!";
+"quiz.fill_blank.feedback.incorrect" = "Tiếp tục khám phá lời ca và thử câu tiếp theo.";
+
+// MARK: - Authentication
+"auth.header.title" = "Kết nối dịch vụ âm nhạc";
+"auth.header.subtitle" = "Kết nối Apple Music để khám phá đề xuất bài hát cá nhân hóa cho việc học ngôn ngữ.";
+"auth.apple.connect" = "Kết nối với Apple Music";
+"auth.info.title" = "Bạn sẽ nhận được:";
+"auth.info.recommendations" = "Đề xuất bài hát dành riêng cho bạn";
+"auth.info.library" = "Truy cập thư viện nhạc của bạn";
+"auth.info.lyrics" = "Lời bài hát và nội dung học tập";
+"auth.info.history" = "Theo dõi lịch sử nghe";
+"auth.actions.open_music_app" = "Mở ứng dụng Nhạc";
+"auth.error.subscription_required" = "Cần đăng ký Apple Music. Bạn có thể đăng ký trong ứng dụng Nhạc hoặc Cài đặt.";
+"auth.error.not_registered" = "Apple Music chưa khả dụng. Ứng dụng cần được đăng ký với MusicKit.";
+
+// MARK: - Music Errors
+"error.user_profile_not_completed" = "Hồ sơ người dùng chưa hoàn tất";
+"error.authentication_failed" = "Xác thực thất bại: %@";
+"error.song_not_found" = "Không tìm thấy bài hát";
+"error.lyrics_not_found" = "Không có lời cho bài hát này";
+"error.lyrics_language_not_determined" = "Không xác định được ngôn ngữ lời ca";
+"error.lesson_not_found" = "Không tìm thấy bài học";
+"error.invalid_duration" = "Thời lượng bài hát không hợp lệ";
+"error.playback_not_supported" = "Không hỗ trợ phát bài hát này";
+"error.network_error" = "Lỗi mạng: %@";
+"error.service_unavailable" = "Dịch vụ âm nhạc hiện không khả dụng";
+"error.invalid_response" = "Phản hồi từ dịch vụ âm nhạc không hợp lệ";
+"error.token_refresh_failed" = "Không thể làm mới mã xác thực";
+"error.apple_music_not_registered" = "Ứng dụng cần được đăng ký với MusicKit trong App Store Connect. Vui lòng liên hệ bộ phận hỗ trợ.";
+"error.apple_music_subscription_required" = "Cần đăng ký Apple Music để dùng tính năng này. Bạn có thể đăng ký trong ứng dụng Nhạc hoặc Cài đặt.";
+"error.invalid_cefr_level" = "Mức CEFR không hợp lệ";
+"error.no_recommendations_available" = "Không có đề xuất";
+"error.premium_required" = "Cần quyền truy cập Premium cho tính năng này";
+"error.hook_generation_failed" = "Không thể tạo bản xem trước cho bài hát này";

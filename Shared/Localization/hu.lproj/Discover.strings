@@ -1,0 +1,6 @@
+// MARK: - Discover Flow
+"title" = "Felfedezés";
+"contentType.fiterTitle" = "Tartalomtípus";
+"contentType.video" = "Videó";
+"contentType.music" = "Zene";
+"contentType.podcast" = "Podcast";

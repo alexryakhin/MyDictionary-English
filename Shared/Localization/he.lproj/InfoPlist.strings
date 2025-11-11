@@ -1,2 +1,3 @@
 CFBundleDisplayName = "המילון שלי";
 CFBundleName = "המילון שלי";
+"NSAppleMusicUsageDescription" = "My Dictionary זקוקה לגישה ל-Apple Music כדי לגלות שירים מותאמים אישית ללימוד שפות. כך האפליקציה יכולה לחפש שירים בשפת היעד שלך ולהציע המלצות בהתאם לפרופיל הלמידה שלך.";

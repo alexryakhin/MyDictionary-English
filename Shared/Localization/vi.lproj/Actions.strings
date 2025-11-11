@@ -61,3 +61,6 @@
 "load_more" = "Tải thêm";
 "loading_more" = "Đang tải...";
 "copy_email" = "Sao chép e-mail";
+"play" = "Phát";
+"pause" = "Tạm dừng";
+"playFromHere" = "Phát từ đây";

@@ -1,2 +1,3 @@
 CFBundleDisplayName = "Mój Słownik";
 CFBundleName = "Mój Słownik";
+"NSAppleMusicUsageDescription" = "My Dictionary potrzebuje dostępu do Apple Music, aby odkrywać spersonalizowane piosenki do nauki języków. Dzięki temu aplikacja może wyszukiwać utwory w docelowym języku i oferować rekomendacje na podstawie twojego profilu nauki.";

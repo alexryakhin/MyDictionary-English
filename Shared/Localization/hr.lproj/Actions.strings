@@ -61,3 +61,6 @@
 "load_more" = "Učitaj više";
 "loading_more" = "Učitavanje...";
 "copy_email" = "Kopiraj e-poštu";
+"play" = "Reproduciraj";
+"pause" = "Pauza";
+"playFromHere" = "Reproduciraj odavde";

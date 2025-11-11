@@ -1,2 +1,3 @@
 CFBundleDisplayName = "Môj Slovník";
 CFBundleName = "Môj Slovník";
+"NSAppleMusicUsageDescription" = "My Dictionary potrebuje prístup k Apple Music, aby objavoval personalizované skladby na učenie jazykov. Vďaka tomu môže aplikácia vyhľadávať skladby v tvojom cieľovom jazyku a ponúkať odporúčania podľa tvojho profilu učenia.";

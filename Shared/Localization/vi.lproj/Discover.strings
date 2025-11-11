@@ -1,0 +1,6 @@
+// MARK: - Discover Flow
+"title" = "Khám phá";
+"contentType.fiterTitle" = "Loại nội dung";
+"contentType.video" = "Video";
+"contentType.music" = "Nhạc";
+"contentType.podcast" = "Podcast";

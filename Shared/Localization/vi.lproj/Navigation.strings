@@ -1,4 +1,6 @@
 // MARK: - Tab Bar
+"tabbar.vocabulary" = "Từ điển";
+"tabbar.discover" = "Khám phá";
 "tabbar.quizzes" = "Bài kiểm tra";
 "tabbar.progress" = "Tiến độ";
 "tabbar.settings" = "Cài đặt";

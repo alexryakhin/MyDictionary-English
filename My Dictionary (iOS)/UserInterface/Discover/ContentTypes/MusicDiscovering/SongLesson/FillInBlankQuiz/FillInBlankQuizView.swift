@@ -27,7 +27,7 @@ extension SongLesson {
                 )
                 .progressViewStyle(.linear)
 
-                Text("Question \(viewModel.currentQuestionIndex + 1) of \(viewModel.items.count)")
+                Text(Loc.MusicDiscovering.Quiz.Common.questionProgress(viewModel.currentQuestionIndex + 1, viewModel.items.count))
                     .font(.caption)
                     .foregroundColor(.secondary)
 
@@ -42,7 +42,7 @@ extension SongLesson {
         private func quizCard(for item: FillInBlankItem) -> some View {
             VStack(alignment: .leading, spacing: 12) {
                 VStack(alignment: .leading, spacing: 4) {
-                    Text("Complete the lyric by choosing the missing word.")
+                    Text(Loc.MusicDiscovering.Quiz.FillBlank.prompt)
                         .font(.subheadline)
                         .foregroundColor(.primary)
 
@@ -110,7 +110,7 @@ extension SongLesson {
                 Image(systemName: isCorrect ? "checkmark.circle.fill" : "xmark.circle.fill")
                     .foregroundColor(isCorrect ? .green : .red)
 
-                Text(isCorrect ? "Nice work!" : "Keep exploring the lyrics and try the next one.")
+                Text(isCorrect ? Loc.MusicDiscovering.Quiz.FillBlank.Feedback.correct : Loc.MusicDiscovering.Quiz.FillBlank.Feedback.incorrect)
                     .font(.caption)
                     .foregroundColor(.secondary)
             }
@@ -122,7 +122,7 @@ extension SongLesson {
         private func questionNavigation() -> some View {
             HStack {
                 ActionButton(
-                    "Previous",
+                    Loc.MusicDiscovering.Quiz.Navigation.previous,
                     systemImage: "chevron.left"
                 ) {
                     viewModel.goToPreviousQuestion()
@@ -130,7 +130,7 @@ extension SongLesson {
                 .disabled(viewModel.currentQuestionIndex == 0)
 
                 ActionButton(
-                    "Next",
+                    Loc.MusicDiscovering.Quiz.Navigation.next,
                     systemImage: "chevron.right"
                 ) {
                     viewModel.goToNextQuestion()

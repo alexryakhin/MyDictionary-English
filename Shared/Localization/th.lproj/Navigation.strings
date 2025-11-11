@@ -1,4 +1,6 @@
 // MARK: - Tab Bar
+"tabbar.vocabulary" = "พจนานุกรมของฉัน";
+"tabbar.discover" = "สำรวจ";
 "tabbar.quizzes" = "แบบทดสอบ";
 "tabbar.progress" = "ความคืบหน้า";
 "tabbar.settings" = "การตั้งค่า";

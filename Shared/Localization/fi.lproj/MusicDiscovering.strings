@@ -1,0 +1,170 @@
+// MARK: - Music Discovering View
+"view.section.not_finished" = "Kesken";
+"view.section.recommended_for_you" = "Suositeltu sinulle";
+"view.section.favorite_songs" = "Lempikappaleet";
+"view.section.history" = "Historia";
+
+// MARK: - Search
+"view.search.loading" = "Haetaan...";
+"view.search.results_title" = "Hakutulokset";
+"view.search.empty_title" = "Tuloksia ei löytynyt";
+"view.search.empty_subtitle" = "Kokeile toista kappaleen nimeä tai esittäjää.";
+
+// MARK: - Recommendations
+"view.recommendations.empty_title" = "Ei vielä suosituksia";
+"view.recommendations.empty_subtitle" = "Luo oppitunti löytääksesi uusia kappaleita.";
+
+// MARK: - Recommendation Status
+"status.recommendations.loading" = "Ladataan suosituksia";
+"status.recommendations.generating" = "Luodaan suosituksia";
+"status.recommendations.fetching_data" = "Haetaan Apple Music -dataa";
+
+// MARK: - Lesson Overview
+"lesson.overview.title" = "Oppitunnin polku";
+"lesson.overview.description" = "Sukella kappaleeseen **%1$@** (%2$@). Tämä oppitunti kuljettaa sinut sanoitusten merkityksestä kulttuuriseen taustaan ja haastaa lopuksi aktiivisen muistisi.";
+"lesson.overview.phrases_tag" = "Fraaseja: %d";
+"lesson.overview.practice_tag" = "Harjoituksia: %d";
+"lesson.collection.title" = "%@ — Avainfraasit";
+
+// MARK: - Lesson Sections
+"lesson.phrases.header" = "Avainfraasit";
+"lesson.phrases.subtitle" = "Opettele ilmaukset, jotka rakentavat kappaleen tarinan.";
+"lesson.phrases.empty" = "Fraasit eivät ole vielä saatavilla.";
+
+"lesson.grammar.header" = "Kielioppi esiin";
+"lesson.grammar.subtitle" = "Kiinnitä huomiota näihin rakenteisiin kuunnellessasi.";
+"lesson.grammar.empty" = "Tällä oppitunnilla ei ole kielioppinostoja.";
+
+"lesson.explanations.header" = "Sanoitusten syventäminen";
+"lesson.explanations.subtitle" = "Rivi riviltä etenevä konteksti syventää ymmärrystä.";
+"lesson.explanations.empty" = "Sanoitusten selitykset näkyvät, kun ne ovat saatavilla.";
+"lesson.explanations.line_number" = "Rivi %d";
+
+"lesson.culture.header" = "Kulttuurimuistiinpanot";
+"lesson.culture.subtitle" = "Konteksti, joka herättää sanoitukset eloon.";
+"lesson.culture.empty" = "Kulttuurista taustaa ei ole saatavilla.";
+
+"lesson.practice.fill_blank.header" = "Harjoittelu • Täydennä aukko";
+"lesson.practice.fill_blank.subtitle" = "Testaa muistia sanoituksiin perustuvilla vihjeillä.";
+"lesson.practice.fill_blank.empty" = "Täydennystehtävät näkyvät, kun ne ovat saatavilla.";
+
+"lesson.practice.comprehension.header" = "Harjoittelu • Ymmärtämiskoe";
+"lesson.practice.comprehension.subtitle" = "Valitse paras vastaus vahvistaaksesi merkityksen.";
+"lesson.practice.comprehension.empty" = "Monivalintaharjoitukset näkyvät, kun ne ovat saatavilla.";
+
+"lesson.reflection.header" = "Pohdi ja päätä";
+"lesson.reflection.subtitle" = "Kirjaa ylös se, mikä kosketti sinua, ja jatka putkea.";
+"lesson.reflection.instructions" = "Kun olet suorittanut visat, napauta **Valmis** tallentaaksesi edistymisesi ja nähdäksesi tulokset.";
+"lesson.reflection.progress" = "Edistyminen: %1$d/%2$d kysymystä vastattu";
+"lesson.reflection.cta_view_results" = "Näytä oppitunnin tulokset";
+
+// MARK: - History
+"history.time.days" = "%dd sitten";
+"history.time.hours" = "%dh sitten";
+"history.time.minutes" = "%dm sitten";
+"history.time.just_now" = "Juuri nyt";
+"history.play_count" = "%d×";
+
+// MARK: - Player
+"player.lesson.generating" = "Oppituntia luodaan...";
+"player.lesson.loading" = "Oppituntia ladataan...";
+"player.lesson.ready" = "Jatka oppitunnille";
+"player.lesson.failed" = "Virhe oppitunnin latauksessa. Yritetäänkö uudelleen?";
+"player.lesson.unavailable" = "Oppituntia ei voitu luoda";
+"player.tips.title" = "Vinkkejä musiikkioppitunnille";
+"player.tips.header" = "Valmistaudu oppituntiin";
+"player.tips.intro" = "Etsi rauhallinen hetki, liitä kuulokkeet jos sinulla on ja pidä muistivihko käden ulottuvilla. On hyödyllistä hyräillä kerran ennen harjoituksia.";
+"player.tips.explore_title" = "Tutki sanoituksia rivi riviltä";
+"player.tips.explore_message" = "Napauta mitä tahansa rivin tekstistä avataksesi valikon, jossa on käännös-, sanakirja-, toisto- ja kopiointivaihtoehdot.";
+"player.tips.carry_title" = "Vie kappale oppitunnille";
+"player.tips.carry_message" = "Kun jatkat oppitunnille, voit aina palata tänne tarkastelemaan sanoituksia ja kuuntelemaan uudelleen.";
+"player.tips.path_title" = "Käytä oppituntia polkuna";
+"player.tips.path_message" = "Seuraa oppitunnin osioita järjestyksessä—fraasit, kielioppi, kulttuuri ja lopuksi harjoitus—jotta sisäistät kuulemasi.";
+
+// MARK: - Lesson Info Sheet
+"sheet.cta.start_lesson" = "Siirry oppitunnille";
+"sheet.premium.title" = "Premium vaaditaan";
+"sheet.premium.body" = "Musiikkioppitunnit tekoälypohjaisilla oivalluksilla ovat saatavilla Premium-tilauksella.";
+"sheet.premium.cta_upgrade" = "Päivitä Premiumiin";
+"sheet.lyrics_unavailable.title" = "Sanoituksia ei saatavilla";
+"sheet.lyrics_unavailable.body" = "Emme valitettavasti löytäneet tämän kappaleen sanoituksia. Ilman sanoituksia oppituntia ei voi luoda.";
+"sheet.hook.grammar" = "Kielioppi";
+"sheet.hook.cultural_note" = "Kulttuurinen huomio";
+
+// MARK: - Results
+"results.navigation.title" = "Oppitunti valmis";
+"results.header.title" = "Hienoa työtä!";
+"results.header.subtitle" = "Suoritit oppitunnin";
+"results.stats.accuracy" = "Tarkkuus";
+"results.stats.questions" = "Kysymykset";
+"results.stats.new_words" = "Uudet sanat";
+"results.stats.time" = "Aika";
+"results.discovered_words.title" = "Löydetyt sanat";
+"results.actions.share" = "Jaa tulokset";
+"results.actions.add_to_favorites" = "Lisää suosikkeihin";
+"results.actions.remove_from_favorites" = "Poista suosikeista";
+"results.actions.back_to_discover" = "Takaisin Löydä-osioon";
+
+// MARK: - Share Preview
+"share.navigation.title" = "Jaa-esikatselu";
+"share.accessibility.preview_card" = "Jaon esikatselukortti";
+"share.picker.aspect_ratio" = "Kuvasuhde";
+"share.actions.share" = "Jaa";
+"share.alert.generate_failed" = "Jaettavaa kuvaa ei voitu luoda.";
+"share.aspect.square" = "Neliö";
+"share.aspect.story" = "Story";
+"share.aspect.wide" = "Vaaka";
+"share.card.header" = "Oppitunti valmis";
+"share.card.cefr" = "CEFR %@";
+"share.card.artwork_missing" = "Kuvitus puuttuu";
+"share.card.by_artist" = "esittäjä %@";
+"share.card.answered" = "%1$d/%2$d oikein";
+"share.card.footer.tagline" = "Jatka oppimista palvelussa";
+"share.card.footer.brand" = "My Dictionary";
+
+// MARK: - Interactive Lyrics
+"interactive_lyrics.menu.options" = "Vaihtoehdot";
+"interactive_lyrics.empty.title" = "Sanoituksia ei ole saatavilla";
+
+// MARK: - Quizzes
+"quiz.common.question_progress" = "Kysymys %1$d/%2$d";
+"quiz.navigation.previous" = "Edellinen";
+"quiz.navigation.next" = "Seuraava";
+"quiz.comprehension.feedback.correct" = "Hieno valinta!";
+"quiz.comprehension.feedback.incorrect" = "Ei ihan niin.";
+"quiz.fill_blank.prompt" = "Täydennä sanoitus valitsemalla puuttuva sana.";
+"quiz.fill_blank.feedback.correct" = "Hyvin tehty!";
+"quiz.fill_blank.feedback.incorrect" = "Jatka sanoitusten tutkimista ja kokeile seuraavaa.";
+
+// MARK: - Authentication
+"auth.header.title" = "Yhdistä musiikkipalveluihin";
+"auth.header.subtitle" = "Yhdistä Apple Musiciin ja löydä henkilökohtaiset kappalesuositukset kielten oppimiseen.";
+"auth.apple.connect" = "Yhdistä Apple Musiciin";
+"auth.info.title" = "Saat käyttöösi:";
+"auth.info.recommendations" = "Henkilökohtaiset kappalesuositukset";
+"auth.info.library" = "Pääsyn musiikkikirjastoosi";
+"auth.info.lyrics" = "Kappaleiden sanoitukset ja oppimissisältö";
+"auth.info.history" = "Kuunteluhistorian seurannan";
+"auth.actions.open_music_app" = "Avaa Musiikki-sovellus";
+"auth.error.subscription_required" = "Apple Music -tilaus vaaditaan. Voit tilata Musiikki-sovelluksessa tai Asetuksissa.";
+"auth.error.not_registered" = "Apple Music ei ole käytettävissä. Tämä sovellus on rekisteröitävä MusicKit-palveluun.";
+
+// MARK: - Music Errors
+"error.user_profile_not_completed" = "Käyttäjäprofiilia ei ole täydennetty";
+"error.authentication_failed" = "Tunnistautuminen epäonnistui: %@";
+"error.song_not_found" = "Kappaletta ei löydy";
+"error.lyrics_not_found" = "Sanoituksia ei ole saatavilla tälle kappaleelle";
+"error.lyrics_language_not_determined" = "Sanoitusten kieltä ei tunnistettu";
+"error.lesson_not_found" = "Oppituntia ei löytynyt";
+"error.invalid_duration" = "Virheellinen kappaleen kesto";
+"error.playback_not_supported" = "Toisto ei ole tuettu tälle kappaleelle";
+"error.network_error" = "Verkkovirhe: %@";
+"error.service_unavailable" = "Musiikkipalvelu ei ole juuri nyt käytettävissä";
+"error.invalid_response" = "Virheellinen vastaus musiikkipalvelulta";
+"error.token_refresh_failed" = "Tunnistautumistunnusta ei voitu päivittää";
+"error.apple_music_not_registered" = "Tämä sovellus pitää rekisteröidä MusicKit-palveluun App Store Connectissa. Ota yhteyttä tukeen.";
+"error.apple_music_subscription_required" = "Apple Music -tilaus vaaditaan tämän ominaisuuden käyttöön. Voit tilata Musiikki-sovelluksessa tai Asetuksissa.";
+"error.invalid_cefr_level" = "Virheellinen CEFR-taso";
+"error.no_recommendations_available" = "Suosituksia ei ole saatavilla";
+"error.premium_required" = "Tämä ominaisuus edellyttää Premium-käyttöoikeutta";
+"error.hook_generation_failed" = "Esikatselua ei voitu luoda tälle kappaleelle";

@@ -1,0 +1,170 @@
+// MARK: - Music Discovering View
+"view.section.not_finished" = "ยังไม่เสร็จ";
+"view.section.recommended_for_you" = "แนะนำสำหรับคุณ";
+"view.section.favorite_songs" = "เพลงโปรด";
+"view.section.history" = "ประวัติ";
+
+// MARK: - Search
+"view.search.loading" = "กำลังค้นหา...";
+"view.search.results_title" = "ผลการค้นหา";
+"view.search.empty_title" = "ไม่พบผลลัพธ์";
+"view.search.empty_subtitle" = "ลองชื่อเพลงหรือศิลปินอื่น";
+
+// MARK: - Recommendations
+"view.recommendations.empty_title" = "ยังไม่มีคำแนะนำ";
+"view.recommendations.empty_subtitle" = "สร้างบทเรียนเพื่อค้นหาเพลงใหม่ ๆ";
+
+// MARK: - Recommendation Status
+"status.recommendations.loading" = "กำลังโหลดคำแนะนำ";
+"status.recommendations.generating" = "กำลังสร้างคำแนะนำ";
+"status.recommendations.fetching_data" = "กำลังดึงข้อมูลจาก Apple Music";
+
+// MARK: - Lesson Overview
+"lesson.overview.title" = "เส้นทางบทเรียน";
+"lesson.overview.description" = "ดื่มด่ำกับ **%1$@** โดย %2$@ บทเรียนนี้พาคุณเดินจากความหมายของเนื้อเพลงไปสู่บริบททางวัฒนธรรม ก่อนท้าทายด้วยการทบทวนแบบลงมือจริง";
+"lesson.overview.phrases_tag" = "วลี %d";
+"lesson.overview.practice_tag" = "แบบฝึกหัด %d";
+"lesson.collection.title" = "%@ — วลีสำคัญ";
+
+// MARK: - Lesson Sections
+"lesson.phrases.header" = "วลีสำคัญ";
+"lesson.phrases.subtitle" = "เรียนรู้สำนวนที่กำหนดเรื่องราวของเพลง";
+"lesson.phrases.empty" = "ยังไม่มีวลีให้ใช้งาน";
+
+"lesson.grammar.header" = "ไวยากรณ์เด่น";
+"lesson.grammar.subtitle" = "สังเกตโครงสร้างเหล่านี้ระหว่างฟัง";
+"lesson.grammar.empty" = "บทเรียนนี้ยังไม่มีประเด็นไวยากรณ์";
+
+"lesson.explanations.header" = "เจาะลึกเนื้อเพลง";
+"lesson.explanations.subtitle" = "บริบททีละบรรทัดเพื่อเสริมความเข้าใจ";
+"lesson.explanations.empty" = "คำอธิบายเนื้อเพลงจะแสดงเมื่อพร้อม";
+"lesson.explanations.line_number" = "บรรทัด %d";
+
+"lesson.culture.header" = "หมายเหตุวัฒนธรรม";
+"lesson.culture.subtitle" = "บริบทที่ทำให้เนื้อเพลงมีชีวิตชีวา";
+"lesson.culture.empty" = "ยังไม่มีบริบททางวัฒนธรรม";
+
+"lesson.practice.fill_blank.header" = "ฝึกฝน • เติมคำในช่องว่าง";
+"lesson.practice.fill_blank.subtitle" = "ทดสอบความจำด้วยคำใบ้จากเนื้อเพลง";
+"lesson.practice.fill_blank.empty" = "แบบฝึกเติมคำจะแสดงเมื่อพร้อม";
+
+"lesson.practice.comprehension.header" = "ฝึกฝน • แบบทดสอบความเข้าใจ";
+"lesson.practice.comprehension.subtitle" = "เลือกคำตอบที่ดีที่สุดเพื่อย้ำความหมาย";
+"lesson.practice.comprehension.empty" = "แบบฝึกแบบเลือกตอบจะแสดงเมื่อพร้อม";
+
+"lesson.reflection.header" = "ทบทวนและสรุป";
+"lesson.reflection.subtitle" = "บันทึกสิ่งที่โดนใจและรักษาสถิติของคุณต่อไป";
+"lesson.reflection.instructions" = "เมื่อทำแบบทดสอบเสร็จแล้ว แตะ **เสร็จสิ้น** เพื่อบันทึกความคืบหน้าและดูผลลัพธ์";
+"lesson.reflection.progress" = "ความคืบหน้า: ตอบแล้ว %1$d/%2$d ข้อ";
+"lesson.reflection.cta_view_results" = "ดูผลลัพธ์บทเรียน";
+
+// MARK: - History
+"history.time.days" = "%dd วันก่อน";
+"history.time.hours" = "%dh ชั่วโมงก่อน";
+"history.time.minutes" = "%dm นาทีก่อน";
+"history.time.just_now" = "เมื่อสักครู่";
+"history.play_count" = "%d×";
+
+// MARK: - Player
+"player.lesson.generating" = "กำลังสร้างบทเรียน...";
+"player.lesson.loading" = "กำลังโหลดบทเรียน...";
+"player.lesson.ready" = "ไปต่อยังบทเรียน";
+"player.lesson.failed" = "เกิดข้อผิดพลาดในการโหลดบทเรียน ลองอีกครั้ง?";
+"player.lesson.unavailable" = "ไม่สามารถสร้างบทเรียนได้";
+"player.tips.title" = "เคล็ดลับบทเรียนดนตรี";
+"player.tips.header" = "เตรียมพร้อมสำหรับบทเรียน";
+"player.tips.intro" = "หาช่วงเวลาที่เงียบ เชื่อมต่อหูฟังถ้ามี และเตรียมสมุดไว้ใกล้ตัว การฮัมทำนองเบา ๆ ก่อนเริ่มฝึกช่วยได้มาก";
+"player.tips.explore_title" = "สำรวจเนื้อเพลงทีละบรรทัด";
+"player.tips.explore_message" = "แตะบรรทัดใดก็ได้เพื่อเปิดเมนูแปลภาษา พจนานุกรม เล่นซ้ำ และคัดลอก";
+"player.tips.carry_title" = "พาเพลงเข้าสู่บทเรียน";
+"player.tips.carry_message" = "เมื่อเข้าสู่บทเรียน คุณสามารถกลับมาที่นี่เพื่อทบทวนเนื้อเพลงและฟังซ้ำได้เสมอ";
+"player.tips.path_title" = "ใช้บทเรียนเป็นเส้นทาง";
+"player.tips.path_message" = "ทำตามส่วนของบทเรียนตามลำดับ—วลี ไวยากรณ์ วัฒนธรรม และการฝึกฝน—เพื่อยึดสิ่งที่ได้ยินไว้ให้มั่นคง";
+
+// MARK: - Lesson Info Sheet
+"sheet.cta.start_lesson" = "ไปที่บทเรียน";
+"sheet.premium.title" = "ต้องใช้ Premium";
+"sheet.premium.body" = "บทเรียนดนตรีพร้อมข้อมูลเชิงลึกจาก AI ใช้ได้เมื่อสมัครสมาชิก Premium";
+"sheet.premium.cta_upgrade" = "อัปเกรดเป็น Premium";
+"sheet.lyrics_unavailable.title" = "ไม่มีเนื้อเพลง";
+"sheet.lyrics_unavailable.body" = "เราไม่สามารถค้นหาเนื้อเพลงของเพลงนี้ได้ จึงไม่สามารถสร้างบทเรียนได้";
+"sheet.hook.grammar" = "ไวยากรณ์";
+"sheet.hook.cultural_note" = "เกร็ดวัฒนธรรม";
+
+// MARK: - Results
+"results.navigation.title" = "บทเรียนเสร็จสมบูรณ์";
+"results.header.title" = "ยอดเยี่ยม!";
+"results.header.subtitle" = "คุณเรียนจบบทเรียนแล้ว";
+"results.stats.accuracy" = "ความแม่นยำ";
+"results.stats.questions" = "คำถาม";
+"results.stats.new_words" = "คำศัพท์ใหม่";
+"results.stats.time" = "เวลา";
+"results.discovered_words.title" = "คำศัพท์ที่ค้นพบ";
+"results.actions.share" = "แชร์ผลลัพธ์";
+"results.actions.add_to_favorites" = "เพิ่มในรายการโปรด";
+"results.actions.remove_from_favorites" = "นำออกจากรายการโปรด";
+"results.actions.back_to_discover" = "กลับไปที่ Discover";
+
+// MARK: - Share Preview
+"share.navigation.title" = "ตัวอย่างก่อนแชร์";
+"share.accessibility.preview_card" = "การ์ดตัวอย่างก่อนแชร์";
+"share.picker.aspect_ratio" = "อัตราส่วน";
+"share.actions.share" = "แชร์";
+"share.alert.generate_failed" = "ไม่สามารถสร้างภาพสำหรับแชร์ได้";
+"share.aspect.square" = "สี่เหลี่ยมจัตุรัส";
+"share.aspect.story" = "Story";
+"share.aspect.wide" = "กว้าง";
+"share.card.header" = "บทเรียนเสร็จสมบูรณ์";
+"share.card.cefr" = "CEFR %@";
+"share.card.artwork_missing" = "ไม่มีภาพปก";
+"share.card.by_artist" = "โดย %@";
+"share.card.answered" = "ตอบถูก %1$d/%2$d ข้อ";
+"share.card.footer.tagline" = "เรียนรู้ต่อไปกับ";
+"share.card.footer.brand" = "My Dictionary";
+
+// MARK: - Interactive Lyrics
+"interactive_lyrics.menu.options" = "ตัวเลือก";
+"interactive_lyrics.empty.title" = "ไม่มีเนื้อเพลง";
+
+// MARK: - Quizzes
+"quiz.common.question_progress" = "คำถาม %1$d จาก %2$d";
+"quiz.navigation.previous" = "ก่อนหน้า";
+"quiz.navigation.next" = "ถัดไป";
+"quiz.comprehension.feedback.correct" = "เลือกได้เยี่ยม!";
+"quiz.comprehension.feedback.incorrect" = "ยังไม่ค่อยถูกต้อง";
+"quiz.fill_blank.prompt" = "เติมคำที่หายไปเพื่อให้เนื้อเพลงสมบูรณ์";
+"quiz.fill_blank.feedback.correct" = "ทำได้ดี!";
+"quiz.fill_blank.feedback.incorrect" = "สำรวจเนื้อเพลงต่อและลองคำถามถัดไป";
+
+// MARK: - Authentication
+"auth.header.title" = "เชื่อมต่อบริการเพลง";
+"auth.header.subtitle" = "เชื่อมต่อ Apple Music เพื่อค้นหาเพลงที่คัดสรรสำหรับการเรียนภาษา";
+"auth.apple.connect" = "เชื่อมต่อกับ Apple Music";
+"auth.info.title" = "คุณจะได้รับ:";
+"auth.info.recommendations" = "คำแนะนำเพลงเฉพาะคุณ";
+"auth.info.library" = "เข้าถึงคลังเพลงของคุณ";
+"auth.info.lyrics" = "เนื้อเพลงและเนื้อหาการเรียนรู้";
+"auth.info.history" = "ติดตามประวัติการฟัง";
+"auth.actions.open_music_app" = "เปิดแอปเพลง";
+"auth.error.subscription_required" = "ต้องสมัครสมาชิก Apple Music คุณสามารถสมัครในแอปเพลงหรือการตั้งค่า";
+"auth.error.not_registered" = "Apple Music ยังไม่พร้อมใช้งาน ต้องลงทะเบียนแอปสำหรับ MusicKit";
+
+// MARK: - Music Errors
+"error.user_profile_not_completed" = "โปรไฟล์ผู้ใช้ยังไม่สมบูรณ์";
+"error.authentication_failed" = "ไม่สามารถยืนยันตัวตนได้: %@";
+"error.song_not_found" = "ไม่พบเพลง";
+"error.lyrics_not_found" = "ไม่มีเนื้อเพลงสำหรับเพลงนี้";
+"error.lyrics_language_not_determined" = "ไม่สามารถระบุภาษาเนื้อเพลงได้";
+"error.lesson_not_found" = "ไม่พบบทเรียน";
+"error.invalid_duration" = "ความยาวของเพลงไม่ถูกต้อง";
+"error.playback_not_supported" = "ไม่รองรับการเล่นเพลงนี้";
+"error.network_error" = "ข้อผิดพลาดเครือข่าย: %@";
+"error.service_unavailable" = "บริการเพลงไม่พร้อมใช้งานในขณะนี้";
+"error.invalid_response" = "การตอบสนองจากบริการเพลงไม่ถูกต้อง";
+"error.token_refresh_failed" = "ไม่สามารถรีเฟรชโทเค็นการยืนยันตัวตนได้";
+"error.apple_music_not_registered" = "ต้องลงทะเบียนแอปสำหรับ MusicKit ใน App Store Connect โปรดติดต่อฝ่ายสนับสนุน";
+"error.apple_music_subscription_required" = "ต้องสมัครสมาชิก Apple Music เพื่อใช้ฟีเจอร์นี้ สมัครได้ในแอปเพลงหรือการตั้งค่า";
+"error.invalid_cefr_level" = "ระดับ CEFR ไม่ถูกต้อง";
+"error.no_recommendations_available" = "ไม่มีคำแนะนำ";
+"error.premium_required" = "จำเป็นต้องมีสิทธิ์ Premium สำหรับฟีเจอร์นี้";
+"error.hook_generation_failed" = "ไม่สามารถสร้างตัวอย่างสำหรับเพลงนี้ได้";

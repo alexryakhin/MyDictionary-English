@@ -61,3 +61,6 @@
 "load_more" = "Daha fazla yükle";
 "loading_more" = "Yükleniyor...";
 "copy_email" = "E-postayı kopyala";
+"play" = "Oynat";
+"pause" = "Duraklat";
+"playFromHere" = "Buradan oynat";

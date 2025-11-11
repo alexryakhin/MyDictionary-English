@@ -62,3 +62,6 @@
 "load_more" = "Charger plus";
 "loading_more" = "Chargement...";
 "copy_email" = "Copier l'e-mail";
+"play" = "Lecture";
+"pause" = "Pause";
+"playFromHere" = "Lire depuis ici";

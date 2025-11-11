@@ -1,0 +1,170 @@
+// MARK: - Music Discovering View
+"view.section.not_finished" = "לא הושלם";
+"view.section.recommended_for_you" = "מומלץ עבורך";
+"view.section.favorite_songs" = "שירים מועדפים";
+"view.section.history" = "היסטוריה";
+
+// MARK: - Search
+"view.search.loading" = "מחפש...";
+"view.search.results_title" = "תוצאות חיפוש";
+"view.search.empty_title" = "לא נמצאו תוצאות";
+"view.search.empty_subtitle" = "נסה שם שיר או אמן אחר.";
+
+// MARK: - Recommendations
+"view.recommendations.empty_title" = "אין עדיין המלצות";
+"view.recommendations.empty_subtitle" = "צור שיעור כדי לגלות שירים חדשים.";
+
+// MARK: - Recommendation Status
+"status.recommendations.loading" = "טוען המלצות";
+"status.recommendations.generating" = "יוצר המלצות";
+"status.recommendations.fetching_data" = "משיג נתונים מ-Apple Music";
+
+// MARK: - Lesson Overview
+"lesson.overview.title" = "מסלול השיעור";
+"lesson.overview.description" = "צלול אל **%1$@** מאת %2$@. השיעור מוביל אותך ממשמעות המילים אל ההקשר התרבותי ואז מאתגר את הזיכרון הפעיל שלך.";
+"lesson.overview.phrases_tag" = "ביטויים: %d";
+"lesson.overview.practice_tag" = "תרגולים: %d";
+"lesson.collection.title" = "%@ — ביטויים מרכזיים";
+
+// MARK: - Lesson Sections
+"lesson.phrases.header" = "ביטויים מרכזיים";
+"lesson.phrases.subtitle" = "למד את הביטויים שמעצבים את סיפור השיר.";
+"lesson.phrases.empty" = "אין עדיין ביטויים זמינים.";
+
+"lesson.grammar.header" = "מוקד דקדוקי";
+"lesson.grammar.subtitle" = "שים לב למבנים האלה בזמן ההאזנה.";
+"lesson.grammar.empty" = "אין נקודות דקדוק בשיעור זה.";
+
+"lesson.explanations.header" = "תובנות על המילים";
+"lesson.explanations.subtitle" = "הקשר שורה אחר שורה להעמקת ההבנה.";
+"lesson.explanations.empty" = "הסברי המילים יופיעו כאשר יהיו זמינים.";
+"lesson.explanations.line_number" = "שורה %d";
+
+"lesson.culture.header" = "הערות תרבות";
+"lesson.culture.subtitle" = "הקשר שמחיה את המילים.";
+"lesson.culture.empty" = "לא סופק הקשר תרבותי.";
+
+"lesson.practice.fill_blank.header" = "תרגול • השלם את החסר";
+"lesson.practice.fill_blank.subtitle" = "בדוק את הזיכרון עם רמזים מהשיר.";
+"lesson.practice.fill_blank.empty" = "תרגול השלמת החסר יופיע כאשר יהיה זמין.";
+
+"lesson.practice.comprehension.header" = "תרגול • חידון הבנה";
+"lesson.practice.comprehension.subtitle" = "בחר את התשובה הטובה ביותר לחיזוק המשמעות.";
+"lesson.practice.comprehension.empty" = "תרגולי בחירה מרובה יופיעו כאשר יהיו זמינים.";
+
+"lesson.reflection.header" = "סיכום והמשך";
+"lesson.reflection.subtitle" = "תעד את מה שנגע בך והמשך את הרצף.";
+"lesson.reflection.instructions" = "כשתסיים את החידונים, הקש על **סיום** כדי לשמור את ההתקדמות ולהציג את תוצאות השיעור.";
+"lesson.reflection.progress" = "התקדמות: נענו %1$d/%2$d שאלות";
+"lesson.reflection.cta_view_results" = "צפה בתוצאות השיעור";
+
+// MARK: - History
+"history.time.days" = "לפני %dd";
+"history.time.hours" = "לפני %dh";
+"history.time.minutes" = "לפני %dm";
+"history.time.just_now" = "הרגע";
+"history.play_count" = "%d×";
+
+// MARK: - Player
+"player.lesson.generating" = "יוצר שיעור...";
+"player.lesson.loading" = "השיעור נטען...";
+"player.lesson.ready" = "המשך לשיעור";
+"player.lesson.failed" = "שגיאה בטעינת השיעור. לנסות שוב?";
+"player.lesson.unavailable" = "לא ניתן ליצור שיעור";
+"player.tips.title" = "טיפים לשיעור המוזיקה";
+"player.tips.header" = "התכונן לשיעור";
+"player.tips.intro" = "מצא רגע שקט, חבר אוזניות אם יש לך, והחזק מחברת לידך. עוזר לזמזם פעם אחת לפני שמתחילים בתרגילים.";
+"player.tips.explore_title" = "חקור את המילים שורה אחר שורה";
+"player.tips.explore_message" = "הקש על כל שורה כדי לפתוח תפריט עם אפשרויות תרגום, מילון, ניגון והעתקה.";
+"player.tips.carry_title" = "קח את השיר לשיעור";
+"player.tips.carry_message" = "כשאתה עובר לשיעור, תוכל תמיד לחזור לכאן כדי לעיין במילים ולהאזין שוב.";
+"player.tips.path_title" = "השתמש בשיעור כנתיב";
+"player.tips.path_message" = "עקוב אחר חלקי השיעור לפי הסדר—ביטויים, דקדוק, תרבות ואז תרגול—כדי לעגן את מה ששמעת.";
+
+// MARK: - Lesson Info Sheet
+"sheet.cta.start_lesson" = "אל השיעור";
+"sheet.premium.title" = "נדרשת מנוי פרימיום";
+"sheet.premium.body" = "שיעורי מוזיקה עם תובנות מבוססות בינה מלאכותית זמינים עם מנוי פרימיום.";
+"sheet.premium.cta_upgrade" = "שדרג לפרימיום";
+"sheet.lyrics_unavailable.title" = "המילים לא זמינות";
+"sheet.lyrics_unavailable.body" = "לצערנו לא מצאנו את המילים לשיר זה. לא ניתן ליצור שיעור ללא מילים.";
+"sheet.hook.grammar" = "דקדוק";
+"sheet.hook.cultural_note" = "הערת תרבות";
+
+// MARK: - Results
+"results.navigation.title" = "השיעור הושלם";
+"results.header.title" = "עבודה מצוינת!";
+"results.header.subtitle" = "סיימת את השיעור";
+"results.stats.accuracy" = "דיוק";
+"results.stats.questions" = "שאלות";
+"results.stats.new_words" = "מילים חדשות";
+"results.stats.time" = "זמן";
+"results.discovered_words.title" = "מילים שהתגלו";
+"results.actions.share" = "שתף תוצאות";
+"results.actions.add_to_favorites" = "הוסף למועדפים";
+"results.actions.remove_from_favorites" = "הסר מהמועדפים";
+"results.actions.back_to_discover" = "חזרה לגילוי";
+
+// MARK: - Share Preview
+"share.navigation.title" = "תצוגה מקדימה לשיתוף";
+"share.accessibility.preview_card" = "כרטיס תצוגה מקדימה לשיתוף";
+"share.picker.aspect_ratio" = "יחס ממדים";
+"share.actions.share" = "שתף";
+"share.alert.generate_failed" = "לא ניתן ליצור תמונת שיתוף.";
+"share.aspect.square" = "ריבוע";
+"share.aspect.story" = "סטורי";
+"share.aspect.wide" = "רחב";
+"share.card.header" = "השיעור הושלם";
+"share.card.cefr" = "CEFR %@";
+"share.card.artwork_missing" = "אין עטיפה זמינה";
+"share.card.by_artist" = "מאת %@";
+"share.card.answered" = "%1$d/%2$d תשובות נכונות";
+"share.card.footer.tagline" = "המשך ללמוד עם";
+"share.card.footer.brand" = "My Dictionary";
+
+// MARK: - Interactive Lyrics
+"interactive_lyrics.menu.options" = "אפשרויות";
+"interactive_lyrics.empty.title" = "אין מילים זמינות";
+
+// MARK: - Quizzes
+"quiz.common.question_progress" = "שאלה %1$d מתוך %2$d";
+"quiz.navigation.previous" = "הקודם";
+"quiz.navigation.next" = "הבא";
+"quiz.comprehension.feedback.correct" = "בחירה מצוינת!";
+"quiz.comprehension.feedback.incorrect" = "לא בדיוק נכון.";
+"quiz.fill_blank.prompt" = "השלם את המילים על ידי בחירת המילה החסרה.";
+"quiz.fill_blank.feedback.correct" = "עבודה יפה!";
+"quiz.fill_blank.feedback.incorrect" = "המשך לחקור את המילים ונסה את הבאה.";
+
+// MARK: - Authentication
+"auth.header.title" = "התחבר לשירותי מוזיקה";
+"auth.header.subtitle" = "התחבר ל-Apple Music כדי לגלות המלצות שירים מותאמות ללמידת שפות.";
+"auth.apple.connect" = "התחבר ל-Apple Music";
+"auth.info.title" = "מה תקבל:";
+"auth.info.recommendations" = "המלצות אישיות לשירים";
+"auth.info.library" = "גישה לספריית המוזיקה שלך";
+"auth.info.lyrics" = "מילות שירים ותוכן לימודי";
+"auth.info.history" = "מעקב אחר היסטוריית ההאזנה";
+"auth.actions.open_music_app" = "פתח את אפליקציית המוזיקה";
+"auth.error.subscription_required" = "נדרש מנוי Apple Music. ניתן להירשם באפליקציית המוזיקה או בהגדרות.";
+"auth.error.not_registered" = "Apple Music אינו זמין. יש לרשום את האפליקציה ל-MusicKit.";
+
+// MARK: - Music Errors
+"error.user_profile_not_completed" = "פרופיל המשתמש לא הושלם";
+"error.authentication_failed" = "האימות נכשל: %@";
+"error.song_not_found" = "השיר לא נמצא";
+"error.lyrics_not_found" = "אין מילים לשיר זה";
+"error.lyrics_language_not_determined" = "שפת המילים לא זוהתה";
+"error.lesson_not_found" = "השיעור לא נמצא";
+"error.invalid_duration" = "משך השיר אינו תקין";
+"error.playback_not_supported" = "ההשמעה אינה נתמכת עבור שיר זה";
+"error.network_error" = "שגיאת רשת: %@";
+"error.service_unavailable" = "שירות המוזיקה אינו זמין כעת";
+"error.invalid_response" = "תגובה לא תקינה משירות המוזיקה";
+"error.token_refresh_failed" = "נכשלה רענון אסימון האימות";
+"error.apple_music_not_registered" = "יש לרשום את האפליקציה ל-MusicKit ב-App Store Connect. צור קשר עם התמיכה.";
+"error.apple_music_subscription_required" = "נדרש מנוי Apple Music לשימוש בתכונה זו. ניתן להירשם באפליקציית המוזיקה או בהגדרות.";
+"error.invalid_cefr_level" = "רמת CEFR לא תקינה";
+"error.no_recommendations_available" = "אין המלצות זמינות";
+"error.premium_required" = "נדרש גישה לפרימיום כדי להשתמש בתכונה זו";
+"error.hook_generation_failed" = "הפקת תצוגה מקדימה לשיר זה נכשלה";

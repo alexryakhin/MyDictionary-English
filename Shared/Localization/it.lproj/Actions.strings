@@ -61,3 +61,6 @@
 "load_more" = "Carica altro";
 "loading_more" = "Caricamento...";
 "copy_email" = "Copia e-mail";
+"play" = "Riproduci";
+"pause" = "Pausa";
+"playFromHere" = "Riproduci da qui";

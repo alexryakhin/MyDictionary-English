@@ -61,3 +61,6 @@
 "load_more" = "Indlæs mere";
 "loading_more" = "Indlæser...";
 "copy_email" = "Kopier e-mail";
+"play" = "Afspil";
+"pause" = "Pause";
+"playFromHere" = "Afspil herfra";

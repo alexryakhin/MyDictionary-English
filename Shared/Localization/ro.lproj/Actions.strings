@@ -61,3 +61,6 @@
 "load_more" = "Încarcă mai mult";
 "loading_more" = "Se încarcă...";
 "copy_email" = "Copiază e-mail";
+"play" = "Redă";
+"pause" = "Pauză";
+"playFromHere" = "Redă de aici";

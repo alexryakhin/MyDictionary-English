@@ -1,2 +1,3 @@
 CFBundleDisplayName = "Moj Rječnik";
 CFBundleName = "Moj Rječnik";
+"NSAppleMusicUsageDescription" = "My Dictionary treba pristup Apple Musicu kako bi otkrio personalizirane pjesme za učenje jezika. To omogućuje aplikaciji pretraživanje pjesama na tvom ciljnom jeziku i davanje preporuka prema tvom profilu učenja.";
