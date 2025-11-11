@@ -15,7 +15,7 @@ struct HistoryEntryRow: View {
         Button(action: onTap) {
             HStack(spacing: 12) {
                 // Album Artwork
-                AsyncImage(url: historyEntry.song.albumArtURL) { image in
+                CachedAsyncImage(url: historyEntry.song.albumArtURL) { image in
                     image
                         .resizable()
                         .scaledToFill()

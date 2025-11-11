@@ -22,7 +22,7 @@ struct SongLessonInfoSheetView: View {
             VStack(spacing: 20) {
                 // Artwork with Favorite Button
                 ZStack(alignment: .topTrailing) {
-                    AsyncImage(url: viewModel.song.albumArtURL) { image in
+                    CachedAsyncImage(url: viewModel.song.albumArtURL) { image in
                         image
                             .resizable()
                             .scaledToFill()

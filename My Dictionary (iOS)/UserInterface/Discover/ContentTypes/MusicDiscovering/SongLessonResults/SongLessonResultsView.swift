@@ -106,7 +106,7 @@ struct SongLessonResultsView: View {
         HStack(spacing: 16) {
             // Artwork
             if let artworkURL = song.albumArtURL {
-                AsyncImage(url: artworkURL) { image in
+                CachedAsyncImage(url: artworkURL) { image in
                     image
                         .resizable()
                         .aspectRatio(contentMode: .fill)

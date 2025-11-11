@@ -15,7 +15,7 @@ struct SongSuggestionCard: View {
         Button(action: onTap) {
             VStack(alignment: .leading, spacing: 8) {
                 // Album Artwork
-                AsyncImage(url: song.albumArtURL) { image in
+                CachedAsyncImage(url: song.albumArtURL) { image in
                     image
                         .resizable()
                         .scaledToFill()
