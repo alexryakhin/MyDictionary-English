@@ -12,6 +12,7 @@ struct MusicDiscoveringView<ContentPicker: View>: View {
     private let contentPicker: ContentPicker
 
     @AppStorage(UDKeys.appleMusicAuthorized) private var isAppleMusicAuthorized: Bool = false
+    @AppStorage(UDKeys.musicRecommendationsSelectedLanguage) private var selectedRecommendationLanguageCode: String = ""
     @StateObject private var viewModel = MusicDiscoveringViewModel()
     @State private var selectedSong: Song?
 
@@ -22,6 +23,19 @@ struct MusicDiscoveringView<ContentPicker: View>: View {
 
     private var isSearchActive: Bool {
         !viewModel.searchText.isEmpty
+    }
+
+    private var selectedRecommendationStudyLanguage: StudyLanguage? {
+        guard let activeLanguage = viewModel.activeRecommendationLanguage else { return nil }
+        return viewModel.studyLanguages.first(where: { $0.language == activeLanguage })
+    }
+
+    private var recommendationLanguageSubtitle: String {
+        selectedRecommendationStudyLanguage?.displayName ?? viewModel.studyLanguages.first?.displayName ?? ""
+    }
+
+    private var recommendationLanguageButtonTitle: String? {
+        selectedRecommendationStudyLanguage?.displayName ?? viewModel.studyLanguages.first?.displayName
     }
 
     var body: some View {
@@ -69,6 +83,19 @@ struct MusicDiscoveringView<ContentPicker: View>: View {
                 viewModel.handle(.clearSearch)
             }
         }
+        .onChange(of: selectedRecommendationLanguageCode) { _, newCode in
+            guard let language = InputLanguage(rawValue: newCode),
+                  viewModel.studyLanguages.contains(where: { $0.language == language }) else { return }
+            if viewModel.activeRecommendationLanguage != language {
+                viewModel.handle(.selectRecommendationLanguage(language))
+            }
+        }
+        .onChange(of: viewModel.activeRecommendationLanguage) { _, language in
+            let code = language?.rawValue ?? ""
+            if selectedRecommendationLanguageCode != code {
+                selectedRecommendationLanguageCode = code
+            }
+        }
         .sheet(item: $selectedSong) { song in
             SongLessonInfoSheetView(song: song, onStartLesson: { songToStart, lyrics in
                 selectedSong = nil // Dismiss the sheet
@@ -111,7 +138,10 @@ struct MusicDiscoveringView<ContentPicker: View>: View {
     }
 
     private var recommendedForYouSection: some View {
-        CustomSectionView(header: "Recommended For You") {
+        CustomSectionView(
+            header: "Recommended For You",
+            headerSubtitle: recommendationLanguageSubtitle
+        ) {
             if viewModel.recommendationPhase != .idle {
                 RecommendationSectionSkeleton(statusMessage: viewModel.recommendationStatusMessage)
             } else if viewModel.recommendationSongs.isEmpty {
@@ -129,6 +159,29 @@ struct MusicDiscoveringView<ContentPicker: View>: View {
                 }
                 .scrollTargetBehavior(.viewAligned)
                 .scrollClipDisabled()
+            }
+        } trailingContent: {
+            if viewModel.studyLanguages.count > 1, let title = recommendationLanguageButtonTitle {
+                HeaderButtonMenu(
+                    title,
+                    icon: "globe",
+                    size: .small,
+                    style: .bordered
+                ) {
+                    ForEach(viewModel.studyLanguages) { studyLanguage in
+                        let language = studyLanguage.language
+                        Button {
+                            selectRecommendationLanguage(language)
+                        } label: {
+                            HStack {
+                                Text(studyLanguage.displayName)
+                                if viewModel.activeRecommendationLanguage == language {
+                                    Image(systemName: "checkmark")
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -217,6 +270,17 @@ struct MusicDiscoveringView<ContentPicker: View>: View {
                 .scrollTargetBehavior(.viewAligned)
                 .scrollClipDisabled()
             }
+        }
+    }
+}
+
+private extension MusicDiscoveringView {
+    func selectRecommendationLanguage(_ language: InputLanguage) {
+        guard viewModel.activeRecommendationLanguage != language else { return }
+        if selectedRecommendationLanguageCode != language.rawValue {
+            selectedRecommendationLanguageCode = language.rawValue
+        } else {
+            viewModel.handle(.selectRecommendationLanguage(language))
         }
     }
 }

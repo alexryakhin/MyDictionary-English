@@ -65,6 +65,10 @@ enum UDKeys {
     // Music Suggestions Cache
     static let musicSuggestionsCache = "musicSuggestionsCache"
     static let musicSuggestionsCacheTimestamp = "musicSuggestionsCacheTimestamp"
+    static let musicSuggestionsCacheLanguage = "musicSuggestionsCacheLanguage"
+    
+    // Music Recommendations
+    static let musicRecommendationsSelectedLanguage = "musicRecommendationsSelectedLanguage"
     
     // Apple Music
     static let appleMusicAuthorized = "apple_music_authorized"
@@ -327,10 +331,21 @@ enum UDService {
             UserDefaults.standard.set(newValue?.timeIntervalSince1970 ?? 0, forKey: UDKeys.musicSuggestionsCacheTimestamp)
         }
     }
+    
+    static var musicSuggestionsCacheLanguage: String? {
+        get { UserDefaults.standard.string(forKey: UDKeys.musicSuggestionsCacheLanguage) }
+        set { UserDefaults.standard.set(newValue, forKey: UDKeys.musicSuggestionsCacheLanguage) }
+    }
 
     // Apple Music
     static var appleMusicAuthorized: Bool {
         get { UserDefaults.standard.bool(forKey: UDKeys.appleMusicAuthorized) }
         set { UserDefaults.standard.set(newValue, forKey: UDKeys.appleMusicAuthorized) }
+    }
+    
+    // Music Recommendations
+    static var musicRecommendationsSelectedLanguage: String? {
+        get { UserDefaults.standard.string(forKey: UDKeys.musicRecommendationsSelectedLanguage) }
+        set { UserDefaults.standard.set(newValue, forKey: UDKeys.musicRecommendationsSelectedLanguage) }
     }
 }

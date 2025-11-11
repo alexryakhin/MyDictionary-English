@@ -39,12 +39,15 @@ final class MusicDiscoveringViewModel: BaseViewModel {
         case loadHistory
         case clearCache
         case reset
+        case selectRecommendationLanguage(InputLanguage)
     }
 
     @Published private(set) var loadingStatus: LoadingStatus = .idle
     @Published private(set) var recommendationSongs: [Song] = []
     @Published private(set) var recommendationPhase: RecommendationPhase = .idle
     @Published private(set) var listeningHistory: [MusicListeningHistory] = []
+    @Published private(set) var studyLanguages: [StudyLanguage] = []
+    @Published private(set) var activeRecommendationLanguage: InputLanguage?
     
     // Song lesson sessions
     @Published private(set) var incompleteSessions: [CDSongLessonSession] = []
@@ -63,11 +66,15 @@ final class MusicDiscoveringViewModel: BaseViewModel {
     private let recommendationService = MusicRecommendationService.shared
     private let songLessonSessionService = SongLessonSessionService.shared
     
+    private var cancellables = Set<AnyCancellable>()
+    
     private let cacheDuration: TimeInterval = 24 * 60 * 60 // 24 hours (1 day)
 
     override init() {
         super.init()
         setupNotificationObserver()
+        setupProfileObserver()
+        updateStudyLanguages(from: onboardingService.userProfile)
     }
     
     var recommendationStatusMessage: String? {
@@ -143,12 +150,15 @@ final class MusicDiscoveringViewModel: BaseViewModel {
             clearCache()
         case .reset:
             reset()
+        case .selectRecommendationLanguage(let language):
+            updateActiveRecommendationLanguage(language)
         }
     }
     
     // MARK: - Data Loading
     
     private func loadData() {
+        updateStudyLanguages(from: onboardingService.userProfile)
         loadSuggestions()
         loadHistory()
         loadIncompleteSessions()
@@ -242,10 +252,24 @@ final class MusicDiscoveringViewModel: BaseViewModel {
         isSearching = false
     }
 
-    private func loadSuggestions() {
+    private func loadSuggestions(for languageOverride: InputLanguage? = nil) {
         guard loadingStatus != .loadingSuggestions else { return }
         
         guard appleMusicService.isAuthorized else {
+            loadingStatus = .idle
+            recommendationPhase = .idle
+            return
+        }
+        
+        let targetLanguage = languageOverride ?? activeRecommendationLanguage
+        
+        if targetLanguage == nil {
+            updateStudyLanguages(from: onboardingService.userProfile)
+        }
+        
+        guard let languageToLoad = targetLanguage ?? activeRecommendationLanguage else {
+            print("⚠️ [MusicDiscoveringViewModel] No study language available for recommendations")
+            recommendationSongs = []
             loadingStatus = .idle
             recommendationPhase = .idle
             return
@@ -260,7 +284,7 @@ final class MusicDiscoveringViewModel: BaseViewModel {
 
         Task {
             do {
-                try await generateRecommendations()
+                try await generateRecommendations(for: languageToLoad)
                 
                 await MainActor.run {
                     self.loadingStatus = .ready
@@ -287,20 +311,23 @@ final class MusicDiscoveringViewModel: BaseViewModel {
     
     /// Generate recommendations with all CEFR levels (2 random songs per level, 12 total)
     /// Gets from UserDefaults cache first, then Firestore, then generates with AI
-    private func generateRecommendations() async throws {
-        guard let userProfile = onboardingService.userProfile,
-              let firstStudyLanguage = userProfile.studyLanguages.first else {
-            print("⚠️ [MusicDiscoveringViewModel] No user profile or study language")
+    private func generateRecommendations(for language: InputLanguage) async throws {
+        guard let userProfile = onboardingService.userProfile else {
+            print("⚠️ [MusicDiscoveringViewModel] No user profile available")
             recommendationPhase = .idle
             return
         }
         
-        let language = firstStudyLanguage.language
+        guard userProfile.studyLanguages.contains(where: { $0.language == language }) else {
+            print("⚠️ [MusicDiscoveringViewModel] Selected language \(language.rawValue) not present in user profile")
+            recommendationPhase = .idle
+            return
+        }
         
         print("🔍 [MusicDiscoveringViewModel] Generating recommendations for all CEFR levels in \(language.englishName)")
 
         // Check UserDefaults cache first
-        if let cachedSongs = getCachedSongs(), !isCacheExpired() {
+        if let cachedSongs = getCachedSongs(for: language), !isCacheExpired(for: language) {
             print("✅ [MusicDiscoveringViewModel] Using cached songs from UserDefaults (instant load)")
             
             // Use cached Song objects directly - no need to search Apple Music again!
@@ -423,7 +450,7 @@ final class MusicDiscoveringViewModel: BaseViewModel {
             }
             
             // Cache the complete Song objects (with artwork) in UserDefaults
-            saveCachedSongs(songsWithArtwork)
+            saveCachedSongs(songsWithArtwork, for: language)
         } catch {
             print("❌ [MusicDiscoveringViewModel] Failed to generate recommendations: \(error.localizedDescription)")
             recommendationPhase = .idle
@@ -434,9 +461,14 @@ final class MusicDiscoveringViewModel: BaseViewModel {
     // MARK: - Caching
     
     /// Get cached complete Song objects from UserDefaults
-    private func getCachedSongs() -> [Song]? {
+    private func getCachedSongs(for language: InputLanguage) -> [Song]? {
         guard let cacheData = UDService.musicSuggestionsCacheData else {
             print("ℹ️ [MusicDiscoveringViewModel] No cache data found")
+            return nil
+        }
+        
+        guard UDService.musicSuggestionsCacheLanguage == language.rawValue else {
+            print("ℹ️ [MusicDiscoveringViewModel] Cache language mismatch (\(UDService.musicSuggestionsCacheLanguage ?? "nil") vs \(language.rawValue))")
             return nil
         }
         
@@ -452,12 +484,13 @@ final class MusicDiscoveringViewModel: BaseViewModel {
     }
     
     /// Save complete Song objects (with artwork) to UserDefaults cache
-    private func saveCachedSongs(_ songs: [Song]) {
+    private func saveCachedSongs(_ songs: [Song], for language: InputLanguage) {
         do {
             let encoder = JSONEncoder()
             let data = try encoder.encode(songs)
             UDService.musicSuggestionsCacheData = data
             UDService.musicSuggestionsCacheTimestamp = Date()
+            UDService.musicSuggestionsCacheLanguage = language.rawValue
             print("💾 [MusicDiscoveringViewModel] Cached \(songs.count) complete songs (with artwork) to UserDefaults")
         } catch {
             print("⚠️ [MusicDiscoveringViewModel] Failed to cache songs: \(error)")
@@ -465,8 +498,12 @@ final class MusicDiscoveringViewModel: BaseViewModel {
     }
     
     /// Check if cache is expired (24 hours)
-    private func isCacheExpired() -> Bool {
+    private func isCacheExpired(for language: InputLanguage) -> Bool {
         guard let timestamp = UDService.musicSuggestionsCacheTimestamp else {
+            return true
+        }
+        
+        if UDService.musicSuggestionsCacheLanguage != language.rawValue {
             return true
         }
         
@@ -485,6 +522,7 @@ final class MusicDiscoveringViewModel: BaseViewModel {
     private func clearCache() {
         UDService.musicSuggestionsCacheData = nil
         UDService.musicSuggestionsCacheTimestamp = nil
+        UDService.musicSuggestionsCacheLanguage = nil
         print("🗑️ [MusicDiscoveringViewModel] Cache cleared")
     }
     
@@ -495,5 +533,48 @@ final class MusicDiscoveringViewModel: BaseViewModel {
         
         clearCache()
         loadData()
+    }
+    
+    // MARK: - Study Languages
+    
+    private func setupProfileObserver() {
+        onboardingService.$userProfile
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] profile in
+                self?.updateStudyLanguages(from: profile)
+            }
+            .store(in: &cancellables)
+    }
+    
+    private func updateStudyLanguages(from profile: UserOnboardingProfile?) {
+        let languages = profile?.studyLanguages ?? []
+        studyLanguages = languages
+        
+        guard !languages.isEmpty else {
+            activeRecommendationLanguage = nil
+            recommendationSongs = []
+            return
+        }
+        
+        if let storedCode = UDService.musicRecommendationsSelectedLanguage,
+           let stored = languages.first(where: { $0.language.rawValue == storedCode }) {
+            updateActiveRecommendationLanguage(stored.language, refreshIfChanged: false)
+        } else if let current = activeRecommendationLanguage,
+                  languages.contains(where: { $0.language == current }) {
+            // keep current
+        } else if let first = languages.first?.language {
+            updateActiveRecommendationLanguage(first, refreshIfChanged: false)
+        }
+    }
+    
+    private func updateActiveRecommendationLanguage(_ language: InputLanguage, refreshIfChanged: Bool = true) {
+        guard activeRecommendationLanguage != language else { return }
+        activeRecommendationLanguage = language
+        UDService.musicRecommendationsSelectedLanguage = language.rawValue
+        
+        if refreshIfChanged {
+            clearCache()
+            loadSuggestions(for: language)
+        }
     }
 }
