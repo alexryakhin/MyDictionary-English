@@ -3,6 +3,7 @@
 "view.section.recommended_for_you" = "Рекомендовано вам";
 "view.section.favorite_songs" = "Любимые песни";
 "view.section.history" = "История";
+"view.description" = "Изучайте языки через музыку. Найдите любимые песни или исполнителей. ИИ создаст уроки и викторины для каждой композиции.";
 
 // MARK: - Search
 "view.search.loading" = "Поиск...";

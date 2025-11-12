@@ -178,6 +178,9 @@
 "quiz_types.great_job_completed_sentence_writing_quiz" = "Great job! You've completed the sentence writing quiz.";
 "quiz_types.great_job_completed_context_quiz" = "Great job! You've completed the context usage quiz.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Great job! You've completed the fill in the blank quiz.";
+"quiz_types.music_lesson" = "Music Lesson";
+"quiz_types.music_lesson_description" = "Discover songs and practice with lyric-based activities.";
+"quiz_types.great_job_completed_music_lesson" = "Great job! You've completed the music lesson.";
 
 // MARK: - Filter Messages
 "filters.practice_words_specific_language" = "Practice words from a specific language";

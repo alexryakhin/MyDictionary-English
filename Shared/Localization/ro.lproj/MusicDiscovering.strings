@@ -3,6 +3,7 @@
 "view.section.recommended_for_you" = "Recomandat pentru tine";
 "view.section.favorite_songs" = "Melodii favorite";
 "view.section.history" = "Istoric";
+"view.description" = "Învață limbi prin muzică. Caută melodiile sau artiștii preferați. Inteligența artificială va genera lecții și chestionare pentru fiecare melodie.";
 
 // MARK: - Search
 "view.search.loading" = "Se caută...";

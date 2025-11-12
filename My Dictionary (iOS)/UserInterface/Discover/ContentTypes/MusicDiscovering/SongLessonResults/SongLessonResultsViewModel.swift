@@ -20,9 +20,15 @@ final class SongLessonResultsViewModel: BaseViewModel {
     @Published private(set) var session: MusicDiscoveringSession?
     @Published private(set) var isFavorite: Bool = false
     @Published private(set) var resolvedListeningTime: TimeInterval = 0
+    @Published private(set) var showStreakAnimation: Bool = false
+    @Published private(set) var currentDayStreak: Int?
     
     private let songLessonSessionService = SongLessonSessionService.shared
     private let historyService = MusicListeningHistoryService.shared
+    private let quizAnalyticsService = QuizAnalyticsService.shared
+    
+    private var storedSessionId: UUID?
+    private var recordedQuizSessionId: UUID?
     
     // MARK: - Computed Properties
     
@@ -78,12 +84,17 @@ final class SongLessonResultsViewModel: BaseViewModel {
     // MARK: - Private Methods
     
     private func loadResults(_ session: MusicDiscoveringSession) async {
+        showStreakAnimation = false
+        currentDayStreak = nil
+        
         var resolvedSession = session
         let storedSession = songLessonSessionService.getSession(by: session.song.id)
         
         if let stored = storedSession?.toMusicDiscoveringSession() {
             resolvedSession = stored
         }
+        storedSessionId = storedSession?.id
+        recordedQuizSessionId = storedSession?.quizSessionId
         
         // Derive listening time from multiple sources
         var derivedListeningTime = max(resolvedSession.totalListeningTime, session.totalListeningTime)
@@ -103,6 +114,8 @@ final class SongLessonResultsViewModel: BaseViewModel {
         self.session = resolvedSession
         self.resolvedListeningTime = resolvedSession.totalListeningTime
         self.isFavorite = storedSession?.isFavorite ?? isFavorite
+        
+        recordAnalyticsIfNeeded(for: resolvedSession)
     }
     
     private func toggleFavorite() {
@@ -116,4 +129,61 @@ final class SongLessonResultsViewModel: BaseViewModel {
         }
     }
 
+    func setStreakAnimationActive(_ isActive: Bool) {
+        showStreakAnimation = isActive
+    }
+
+    private func recordAnalyticsIfNeeded(for session: MusicDiscoveringSession) {
+        guard session.hasCompletedQuiz,
+              session.quizAnswers.isNotEmpty else { return }
+        if recordedQuizSessionId != nil {
+            return
+        }
+        
+        let correctAnswers = session.quizAnswers.filter { $0.isCorrect }.count
+        let totalQuestions = session.quizAnswers.count
+        let accuracyValue = Double(correctAnswers) / Double(totalQuestions)
+        let score = (correctAnswers * 5) - ((totalQuestions - correctAnswers) * 2)
+        let duration = listeningTime
+        
+        let wasFirstQuizToday = quizAnalyticsService.isFirstQuizToday()
+        
+        let quizSessionId = quizAnalyticsService.saveQuizSession(
+            quizType: Quiz.musicLesson.rawValue,
+            score: score,
+            correctAnswers: correctAnswers,
+            totalItems: totalQuestions,
+            duration: duration,
+            accuracy: accuracyValue,
+            itemsPracticed: [],
+            correctItemIds: []
+        )
+        
+        if wasFirstQuizToday {
+            let newStreak = quizAnalyticsService.calculateCurrentStreak()
+            currentDayStreak = newStreak
+            showStreakAnimation = true
+        }
+        
+        if let quizSessionId {
+            recordedQuizSessionId = quizSessionId
+            persistAnalyticsState(quizSessionId: quizSessionId)
+        } else {
+            logError("[SongLessonResultsViewModel] Failed to obtain quiz session ID after save")
+        }
+    }
+
+    private func persistAnalyticsState(quizSessionId: UUID?) {
+        guard let storedSessionId else {
+            logError("[SongLessonResultsViewModel] Missing stored session id when persisting analytics state")
+            return
+        }
+        Task {
+            do {
+                try await songLessonSessionService.setQuizSessionId(quizSessionId, forSessionId: storedSessionId)
+            } catch {
+                logError("[SongLessonResultsViewModel] Failed to persist quizSessionId: \(error.localizedDescription)")
+            }
+        }
+    }
 }

@@ -3,6 +3,7 @@
 "view.section.recommended_for_you" = "Anbefalt for deg";
 "view.section.favorite_songs" = "Favorittsanger";
 "view.section.history" = "Historikk";
+"view.description" = "Lær språk gjennom musikk. Søk etter favorittlåtene eller artistene dine. KI vil lage leksjoner og quizer for hver sang.";
 
 // MARK: - Search
 "view.search.loading" = "Søker...";

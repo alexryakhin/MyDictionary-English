@@ -23,7 +23,6 @@ enum NavigationDestination: Hashable {
     case sentenceWritingQuiz(QuizPreset)
     case contextMultipleChoiceQuiz(QuizPreset)
     case fillInTheBlankQuiz(QuizPreset)
-    case storyLab(StoryLabConfig)
 
     // MARK: - Analytics destinations
     case quizResultsList
@@ -49,7 +48,9 @@ enum NavigationDestination: Hashable {
     
     // MARK: - Story Lab destinations
     case storyLabHistory
-    
+    case storyLabReading(StoryLabReadingConfig)
+    case storyLabResults(StoryLabResultsConfig)
+
     // MARK: - Music Discover destinations
     case musicPlayer(MusicPlayerConfig)
     case songLesson(SongLessonConfig)

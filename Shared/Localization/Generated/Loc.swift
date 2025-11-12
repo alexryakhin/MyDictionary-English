@@ -402,6 +402,8 @@ public enum Loc {
       public static let music = Loc.tr("Discover", "contentType.music", fallback: "Music")
       /// Podcast
       public static let podcast = Loc.tr("Discover", "contentType.podcast", fallback: "Podcast")
+      /// Stories
+      public static let stories = Loc.tr("Discover", "contentType.stories", fallback: "Stories")
       /// Video
       public static let video = Loc.tr("Discover", "contentType.video", fallback: "Video")
     }
@@ -1046,6 +1048,8 @@ public enum Loc {
       }
     }
     public enum View {
+      /// Learn languages through music. Search for your favorite songs or artists. AI will generate lessons and quizzes for each song.
+      public static let description = Loc.tr("MusicDiscovering", "view.description", fallback: "Learn languages through music. Search for your favorite songs or artists. AI will generate lessons and quizzes for each song.")
       public enum Recommendations {
         /// Try generating a lesson to seed new songs.
         public static let emptySubtitle = Loc.tr("MusicDiscovering", "view.recommendations.empty_subtitle", fallback: "Try generating a lesson to seed new songs.")
@@ -1991,10 +1995,16 @@ public enum Loc {
       public static let greatJobCompletedDefinitionQuiz = Loc.tr("Quizzes", "quiz_types.great_job_completed_definition_quiz", fallback: "Great job! You've completed the definition quiz.")
       /// Great job! You've completed the fill in the blank quiz.
       public static let greatJobCompletedFillInTheBlankQuiz = Loc.tr("Quizzes", "quiz_types.great_job_completed_fill_in_the_blank_quiz", fallback: "Great job! You've completed the fill in the blank quiz.")
+      /// Great job! You've completed the music lesson.
+      public static let greatJobCompletedMusicLesson = Loc.tr("Quizzes", "quiz_types.great_job_completed_music_lesson", fallback: "Great job! You've completed the music lesson.")
       /// Great job! You've completed the sentence writing quiz.
       public static let greatJobCompletedSentenceWritingQuiz = Loc.tr("Quizzes", "quiz_types.great_job_completed_sentence_writing_quiz", fallback: "Great job! You've completed the sentence writing quiz.")
       /// Great job! You've completed the spelling quiz.
       public static let greatJobCompletedSpellingQuiz = Loc.tr("Quizzes", "quiz_types.great_job_completed_spelling_quiz", fallback: "Great job! You've completed the spelling quiz.")
+      /// Music Lesson
+      public static let musicLesson = Loc.tr("Quizzes", "quiz_types.music_lesson", fallback: "Music Lesson")
+      /// Discover songs and practice with lyric-based activities.
+      public static let musicLessonDescription = Loc.tr("Quizzes", "quiz_types.music_lesson_description", fallback: "Discover songs and practice with lyric-based activities.")
       /// Select the correct definition for each word
       public static let selectCorrectDefinition = Loc.tr("Quizzes", "quiz_types.select_correct_definition", fallback: "Select the correct definition for each word")
       /// Sentence Writing

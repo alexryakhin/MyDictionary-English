@@ -9,15 +9,16 @@ import Foundation
 import Combine
 import CoreData
 
-final class StoryLabSessionsRepository: BaseViewModel {
-    
+final class StoryLabSessionsRepository: ObservableObject {
+
+    static let shared = StoryLabSessionsRepository()
+
     @Published private(set) var sessions: [CDStoryLabSession] = []
     
     private let sessionService = StoryLabSessionService.shared
     private var cancellables = Set<AnyCancellable>()
     
-    override init() {
-        super.init()
+    private init() {
         setupReactiveUpdates()
         loadSessions()
     }
@@ -62,4 +63,3 @@ final class StoryLabSessionsRepository: BaseViewModel {
         }
     }
 }
-

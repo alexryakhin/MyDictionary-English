@@ -3,6 +3,7 @@
 "view.section.recommended_for_you" = "आपके लिए अनुशंसित";
 "view.section.favorite_songs" = "पसंदीदा गीत";
 "view.section.history" = "इतिहास";
+"view.description" = "संगीत के माध्यम से भाषाएँ सीखें। अपनी पसंदीदा गाने या कलाकार खोजें। एआई हर गाने के लिए पाठ और क्विज़ तैयार करेगा।";
 
 // MARK: - Search
 "view.search.loading" = "खोज जारी...";

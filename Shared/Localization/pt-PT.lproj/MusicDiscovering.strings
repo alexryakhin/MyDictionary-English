@@ -3,6 +3,7 @@
 "view.section.recommended_for_you" = "Recomendado para si";
 "view.section.favorite_songs" = "Canções favoritas";
 "view.section.history" = "Histórico";
+"view.description" = "Aprende línguas através da música. Procura as tuas músicas ou artistas preferidos. A IA vai gerar lições e questionários para cada música.";
 
 // MARK: - Search
 "view.search.loading" = "A procurar...";

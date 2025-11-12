@@ -3,6 +3,7 @@
 "view.section.recommended_for_you" = "Neked ajánlva";
 "view.section.favorite_songs" = "Kedvenc dalok";
 "view.section.history" = "Előzmények";
+"view.description" = "Tanulj nyelveket zenén keresztül. Keresd meg kedvenc dalaidat vagy előadóidat. A mesterséges intelligencia minden dalhoz leckéket és kvízeket készít.";
 
 // MARK: - Search
 "view.search.loading" = "Keresés folyamatban...";

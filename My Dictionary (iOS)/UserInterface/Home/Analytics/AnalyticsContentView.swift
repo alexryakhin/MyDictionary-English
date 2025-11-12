@@ -143,6 +143,8 @@ struct QuizResultRow: View {
                 return Loc.Quizzes.QuizTypes.chooseDefinition
             case "story_lab":
                 return Loc.StoryLab.title
+            case "music_lesson":
+                return Loc.Quizzes.QuizTypes.musicLesson
             default:
                 return quizType.capitalized
             }
@@ -171,6 +173,8 @@ struct QuizResultRow: View {
                 return "list.bullet.circle"
             case "story_lab":
                 return "book.closed"
+            case "music_lesson":
+                return "music.note.list"
             default:
                 return "questionmark.circle"
             }
@@ -200,6 +204,8 @@ struct QuizResultRow: View {
                 return .accent
             case "story_lab":
                 return .pink
+            case "music_lesson":
+                return .mint
             default:
                 return .gray
             }

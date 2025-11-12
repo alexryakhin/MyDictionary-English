@@ -86,7 +86,7 @@ final class AIService: ObservableObject {
     /// - Returns: true if the quiz uses AI, false otherwise
     func isAIQuiz(_ quizType: Quiz) -> Bool {
         switch quizType {
-        case .contextMultipleChoice, .fillInTheBlank, .sentenceWriting, .storyLab:
+        case .contextMultipleChoice, .fillInTheBlank, .sentenceWriting, .storyLab, .musicLesson:
             return true
         case .spelling, .chooseDefinition:
             return false
@@ -96,7 +96,7 @@ final class AIService: ObservableObject {
     /// Gets all AI quiz types
     /// - Returns: Array of AI-powered quiz types
     func getAIQuizzes() -> [Quiz] {
-        return [.contextMultipleChoice, .fillInTheBlank, .sentenceWriting, .storyLab]
+        return [.contextMultipleChoice, .fillInTheBlank, .sentenceWriting, .storyLab, .musicLesson]
     }
 
     // MARK: - Request Enum

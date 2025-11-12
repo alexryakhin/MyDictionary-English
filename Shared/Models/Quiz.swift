@@ -8,13 +8,27 @@
 import Foundation
 import SwiftUI
 
-enum Quiz: String, CaseIterable, Identifiable {
+enum Quiz: String, Identifiable {
     case spelling = "spelling"
     case chooseDefinition = "definition"
     case sentenceWriting = "sentence_writing"
     case contextMultipleChoice = "context_multiple_choice"
     case fillInTheBlank = "fill_in_the_blank"
     case storyLab = "story_lab"
+    case musicLesson = "music_lesson"
+
+    static let quizCases: [Quiz] = [
+        .spelling,
+        .chooseDefinition,
+        .sentenceWriting,
+        .contextMultipleChoice,
+        .fillInTheBlank
+    ]
+
+    static let discoveryLessons: [Quiz] = [
+        .storyLab,
+        .musicLesson
+    ]
 
     var id: String { rawValue }
 
@@ -32,6 +46,8 @@ enum Quiz: String, CaseIterable, Identifiable {
             return .purple
         case .storyLab:
             return .pink
+        case .musicLesson:
+            return .mint
         }
     }
 
@@ -49,6 +65,8 @@ enum Quiz: String, CaseIterable, Identifiable {
             return "textformat.abc"
         case .storyLab:
             return "books.vertical.fill"
+        case .musicLesson:
+            return "music.note.list"
         }
     }
 
@@ -66,6 +84,8 @@ enum Quiz: String, CaseIterable, Identifiable {
             return Loc.Quizzes.QuizTypes.fillInTheBlank
         case .storyLab:
             return Loc.StoryLab.title
+        case .musicLesson:
+            return Loc.Quizzes.QuizTypes.musicLesson
         }
     }
 
@@ -83,6 +103,8 @@ enum Quiz: String, CaseIterable, Identifiable {
             return Loc.Quizzes.QuizTypes.fillBlanksInContext
         case .storyLab:
             return Loc.StoryLab.description
+        case .musicLesson:
+            return Loc.Quizzes.QuizTypes.musicLessonDescription
         }
     }
 
@@ -100,12 +122,14 @@ enum Quiz: String, CaseIterable, Identifiable {
             return Loc.Quizzes.QuizTypes.greatJobCompletedFillInTheBlankQuiz
         case .storyLab:
             return Loc.StoryLab.completionDescription
+        case .musicLesson:
+            return Loc.Quizzes.QuizTypes.greatJobCompletedMusicLesson
         }
     }
 
     var isOnlineQuiz: Bool {
         switch self {
-        case .sentenceWriting, .contextMultipleChoice, .fillInTheBlank, .storyLab:
+        case .sentenceWriting, .contextMultipleChoice, .fillInTheBlank, .storyLab, .musicLesson:
             return true
         default:
             return false
@@ -114,7 +138,7 @@ enum Quiz: String, CaseIterable, Identifiable {
 
     var isNewQuiz: Bool {
         switch self {
-        case .storyLab:
+        case .storyLab, .musicLesson:
             return true
         default:
             return false

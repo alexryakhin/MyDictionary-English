@@ -8,27 +8,18 @@
 import SwiftUI
 import Flow
 
-struct StoryLabConfigurationView: View {
-    
+struct StoryLabConfigurationView<ContentPicker: View>: View {
+    @ObservedObject private var discoverViewModel: DiscoverViewModel
+    private let contentPicker: ContentPicker
+
     enum InputMode {
         case savedWords
         case customText
     }
     
-    var viewModel: StoryLabViewModel?
     @StateObject private var wordsProvider = WordsProvider.shared
-    @StateObject private var repository = StoryLabSessionsRepository()
-    @Environment(\.dismiss) private var dismiss
-    
-    @StateObject private var internalViewModel = StoryLabViewModel()
-    
-    private var activeViewModel: StoryLabViewModel {
-        viewModel ?? internalViewModel
-    }
-    
-    init(viewModel: StoryLabViewModel? = nil) {
-        self.viewModel = viewModel
-    }
+    @StateObject private var repository = StoryLabSessionsRepository.shared
+    @StateObject private var viewModel = StoryLabConfigurationViewModel()
     
     @State private var inputMode: InputMode = .savedWords
     @State private var selectedWords: Set<String> = []
@@ -37,11 +28,15 @@ struct StoryLabConfigurationView: View {
     @State private var cefrLevel: CEFRLevel = .b1
     @State private var pageCount: Int = 1
     @State private var showingWordSelection = false
-    @State private var selectedSession: CDStoryLabSession?
     @FocusState private var isCustomTextEditing: Bool
 
     @State private var navigationManager = NavigationManager.shared
-    
+
+    init(discoverViewModel: DiscoverViewModel, contentPicker: ContentPicker) {
+        self.discoverViewModel = discoverViewModel
+        self.contentPicker = contentPicker
+    }
+
     var body: some View {
         ScrollView {
             VStack(spacing: 16) {
@@ -58,12 +53,15 @@ struct StoryLabConfigurationView: View {
         }
         .groupedBackground()
         .navigation(
-            title: Loc.StoryLab.title,
-            mode: .large,
-            showsBackButton: true,
+            title: Loc.Discover.title,
+            mode: .regular,
+            trailingContent: {
+                contentPicker
+            },
             bottomContent: {
                 Text(Loc.StoryLab.Configuration.description)
-                    .font(.headline)
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
                     .frame(maxWidth: .infinity, alignment: .leading)
 
                 Picker(Loc.StoryLab.Configuration.inputMode, selection: $inputMode) {
@@ -73,25 +71,12 @@ struct StoryLabConfigurationView: View {
                 .pickerStyle(.segmented)
             }
         )
-        .onReceive(activeViewModel.dismissPublisher) {
-            dismiss()
-        }
         .sheet(isPresented: $showingWordSelection) {
             StoryLabWordSelectionView(selectedWords: $selectedWords, targetLanguage: targetLanguage)
         }
         .safeAreaBarIfAvailable {
             generateButton
                 .padding(vertical: 12, horizontal: 16)
-        }
-        .onAppear {
-            // Initialize target language from viewModel's config if available
-            if let config = activeViewModel.config,
-               targetLanguage != config.targetLanguage {
-                targetLanguage = config.targetLanguage
-            } else {
-                // Set default target language to English
-                targetLanguage = .english
-            }
         }
         .onChange(of: targetLanguage) {
             selectedWords.removeAll()
@@ -112,7 +97,7 @@ struct StoryLabConfigurationView: View {
                 VStack(spacing: 12) {
                     ForEach(Array(repository.sessions.prefix(3))) { session in
                         Button {
-                            selectedSession = session
+                            viewModel.openSession(session)
                         } label: {
                             StoryLabSessionRow(session: session)
                                 .padding(12)
@@ -129,26 +114,7 @@ struct StoryLabConfigurationView: View {
         } trailingContent: {
             if repository.sessions.count > 3 {
                 HeaderButton(Loc.Actions.viewAll, size: .small) {
-                    navigationManager.navigationPath.append(NavigationDestination.storyLabHistory)
-                }
-            }
-        }
-        .sheet(item: $selectedSession) { session in
-            if let storySession = session.toStorySession(),
-               let story = session.story,
-               let config = session.config {
-                // Show reading view if incomplete, results if complete
-                if storySession.isComplete {
-                    StoryLabResultsView(
-                        session: storySession,
-                        story: story,
-                        config: config,
-                        showStreak: false,
-                        currentDayStreak: nil
-                    )
-                } else {
-                    // Resume from current page
-                    StoryLabReadingView(config: config)
+                    navigationManager.navigate(to: .storyLabHistory)
                 }
             }
         }
@@ -292,13 +258,13 @@ struct StoryLabConfigurationView: View {
     
     private var generateButton: some View {
         VStack(spacing: 12) {
-            if case .generating = activeViewModel.loadingStatus {
+            if case .generating = viewModel.loadingStatus {
                 ProgressView()
                     .progressViewStyle(.circular)
                 Text(Loc.StoryLab.Configuration.generating)
                     .font(.caption)
                     .foregroundStyle(.secondary)
-            } else if case .error(let message) = activeViewModel.loadingStatus {
+            } else if case .error(let message) = viewModel.loadingStatus {
                 Text(message)
                     .font(.caption)
                     .foregroundStyle(.red)
@@ -357,6 +323,6 @@ struct StoryLabConfigurationView: View {
             )
         }
         
-        activeViewModel.handle(.generateStory(config))
+        viewModel.handle(.generateStory(config))
     }
 }

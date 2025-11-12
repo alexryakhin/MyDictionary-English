@@ -3,6 +3,7 @@
 "view.section.recommended_for_you" = "Προτείνεται για εσάς";
 "view.section.favorite_songs" = "Αγαπημένα τραγούδια";
 "view.section.history" = "Ιστορικό";
+"view.description" = "Μάθε γλώσσες μέσα από τη μουσική. Αναζήτησε τα αγαπημένα σου τραγούδια ή καλλιτέχνες. Η τεχνητή νοημοσύνη θα δημιουργεί μαθήματα και κουίζ για κάθε τραγούδι.";
 
 // MARK: - Search
 "view.search.loading" = "Αναζήτηση...";

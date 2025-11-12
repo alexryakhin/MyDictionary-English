@@ -3,6 +3,7 @@
 "view.section.recommended_for_you" = "为你推荐";
 "view.section.favorite_songs" = "收藏歌曲";
 "view.section.history" = "历史记录";
+"view.description" = "通过音乐学习语言。搜索你喜欢的歌曲或艺术家，AI 会为每一首歌生成课程和测验。";
 
 // MARK: - Search
 "view.search.loading" = "正在搜索…";

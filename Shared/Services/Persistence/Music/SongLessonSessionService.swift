@@ -65,6 +65,35 @@ final class SongLessonSessionService {
         NotificationCenter.default.post(name: .songSessionDidChange, object: nil)
     }
     
+    func setQuizSessionId(_ quizSessionId: UUID?, forSessionId sessionId: UUID) async throws {
+        let context = coreDataService.context
+        var thrownError: Error?
+
+        context.performAndWait {
+            do {
+                let fetchRequest: NSFetchRequest<CDSongLessonSession> = CDSongLessonSession.fetchRequest()
+                fetchRequest.predicate = NSPredicate(format: "id == %@", sessionId as CVarArg)
+                fetchRequest.fetchLimit = 1
+
+                if let existingSession = try context.fetch(fetchRequest).first {
+                    existingSession.quizSessionId = quizSessionId
+                    existingSession.lastAccessed = Date()
+                    if context.hasChanges {
+                        try context.save()
+                    }
+                }
+            } catch {
+                thrownError = error
+            }
+        }
+
+        if let error = thrownError {
+            throw error
+        }
+
+        NotificationCenter.default.post(name: .songSessionDidChange, object: nil)
+    }
+    
     // MARK: - Load Sessions
     
     func getAllSessions() -> [CDSongLessonSession] {

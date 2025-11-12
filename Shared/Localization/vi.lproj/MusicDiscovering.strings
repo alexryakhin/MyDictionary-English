@@ -3,6 +3,7 @@
 "view.section.recommended_for_you" = "Đề xuất cho bạn";
 "view.section.favorite_songs" = "Bài hát yêu thích";
 "view.section.history" = "Lịch sử";
+"view.description" = "Học ngôn ngữ thông qua âm nhạc. Tìm kiếm bài hát hoặc nghệ sĩ yêu thích của bạn. AI sẽ tạo bài học và bài kiểm tra cho từng bài hát.";
 
 // MARK: - Search
 "view.search.loading" = "Đang tìm kiếm...";

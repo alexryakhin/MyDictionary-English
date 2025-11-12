@@ -3,6 +3,7 @@
 "view.section.recommended_for_you" = "Für dich empfohlen";
 "view.section.favorite_songs" = "Lieblingssongs";
 "view.section.history" = "Verlauf";
+"view.description" = "Lerne Sprachen durch Musik. Suche nach deinen Lieblingssongs oder -künstlern. Die KI erstellt für jedes Lied Lektionen und Quizze.";
 
 // MARK: - Search
 "view.search.loading" = "Suche läuft...";

@@ -3,6 +3,7 @@
 "view.section.recommended_for_you" = "Aanbevolen voor jou";
 "view.section.favorite_songs" = "Favoriete nummers";
 "view.section.history" = "Geschiedenis";
+"view.description" = "Leer talen via muziek. Zoek naar je favoriete nummers of artiesten. De AI maakt lessen en quizzen voor elk nummer.";
 
 // MARK: - Search
 "view.search.loading" = "Zoeken...";

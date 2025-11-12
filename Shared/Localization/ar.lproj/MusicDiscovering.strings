@@ -3,6 +3,7 @@
 "view.section.recommended_for_you" = "موصى به لك";
 "view.section.favorite_songs" = "أغاني مفضلة";
 "view.section.history" = "السجل";
+"view.description" = "تعلّم اللغات من خلال الموسيقى. ابحث عن أغانيك أو فنانيك المفضلين. سيُنشئ الذكاء الاصطناعي دروسًا واختبارات لكل أغنية.";
 
 // MARK: - Search
 "view.search.loading" = "جاري البحث...";

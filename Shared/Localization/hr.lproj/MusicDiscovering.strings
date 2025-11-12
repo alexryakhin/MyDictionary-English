@@ -3,6 +3,7 @@
 "view.section.recommended_for_you" = "Preporučeno za vas";
 "view.section.favorite_songs" = "Omiljene pjesme";
 "view.section.history" = "Povijest";
+"view.description" = "Uči jezike kroz glazbu. Pretraži svoje omiljene pjesme ili izvođače. AI će za svaku pjesmu generirati lekcije i kvizove.";
 
 // MARK: - Search
 "view.search.loading" = "Pretraživanje...";

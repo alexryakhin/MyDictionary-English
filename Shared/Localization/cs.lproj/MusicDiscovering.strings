@@ -3,6 +3,7 @@
 "view.section.recommended_for_you" = "Doporučeno pro vás";
 "view.section.favorite_songs" = "Oblíbené skladby";
 "view.section.history" = "Historie";
+"view.description" = "Uč se jazyky prostřednictvím hudby. Vyhledej své oblíbené písně nebo interprety. Umělá inteligence pro každou skladbu vytvoří lekce a kvízy.";
 
 // MARK: - Search
 "view.search.loading" = "Hledám...";

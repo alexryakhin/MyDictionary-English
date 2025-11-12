@@ -3,6 +3,7 @@
 "view.section.recommended_for_you" = "Suositeltu sinulle";
 "view.section.favorite_songs" = "Lempikappaleet";
 "view.section.history" = "Historia";
+"view.description" = "Opiskele kieliä musiikin avulla. Etsi suosikkikappaleitasi tai -artistejasi. Tekoäly luo jokaiselle kappaleelle oppitunteja ja visoja.";
 
 // MARK: - Search
 "view.search.loading" = "Haetaan...";

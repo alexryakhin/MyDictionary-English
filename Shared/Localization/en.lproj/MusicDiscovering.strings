@@ -3,6 +3,7 @@
 "view.section.recommended_for_you" = "Recommended For You";
 "view.section.favorite_songs" = "Favorite Songs";
 "view.section.history" = "History";
+"view.description" = "Learn languages through music. Search for your favorite songs or artists. AI will generate lessons and quizzes for each song.";
 
 // MARK: - Search
 "view.search.loading" = "Searching...";

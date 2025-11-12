@@ -3,6 +3,7 @@
 "view.section.recommended_for_you" = "Direkomendasikan untuk Anda";
 "view.section.favorite_songs" = "Lagu favorit";
 "view.section.history" = "Riwayat";
+"view.description" = "Pelajari bahasa melalui musik. Cari lagu atau artis favorit Anda. AI akan membuat pelajaran dan kuis untuk setiap lagu.";
 
 // MARK: - Search
 "view.search.loading" = "Mencari...";

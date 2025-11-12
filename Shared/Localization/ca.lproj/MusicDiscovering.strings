@@ -3,6 +3,7 @@
 "view.section.recommended_for_you" = "Recomanat per a tu";
 "view.section.favorite_songs" = "Cançons preferides";
 "view.section.history" = "Historial";
+"view.description" = "Aprèn idiomes a través de la música. Cerca les teves cançons o artistes preferits. La IA generarà lliçons i qüestionaris per a cada cançó.";
 
 // MARK: - Search
 "view.search.loading" = "Cercant...";

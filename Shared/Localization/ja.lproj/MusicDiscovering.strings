@@ -3,6 +3,7 @@
 "view.section.recommended_for_you" = "あなたへのおすすめ";
 "view.section.favorite_songs" = "お気に入りの曲";
 "view.section.history" = "履歴";
+"view.description" = "音楽を通じて語学を学びましょう。お気に入りの曲やアーティストを検索してください。AI が曲ごとにレッスンとクイズを生成します。";
 
 // MARK: - Search
 "view.search.loading" = "検索中…";

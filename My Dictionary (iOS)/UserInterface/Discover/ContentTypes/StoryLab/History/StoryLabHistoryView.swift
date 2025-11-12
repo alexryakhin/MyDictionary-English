@@ -8,13 +8,11 @@
 import SwiftUI
 
 struct StoryLabHistoryView: View {
-    @StateObject private var repository = StoryLabSessionsRepository()
-    @State private var navigationManager = NavigationManager.shared
-    @State private var selectedSession: CDStoryLabSession?
+    @StateObject private var viewModel = StoryLabHistoryViewModel()
     
     var body: some View {
         Group {
-            if repository.sessions.isEmpty {
+            if viewModel.sessions.isEmpty {
                 emptyStateView
             } else {
                 sessionsList
@@ -22,27 +20,11 @@ struct StoryLabHistoryView: View {
         }
         .navigation(
             title: Loc.StoryLab.History.title,
-            mode: .large,
+            mode: .regular,
             showsBackButton: true
         )
-        .sheet(item: $selectedSession) { session in
-            if let storySession = session.toStorySession(),
-               let story = session.story,
-               let config = session.config {
-                // Show reading view if incomplete, results if complete
-                if storySession.isComplete {
-                    StoryLabResultsView(
-                        session: storySession,
-                        story: story,
-                        config: config,
-                        showStreak: false,
-                        currentDayStreak: nil
-                    )
-                } else {
-                    // Resume from current page
-                    StoryLabReadingView(config: config)
-                }
-            }
+        .task {
+            viewModel.handleRefresh()
         }
     }
     
@@ -71,16 +53,16 @@ struct StoryLabHistoryView: View {
     
     private var sessionsList: some View {
         List {
-            ForEach(repository.sessions) { session in
+            ForEach(viewModel.sessions) { session in
                 Button {
-                    selectedSession = session
+                    viewModel.navigate(to: session)
                 } label: {
                     StoryLabSessionRow(session: session)
                 }
                 .buttonStyle(.plain)
             }
             .onDelete { indexSet in
-                repository.deleteSessions(at: indexSet)
+                viewModel.deleteSessions(at: indexSet)
             }
         }
     }

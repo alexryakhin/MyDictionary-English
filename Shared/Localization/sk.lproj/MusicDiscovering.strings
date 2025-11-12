@@ -3,6 +3,7 @@
 "view.section.recommended_for_you" = "Odporúčané pre vás";
 "view.section.favorite_songs" = "Obľúbené skladby";
 "view.section.history" = "História";
+"view.description" = "Uč sa jazyky cez hudbu. Vyhľadaj svoje obľúbené piesne alebo interpretov. AI vytvorí lekcie a kvízy pre každú skladbu.";
 
 // MARK: - Search
 "view.search.loading" = "Hľadá sa...";

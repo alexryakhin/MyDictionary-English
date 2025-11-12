@@ -3,6 +3,7 @@
 "view.section.recommended_for_you" = "為你推薦";
 "view.section.favorite_songs" = "收藏歌曲";
 "view.section.history" = "歷史紀錄";
+"view.description" = "透過音樂學習語言。搜尋你喜愛的歌曲或歌手，AI 會為每首歌建立課程和小測驗。";
 
 // MARK: - Search
 "view.search.loading" = "正在搜尋…";

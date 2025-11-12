@@ -72,6 +72,11 @@ struct MusicDiscoveringView<ContentPicker: View>: View {
                 contentPicker
             },
             bottomContent: {
+                Text(Loc.MusicDiscovering.View.description)
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+
                 if isAppleMusicAuthorized {
                     InputView.searchView(
                         Loc.Words.search,

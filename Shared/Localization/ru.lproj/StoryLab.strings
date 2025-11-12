@@ -3,7 +3,7 @@
 "description" = "Читайте истории, созданные ИИ, с викторинами на понимание";
 "completion_description" = "Отличная работа! Вы завершили историю.";
 "configuration.title" = "Создайте свою историю";
-"configuration.description" = "Создайте персонализированную историю на основе ваших слов или темы";
+"configuration.description" = "Создайте персонализированные истории на основе ваших слов или темы";
 "configuration.my_words" = "Мои слова";
 "configuration.custom_text" = "Пользовательский текст";
 "configuration.select_words" = "Выбрать слова";

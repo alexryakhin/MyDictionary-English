@@ -94,7 +94,22 @@ final class SongLessonInfoSheetViewModel: BaseViewModel {
     private func generateHook() {
         Task {
             do {
-                // Check if user can make AI requests first (before loading lyrics)
+                if let cached = loadCachedHookPackage() {
+                    logInfo("[SongLessonInfoSheetViewModel] Loaded hook & lyrics from local cache")
+                    await MainActor.run {
+                        self.song.cefrLevel = cached.hook.songCEFRLevel
+                        self.hookState = .loaded(cached.lyrics, cached.hook)
+                    }
+                    analytics.logEvent(
+                        .musicDiscoveringHookGenerated,
+                        parameters: baseHookParameters().merging([
+                            "source": "cache",
+                            "cefr_level": cached.hook.songCEFRLevel.rawValue
+                        ]) { _, new in new }
+                    )
+                    return
+                }
+
                 guard AIService.shared.canMakeAIRequest() else {
                     await MainActor.run {
                         self.hookState = .failed(.premiumRequired)
@@ -109,7 +124,6 @@ final class SongLessonInfoSheetViewModel: BaseViewModel {
                     return
                 }
 
-                // Get lyrics first
                 let lyrics = try await lyricsService.getLyrics(
                     trackName: song.title,
                     artistName: song.artist,
@@ -117,7 +131,6 @@ final class SongLessonInfoSheetViewModel: BaseViewModel {
                     duration: song.duration
                 )
 
-                // Check if lyrics are available
                 let lyricsText = lyrics.bestLyrics ?? lyrics.plainLyrics
 
                 guard let lyricsText = lyricsText?.nilIfEmpty else {
@@ -129,23 +142,6 @@ final class SongLessonInfoSheetViewModel: BaseViewModel {
                         .musicDiscoveringHookFailed,
                         parameters: baseHookParameters().merging([
                             "reason": "lyrics_not_found"
-                        ]) { _, new in new }
-                    )
-                    return
-                }
-
-                // Check local cache first
-                if let cachedHook = loadCachedHook() {
-                    logInfo("[SongLessonInfoSheetViewModel] Loaded hook from local cache")
-                    await MainActor.run {
-                        song.cefrLevel = cachedHook.songCEFRLevel
-                        self.hookState = .loaded(lyrics, cachedHook)
-                    }
-                    analytics.logEvent(
-                        .musicDiscoveringHookGenerated,
-                        parameters: baseHookParameters().merging([
-                            "source": "cache",
-                            "cefr_level": cachedHook.songCEFRLevel.rawValue
                         ]) { _, new in new }
                     )
                     return
@@ -164,7 +160,6 @@ final class SongLessonInfoSheetViewModel: BaseViewModel {
                     return
                 }
 
-                // Get language from lyrics
                 guard let targetLanguage = lyrics.detectedLanguage else {
                     logError("[SongLessonInfoSheetViewModel] Could not detect language in lyrics")
                     await MainActor.run {
@@ -180,16 +175,19 @@ final class SongLessonInfoSheetViewModel: BaseViewModel {
                 }
                 logInfo("[SongLessonInfoSheetViewModel] Detected language from lyrics: \(targetLanguage.englishName)")
 
-                // Generate hook and determine song's CEFR level
                 let preListenHook = try await lessonService.generatePreListenHook(
                     for: song,
                     lyrics: lyricsText,
                     targetLanguage: targetLanguage
                 )
-                song.cefrLevel = preListenHook.songCEFRLevel
-                // Save hook to local cache
-                saveCachedHook(preListenHook)
-                logInfo("[SongLessonInfoSheetViewModel] Saved hook to local cache")
+
+                await MainActor.run {
+                    self.song.cefrLevel = preListenHook.songCEFRLevel
+                    self.hookState = .loaded(lyrics, preListenHook)
+                }
+
+                saveCachedHookPackage(hook: preListenHook, lyrics: lyrics)
+                logInfo("[SongLessonInfoSheetViewModel] Saved hook & lyrics to local cache")
 
                 analytics.logEvent(
                     .musicDiscoveringHookGenerated,
@@ -199,10 +197,6 @@ final class SongLessonInfoSheetViewModel: BaseViewModel {
                         "detected_language": targetLanguage.rawValue
                     ]) { _, new in new }
                 )
-
-                await MainActor.run {
-                    self.hookState = .loaded(lyrics, preListenHook)
-                }
             } catch {
                 logError("[SongLessonInfoSheetViewModel] Failed to generate hook: \(error)")
                 await MainActor.run {
@@ -221,30 +215,26 @@ final class SongLessonInfoSheetViewModel: BaseViewModel {
 
     // MARK: - Local Caching
 
-    /// Load cached hook from UserDefaults
-    /// - Returns: Cached PreListenHook if available
-    /// - Note: Hooks are NEVER deleted or expired. They are generated per-user based on device locale
-    ///         and persist indefinitely in UserDefaults.
-    private func loadCachedHook() -> PreListenHook? {
+    private struct CachedHookPackage: Codable {
+        let hook: PreListenHook
+        let lyrics: SongLyrics
+    }
+
+    /// Load cached hook & lyrics from UserDefaults
+    private func loadCachedHookPackage() -> CachedHookPackage? {
         guard let data = UserDefaults.standard.data(forKey: hookCacheKey) else {
             return nil
         }
-        return try? JSONDecoder().decode(PreListenHook.self, from: data)
+        return try? JSONDecoder().decode(CachedHookPackage.self, from: data)
     }
 
-    /// Save hook to UserDefaults for permanent local storage
-    /// - Parameter hook: PreListenHook to cache
-    /// - Note: This cache is PERMANENT and separate from recommendations cache.
-    ///         It will never be expired or deleted automatically.
-    private func saveCachedHook(_ hook: PreListenHook) {
-        guard let data = try? JSONEncoder().encode(hook) else {
+    /// Persist hook & lyrics together for reuse
+    private func saveCachedHookPackage(hook: PreListenHook, lyrics: SongLyrics) {
+        guard let data = try? JSONEncoder().encode(CachedHookPackage(hook: hook, lyrics: lyrics)) else {
             return
         }
         UserDefaults.standard.set(data, forKey: hookCacheKey)
-
-        // Ensure UserDefaults is synced to disk
         UserDefaults.standard.synchronize()
-        logInfo("[SongLessonInfoSheetViewModel] Hook permanently cached to UserDefaults")
     }
 }
 

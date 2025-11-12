@@ -83,7 +83,7 @@ struct QuizzesListView: View {
                     footer: Loc.Quizzes.youCanPracticeVocabulary
                 ) {
                     VStack(spacing: 8) {
-                        ForEach(Quiz.allCases, id: \.self) { quiz in
+                        ForEach(Quiz.quizCases, id: \.self) { quiz in
                             Button {
                                 viewModel.handle(.showQuiz(quiz, .init(
                                     itemCount: Int(practiceItemCount),

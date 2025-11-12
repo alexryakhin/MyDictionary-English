@@ -3,6 +3,7 @@
 "view.section.recommended_for_you" = "מומלץ עבורך";
 "view.section.favorite_songs" = "שירים מועדפים";
 "view.section.history" = "היסטוריה";
+"view.description" = "למד שפות דרך מוזיקה. חפש את השירים או האמנים האהובים עליך. הבינה המלאכותית תיצור שיעורים וחידונים לכל שיר.";
 
 // MARK: - Search
 "view.search.loading" = "מחפש...";

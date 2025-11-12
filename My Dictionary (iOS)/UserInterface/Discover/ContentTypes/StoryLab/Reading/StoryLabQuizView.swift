@@ -10,7 +10,7 @@ import SwiftUI
 struct StoryLabQuizView: View {
     let page: AIStoryPage
     let pageIndex: Int
-    @ObservedObject var viewModel: StoryLabViewModel
+    @ObservedObject var viewModel: StoryLabReadingViewModel
     
     @State private var currentQuestionIndex: Int = 0
     @State private var selectedAnswerIndex: Int?
@@ -113,56 +113,56 @@ struct StoryLabQuizView: View {
             let isSelected = selectedAnswerIndex == index || session.answers[key] == index
             let isCorrect = option.isCorrect
             let isWrong = isSelected && !isCorrect
-            
+
             Button {
-            if !isQuestionAnswered {
-                selectedAnswerIndex = index
-                submitAnswer()
-            }
-        } label: {
-            HStack {
-                Text(option.text)
-                    .font(.body)
-                    .multilineTextAlignment(.leading)
-                
-                Spacer()
-                
-                if isQuestionAnswered {
-                    if isCorrect && isSelected {
-                        Image(systemName: "checkmark.circle.fill")
-                            .foregroundStyle(.green)
-                    } else if isWrong {
-                        Image(systemName: "xmark.circle.fill")
-                            .foregroundStyle(.red)
-                    } else if isCorrect {
-                        Image(systemName: "checkmark.circle")
-                            .foregroundStyle(.green)
-                    }
-                } else {
-                    Image(systemName: isSelected ? "circle.fill" : "circle")
-                        .foregroundStyle(isSelected ? .accent : .secondary)
+                if !isQuestionAnswered {
+                    selectedAnswerIndex = index
+                    submitAnswer()
                 }
-            }
-            .padding()
-            .background(
-                RoundedRectangle(cornerRadius: 12)
-                    .fill(
-                        isWrong ? Color.red.opacity(0.1) :
-                        (isCorrect && isSelected) ? Color.green.opacity(0.1) :
-                        (isSelected && !isQuestionAnswered) ? Color.accent.opacity(0.1) :
-                        Color.tertiarySystemGroupedBackground
-                    )
-            )
-            .overlay(
-                RoundedRectangle(cornerRadius: 12)
-                    .stroke(
-                        isWrong ? Color.red :
-                        (isCorrect && isSelected) ? Color.green :
-                        (isSelected && !isQuestionAnswered) ? Color.accent :
-                        Color.clear,
-                        lineWidth: isSelected ? 2 : 0
-                    )
-            )
+            } label: {
+                HStack {
+                    Text(option.text)
+                        .font(.body)
+                        .multilineTextAlignment(.leading)
+                    
+                    Spacer()
+                    
+                    if isQuestionAnswered {
+                        if isCorrect && isSelected {
+                            Image(systemName: "checkmark.circle.fill")
+                                .foregroundStyle(.green)
+                        } else if isWrong {
+                            Image(systemName: "xmark.circle.fill")
+                                .foregroundStyle(.red)
+                        } else if isCorrect {
+                            Image(systemName: "checkmark.circle")
+                                .foregroundStyle(.green)
+                        }
+                    } else {
+                        Image(systemName: isSelected ? "circle.fill" : "circle")
+                            .foregroundStyle(isSelected ? .accent : .secondary)
+                    }
+                }
+                .padding()
+                .background(
+                    RoundedRectangle(cornerRadius: 12)
+                        .fill(
+                            isWrong ? Color.red.opacity(0.1) :
+                            (isCorrect && isSelected) ? Color.green.opacity(0.1) :
+                            (isSelected && !isQuestionAnswered) ? Color.accent.opacity(0.1) :
+                            Color.tertiarySystemGroupedBackground
+                        )
+                )
+                .overlay(
+                    RoundedRectangle(cornerRadius: 12)
+                        .stroke(
+                            isWrong ? Color.red :
+                            (isCorrect && isSelected) ? Color.green :
+                            (isSelected && !isQuestionAnswered) ? Color.accent :
+                            Color.clear,
+                            lineWidth: isSelected ? 2 : 0
+                        )
+                )
             }
             .buttonStyle(.plain)
             .disabled(isQuestionAnswered && selectedAnswerIndex != index)
@@ -232,7 +232,7 @@ struct StoryLabQuizView: View {
         guard let selectedAnswerIndex, let session = viewModel.session else { return }
 
         let key = StorySession.QuestionKey(pageIndex: pageIndex, questionIndex: currentQuestionIndex)
-        
+
         // Only submit if not already answered
         if session.answers[key] == nil {
             viewModel.handle(.submitAnswer(
@@ -241,8 +241,8 @@ struct StoryLabQuizView: View {
                 answerIndex: selectedAnswerIndex
             ))
             showFeedback = true
-            
-        // Session is automatically updated via viewModel
+
+            // Session is automatically updated via viewModel
         }
     }
     

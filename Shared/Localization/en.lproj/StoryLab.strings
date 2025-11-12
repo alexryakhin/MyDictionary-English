@@ -3,7 +3,7 @@
 "description" = "Read AI-generated stories with comprehension quizzes";
 "completion_description" = "Great job! You've completed the story.";
 "configuration.title" = "Create Your Story";
-"configuration.description" = "Generate a personalized story based on your words or a theme";
+"configuration.description" = "Generate personalized stories based on your words or a theme";
 "configuration.my_words" = "My Words";
 "configuration.custom_text" = "Custom Text";
 "configuration.select_words" = "Select Words";

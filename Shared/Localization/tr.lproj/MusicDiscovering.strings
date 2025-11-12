@@ -3,6 +3,7 @@
 "view.section.recommended_for_you" = "Sizin için önerildi";
 "view.section.favorite_songs" = "Favori şarkılar";
 "view.section.history" = "Geçmiş";
+"view.description" = "Müzikle dilleri öğren. En sevdiğin şarkıları veya sanatçıları ara. Yapay zekâ her şarkı için dersler ve sınavlar hazırlayacak.";
 
 // MARK: - Search
 "view.search.loading" = "Aranıyor...";

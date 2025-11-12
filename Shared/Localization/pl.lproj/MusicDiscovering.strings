@@ -3,6 +3,7 @@
 "view.section.recommended_for_you" = "Polecane dla Ciebie";
 "view.section.favorite_songs" = "Ulubione utwory";
 "view.section.history" = "Historia";
+"view.description" = "Ucz się języków poprzez muzykę. Wyszukaj ulubione piosenki lub wykonawców. Sztuczna inteligencja stworzy lekcje i quizy dla każdej piosenki.";
 
 // MARK: - Search
 "view.search.loading" = "Wyszukiwanie...";

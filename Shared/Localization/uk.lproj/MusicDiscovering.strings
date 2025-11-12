@@ -3,6 +3,7 @@
 "view.section.recommended_for_you" = "Рекомендовано для вас";
 "view.section.favorite_songs" = "Улюблені пісні";
 "view.section.history" = "Історія";
+"view.description" = "Вивчай мови через музику. Шукай улюблені пісні чи виконавців. ШІ створюватиме уроки та вікторини для кожної пісні.";
 
 // MARK: - Search
 "view.search.loading" = "Пошук...";

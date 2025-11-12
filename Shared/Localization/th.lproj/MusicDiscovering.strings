@@ -3,6 +3,7 @@
 "view.section.recommended_for_you" = "แนะนำสำหรับคุณ";
 "view.section.favorite_songs" = "เพลงโปรด";
 "view.section.history" = "ประวัติ";
+"view.description" = "เรียนรู้ภาษาไปกับดนตรี ค้นหาเพลงหรือศิลปินที่คุณชื่นชอบ แล้ว AI จะสร้างบทเรียนและแบบทดสอบสำหรับแต่ละเพลงให้คุณ";
 
 // MARK: - Search
 "view.search.loading" = "กำลังค้นหา...";

@@ -34,7 +34,7 @@ struct StoryLabPageDetailView: View {
         .groupedBackground()
         .navigation(
             title: story.title,
-            mode: .inline,
+            mode: .regular,
             trailingContent: {
                 HeaderButton(Loc.Actions.done) {
                     dismiss()

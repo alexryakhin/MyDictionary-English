@@ -75,6 +75,17 @@ struct SongLessonResultsView: View {
         .task {
             viewModel.handle(.loadResults(session))
         }
+        .overlay {
+            if viewModel.showStreakAnimation, let streak = viewModel.currentDayStreak {
+                StreakProgressionAnimation(
+                    isActive: Binding(
+                        get: { viewModel.showStreakAnimation },
+                        set: { viewModel.setStreakAnimationActive($0) }
+                    ),
+                    targetStreak: streak
+                )
+            }
+        }
         .sheet(item: $sharePreviewData) { data in
             SongLessonSharePreviewView(data: data)
         }

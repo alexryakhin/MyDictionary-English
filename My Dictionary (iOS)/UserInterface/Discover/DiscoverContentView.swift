@@ -17,6 +17,11 @@ struct DiscoverContentView: View {
                 discoverViewModel: viewModel,
                 contentPicker: contentPicker
             )
+        case .stories:
+            StoryLabConfigurationView(
+                discoverViewModel: viewModel,
+                contentPicker: contentPicker
+            )
         }
     }
     

@@ -20,6 +20,7 @@ final class QuizAnalyticsService {
     
     // MARK: - Quiz Session Management
     
+    @discardableResult
     func saveQuizSession(
         quizType: String,
         score: Int,
@@ -29,14 +30,14 @@ final class QuizAnalyticsService {
         accuracy: Double,
         itemsPracticed: [any Quizable],
         correctItemIds: [String] = []
-    ) {
+    ) -> UUID? {
         // Ensure we're on main thread for Core Data operations
         assert(Thread.isMainThread, "saveQuizSession must be called on main thread")
         
         // Validate inputs
         guard !quizType.isEmpty else {
             print("⚠️ [QuizAnalyticsService] Cannot save quiz session with empty quizType")
-            return
+            return nil
         }
         
         let session = CDQuizSession(context: coreDataService.context)
@@ -82,9 +83,11 @@ final class QuizAnalyticsService {
         // Save context and handle errors properly
         do {
             try coreDataService.saveContext()
+            return session.id
         } catch {
             print("❌ [QuizAnalyticsService] Failed to save quiz session: \(error.localizedDescription)")
             // Re-throw or handle as needed
+            return nil
         }
     }
     
