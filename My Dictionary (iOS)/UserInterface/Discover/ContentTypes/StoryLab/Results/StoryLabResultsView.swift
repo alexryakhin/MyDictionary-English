@@ -13,6 +13,7 @@ struct StoryLabResultsView: View {
     @StateObject private var viewModel: StoryLabResultsViewModel
     @State private var showConfetti = false
     @State private var selectedPageIndex: Int?
+    @State private var hasLoggedAppear = false
 
     init(config: StoryLabResultsConfig) {
         self.config = config
@@ -71,6 +72,22 @@ struct StoryLabResultsView: View {
                     pageIndex: pageIndex,
                     session: session,
                     story: story
+                )
+            }
+        }
+        .onAppear {
+            guard !hasLoggedAppear else { return }
+            hasLoggedAppear = true
+            if let session = viewModel.session, let story = viewModel.story {
+                AnalyticsService.shared.logEvent(
+                    .storyLabResultsOpened,
+                    parameters: [
+                        "session_id": session.id.uuidString,
+                        "score": session.score,
+                        "correct_answers": session.correctAnswers,
+                        "total_questions": session.totalQuestions,
+                        "pages_total": story.pages.count
+                    ]
                 )
             }
         }

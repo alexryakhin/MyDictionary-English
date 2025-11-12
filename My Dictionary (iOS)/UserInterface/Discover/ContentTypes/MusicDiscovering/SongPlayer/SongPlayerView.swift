@@ -96,7 +96,9 @@ struct SongPlayerView: View {
         }
         .onAppear {
             if !UDService.songPlayerTipsShown {
-                isTipsSheetPresented = true
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    isTipsSheetPresented = true
+                }
             }
         }
         .onChange(of: isTipsSheetPresented) { _, newValue in

@@ -26,9 +26,9 @@ struct MusicAuthenticationView: View {
                 Text(Loc.MusicDiscovering.Auth.Header.subtitle)
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
-                    .multilineTextAlignment(.center)
                     .padding(.horizontal)
             }
+            .multilineTextAlignment(.center)
             .padding(.top, 40)
 
             // Service Options

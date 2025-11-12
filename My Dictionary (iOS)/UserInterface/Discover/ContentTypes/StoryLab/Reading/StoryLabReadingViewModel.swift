@@ -23,6 +23,7 @@ final class StoryLabReadingViewModel: BaseViewModel {
     private let sessionService: StoryLabSessionService
     private let quizAnalyticsService: QuizAnalyticsService
     private let navigationManager: NavigationManager
+    private let analytics: AnalyticsService
 
     private var sessionId: UUID
     private var sessionStartTime: Date
@@ -32,11 +33,13 @@ final class StoryLabReadingViewModel: BaseViewModel {
         config: StoryLabReadingConfig,
         sessionService: StoryLabSessionService = .shared,
         quizAnalyticsService: QuizAnalyticsService = .shared,
-        navigationManager: NavigationManager = .shared
+        navigationManager: NavigationManager = .shared,
+        analytics: AnalyticsService = .shared
     ) {
         self.sessionService = sessionService
         self.quizAnalyticsService = quizAnalyticsService
         self.navigationManager = navigationManager
+        self.analytics = analytics
         self.sessionId = config.sessionId
         self.session = config.session
         self.story = config.story
@@ -124,6 +127,7 @@ final class StoryLabReadingViewModel: BaseViewModel {
         session.currentPageIndex = pageIndex
         self.session = session
         saveSessionState()
+        logPageChange(session: session)
     }
 
     private func nextPage() {
@@ -134,6 +138,7 @@ final class StoryLabReadingViewModel: BaseViewModel {
         session.currentPageIndex += 1
         self.session = session
         saveSessionState()
+        logPageChange(session: session)
     }
 
     private func previousPage() {
@@ -143,14 +148,35 @@ final class StoryLabReadingViewModel: BaseViewModel {
         session.currentPageIndex -= 1
         self.session = session
         saveSessionState()
+        logPageChange(session: session)
     }
 
     private func submitAnswer(pageIndex: Int, questionIndex: Int, answerIndex: Int) {
         guard var session else { return }
 
+        let isCorrect: Bool
+        if let story,
+           pageIndex < story.pages.count,
+           questionIndex < story.pages[pageIndex].questions.count,
+           answerIndex < story.pages[pageIndex].questions[questionIndex].options.count {
+            isCorrect = story.pages[pageIndex].questions[questionIndex].options[answerIndex].isCorrect
+        } else {
+            isCorrect = false
+        }
+
         session.submitAnswer(forPageIndex: pageIndex, questionIndex: questionIndex, answerIndex: answerIndex)
         self.session = session
 
+        analytics.logEvent(
+            .storyLabQuizAnswerSubmitted,
+            parameters: [
+                "session_id": session.id.uuidString,
+                "page_index": pageIndex,
+                "question_index": questionIndex,
+                "answer_index": answerIndex,
+                "is_correct": isCorrect ? 1 : 0
+            ]
+        )
         saveSessionState()
 
         if session.isComplete {
@@ -201,6 +227,19 @@ final class StoryLabReadingViewModel: BaseViewModel {
         let wasFirstQuizToday = quizAnalyticsService.isFirstQuizToday()
 
         await MainActor.run {
+            analytics.logEvent(
+                .storyLabStoryCompleted,
+                parameters: [
+                    "session_id": session.id.uuidString,
+                    "score": score,
+                    "correct_answers": session.correctAnswers,
+                    "total_questions": session.totalQuestions,
+                    "duration": duration
+                ]
+            )
+        }
+
+        await MainActor.run {
             quizAnalyticsService.saveQuizSession(
                 quizType: Quiz.storyLab.rawValue,
                 score: score,
@@ -237,5 +276,15 @@ final class StoryLabReadingViewModel: BaseViewModel {
         )
 
         navigationManager.navigate(to: .storyLabResults(resultsConfig))
+    }
+
+    private func logPageChange(session: StorySession) {
+        analytics.logEvent(
+            .storyLabPageChanged,
+            parameters: [
+                "session_id": session.id.uuidString,
+                "page_index": session.currentPageIndex
+            ]
+        )
     }
 }

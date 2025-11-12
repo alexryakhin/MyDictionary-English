@@ -8,6 +8,7 @@ final class StoryLabHistoryViewModel: BaseViewModel {
 
     private let repository: StoryLabSessionsRepository = .shared
     private let navigationManager: NavigationManager = .shared
+    private let analytics: AnalyticsService = .shared
     private var cancellables = Set<AnyCancellable>()
 
     override init() {
@@ -24,6 +25,15 @@ final class StoryLabHistoryViewModel: BaseViewModel {
     }
 
     func navigate(to session: CDStoryLabSession) {
+        analytics.logEvent(
+            .storyLabSessionOpened,
+            parameters: [
+                "session_id": session.id?.uuidString ?? session.objectID.uriRepresentation().absoluteString,
+                "source": "history",
+                "is_complete": session.isComplete ? 1 : 0
+            ]
+        )
+        
         if session.isComplete {
             if let resultsConfig = StoryLabResultsConfig(session: session) {
                 navigationManager.navigate(to: .storyLabResults(resultsConfig))

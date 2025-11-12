@@ -71,4 +71,6 @@
 "pro_features.ai_definitions_description" = "Saa älykkäitä, kontekstitietoisia määritelmiä, joita tukee edistynyt AI-teknologia";
 "pro_features.ai_quizzes" = "AI-kyselyt";
 "pro_features.ai_quizzes_description" = "Harjoittele sanavarastosi henkilökohtaisilla AI-kyselyillä, jotka mukautuvat oppimistyylisi.";
+"pro_features.ai_lessons" = "AI-opetukset";
+"pro_features.ai_lessons_description" = "Osallistu personoituihin AI-opetuksiin ja opi kieliä lempimusiikkisi ja mukaansatempaavien tarinoiden avulla.";
 

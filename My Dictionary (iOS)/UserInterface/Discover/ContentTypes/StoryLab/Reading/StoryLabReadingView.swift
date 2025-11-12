@@ -12,6 +12,7 @@ struct StoryLabReadingView: View {
     @StateObject private var viewModel: StoryLabReadingViewModel
     @StateObject private var ttsPlayer = TTSPlayer.shared
     @State private var discoveredWord: InteractiveText.SelectedWord?
+    @State private var hasLoggedAppear = false
 
     init(config: StoryLabReadingConfig) {
         self.config = config
@@ -53,6 +54,21 @@ struct StoryLabReadingView: View {
                         viewModel.onWordSaved?(savedWord)
                     }
                 }
+        }
+        .onAppear {
+            guard !hasLoggedAppear else { return }
+            hasLoggedAppear = true
+            if let session = viewModel.session, let story = viewModel.story {
+                AnalyticsService.shared.logEvent(
+                    .storyLabReadingOpened,
+                    parameters: [
+                        "session_id": session.id.uuidString,
+                        "title": story.title,
+                        "page_index": session.currentPageIndex,
+                        "pages_total": story.pages.count
+                    ]
+                )
+            }
         }
         .interactiveDismissDisabled()
         .onDisappear {

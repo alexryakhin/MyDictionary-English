@@ -9,6 +9,7 @@ import SwiftUI
 
 struct StoryLabHistoryView: View {
     @StateObject private var viewModel = StoryLabHistoryViewModel()
+    @State private var hasLoggedAppear = false
     
     var body: some View {
         Group {
@@ -25,6 +26,14 @@ struct StoryLabHistoryView: View {
         )
         .task {
             viewModel.handleRefresh()
+        }
+        .onReceive(viewModel.$sessions) { sessions in
+            guard !hasLoggedAppear else { return }
+            hasLoggedAppear = true
+            AnalyticsService.shared.logEvent(
+                .storyLabHistoryOpened,
+                parameters: ["sessions_count": sessions.count]
+            )
         }
     }
     

@@ -210,6 +210,7 @@ enum AnalyticsEvent: String {
     case personalizationBannerShown
     case personalizationBannerTapped
     case personalizationBannerDismissed
+    
     // Music Discovering Events
     case musicDiscoveringOpened
     case musicDiscoveringAuthorizationPrompt
@@ -234,6 +235,19 @@ enum AnalyticsEvent: String {
     case musicDiscoveringLessonGenerationFailed
     case musicDiscoveringLessonOpened
     case musicDiscoveringFavoriteToggled
+
+    // Story Lab Events
+    case storyLabConfigurationOpened
+    case storyLabGenerationRequested
+    case storyLabGenerationSucceeded
+    case storyLabGenerationFailed
+    case storyLabHistoryOpened
+    case storyLabSessionOpened
+    case storyLabReadingOpened
+    case storyLabPageChanged
+    case storyLabQuizAnswerSubmitted
+    case storyLabStoryCompleted
+    case storyLabResultsOpened
 
     var parameters: [String: Any]? {
         switch self {

@@ -28,9 +28,11 @@ struct StoryLabConfigurationView<ContentPicker: View>: View {
     @State private var cefrLevel: CEFRLevel = .b1
     @State private var pageCount: Int = 1
     @State private var showingWordSelection = false
+    @State private var selectedSession: CDStoryLabSession?
     @FocusState private var isCustomTextEditing: Bool
 
     @State private var navigationManager = NavigationManager.shared
+    @State private var hasLoggedAppear = false
 
     init(discoverViewModel: DiscoverViewModel, contentPicker: ContentPicker) {
         self.discoverViewModel = discoverViewModel
@@ -48,6 +50,8 @@ struct StoryLabConfigurationView<ContentPicker: View>: View {
                 
                 // Settings Section
                 settingsSection
+
+                generateButton
             }
             .padding(vertical: 12, horizontal: 16)
         }
@@ -74,12 +78,20 @@ struct StoryLabConfigurationView<ContentPicker: View>: View {
         .sheet(isPresented: $showingWordSelection) {
             StoryLabWordSelectionView(selectedWords: $selectedWords, targetLanguage: targetLanguage)
         }
-        .safeAreaBarIfAvailable {
-            generateButton
-                .padding(vertical: 12, horizontal: 16)
-        }
         .onChange(of: targetLanguage) {
             selectedWords.removeAll()
+        }
+        .onAppear {
+            guard !hasLoggedAppear else { return }
+            hasLoggedAppear = true
+            AnalyticsService.shared.logEvent(
+                .storyLabConfigurationOpened,
+                parameters: [
+                    "input_mode": analyticsInputModeKey(inputMode),
+                    "saved_words_available": wordsProvider.words.count,
+                    "sessions_count": repository.sessions.count
+                ]
+            )
         }
     }
 
@@ -323,6 +335,38 @@ struct StoryLabConfigurationView<ContentPicker: View>: View {
             )
         }
         
+        AnalyticsService.shared.logEvent(
+            .storyLabGenerationRequested,
+            parameters: analyticsParameters(for: config, inputMode: inputMode)
+        )
         viewModel.handle(.generateStory(config))
+    }
+
+    private func analyticsParameters(for config: StoryLabConfig, inputMode: InputMode) -> [String: Any] {
+        var params: [String: Any] = [
+            "target_language": config.targetLanguage.rawValue,
+            "cefr_level": config.cefrLevel.rawValue,
+            "page_count": config.pageCount,
+            "input_mode": analyticsInputModeKey(inputMode)
+        ]
+
+        if let words = config.savedWords {
+            params["saved_words_count"] = words.count
+        }
+
+        if let text = config.customText {
+            params["custom_text_length"] = text.count
+        }
+
+        return params
+    }
+
+    private func analyticsInputModeKey(_ mode: InputMode) -> String {
+        switch mode {
+        case .savedWords:
+            return "saved_words"
+        case .customText:
+            return "custom_text"
+        }
     }
 }

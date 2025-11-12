@@ -152,7 +152,7 @@ struct PremiumRequiredView: View {
                 Loc.MusicDiscovering.Sheet.Premium.ctaUpgrade,
                 style: .borderedProminent
             ) {
-                PaywallService.shared.presentPaywall(for: .musicLessons)
+                PaywallService.shared.presentPaywall(for: .aiLessons)
             }
             .padding(.top, 8)
         }

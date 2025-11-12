@@ -71,4 +71,6 @@
 "pro_features.ai_definitions_description" = "高度なAI技術によって駆動される、インテリジェントでコンテキストを意識した定義を取得";
 "pro_features.ai_quizzes" = "AIクイズ";
 "pro_features.ai_quizzes_description" = "あなたの学習スタイルに適応するパーソナライズされたAIクイズで語彙を練習しましょう。";
+"pro_features.ai_lessons" = "AIレッスン";
+"pro_features.ai_lessons_description" = "あなた専用のAIレッスンで、好きな音楽と魅力的なストーリーを通じて言語を学びましょう。";
 

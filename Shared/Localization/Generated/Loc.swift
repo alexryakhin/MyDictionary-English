@@ -2440,8 +2440,8 @@ public enum Loc {
       public static let customText = Loc.tr("StoryLab", "configuration.custom_text", fallback: "Custom Text")
       /// Enter text, idiom, or expression...
       public static let customTextPlaceholder = Loc.tr("StoryLab", "configuration.custom_text_placeholder", fallback: "Enter text, idiom, or expression...")
-      /// Generate a personalized story based on your words or a theme
-      public static let description = Loc.tr("StoryLab", "configuration.description", fallback: "Generate a personalized story based on your words or a theme")
+      /// Generate personalized stories based on your words or a theme
+      public static let description = Loc.tr("StoryLab", "configuration.description", fallback: "Generate personalized stories based on your words or a theme")
       /// Complete a story quiz to see it here
       public static let emptySessionsDescription = Loc.tr("StoryLab", "configuration.empty_sessions_description", fallback: "Complete a story quiz to see it here")
       /// No past sessions yet
@@ -2642,6 +2642,10 @@ public enum Loc {
       public static let aiDefinitions = Loc.tr("Subscription", "pro_features.ai_definitions", fallback: "AI Definitions")
       /// Get intelligent, context-aware definitions powered by advanced AI technology
       public static let aiDefinitionsDescription = Loc.tr("Subscription", "pro_features.ai_definitions_description", fallback: "Get intelligent, context-aware definitions powered by advanced AI technology")
+      /// AI Lessons
+      public static let aiLessons = Loc.tr("Subscription", "pro_features.ai_lessons", fallback: "AI Lessons")
+      /// Take personalized AI lessons - learn languages thru your favorite music and engaging stories
+      public static let aiLessonsDescription = Loc.tr("Subscription", "pro_features.ai_lessons_description", fallback: "Take personalized AI lessons - learn languages thru your favorite music and engaging stories")
       /// AI Quizzes
       public static let aiQuizzes = Loc.tr("Subscription", "pro_features.ai_quizzes", fallback: "AI Quizzes")
       /// Practice your vocabulary with personalized AI quizzes that adapt to your learning style.

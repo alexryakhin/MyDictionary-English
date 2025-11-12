@@ -10,8 +10,8 @@ import OpenAI
 enum SubscriptionFeature: String, Codable, CaseIterable, JSONSchemaEnumConvertible {
     case aiDefinitions = "ai_definitions"
     case aiQuizzes = "ai_quizzes"
+    case aiLessons = "ai_lessons"
     case images = "images"
-    case musicLessons = "music_lessons"
     case wordCollections = "word_collections"
     case premiumTTS = "premium_tts"
     case unlimitedExport = "unlimited_export"
@@ -24,6 +24,7 @@ enum SubscriptionFeature: String, Codable, CaseIterable, JSONSchemaEnumConvertib
         switch self {
         case .aiDefinitions: Loc.Subscription.ProFeatures.aiDefinitions
         case .aiQuizzes: Loc.Subscription.ProFeatures.aiQuizzes
+        case .aiLessons: Loc.Subscription.ProFeatures.aiLessons
         case .premiumTTS: Loc.Subscription.ProFeatures.speechifyTts
         case .unlimitedExport: Loc.Subscription.ProFeatures.unlimitedExport
         case .createSharedDictionaries: Loc.Subscription.ProFeatures.createSharedDictionaries
@@ -32,7 +33,6 @@ enum SubscriptionFeature: String, Codable, CaseIterable, JSONSchemaEnumConvertib
         case .prioritySupport: Loc.Subscription.ProFeatures.prioritySupport
         case .images: Loc.Subscription.ProFeatures.images
         case .wordCollections: Loc.Subscription.ProFeatures.wordCollections
-        case .musicLessons: "TODO: displayName for musicLessons"
         }
     }
 
@@ -40,6 +40,7 @@ enum SubscriptionFeature: String, Codable, CaseIterable, JSONSchemaEnumConvertib
         switch self {
         case .aiDefinitions: Loc.Subscription.ProFeatures.aiDefinitionsDescription
         case .aiQuizzes: Loc.Subscription.ProFeatures.aiQuizzesDescription
+        case .aiLessons: Loc.Subscription.ProFeatures.aiLessonsDescription
         case .premiumTTS: Loc.Subscription.ProFeatures.speechifyTtsDescription
         case .unlimitedExport: Loc.Subscription.ProFeatures.syncWordsAcrossDevices
         case .createSharedDictionaries: Loc.Subscription.ProFeatures.createManageSharedDictionaries
@@ -48,7 +49,6 @@ enum SubscriptionFeature: String, Codable, CaseIterable, JSONSchemaEnumConvertib
         case .prioritySupport: Loc.Subscription.ProFeatures.prioritySupportTeam
         case .images: Loc.Subscription.ProFeatures.imagesDescription
         case .wordCollections: Loc.Subscription.ProFeatures.wordCollectionsDescription
-        case .musicLessons: "TODO: description for musicLessons"
         }
     }
 
@@ -56,6 +56,7 @@ enum SubscriptionFeature: String, Codable, CaseIterable, JSONSchemaEnumConvertib
         switch self {
         case .aiDefinitions: "character.magnify"
         case .aiQuizzes: "brain.head.profile"
+        case .aiLessons: "graduationcap.fill"
         case .premiumTTS: "person.wave.2.fill"
         case .unlimitedExport: "square.and.arrow.up"
         case .createSharedDictionaries: "person.2.fill"
@@ -63,7 +64,6 @@ enum SubscriptionFeature: String, Codable, CaseIterable, JSONSchemaEnumConvertib
         case .advancedAnalytics: "chart.bar.fill"
         case .prioritySupport: "star.fill"
         case .images: "photo.fill"
-        case .musicLessons: "note"
         case .wordCollections: "folder.fill"
         }
     }
