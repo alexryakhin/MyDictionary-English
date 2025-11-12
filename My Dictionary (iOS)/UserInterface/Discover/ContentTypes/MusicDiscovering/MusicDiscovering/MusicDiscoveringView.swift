@@ -38,6 +38,10 @@ struct MusicDiscoveringView<ContentPicker: View>: View {
         selectedRecommendationStudyLanguage?.displayName ?? viewModel.studyLanguages.first?.displayName
     }
 
+    private var analyticsLanguageCode: String? {
+        viewModel.activeRecommendationLanguage?.rawValue ?? selectedRecommendationLanguageCode.nilIfEmpty
+    }
+
     var body: some View {
         ScrollView {
             if isAppleMusicAuthorized {
@@ -108,7 +112,23 @@ struct MusicDiscoveringView<ContentPicker: View>: View {
         .task(id: isAppleMusicAuthorized) {
             // Only load data when authorization status changes or first time
             if isAppleMusicAuthorized {
+                AnalyticsService.shared.logEvent(
+                    .musicDiscoveringOpened,
+                    parameters: [
+                        "authorized": 1,
+                        "language_code": analyticsLanguageCode ?? "unknown",
+                        "has_cached_selection": selectedRecommendationLanguageCode.isNotEmpty ? 1 : 0
+                    ]
+                )
                 viewModel.handle(.loadData)
+            } else {
+                AnalyticsService.shared.logEvent(
+                    .musicDiscoveringOpened,
+                    parameters: [
+                        "authorized": 0,
+                        "language_code": analyticsLanguageCode ?? "unknown"
+                    ]
+                )
             }
         }
     }
@@ -124,6 +144,13 @@ struct MusicDiscoveringView<ContentPicker: View>: View {
                         ForEach(viewModel.incompleteSessions) { session in
                             if let song = session.song {
                                 SongSuggestionCard(song: song) {
+                                let sessionID = session.session?.id.uuidString ?? session.id?.uuidString
+                                logSongSelection(
+                                    song,
+                                    context: "incomplete",
+                                    sessionID: sessionID,
+                                    isFavorite: session.isFavorite
+                                )
                                     selectedSong = song
                                 }
                             }
@@ -149,8 +176,13 @@ struct MusicDiscoveringView<ContentPicker: View>: View {
             } else {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 16) {
-                        ForEach(viewModel.recommendationSongs) { song in
+                        ForEach(Array(viewModel.recommendationSongs.enumerated()), id: \.element.id) { index, song in
                             SongSuggestionCard(song: song) {
+                                logSongSelection(
+                                    song,
+                                    context: "recommendations",
+                                    position: index
+                                )
                                 selectedSong = song
                             }
                         }
@@ -195,6 +227,13 @@ struct MusicDiscoveringView<ContentPicker: View>: View {
                         ForEach(viewModel.favoriteSongs) { session in
                             if let song = session.song {
                                 SongSuggestionCard(song: song) {
+                                let sessionID = session.session?.id.uuidString ?? session.id?.uuidString
+                                logSongSelection(
+                                    song,
+                                    context: "favorites",
+                                    sessionID: sessionID,
+                                    isFavorite: session.isFavorite
+                                )
                                     selectedSong = song
                                 }
                             }
@@ -221,8 +260,13 @@ struct MusicDiscoveringView<ContentPicker: View>: View {
                     columns: Array(repeating: GridItem(.flexible(), spacing: 12), count: 2),
                     spacing: 12
                 ) {
-                    ForEach(viewModel.searchResults) { song in
+                    ForEach(Array(viewModel.searchResults.enumerated()), id: \.element.id) { index, song in
                         SongSuggestionCard(song: song) {
+                            logSongSelection(
+                                song,
+                                context: "search",
+                                position: index
+                            )
                             selectedSong = song
                         }
                     }
@@ -254,6 +298,13 @@ struct MusicDiscoveringView<ContentPicker: View>: View {
                         ForEach(viewModel.completedSessions) { session in
                             if let song = session.song {
                                 SongSuggestionCard(song: song) {
+                                let sessionID = session.session?.id.uuidString ?? session.id?.uuidString
+                                logSongSelection(
+                                    song,
+                                    context: "history",
+                                    sessionID: sessionID,
+                                    isFavorite: session.isFavorite
+                                )
                                     selectedSong = song
                                 }
                             }
@@ -276,6 +327,46 @@ private extension MusicDiscoveringView {
         } else {
             viewModel.handle(.selectRecommendationLanguage(language))
         }
+    }
+
+    func logSongSelection(
+        _ song: Song,
+        context: String,
+        sessionID: String? = nil,
+        position: Int? = nil,
+        isFavorite: Bool? = nil
+    ) {
+        var parameters: [String: Any] = [
+            "song_id": song.serviceId,
+            "context": context,
+            "authorized": isAppleMusicAuthorized ? 1 : 0
+        ]
+
+        if let cefr = song.cefrLevel?.rawValue {
+            parameters["cefr_level"] = cefr
+        }
+
+        if let language = analyticsLanguageCode {
+            parameters["language_code"] = language
+        }
+
+        if let sessionID {
+            parameters["session_id"] = sessionID
+        }
+
+        if let position {
+            parameters["position"] = position
+        }
+
+        if isSearchActive {
+            parameters["query_length"] = viewModel.searchText.count
+        }
+
+        if let isFavorite {
+            parameters["is_favorite"] = isFavorite ? 1 : 0
+        }
+
+        AnalyticsService.shared.logEvent(.musicDiscoveringSongSelected, parameters: parameters)
     }
 }
 

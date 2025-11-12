@@ -210,6 +210,30 @@ enum AnalyticsEvent: String {
     case personalizationBannerShown
     case personalizationBannerTapped
     case personalizationBannerDismissed
+    // Music Discovering Events
+    case musicDiscoveringOpened
+    case musicDiscoveringAuthorizationPrompt
+    case musicDiscoveringAuthorizationAttempted
+    case musicDiscoveringAuthorizationSucceeded
+    case musicDiscoveringAuthorizationFailed
+    case musicDiscoveringLanguageChanged
+    case musicDiscoveringRecommendationsRequested
+    case musicDiscoveringRecommendationsReceived
+    case musicDiscoveringRecommendationsEmpty
+    case musicDiscoveringRecommendationsFailed
+    case musicDiscoveringSearchRequested
+    case musicDiscoveringSearchResults
+    case musicDiscoveringSearchFailed
+    case musicDiscoveringSongSelected
+    case musicDiscoveringLessonPreviewShown
+    case musicDiscoveringLessonStart
+    case musicDiscoveringHookGenerated
+    case musicDiscoveringHookFailed
+    case musicDiscoveringLessonGenerationRequested
+    case musicDiscoveringLessonGenerationCompleted
+    case musicDiscoveringLessonGenerationFailed
+    case musicDiscoveringLessonOpened
+    case musicDiscoveringFavoriteToggled
 
     var parameters: [String: Any]? {
         switch self {

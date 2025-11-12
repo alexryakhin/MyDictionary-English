@@ -228,15 +228,24 @@ struct SongLessonView: View {
                 emptySectionPlaceholder(Loc.MusicDiscovering.Lesson.Explanations.empty)
             } else {
                 VStack(alignment: .leading, spacing: 16) {
-                    ForEach(items.indices, id: \.self) { index in
+                    ForEach(items.sorted().indices, id: \.self) { index in
                         let explanation = items[index]
                         VStack(alignment: .leading, spacing: 8) {
-                            if let lineNumber = explanation.lineNumber {
-                                Text(Loc.MusicDiscovering.Lesson.Explanations.lineNumber(lineNumber))
+                            HStack {
+                                Text(Loc.MusicDiscovering.Lesson.Explanations.lineNumber(explanation.lineNumber))
                                     .font(.caption)
                                     .foregroundColor(.secondary)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+
+                                Button {
+                                    viewModel.handle(.playCultureNotes(explanation.explanation))
+                                } label: {
+                                    Label(Loc.Actions.listen, systemImage: "speaker.wave.2.fill")
+                                        .font(.caption)
+                                }
+                                .disabled(ttsPlayer.isPlaying)
                             }
-                            
+
                             InteractiveText(
                                 text: explanation.lyricLine,
                                 font: .headline,

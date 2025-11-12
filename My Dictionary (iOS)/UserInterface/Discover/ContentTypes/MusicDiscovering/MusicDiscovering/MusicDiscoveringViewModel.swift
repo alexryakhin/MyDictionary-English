@@ -65,10 +65,12 @@ final class MusicDiscoveringViewModel: BaseViewModel {
     private let historyService = MusicListeningHistoryService.shared
     private let recommendationService = MusicRecommendationService.shared
     private let songLessonSessionService = SongLessonSessionService.shared
+    private let analytics = AnalyticsService.shared
     
     private var cancellables = Set<AnyCancellable>()
     
     private let cacheDuration: TimeInterval = 24 * 60 * 60 // 24 hours (1 day)
+    private var lastSearchQuery: String?
 
     override init() {
         super.init()
@@ -210,6 +212,13 @@ final class MusicDiscoveringViewModel: BaseViewModel {
             await MainActor.run {
                 self.isSearching = false
             }
+            analytics.logEvent(
+                .musicDiscoveringSearchFailed,
+                parameters: baseAnalyticsParameters().merging([
+                    "query_length": query.count,
+                    "reason": "unauthorized"
+                ]) { _, new in new }
+            )
             return
         }
         
@@ -217,18 +226,45 @@ final class MusicDiscoveringViewModel: BaseViewModel {
             self.isSearching = true
         }
         
+        let isRepeat = lastSearchQuery == query
+        analytics.logEvent(
+            .musicDiscoveringSearchRequested,
+            parameters: baseAnalyticsParameters().merging([
+                "query_length": query.count,
+                "is_repeat": isRepeat ? 1 : 0
+            ]) { _, new in new }
+        )
+        lastSearchQuery = query
+        
         do {
             let songs = try await appleMusicService.searchSongs(query: query, language: nil)
             await MainActor.run {
                 self.searchResults = songs
                 self.isSearching = false
             }
+            analytics.logEvent(
+                .musicDiscoveringSearchResults,
+                parameters: baseAnalyticsParameters().merging([
+                    "query_length": query.count,
+                    "result_count": songs.count,
+                    "is_repeat": isRepeat ? 1 : 0
+                ]) { _, new in new }
+            )
         } catch {
             await MainActor.run {
                 self.errorReceived(error)
                 self.searchResults = []
                 self.isSearching = false
             }
+            analytics.logEvent(
+                .musicDiscoveringSearchFailed,
+                parameters: baseAnalyticsParameters().merging([
+                    "query_length": query.count,
+                    "is_repeat": isRepeat ? 1 : 0,
+                    "reason": "error",
+                    "error_message": error.localizedDescription
+                ]) { _, new in new }
+            )
         }
     }
     
@@ -249,6 +285,12 @@ final class MusicDiscoveringViewModel: BaseViewModel {
         guard appleMusicService.isAuthorized else {
             loadingStatus = .idle
             recommendationPhase = .idle
+            analytics.logEvent(
+                .musicDiscoveringRecommendationsFailed,
+                parameters: baseAnalyticsParameters().merging([
+                    "reason": "unauthorized"
+                ]) { _, new in new }
+            )
             return
         }
         
@@ -263,6 +305,12 @@ final class MusicDiscoveringViewModel: BaseViewModel {
             recommendationSongs = []
             loadingStatus = .idle
             recommendationPhase = .idle
+            analytics.logEvent(
+                .musicDiscoveringRecommendationsFailed,
+                parameters: baseAnalyticsParameters().merging([
+                    "reason": "no_language"
+                ]) { _, new in new }
+            )
             return
         }
         
@@ -272,6 +320,13 @@ final class MusicDiscoveringViewModel: BaseViewModel {
         if shouldShowLoading {
             loadingStatus = .loadingSuggestions
         }
+
+        analytics.logEvent(
+            .musicDiscoveringRecommendationsRequested,
+            parameters: baseAnalyticsParameters(language: languageToLoad).merging([
+                "trigger": languageOverride == nil ? "auto" : "manual"
+            ]) { _, new in new }
+        )
 
         Task {
             do {
@@ -303,15 +358,29 @@ final class MusicDiscoveringViewModel: BaseViewModel {
     /// Generate recommendations with all CEFR levels (2 random songs per level, 12 total)
     /// Gets from UserDefaults cache first, then Firestore, then generates with AI
     private func generateRecommendations(for language: InputLanguage) async throws {
+        let requestStart = Date()
+
         guard let userProfile = onboardingService.userProfile else {
             print("⚠️ [MusicDiscoveringViewModel] No user profile available")
             recommendationPhase = .idle
+            analytics.logEvent(
+                .musicDiscoveringRecommendationsFailed,
+                parameters: baseAnalyticsParameters(language: language).merging([
+                    "reason": "missing_profile"
+                ]) { _, new in new }
+            )
             return
         }
         
         guard userProfile.studyLanguages.contains(where: { $0.language == language }) else {
             print("⚠️ [MusicDiscoveringViewModel] Selected language \(language.rawValue) not present in user profile")
             recommendationPhase = .idle
+            analytics.logEvent(
+                .musicDiscoveringRecommendationsFailed,
+                parameters: baseAnalyticsParameters(language: language).merging([
+                    "reason": "language_not_in_profile"
+                ]) { _, new in new }
+            )
             return
         }
         
@@ -327,6 +396,15 @@ final class MusicDiscoveringViewModel: BaseViewModel {
                 self.recommendationSongs = cachedSongs
             }
             
+            analytics.logEvent(
+                .musicDiscoveringRecommendationsReceived,
+                parameters: baseAnalyticsParameters(language: language).merging([
+                    "count": cachedSongs.count,
+                    "filtered_count": cachedSongs.count,
+                    "source": "cache",
+                    "duration_ms": Int(Date().timeIntervalSince(requestStart) * 1000)
+                ]) { _, new in new }
+            )
             return
         }
         
@@ -440,11 +518,42 @@ final class MusicDiscoveringViewModel: BaseViewModel {
                 self.recommendationSongs = songsWithArtwork
             }
             
+            let duration = Date().timeIntervalSince(requestStart)
+            let receivedCount = songsWithArtwork.count
+            let filteredCount = filteredRecommendations.count
+
+            if receivedCount == 0 {
+                analytics.logEvent(
+                    .musicDiscoveringRecommendationsEmpty,
+                    parameters: baseAnalyticsParameters(language: language).merging([
+                        "filtered_count": filteredCount,
+                        "duration_ms": Int(duration * 1000)
+                    ]) { _, new in new }
+                )
+            } else {
+                analytics.logEvent(
+                    .musicDiscoveringRecommendationsReceived,
+                    parameters: baseAnalyticsParameters(language: language).merging([
+                        "count": receivedCount,
+                        "filtered_count": filteredCount,
+                        "source": "network",
+                        "duration_ms": Int(duration * 1000)
+                    ]) { _, new in new }
+                )
+            }
+            
             // Cache the complete Song objects (with artwork) in UserDefaults
             saveCachedSongs(songsWithArtwork, for: language)
         } catch {
             print("❌ [MusicDiscoveringViewModel] Failed to generate recommendations: \(error.localizedDescription)")
             recommendationPhase = .idle
+            analytics.logEvent(
+                .musicDiscoveringRecommendationsFailed,
+                parameters: baseAnalyticsParameters(language: language).merging([
+                    "reason": "generation_error",
+                    "error_message": error.localizedDescription
+                ]) { _, new in new }
+            )
             throw error
         }
     }
@@ -562,10 +671,30 @@ final class MusicDiscoveringViewModel: BaseViewModel {
         guard activeRecommendationLanguage != language else { return }
         activeRecommendationLanguage = language
         UDService.musicRecommendationsSelectedLanguage = language.rawValue
+        analytics.logEvent(
+            .musicDiscoveringLanguageChanged,
+            parameters: baseAnalyticsParameters(language: language)
+        )
         
         if refreshIfChanged {
             clearCache()
             loadSuggestions(for: language)
         }
+    }
+}
+
+private extension MusicDiscoveringViewModel {
+    func baseAnalyticsParameters(language: InputLanguage? = nil) -> [String: Any] {
+        var params: [String: Any] = [
+            "authorized": appleMusicService.isAuthorized ? 1 : 0
+        ]
+        
+        if let language {
+            params["language_code"] = language.rawValue
+        } else if let activeRecommendationLanguage {
+            params["language_code"] = activeRecommendationLanguage.rawValue
+        }
+        
+        return params
     }
 }

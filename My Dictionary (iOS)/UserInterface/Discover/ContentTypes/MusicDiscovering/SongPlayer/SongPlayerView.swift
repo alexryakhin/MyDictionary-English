@@ -160,6 +160,14 @@ struct SongPlayerView: View {
         case .loading:
             break
         case .ready(let lesson, let session):
+            AnalyticsService.shared.logEvent(
+                .musicDiscoveringLessonOpened,
+                parameters: [
+                    "song_id": song.serviceId,
+                    "language_code": lesson.language.rawValue,
+                    "session_id": session.id.uuidString
+                ]
+            )
             let config = SongLessonConfig(song: song, lesson: lesson, session: session)
             NavigationManager.shared.navigate(to: .songLesson(config))
         case .failed:

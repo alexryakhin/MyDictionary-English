@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MusicAuthenticationView: View {
     @StateObject private var viewModel = MusicAuthenticationViewModel()
+    @State private var hasLoggedPrompt = false
     
     var body: some View {
         VStack(spacing: 24) {
@@ -39,6 +40,12 @@ struct MusicAuthenticationView: View {
                     color: .red,
                     isLoading: viewModel.isAuthenticatingAppleMusic
                 ) {
+                    AnalyticsService.shared.logEvent(
+                        .musicDiscoveringAuthorizationAttempted,
+                        parameters: [
+                            "provider": "apple_music"
+                        ]
+                    )
                     Task {
                         await viewModel.authenticateAppleMusic()
                     }
@@ -89,6 +96,11 @@ struct MusicAuthenticationView: View {
             }
         }
         .padding(vertical: 12, horizontal: 16)
+        .onAppear {
+            guard !hasLoggedPrompt else { return }
+            AnalyticsService.shared.logEvent(.musicDiscoveringAuthorizationPrompt)
+            hasLoggedPrompt = true
+        }
     }
 }
 
@@ -167,9 +179,30 @@ final class MusicAuthenticationViewModel: ObservableObject {
         
         do {
             try await appleMusicService.authenticate()
+            AnalyticsService.shared.logEvent(
+                .musicDiscoveringAuthorizationSucceeded,
+                parameters: [
+                    "provider": "apple_music"
+                ]
+            )
         } catch let error as MusicError {
+            AnalyticsService.shared.logEvent(
+                .musicDiscoveringAuthorizationFailed,
+                parameters: [
+                    "provider": "apple_music",
+                    "reason": "\(error)"
+                ]
+            )
             errorMessage = error.localizedDescription
         } catch {
+            AnalyticsService.shared.logEvent(
+                .musicDiscoveringAuthorizationFailed,
+                parameters: [
+                    "provider": "apple_music",
+                    "reason": "unknown",
+                    "error_message": error.localizedDescription
+                ]
+            )
             errorMessage = error.localizedDescription
         }
         

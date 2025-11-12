@@ -46,6 +46,7 @@ final class SongPlayerViewModel: BaseViewModel {
     private let lessonService = MusicLessonService.shared
     private let historyService = MusicListeningHistoryService.shared
     private let songLessonSessionService = SongLessonSessionService.shared
+    private let analytics = AnalyticsService.shared
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -139,9 +140,31 @@ final class SongPlayerViewModel: BaseViewModel {
     }
 
     private func generateLesson() async {
-        guard lyrics.hasLyrics, AIService.shared.canMakeAIRequest() else {
+        let requestStart = Date()
+        let hasLyrics = lyrics.hasLyrics
+        let canRequestAI = AIService.shared.canMakeAIRequest()
+        
+        var requestParameters: [String: Any] = [
+            "song_id": song.serviceId,
+            "has_lyrics": hasLyrics ? 1 : 0,
+            "ai_available": canRequestAI ? 1 : 0
+        ]
+        if let detectedLanguage = lyrics.detectedLanguage?.rawValue {
+            requestParameters["detected_language"] = detectedLanguage
+        }
+        analytics.logEvent(.musicDiscoveringLessonGenerationRequested, parameters: requestParameters)
+        
+        guard hasLyrics, canRequestAI else {
             logError("\(#file) Unable to generate lesson")
             self.lessonState = .failed(Loc.MusicDiscovering.Player.Lesson.unavailable)
+            analytics.logEvent(
+                .musicDiscoveringLessonGenerationFailed,
+                parameters: [
+                    "song_id": song.serviceId,
+                    "reason": hasLyrics ? "ai_unavailable" : "lyrics_unavailable",
+                    "duration_ms": Int(Date().timeIntervalSince(requestStart) * 1000)
+                ]
+            )
             return
         }
 
@@ -149,6 +172,14 @@ final class SongPlayerViewModel: BaseViewModel {
             await MainActor.run {
                 self.lessonState = .ready(cached.lesson, cached.session)
             }
+            analytics.logEvent(
+                .musicDiscoveringLessonGenerationCompleted,
+                parameters: [
+                    "song_id": song.serviceId,
+                    "source": "cache",
+                    "duration_ms": Int(Date().timeIntervalSince(requestStart) * 1000)
+                ]
+            )
             return
         }
 
@@ -172,11 +203,31 @@ final class SongPlayerViewModel: BaseViewModel {
             await MainActor.run {
                 self.lessonState = .ready(adaptedLesson, session)
             }
+
+            let questionCount = adaptedLesson.quiz.fillInBlanks.count + adaptedLesson.quiz.meaningMCQ.count
+            analytics.logEvent(
+                .musicDiscoveringLessonGenerationCompleted,
+                parameters: [
+                    "song_id": song.serviceId,
+                    "source": "network",
+                    "duration_ms": Int(Date().timeIntervalSince(requestStart) * 1000),
+                    "quiz_question_count": questionCount
+                ]
+            )
         } catch {
             await MainActor.run {
                 logError("\(#file) Unable to generate lesson with error: \(error)")
                 self.lessonState = .failed(error.localizedDescription)
             }
+            analytics.logEvent(
+                .musicDiscoveringLessonGenerationFailed,
+                parameters: [
+                    "song_id": song.serviceId,
+                    "reason": "generation_error",
+                    "error_message": error.localizedDescription,
+                    "duration_ms": Int(Date().timeIntervalSince(requestStart) * 1000)
+                ]
+            )
         }
     }
 

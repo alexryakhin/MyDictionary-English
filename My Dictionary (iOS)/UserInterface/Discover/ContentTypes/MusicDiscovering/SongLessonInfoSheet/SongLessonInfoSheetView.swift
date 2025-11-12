@@ -97,6 +97,14 @@ struct SongLessonInfoSheetView: View {
                 switch viewModel.hookState {
                 case .loaded(let songLyrics, _):
                     guard viewModel.song.cefrLevel != nil else { return }
+                    AnalyticsService.shared.logEvent(
+                        .musicDiscoveringLessonStart,
+                        parameters: [
+                            "song_id": viewModel.song.serviceId,
+                            "cefr_level": viewModel.song.cefrLevel?.rawValue ?? "unknown",
+                            "is_favorite": viewModel.isFavorite ? 1 : 0
+                        ]
+                    )
                     onStartLesson(viewModel.song, songLyrics)
                 case .failed(let string):
                     viewModel.handle(.loadData)
@@ -108,6 +116,14 @@ struct SongLessonInfoSheetView: View {
             .padding(vertical: 12, horizontal: 16)
         }
         .task {
+            AnalyticsService.shared.logEvent(
+                .musicDiscoveringLessonPreviewShown,
+                parameters: [
+                    "song_id": viewModel.song.serviceId,
+                    "cefr_level": viewModel.song.cefrLevel?.rawValue ?? "unknown",
+                    "is_favorite": viewModel.isFavorite ? 1 : 0
+                ]
+            )
             viewModel.handle(.loadData)
         }
     }

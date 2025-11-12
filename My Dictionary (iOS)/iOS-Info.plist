@@ -35,7 +35,5 @@
 	</array>
 	<key>NSAppleMusicUsageDescription</key>
 	<string>My Dictionary needs access to Apple Music to discover personalized songs for language learning. This allows the app to search for songs in your target language and provide recommendations based on your learning profile.</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>My Dictionary needs access to your microphone to record audio for shadowing practice. This allows you to practice pronunciation by recording yourself speaking lyrics and comparing with the original song.</string>
 </dict>
 </plist>

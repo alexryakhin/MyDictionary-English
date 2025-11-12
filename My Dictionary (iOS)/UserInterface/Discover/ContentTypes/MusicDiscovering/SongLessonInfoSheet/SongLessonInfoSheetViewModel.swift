@@ -33,6 +33,7 @@ final class SongLessonInfoSheetViewModel: BaseViewModel {
     private let lessonService = MusicLessonService.shared
     private let recommendationService = MusicRecommendationService.shared
     private let sessionService = SongLessonSessionService.shared
+    private let analytics = AnalyticsService.shared
 
     // UserDefaults key for local hook caching
     private var hookCacheKey: String {
@@ -75,6 +76,13 @@ final class SongLessonInfoSheetViewModel: BaseViewModel {
 
                 await MainActor.run {
                     isFavorite.toggle()
+                    analytics.logEvent(
+                        .musicDiscoveringFavoriteToggled,
+                        parameters: [
+                            "song_id": song.serviceId,
+                            "is_favorite": isFavorite ? 1 : 0
+                        ]
+                    )
                 }
                 logInfo("[SongLessonInfoSheetViewModel] Toggled favorite: \(isFavorite)")
             } catch {
@@ -92,6 +100,12 @@ final class SongLessonInfoSheetViewModel: BaseViewModel {
                         self.hookState = .failed(.premiumRequired)
                     }
                     logWarning("[SongLessonInfoSheetViewModel] Premium required for music lessons")
+                    analytics.logEvent(
+                        .musicDiscoveringHookFailed,
+                        parameters: baseHookParameters().merging([
+                            "reason": "premium_required"
+                        ]) { _, new in new }
+                    )
                     return
                 }
 
@@ -111,6 +125,12 @@ final class SongLessonInfoSheetViewModel: BaseViewModel {
                         self.hookState = .failed(.lyricsNotFound)
                     }
                     logError("[SongLessonInfoSheetViewModel] No lyrics available for this song")
+                    analytics.logEvent(
+                        .musicDiscoveringHookFailed,
+                        parameters: baseHookParameters().merging([
+                            "reason": "lyrics_not_found"
+                        ]) { _, new in new }
+                    )
                     return
                 }
 
@@ -121,6 +141,13 @@ final class SongLessonInfoSheetViewModel: BaseViewModel {
                         song.cefrLevel = cachedHook.songCEFRLevel
                         self.hookState = .loaded(lyrics, cachedHook)
                     }
+                    analytics.logEvent(
+                        .musicDiscoveringHookGenerated,
+                        parameters: baseHookParameters().merging([
+                            "source": "cache",
+                            "cefr_level": cachedHook.songCEFRLevel.rawValue
+                        ]) { _, new in new }
+                    )
                     return
                 }
 
@@ -128,6 +155,12 @@ final class SongLessonInfoSheetViewModel: BaseViewModel {
                     await MainActor.run {
                         self.hookState = .failed(.userProfileNotCompleted)
                     }
+                    analytics.logEvent(
+                        .musicDiscoveringHookFailed,
+                        parameters: baseHookParameters().merging([
+                            "reason": "profile_incomplete"
+                        ]) { _, new in new }
+                    )
                     return
                 }
 
@@ -137,6 +170,12 @@ final class SongLessonInfoSheetViewModel: BaseViewModel {
                     await MainActor.run {
                         self.hookState = .failed(.lyricsLanguageNotDetermined)
                     }
+                    analytics.logEvent(
+                        .musicDiscoveringHookFailed,
+                        parameters: baseHookParameters().merging([
+                            "reason": "language_detection_failed"
+                        ]) { _, new in new }
+                    )
                     return
                 }
                 logInfo("[SongLessonInfoSheetViewModel] Detected language from lyrics: \(targetLanguage.englishName)")
@@ -152,6 +191,15 @@ final class SongLessonInfoSheetViewModel: BaseViewModel {
                 saveCachedHook(preListenHook)
                 logInfo("[SongLessonInfoSheetViewModel] Saved hook to local cache")
 
+                analytics.logEvent(
+                    .musicDiscoveringHookGenerated,
+                    parameters: baseHookParameters().merging([
+                        "source": "network",
+                        "cefr_level": preListenHook.songCEFRLevel.rawValue,
+                        "detected_language": targetLanguage.rawValue
+                    ]) { _, new in new }
+                )
+
                 await MainActor.run {
                     self.hookState = .loaded(lyrics, preListenHook)
                 }
@@ -160,6 +208,13 @@ final class SongLessonInfoSheetViewModel: BaseViewModel {
                 await MainActor.run {
                     self.hookState = .failed(.hookGenerationFailed)
                 }
+                analytics.logEvent(
+                    .musicDiscoveringHookFailed,
+                    parameters: baseHookParameters().merging([
+                        "reason": "hook_generation_failed",
+                        "error_message": error.localizedDescription
+                    ]) { _, new in new }
+                )
             }
         }
     }
@@ -190,5 +245,21 @@ final class SongLessonInfoSheetViewModel: BaseViewModel {
         // Ensure UserDefaults is synced to disk
         UserDefaults.standard.synchronize()
         logInfo("[SongLessonInfoSheetViewModel] Hook permanently cached to UserDefaults")
+    }
+}
+
+private extension SongLessonInfoSheetViewModel {
+    func baseHookParameters() -> [String: Any] {
+        var params: [String: Any] = [
+            "song_id": song.serviceId
+        ]
+
+        if let cefr = song.cefrLevel?.rawValue {
+            params["cefr_level"] = cefr
+        }
+
+        params["is_favorite"] = isFavorite ? 1 : 0
+
+        return params
     }
 }
