@@ -30,20 +30,24 @@ final class MusicPlayerService: NSObject, ObservableObject {
     private var player: AVPlayer?
     private var playerItem: AVPlayerItem?
     private var timeObserver: Any?
-    private let session = AVAudioSession.sharedInstance()
     private var musicPlayer: ApplicationMusicPlayer?
     private var cancellables = Set<AnyCancellable>()
     private var timeUpdateTimer: Timer?
     private var songQueue: [Song] = []
     private var currentQueueIndex: Int = 0
-    
+    private var playbackStallCounter: Int = 0
+    private var lastObservedPlaybackTime: TimeInterval = 0
+
+    #if os(iOS)
+    private let session = AVAudioSession.sharedInstance()
+    #endif
+
     // MARK: - Initialization
     
     private override init() {
         super.init()
         setupAudioSession()
         setupTimeObserver()
-        setupMusicPlayerTimeObserver()
         loadVolume()
         #if os(iOS)
         setupRemoteCommandCenter()
@@ -74,6 +78,7 @@ final class MusicPlayerService: NSObject, ObservableObject {
             isPlaying = true
             currentTime = 0
             sessionIsActive = true
+            resetPlaybackMonitoring()
         }
         
         updateNowPlayingInfo()
@@ -129,6 +134,8 @@ final class MusicPlayerService: NSObject, ObservableObject {
             if let player = player {
                 player.play()
                 isPlaying = true
+                playbackStallCounter = 0
+                lastObservedPlaybackTime = currentTime
             }
             
             if let musicPlayer = musicPlayer {
@@ -138,6 +145,8 @@ final class MusicPlayerService: NSObject, ObservableObject {
                         // Update current time from playbackTime
                         self.currentTime = musicPlayer.playbackTime
                         self.isPlaying = true
+                        self.playbackStallCounter = 0
+                        self.lastObservedPlaybackTime = self.currentTime
                     }
                 }
             }
@@ -154,6 +163,8 @@ final class MusicPlayerService: NSObject, ObservableObject {
                 currentTime = musicPlayer.playbackTime
             }
             isPlaying = false
+            playbackStallCounter = 0
+            lastObservedPlaybackTime = currentTime
         }
     }
     
@@ -173,6 +184,7 @@ final class MusicPlayerService: NSObject, ObservableObject {
             sessionIsActive = false
             currentTime = 0
             duration = 0
+            resetPlaybackMonitoring()
 
             removeTimeObserver()
             stopMusicPlayerTimeObserver()
@@ -189,6 +201,7 @@ final class MusicPlayerService: NSObject, ObservableObject {
             
             // Update current time for UI responsiveness
             currentTime = clampedTime
+            lastObservedPlaybackTime = clampedTime
             
             // Actually seek the music player
             if let musicPlayer = musicPlayer {
@@ -220,55 +233,57 @@ final class MusicPlayerService: NSObject, ObservableObject {
     // MARK: - Private Methods
     
     private func playAppleMusic(song: Song) async throws {
-        // Search for the song in Apple Music catalog
-        let searchRequest = MusicCatalogSearchRequest(term: "\(song.title) \(song.artist)", types: [MusicKit.Song.self])
-        let response = try await searchRequest.response()
-        
-        guard let musicKitSong = response.songs.first else {
+
+        var musicKitSong: MusicKit.Song?
+
+        let catalogRequest = MusicCatalogResourceRequest<MusicKit.Song>(matching: \.id, equalTo: MusicItemID(song.id))
+        musicKitSong = try? await catalogRequest.response().items.first
+
+        if musicKitSong == nil {
+            // Search for the song in Apple Music catalog
+            logWarning("[MusicPlayerService] Song \(song) not found by ID, searching by title and artist")
+            let searchRequest = MusicCatalogSearchRequest(term: "\(song.title) \(song.artist)", types: [MusicKit.Song.self])
+            musicKitSong = try? await searchRequest.response().songs.filter({ $0.contentRating != .explicit }).first
+        }
+
+        guard let musicKitSong else {
+            logError("[MusicPlayerService] Song \(song) not found in Apple Music catalog")
             throw MusicError.songNotFound
         }
-        
+
+        logSuccess("[MusicPlayerService] Song \(song) has been found in Apple Music catalog, musicKitSong: \(musicKitSong)")
+
         // Check if user has Apple Music subscription
         // Note: This check might not be perfect, but we can try to play and catch errors
         let queue = ApplicationMusicPlayer.Queue(for: [musicKitSong], startingAt: musicKitSong)
         ApplicationMusicPlayer.shared.queue = queue
         
         self.musicPlayer = ApplicationMusicPlayer.shared
-        
-        do {
-            try await ApplicationMusicPlayer.shared.play()
-            await MainActor.run {
-                duration = song.duration
+
+        let retryDelays: [TimeInterval] = [0, 1, 2, 3]
+        var lastError: Error?
+
+        for (attemptIndex, delay) in retryDelays.enumerated() {
+            if delay > 0 {
+                let nanoDelay = UInt64(delay * 1_000_000_000)
+                try await Task.sleep(nanoseconds: nanoDelay)
             }
-        } catch {
-            // Convert playback errors to user-friendly messages
-            let errorDescription = error.localizedDescription.lowercased()
-            let errorMessage = error.localizedDescription
-            
-            // Check for MPMusicPlayerControllerErrorDomain error 6
-            // Error 6 typically means: no subscription, song not available, or authorization issue
-            if errorMessage.contains("MPMusicPlayerControllerErrorDomain") && errorMessage.contains("error 6") {
-                throw MusicError.appleMusicSubscriptionRequired
+
+            do {
+                try await ApplicationMusicPlayer.shared.play()
+                await MainActor.run {
+                    duration = song.duration
+                }
+                lastError = nil
+                break
+            } catch {
+                lastError = error
+                logWarning("[MusicPlayerService] Attempt \(attemptIndex + 1) to play song \(song.id) failed with error: \(error.localizedDescription)")
             }
-            
-            // Check for other common error patterns
-            if errorDescription.contains("subscription") || errorDescription.contains("not subscribed") {
-                throw MusicError.appleMusicSubscriptionRequired
-            }
-            
-            if errorDescription.contains("not found") || errorDescription.contains("unavailable") {
-                throw MusicError.songNotFound
-            }
-            
-            if errorDescription.contains("not registered") || errorDescription.contains("404") || errorDescription.contains("client not found") {
-                throw MusicError.appleMusicNotRegistered
-            }
-            
-            if errorDescription.contains("network") || errorDescription.contains("connection") {
-                throw MusicError.networkError(errorMessage)
-            }
-            
-            // Generic playback error
+        }
+
+        if let error = lastError {
+            logError("[MusicPlayerService] Failed to play song \(song) with ID: \(song.id) after retries, error: \(error.localizedDescription)")
             throw MusicError.playbackNotSupported
         }
     }
@@ -302,58 +317,85 @@ final class MusicPlayerService: NSObject, ObservableObject {
             timeObserver = nil
         }
     }
-    
-    #if os(iOS)
-    private func setupMusicPlayerTimeObserver() {
-        // Timer to update currentTime from MPNowPlayingInfoCenter for ApplicationMusicPlayer
-        // This will be started when ApplicationMusicPlayer is playing
-    }
-    
+
     private func startMusicPlayerTimeObserver() {
         stopMusicPlayerTimeObserver()
         
-        guard let musicPlayer = musicPlayer else { return }
-        
-        // Read playback time from MusicPlayer.playbackTime property
-        timeUpdateTimer = Timer(timeInterval: 0.1, repeats: true) { [weak self] _ in
-            guard let self = self else { return }
+        timeUpdateTimer = Timer(timeInterval: 0.15, repeats: true) { [weak self] _ in
+            guard let self else { return }
             
             Task { @MainActor in
-                // Only update time if we're playing
-                guard self.isPlaying else { return }
-                
-                // Read actual playback time from the player
-                let playbackTime = musicPlayer.playbackTime
-                self.currentTime = playbackTime
-                
-                // Clamp to duration
-                if self.duration > 0 {
-                    self.currentTime = min(self.currentTime, self.duration)
-                }
-
-                if self.currentTime == self.duration {
-                    self.isPlaying = false
-                }
-
-                // Update MPNowPlayingInfoCenter
-                self.updateNowPlayingInfo()
+                guard let player = self.musicPlayer else { return }
+                self.updatePlaybackProgress(with: player.playbackTime)
             }
         }
-        RunLoop.main.add(timeUpdateTimer!, forMode: .common)
+        if let timeUpdateTimer {
+            RunLoop.main.add(timeUpdateTimer, forMode: .common)
+        }
     }
     
     private func stopMusicPlayerTimeObserver() {
         timeUpdateTimer?.invalidate()
         timeUpdateTimer = nil
+        playbackStallCounter = 0
+        lastObservedPlaybackTime = 0
     }
-    #else
-    private func setupMusicPlayerTimeObserver() {}
-    private func startMusicPlayerTimeObserver() {}
-    private func stopMusicPlayerTimeObserver() {}
-    #endif
-    
+
     private func loadVolume() {
         volume = UserDefaults.standard.object(forKey: "music_player_volume") as? Float ?? 1.0
+    }
+    
+    // MARK: - Playback Progress Helpers
+    
+    @MainActor
+    private func updatePlaybackProgress(with playbackTime: TimeInterval) {
+        let effectiveDuration = max(duration, playbackTime)
+        let clampedTime = min(max(0, playbackTime), effectiveDuration)
+        currentTime = clampedTime
+        
+        guard isPlaying else {
+            playbackStallCounter = 0
+            lastObservedPlaybackTime = clampedTime
+            updateNowPlayingInfo()
+            return
+        }
+        
+        if abs(clampedTime - lastObservedPlaybackTime) < 0.05 {
+            playbackStallCounter += 1
+        } else {
+            playbackStallCounter = 0
+        }
+        lastObservedPlaybackTime = clampedTime
+        
+        let nearEffectiveEnd = effectiveDuration > 0 &&
+            clampedTime >= max(effectiveDuration * 0.98, effectiveDuration - 0.5)
+        let stalledNearEnd = playbackStallCounter >= 5 &&
+            clampedTime >= max(1, effectiveDuration * 0.9)
+        
+        if nearEffectiveEnd || stalledNearEnd {
+            completePlayback()
+        } else {
+            updateNowPlayingInfo()
+        }
+    }
+    
+    @MainActor
+    private func completePlayback() {
+        guard isPlaying else { return }
+        
+        isPlaying = false
+        playbackStallCounter = 0
+        lastObservedPlaybackTime = 0
+        musicPlayer?.pause()
+        musicPlayer?.playbackTime = 0
+        currentTime = 0
+        updateNowPlayingInfo()
+    }
+    
+    @MainActor
+    private func resetPlaybackMonitoring() {
+        playbackStallCounter = 0
+        lastObservedPlaybackTime = 0
     }
     
     #if os(iOS)

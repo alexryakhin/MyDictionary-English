@@ -74,6 +74,18 @@ struct MyDictionaryApp: App {
         }
         .defaultSize(width: 600, height: 650)
 
+        WindowGroup(
+            id: WindowID.musicLesson,
+            for: MusicPlayerConfig.self
+        ) { $config in
+            if let config {
+                DiscoverLessonWindowRootView(config: config)
+            } else {
+                DiscoverLessonWindowPlaceholderView()
+            }
+        }
+        .defaultSize(width: 900, height: 600)
+
         Window(Loc.Analytics.progress, id: WindowID.analytics) {
             AnalyticsView()
         }

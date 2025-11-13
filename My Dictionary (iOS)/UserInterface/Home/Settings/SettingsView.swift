@@ -284,7 +284,6 @@ struct SettingsView: View {
         .multilineTextAlignment(.leading)
         .navigation(
             title: Loc.Navigation.Tabbar.settings,
-            mode: .large,
             trailingContent: {
                 HeaderButton(
                     Loc.Navigation.about,

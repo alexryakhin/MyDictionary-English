@@ -29,6 +29,8 @@ extension CDSongLessonSession {
     @NSManaged public var totalQuestions: Int32
     @NSManaged public var isFavorite: Bool
     @NSManaged public var quizSessionId: UUID?
+    @NSManaged public var hookData: Data?
+    @NSManaged public var lyricsData: Data?
 }
 
 extension CDSongLessonSession : Identifiable {

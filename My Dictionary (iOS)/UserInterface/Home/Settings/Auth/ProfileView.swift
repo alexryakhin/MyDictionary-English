@@ -54,7 +54,6 @@ struct ProfileView: View {
         .groupedBackground()
         .navigation(
             title: Loc.Profile.profile,
-            mode: .large,
             showsBackButton: true
         )
         .overlay {

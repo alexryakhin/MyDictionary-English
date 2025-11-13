@@ -93,7 +93,6 @@ struct AboutAppContentView: View {
             .groupedBackground()
             .navigation(
                 title: Loc.Navigation.about,
-                mode: .large,
                 showsBackButton: true,
                 trailingContent: {
                     HeaderButton(Loc.Settings.support) {

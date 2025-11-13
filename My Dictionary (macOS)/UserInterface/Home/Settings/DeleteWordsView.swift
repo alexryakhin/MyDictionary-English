@@ -15,7 +15,7 @@ struct DeleteWordsView: View {
         .safeAreaBarIfAvailable(edge: .top) {
             NavigationBarView(
                 title: Loc.Settings.deleteWords,
-                mode: .large,
+                mode: .regular,
                 showsDismissButton: true,
                 trailingContent: {
                     if !viewModel.words.isEmpty {

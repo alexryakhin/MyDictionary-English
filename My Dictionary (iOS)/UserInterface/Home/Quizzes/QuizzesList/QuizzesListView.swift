@@ -38,7 +38,6 @@ struct QuizzesListView: View {
         }
         .navigation(
             title: Loc.Navigation.Tabbar.quizzes,
-            mode: .large,
             trailingContent: {
                 if viewModel.availableDictionaries.count > 1 {
                     dictionaryPicker

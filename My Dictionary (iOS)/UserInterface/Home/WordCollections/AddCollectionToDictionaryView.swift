@@ -11,6 +11,7 @@ import StoreKit
 struct AddCollectionToDictionaryView: View {
     let collection: WordCollection
     let onImport: ((WordCollectionImportResult) -> Void)?
+
     @Environment(\.dismiss) private var dismiss
     @State private var selectedWords: Set<String> = []
     @State private var isAdding = false

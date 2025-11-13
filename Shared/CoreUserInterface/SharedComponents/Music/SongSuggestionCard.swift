@@ -9,8 +9,15 @@ import SwiftUI
 
 struct SongSuggestionCard: View {
     let song: Song
+    let size: CGSize
     let onTap: () -> Void
-    
+
+    init(song: Song, size: CGSize = .init(width: 140, height: 140), onTap: @escaping () -> Void) {
+        self.song = song
+        self.size = size
+        self.onTap = onTap
+    }
+
     var body: some View {
         Button(action: onTap) {
             VStack(alignment: .leading, spacing: 8) {
@@ -34,7 +41,7 @@ struct SongSuggestionCard: View {
                                 .foregroundColor(.white)
                         )
                 }
-                .frame(width: 140, height: 140)
+                .frame(width: size.width, height: size.height)
                 .clipShape(RoundedRectangle(cornerRadius: 8))
                 .shadow(color: .label.opacity(0.3), radius: 5)
 
@@ -44,7 +51,7 @@ struct SongSuggestionCard: View {
                         HStack(spacing: 4) {
                             TagView(
                                 text: cefrLevel.rawValue,
-                                color: cefrColor(for: cefrLevel.rawValue),
+                                color: cefrLevel.color,
                                 size: .mini
                             )
                             Spacer()
@@ -65,21 +72,8 @@ struct SongSuggestionCard: View {
                 }
             }
             .frame(maxHeight: .infinity, alignment: .top)
-            .frame(width: 140, alignment: .topLeading)
+            .frame(width: size.width, alignment: .topLeading)
         }
         .buttonStyle(.plain)
-    }
-    
-    private func cefrColor(for level: String) -> Color {
-        switch level {
-        case "A1", "A2":
-            return .green
-        case "B1", "B2":
-            return .blue
-        case "C1", "C2":
-            return .purple
-        default:
-            return .gray
-        }
     }
 }

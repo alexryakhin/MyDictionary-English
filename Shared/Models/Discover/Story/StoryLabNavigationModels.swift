@@ -5,11 +5,11 @@ struct StoryLabReadingConfig: Hashable {
     let session: StorySession?
     let story: AIStoryResponse?
     let config: StoryLabConfig?
-
+    
     static func == (lhs: StoryLabReadingConfig, rhs: StoryLabReadingConfig) -> Bool {
         lhs.sessionId == rhs.sessionId
     }
-
+    
     func hash(into hasher: inout Hasher) {
         hasher.combine(sessionId)
     }
@@ -22,11 +22,11 @@ struct StoryLabResultsConfig: Hashable {
     let session: StorySession?
     let story: AIStoryResponse?
     let config: StoryLabConfig?
-
+    
     static func == (lhs: StoryLabResultsConfig, rhs: StoryLabResultsConfig) -> Bool {
         lhs.sessionId == rhs.sessionId
     }
-
+    
     func hash(into hasher: inout Hasher) {
         hasher.combine(sessionId)
     }
@@ -39,13 +39,24 @@ extension StoryLabReadingConfig {
               let config = session.config else {
             return nil
         }
-
+        
         self.init(
             sessionId: resolvedSession.id,
             session: resolvedSession,
             story: story,
             config: config
         )
+    }
+    
+    init(
+        session: StorySession,
+        story: AIStoryResponse,
+        config: StoryLabConfig
+    ) {
+        self.sessionId = session.id
+        self.session = session
+        self.story = story
+        self.config = config
     }
 }
 
@@ -56,7 +67,7 @@ extension StoryLabResultsConfig {
               let config = session.config else {
             return nil
         }
-
+        
         self.init(
             sessionId: resolvedSession.id,
             showStreak: showStreak,
@@ -65,6 +76,21 @@ extension StoryLabResultsConfig {
             story: story,
             config: config
         )
+    }
+    
+    init(
+        session: StorySession,
+        story: AIStoryResponse,
+        config: StoryLabConfig,
+        showStreak: Bool,
+        currentDayStreak: Int?
+    ) {
+        self.sessionId = session.id
+        self.showStreak = showStreak
+        self.currentDayStreak = currentDayStreak
+        self.session = session
+        self.story = story
+        self.config = config
     }
 }
 

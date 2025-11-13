@@ -44,7 +44,7 @@ enum TTSDashboard {
                 }
                 .padding(12)
             } navigationBar: {
-                NavigationBarView(title: Loc.Tts.dashboard, mode: .large, showsDismissButton: true)
+                NavigationBarView(title: Loc.Tts.dashboard, mode: .regular, showsDismissButton: true)
             }
             .groupedBackground()
             .sheet(isPresented: $showingVoicePicker) {

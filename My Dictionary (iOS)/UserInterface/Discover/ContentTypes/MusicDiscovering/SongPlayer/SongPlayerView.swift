@@ -7,23 +7,11 @@
 
 import SwiftUI
 
-struct MusicPlayerConfig: Hashable {
-    let song: Song
-    let lyrics: SongLyrics
-    
-    static func == (lhs: MusicPlayerConfig, rhs: MusicPlayerConfig) -> Bool {
-        return lhs.song.id == rhs.song.id
-    }
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(song.id)
-    }
-}
-
 struct SongPlayerView: View {
     let config: MusicPlayerConfig
     @StateObject private var viewModel: SongPlayerViewModel
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.openURL) private var openURL
     @State private var isTipsSheetPresented: Bool = false
 
     private var song: Song { config.song }
@@ -52,34 +40,7 @@ struct SongPlayerView: View {
         )
         .safeAreaBarIfAvailable {
             VStack(spacing: 8) {
-                VStack(spacing: 2) {
-                    SongProgressBar(
-                        isDragging: $viewModel.isSeeking,
-                        progress: $viewModel.currentTime,
-                        duration: viewModel.duration
-                    )
-
-                    HStack {
-                        Text(formatTime(displayedCurrentTime))
-                            .font(.caption)
-                            .foregroundColor(.secondary)
-                            .monospacedDigit()
-
-                        Spacer()
-
-                        Text(formatTime(viewModel.duration))
-                            .font(.caption)
-                            .foregroundColor(.secondary)
-                            .monospacedDigit()
-                    }
-                }
-                ActionButton(
-                    viewModel.isPlaying ? Loc.Actions.pause : Loc.Actions.play,
-                    systemImage: viewModel.isPlaying ? "pause" : "play"
-                ) {
-                    viewModel.handle(.playPause)
-                }
-                .disabled(!viewModel.sessionIsActive)
+                playbackSection
 
                 ActionButton(
                     lessonButtonTitle,
@@ -114,6 +75,80 @@ struct SongPlayerView: View {
     }
     
     // MARK: - Lesson Generation Progress
+    @ViewBuilder
+    private var playbackSection: some View {
+        switch viewModel.playbackState {
+        case .loading, .active:
+            playbackControls
+        case .unavailable:
+            youtubeFallbackView
+        }
+    }
+
+    @ViewBuilder
+    private var playbackControls: some View {
+        VStack(spacing: 2) {
+            SongProgressBar(
+                isDragging: $viewModel.isSeeking,
+                progress: $viewModel.currentTime,
+                duration: viewModel.duration
+            )
+
+            HStack {
+                Text(formatTime(displayedCurrentTime))
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+                    .monospacedDigit()
+
+                Spacer()
+
+                Text(formatTime(viewModel.duration))
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+                    .monospacedDigit()
+            }
+        }
+
+        ActionButton(
+            viewModel.isPlaying ? Loc.Actions.pause : Loc.Actions.play,
+            systemImage: viewModel.isPlaying ? "pause" : "play"
+        ) {
+            viewModel.handle(.playPause)
+        }
+        .disabled(!viewModel.sessionIsActive)
+    }
+
+    @ViewBuilder
+    private var youtubeFallbackView: some View {
+        VStack(spacing: 12) {
+            Text(Loc.MusicDiscovering.Player.Playback.unavailableMessage)
+                .font(.caption)
+                .foregroundColor(.secondary)
+                .multilineTextAlignment(.center)
+
+            if let url = youtubeSearchURL {
+                ActionButton(
+                    Loc.MusicDiscovering.Player.Playback.openYoutube,
+                    systemImage: "magnifyingglass"
+                ) {
+                    openURL(url)
+                }
+            }
+        }
+        .frame(maxWidth: .infinity)
+        .padding(.vertical, 4)
+    }
+
+    private var youtubeSearchURL: URL? {
+        var components = URLComponents(string: "https://www.youtube.com/results")
+        components?.queryItems = [
+            URLQueryItem(
+                name: "search_query",
+                value: "\(song.title) \(song.artist)"
+            )
+        ]
+        return components?.url
+    }
     
     private var lessonGenerationProgress: some View {
         HStack(spacing: 12) {

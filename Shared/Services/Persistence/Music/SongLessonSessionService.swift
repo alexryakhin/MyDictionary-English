@@ -239,5 +239,85 @@ final class SongLessonSessionService {
         // Notify that session data changed
         NotificationCenter.default.post(name: .songSessionDidChange, object: nil)
     }
+
+    // MARK: - Hook & Lyrics Cache
+
+    func getHookPackage(for songId: String) -> MusicLessonService.HookCachePackage? {
+        let context = coreDataService.context
+        var result: MusicLessonService.HookCachePackage?
+
+        context.performAndWait {
+            let fetchRequest: NSFetchRequest<CDSongLessonSession> = CDSongLessonSession.fetchRequest()
+            fetchRequest.predicate = NSPredicate(format: "songId == %@", songId)
+            fetchRequest.fetchLimit = 1
+
+            guard let session = try? context.fetch(fetchRequest).first,
+                  let hookData = session.hookData,
+                  let lyricsData = session.lyricsData else {
+                return
+            }
+
+            let decoder = JSONDecoder()
+            guard let hook = try? decoder.decode(PreListenHook.self, from: hookData),
+                  let lyrics = try? decoder.decode(SongLyrics.self, from: lyricsData) else {
+                logError("[SongLessonSessionService] Failed to decode cached hook for song \(songId)")
+                return
+            }
+
+            session.lastAccessed = Date()
+            if context.hasChanges {
+                try? context.save()
+            }
+
+            result = MusicLessonService.HookCachePackage(hook: hook, lyrics: lyrics)
+        }
+
+        return result
+    }
+
+    func saveHookPackage(_ package: MusicLessonService.HookCachePackage, for song: Song) {
+        let context = coreDataService.context
+
+        context.performAndWait {
+            let fetchRequest: NSFetchRequest<CDSongLessonSession> = CDSongLessonSession.fetchRequest()
+            fetchRequest.predicate = NSPredicate(format: "songId == %@", song.id)
+            fetchRequest.fetchLimit = 1
+
+            let session: CDSongLessonSession
+            if let existing = try? context.fetch(fetchRequest).first {
+                session = existing
+            } else {
+                session = CDSongLessonSession(context: context)
+                session.id = UUID()
+                session.date = Date()
+                session.song = song
+            }
+
+            let encoder = JSONEncoder()
+            do {
+                session.hookData = try encoder.encode(package.hook)
+                session.lyricsData = try encoder.encode(package.lyrics)
+            } catch {
+                logError("[SongLessonSessionService] Failed to encode hook cache for song \(song.id): \(error)")
+                return
+            }
+
+            if session.songId == nil {
+                session.songId = song.id
+            }
+            if session.cefrLevel == nil {
+                session.cefrLevel = package.hook.songCEFRLevel.rawValue
+            }
+            session.lastAccessed = Date()
+
+            do {
+                if context.hasChanges {
+                    try context.save()
+                }
+            } catch {
+                logError("[SongLessonSessionService] Failed to persist hook cache for song \(song.id): \(error)")
+            }
+        }
+    }
 }
 

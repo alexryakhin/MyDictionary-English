@@ -82,7 +82,7 @@ struct MusicAuthenticationView: View {
                     if error == Loc.MusicDiscovering.Auth.Error.subscriptionRequired {
                         Button(Loc.MusicDiscovering.Auth.Actions.openMusicApp) {
                             if let url = URL(string: "music://") {
-                                UIApplication.shared.open(url)
+                                openURL(url)
                             }
                         }
                         .font(.caption)
@@ -138,6 +138,7 @@ private struct AuthenticationButton: View {
             .foregroundStyle(color)
             .cornerRadius(12)
         }
+        .buttonStyle(.plain)
         .disabled(isLoading)
     }
 }

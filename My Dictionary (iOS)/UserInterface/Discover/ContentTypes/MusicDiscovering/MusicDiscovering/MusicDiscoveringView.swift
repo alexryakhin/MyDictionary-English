@@ -180,7 +180,7 @@ struct MusicDiscoveringView<ContentPicker: View>: View {
                 RecommendationEmptyView()
             } else {
                 ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 16) {
+                    LazyHStack(spacing: 16) {
                         ForEach(Array(viewModel.recommendationSongs.enumerated()), id: \.element.id) { index, song in
                             SongSuggestionCard(song: song) {
                                 selectSong(
@@ -252,10 +252,22 @@ struct MusicDiscoveringView<ContentPicker: View>: View {
 
     @ViewBuilder
     private var searchResultsSection: some View {
+        let width = UIScreen.main.fixedCoordinateSpace.bounds.width / 2 - 6 - 32
         if viewModel.isSearching {
             CustomSectionView(header: Loc.MusicDiscovering.View.Search.loading) {
-                ProgressView()
-                    .padding()
+                LazyVGrid(
+                    columns: Array(repeating: GridItem(.flexible(), spacing: 12), count: 2),
+                    spacing: 12
+                ) {
+                    ForEach(0..<6) { index in
+                        VStack(alignment: .leading, spacing: 8) {
+                            ShimmerView(width: width, height: width)
+                            ShimmerView(width: width - 20, height: 20)
+                            ShimmerView(width: width - 50, height: 16)
+                        }
+                    }
+                }
+                .padding(.vertical, 8)
             }
         } else if !viewModel.searchResults.isEmpty {
             CustomSectionView(header: Loc.MusicDiscovering.View.Search.resultsTitle) {
@@ -264,7 +276,10 @@ struct MusicDiscoveringView<ContentPicker: View>: View {
                     spacing: 12
                 ) {
                     ForEach(Array(viewModel.searchResults.enumerated()), id: \.element.id) { index, song in
-                        SongSuggestionCard(song: song) {
+                        SongSuggestionCard(
+                            song: song,
+                            size: .init(width: width, height: width)
+                        ) {
                             selectSong(
                                 song,
                                 context: "search",

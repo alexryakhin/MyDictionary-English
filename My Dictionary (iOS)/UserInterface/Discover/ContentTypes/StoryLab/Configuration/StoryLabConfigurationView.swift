@@ -20,19 +20,20 @@ struct StoryLabConfigurationView<ContentPicker: View>: View {
     @StateObject private var wordsProvider = WordsProvider.shared
     @StateObject private var repository = StoryLabSessionsRepository.shared
     @StateObject private var viewModel = StoryLabConfigurationViewModel()
-    
+
+    @AppStorage(UDKeys.storyLabTargetLanguage) private var targetLanguage: InputLanguage = InputLanguage.english
+    @AppStorage(UDKeys.storyLabCEFRLevel) private var cefrLevel: CEFRLevel = CEFRLevel.b1
+
     @State private var inputMode: InputMode = .savedWords
     @State private var selectedWords: Set<String> = []
     @State private var customText: String = ""
-    @State private var targetLanguage: InputLanguage = .english
-    @State private var cefrLevel: CEFRLevel = .b1
     @State private var pageCount: Int = 1
     @State private var showingWordSelection = false
     @State private var selectedSession: CDStoryLabSession?
-    @FocusState private var isCustomTextEditing: Bool
-
     @State private var navigationManager = NavigationManager.shared
     @State private var hasLoggedAppear = false
+
+    @FocusState private var isCustomTextEditing: Bool
 
     init(discoverViewModel: DiscoverViewModel, contentPicker: ContentPicker) {
         self.discoverViewModel = discoverViewModel

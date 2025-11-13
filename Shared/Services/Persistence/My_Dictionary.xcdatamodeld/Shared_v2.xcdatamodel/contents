@@ -32,9 +32,11 @@
     </entity>
     <entity name="MusicLesson" representedClassName="CDMusicLesson" syncable="YES">
         <attribute name="adaptedContent" optional="YES" attributeType="Binary"/>
+        <attribute name="hookData" optional="YES" attributeType="Binary"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="isFavorite" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="lastAccessed" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="lyricsData" optional="YES" attributeType="Binary"/>
         <attribute name="savedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="songId" optional="YES" attributeType="String" defaultValueString=""/>
         <attribute name="userLevel" optional="YES" attributeType="String" defaultValueString=""/>
@@ -70,10 +72,12 @@
         <attribute name="correctAnswers" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="hookData" optional="YES" attributeType="Binary"/>
         <attribute name="isComplete" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="isFavorite" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="lastAccessed" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="lessonData" optional="YES" attributeType="Binary"/>
+        <attribute name="lyricsData" optional="YES" attributeType="Binary"/>
         <attribute name="quizSessionId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="score" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="sessionData" optional="YES" attributeType="Binary"/>

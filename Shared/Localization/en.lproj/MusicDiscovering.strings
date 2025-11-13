@@ -4,6 +4,7 @@
 "view.section.favorite_songs" = "Favorite Songs";
 "view.section.history" = "History";
 "view.description" = "Learn languages through music. Search for your favorite songs or artists. AI will generate lessons and quizzes for each song.";
+"view.emptyTitle" = "Choose a song to start a lesson";
 
 // MARK: - Search
 "view.search.loading" = "Searching...";
@@ -72,6 +73,8 @@
 "player.lesson.ready" = "Continue to Lesson";
 "player.lesson.failed" = "Error loading lesson, retry?";
 "player.lesson.unavailable" = "Unable to generate lesson";
+"player.playback.open_youtube" = "Search on YouTube";
+"player.playback.unavailable_message" = "Playback isn't available in Apple Music. Try YouTube instead.";
 "player.tips.title" = "Music Lesson Tips";
 "player.tips.header" = "Get ready for your lesson";
 "player.tips.intro" = "Find a quiet moment, connect headphones if you have them, and keep a notebook nearby. It helps to hum along once before you dive into the exercises.";

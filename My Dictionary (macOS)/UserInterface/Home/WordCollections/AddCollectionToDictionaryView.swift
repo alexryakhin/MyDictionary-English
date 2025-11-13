@@ -10,6 +10,8 @@ import StoreKit
 
 struct AddCollectionToDictionaryView: View {
     let collection: WordCollection
+    let onImport: ((WordCollectionImportResult) -> Void)?
+
     @Environment(\.dismiss) private var dismiss
     @State private var selectedWords: Set<String> = []
     @State private var isAdding = false
@@ -29,7 +31,15 @@ struct AddCollectionToDictionaryView: View {
     
     @AppStorage(UDKeys.ratingRequestCount)
     private var ratingRequestCount: Int = 0
-    
+
+    init(
+        collection: WordCollection,
+        onImport: ((WordCollectionImportResult) -> Void)? = nil
+    ) {
+        self.collection = collection
+        self.onImport = onImport
+    }
+
     var body: some View {
         ScrollViewWithCustomNavBar {
             ListWithDivider(collection.words) { word in
@@ -132,6 +142,7 @@ struct AddCollectionToDictionaryView: View {
             duplicateWordsCount = result.duplicateCount
             isAdding = false
             showSuccessAlert = true
+            onImport?(result)
         }
 
         // Log import completion analytics
@@ -162,6 +173,7 @@ struct AddCollectionToDictionaryView: View {
             duplicateWordsCount = result.duplicateCount
             isAdding = false
             showSuccessAlert = true
+            onImport?(result)
         }
 
         // Log import completion analytics

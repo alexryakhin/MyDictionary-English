@@ -80,9 +80,7 @@ struct SongLessonInfoSheetView: View {
                 case .loaded(_, let preListenHook):
                     PreListenHookView(hook: preListenHook)
                 case .failed(let musicError):
-                    if case .lyricsNotFound = musicError {
-                        LyricsErrorView()
-                    }
+                    LyricsErrorView()
                 case .loading:
                     HookLoadingSkeleton()
                 }
@@ -91,7 +89,7 @@ struct SongLessonInfoSheetView: View {
         }
         .safeAreaBarIfAvailable {
             ActionButton(
-                Loc.MusicDiscovering.Sheet.Cta.startLesson,
+                buttonTitle,
                 style: .borderedProminent
             ) {
                 switch viewModel.hookState {
@@ -125,6 +123,17 @@ struct SongLessonInfoSheetView: View {
                 ]
             )
             viewModel.handle(.loadData)
+        }
+    }
+
+    private var buttonTitle: String {
+        switch viewModel.hookState {
+        case .loaded:
+            return Loc.MusicDiscovering.Sheet.Cta.startLesson
+        case .failed:
+            return Loc.Actions.retry
+        case .loading:
+            return Loc.Actions.loading
         }
     }
 }
@@ -167,192 +176,4 @@ struct PremiumRequiredView: View {
 
 // MARK: - LyricsErrorView
 
-struct LyricsErrorView: View {
-    var body: some View {
-        VStack(spacing: 16) {
-            Image(systemName: "exclamationmark.triangle.fill")
-                .font(.system(size: 50))
-                .foregroundColor(.orange)
-            
-            Text(Loc.MusicDiscovering.Sheet.LyricsUnavailable.title)
-                .font(.title3)
-                .fontWeight(.semibold)
-            
-            Text(Loc.MusicDiscovering.Sheet.LyricsUnavailable.body)
-                .font(.subheadline)
-                .foregroundColor(.secondary)
-                .multilineTextAlignment(.center)
-                .padding(.horizontal)
-        }
-        .padding()
-        .frame(maxWidth: .infinity)
-        .background(
-            RoundedRectangle(cornerRadius: 12)
-                .fill(Color.orange.opacity(0.1))
-        )
-    }
-}
 
-// MARK: - HookLoadingSkeleton
-
-struct HookLoadingSkeleton: View {
-    var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            // Main Hook Text Shimmer (multiline)
-            VStack(alignment: .leading, spacing: 8) {
-                ShimmerView(height: 16)
-                ShimmerView(height: 16)
-                ShimmerView(width: 250, height: 16)
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .clippedWithPaddingAndBackground(Color.accent.opacity(0.1))
-
-            // Key Phrases Section
-            VStack(alignment: .leading, spacing: 12) {
-                ShimmerView(width: 100, height: 14)
-                    .clipShape(RoundedRectangle(cornerRadius: 6))
-                
-                // Phrase 1
-                HStack(alignment: .top, spacing: 8) {
-                    ShimmerView(width: 40, height: 20)
-                        .clipShape(RoundedRectangle(cornerRadius: 6))
-                    VStack(alignment: .leading, spacing: 4) {
-                        ShimmerView(width: 200, height: 14)
-                        ShimmerView(width: 150, height: 12)
-                        ShimmerView(width: 180, height: 10)
-                    }
-                }
-                
-                // Phrase 2
-                HStack(alignment: .top, spacing: 8) {
-                    ShimmerView(width: 40, height: 20)
-                        .clipShape(RoundedRectangle(cornerRadius: 6))
-                    VStack(alignment: .leading, spacing: 4) {
-                        ShimmerView(width: 180, height: 14)
-                        ShimmerView(width: 160, height: 12)
-                        ShimmerView(width: 190, height: 10)
-                    }
-                }
-                
-                // Phrase 3
-                HStack(alignment: .top, spacing: 8) {
-                    ShimmerView(width: 40, height: 20)
-                        .clipShape(RoundedRectangle(cornerRadius: 6))
-                    VStack(alignment: .leading, spacing: 4) {
-                        ShimmerView(width: 190, height: 14)
-                        ShimmerView(width: 140, height: 12)
-                        ShimmerView(width: 170, height: 10)
-                    }
-                }
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .clippedWithPaddingAndBackground(Color.accent.opacity(0.1))
-
-            // Grammar Highlight Shimmer
-            VStack(alignment: .leading, spacing: 4) {
-                HStack(spacing: 4) {
-                    ShimmerView(width: 16, height: 16)
-                    ShimmerView(width: 80, height: 14)
-                }
-                ShimmerView(height: 12)
-                ShimmerView(width: 220, height: 12)
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .clippedWithPaddingAndBackground(Color.accent.opacity(0.1))
-
-            // Cultural Note Shimmer
-            VStack(alignment: .leading, spacing: 4) {
-                HStack(spacing: 4) {
-                    ShimmerView(width: 16, height: 16)
-                    ShimmerView(width: 100, height: 14)
-                }
-                ShimmerView(height: 12)
-                ShimmerView(width: 240, height: 12)
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .clippedWithPaddingAndBackground(Color.accent.opacity(0.1))
-        }
-    }
-}
-
-// MARK: - PreListenHookView
-
-struct PreListenHookView: View {
-    let hook: PreListenHook
-    
-    var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            // Main Hook Text
-            Text(hook.hook)
-                .font(.body)
-                .foregroundColor(.primary)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .clippedWithPaddingAndBackground(Color.accent.opacity(0.1))
-
-            // Target Phrases
-            if !hook.targetPhrases.isEmpty {
-                VStack(alignment: .leading, spacing: 8) {
-                    Text(Loc.MusicDiscovering.Lesson.Phrases.header)
-                        .font(.subheadline)
-                        .fontWeight(.semibold)
-                        .foregroundColor(.secondary)
-                    
-                    ForEach(hook.targetPhrases.indices, id: \.self) { index in
-                        let phrase = hook.targetPhrases[index]
-                        HStack(alignment: .top, spacing: 8) {
-                            TagView(
-                                text: phrase.cefr.rawValue,
-                                color: phrase.cefr.color,
-                                size: .mini
-                            )
-                            
-                            VStack(alignment: .leading, spacing: 4) {
-                                Text(phrase.phrase)
-                                    .font(.subheadline)
-                                    .fontWeight(.medium)
-                                if let meaning = phrase.meaning {
-                                    Text(meaning)
-                                        .font(.caption2)
-                                        .foregroundColor(.secondary)
-                                        .italic()
-                                }
-                            }
-                        }
-                    }
-                }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .clippedWithPaddingAndBackground(Color.accent.opacity(0.1))
-            }
-            
-            // Grammar Highlight
-            if let grammar = hook.grammarHighlight, !grammar.isEmpty {
-                VStack(alignment: .leading, spacing: 4) {
-                    Label(Loc.MusicDiscovering.Sheet.Hook.grammar, systemImage: "book.fill")
-                        .font(.subheadline)
-                        .fontWeight(.semibold)
-                        .foregroundColor(.secondary)
-                    Text(grammar)
-                        .font(.caption)
-                        .foregroundColor(.primary)
-                }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .clippedWithPaddingAndBackground(Color.accent.opacity(0.1))
-            }
-            
-            // Cultural Note
-            if let culture = hook.culturalNote, !culture.isEmpty {
-                VStack(alignment: .leading, spacing: 4) {
-                    Label(Loc.MusicDiscovering.Sheet.Hook.culturalNote, systemImage: "globe")
-                        .font(.subheadline)
-                        .fontWeight(.semibold)
-                        .foregroundColor(.secondary)
-                    Text(culture)
-                        .font(.caption)
-                        .foregroundColor(.primary)
-                }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .clippedWithPaddingAndBackground(Color.accent.opacity(0.1))
-            }
-        }
-    }
-}

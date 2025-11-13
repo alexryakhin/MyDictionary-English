@@ -330,6 +330,7 @@ private struct SongLessonShareCard: View {
                 .font(.system(size: 12, weight: .regular, design: .rounded))
                 .opacity(0.7)
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
         .clippedWithPaddingAndBackground(Color.white.opacity(0.14))
     }
     

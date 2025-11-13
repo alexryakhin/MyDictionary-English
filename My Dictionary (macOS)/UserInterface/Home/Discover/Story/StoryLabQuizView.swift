@@ -21,7 +21,7 @@ struct StoryLabQuizView: View {
     }
     
     var isQuestionAnswered: Bool {
-        guard let session = viewModel.session else { return false }
+        guard case .ready(let session) = viewModel.loadingStatus else { return false }
         let key = StorySession.QuestionKey(pageIndex: pageIndex, questionIndex: currentQuestionIndex)
         return session.answers[key] != nil
     }
@@ -54,7 +54,7 @@ struct StoryLabQuizView: View {
             showFeedback = false
             
             // Load previously selected answer if exists for first question
-            if let session = viewModel.session {
+            if case .ready(let session) = viewModel.loadingStatus {
                 let key = StorySession.QuestionKey(pageIndex: pageIndex, questionIndex: 0)
                 if let previousAnswer = session.answers[key] {
                     selectedAnswerIndex = previousAnswer
@@ -108,7 +108,7 @@ struct StoryLabQuizView: View {
     
     @ViewBuilder
     private func answerOptionButton(index: Int, option: AIComprehensionOption) -> some View {
-        if let session = viewModel.session {
+        if case .ready(let session) = viewModel.loadingStatus {
             let key = StorySession.QuestionKey(pageIndex: pageIndex, questionIndex: currentQuestionIndex)
             let isSelected = selectedAnswerIndex == index || session.answers[key] == index
             let isCorrect = option.isCorrect
@@ -229,7 +229,7 @@ struct StoryLabQuizView: View {
     // MARK: - Actions
     
     private func submitAnswer() {
-        guard let selectedAnswerIndex, let session = viewModel.session else { return }
+        guard let selectedAnswerIndex, case .ready(let session) = viewModel.loadingStatus else { return }
 
         let key = StorySession.QuestionKey(pageIndex: pageIndex, questionIndex: currentQuestionIndex)
         
@@ -253,7 +253,7 @@ struct StoryLabQuizView: View {
             showFeedback = false
             
             // Load previously selected answer if exists
-            if let session = viewModel.session {
+            if case .ready(let session) = viewModel.loadingStatus {
                 let key = StorySession.QuestionKey(pageIndex: pageIndex, questionIndex: currentQuestionIndex)
                 if let previousAnswer = session.answers[key] {
                     selectedAnswerIndex = previousAnswer

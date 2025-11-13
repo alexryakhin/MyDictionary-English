@@ -284,7 +284,7 @@ struct AppleMusicDebugView: View {
         
         Task {
             do {
-                let songs = try await appleMusicService.searchSongs(query: searchQuery, language: nil)
+                let songs = try await appleMusicService.searchSongs(query: searchQuery)
                 await MainActor.run {
                     searchResults = songs
                     isSearching = false

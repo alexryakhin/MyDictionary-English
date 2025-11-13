@@ -68,7 +68,7 @@ struct StoryLabConfig: Hashable, Codable {
 
 // MARK: - Story Response Models
 
-struct AIStoryResponse: Codable, JSONSchemaConvertible {
+struct AIStoryResponse: Codable, Hashable, JSONSchemaConvertible {
     let title: String
     let pages: [AIStoryPage]
     let metadata: StoryMetadata
@@ -82,7 +82,7 @@ struct AIStoryResponse: Codable, JSONSchemaConvertible {
     }()
 }
 
-struct AIStoryPage: Codable, JSONSchemaConvertible {
+struct AIStoryPage: Codable, Hashable, JSONSchemaConvertible {
     let pageNumber: Int
     let storyText: String
     let questions: [AIComprehensionQuestion]
@@ -96,7 +96,7 @@ struct AIStoryPage: Codable, JSONSchemaConvertible {
     }()
 }
 
-struct AIComprehensionQuestion: Codable, JSONSchemaConvertible {
+struct AIComprehensionQuestion: Codable, Hashable, JSONSchemaConvertible {
     let question: String
     let options: [AIComprehensionOption]
     let explanation: String?
@@ -115,7 +115,7 @@ struct AIComprehensionQuestion: Codable, JSONSchemaConvertible {
     }()
 }
 
-struct AIComprehensionOption: Codable, JSONSchemaConvertible {
+struct AIComprehensionOption: Codable, Hashable, JSONSchemaConvertible {
     let text: String
     let isCorrect: Bool
     
@@ -127,7 +127,7 @@ struct AIComprehensionOption: Codable, JSONSchemaConvertible {
     }()
 }
 
-struct StoryMetadata: Codable, JSONSchemaConvertible {
+struct StoryMetadata: Codable, Hashable, JSONSchemaConvertible {
     let cefrLevel: CEFRLevel
     let targetLanguage: InputLanguage
     let wordCount: Int
@@ -145,7 +145,7 @@ struct StoryMetadata: Codable, JSONSchemaConvertible {
 
 // MARK: - Story Session
 
-struct StorySession: Identifiable {
+struct StorySession: Identifiable, Hashable {
     let id: UUID
     let story: AIStoryResponse
     var currentPageIndex: Int

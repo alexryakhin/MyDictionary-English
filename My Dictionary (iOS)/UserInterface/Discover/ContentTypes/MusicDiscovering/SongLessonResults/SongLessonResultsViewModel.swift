@@ -12,14 +12,9 @@ import SwiftUI
 @MainActor
 final class SongLessonResultsViewModel: BaseViewModel {
     
-    enum Input {
-        case loadResults(MusicDiscoveringSession)
-        case toggleFavorite
-    }
-    
-    @Published private(set) var session: MusicDiscoveringSession?
+    @Published private(set) var session: MusicDiscoveringSession
     @Published private(set) var isFavorite: Bool = false
-    @Published private(set) var resolvedListeningTime: TimeInterval = 0
+    @Published private(set) var resolvedListeningTime: TimeInterval
     @Published private(set) var showStreakAnimation: Bool = false
     @Published private(set) var currentDayStreak: Int?
     
@@ -30,97 +25,52 @@ final class SongLessonResultsViewModel: BaseViewModel {
     private var storedSessionId: UUID?
     private var recordedQuizSessionId: UUID?
     
+    init(session: MusicDiscoveringSession) {
+        self.session = session
+        self.resolvedListeningTime = session.totalListeningTime
+        super.init()
+        Task {
+            await bootstrap()
+        }
+    }
+    
     // MARK: - Computed Properties
     
     var accuracy: Int {
-        session?.quizScore ?? 0
+        session.quizScore
     }
     
     var correctAnswers: Int {
-        session?.quizAnswers.filter { $0.isCorrect }.count ?? 0
+        session.quizAnswers.filter { $0.isCorrect }.count
     }
     
     var totalQuestions: Int {
-        session?.quizAnswers.count ?? 0
+        session.quizAnswers.count
     }
     
     var discoveredWordsCount: Int {
-        session?.discoveredWords.count ?? 0
+        session.discoveredWords.count
     }
     
     var completionPercentage: Double {
-        session?.completionPercentage ?? 0
+        session.completionPercentage
     }
     
     var listeningTime: TimeInterval {
-        max(session?.totalListeningTime ?? 0, resolvedListeningTime)
+        max(session.totalListeningTime, resolvedListeningTime)
     }
     
     var formattedListeningTime: String {
-        let minutes = Int(listeningTime) / 60
-        let seconds = Int(listeningTime) % 60
-        return String(format: "%d:%02d", minutes, seconds)
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.minute, .second]
+        formatter.unitsStyle = .short
+        formatter.zeroFormattingBehavior = .pad
+        return formatter.string(from: listeningTime) ?? "0s"
     }
+
+    // MARK: - Public API
     
-    // MARK: - Input Handler
-    
-    func handle(_ input: Input) {
-        switch input {
-        case .loadResults(let session):
-            Task {
-                await loadResults(session)
-            }
-        case .toggleFavorite:
-            toggleFavorite()
-        }
-    }
-    
-    @discardableResult
-    func handleAsync(_ input: Input) -> Task<Void, Never>? {
-        handle(input)
-        return nil
-    }
-    
-    // MARK: - Private Methods
-    
-    private func loadResults(_ session: MusicDiscoveringSession) async {
-        showStreakAnimation = false
-        currentDayStreak = nil
-        
-        var resolvedSession = session
-        let storedSession = songLessonSessionService.getSession(by: session.song.id)
-        
-        if let stored = storedSession?.toMusicDiscoveringSession() {
-            resolvedSession = stored
-        }
-        storedSessionId = storedSession?.id
-        recordedQuizSessionId = storedSession?.quizSessionId
-        
-        // Derive listening time from multiple sources
-        var derivedListeningTime = max(resolvedSession.totalListeningTime, session.totalListeningTime)
-        
-        if let latestAnswerDate = resolvedSession.quizAnswers.max(by: { $0.answeredAt < $1.answeredAt })?.answeredAt {
-            let elapsed = latestAnswerDate.timeIntervalSince(resolvedSession.startedAt)
-            if elapsed.isFinite && elapsed > 0 {
-                derivedListeningTime = max(derivedListeningTime, elapsed)
-            }
-        }
-        
-        if let history = await historyService.getHistoryForSong(session.song.id) {
-            derivedListeningTime = max(derivedListeningTime, history.listeningDuration)
-        }
-        
-        resolvedSession.totalListeningTime = max(resolvedSession.totalListeningTime, derivedListeningTime)
-        self.session = resolvedSession
-        self.resolvedListeningTime = resolvedSession.totalListeningTime
-        self.isFavorite = storedSession?.isFavorite ?? isFavorite
-        
-        recordAnalyticsIfNeeded(for: resolvedSession)
-    }
-    
-    private func toggleFavorite() {
-        guard let session = session else { return }
-        
+    func toggleFavorite() {
         do {
             try songLessonSessionService.toggleFavorite(song: session.song)
             isFavorite.toggle()
@@ -128,12 +78,26 @@ final class SongLessonResultsViewModel: BaseViewModel {
             errorReceived(error)
         }
     }
-
+    
     func setStreakAnimationActive(_ isActive: Bool) {
         showStreakAnimation = isActive
     }
-
-    private func recordAnalyticsIfNeeded(for session: MusicDiscoveringSession) {
+    
+    // MARK: - Private Helpers
+    
+    private func bootstrap() async {
+        if let stored = songLessonSessionService.getSession(by: session.song.id) {
+            storedSessionId = stored.id
+            recordedQuizSessionId = stored.quizSessionId
+            isFavorite = stored.isFavorite
+        } else {
+            storedSessionId = session.id
+        }
+        
+        recordAnalyticsIfNeeded()
+    }
+    
+    private func recordAnalyticsIfNeeded() {
         guard session.hasCompletedQuiz,
               session.quizAnswers.isNotEmpty else { return }
         if recordedQuizSessionId != nil {

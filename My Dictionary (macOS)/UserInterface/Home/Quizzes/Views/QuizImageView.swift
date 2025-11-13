@@ -32,12 +32,7 @@ struct QuizImageView: View {
                             .clipShape(.rect(cornerRadius: 12))
                             .frame(maxHeight: 120)
                     } placeholder: {
-                        RoundedRectangle(cornerRadius: 12)
-                            .fill(Color.gray.opacity(0.3))
-                            .frame(height: 120)
-                            .overlay {
-                                ProgressView()
-                            }
+                        ShimmerView(height: 120)
                     }
                 } else {
                     EmptyView()

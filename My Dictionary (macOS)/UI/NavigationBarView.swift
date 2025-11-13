@@ -9,7 +9,16 @@ import SwiftUI
 
 enum NavigationTitleMode {
     case inline
-    case large
+    case regular
+
+    var font: Font {
+        switch self {
+        case .inline:
+            return .headline
+        case .regular:
+            return .title
+        }
+    }
 }
 
 struct NavigationBarView<TrailingContent: View, BottomContent: View>: View {
@@ -44,10 +53,10 @@ struct NavigationBarView<TrailingContent: View, BottomContent: View>: View {
     }
 
     var body: some View {
-        VStack(spacing: mode == .large ? 12 : 8) {
+        VStack(spacing: 8) {
             HStack(spacing: 2) {
                 Text(title)
-                    .font(mode == .inline ? .headline : .largeTitle)
+                    .font(mode.font)
                     .bold()
                     .foregroundStyle(.primary)
                     .lineLimit(1)

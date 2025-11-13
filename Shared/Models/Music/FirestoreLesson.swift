@@ -118,7 +118,7 @@ struct LessonPhrase: Codable, Hashable {
 
 struct LyricExplanation: Codable, Hashable, Comparable {
     static func < (lhs: LyricExplanation, rhs: LyricExplanation) -> Bool {
-        lhs.lyricLine < rhs.lyricLine
+        lhs.lineNumber < rhs.lineNumber
     }
 
     let lyricLine: String

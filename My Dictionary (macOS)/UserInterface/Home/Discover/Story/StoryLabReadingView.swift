@@ -23,38 +23,8 @@ struct StoryLabReadingView: View {
     }
 
     var body: some View {
-        Group {
-            if case .idle = viewModel.loadingStatus {
-                // Show configuration view if config is incomplete
-                if config.savedWords == nil && config.customText == nil {
-                    StoryLabConfigurationView(viewModel: viewModel)
-                } else {
-                    // Config is complete, should have auto-generated
-                    // Wait a moment for generation to start
-                    loadingView
-                }
-            } else if case .generating = viewModel.loadingStatus {
-                loadingView
-            } else if case .error(let message) = viewModel.loadingStatus {
-                errorView(message)
-            } else if let story = viewModel.story, let session = viewModel.session, case .ready = viewModel.loadingStatus {
-                // Only show results if story is actually complete
-                if session.isComplete {
-                    StoryLabResultsView(
-                        session: session,
-                        story: story,
-                        config: config,
-                        showStreak: viewModel.showStreakAnimation,
-                        currentDayStreak: viewModel.currentDayStreak,
-                        isPresentedModally: isPresentedModally
-                    )
-                } else {
-                    readingContentView(story: story, session: session)
-                }
-            }
-        }
-        .onReceive(viewModel.dismissPublisher) {
-            dismiss()
+        if case .ready(let session) = viewModel.loadingStatus {
+            readingContentView(story: session.story, session: session)
         }
     }
 
@@ -76,47 +46,6 @@ struct StoryLabReadingView: View {
                 .lineSpacing(4)
         }
         .padding(.horizontal, 32)
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .groupedBackground()
-    }
-
-    // MARK: - Error View
-
-    private func errorView(_ message: String) -> some View {
-        VStack(spacing: 24) {
-            Spacer()
-
-            Image(systemName: "exclamationmark.triangle.fill")
-                .font(.system(size: 60))
-                .foregroundStyle(.red)
-
-            Text(Loc.StoryLab.Error.generationFailed)
-                .font(.title2)
-                .fontWeight(.bold)
-
-            Text(message)
-                .font(.body)
-                .foregroundStyle(.secondary)
-                .multilineTextAlignment(.center)
-
-            ActionButton(
-                Loc.Actions.retry,
-                style: .borderedProminent
-            ) {
-                viewModel.handle(.retry)
-                viewModel.handle(.generateStory(config))
-            }
-
-            ActionButton(
-                Loc.Actions.cancel,
-                style: .bordered
-            ) {
-                dismiss()
-            }
-
-            Spacer()
-        }
-        .padding(32)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .groupedBackground()
     }
@@ -234,29 +163,19 @@ struct StoryLabReadingView: View {
 
     // MARK: - Navigation Section
 
+    @ViewBuilder
     private func navigationSection(session: StorySession) -> some View {
-        HStack(spacing: 16) {
-            ActionButton(
-                Loc.StoryLab.Reading.previousPage,
-                style: .bordered
-            ) {
-                viewModel.handle(.previousPage)
-                ttsPlayer.stop()
-            }
-            .disabled(!viewModel.canNavigatePrevious)
-
-            if session.currentPageIndex == (viewModel.story?.pages.count ?? 0) - 1 {
+        if session.story.pages.count > 1 {
+            HStack(spacing: 16) {
                 ActionButton(
-                    Loc.StoryLab.Quiz.finishStory,
-                    style: .borderedProminent
+                    Loc.StoryLab.Reading.previousPage,
+                    style: .bordered
                 ) {
-                    // Check if quiz is complete before finishing
-                    if viewModel.isCurrentPageQuizComplete {
-                        // Story will be marked complete automatically
-                    }
+                    viewModel.handle(.previousPage)
+                    ttsPlayer.stop()
                 }
-                .disabled(!viewModel.isCurrentPageQuizComplete)
-            } else {
+                .disabled(!viewModel.canNavigatePrevious)
+
                 ActionButton(
                     Loc.StoryLab.Reading.nextPage,
                     style: .borderedProminent
@@ -266,8 +185,8 @@ struct StoryLabReadingView: View {
                 }
                 .disabled(!viewModel.canNavigateNext || !viewModel.isCurrentPageQuizComplete)
             }
+            .padding(.top, 8)
         }
-        .padding(.top, 8)
     }
 }
 

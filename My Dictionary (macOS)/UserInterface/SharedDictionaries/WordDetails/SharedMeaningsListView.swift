@@ -43,7 +43,7 @@ struct SharedMeaningsListView: View {
         } navigationBar: {
             NavigationBarView(
                 title: "\(Loc.Words.allMeanings) (\(word.meanings.count))",
-                mode: .large,
+                mode: .regular,
                 showsDismissButton: true,
                 trailingContent: {
                     HeaderButton(icon: "plus", size: .medium) {

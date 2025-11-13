@@ -52,7 +52,6 @@ enum TTSDashboard {
             .groupedBackground()
             .navigation(
                 title: Loc.Tts.dashboard,
-                mode: .large,
                 showsBackButton: true
             )
             .sheet(isPresented: $showingVoicePicker) {

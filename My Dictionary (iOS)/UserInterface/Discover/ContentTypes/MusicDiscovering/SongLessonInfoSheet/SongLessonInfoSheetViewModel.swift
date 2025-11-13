@@ -35,11 +35,6 @@ final class SongLessonInfoSheetViewModel: BaseViewModel {
     private let sessionService = SongLessonSessionService.shared
     private let analytics = AnalyticsService.shared
 
-    // UserDefaults key for local hook caching
-    private var hookCacheKey: String {
-        "hook_\(song.id)"
-    }
-
     init(song: Song) {
         self.song = song
         super.init()
@@ -94,8 +89,8 @@ final class SongLessonInfoSheetViewModel: BaseViewModel {
     private func generateHook() {
         Task {
             do {
-                if let cached = loadCachedHookPackage() {
-                    logInfo("[SongLessonInfoSheetViewModel] Loaded hook & lyrics from local cache")
+                if let cached = await loadCachedHookPackage() {
+                    logInfo("[SongLessonInfoSheetViewModel] Loaded hook & lyrics from Core Data cache")
                     await MainActor.run {
                         self.song.cefrLevel = cached.hook.songCEFRLevel
                         self.hookState = .loaded(cached.lyrics, cached.hook)
@@ -186,8 +181,8 @@ final class SongLessonInfoSheetViewModel: BaseViewModel {
                     self.hookState = .loaded(lyrics, preListenHook)
                 }
 
-                saveCachedHookPackage(hook: preListenHook, lyrics: lyrics)
-                logInfo("[SongLessonInfoSheetViewModel] Saved hook & lyrics to local cache")
+                await saveCachedHookPackage(hook: preListenHook, lyrics: lyrics)
+                logInfo("[SongLessonInfoSheetViewModel] Saved hook & lyrics to Core Data cache")
 
                 analytics.logEvent(
                     .musicDiscoveringHookGenerated,
@@ -215,26 +210,13 @@ final class SongLessonInfoSheetViewModel: BaseViewModel {
 
     // MARK: - Local Caching
 
-    private struct CachedHookPackage: Codable {
-        let hook: PreListenHook
-        let lyrics: SongLyrics
+    private func loadCachedHookPackage() async -> MusicLessonService.HookCachePackage? {
+        await lessonService.getCachedHookPackage(for: song.id)
     }
 
-    /// Load cached hook & lyrics from UserDefaults
-    private func loadCachedHookPackage() -> CachedHookPackage? {
-        guard let data = UserDefaults.standard.data(forKey: hookCacheKey) else {
-            return nil
-        }
-        return try? JSONDecoder().decode(CachedHookPackage.self, from: data)
-    }
-
-    /// Persist hook & lyrics together for reuse
-    private func saveCachedHookPackage(hook: PreListenHook, lyrics: SongLyrics) {
-        guard let data = try? JSONEncoder().encode(CachedHookPackage(hook: hook, lyrics: lyrics)) else {
-            return
-        }
-        UserDefaults.standard.set(data, forKey: hookCacheKey)
-        UserDefaults.standard.synchronize()
+    private func saveCachedHookPackage(hook: PreListenHook, lyrics: SongLyrics) async {
+        let package = MusicLessonService.HookCachePackage(hook: hook, lyrics: lyrics)
+        await lessonService.saveHookPackage(package, for: song)
     }
 }
 

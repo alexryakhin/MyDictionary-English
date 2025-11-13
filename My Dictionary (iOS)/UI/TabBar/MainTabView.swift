@@ -23,6 +23,9 @@ struct MainTabView: View {
     @StateObject var keyboardManager: KeyboardManager = .shared
 
     var body: some View {
+#if DEBUG
+let _ = Self._printChanges()
+#endif
         NavigationStack(path: $navigationManager.navigationPath) {
             if #available(iOS 26.0, *) {
                 TabView(selection: $tabManager.selectedTab) {

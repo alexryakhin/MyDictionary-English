@@ -21,6 +21,8 @@ extension CDMusicLesson {
     @NSManaged public var savedAt: Date?
     @NSManaged public var lastAccessed: Date?
     @NSManaged public var isFavorite: Bool
+    @NSManaged public var hookData: Data?
+    @NSManaged public var lyricsData: Data?
 }
 
 extension CDMusicLesson: Identifiable {

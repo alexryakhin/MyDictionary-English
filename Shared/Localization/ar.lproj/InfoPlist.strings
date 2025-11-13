@@ -1,2 +1,3 @@
 CFBundleDisplayName = "قاموسي";
-CFBundleName = "قاموسي";"NSAppleMusicUsageDescription" = "تحتاج My Dictionary إلى الوصول إلى Apple Music لاكتشاف أغانٍ مخصصة لتعلّم اللغات. يتيح ذلك للتطبيق البحث عن أغانٍ بلغتك المستهدفة وتقديم توصيات استنادًا إلى ملفك التعليمي.";
+CFBundleName = "قاموسي";
+"NSAppleMusicUsageDescription" = "تحتاج My Dictionary إلى الوصول إلى Apple Music لاكتشاف أغانٍ مخصصة لتعلّم اللغات. يتيح ذلك للتطبيق البحث عن أغانٍ بلغتك المستهدفة وتقديم توصيات استنادًا إلى ملفك التعليمي.";

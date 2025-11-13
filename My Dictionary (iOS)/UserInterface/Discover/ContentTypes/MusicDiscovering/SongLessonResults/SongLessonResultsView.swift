@@ -8,19 +8,6 @@
 import SwiftUI
 import Flow
 
-struct SongLessonResultsConfig: Hashable {
-    let session: MusicDiscoveringSession
-    let song: Song
-    
-    static func == (lhs: SongLessonResultsConfig, rhs: SongLessonResultsConfig) -> Bool {
-        return lhs.session.id == rhs.session.id
-    }
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(session.id)
-    }
-}
-
 struct SongLessonSharePreviewData: Identifiable {
     let id = UUID()
     let song: Song
@@ -33,11 +20,13 @@ struct SongLessonSharePreviewData: Identifiable {
 }
 
 struct SongLessonResultsView: View {
-    let session: MusicDiscoveringSession
-    let song: Song
-    
-    @StateObject private var viewModel = SongLessonResultsViewModel()
+    @StateObject private var viewModel: SongLessonResultsViewModel
     @State private var sharePreviewData: SongLessonSharePreviewData?
+
+    init(session: MusicDiscoveringSession, song: Song) {
+        _viewModel = StateObject(wrappedValue: SongLessonResultsViewModel(session: session))
+        _ = song
+    }
 
     var body: some View {
         ScrollView {
@@ -72,9 +61,6 @@ struct SongLessonResultsView: View {
                 }
             }
         )
-        .task {
-            viewModel.handle(.loadResults(session))
-        }
         .overlay {
             if viewModel.showStreakAnimation, let streak = viewModel.currentDayStreak {
                 StreakProgressionAnimation(
@@ -112,8 +98,10 @@ struct SongLessonResultsView: View {
     }
     
     // MARK: - Song Info
-    
+
+    @ViewBuilder
     private var songInfo: some View {
+        let song = viewModel.session.song
         HStack(spacing: 16) {
             // Artwork
             if let artworkURL = song.albumArtURL {
@@ -203,31 +191,29 @@ struct SongLessonResultsView: View {
     }
     
     // MARK: - Discovered Words Section
-    
+
+    @ViewBuilder
     private var discoveredWordsSection: some View {
+        let sessionWords = viewModel.session.discoveredWords
         VStack(alignment: .leading, spacing: 12) {
             Text(Loc.MusicDiscovering.Results.DiscoveredWords.title)
                 .font(.headline)
             
-            if let sessionWords = viewModel.session?.discoveredWords {
-                HFlow(alignment: .top, spacing: 8) {
-                    ForEach(Array(sessionWords.sorted()), id: \.self) { word in
-                        Text(word)
-                            .font(.subheadline)
-                            .padding(.horizontal, 12)
-                            .padding(.vertical, 6)
-                            .background(Color.accentColor.opacity(0.2))
-                            .foregroundColor(.accentColor)
-                            .cornerRadius(8)
-                    }
+            HFlow(alignment: .top, spacing: 8) {
+                ForEach(Array(sessionWords.sorted()), id: \.self) { word in
+                    Text(word)
+                        .font(.subheadline)
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 6)
+                        .background(Color.accentColor.opacity(0.2))
+                        .foregroundColor(.accentColor)
+                        .cornerRadius(8)
                 }
-                .frame(maxWidth: .infinity, alignment: .leading)
             }
+            .frame(maxWidth: .infinity, alignment: .leading)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .padding()
-        .background(Color.secondarySystemGroupedBackground)
-        .cornerRadius(12)
+        .clippedWithPaddingAndBackground(in: .rect(cornerRadius: 16))
     }
     
     // MARK: - Actions Section
@@ -240,7 +226,7 @@ struct SongLessonResultsView: View {
                 systemImage: "square.and.arrow.up",
                 style: .bordered
             ) {
-                guard let session = viewModel.session else { return }
+                let session = viewModel.session
                 sharePreviewData = SongLessonSharePreviewData(
                     song: session.song,
                     accuracy: viewModel.accuracy,
@@ -251,7 +237,6 @@ struct SongLessonResultsView: View {
                     cefrLevel: session.song.cefrLevel
                 )
             }
-            .disabled(viewModel.session == nil)
             
             // Favorite button
             ActionButton(
@@ -259,7 +244,7 @@ struct SongLessonResultsView: View {
                 systemImage: viewModel.isFavorite ? "heart.fill" : "heart",
                 style: .bordered
             ) {
-                viewModel.handle(.toggleFavorite)
+                viewModel.toggleFavorite()
             }
             
             // Close button

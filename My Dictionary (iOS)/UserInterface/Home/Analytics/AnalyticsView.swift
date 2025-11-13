@@ -59,7 +59,7 @@ struct AnalyticsView: View {
             }
         }
         .groupedBackground()
-        .navigation(title: Loc.Analytics.progress, mode: .large)
+        .navigation(title: Loc.Analytics.progress)
         .refreshable {
             viewModel.refreshData()
         }

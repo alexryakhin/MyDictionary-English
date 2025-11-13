@@ -15,11 +15,11 @@ import AppKit
 
 final class SessionManager: ObservableObject {
     static let shared = SessionManager()
-    
-    @Published private(set) var currentSessionDuration: TimeInterval = 0
-    @Published private(set) var isSessionActive = false
+
     @Published var showCoffeeBanner = false
 
+    private var currentSessionDuration: TimeInterval = 0
+    private var isSessionActive = false
     private var sessionTimer: Timer?
     private var sessionStartTime: Date?
     private var cancellables = Set<AnyCancellable>()

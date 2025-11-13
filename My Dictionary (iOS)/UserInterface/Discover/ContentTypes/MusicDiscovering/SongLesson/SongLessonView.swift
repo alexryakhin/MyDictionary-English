@@ -8,25 +8,12 @@
 import SwiftUI
 import Flow
 
-struct SongLessonConfig: Hashable {
-    let song: Song
-    let lesson: AdaptedLesson
-    let session: MusicDiscoveringSession
-    
-    static func == (lhs: SongLessonConfig, rhs: SongLessonConfig) -> Bool {
-        return lhs.session.id == rhs.session.id
-    }
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(session.id)
-    }
-}
-
 struct SongLessonView: View {
     private let config: SongLessonConfig
     @StateObject private var ttsPlayer: TTSPlayer = .shared
     @StateObject private var viewModel: SongLessonViewModel
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.scenePhase) private var scenePhase
     
     @State private var phraseCollectionForSheet: WordCollection?
     @State private var selectedPhraseItem: WordCollectionItem?
@@ -46,10 +33,10 @@ struct SongLessonView: View {
         ScrollView {
             LazyVStack(spacing: 24) {
                 lessonOverviewSection(viewModel.lesson)
+                cultureSection(viewModel.lesson.cultureNotes, languageCode: viewModel.lesson.language.rawValue)
                 phrasesSection()
                 grammarSection(viewModel.lesson.grammarNuggets)
                 explanationsSection(viewModel.lesson.explanations)
-                cultureSection(viewModel.lesson.cultureNotes, languageCode: viewModel.lesson.language.rawValue)
                 fillInBlanksSection(viewModel.lesson.quiz.fillInBlanks)
                 multipleChoiceSection(
                     viewModel.lesson.quiz.meaningMCQ,
@@ -77,6 +64,15 @@ struct SongLessonView: View {
                 collection: viewModel.phraseWordCollection
             )
             .presentationDetents([.medium])
+        }
+        .onAppear {
+            viewModel.lessonDidAppear()
+        }
+        .onDisappear {
+            viewModel.lessonDidDisappear()
+        }
+        .onChange(of: scenePhase) { _, newPhase in
+            viewModel.handleScenePhaseChange(newPhase)
         }
     }
 
@@ -228,8 +224,9 @@ struct SongLessonView: View {
                 emptySectionPlaceholder(Loc.MusicDiscovering.Lesson.Explanations.empty)
             } else {
                 VStack(alignment: .leading, spacing: 16) {
-                    ForEach(items.sorted().indices, id: \.self) { index in
-                        let explanation = items[index]
+                    let sortedIndices = items.sorted()
+                    ForEach(sortedIndices.indices, id: \.self) { index in
+                        let explanation = sortedIndices[index]
                         VStack(alignment: .leading, spacing: 8) {
                             HStack {
                                 Text(Loc.MusicDiscovering.Lesson.Explanations.lineNumber(explanation.lineNumber))

@@ -24,7 +24,7 @@ struct VoicePickerView: View {
         } navigationBar: {
             NavigationBarView(
                 title: Loc.Tts.Filters.selectVoice,
-                mode: .large,
+                mode: .regular,
                 showsDismissButton: true,
                 bottomContent: {
                     VStack(spacing: 8) {

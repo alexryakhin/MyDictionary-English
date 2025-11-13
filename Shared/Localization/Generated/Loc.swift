@@ -868,6 +868,12 @@ public enum Loc {
         /// Unable to generate lesson
         public static let unavailable = Loc.tr("MusicDiscovering", "player.lesson.unavailable", fallback: "Unable to generate lesson")
       }
+      public enum Playback {
+        /// Search on YouTube
+        public static let openYoutube = Loc.tr("MusicDiscovering", "player.playback.open_youtube", fallback: "Search on YouTube")
+        /// Playback isn't available in Apple Music. Try YouTube instead.
+        public static let unavailableMessage = Loc.tr("MusicDiscovering", "player.playback.unavailable_message", fallback: "Playback isn't available in Apple Music. Try YouTube instead.")
+      }
       public enum Tips {
         /// When you continue to the lesson, you can always jump back here to revisit the lyrics and listen again.
         public static let carryMessage = Loc.tr("MusicDiscovering", "player.tips.carry_message", fallback: "When you continue to the lesson, you can always jump back here to revisit the lyrics and listen again.")
@@ -1050,6 +1056,8 @@ public enum Loc {
     public enum View {
       /// Learn languages through music. Search for your favorite songs or artists. AI will generate lessons and quizzes for each song.
       public static let description = Loc.tr("MusicDiscovering", "view.description", fallback: "Learn languages through music. Search for your favorite songs or artists. AI will generate lessons and quizzes for each song.")
+      /// Choose a song to start a lesson
+      public static let emptyTitle = Loc.tr("MusicDiscovering", "view.emptyTitle", fallback: "Choose a song to start a lesson")
       public enum Recommendations {
         /// Try generating a lesson to seed new songs.
         public static let emptySubtitle = Loc.tr("MusicDiscovering", "view.recommendations.empty_subtitle", fallback: "Try generating a lesson to seed new songs.")

@@ -25,15 +25,12 @@ final class StoryLabViewModel: BaseViewModel {
     enum LoadingStatus: Hashable {
         case idle
         case generating
-        case ready
+        case ready(StorySession)
         case error(String)
     }
     
     @Published private(set) var loadingStatus: LoadingStatus = .idle
-    @Published private(set) var story: AIStoryResponse?
-    @Published private(set) var session: StorySession?
-    @Published private(set) var errorMessage: String?
-    
+
     // Streak tracking
     @Published private(set) var showStreakAnimation = false
     @Published private(set) var currentDayStreak: Int?
@@ -80,10 +77,8 @@ final class StoryLabViewModel: BaseViewModel {
            let loadedStory = matchingSession.story,
            let loadedStorySession = matchingSession.toStorySession() {
             // Load existing session
-            self.story = loadedStory
-            self.session = loadedStorySession
             self.initialConfig = matchingSession.config ?? config
-            self.loadingStatus = .ready
+            self.loadingStatus = .ready(loadedStorySession)
             // Track session start time when loading existing session
             if sessionStartTime == nil {
                 sessionStartTime = Date()
@@ -134,51 +129,47 @@ final class StoryLabViewModel: BaseViewModel {
         guard loadingStatus != .generating else { return }
         
         loadingStatus = .generating
-        errorMessage = nil
-        
+
         Task { @MainActor in
             do {
                 let storyInput = config.toStoryInput()
                 let generatedStory: AIStoryResponse = try await aiService.request(.story(input: storyInput))
-                
-                self.story = generatedStory
                 let newSession = StorySession(story: generatedStory)
-                self.session = newSession
+
                 self.initialConfig = config
-                self.loadingStatus = .ready
+                self.loadingStatus = .ready(newSession)
+
                 // Track session start time when generating new story
                 self.sessionStartTime = Date()
                 
                 // Save immediately after generation so user can always return to it
                 await saveSession()
             } catch {
-                self.errorMessage = error.localizedDescription
                 self.loadingStatus = .error(error.localizedDescription)
             }
         }
     }
     
     private func saveSession() async {
-        guard let session = session,
-              let story = story,
+        guard case .ready(let session) = loadingStatus,
               let config = initialConfig else { return }
         
         do {
-            try await StoryLabSessionService.shared.saveOrUpdateSession(session, config: config, story: story)
+            try await StoryLabSessionService.shared.saveOrUpdateSession(session, config: config, story: session.story)
         } catch {
             print("Error saving story lab session: \(error)")
         }
     }
     
     private func selectPage(_ pageIndex: Int) {
-        guard let session = session,
+        guard case .ready(let session) = loadingStatus,
               pageIndex >= 0,
-              pageIndex < (story?.pages.count ?? 0) else { return }
-        
+              pageIndex < session.story.pages.count else { return }
+
         var updatedSession = session
         updatedSession.currentPageIndex = pageIndex
-        self.session = updatedSession
-        
+        self.loadingStatus = .ready(updatedSession)
+
         // Save page navigation
         Task {
             await saveSession()
@@ -186,31 +177,30 @@ final class StoryLabViewModel: BaseViewModel {
     }
     
     private func nextPage() {
-        guard let session = session,
-              let story = story,
-              session.currentPageIndex < story.pages.count - 1 else { return }
-        
+        guard case .ready(let session) = loadingStatus,
+              session.currentPageIndex < session.story.pages.count - 1 else { return }
+
         var updatedSession = session
         updatedSession.currentPageIndex += 1
-        self.session = updatedSession
+        self.loadingStatus = .ready(updatedSession)
     }
     
     private func previousPage() {
-        guard let session = session,
+        guard case .ready(let session) = loadingStatus,
               session.currentPageIndex > 0 else { return }
         
         var updatedSession = session
         updatedSession.currentPageIndex -= 1
-        self.session = updatedSession
+        self.loadingStatus = .ready(updatedSession)
     }
     
     private func submitAnswer(pageIndex: Int, questionIndex: Int, answerIndex: Int) {
-        guard let session = session else { return }
-        
+        guard case .ready(let session) = loadingStatus else { return }
+
         var updatedSession = session
         updatedSession.submitAnswer(forPageIndex: pageIndex, questionIndex: questionIndex, answerIndex: answerIndex)
-        self.session = updatedSession
-        
+        self.loadingStatus = .ready(updatedSession)
+
         // Save after each answer submission
         Task {
             await saveSession()
@@ -223,11 +213,11 @@ final class StoryLabViewModel: BaseViewModel {
     }
     
     private func addDiscoveredWord(_ word: String) {
-        guard let session = session else { return }
-        
+        guard case .ready(let session) = loadingStatus else { return }
+
         var updatedSession = session
         updatedSession.addDiscoveredWord(word)
-        self.session = updatedSession
+        self.loadingStatus = .ready(updatedSession)
     }
     
     private func finishStory() {
@@ -241,7 +231,7 @@ final class StoryLabViewModel: BaseViewModel {
     }
     
     private func saveQuizSessionToAnalytics() {
-        guard let session = session,
+        guard case .ready(let session) = loadingStatus,
               session.isComplete,
               let startTime = sessionStartTime else { return }
         
@@ -300,34 +290,31 @@ final class StoryLabViewModel: BaseViewModel {
     }
     
     private func retryGeneration() {
-        errorMessage = nil
         loadingStatus = .idle
-        story = nil
-        session = nil
         sessionStartTime = nil
         showStreakAnimation = false
         currentDayStreak = nil
     }
     
     var canNavigateNext: Bool {
-        guard let session = session, let story = story else { return false }
-        return session.currentPageIndex < story.pages.count - 1
+        guard case .ready(let session) = loadingStatus else { return false }
+        return session.currentPageIndex < session.story.pages.count - 1
     }
     
     var canNavigatePrevious: Bool {
-        guard let session = session else { return false }
+        guard case .ready(let session) = loadingStatus else { return false }
         return session.currentPageIndex > 0
     }
     
     var currentPage: AIStoryPage? {
-        guard let session = session, let story = story else { return nil }
+        guard case .ready(let session) = loadingStatus else { return nil }
         let pageIndex = session.currentPageIndex
-        guard pageIndex < story.pages.count else { return nil }
-        return story.pages[pageIndex]
+        guard pageIndex < session.story.pages.count else { return nil }
+        return session.story.pages[pageIndex]
     }
     
     var isCurrentPageQuizComplete: Bool {
-        guard let session = session,
+        guard case .ready(let session) = loadingStatus,
               let currentPage = currentPage else { return false }
         
         let pageIndex = session.currentPageIndex
@@ -340,4 +327,3 @@ final class StoryLabViewModel: BaseViewModel {
         return true
     }
 }
-

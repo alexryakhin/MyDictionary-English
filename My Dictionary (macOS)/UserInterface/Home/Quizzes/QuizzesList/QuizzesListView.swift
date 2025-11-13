@@ -94,16 +94,8 @@ struct QuizzesListView: View {
                                     sideBarManager.selectedQuiz = .contextMultipleChoice(preset)
                                 case .fillInTheBlank:
                                     sideBarManager.selectedQuiz = .fillInTheBlank(preset)
-                                case .storyLab:
-                                    // Create default config - will show configuration view since savedWords and customText are nil
-                                    let config = StoryLabConfig(
-                                        savedWords: nil,
-                                        customText: nil,
-                                        targetLanguage: viewModel.selectedLanguage ?? .english,
-                                        cefrLevel: .b1,
-                                        pageCount: 1
-                                    )
-                                    sideBarManager.selectedQuiz = .storyLab(config)
+                                case .storyLab, .musicLesson:
+                                    break
                                 }
                             } label: {
                                 QuizCardView(quiz: quiz)

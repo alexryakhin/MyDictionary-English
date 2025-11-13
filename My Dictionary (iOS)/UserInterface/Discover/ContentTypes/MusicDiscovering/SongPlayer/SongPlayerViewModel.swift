@@ -24,6 +24,12 @@ final class SongPlayerViewModel: BaseViewModel {
         case ready(AdaptedLesson, MusicDiscoveringSession)
         case failed(String)
     }
+
+    enum PlaybackState: Hashable {
+        case loading
+        case active
+        case unavailable
+    }
     @Published var currentTime: TimeInterval = 0
     @Published var isSeeking: Bool = false {
         willSet {
@@ -41,6 +47,7 @@ final class SongPlayerViewModel: BaseViewModel {
     @Published private(set) var isPlaying: Bool = false
     @Published private(set) var sessionIsActive: Bool = false
     @Published private(set) var lessonState: LessonState = .loading
+    @Published private(set) var playbackState: PlaybackState = .loading
 
     private let musicPlayerService = MusicPlayerService.shared
     private let lessonService = MusicLessonService.shared
@@ -83,11 +90,7 @@ final class SongPlayerViewModel: BaseViewModel {
                     currentTime = time
                 }
 
-                if parsedSyncedLines.isNotEmpty {
-                    for index in parsedSyncedLines.indices where isLineCurrent(index) {
-                        currentLineIndex = index
-                    }
-                }
+                currentLineIndex = parsedSyncedLines.indices.first(where: isLineCurrent)
             }
             .store(in: &cancellables)
 
@@ -106,10 +109,13 @@ final class SongPlayerViewModel: BaseViewModel {
     
     private func loadData() {
         // Start playback
+        playbackState = .loading
         Task {
             do {
                 try await musicPlayerService.play(song: song)
+                playbackState = .active
             } catch {
+                playbackState = .unavailable
                 errorReceived(error)
             }
         }
@@ -126,6 +132,7 @@ final class SongPlayerViewModel: BaseViewModel {
     }
     
     private func playPause() {
+        guard playbackState == .active else { return }
         if musicPlayerService.isPlaying {
             musicPlayerService.pause()
         } else {

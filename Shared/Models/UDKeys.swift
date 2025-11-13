@@ -75,6 +75,10 @@ enum UDKeys {
     
     // Apple Music
     static let appleMusicAuthorized = "apple_music_authorized"
+
+    // StoryLab
+    static let storyLabTargetLanguage = "story_lab_target_language"
+    static let storyLabCEFRLevel = "story_lab_cefr_level"
 }
 
 enum UDService {

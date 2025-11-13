@@ -10,7 +10,6 @@ import SwiftUI
 enum NavigationTitleMode {
     case inline
     case regular
-    case large
 
     var font: Font {
         switch self {
@@ -18,8 +17,6 @@ enum NavigationTitleMode {
             return .headline
         case .regular:
             return .title
-        case .large:
-            return .largeTitle
         }
     }
 }
@@ -40,7 +37,7 @@ struct NavigationTitleModifier<TrailingContent: View, BottomContent: View>: View
     func body(content: Content) -> some View {
         content
             .safeAreaInset(edge: .top, spacing: .zero) {
-                VStack(spacing: mode == .large ? 12 : 8) {
+                VStack(spacing: 8) {
                     HStack(spacing: 2) {
                         if showsBackButton {
                             HeaderButton(
@@ -80,7 +77,7 @@ struct NavigationTitleModifier<TrailingContent: View, BottomContent: View>: View
 extension View {
     func navigation<TrailingContent: View, BottomContent: View>(
         title: String,
-        mode: NavigationTitleMode = .large,
+        mode: NavigationTitleMode = .regular,
         vPadding: CGFloat = 8,
         hPadding: CGFloat = 8,
         showsBackButton: Bool = false,

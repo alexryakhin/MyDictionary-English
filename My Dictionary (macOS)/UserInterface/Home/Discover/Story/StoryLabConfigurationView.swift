@@ -15,64 +15,45 @@ struct StoryLabConfigurationView: View {
         case customText
     }
     
-    var viewModel: StoryLabViewModel?
+    @StateObject private var viewModel = StoryLabViewModel()
     @StateObject private var wordsProvider = WordsProvider.shared
     @StateObject private var repository = StoryLabSessionsRepository()
-    @Environment(\.dismiss) private var dismiss
-    
-    @StateObject private var internalViewModel = StoryLabViewModel()
-    
-    private var activeViewModel: StoryLabViewModel {
-        viewModel ?? internalViewModel
-    }
-    
-    init(viewModel: StoryLabViewModel? = nil) {
-        self.viewModel = viewModel
-    }
-    
+
+    @AppStorage(UDKeys.storyLabTargetLanguage) private var targetLanguage: InputLanguage = InputLanguage.english
+    @AppStorage(UDKeys.storyLabCEFRLevel) private var cefrLevel: CEFRLevel = CEFRLevel.b1
+
     @State private var inputMode: InputMode = .savedWords
     @State private var selectedWords: Set<String> = []
     @State private var customText: String = ""
-    @State private var targetLanguage: InputLanguage = .english
-    @State private var cefrLevel: CEFRLevel = .b1
     @State private var pageCount: Int = 1
     @State private var showingWordSelection = false
     @State private var showingHistory = false
-    @State private var selectedSession: CDStoryLabSession?
+
     @FocusState private var isCustomTextEditing: Bool
 
     var body: some View {
-        ScrollViewWithCustomNavBar {
+        ScrollView {
             VStack(spacing: 16) {
                 // Past Sessions Section
                 pastSessionsSection
-                
+
                 // Input Content Section
                 inputContentSection
-                
+
                 // Settings Section
                 settingsSection
             }
             .padding(vertical: 12, horizontal: 16)
-        } navigationBar: {
-            NavigationBarView(
-                title: Loc.StoryLab.title,
-                showsDismissButton: false,
-                bottomContent: {
-                    // Description and Input Mode Picker
-                    VStack(alignment: .leading, spacing: 12) {
-                        Text(Loc.StoryLab.Configuration.description)
-                            .font(.headline)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-
-                        Picker(Loc.StoryLab.Configuration.inputMode, selection: $inputMode) {
-                            Text(Loc.StoryLab.Configuration.myWords).tag(InputMode.savedWords)
-                            Text(Loc.StoryLab.Configuration.customText).tag(InputMode.customText)
-                        }
-                        .pickerStyle(.segmented)
-                    }
+        }
+        .toolbar {
+            ToolbarItem {
+                Picker(Loc.StoryLab.Configuration.inputMode, selection: $inputMode) {
+                    Text(Loc.StoryLab.Configuration.myWords).tag(InputMode.savedWords)
+                    Text(Loc.StoryLab.Configuration.customText).tag(InputMode.customText)
                 }
-            )
+                .pickerStyle(.segmented)
+                .labelsHidden()
+            }
         }
         .groupedBackground()
         .safeAreaBarIfAvailable {
@@ -86,41 +67,35 @@ struct StoryLabConfigurationView: View {
         .sheet(isPresented: $showingHistory) {
             StoryLabHistoryView()
         }
-        .sheet(item: $selectedSession) { session in
-            if let storySession = session.toStorySession(),
-               let story = session.story,
-               let config = session.config {
-                // Show reading view if incomplete, results if complete
-                if storySession.isComplete {
-                    StoryLabResultsView(
-                        session: storySession,
-                        story: story,
-                        config: config,
-                        showStreak: false,
-                        currentDayStreak: nil,
-                        isPresentedModally: true
-                    )
-                } else {
-                    // Resume from current page
-                    StoryLabReadingView(
-                        config: config,
-                        isPresentedModally: true
-                    )
-                }
-            }
-        }
-        .onAppear {
-            // Initialize target language from viewModel's config if available
-            if let config = activeViewModel.config,
-               targetLanguage != config.targetLanguage {
-                targetLanguage = config.targetLanguage
-            } else {
-                // Set default target language to English
-                targetLanguage = .english
-            }
-        }
         .onChange(of: targetLanguage) {
             selectedWords.removeAll()
+        }
+        .onChange(of: viewModel.loadingStatus) { _, status in
+            switch viewModel.loadingStatus {
+            case .idle:
+                SideBarManager.shared.discoverDetail = .story(.overview)
+            case .generating:
+                SideBarManager.shared.discoverDetail = .story(.loading)
+            case .ready(let storySession):
+                guard let config = viewModel.config else {
+                    SideBarManager.shared.discoverDetail = .story(.overview)
+                    return
+                }
+                if storySession.isComplete {
+                    let resultsConfig = StoryLabResultsConfig(
+                        session: storySession,
+                        story: storySession.story,
+                        config: config,
+                        showStreak: viewModel.showStreakAnimation,
+                        currentDayStreak: viewModel.currentDayStreak
+                    )
+                    SideBarManager.shared.discoverDetail = .story(.results(config: resultsConfig))
+                } else {
+                    SideBarManager.shared.discoverDetail = .story(.reading(config: config))
+                }
+            case .error(let string):
+                SideBarManager.shared.discoverDetail = .story(.error(string))
+            }
         }
     }
 
@@ -138,7 +113,7 @@ struct StoryLabConfigurationView: View {
                 VStack(spacing: 12) {
                     ForEach(Array(repository.sessions.prefix(3))) { session in
                         Button {
-                            selectedSession = session
+                            handleSessionSelection(session)
                         } label: {
                             StoryLabSessionRow(session: session)
                                 .padding(12)
@@ -300,7 +275,7 @@ struct StoryLabConfigurationView: View {
     
     private var generateButton: some View {
         VStack(spacing: 12) {
-            if case .error(let message) = activeViewModel.loadingStatus {
+            if case .error(let message) = viewModel.loadingStatus {
                 Text(message)
                     .font(.caption)
                     .foregroundStyle(.red)
@@ -319,7 +294,7 @@ struct StoryLabConfigurationView: View {
                 ) {
                     generateStory()
                 }
-                .disabled(!isValidConfiguration || activeViewModel.loadingStatus == .generating)
+                .disabled(!isValidConfiguration || viewModel.loadingStatus == .generating)
             }
         }
     }
@@ -359,7 +334,16 @@ struct StoryLabConfigurationView: View {
             )
         }
         
-        activeViewModel.handle(.generateStory(config))
+        viewModel.handle(.generateStory(config))
+    }
+    
+    private func handleSessionSelection(_ session: CDStoryLabSession) {
+        guard let config = session.config else { return }
+        
+        if session.isComplete, let resultsConfig = StoryLabResultsConfig(session: session) {
+            SideBarManager.shared.discoverDetail = .story(.results(config: resultsConfig))
+        } else {
+            SideBarManager.shared.discoverDetail = .story(.reading(config: config))
+        }
     }
 }
-

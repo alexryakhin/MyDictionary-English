@@ -30,7 +30,6 @@ struct VoicePickerView: View {
         .groupedBackground()
         .navigation(
             title: Loc.Tts.Filters.selectVoice,
-            mode: .large,
             bottomContent: {
                 VStack(spacing: 8) {
                     InputView.searchView(

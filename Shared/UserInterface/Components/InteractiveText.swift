@@ -113,7 +113,7 @@ struct InteractiveText: View {
                 } label: {
                     Text(word)
                         .font(font)
-                        .padding(vertical: 1, horizontal: 2)
+                        .padding(vertical: 1, horizontal: 1.5)
                         .foregroundStyle(.primary)
                         .background(highlighted ? Color.accentColor.opacity(0.2) : Color.clear)
                         .cornerRadius(4)

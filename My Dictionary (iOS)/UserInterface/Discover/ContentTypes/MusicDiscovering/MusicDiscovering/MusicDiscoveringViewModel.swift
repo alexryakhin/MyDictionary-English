@@ -237,7 +237,7 @@ final class MusicDiscoveringViewModel: BaseViewModel {
         lastSearchQuery = query
         
         do {
-            let songs = try await appleMusicService.searchSongs(query: query, language: nil)
+            let songs = try await appleMusicService.searchSongs(query: query)
             await MainActor.run {
                 self.searchResults = songs
                 self.isSearching = false
@@ -486,7 +486,7 @@ final class MusicDiscoveringViewModel: BaseViewModel {
                 }
                 do {
                     let query = "\(songRec.artist) \(songRec.title)"
-                    let songs = try await appleMusicService.searchSongs(query: query, language: nil)
+                    let songs = try await appleMusicService.searchSongs(query: query)
                     
                     // Take the first result from Apple Music search
                     if let foundSong = songs.first {

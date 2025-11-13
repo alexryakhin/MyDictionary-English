@@ -310,7 +310,7 @@ final class MusicRecommendationService {
         }
         
         // Search for popular songs in the language
-        let songs = try await appleMusicService.searchSongs(query: language.englishName, language: language.englishName)
+        let songs = try await appleMusicService.searchSongs(query: language.englishName)
 
         // Convert to FirestoreRecommendation format with cefrLevel and appleMusicId
         let recommendationSongs = Array(songs.prefix(20)).map { song in
@@ -354,7 +354,7 @@ final class MusicRecommendationService {
         for aiSong in aiResponse.songs {
             do {
                 let query = "\(aiSong.title) \(aiSong.artist)"
-                let songs = try await appleMusicService.searchSongs(query: query, language: nil)
+                let songs = try await appleMusicService.searchSongs(query: query)
                 if let foundSong = songs.first(where: {
                     $0.title.lowercased().contains(aiSong.title.lowercased()) &&
                     $0.artist.lowercased().contains(aiSong.artist.lowercased())

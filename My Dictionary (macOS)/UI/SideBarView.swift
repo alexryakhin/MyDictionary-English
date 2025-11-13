@@ -11,6 +11,7 @@ struct SideBarView: View {
     @StateObject private var authenticationService = AuthenticationService.shared
     @StateObject private var sessionManager = SessionManager.shared
     @StateObject private var onboardingService = OnboardingService.shared
+    @StateObject private var discoverViewModel = DiscoverMacViewModel()
 
     var body: some View {
         Group {
@@ -38,14 +39,14 @@ struct SideBarView: View {
         .task {
             // Check for existing profile in iCloud on first launch
             await onboardingService.checkForExistingProfileInCloud()
-            
+
             // Clean up any existing duplicates (production-safe)
             await onboardingService.cleanupDuplicatesIfNeeded()
         }
     }
 
     // MARK: - Sidebar View (Column 1)
-    
+
     private var sidebarView: some View {
         List(selection: $sideBarManager.selectedTab) {
             Section(Loc.SharedDictionaries.privateDictionary) {
@@ -87,7 +88,7 @@ struct SideBarView: View {
                     }
                 }
                 .hideIfOffline()
-                
+
             }
         }
         .scrollContentBackground(.hidden)
@@ -143,6 +144,8 @@ struct SideBarView: View {
             VocabularyListView()
         case .wordCollections:
             WordCollectionsView()
+        case .discover:
+            DiscoverContentView(discoverViewModel: discoverViewModel)
         case .quizzes:
             QuizzesListView()
         case .sharedDictionary(let dictionary):
@@ -211,6 +214,8 @@ struct SideBarView: View {
                 .id(sideBarManager.selectedWordCollection?.id)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .layoutPriority(1)
+        case .discover(let detail):
+            DiscoverDetailView(detail: detail)
         case nil:
             if let text = sideBarManager.selectedTab?.selectDetailsText {
                 Text(text)

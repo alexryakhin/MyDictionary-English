@@ -63,78 +63,74 @@ final class AppleMusicService {
         }
     }
 
-    func searchSongs(query: String, language: String?) async throws -> [Song] {
+    func searchSongs(query: String) async throws -> [Song] {
         guard isAuthorized else {
             throw MusicError.appleMusicNotRegistered
         }
         
         var searchRequest = MusicCatalogSearchRequest(term: query, types: [MusicKit.Song.self])
-        
-        if let language = language {
-            // Language filtering can be added if MusicKit supports it
-            // For now, we'll search without language filter
-        }
-        
+
         do {
             let response = try await searchRequest.response()
-            return response.songs.compactMap { musicKitSong in
-                convertToUnifiedSong(from: musicKitSong)
+            logInfo("[AppleMusicService] Found songs: \(response.songs.map(\.title))")
+            return response.songs.filter({ $0.contentRating != .explicit }).compactMap { musicKitSong in
+                return convertToUnifiedSong(from: musicKitSong)
             }
         } catch {
             throw MusicError.networkError(error.localizedDescription)
         }
     }
     
-    func getUserLibrary(limit: Int) async throws -> [Song] {
-        guard isAuthorized else {
-            throw MusicError.appleMusicNotRegistered
-        }
-        
-        let query = MPMediaQuery.songs()
-        query.addFilterPredicate(MPMediaPropertyPredicate(
-            value: NSNumber(value: MPMediaType.music.rawValue),
-            forProperty: MPMediaItemPropertyMediaType
-        ))
-        
-        guard let items = query.items, items.count > 0 else {
-            return []
-        }
-        
-        return Array(items.prefix(limit)).compactMap { item in
-            convertToUnifiedSong(from: item)
-        }
-    }
+//    func getUserLibrary(limit: Int) async throws -> [Song] {
+//        guard isAuthorized else {
+//            throw MusicError.appleMusicNotRegistered
+//        }
+//        
+//        let query = MPMediaQuery.songs()
+//        query.addFilterPredicate(MPMediaPropertyPredicate(
+//            value: NSNumber(value: MPMediaType.music.rawValue),
+//            forProperty: MPMediaItemPropertyMediaType
+//        ))
+//        
+//        guard let items = query.items, items.count > 0 else {
+//            return []
+//        }
+//        
+//        return Array(items.prefix(limit)).compactMap { item in
+//            convertToUnifiedSong(from: item)
+//        }
+//    }
     
-    func getUserPlaylists() async throws -> [PlaylistInfo] {
-        guard isAuthorized else {
-            throw MusicError.appleMusicNotRegistered
-        }
-        
-        let query = MPMediaQuery.playlists()
-        
-        guard let collections = query.collections else {
-            return []
-        }
-        
-        return collections.compactMap { collection in
-            guard let representativeItem = collection.representativeItem,
-                  let playlistName = representativeItem.value(forProperty: MPMediaPlaylistPropertyName) as? String else {
-                return nil
-            }
-            
-            let playlistId = UUID().uuidString // MPMediaPlaylist doesn't expose stable ID
-            let trackCount = collection.count
-            let artwork = representativeItem.artwork
-            
-            return PlaylistInfo(
-                id: playlistId,
-                name: playlistName,
-                description: nil,
-                artworkURL: nil, // MPMediaItem artwork is not URL-based
-                trackCount: trackCount
-            )
-        }
-    }
+//    func getUserPlaylists() async throws -> [PlaylistInfo] {
+//        guard isAuthorized else {
+//            throw MusicError.appleMusicNotRegistered
+//        }
+//        
+//        let query = MPMediaQuery.playlists()
+//        
+//        guard let collections = query.collections else {
+//            return []
+//        }
+//        
+//        return collections.compactMap { collection in
+//            guard let representativeItem = collection.representativeItem,
+//                  let playlistName = representativeItem.value(forProperty: MPMediaPlaylistPropertyName) as? String else {
+//                return nil
+//            }
+//            
+//            let playlistId = UUID().uuidString // MPMediaPlaylist doesn't expose stable ID
+//            let trackCount = collection.count
+//            let artwork = representativeItem.artwork
+//            
+//            return PlaylistInfo(
+//                id: playlistId,
+//                name: playlistName,
+//                description: nil,
+//                artworkURL: nil, // MPMediaItem artwork is not URL-based
+//                trackCount: trackCount
+//            )
+//        }
+//    }
     
     func getSongMetadata(id: String) async throws -> Song {
         guard isAuthorized else {
@@ -146,7 +142,8 @@ final class AppleMusicService {
         
         do {
             let response = try await searchRequest.response()
-            if let musicKitSong = response.songs.first,
+            logInfo("[AppleMusicService] Found songs: \(response.songs.map(\.title))")
+            if let musicKitSong = response.songs.filter({ $0.contentRating != .explicit }).first,
                let unifiedSong = convertToUnifiedSong(from: musicKitSong) {
                 return unifiedSong
             }
@@ -157,14 +154,7 @@ final class AppleMusicService {
             throw MusicError.networkError(error.localizedDescription)
         }
     }
-    
-    func detectLanguage(for song: Song) async throws -> String {
-        // For now, return a default language
-        // This could be enhanced with language detection API or ML model
-        // Using the song's title/artist metadata to infer language
-        return "en" // Default to English, can be enhanced later
-    }
-    
+
     /// Search for artists in Apple Music
     /// - Parameter query: Search query (artist name)
     /// - Returns: Array of artist information
@@ -209,17 +199,18 @@ final class AppleMusicService {
         // Search for songs by this artist
         let songSearchRequest = MusicCatalogSearchRequest(term: searchTerm, types: [MusicKit.Song.self])
         let songResponse = try await songSearchRequest.response()
-        
+        logInfo("[AppleMusicService] Found songs: \(songResponse.songs.map(\.title))")
         // Filter songs by artist name (if provided) and return selection
         let artistSongs: [MusicKit.Song]
         if let artistName = artistName {
             artistSongs = songResponse.songs
                 .filter { $0.artistName.lowercased().contains(artistName.lowercased()) }
+                .filter { $0.contentRating != .explicit }
                 .shuffled()
                 .prefix(limit)
                 .map { $0 }
         } else {
-            artistSongs = Array(songResponse.songs.prefix(limit))
+            artistSongs = Array(songResponse.songs.filter({ $0.contentRating != .explicit }).prefix(limit))
         }
         
         return artistSongs.compactMap { musicKitSong in
@@ -329,33 +320,33 @@ final class AppleMusicService {
         )
     }
     
-    private func convertToUnifiedSong(from mediaItem: MPMediaItem) -> Song? {
-        guard let title = mediaItem.title,
-              let artist = mediaItem.artist else {
-            return nil
-        }
-        
-        let id = String(mediaItem.persistentID)
-        let duration = mediaItem.playbackDuration
-        let album = mediaItem.albumTitle
-        let artwork = mediaItem.artwork
-        
-        var artworkURL: URL? = nil
-        if let artwork = artwork {
-            // MPMediaItem artwork is not URL-based, we'll need to handle it differently
-            // For now, set to nil - can be enhanced to extract image data
-        }
-        
-        return Song(
-            id: id,
-            title: title,
-            artist: artist,
-            album: album,
-            albumArtURL: artworkURL,
-            duration: duration,
-            serviceId: id
-        )
-    }
+//    private func convertToUnifiedSong(from mediaItem: MPMediaItem) -> Song? {
+//        guard let title = mediaItem.title,
+//              let artist = mediaItem.artist else {
+//            return nil
+//        }
+//        
+//        let id = String(mediaItem.persistentID)
+//        let duration = mediaItem.playbackDuration
+//        let album = mediaItem.albumTitle
+//        let artwork = mediaItem.artwork
+//        
+//        var artworkURL: URL? = nil
+//        if let artwork = artwork {
+//            // MPMediaItem artwork is not URL-based, we'll need to handle it differently
+//            // For now, set to nil - can be enhanced to extract image data
+//        }
+//        
+//        return Song(
+//            id: id,
+//            title: title,
+//            artist: artist,
+//            album: album,
+//            albumArtURL: artworkURL,
+//            duration: duration,
+//            serviceId: id
+//        )
+//    }
     
     private func convertToArtistInfo(from musicKitArtist: MusicKit.Artist) -> ArtistInfo? {
         let id = String(describing: musicKitArtist.id)

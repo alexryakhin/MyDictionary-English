@@ -66,7 +66,6 @@ struct VocabularyListView: View {
         .groupedBackground()
         .navigation(
             title: Loc.Onboarding.myDictionary,
-            mode: .large,
             trailingContent: {
                 HeaderButtonMenu(icon: "arrow.up.arrow.down") {
                     // Words sorting

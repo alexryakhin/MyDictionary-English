@@ -165,38 +165,41 @@ struct StoryLabReadingView: View {
 
     // MARK: - Navigation Section
 
+    @ViewBuilder
     private func navigationSection(session: StorySession, totalPages: Int) -> some View {
-        HStack(spacing: 16) {
-            ActionButton(
-                Loc.StoryLab.Reading.previousPage,
-                style: .bordered
-            ) {
-                viewModel.handle(.previousPage)
-                ttsPlayer.stop()
-            }
-            .disabled(!viewModel.canNavigatePrevious)
-
-            if session.currentPageIndex == totalPages - 1 {
+        if session.story.pages.count > 1 {
+            HStack(spacing: 16) {
                 ActionButton(
-                    Loc.StoryLab.Quiz.finishStory,
-                    style: .borderedProminent
+                    Loc.StoryLab.Reading.previousPage,
+                    style: .bordered
                 ) {
-                    if viewModel.isCurrentPageQuizComplete {
-                        viewModel.handle(.finishStory)
-                    }
-                }
-                .disabled(!viewModel.isCurrentPageQuizComplete)
-            } else {
-                ActionButton(
-                    Loc.StoryLab.Reading.nextPage,
-                    style: .borderedProminent
-                ) {
-                    viewModel.handle(.nextPage)
+                    viewModel.handle(.previousPage)
                     ttsPlayer.stop()
                 }
-                .disabled(!viewModel.canNavigateNext || !viewModel.isCurrentPageQuizComplete)
+                .disabled(!viewModel.canNavigatePrevious)
+
+                if session.currentPageIndex == totalPages - 1 {
+                    ActionButton(
+                        Loc.StoryLab.Quiz.finishStory,
+                        style: .borderedProminent
+                    ) {
+                        if viewModel.isCurrentPageQuizComplete {
+                            viewModel.handle(.finishStory)
+                        }
+                    }
+                    .disabled(!viewModel.isCurrentPageQuizComplete)
+                } else {
+                    ActionButton(
+                        Loc.StoryLab.Reading.nextPage,
+                        style: .borderedProminent
+                    ) {
+                        viewModel.handle(.nextPage)
+                        ttsPlayer.stop()
+                    }
+                    .disabled(!viewModel.canNavigateNext || !viewModel.isCurrentPageQuizComplete)
+                }
             }
+            .padding(.top, 8)
         }
-        .padding(.top, 8)
     }
 }

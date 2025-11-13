@@ -18,6 +18,7 @@ final class MusicLessonService {
     private let aiService = AIService.shared
     private let coreDataService = CoreDataService.shared
     private let recommendationService = MusicRecommendationService.shared
+    private let sessionService = SongLessonSessionService.shared
     
     private init() {}
     
@@ -142,6 +143,89 @@ final class MusicLessonService {
             
             return lesson
         }
+    }
+
+    /// Retrieve cached pre-listen hook and lyrics for a song if available.
+    func getCachedHookPackage(for songId: String) async -> HookCachePackage? {
+        let context = coreDataService.context
+
+        let package: HookCachePackage? = await context.perform {
+            let fetchRequest = CDMusicLesson.fetchRequest()
+            fetchRequest.predicate = NSPredicate(format: "songId == %@", songId)
+            fetchRequest.fetchLimit = 1
+
+            guard let entity = try? context.fetch(fetchRequest).first,
+                  let hookData = entity.hookData,
+                  let lyricsData = entity.lyricsData else {
+                return nil
+            }
+
+            let decoder = JSONDecoder()
+            guard let hook = try? decoder.decode(PreListenHook.self, from: hookData),
+                  let lyrics = try? decoder.decode(SongLyrics.self, from: lyricsData) else {
+                logError("[MusicLessonService] Failed to decode cached hook package for song: \(songId)")
+                return nil
+            }
+
+            entity.lastAccessed = Date()
+            do {
+                if context.hasChanges {
+                    try context.save()
+                }
+            } catch {
+                logError("[MusicLessonService] Failed to save context while updating hook cache access date: \(error)")
+            }
+
+            return HookCachePackage(hook: hook, lyrics: lyrics)
+        }
+
+        if let package {
+            return package
+        }
+
+        return sessionService.getHookPackage(for: songId)
+    }
+
+    /// Persist hook and lyrics cache for quick retrieval.
+    func saveHookPackage(_ package: HookCachePackage, for song: Song) async {
+        let context = coreDataService.context
+        await context.perform {
+            let fetchRequest = CDMusicLesson.fetchRequest()
+            fetchRequest.predicate = NSPredicate(format: "songId == %@", song.id)
+            fetchRequest.fetchLimit = 1
+
+            let entity: CDMusicLesson
+            if let existing = try? context.fetch(fetchRequest).first {
+                entity = existing
+            } else {
+                entity = CDMusicLesson(context: context)
+                entity.id = UUID()
+                entity.songId = song.id
+                entity.savedAt = Date()
+            }
+
+            let encoder = JSONEncoder()
+            do {
+                entity.hookData = try encoder.encode(package.hook)
+                entity.lyricsData = try encoder.encode(package.lyrics)
+            } catch {
+                logError("[MusicLessonService] Failed to encode hook cache for song \(song.id): \(error)")
+                return
+            }
+
+            if entity.userLevel?.isEmpty ?? true {
+                entity.userLevel = package.hook.songCEFRLevel.rawValue
+            }
+            entity.lastAccessed = Date()
+
+            do {
+                try context.save()
+            } catch {
+                logError("[MusicLessonService] Failed to save hook cache for song \(song.id): \(error)")
+            }
+        }
+
+        sessionService.saveHookPackage(package, for: song)
     }
     
     // MARK: - Private Methods
@@ -559,4 +643,11 @@ struct AdaptedQuiz: Codable, Hashable {
     let fillInBlanks: [FillInBlankItem]
     let meaningMCQ: [MCQItem]
     let generatedAt: Date
+}
+
+extension MusicLessonService {
+    struct HookCachePackage: Codable {
+        let hook: PreListenHook
+        let lyrics: SongLyrics
+    }
 }

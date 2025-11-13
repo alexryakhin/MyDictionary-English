@@ -33,6 +33,8 @@ final class SongLessonViewModel: BaseViewModel {
     private let translationService: TranslationService
     private let ttsPlayer = TTSPlayer.shared
     private var hasTranslatedPhrases = false
+    private var lessonStartDate: Date?
+    private var isLessonVisible = false
 
     init(
         song: Song,
@@ -119,6 +121,29 @@ final class SongLessonViewModel: BaseViewModel {
         }
     }
     
+    func lessonDidAppear() {
+        isLessonVisible = true
+        startTimingIfNeeded()
+    }
+
+    func lessonDidDisappear() {
+        isLessonVisible = false
+        accumulateListeningTime()
+    }
+
+    func handleScenePhaseChange(_ phase: ScenePhase) {
+        switch phase {
+        case .active:
+            guard isLessonVisible else { return }
+            startTimingIfNeeded()
+        case .inactive, .background:
+            guard isLessonVisible else { return }
+            accumulateListeningTime()
+        default:
+            break
+        }
+    }
+
     @discardableResult
     func handleAsync(_ input: Input) -> Task<Void, Never>? {
         switch input {
@@ -237,6 +262,9 @@ final class SongLessonViewModel: BaseViewModel {
     }
     
     private func navigateToResults() {
+        isLessonVisible = false
+        accumulateListeningTime()
+
         let config = SongLessonResultsConfig(session: currentSession, song: song)
         NavigationManager.shared.navigate(to: .songLessonResults(config))
     }
@@ -255,5 +283,21 @@ final class SongLessonViewModel: BaseViewModel {
                 logError("Failed to play culture notes: \(error.localizedDescription)")
             }
         }
+    }
+
+    private func startTimingIfNeeded() {
+        guard lessonStartDate == nil else { return }
+        lessonStartDate = Date()
+    }
+
+    private func accumulateListeningTime() {
+        guard let start = lessonStartDate else { return }
+        let elapsed = Date().timeIntervalSince(start)
+        lessonStartDate = nil
+        guard elapsed > 0 else { return }
+        var session = currentSession
+        session.addListeningTime(elapsed)
+        currentSession = session
+        saveSession()
     }
 }
