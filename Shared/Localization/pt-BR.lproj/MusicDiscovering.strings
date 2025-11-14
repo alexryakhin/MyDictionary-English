@@ -4,6 +4,7 @@
 "view.section.favorite_songs" = "Músicas favoritas";
 "view.section.history" = "Histórico";
 "view.description" = "Aprenda idiomas por meio da música. Pesquise suas músicas ou artistas favoritos. A IA criará lições e testes para cada música.";
+"view.emptyTitle" = "Escolha uma música para iniciar uma lição";
 
 // MARK: - Search
 "view.search.loading" = "Buscando...";
@@ -72,6 +73,8 @@
 "player.lesson.ready" = "Continuar para a lição";
 "player.lesson.failed" = "Erro ao carregar a lição. Tentar novamente?";
 "player.lesson.unavailable" = "Não foi possível gerar a lição";
+"player.playback.open_youtube" = "Buscar no YouTube";
+"player.playback.unavailable_message" = "A reprodução não está disponível na Apple Music. Tente o YouTube.";
 "player.tips.title" = "Dicas para a lição de música";
 "player.tips.header" = "Prepare-se para a sua lição";
 "player.tips.intro" = "Encontre um momento tranquilo, conecte fones de ouvido se tiver e mantenha um caderno por perto. Cantarolar uma vez antes dos exercícios ajuda bastante.";
@@ -136,6 +139,18 @@
 "quiz.fill_blank.prompt" = "Complete a letra escolhendo a palavra que falta.";
 "quiz.fill_blank.feedback.correct" = "Muito bom!";
 "quiz.fill_blank.feedback.incorrect" = "Continue explorando a letra e tente a próxima.";
+"quiz.pronunciation.permissions_title" = "Permissões necessárias";
+"quiz.pronunciation.permissions_message" = "Precisamos de microfone e reconhecimento de fala para conferir sua pronúncia.";
+"quiz.pronunciation.prompt" = "Diga em voz alta o verso exatamente como aparece.";
+"quiz.pronunciation.record_button" = "Iniciar gravação";
+"quiz.pronunciation.stop_button" = "Parar";
+"quiz.pronunciation.listening" = "Ouvindo...";
+"quiz.pronunciation.preview_text" = "Transcrição ao vivo";
+"quiz.pronunciation.result_text" = "Sua pronúncia";
+"quiz.pronunciation.correct_title" = "Tudo certo! Sua pronúncia correspondeu.";
+"quiz.pronunciation.incorrect_title" = "Continue ouvindo e tente novamente.";
+"quiz.pronunciation.finish" = "Concluir";
+
 
 // MARK: - Authentication
 "auth.header.title" = "Conecte-se aos serviços de música";

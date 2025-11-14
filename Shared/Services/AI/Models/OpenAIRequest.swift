@@ -229,3 +229,7 @@ struct AISongSuggestionsResponse: Codable, JSONSchemaConvertible {
     }()
 }
 
+struct AIPronunciationPracticeWordInput {
+    let word: String
+    let language: InputLanguage
+}

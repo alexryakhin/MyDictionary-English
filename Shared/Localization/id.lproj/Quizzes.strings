@@ -159,6 +159,9 @@
 "loading.loading_next_question" = "Memuat pertanyaan berikutnya...";
 "loading.preparing_next_question" = "AI sedang menyiapkan pertanyaan berikutnya untuk Anda.";
 "loading.failed_to_load_quiz" = "Gagal memuat kuis";
+"loading.generating_pronunciation_sentences" = "Sedang membuat latihan pelafalan...";
+"loading.pronunciation_description" = "AI sedang menyiapkan kalimat yang disesuaikan dengan level Anda.";
+"loading.preparing_pronunciation" = "Sedang menyiapkan kuis pelafalan Anda...";
 
 // MARK: - Quiz UI Elements
 "ui.question" = "Pertanyaan";
@@ -177,6 +180,17 @@
 "quiz_types.great_job_completed_sentence_writing_quiz" = "Kerja bagus! Anda telah menyelesaikan kuis penulisan kalimat.";
 "quiz_types.great_job_completed_context_quiz" = "Kerja bagus! Anda telah menyelesaikan kuis penggunaan dalam konteks.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Kerja bagus! Anda telah menyelesaikan kuis isi tempat kosong.";
+"quiz_types.pronunciation_practice" = "Latihan pelafalan";
+"quiz_types.pronunciation_practice_description" = "Latih pelafalan Anda dengan kalimat yang dibuat oleh AI.";
+"quiz_types.great_job_completed_pronunciation_practice" = "Kerja bagus! Anda telah menyelesaikan latihan pelafalan.";
+
+"pronunciation_practice.instructions_title" = "Latihan pelafalan";
+"pronunciation_practice.instructions_description" = "Ucapkan setiap kalimat dengan lantang. Anda akan menerima umpan balik seketika lalu melihat contoh lainnya.";
+"pronunciation_practice.alternate_sentence" = "Kalimat lain untuk dicoba: %@";
+"pronunciation_practice.practice_sentence" = "Kalimat latihan";
+"pronunciation_practice.review_header" = "Tinjau latihan Anda";
+"pronunciation_practice.alternate_sentence_title" = "Contoh lain";
+"pronunciation_practice.transcript_title" = "Transkrip Anda";
 
 // MARK: - Filter Messages
 "filters.practice_words_specific_language" = "Berlatih kata dari bahasa tertentu";

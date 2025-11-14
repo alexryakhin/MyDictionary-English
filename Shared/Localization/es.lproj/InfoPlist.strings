@@ -1,3 +1,5 @@
 CFBundleDisplayName = "Mi Diccionario";
 CFBundleName = "Mi Diccionario";
 "NSAppleMusicUsageDescription" = "My Dictionary necesita acceso a Apple Music para descubrir canciones personalizadas para el aprendizaje de idiomas. Esto permite que la app busque canciones en tu idioma objetivo y brinde recomendaciones según tu perfil de aprendizaje.";
+"NSMicrophoneUsageDescription" = "My Dictionary necesita acceso al micrófono para grabar tu pronunciación durante los cuestionarios y las sesiones de práctica.";
+"NSSpeechRecognitionUsageDescription" = "My Dictionary utiliza el reconocimiento de voz para evaluar tus respuestas habladas y ofrecer comentarios sobre la pronunciación.";

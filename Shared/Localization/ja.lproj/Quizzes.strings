@@ -159,6 +159,9 @@
 "loading.loading_next_question" = "次の質問を読み込み中...";
 "loading.preparing_next_question" = "AIがあなたのために次の質問を準備しています。";
 "loading.failed_to_load_quiz" = "クイズの読み込みに失敗しました";
+"loading.generating_pronunciation_sentences" = "発音練習を生成しています...";
+"loading.pronunciation_description" = "AI があなたのレベルに合わせた文を用意しています。";
+"loading.preparing_pronunciation" = "発音クイズを準備しています...";
 
 // MARK: - Quiz UI Elements
 "ui.question" = "質問";
@@ -177,6 +180,17 @@
 "quiz_types.great_job_completed_sentence_writing_quiz" = "素晴らしい！文の作成クイズを完了しました。";
 "quiz_types.great_job_completed_context_quiz" = "素晴らしい！文脈の使用クイズを完了しました。";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "素晴らしい！空欄補充クイズを完了しました。";
+"quiz_types.pronunciation_practice" = "発音練習";
+"quiz_types.pronunciation_practice_description" = "AI が生成した文で発音を練習しましょう。";
+"quiz_types.great_job_completed_pronunciation_practice" = "素晴らしいです！発音練習を完了しました。";
+
+"pronunciation_practice.instructions_title" = "発音練習";
+"pronunciation_practice.instructions_description" = "各文を声に出して読みましょう。すぐにフィードバックが届き、その後別の例が表示されます。";
+"pronunciation_practice.alternate_sentence" = "他に試せる文: %@";
+"pronunciation_practice.practice_sentence" = "練習用の文";
+"pronunciation_practice.review_header" = "練習を振り返る";
+"pronunciation_practice.alternate_sentence_title" = "別の例";
+"pronunciation_practice.transcript_title" = "あなたのトランスクリプト";
 
 // MARK: - Filter Messages
 "filters.practice_words_specific_language" = "特定の言語の単語を練習する";

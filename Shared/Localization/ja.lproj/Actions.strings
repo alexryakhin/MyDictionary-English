@@ -23,6 +23,7 @@
 "select_word" = "単語を選択";
 "select_idiom" = "熟語を選択";
 "select_quiz" = "クイズを選択";
+"select_collection" = "コレクションを選択";
 "sign_out" = "サインアウト";
 "sign_in" = "サインイン";
 "upgrade" = "アップグレード";
@@ -61,6 +62,8 @@
 "load_more" = "さらに読み込む";
 "loading_more" = "読み込み中...";
 "copy_email" = "メールをコピー";
+"select_all" = "すべて選択";
+"deselect_all" = "すべて選択解除";
 "play" = "再生";
 "pause" = "一時停止";
 "playFromHere" = "ここから再生";

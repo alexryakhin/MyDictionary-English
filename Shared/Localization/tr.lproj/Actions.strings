@@ -23,6 +23,7 @@
 "select_word" = "Kelime seç";
 "select_idiom" = "Deyim seç";
 "select_quiz" = "Quiz seç";
+"select_collection" = "Bir koleksiyon seç";
 "sign_out" = "Çıkış yap";
 "sign_in" = "Giriş yap";
 "upgrade" = "Yükselt";
@@ -61,6 +62,8 @@
 "load_more" = "Daha fazla yükle";
 "loading_more" = "Yükleniyor...";
 "copy_email" = "E-postayı kopyala";
+"select_all" = "Tümünü seç";
+"deselect_all" = "Tümünü kaldır";
 "play" = "Oynat";
 "pause" = "Duraklat";
 "playFromHere" = "Buradan oynat";

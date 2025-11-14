@@ -4,6 +4,7 @@
 "view.section.favorite_songs" = "즐겨찾는 곡";
 "view.section.history" = "기록";
 "view.description" = "음악으로 언어를 배우세요. 좋아하는 노래나 아티스트를 검색하면 AI가 각 노래를 위한 레슨과 퀴즈를 만들어 줍니다.";
+"view.emptyTitle" = "레슨을 시작할 곡을 선택하세요";
 
 // MARK: - Search
 "view.search.loading" = "검색 중...";
@@ -72,6 +73,8 @@
 "player.lesson.ready" = "레슨으로 이동";
 "player.lesson.failed" = "레슨을 불러오지 못했습니다. 다시 시도할까요?";
 "player.lesson.unavailable" = "레슨을 생성할 수 없습니다";
+"player.playback.open_youtube" = "YouTube에서 검색";
+"player.playback.unavailable_message" = "Apple Music에서는 재생할 수 없습니다. 대신 YouTube를 이용해 보세요.";
 "player.tips.title" = "음악 레슨 팁";
 "player.tips.header" = "레슨을 준비해 보세요";
 "player.tips.intro" = "조용한 순간을 만들고, 헤드폰이 있다면 연결하고, 노트는 가까이에 두세요. 연습 전 한 번 멜로디를 흥얼거리면 도움이 됩니다.";
@@ -136,6 +139,18 @@
 "quiz.fill_blank.prompt" = "비어 있는 단어를 선택해 가사를 완성해 보세요.";
 "quiz.fill_blank.feedback.correct" = "잘하셨습니다!";
 "quiz.fill_blank.feedback.incorrect" = "가사를 더 살펴보고 다음 문제에 도전하세요.";
+"quiz.pronunciation.permissions_title" = "권한 필요";
+"quiz.pronunciation.permissions_message" = "발음을 확인하려면 마이크와 음성 인식이 필요합니다.";
+"quiz.pronunciation.prompt" = "표시된 그대로 가사 한 줄을 큰 소리로 말하세요.";
+"quiz.pronunciation.record_button" = "녹음 시작";
+"quiz.pronunciation.stop_button" = "중지";
+"quiz.pronunciation.listening" = "듣는 중...";
+"quiz.pronunciation.preview_text" = "실시간 전사";
+"quiz.pronunciation.result_text" = "당신의 발음";
+"quiz.pronunciation.correct_title" = "모두 완료! 발음이 일치했어요.";
+"quiz.pronunciation.incorrect_title" = "계속 듣고 다시 시도하세요.";
+"quiz.pronunciation.finish" = "완료";
+
 
 // MARK: - Authentication
 "auth.header.title" = "음악 서비스에 연결";

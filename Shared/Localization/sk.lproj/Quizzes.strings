@@ -159,6 +159,9 @@
 "loading.loading_next_question" = "Načítava sa ďalšia otázka...";
 "loading.preparing_next_question" = "Umelá inteligencia pripravuje ďalšiu otázku pre vás.";
 "loading.failed_to_load_quiz" = "Nepodarilo sa načítať kvíz";
+"loading.generating_pronunciation_sentences" = "Generovanie cvičenia výslovnosti...";
+"loading.pronunciation_description" = "Umelá inteligencia pripravuje vety prispôsobené vašej úrovni.";
+"loading.preparing_pronunciation" = "Príprava vášho kvízu na výslovnosť...";
 
 // MARK: - Quiz UI Elements
 "ui.question" = "Otázka";
@@ -177,6 +180,17 @@
 "quiz_types.great_job_completed_sentence_writing_quiz" = "Skvelá práca! Dokončili ste kvíz písania viet.";
 "quiz_types.great_job_completed_context_quiz" = "Skvelá práca! Dokončili ste kvíz použitia v kontexte.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Skvelá práca! Dokončili ste kvíz vyplňovania prázdnych miest.";
+"quiz_types.pronunciation_practice" = "Cvičenie výslovnosti";
+"quiz_types.pronunciation_practice_description" = "Precvičujte si výslovnosť s vetami generovanými umelou inteligenciou.";
+"quiz_types.great_job_completed_pronunciation_practice" = "Skvelá práca! Dokončili ste cvičenie výslovnosti.";
+
+"pronunciation_practice.instructions_title" = "Cvičenie výslovnosti";
+"pronunciation_practice.instructions_description" = "Vyslovte každú vetu nahlas. Okamžite dostanete spätnú väzbu a potom uvidíte ďalší príklad.";
+"pronunciation_practice.alternate_sentence" = "Ďalšia veta na vyskúšanie: %@";
+"pronunciation_practice.practice_sentence" = "Cvičná veta";
+"pronunciation_practice.review_header" = "Skontrolujte si cvičenie";
+"pronunciation_practice.alternate_sentence_title" = "Ďalší príklad";
+"pronunciation_practice.transcript_title" = "Váš prepis";
 
 // MARK: - Filter Messages
 "filters.practice_words_specific_language" = "Cvičte slová z konkrétneho jazyka";

@@ -4,6 +4,7 @@
 "view.section.favorite_songs" = "Oblíbené skladby";
 "view.section.history" = "Historie";
 "view.description" = "Uč se jazyky prostřednictvím hudby. Vyhledej své oblíbené písně nebo interprety. Umělá inteligence pro každou skladbu vytvoří lekce a kvízy.";
+"view.emptyTitle" = "Vyberte skladbu a spusťte lekci";
 
 // MARK: - Search
 "view.search.loading" = "Hledám...";
@@ -72,6 +73,8 @@
 "player.lesson.ready" = "Pokračovat k lekci";
 "player.lesson.failed" = "Chyba při načítání lekce. Zkusit znovu?";
 "player.lesson.unavailable" = "Lekci se nepodařilo vytvořit";
+"player.playback.open_youtube" = "Vyhledat na YouTube";
+"player.playback.unavailable_message" = "V Apple Music není přehrávání dostupné. Zkuste YouTube.";
 "player.tips.title" = "Tipy pro hudební lekci";
 "player.tips.header" = "Připravte se na lekci";
 "player.tips.intro" = "Najděte si klidné místo, připojte sluchátka a mějte po ruce poznámkový blok. Pomůže, když si před cvičeními jednou pobrukujete.";
@@ -136,6 +139,18 @@
 "quiz.fill_blank.prompt" = "Doplňte text výběrem chybějícího slova.";
 "quiz.fill_blank.feedback.correct" = "Výborně!";
 "quiz.fill_blank.feedback.incorrect" = "Pokračujte v objevování textu a zkuste další.";
+"quiz.pronunciation.permissions_title" = "Vyžadována oprávnění";
+"quiz.pronunciation.permissions_message" = "Potřebujeme mikrofon a rozpoznávání řeči pro kontrolu vaší výslovnosti.";
+"quiz.pronunciation.prompt" = "Řekněte řádek textu nahlas přesně tak, jak je zobrazen.";
+"quiz.pronunciation.record_button" = "Spustit nahrávání";
+"quiz.pronunciation.stop_button" = "Stop";
+"quiz.pronunciation.listening" = "Nasloucháme...";
+"quiz.pronunciation.preview_text" = "Živý přepis";
+"quiz.pronunciation.result_text" = "Vaše výslovnost";
+"quiz.pronunciation.correct_title" = "Hotovo! Vaše výslovnost sedí.";
+"quiz.pronunciation.incorrect_title" = "Pokračujte v poslechu a zkuste to znovu.";
+"quiz.pronunciation.finish" = "Dokončit";
+
 
 // MARK: - Authentication
 "auth.header.title" = "Připojte se ke službám hudby";

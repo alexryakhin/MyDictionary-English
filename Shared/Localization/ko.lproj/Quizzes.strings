@@ -159,6 +159,9 @@
 "loading.loading_next_question" = "다음 질문 로드 중...";
 "loading.preparing_next_question" = "AI가 당신을 위해 다음 질문을 준비하고 있습니다.";
 "loading.failed_to_load_quiz" = "퀴즈를 로드하지 못했습니다";
+"loading.generating_pronunciation_sentences" = "발음 연습을 생성하는 중...";
+"loading.pronunciation_description" = "AI가 당신의 수준에 맞는 문장을 준비하고 있습니다.";
+"loading.preparing_pronunciation" = "발음 퀴즈를 준비하는 중...";
 
 // MARK: - Quiz UI Elements
 "ui.question" = "질문";
@@ -177,6 +180,17 @@
 "quiz_types.great_job_completed_sentence_writing_quiz" = "훌륭합니다! 문장 작성 퀴즈를 완료했습니다.";
 "quiz_types.great_job_completed_context_quiz" = "훌륭합니다! 문맥 사용 퀴즈를 완료했습니다.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "훌륭합니다! 빈칸 채우기 퀴즈를 완료했습니다.";
+"quiz_types.pronunciation_practice" = "발음 연습";
+"quiz_types.pronunciation_practice_description" = "AI가 생성한 문장으로 발음을 연습하세요.";
+"quiz_types.great_job_completed_pronunciation_practice" = "잘하셨습니다! 발음 연습을 완료했습니다.";
+
+"pronunciation_practice.instructions_title" = "발음 연습";
+"pronunciation_practice.instructions_description" = "각 문장을 큰 소리로 말하세요. 즉시 피드백을 받고 다음 예시를 확인하게 됩니다.";
+"pronunciation_practice.alternate_sentence" = "다른 연습 문장: %@";
+"pronunciation_practice.practice_sentence" = "연습 문장";
+"pronunciation_practice.review_header" = "연습 내용 확인";
+"pronunciation_practice.alternate_sentence_title" = "다른 예시";
+"pronunciation_practice.transcript_title" = "녹취록";
 
 // MARK: - Filter Messages
 "filters.practice_words_specific_language" = "특정 언어의 단어 연습하기";

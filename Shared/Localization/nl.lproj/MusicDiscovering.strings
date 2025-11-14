@@ -4,6 +4,7 @@
 "view.section.favorite_songs" = "Favoriete nummers";
 "view.section.history" = "Geschiedenis";
 "view.description" = "Leer talen via muziek. Zoek naar je favoriete nummers of artiesten. De AI maakt lessen en quizzen voor elk nummer.";
+"view.emptyTitle" = "Kies een nummer om een les te starten";
 
 // MARK: - Search
 "view.search.loading" = "Zoeken...";
@@ -72,6 +73,8 @@
 "player.lesson.ready" = "Ga verder naar les";
 "player.lesson.failed" = "Fout bij het laden van de les. Opnieuw proberen?";
 "player.lesson.unavailable" = "Kan de les niet genereren";
+"player.playback.open_youtube" = "Zoeken op YouTube";
+"player.playback.unavailable_message" = "Afspelen is niet beschikbaar in Apple Music. Probeer YouTube.";
 "player.tips.title" = "Tips voor de muziekles";
 "player.tips.header" = "Maak je klaar voor je les";
 "player.tips.intro" = "Zoek een rustig moment, sluit een koptelefoon aan als je die hebt en houd een notitieboekje bij de hand. Een keer meeneuriën voor je de oefeningen doet helpt.";
@@ -136,6 +139,18 @@
 "quiz.fill_blank.prompt" = "Maak de lyric af door het ontbrekende woord te kiezen.";
 "quiz.fill_blank.feedback.correct" = "Goed gedaan!";
 "quiz.fill_blank.feedback.incorrect" = "Blijf de lyrics verkennen en probeer de volgende.";
+"quiz.pronunciation.permissions_title" = "Machtigingen vereist";
+"quiz.pronunciation.permissions_message" = "We hebben microfoon- en spraakherkenning nodig om je uitspraak te controleren.";
+"quiz.pronunciation.prompt" = "Zeg de songtekst hardop precies zoals deze wordt weergegeven.";
+"quiz.pronunciation.record_button" = "Opname starten";
+"quiz.pronunciation.stop_button" = "Stoppen";
+"quiz.pronunciation.listening" = "Luisteren...";
+"quiz.pronunciation.preview_text" = "Live-transcript";
+"quiz.pronunciation.result_text" = "Je uitspraak";
+"quiz.pronunciation.correct_title" = "Helemaal klaar! Je uitspraak kwam overeen.";
+"quiz.pronunciation.incorrect_title" = "Blijf luisteren en probeer het opnieuw.";
+"quiz.pronunciation.finish" = "Afronden";
+
 
 // MARK: - Authentication
 "auth.header.title" = "Verbind met muziekdiensten";

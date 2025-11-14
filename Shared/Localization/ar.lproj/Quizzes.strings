@@ -159,6 +159,9 @@
 "loading.loading_next_question" = "جارٍ تحميل السؤال التالي...";
 "loading.preparing_next_question" = "الذكاء الاصطناعي يجهز السؤال التالي لك.";
 "loading.failed_to_load_quiz" = "فشل تحميل الاختبار";
+"loading.generating_pronunciation_sentences" = "جاري إنشاء تمرين النطق...";
+"loading.pronunciation_description" = "يعدّ الذكاء الاصطناعي جملًا تناسب مستواك.";
+"loading.preparing_pronunciation" = "جارٍ تحضير اختبار النطق الخاص بك...";
 
 // MARK: - Quiz UI Elements
 "ui.question" = "سؤال";
@@ -177,6 +180,17 @@
 "quiz_types.great_job_completed_sentence_writing_quiz" = "عمل رائع! لقد أكملت اختبار كتابة الجمل.";
 "quiz_types.great_job_completed_context_quiz" = "عمل رائع! لقد أكملت اختبار الاستخدام في السياق.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "عمل رائع! لقد أكملت اختبار ملء الفراغ.";
+"quiz_types.pronunciation_practice" = "تمرين النطق";
+"quiz_types.pronunciation_practice_description" = "درّب نطقك باستخدام جمل يولدها الذكاء الاصطناعي.";
+"quiz_types.great_job_completed_pronunciation_practice" = "عمل رائع! لقد أنهيت تمرين النطق.";
+
+"pronunciation_practice.instructions_title" = "تمرين النطق";
+"pronunciation_practice.instructions_description" = "انطق كل جملة بصوت عالٍ. ستحصل على ملاحظات فورية ثم ترى مثالاً آخر.";
+"pronunciation_practice.alternate_sentence" = "جملة أخرى للتجربة: %@";
+"pronunciation_practice.practice_sentence" = "جملة تدريب";
+"pronunciation_practice.review_header" = "راجع تمرينك";
+"pronunciation_practice.alternate_sentence_title" = "مثال آخر";
+"pronunciation_practice.transcript_title" = "نسخة نصية لك";
 
 // MARK: - Filter Messages
 "filters.practice_words_specific_language" = "تدرب على كلمات من لغة محددة";

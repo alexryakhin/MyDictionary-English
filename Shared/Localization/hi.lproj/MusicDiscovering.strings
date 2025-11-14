@@ -4,6 +4,7 @@
 "view.section.favorite_songs" = "पसंदीदा गीत";
 "view.section.history" = "इतिहास";
 "view.description" = "संगीत के माध्यम से भाषाएँ सीखें। अपनी पसंदीदा गाने या कलाकार खोजें। एआई हर गाने के लिए पाठ और क्विज़ तैयार करेगा।";
+"view.emptyTitle" = "एक पाठ शुरू करने के लिए कोई गीत चुनें";
 
 // MARK: - Search
 "view.search.loading" = "खोज जारी...";
@@ -72,6 +73,8 @@
 "player.lesson.ready" = "पाठ पर आगे बढ़ें";
 "player.lesson.failed" = "पाठ लोड करने में त्रुटि। क्या फिर से प्रयास करें?";
 "player.lesson.unavailable" = "पाठ तैयार नहीं किया जा सका";
+"player.playback.open_youtube" = "YouTube पर खोजें";
+"player.playback.unavailable_message" = "Apple Music में प्लेबैक उपलब्ध नहीं है। इसके बजाय YouTube आज़माएँ।";
 "player.tips.title" = "संगीत पाठ सुझाव";
 "player.tips.header" = "अपने पाठ के लिए तैयार हों";
 "player.tips.intro" = "एक शांत पल चुनें, यदि आपके पास हेडफ़ोन हैं तो उन्हें जोड़ें, और पास में एक नोटबुक रखें। अभ्यास से पहले एक बार गुनगुनाना मददगार रहता है।";
@@ -136,6 +139,18 @@
 "quiz.fill_blank.prompt" = "लापता शब्द चुनकर बोलों को पूरा करें।";
 "quiz.fill_blank.feedback.correct" = "बहुत अच्छा काम!";
 "quiz.fill_blank.feedback.incorrect" = "बोलों को और खोजें और अगला प्रयास करें।";
+"quiz.pronunciation.permissions_title" = "अनुमतियाँ आवश्यक हैं";
+"quiz.pronunciation.permissions_message" = "आपका उच्चारण जाँचने के लिए हमें माइक्रोफ़ोन और वाक् पहचान की ज़रूरत है।";
+"quiz.pronunciation.prompt" = "गीत की पंक्ति को बिल्कुल वैसे ही ज़ोर से बोलें जैसा दिखाया गया है।";
+"quiz.pronunciation.record_button" = "रिकॉर्डिंग शुरू करें";
+"quiz.pronunciation.stop_button" = "रोकें";
+"quiz.pronunciation.listening" = "सुन रहे हैं...";
+"quiz.pronunciation.preview_text" = "लाइव ट्रांसक्रिप्ट";
+"quiz.pronunciation.result_text" = "आपका उच्चारण";
+"quiz.pronunciation.correct_title" = "सब तैयार! आपका उच्चारण मेल खाता है।";
+"quiz.pronunciation.incorrect_title" = "सुनते रहें और फिर से कोशिश करें।";
+"quiz.pronunciation.finish" = "समाप्त";
+
 
 // MARK: - Authentication
 "auth.header.title" = "म्यूज़िक सेवाओं से कनेक्ट करें";

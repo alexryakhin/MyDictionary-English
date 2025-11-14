@@ -4,6 +4,7 @@
 "view.section.favorite_songs" = "Favorittsanger";
 "view.section.history" = "Historikk";
 "view.description" = "Lær språk gjennom musikk. Søk etter favorittlåtene eller artistene dine. KI vil lage leksjoner og quizer for hver sang.";
+"view.emptyTitle" = "Velg en sang for å starte en leksjon";
 
 // MARK: - Search
 "view.search.loading" = "Søker...";
@@ -72,6 +73,8 @@
 "player.lesson.ready" = "Fortsett til leksjonen";
 "player.lesson.failed" = "Feil ved lasting av leksjon. Prøve igjen?";
 "player.lesson.unavailable" = "Kan ikke opprette leksjon";
+"player.playback.open_youtube" = "Søk på YouTube";
+"player.playback.unavailable_message" = "Avspilling er ikke tilgjengelig i Apple Music. Prøv YouTube.";
 "player.tips.title" = "Tips til musikkleksjonen";
 "player.tips.header" = "Gjør deg klar til leksjonen";
 "player.tips.intro" = "Finn en rolig stund, koble til hodetelefoner om du har, og hold en notatbok i nærheten. Å nynn en gang før du starter øvelsene kan hjelpe.";
@@ -136,6 +139,18 @@
 "quiz.fill_blank.prompt" = "Fullfør teksten ved å velge ordet som mangler.";
 "quiz.fill_blank.feedback.correct" = "Strålende!";
 "quiz.fill_blank.feedback.incorrect" = "Utforsk teksten videre og prøv neste.";
+"quiz.pronunciation.permissions_title" = "Tillatelser kreves";
+"quiz.pronunciation.permissions_message" = "Vi trenger mikrofon og talegjenkjenning for å sjekke uttalen din.";
+"quiz.pronunciation.prompt" = "Si sanglinjen høyt akkurat slik den vises.";
+"quiz.pronunciation.record_button" = "Start opptak";
+"quiz.pronunciation.stop_button" = "Stopp";
+"quiz.pronunciation.listening" = "Lytter...";
+"quiz.pronunciation.preview_text" = "Direkte transkripsjon";
+"quiz.pronunciation.result_text" = "Uttalen din";
+"quiz.pronunciation.correct_title" = "Alt klart! Uttalen din stemte.";
+"quiz.pronunciation.incorrect_title" = "Fortsett å lytte og prøv igjen.";
+"quiz.pronunciation.finish" = "Fullfør";
+
 
 // MARK: - Authentication
 "auth.header.title" = "Koble til musikktjenester";

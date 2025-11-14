@@ -36,11 +36,17 @@ struct SongLessonView: View {
                 cultureSection(viewModel.lesson.cultureNotes, languageCode: viewModel.lesson.language.rawValue)
                 phrasesSection()
                 grammarSection(viewModel.lesson.grammarNuggets)
-                explanationsSection(viewModel.lesson.explanations)
-                fillInBlanksSection(viewModel.lesson.quiz.fillInBlanks)
+                pronunciationSection(
+                    viewModel.lesson.explanations,
+                    languageCode: viewModel.lesson.language.rawValue
+                )
+                fillInBlanksSection(
+                    viewModel.lesson.quiz.fillInBlanks,
+                    questionOffset: viewModel.lesson.explanations.count
+                )
                 multipleChoiceSection(
                     viewModel.lesson.quiz.meaningMCQ,
-                    questionOffset: viewModel.lesson.quiz.fillInBlanks.count
+                    questionOffset: viewModel.lesson.explanations.count + viewModel.lesson.quiz.fillInBlanks.count
                 )
                 reflectionSection(viewModel.lesson)
             }
@@ -83,6 +89,8 @@ struct SongLessonView: View {
             header: Loc.MusicDiscovering.Lesson.Overview.title,
             headerFontStyle: .large
         ) {
+            let totalQuestions = lesson.explanations.count + lesson.quiz.fillInBlanks.count + lesson.quiz.meaningMCQ.count
+
             VStack(alignment: .leading, spacing: 12) {
                 Text(
                     LocalizedStringKey(
@@ -100,7 +108,7 @@ struct SongLessonView: View {
                     lessonTag(title: lesson.language.englishName, systemImage: "globe.europe.africa")
                     lessonTag(title: lesson.userLevel.rawValue.uppercased(), systemImage: "chart.line.uptrend.xyaxis")
                     lessonTag(title: Loc.MusicDiscovering.Lesson.Overview.phrasesTag(lesson.phrases.count), systemImage: "quote.bubble")
-                    lessonTag(title: Loc.MusicDiscovering.Lesson.Overview.practiceTag(lesson.quiz.fillInBlanks.count + lesson.quiz.meaningMCQ.count), systemImage: "slider.horizontal.3")
+                    lessonTag(title: Loc.MusicDiscovering.Lesson.Overview.practiceTag(totalQuestions), systemImage: "slider.horizontal.3")
                 }
                 .font(.caption)
                 .foregroundColor(.secondary)
@@ -215,55 +223,146 @@ struct SongLessonView: View {
     
     // MARK: - Culture Section
     
-    private func explanationsSection(_ items: [LyricExplanation]) -> some View {
-        CustomSectionView(
+    private func pronunciationSection(_ items: [LyricExplanation], languageCode: String) -> some View {
+        let sortedItems = items.sorted()
+        let pronunciationAnswers = quizAnswersDictionary(
+            totalQuestions: sortedItems.count,
+            offset: 0,
+            type: .pronunciation
+        )
+
+        let spokenTranscripts: [Int: String] = viewModel.currentSession.quizAnswers
+            .filter { $0.type == .pronunciation }
+            .reduce(into: [:]) { partialResult, answer in
+                partialResult[answer.questionIndex] = answer.spokenText ?? ""
+            }
+
+        return CustomSectionView(
             header: Loc.MusicDiscovering.Lesson.Explanations.header,
             headerSubtitle: Loc.MusicDiscovering.Lesson.Explanations.subtitle
         ) {
-            if items.isEmpty {
+            if sortedItems.isEmpty {
                 emptySectionPlaceholder(Loc.MusicDiscovering.Lesson.Explanations.empty)
+            } else if viewModel.currentSession.hasCompletedQuiz {
+                highlightedExplanationsView(
+                    sortedItems,
+                    answers: pronunciationAnswers,
+                    transcripts: spokenTranscripts,
+                    languageCode: languageCode
+                )
             } else {
-                VStack(alignment: .leading, spacing: 16) {
-                    let sortedIndices = items.sorted()
-                    ForEach(sortedIndices.indices, id: \.self) { index in
-                        let explanation = sortedIndices[index]
-                        VStack(alignment: .leading, spacing: 8) {
-                            HStack {
-                                Text(Loc.MusicDiscovering.Lesson.Explanations.lineNumber(explanation.lineNumber))
-                                    .font(.caption)
-                                    .foregroundColor(.secondary)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-
-                                Button {
-                                    viewModel.handle(.playCultureNotes(explanation.explanation))
-                                } label: {
-                                    Label(Loc.Actions.listen, systemImage: "speaker.wave.2.fill")
-                                        .font(.caption)
-                                }
-                                .disabled(ttsPlayer.isPlaying)
-                            }
-
-                            InteractiveText(
-                                text: explanation.lyricLine,
-                                font: .headline,
-                                sourceLanguageCode: viewModel.lesson.language.rawValue
+                SongLesson.SpeechQuizView(
+                    config: SongLesson.SpeechQuizConfig(
+                        items: sortedItems.enumerated().map { index, item in
+                            SongLesson.SpeechQuizItem(
+                                lineNumber: item.lineNumber,
+                                lyricLine: item.lyricLine,
+                                explanation: item.explanation
                             )
-
-                            InteractiveText(
-                                text: explanation.explanation,
-                                font: .subheadline,
-                                sourceLanguageCode: viewModel.lesson.language.rawValue
-                            )
+                        },
+                        initialAnswers: pronunciationAnswers,
+                        questionIndexOffset: 0,
+                        localeIdentifier: languageCode,
+                        initialTranscripts: spokenTranscripts,
+                        onAnswer: { submission in
+                            viewModel.handle(.submitQuizAnswer(submission))
+                        },
+                        onCompletion: { _ in
+                            viewModel.handle(.saveSession)
                         }
-                        .padding(12)
-                        .background(Color.tertiarySystemGroupedBackground)
-                        .cornerRadius(12)
-                    }
-                }
+                    )
+                )
             }
         }
     }
-    
+
+    private func highlightedExplanationsView(
+        _ items: [LyricExplanation],
+        answers: [Int: Int],
+        transcripts: [Int: String],
+        languageCode: String
+    ) -> some View {
+        VStack(alignment: .leading, spacing: 16) {
+            ForEach(items.indices, id: \.self) { index in
+                let explanation = items[index]
+                let score = answers[index]
+                let transcript = transcripts[index]
+                explanationCard(
+                    explanation,
+                    score: score,
+                    transcript: transcript,
+                    languageCode: languageCode
+                )
+            }
+        }
+    }
+
+    private func explanationCard(
+        _ explanation: LyricExplanation,
+        score: Int?,
+        transcript: String?,
+        languageCode: String
+    ) -> some View {
+        VStack(alignment: .leading, spacing: 8) {
+            HStack {
+                Text(Loc.MusicDiscovering.Lesson.Explanations.lineNumber(explanation.lineNumber))
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+
+                Button {
+                    viewModel.handle(.playCultureNotes(explanation.explanation))
+                } label: {
+                    Label(Loc.Actions.listen, systemImage: "speaker.wave.2.fill")
+                        .font(.caption)
+                }
+                .disabled(ttsPlayer.isPlaying)
+            }
+
+            InteractiveText(
+                text: explanation.lyricLine,
+                font: .headline,
+                highlighted: false,
+                sourceLanguageCode: languageCode
+            )
+            .padding(12)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(highlightColor(for: score))
+            .cornerRadius(12)
+
+            InteractiveText(
+                text: explanation.explanation,
+                font: .subheadline,
+                sourceLanguageCode: languageCode
+            )
+
+            if let transcript, transcript.isNotEmpty {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(Loc.MusicDiscovering.Quiz.Pronunciation.resultText)
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                    Text(transcript)
+                        .font(.footnote)
+                        .foregroundColor(.secondary)
+                }
+            }
+        }
+        .padding(12)
+        .background(Color.tertiarySystemGroupedBackground)
+        .cornerRadius(12)
+    }
+
+    private func highlightColor(for score: Int?) -> Color {
+        switch score {
+        case 1:
+            return Color.green.opacity(0.2)
+        case 0:
+            return Color.red.opacity(0.2)
+        default:
+            return Color.clear
+        }
+    }
+
     private func cultureSection(_ note: String, languageCode: String) -> some View {
         CustomSectionView(
             header: Loc.MusicDiscovering.Lesson.Culture.header,
@@ -296,7 +395,7 @@ struct SongLessonView: View {
 
     // MARK: - Fill in the Blanks Section
     
-    private func fillInBlanksSection(_ items: [FillInBlankItem]) -> some View {
+    private func fillInBlanksSection(_ items: [FillInBlankItem], questionOffset: Int) -> some View {
         CustomSectionView(
             header: Loc.MusicDiscovering.Lesson.Practice.FillBlank.header,
             headerSubtitle: Loc.MusicDiscovering.Lesson.Practice.FillBlank.subtitle
@@ -309,10 +408,10 @@ struct SongLessonView: View {
                         items: items,
                         initialAnswers: quizAnswersDictionary(
                             totalQuestions: items.count,
-                            offset: 0,
+                            offset: questionOffset,
                             type: .fillInBlank
                         ),
-                        questionIndexOffset: 0,
+                        questionIndexOffset: questionOffset,
                         onAnswer: { submission in
                             viewModel.handle(.submitQuizAnswer(submission))
                         },
@@ -360,7 +459,7 @@ struct SongLessonView: View {
 
     @ViewBuilder
     private func reflectionSection(_ lesson: AdaptedLesson) -> some View {
-        let totalQuestions = lesson.quiz.fillInBlanks.count + lesson.quiz.meaningMCQ.count
+        let totalQuestions = lesson.explanations.count + lesson.quiz.fillInBlanks.count + lesson.quiz.meaningMCQ.count
         let answeredQuestions = viewModel.currentSession.quizAnswers.count
         let isReadyToFinish = totalQuestions == 0 || answeredQuestions >= totalQuestions
 

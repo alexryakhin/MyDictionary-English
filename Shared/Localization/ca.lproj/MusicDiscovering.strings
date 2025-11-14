@@ -4,6 +4,7 @@
 "view.section.favorite_songs" = "Cançons preferides";
 "view.section.history" = "Historial";
 "view.description" = "Aprèn idiomes a través de la música. Cerca les teves cançons o artistes preferits. La IA generarà lliçons i qüestionaris per a cada cançó.";
+"view.emptyTitle" = "Tria una cançó per iniciar una lliçó";
 
 // MARK: - Search
 "view.search.loading" = "Cercant...";
@@ -72,6 +73,8 @@
 "player.lesson.ready" = "Continuar cap a la lliçó";
 "player.lesson.failed" = "Error en carregar la lliçó. Vols tornar-ho a intentar?";
 "player.lesson.unavailable" = "No s'ha pogut generar la lliçó";
+"player.playback.open_youtube" = "Cerca a YouTube";
+"player.playback.unavailable_message" = "La reproducció no està disponible a Apple Music. Prova YouTube.";
 "player.tips.title" = "Consells per a la lliçó de música";
 "player.tips.header" = "Prepara't per a la teva lliçó";
 "player.tips.intro" = "Busca un moment tranquil, connecta uns auriculars si en tens i tingues una llibreta a prop. Taral·lejar una vegada abans dels exercicis ajuda molt.";
@@ -136,6 +139,18 @@
 "quiz.fill_blank.prompt" = "Completa la lletra triant la paraula que falta.";
 "quiz.fill_blank.feedback.correct" = "Molt bona feina!";
 "quiz.fill_blank.feedback.incorrect" = "Continua explorant la lletra i prova la següent.";
+"quiz.pronunciation.permissions_title" = "Calen permisos";
+"quiz.pronunciation.permissions_message" = "Necessitem micròfon i reconeixement de veu per comprovar la teva pronunciació.";
+"quiz.pronunciation.prompt" = "Digues en veu alta la línia de la lletra tal com es mostra.";
+"quiz.pronunciation.record_button" = "Inicia la gravació";
+"quiz.pronunciation.stop_button" = "Atura";
+"quiz.pronunciation.listening" = "Escoltant...";
+"quiz.pronunciation.preview_text" = "Transcripció en directe";
+"quiz.pronunciation.result_text" = "La teva pronunciació";
+"quiz.pronunciation.correct_title" = "Tot a punt! La teva pronunciació coincideix.";
+"quiz.pronunciation.incorrect_title" = "Segueix escoltant i torna-ho a provar.";
+"quiz.pronunciation.finish" = "Finalitza";
+
 
 // MARK: - Authentication
 "auth.header.title" = "Connecta't als serveis de música";

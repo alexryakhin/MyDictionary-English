@@ -159,6 +159,9 @@
 "loading.loading_next_question" = "Carregant la següent pregunta...";
 "loading.preparing_next_question" = "La IA està preparant la següent pregunta per a tu.";
 "loading.failed_to_load_quiz" = "No s'ha pogut carregar el qüestionari";
+"loading.generating_pronunciation_sentences" = "S'està generant la pràctica de pronunciació...";
+"loading.pronunciation_description" = "La IA està preparant frases adaptades al teu nivell.";
+"loading.preparing_pronunciation" = "S'està preparant el teu qüestionari de pronunciació...";
 
 // MARK: - Quiz UI Elements
 "ui.question" = "Pregunta";
@@ -177,6 +180,17 @@
 "quiz_types.great_job_completed_sentence_writing_quiz" = "Bona feina! Has completat el qüestionari d'escriptura de frases.";
 "quiz_types.great_job_completed_context_quiz" = "Bona feina! Has completat el qüestionari d'ús en context.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Bona feina! Has completat el qüestionari d'omplir els buits.";
+"quiz_types.pronunciation_practice" = "Pràctica de pronunciació";
+"quiz_types.pronunciation_practice_description" = "Practica la pronunciació amb frases generades per la IA.";
+"quiz_types.great_job_completed_pronunciation_practice" = "Bona feina! Has completat la pràctica de pronunciació.";
+
+"pronunciation_practice.instructions_title" = "Pràctica de pronunciació";
+"pronunciation_practice.instructions_description" = "Pronuncia en veu alta cada frase. Rebràs comentaris immediats i després veuràs un altre exemple.";
+"pronunciation_practice.alternate_sentence" = "Una altra frase per provar: %@";
+"pronunciation_practice.practice_sentence" = "Frase de pràctica";
+"pronunciation_practice.review_header" = "Revisa la teva pràctica";
+"pronunciation_practice.alternate_sentence_title" = "Un altre exemple";
+"pronunciation_practice.transcript_title" = "La teva transcripció";
 
 // MARK: - Filter Messages
 "filters.practice_words_specific_language" = "Practica paraules d'un idioma específic";

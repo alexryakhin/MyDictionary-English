@@ -1,3 +1,5 @@
 CFBundleDisplayName = "Mijn Woordenboek";
 CFBundleName = "Mijn Woordenboek";
 "NSAppleMusicUsageDescription" = "My Dictionary heeft toegang tot Apple Music nodig om gepersonaliseerde liedjes voor taalleren te ontdekken. Zo kan de app naar nummers in je doeltaal zoeken en aanbevelingen doen op basis van je leerprofiel.";
+"NSMicrophoneUsageDescription" = "My Dictionary heeft microfoontoegang nodig om je uitspraak op te nemen tijdens quizzen en oefensessies.";
+"NSSpeechRecognitionUsageDescription" = "My Dictionary gebruikt spraakherkenning om je gesproken antwoorden te beoordelen en uitspraakfeedback te geven.";

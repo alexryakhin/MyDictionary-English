@@ -170,6 +170,8 @@ let _ = Self._printChanges()
             ContextMultipleChoiceQuizContentView(preset: preset)
         case .fillInTheBlankQuiz(let preset):
             FillInTheBlankQuizContentView(preset: preset)
+        case .pronunciationPracticeQuiz(let preset):
+            PronunciationPracticeQuizContentView(preset: preset)
         case .storyLabHistory:
             StoryLabHistoryView()
         case .storyLabReading(let config):

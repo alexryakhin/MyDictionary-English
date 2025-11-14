@@ -4,6 +4,7 @@
 "view.section.favorite_songs" = "Brani preferiti";
 "view.section.history" = "Cronologia";
 "view.description" = "Impara le lingue attraverso la musica. Cerca le tue canzoni o i tuoi artisti preferiti. L'IA genererà lezioni e quiz per ogni brano.";
+"view.emptyTitle" = "Scegli un brano per iniziare una lezione";
 
 // MARK: - Search
 "view.search.loading" = "Ricerca in corso...";
@@ -72,6 +73,8 @@
 "player.lesson.ready" = "Continua alla lezione";
 "player.lesson.failed" = "Errore durante il caricamento della lezione. Riprova?";
 "player.lesson.unavailable" = "Impossibile generare la lezione";
+"player.playback.open_youtube" = "Cerca su YouTube";
+"player.playback.unavailable_message" = "La riproduzione non è disponibile su Apple Music. Prova YouTube.";
 "player.tips.title" = "Suggerimenti per la lezione musicale";
 "player.tips.header" = "Preparati per la tua lezione";
 "player.tips.intro" = "Trova un momento tranquillo, collega le cuffie se le hai e tieni un quaderno a portata di mano. Canticchiare una volta prima degli esercizi aiuta molto.";
@@ -136,6 +139,18 @@
 "quiz.fill_blank.prompt" = "Completa il testo scegliendo la parola mancante.";
 "quiz.fill_blank.feedback.correct" = "Ottimo lavoro!";
 "quiz.fill_blank.feedback.incorrect" = "Continua a esplorare il testo e prova la prossima.";
+"quiz.pronunciation.permissions_title" = "Autorizzazioni necessarie";
+"quiz.pronunciation.permissions_message" = "Ci servono microfono e riconoscimento vocale per verificare la tua pronuncia.";
+"quiz.pronunciation.prompt" = "Pronuncia ad alta voce il verso esattamente come mostrato.";
+"quiz.pronunciation.record_button" = "Avvia registrazione";
+"quiz.pronunciation.stop_button" = "Stop";
+"quiz.pronunciation.listening" = "In ascolto...";
+"quiz.pronunciation.preview_text" = "Trascrizione in tempo reale";
+"quiz.pronunciation.result_text" = "La tua pronuncia";
+"quiz.pronunciation.correct_title" = "Tutto pronto! La pronuncia corrisponde.";
+"quiz.pronunciation.incorrect_title" = "Continua ad ascoltare e riprova.";
+"quiz.pronunciation.finish" = "Termina";
+
 
 // MARK: - Authentication
 "auth.header.title" = "Connettiti ai servizi musicali";

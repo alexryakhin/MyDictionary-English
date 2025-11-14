@@ -4,6 +4,7 @@
 "view.section.favorite_songs" = "Favori şarkılar";
 "view.section.history" = "Geçmiş";
 "view.description" = "Müzikle dilleri öğren. En sevdiğin şarkıları veya sanatçıları ara. Yapay zekâ her şarkı için dersler ve sınavlar hazırlayacak.";
+"view.emptyTitle" = "Bir dersi başlatmak için bir şarkı seç";
 
 // MARK: - Search
 "view.search.loading" = "Aranıyor...";
@@ -72,6 +73,8 @@
 "player.lesson.ready" = "Derse devam et";
 "player.lesson.failed" = "Ders yüklenirken hata oluştu. Tekrar denensin mi?";
 "player.lesson.unavailable" = "Ders oluşturulamadı";
+"player.playback.open_youtube" = "YouTube'da ara";
+"player.playback.unavailable_message" = "Apple Music'te oynatma kullanılamıyor. Bunun yerine YouTube'u dene.";
 "player.tips.title" = "Müzik dersi ipuçları";
 "player.tips.header" = "Derse hazırlan";
 "player.tips.intro" = "Sessiz bir an bulun, kulaklığınız varsa takın ve bir defter bulundurun. Egzersizlerden önce melodiyi bir kez mırıldanmak yardımcı olur.";
@@ -136,6 +139,18 @@
 "quiz.fill_blank.prompt" = "Eksik kelimeyi seçerek sözleri tamamlayın.";
 "quiz.fill_blank.feedback.correct" = "Aferin!";
 "quiz.fill_blank.feedback.incorrect" = "Sözleri keşfetmeye devam edin ve bir sonrakini deneyin.";
+"quiz.pronunciation.permissions_title" = "İzin gerekiyor";
+"quiz.pronunciation.permissions_message" = "Telaffuzunu kontrol etmek için mikrofona ve konuşma tanımaya ihtiyacımız var.";
+"quiz.pronunciation.prompt" = "Şarkı sözünün satırını ekranda göründüğü gibi yüksek sesle söyle.";
+"quiz.pronunciation.record_button" = "Kaydı başlat";
+"quiz.pronunciation.stop_button" = "Durdur";
+"quiz.pronunciation.listening" = "Dinleniyor...";
+"quiz.pronunciation.preview_text" = "Canlı döküm";
+"quiz.pronunciation.result_text" = "Telaffuzun";
+"quiz.pronunciation.correct_title" = "Her şey hazır! Telaffuzun eşleşti.";
+"quiz.pronunciation.incorrect_title" = "Dinlemeye devam et ve tekrar dene.";
+"quiz.pronunciation.finish" = "Bitir";
+
 
 // MARK: - Authentication
 "auth.header.title" = "Müzik servislerine bağlanın";

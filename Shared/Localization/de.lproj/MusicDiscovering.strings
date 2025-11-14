@@ -4,6 +4,7 @@
 "view.section.favorite_songs" = "Lieblingssongs";
 "view.section.history" = "Verlauf";
 "view.description" = "Lerne Sprachen durch Musik. Suche nach deinen Lieblingssongs oder -künstlern. Die KI erstellt für jedes Lied Lektionen und Quizze.";
+"view.emptyTitle" = "Wähle einen Song, um eine Lektion zu starten";
 
 // MARK: - Search
 "view.search.loading" = "Suche läuft...";
@@ -72,6 +73,8 @@
 "player.lesson.ready" = "Zur Lektion weiter";
 "player.lesson.failed" = "Fehler beim Laden der Lektion. Erneut versuchen?";
 "player.lesson.unavailable" = "Lektion konnte nicht erstellt werden";
+"player.playback.open_youtube" = "Auf YouTube suchen";
+"player.playback.unavailable_message" = "In Apple Music ist keine Wiedergabe möglich. Versuche stattdessen YouTube.";
 "player.tips.title" = "Tipps für die Musiklektion";
 "player.tips.header" = "Bereite dich auf deine Lektion vor";
 "player.tips.intro" = "Nimm dir einen ruhigen Moment, schließe bei Bedarf Kopfhörer an und halte ein Notizbuch bereit. Einmal summen, bevor du mit den Übungen beginnst, hilft enorm.";
@@ -136,6 +139,18 @@
 "quiz.fill_blank.prompt" = "Vervollständige den Songtext, indem du das fehlende Wort wählst.";
 "quiz.fill_blank.feedback.correct" = "Gut gemacht!";
 "quiz.fill_blank.feedback.incorrect" = "Erkunde den Songtext weiter und versuche die nächste Frage.";
+"quiz.pronunciation.permissions_title" = "Berechtigungen erforderlich";
+"quiz.pronunciation.permissions_message" = "Wir benötigen Mikrofon und Spracherkennung, um deine Aussprache zu prüfen.";
+"quiz.pronunciation.prompt" = "Sprich die Liedzeile laut genau so aus, wie sie angezeigt wird.";
+"quiz.pronunciation.record_button" = "Aufnahme starten";
+"quiz.pronunciation.stop_button" = "Stopp";
+"quiz.pronunciation.listening" = "Wir hören zu...";
+"quiz.pronunciation.preview_text" = "Live-Transkript";
+"quiz.pronunciation.result_text" = "Deine Aussprache";
+"quiz.pronunciation.correct_title" = "Alles bereit! Deine Aussprache passt.";
+"quiz.pronunciation.incorrect_title" = "Hör weiter zu und versuch es erneut.";
+"quiz.pronunciation.finish" = "Fertig";
+
 
 // MARK: - Authentication
 "auth.header.title" = "Mit Musikdiensten verbinden";

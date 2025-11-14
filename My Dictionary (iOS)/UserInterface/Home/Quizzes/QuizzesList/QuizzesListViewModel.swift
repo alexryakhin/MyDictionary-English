@@ -17,6 +17,7 @@ final class QuizzesListViewModel: BaseViewModel {
         case showSentenceWritingQuiz(QuizPreset)
         case showContextMultipleChoiceQuiz(QuizPreset)
         case showFillInTheBlankQuiz(QuizPreset)
+        case showPronunciationPracticeQuiz(QuizPreset)
         case showSharedDictionary(SharedDictionary)
     }
 
@@ -80,6 +81,12 @@ final class QuizzesListViewModel: BaseViewModel {
                     return
                 }
                 output.send(.showFillInTheBlankQuiz(preset))
+            case .pronunciationPractice:
+                guard aiService.canRunQuizToday(.pronunciationPractice) else {
+                    showQuizUnavailableAlert()
+                    return
+                }
+                output.send(.showPronunciationPracticeQuiz(preset))
             case .storyLab, .musicLesson:
                 break
             }

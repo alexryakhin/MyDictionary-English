@@ -23,6 +23,7 @@
 "select_word" = "בחר מילה";
 "select_idiom" = "בחר ביטוי";
 "select_quiz" = "בחר חידון";
+"select_collection" = "בחר אוסף";
 "sign_out" = "התנתק";
 "sign_in" = "התחבר";
 "upgrade" = "שדרג";
@@ -61,6 +62,8 @@
 "load_more" = "טען עוד";
 "loading_more" = "טוען...";
 "copy_email" = "העתק דואל";
+"select_all" = "בחר הכל";
+"deselect_all" = "בטל בחירת הכל";
 "play" = "נגן";
 "pause" = "השהה";
 "playFromHere" = "נגן מכאן";

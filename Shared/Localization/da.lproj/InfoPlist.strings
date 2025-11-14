@@ -1,3 +1,5 @@
 CFBundleDisplayName = "Min Ordbog";
 CFBundleName = "Min Ordbog";
 "NSAppleMusicUsageDescription" = "My Dictionary har brug for adgang til Apple Music for at finde personlige sange til sproglæring. Det giver appen mulighed for at søge efter sange på dit målsprog og give anbefalinger baseret på din læringsprofil.";
+"NSMicrophoneUsageDescription" = "My Dictionary skal bruge adgang til mikrofonen for at optage din udtale under quizzer og øvesessioner.";
+"NSSpeechRecognitionUsageDescription" = "My Dictionary bruger talegenkendelse til at vurdere dine talte svar og give feedback på udtalen.";

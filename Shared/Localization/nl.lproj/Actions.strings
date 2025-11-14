@@ -23,6 +23,7 @@
 "select_word" = "Woord selecteren";
 "select_idiom" = "Uitdrukking selecteren";
 "select_quiz" = "Quiz selecteren";
+"select_collection" = "Selecteer een collectie";
 "sign_out" = "Uitloggen";
 "sign_in" = "Inloggen";
 "upgrade" = "Upgraden";
@@ -61,6 +62,8 @@
 "load_more" = "Meer laden";
 "loading_more" = "Laden...";
 "copy_email" = "E-mail kopiëren";
+"select_all" = "Alles selecteren";
+"deselect_all" = "Alles deselecteren";
 "play" = "Afspelen";
 "pause" = "Pauzeren";
 "playFromHere" = "Afspelen vanaf hier";

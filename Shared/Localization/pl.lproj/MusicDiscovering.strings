@@ -4,6 +4,7 @@
 "view.section.favorite_songs" = "Ulubione utwory";
 "view.section.history" = "Historia";
 "view.description" = "Ucz się języków poprzez muzykę. Wyszukaj ulubione piosenki lub wykonawców. Sztuczna inteligencja stworzy lekcje i quizy dla każdej piosenki.";
+"view.emptyTitle" = "Wybierz utwór, aby rozpocząć lekcję";
 
 // MARK: - Search
 "view.search.loading" = "Wyszukiwanie...";
@@ -72,6 +73,8 @@
 "player.lesson.ready" = "Przejdź do lekcji";
 "player.lesson.failed" = "Błąd podczas ładowania lekcji. Spróbować ponownie?";
 "player.lesson.unavailable" = "Nie można utworzyć lekcji";
+"player.playback.open_youtube" = "Szukaj w YouTube";
+"player.playback.unavailable_message" = "Odtwarzanie nie jest dostępne w Apple Music. Spróbuj YouTube.";
 "player.tips.title" = "Wskazówki do lekcji muzyki";
 "player.tips.header" = "Przygotuj się do lekcji";
 "player.tips.intro" = "Znajdź chwilę spokoju, podłącz słuchawki, jeśli je masz, i trzymaj pod ręką notes. Jednorazowe zanucenie melodii przed ćwiczeniami pomaga.";
@@ -136,6 +139,18 @@
 "quiz.fill_blank.prompt" = "Uzupełnij tekst, wybierając brakujące słowo.";
 "quiz.fill_blank.feedback.correct" = "Dobra robota!";
 "quiz.fill_blank.feedback.incorrect" = "Kontynuuj analizę tekstu i spróbuj kolejnego.";
+"quiz.pronunciation.permissions_title" = "Wymagane uprawnienia";
+"quiz.pronunciation.permissions_message" = "Potrzebujemy mikrofonu i rozpoznawania mowy, aby sprawdzić wymowę.";
+"quiz.pronunciation.prompt" = "Powiedz na głos wers piosenki dokładnie tak, jak jest pokazany.";
+"quiz.pronunciation.record_button" = "Rozpocznij nagrywanie";
+"quiz.pronunciation.stop_button" = "Zatrzymaj";
+"quiz.pronunciation.listening" = "Słuchamy...";
+"quiz.pronunciation.preview_text" = "Transkrypcja na żywo";
+"quiz.pronunciation.result_text" = "Twoja wymowa";
+"quiz.pronunciation.correct_title" = "Gotowe! Twoja wymowa się zgadza.";
+"quiz.pronunciation.incorrect_title" = "Słuchaj dalej i spróbuj ponownie.";
+"quiz.pronunciation.finish" = "Zakończ";
+
 
 // MARK: - Authentication
 "auth.header.title" = "Połącz z serwisami muzycznymi";

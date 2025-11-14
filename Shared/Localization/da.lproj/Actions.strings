@@ -23,6 +23,7 @@
 "select_word" = "Vælg ord";
 "select_idiom" = "Vælg idiom";
 "select_quiz" = "Vælg quiz";
+"select_collection" = "Vælg en samling";
 "sign_out" = "Log ud";
 "sign_in" = "Log ind";
 "upgrade" = "Opgrader";
@@ -61,6 +62,8 @@
 "load_more" = "Indlæs mere";
 "loading_more" = "Indlæser...";
 "copy_email" = "Kopier e-mail";
+"select_all" = "Vælg alle";
+"deselect_all" = "Fravælg alle";
 "play" = "Afspil";
 "pause" = "Pause";
 "playFromHere" = "Afspil herfra";

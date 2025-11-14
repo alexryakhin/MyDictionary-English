@@ -159,6 +159,9 @@
 "loading.loading_next_question" = "Încărcarea următoarei întrebări...";
 "loading.preparing_next_question" = "Inteligența artificială pregătește următoarea întrebare pentru tine.";
 "loading.failed_to_load_quiz" = "Nu s-a putut încărca testul";
+"loading.generating_pronunciation_sentences" = "Se generează exercițiul de pronunție...";
+"loading.pronunciation_description" = "Inteligența artificială pregătește propoziții adaptate nivelului tău.";
+"loading.preparing_pronunciation" = "Se pregătește quizul tău de pronunție...";
 
 // MARK: - Quiz UI Elements
 "ui.question" = "Întrebare";
@@ -177,6 +180,17 @@
 "quiz_types.great_job_completed_sentence_writing_quiz" = "Bună treabă! Ai finalizat testul de scriere a propozițiilor.";
 "quiz_types.great_job_completed_context_quiz" = "Bună treabă! Ai finalizat testul de utilizare în context.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Bună treabă! Ai finalizat testul de completare a spațiilor libere.";
+"quiz_types.pronunciation_practice" = "Exercițiu de pronunție";
+"quiz_types.pronunciation_practice_description" = "Exersează-ți pronunția cu propoziții generate de AI.";
+"quiz_types.great_job_completed_pronunciation_practice" = "Foarte bine! Ai terminat exercițiul de pronunție.";
+
+"pronunciation_practice.instructions_title" = "Exercițiu de pronunție";
+"pronunciation_practice.instructions_description" = "Pronunță fiecare propoziție cu voce tare. Vei primi feedback instantaneu, apoi vei vedea un alt exemplu.";
+"pronunciation_practice.alternate_sentence" = "O altă propoziție de încercat: %@";
+"pronunciation_practice.practice_sentence" = "Propoziție de exersat";
+"pronunciation_practice.review_header" = "Revizuiește-ți exercițiul";
+"pronunciation_practice.alternate_sentence_title" = "Alt exemplu";
+"pronunciation_practice.transcript_title" = "Transcrierea ta";
 
 // MARK: - Filter Messages
 "filters.practice_words_specific_language" = "Exersează cuvinte dintr-o limbă specifică";

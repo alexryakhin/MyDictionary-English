@@ -155,6 +155,9 @@
 "loading.fill_in_blank_description" = "AI is creating engaging stories with blanks to test your understanding of word usage in context.";
 "loading.loading_next_story" = "Loading next story...";
 "loading.preparing_next_story" = "AI is preparing the next story for you.";
+"loading.generating_pronunciation_sentences" = "Generating pronunciation practice...";
+"loading.pronunciation_description" = "AI is preparing sentences tailored to your level.";
+"loading.preparing_pronunciation" = "Preparing your pronunciation quiz...";
 "loading.generating_context_questions" = "Generating context questions...";
 "loading.context_questions_description" = "AI is creating multiple choice questions to test your understanding of word usage in context.";
 "loading.loading_next_question" = "Loading next question...";
@@ -172,15 +175,27 @@
 "quiz_types.sentence_writing" = "Sentence Writing";
 "quiz_types.context_multiple_choice" = "Context Usage";
 "quiz_types.fill_in_the_blank" = "Fill in the Blank";
+"quiz_types.pronunciation_practice" = "Pronunciation Practice";
+"quiz_types.pronunciation_practice_description" = "Practice your pronunciation with AI-generated sentences.";
 "quiz_types.write_sentences_with_ai" = "Write sentences using words correctly with AI evaluation";
 "quiz_types.choose_correct_usage" = "Choose the sentence where the word is used correctly";
 "quiz_types.fill_blanks_in_context" = "Fill in the blanks with the correct word in context";
 "quiz_types.great_job_completed_sentence_writing_quiz" = "Great job! You've completed the sentence writing quiz.";
 "quiz_types.great_job_completed_context_quiz" = "Great job! You've completed the context usage quiz.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Great job! You've completed the fill in the blank quiz.";
+"quiz_types.great_job_completed_pronunciation_practice" = "Great job! You've completed the pronunciation practice.";
 "quiz_types.music_lesson" = "Music Lesson";
 "quiz_types.music_lesson_description" = "Discover songs and practice with lyric-based activities.";
 "quiz_types.great_job_completed_music_lesson" = "Great job! You've completed the music lesson.";
+
+// MARK: - Pronunciation Practice Quiz
+"pronunciation_practice.instructions_title" = "Pronunciation Practice";
+"pronunciation_practice.instructions_description" = "Pronounce each sentence out loud. You'll get instant feedback and see another example afterwards.";
+"pronunciation_practice.alternate_sentence" = "Another sentence to try: %@";
+"pronunciation_practice.practice_sentence" = "Practice sentence";
+"pronunciation_practice.review_header" = "Review your practice";
+"pronunciation_practice.alternate_sentence_title" = "Another example";
+"pronunciation_practice.transcript_title" = "Your transcript";
 
 // MARK: - Filter Messages
 "filters.practice_words_specific_language" = "Practice words from a specific language";

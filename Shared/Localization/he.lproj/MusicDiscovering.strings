@@ -4,6 +4,7 @@
 "view.section.favorite_songs" = "שירים מועדפים";
 "view.section.history" = "היסטוריה";
 "view.description" = "למד שפות דרך מוזיקה. חפש את השירים או האמנים האהובים עליך. הבינה המלאכותית תיצור שיעורים וחידונים לכל שיר.";
+"view.emptyTitle" = "בחר שיר כדי להתחיל שיעור";
 
 // MARK: - Search
 "view.search.loading" = "מחפש...";
@@ -72,6 +73,8 @@
 "player.lesson.ready" = "המשך לשיעור";
 "player.lesson.failed" = "שגיאה בטעינת השיעור. לנסות שוב?";
 "player.lesson.unavailable" = "לא ניתן ליצור שיעור";
+"player.playback.open_youtube" = "חפש ב-YouTube";
+"player.playback.unavailable_message" = "השמעה אינה זמינה ב-Apple Music. נסה את YouTube.";
 "player.tips.title" = "טיפים לשיעור המוזיקה";
 "player.tips.header" = "התכונן לשיעור";
 "player.tips.intro" = "מצא רגע שקט, חבר אוזניות אם יש לך, והחזק מחברת לידך. עוזר לזמזם פעם אחת לפני שמתחילים בתרגילים.";
@@ -136,6 +139,18 @@
 "quiz.fill_blank.prompt" = "השלם את המילים על ידי בחירת המילה החסרה.";
 "quiz.fill_blank.feedback.correct" = "עבודה יפה!";
 "quiz.fill_blank.feedback.incorrect" = "המשך לחקור את המילים ונסה את הבאה.";
+"quiz.pronunciation.permissions_title" = "נדרשות הרשאות";
+"quiz.pronunciation.permissions_message" = "אנחנו צריכים מיקרופון וזיהוי דיבור כדי לבדוק את ההגייה שלך.";
+"quiz.pronunciation.prompt" = "אמור את שורת המילים בקול בדיוק כפי שמוצג.";
+"quiz.pronunciation.record_button" = "התחל הקלטה";
+"quiz.pronunciation.stop_button" = "עצור";
+"quiz.pronunciation.listening" = "מקשיבים...";
+"quiz.pronunciation.preview_text" = "תמלול חי";
+"quiz.pronunciation.result_text" = "ההגייה שלך";
+"quiz.pronunciation.correct_title" = "הכול מוכן! ההגייה התאימה.";
+"quiz.pronunciation.incorrect_title" = "המשך להאזין ונסה שוב.";
+"quiz.pronunciation.finish" = "סיום";
+
 
 // MARK: - Authentication
 "auth.header.title" = "התחבר לשירותי מוזיקה";

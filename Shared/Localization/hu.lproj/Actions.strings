@@ -23,6 +23,7 @@
 "select_word" = "Szó kiválasztása";
 "select_idiom" = "Idioma kiválasztása";
 "select_quiz" = "Kvíz kiválasztása";
+"select_collection" = "Válassz gyűjteményt";
 "sign_out" = "Kijelentkezés";
 "sign_in" = "Bejelentkezés";
 "upgrade" = "Frissítés";
@@ -61,6 +62,8 @@
 "load_more" = "Több betöltése";
 "loading_more" = "Betöltés...";
 "copy_email" = "E-mail másolása";
+"select_all" = "Jelöld ki az összeset";
+"deselect_all" = "Töröld az összes kijelölését";
 "play" = "Lejátszás";
 "pause" = "Szünet";
 "playFromHere" = "Lejátszás innen";

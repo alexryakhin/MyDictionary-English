@@ -159,6 +159,9 @@
 "loading.loading_next_question" = "กำลังโหลดคำถามถัดไป...";
 "loading.preparing_next_question" = "AI กำลังเตรียมคำถามถัดไปสำหรับคุณ";
 "loading.failed_to_load_quiz" = "ไม่สามารถโหลดแบบทดสอบได้";
+"loading.generating_pronunciation_sentences" = "กำลังสร้างแบบฝึกออกเสียง...";
+"loading.pronunciation_description" = "AI กำลังเตรียมประโยคที่เหมาะกับระดับของคุณ.";
+"loading.preparing_pronunciation" = "กำลังเตรียมแบบทดสอบออกเสียงของคุณ...";
 
 // MARK: - Quiz UI Elements
 "ui.question" = "คำถาม";
@@ -177,6 +180,17 @@
 "quiz_types.great_job_completed_sentence_writing_quiz" = "ยอดเยี่ยม! คุณทำแบบทดสอบการเขียนประโยคเสร็จแล้ว";
 "quiz_types.great_job_completed_context_quiz" = "ยอดเยี่ยม! คุณทำแบบทดสอบการใช้ในบริบทเสร็จแล้ว";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "ยอดเยี่ยม! คุณทำแบบทดสอบเติมคำในช่องว่างเสร็จแล้ว";
+"quiz_types.pronunciation_practice" = "ฝึกออกเสียง";
+"quiz_types.pronunciation_practice_description" = "ฝึกออกเสียงด้วยประโยคที่สร้างโดย AI.";
+"quiz_types.great_job_completed_pronunciation_practice" = "เยี่ยมมาก! คุณฝึกออกเสียงเสร็จเรียบร้อยแล้ว.";
+
+"pronunciation_practice.instructions_title" = "ฝึกออกเสียง";
+"pronunciation_practice.instructions_description" = "พูดแต่ละประโยคออกมาดัง ๆ คุณจะได้รับคำแนะนำทันที จากนั้นจะมีตัวอย่างอื่นให้ลอง.";
+"pronunciation_practice.alternate_sentence" = "ประโยคอื่นให้ลอง: %@";
+"pronunciation_practice.practice_sentence" = "ประโยคฝึก";
+"pronunciation_practice.review_header" = "ทบทวนการฝึกของคุณ";
+"pronunciation_practice.alternate_sentence_title" = "ตัวอย่างอื่น";
+"pronunciation_practice.transcript_title" = "สคริปต์ของคุณ";
 
 // MARK: - Filter Messages
 "filters.practice_words_specific_language" = "ฝึกคำศัพท์จากภาษาที่เฉพาะเจาะจง";

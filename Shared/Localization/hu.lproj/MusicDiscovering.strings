@@ -4,6 +4,7 @@
 "view.section.favorite_songs" = "Kedvenc dalok";
 "view.section.history" = "Előzmények";
 "view.description" = "Tanulj nyelveket zenén keresztül. Keresd meg kedvenc dalaidat vagy előadóidat. A mesterséges intelligencia minden dalhoz leckéket és kvízeket készít.";
+"view.emptyTitle" = "Válassz egy dalt a lecke indításához";
 
 // MARK: - Search
 "view.search.loading" = "Keresés folyamatban...";
@@ -72,6 +73,8 @@
 "player.lesson.ready" = "Tovább a leckére";
 "player.lesson.failed" = "Hiba a lecke betöltésekor. Újrapróbálod?";
 "player.lesson.unavailable" = "Nem sikerült létrehozni a leckét";
+"player.playback.open_youtube" = "Keress a YouTube-on";
+"player.playback.unavailable_message" = "Az Apple Musicban nem érhető el a lejátszás. Próbáld a YouTube-ot.";
 "player.tips.title" = "Tippek a zeneleckéhez";
 "player.tips.header" = "Készülj fel a leckére";
 "player.tips.intro" = "Keress egy csendes pillanatot, csatlakoztasd a fejhallgatót, ha van, és tarts kéznél egy jegyzetfüzetet. Segít, ha a gyakorlatok előtt egyszer dúdolsz.";
@@ -136,6 +139,18 @@
 "quiz.fill_blank.prompt" = "Egészítsd ki a dalszöveget a hiányzó szóval.";
 "quiz.fill_blank.feedback.correct" = "Nagyszerű munka!";
 "quiz.fill_blank.feedback.incorrect" = "Fedezd tovább a dalszöveget, és próbáld meg a következőt.";
+"quiz.pronunciation.permissions_title" = "Engedélyek szükségesek";
+"quiz.pronunciation.permissions_message" = "A kiejtés ellenőrzéséhez mikrofonra és beszédfelismerésre van szükségünk.";
+"quiz.pronunciation.prompt" = "Mondd ki hangosan a dalszöveg sort pontosan úgy, ahogy látható.";
+"quiz.pronunciation.record_button" = "Felvétel indítása";
+"quiz.pronunciation.stop_button" = "Leállítás";
+"quiz.pronunciation.listening" = "Hallgatunk...";
+"quiz.pronunciation.preview_text" = "Élő átírás";
+"quiz.pronunciation.result_text" = "A te kiejtésed";
+"quiz.pronunciation.correct_title" = "Minden rendben! A kiejtésed egyezett.";
+"quiz.pronunciation.incorrect_title" = "Hallgasd tovább, és próbáld újra.";
+"quiz.pronunciation.finish" = "Befejezés";
+
 
 // MARK: - Authentication
 "auth.header.title" = "Csatlakozás zenei szolgáltatásokhoz";

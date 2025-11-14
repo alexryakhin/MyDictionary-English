@@ -23,6 +23,7 @@
 "select_word" = "เลือกคำ";
 "select_idiom" = "เลือกสำนวน";
 "select_quiz" = "เลือกแบบทดสอบ";
+"select_collection" = "เลือกคอลเลกชัน";
 "sign_out" = "ออกจากระบบ";
 "sign_in" = "เข้าสู่ระบบ";
 "upgrade" = "อัปเกรด";
@@ -61,6 +62,8 @@
 "load_more" = "โหลดเพิ่ม";
 "loading_more" = "กำลังโหลด...";
 "copy_email" = "คัดลอกอีเมล";
+"select_all" = "เลือกทั้งหมด";
+"deselect_all" = "ยกเลิกเลือกทั้งหมด";
 "play" = "เล่น";
 "pause" = "หยุดชั่วคราว";
 "playFromHere" = "เล่นจากตรงนี้";

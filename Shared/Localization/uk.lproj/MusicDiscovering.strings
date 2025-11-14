@@ -4,6 +4,7 @@
 "view.section.favorite_songs" = "Улюблені пісні";
 "view.section.history" = "Історія";
 "view.description" = "Вивчай мови через музику. Шукай улюблені пісні чи виконавців. ШІ створюватиме уроки та вікторини для кожної пісні.";
+"view.emptyTitle" = "Виберіть пісню, щоб розпочати урок";
 
 // MARK: - Search
 "view.search.loading" = "Пошук...";
@@ -72,6 +73,8 @@
 "player.lesson.ready" = "Перейти до уроку";
 "player.lesson.failed" = "Помилка завантаження уроку. Повторити спробу?";
 "player.lesson.unavailable" = "Не вдалося створити урок";
+"player.playback.open_youtube" = "Знайти на YouTube";
+"player.playback.unavailable_message" = "В Apple Music відтворення недоступне. Спробуйте YouTube.";
 "player.tips.title" = "Поради для уроку";
 "player.tips.header" = "Підготуйтеся до уроку";
 "player.tips.intro" = "Знайдіть тихий момент, підключіть навушники, якщо маєте, і тримайте блокнот під рукою. Перед вправами варто один раз наспівати мелодію.";
@@ -136,6 +139,18 @@
 "quiz.fill_blank.prompt" = "Завершіть текст, вибравши відсутнє слово.";
 "quiz.fill_blank.feedback.correct" = "Відмінно!";
 "quiz.fill_blank.feedback.incorrect" = "Продовжуйте досліджувати текст і спробуйте наступне.";
+"quiz.pronunciation.permissions_title" = "Потрібні дозволи";
+"quiz.pronunciation.permissions_message" = "Нам потрібні мікрофон і розпізнавання мовлення, щоб перевірити вашу вимову.";
+"quiz.pronunciation.prompt" = "Промовте рядок тексту вголос точно так, як показано.";
+"quiz.pronunciation.record_button" = "Почати запис";
+"quiz.pronunciation.stop_button" = "Зупинити";
+"quiz.pronunciation.listening" = "Прослуховуємо...";
+"quiz.pronunciation.preview_text" = "Живий транскрипт";
+"quiz.pronunciation.result_text" = "Ваша вимова";
+"quiz.pronunciation.correct_title" = "Готово! Ваша вимова збіглася.";
+"quiz.pronunciation.incorrect_title" = "Продовжуйте слухати й спробуйте ще раз.";
+"quiz.pronunciation.finish" = "Завершити";
+
 
 // MARK: - Authentication
 "auth.header.title" = "Підключіться до музичних сервісів";

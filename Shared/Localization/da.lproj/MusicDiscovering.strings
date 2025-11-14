@@ -4,6 +4,7 @@
 "view.section.favorite_songs" = "Favoritsange";
 "view.section.history" = "Historik";
 "view.description" = "Lær sprog gennem musik. Søg efter dine yndlingssange eller kunstnere. AI'en opretter lektioner og quizzer til hver sang.";
+"view.emptyTitle" = "Vælg en sang for at starte en lektion";
 
 // MARK: - Search
 "view.search.loading" = "Søger...";
@@ -72,6 +73,8 @@
 "player.lesson.ready" = "Fortsæt til lektion";
 "player.lesson.failed" = "Fejl under indlæsning af lektionen. Prøv igen?";
 "player.lesson.unavailable" = "Lektion kunne ikke oprettes";
+"player.playback.open_youtube" = "Søg på YouTube";
+"player.playback.unavailable_message" = "Afspilning er ikke tilgængelig i Apple Music. Prøv YouTube i stedet.";
 "player.tips.title" = "Tips til musiklektionen";
 "player.tips.header" = "Gør dig klar til lektionen";
 "player.tips.intro" = "Find et stille øjeblik, tilslut hovedtelefoner, hvis du har dem, og hav en notesbog i nærheden. Det hjælper at nynnemed én gang, før du går i gang med øvelserne.";
@@ -136,6 +139,18 @@
 "quiz.fill_blank.prompt" = "Fuldfør teksten ved at vælge det manglende ord.";
 "quiz.fill_blank.feedback.correct" = "Flot klaret!";
 "quiz.fill_blank.feedback.incorrect" = "Bliv ved med at udforske teksten og prøv det næste.";
+"quiz.pronunciation.permissions_title" = "Tilladelser påkrævet";
+"quiz.pronunciation.permissions_message" = "Vi skal bruge mikrofon og talegenkendelse for at tjekke din udtale.";
+"quiz.pronunciation.prompt" = "Sig tekstlinjen højt præcis som vist.";
+"quiz.pronunciation.record_button" = "Start optagelse";
+"quiz.pronunciation.stop_button" = "Stop";
+"quiz.pronunciation.listening" = "Lytter...";
+"quiz.pronunciation.preview_text" = "Direkte transskription";
+"quiz.pronunciation.result_text" = "Din udtale";
+"quiz.pronunciation.correct_title" = "Alt klart! Din udtale passede.";
+"quiz.pronunciation.incorrect_title" = "Bliv ved med at lytte og prøv igen.";
+"quiz.pronunciation.finish" = "Afslut";
+
 
 // MARK: - Authentication
 "auth.header.title" = "Forbind til musiktjenester";

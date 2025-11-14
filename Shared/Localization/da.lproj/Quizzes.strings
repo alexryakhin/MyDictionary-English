@@ -159,6 +159,9 @@
 "loading.loading_next_question" = "Indlæser næste spørgsmål...";
 "loading.preparing_next_question" = "AI forbereder næste spørgsmål til dig.";
 "loading.failed_to_load_quiz" = "Kunne ikke indlæse quizzen";
+"loading.generating_pronunciation_sentences" = "Genererer udtaleøvelser...";
+"loading.pronunciation_description" = "AI forbereder sætninger tilpasset dit niveau.";
+"loading.preparing_pronunciation" = "Forbereder din udtaletest...";
 
 // MARK: - Quiz UI Elements
 "ui.question" = "Spørgsmål";
@@ -177,6 +180,17 @@
 "quiz_types.great_job_completed_sentence_writing_quiz" = "Godt arbejde! Du har gennemført quizzen om sætningsskrivning.";
 "quiz_types.great_job_completed_context_quiz" = "Godt arbejde! Du har gennemført quizzen om kontekstbrug.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Godt arbejde! Du har gennemført quizzen om at udfylde tomrummet.";
+"quiz_types.pronunciation_practice" = "Udtaleøvelse";
+"quiz_types.pronunciation_practice_description" = "Øv din udtale med AI-genererede sætninger.";
+"quiz_types.great_job_completed_pronunciation_practice" = "Godt arbejde! Du har gennemført udtaleøvelsen.";
+
+"pronunciation_practice.instructions_title" = "Udtaleøvelse";
+"pronunciation_practice.instructions_description" = "Sig hver sætning højt. Du får øjeblikkelig feedback og ser derefter et nyt eksempel.";
+"pronunciation_practice.alternate_sentence" = "Endnu en sætning at prøve: %@";
+"pronunciation_practice.practice_sentence" = "Øvelsessætning";
+"pronunciation_practice.review_header" = "Gennemgå din øvelse";
+"pronunciation_practice.alternate_sentence_title" = "Et andet eksempel";
+"pronunciation_practice.transcript_title" = "Din udskrift";
 
 // MARK: - Filter Messages
 "filters.practice_words_specific_language" = "Øv ord fra et specifikt sprog";

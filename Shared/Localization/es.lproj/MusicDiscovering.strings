@@ -4,6 +4,7 @@
 "view.section.favorite_songs" = "Canciones favoritas";
 "view.section.history" = "Historial";
 "view.description" = "Aprende idiomas a través de la música. Busca tus canciones o artistas favoritos. La IA generará lecciones y cuestionarios para cada canción.";
+"view.emptyTitle" = "Elige una canción para iniciar una lección";
 
 // MARK: - Search
 "view.search.loading" = "Buscando...";
@@ -72,6 +73,8 @@
 "player.lesson.ready" = "Continuar a la lección";
 "player.lesson.failed" = "Error al cargar la lección. ¿Reintentar?";
 "player.lesson.unavailable" = "No se puede generar la lección";
+"player.playback.open_youtube" = "Buscar en YouTube";
+"player.playback.unavailable_message" = "La reproducción no está disponible en Apple Music. Prueba YouTube.";
 "player.tips.title" = "Consejos para la lección de música";
 "player.tips.header" = "Prepárate para tu lección";
 "player.tips.intro" = "Busca un momento tranquilo, conecta auriculares si los tienes y ten un cuaderno cerca. Ayuda tararear una vez antes de pasar a los ejercicios.";
@@ -136,6 +139,18 @@
 "quiz.fill_blank.prompt" = "Completa la letra eligiendo la palabra que falta.";
 "quiz.fill_blank.feedback.correct" = "¡Buen trabajo!";
 "quiz.fill_blank.feedback.incorrect" = "Sigue explorando la letra y prueba con la siguiente.";
+"quiz.pronunciation.permissions_title" = "Se requieren permisos";
+"quiz.pronunciation.permissions_message" = "Necesitamos micrófono y reconocimiento de voz para revisar tu pronunciación.";
+"quiz.pronunciation.prompt" = "Di la línea de la letra en voz alta exactamente como aparece.";
+"quiz.pronunciation.record_button" = "Iniciar grabación";
+"quiz.pronunciation.stop_button" = "Detener";
+"quiz.pronunciation.listening" = "Escuchando...";
+"quiz.pronunciation.preview_text" = "Transcripción en vivo";
+"quiz.pronunciation.result_text" = "Tu pronunciación";
+"quiz.pronunciation.correct_title" = "¡Todo listo! Tu pronunciación coincidió.";
+"quiz.pronunciation.incorrect_title" = "Sigue escuchando e inténtalo de nuevo.";
+"quiz.pronunciation.finish" = "Finalizar";
+
 
 // MARK: - Authentication
 "auth.header.title" = "Conéctate a los servicios de música";

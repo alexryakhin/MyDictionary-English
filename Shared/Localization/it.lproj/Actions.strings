@@ -23,6 +23,7 @@
 "select_word" = "Seleziona una parola";
 "select_idiom" = "Seleziona un'espressione";
 "select_quiz" = "Seleziona un quiz";
+"select_collection" = "Seleziona una raccolta";
 "sign_out" = "Disconnetti";
 "sign_in" = "Accedi";
 "upgrade" = "Aggiorna";
@@ -61,6 +62,8 @@
 "load_more" = "Carica altro";
 "loading_more" = "Caricamento...";
 "copy_email" = "Copia e-mail";
+"select_all" = "Seleziona tutto";
+"deselect_all" = "Deseleziona tutto";
 "play" = "Riproduci";
 "pause" = "Pausa";
 "playFromHere" = "Riproduci da qui";

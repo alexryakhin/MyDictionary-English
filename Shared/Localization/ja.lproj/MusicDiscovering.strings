@@ -4,6 +4,7 @@
 "view.section.favorite_songs" = "お気に入りの曲";
 "view.section.history" = "履歴";
 "view.description" = "音楽を通じて語学を学びましょう。お気に入りの曲やアーティストを検索してください。AI が曲ごとにレッスンとクイズを生成します。";
+"view.emptyTitle" = "レッスンを始める曲を選んでください";
 
 // MARK: - Search
 "view.search.loading" = "検索中…";
@@ -72,6 +73,8 @@
 "player.lesson.ready" = "レッスンに進む";
 "player.lesson.failed" = "レッスンの読み込みに失敗しました。再試行しますか？";
 "player.lesson.unavailable" = "レッスンを生成できませんでした";
+"player.playback.open_youtube" = "YouTube で検索";
+"player.playback.unavailable_message" = "Apple Music では再生できません。代わりに YouTube をお試しください。";
 "player.tips.title" = "音楽レッスンのヒント";
 "player.tips.header" = "レッスンの準備をしよう";
 "player.tips.intro" = "静かな時間を見つけ、ヘッドフォンがあれば接続し、ノートを手元に置きましょう。練習前に一度ハミングすると集中しやすくなります。";
@@ -136,6 +139,18 @@
 "quiz.fill_blank.prompt" = "抜けている言葉を選んで歌詞を完成させましょう。";
 "quiz.fill_blank.feedback.correct" = "よくできました！";
 "quiz.fill_blank.feedback.incorrect" = "歌詞をさらに探って次に挑戦しましょう。";
+"quiz.pronunciation.permissions_title" = "権限が必要です";
+"quiz.pronunciation.permissions_message" = "発音を確認するためにマイクと音声認識へのアクセスが必要です。";
+"quiz.pronunciation.prompt" = "表示どおりに歌詞の行を声に出して読み上げてください。";
+"quiz.pronunciation.record_button" = "録音を開始";
+"quiz.pronunciation.stop_button" = "停止";
+"quiz.pronunciation.listening" = "聞き取り中…";
+"quiz.pronunciation.preview_text" = "ライブ文字起こし";
+"quiz.pronunciation.result_text" = "あなたの発音";
+"quiz.pronunciation.correct_title" = "準備完了！ 発音が一致しました。";
+"quiz.pronunciation.incorrect_title" = "聴き続けて、もう一度試してください。";
+"quiz.pronunciation.finish" = "完了";
+
 
 // MARK: - Authentication
 "auth.header.title" = "ミュージックサービスに接続";

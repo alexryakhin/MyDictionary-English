@@ -4,6 +4,7 @@
 "view.section.favorite_songs" = "เพลงโปรด";
 "view.section.history" = "ประวัติ";
 "view.description" = "เรียนรู้ภาษาไปกับดนตรี ค้นหาเพลงหรือศิลปินที่คุณชื่นชอบ แล้ว AI จะสร้างบทเรียนและแบบทดสอบสำหรับแต่ละเพลงให้คุณ";
+"view.emptyTitle" = "เลือกเพลงเพื่อเริ่มบทเรียน";
 
 // MARK: - Search
 "view.search.loading" = "กำลังค้นหา...";
@@ -72,6 +73,8 @@
 "player.lesson.ready" = "ไปต่อยังบทเรียน";
 "player.lesson.failed" = "เกิดข้อผิดพลาดในการโหลดบทเรียน ลองอีกครั้ง?";
 "player.lesson.unavailable" = "ไม่สามารถสร้างบทเรียนได้";
+"player.playback.open_youtube" = "ค้นหาใน YouTube";
+"player.playback.unavailable_message" = "ไม่สามารถเล่นบน Apple Music ได้ ลองใช้ YouTube แทน";
 "player.tips.title" = "เคล็ดลับบทเรียนดนตรี";
 "player.tips.header" = "เตรียมพร้อมสำหรับบทเรียน";
 "player.tips.intro" = "หาช่วงเวลาที่เงียบ เชื่อมต่อหูฟังถ้ามี และเตรียมสมุดไว้ใกล้ตัว การฮัมทำนองเบา ๆ ก่อนเริ่มฝึกช่วยได้มาก";
@@ -136,6 +139,18 @@
 "quiz.fill_blank.prompt" = "เติมคำที่หายไปเพื่อให้เนื้อเพลงสมบูรณ์";
 "quiz.fill_blank.feedback.correct" = "ทำได้ดี!";
 "quiz.fill_blank.feedback.incorrect" = "สำรวจเนื้อเพลงต่อและลองคำถามถัดไป";
+"quiz.pronunciation.permissions_title" = "ต้องได้รับสิทธิ์";
+"quiz.pronunciation.permissions_message" = "เราต้องใช้ไมโครโฟนและการรู้จำเสียงเพื่อเช็กการออกเสียงของคุณ";
+"quiz.pronunciation.prompt" = "พูดบรรทัดเนื้อเพลงออกมาดัง ๆ ตามที่แสดง";
+"quiz.pronunciation.record_button" = "เริ่มบันทึก";
+"quiz.pronunciation.stop_button" = "หยุด";
+"quiz.pronunciation.listening" = "กำลังฟัง...";
+"quiz.pronunciation.preview_text" = "ถอดความแบบสด";
+"quiz.pronunciation.result_text" = "การออกเสียงของคุณ";
+"quiz.pronunciation.correct_title" = "พร้อมแล้ว! การออกเสียงของคุณตรงกัน";
+"quiz.pronunciation.incorrect_title" = "ฟังต่อแล้วลองอีกครั้ง";
+"quiz.pronunciation.finish" = "เสร็จสิ้น";
+
 
 // MARK: - Authentication
 "auth.header.title" = "เชื่อมต่อบริการเพลง";

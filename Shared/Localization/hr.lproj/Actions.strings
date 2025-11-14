@@ -23,6 +23,7 @@
 "select_word" = "Odaberi riječ";
 "select_idiom" = "Odaberi idiom";
 "select_quiz" = "Odaberi kviz";
+"select_collection" = "Odaberi zbirku";
 "sign_out" = "Odjavi se";
 "sign_in" = "Prijavi se";
 "upgrade" = "Nadogradi";
@@ -61,6 +62,8 @@
 "load_more" = "Učitaj više";
 "loading_more" = "Učitavanje...";
 "copy_email" = "Kopiraj e-poštu";
+"select_all" = "Odaberi sve";
+"deselect_all" = "Poništi odabir svega";
 "play" = "Reproduciraj";
 "pause" = "Pauza";
 "playFromHere" = "Reproduciraj odavde";

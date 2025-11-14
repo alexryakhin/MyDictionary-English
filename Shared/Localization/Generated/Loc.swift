@@ -926,6 +926,30 @@ public enum Loc {
         /// Previous
         public static let previous = Loc.tr("MusicDiscovering", "quiz.navigation.previous", fallback: "Previous")
       }
+      public enum Pronunciation {
+        /// All set! Your pronunciation matched.
+        public static let correctTitle = Loc.tr("MusicDiscovering", "quiz.pronunciation.correct_title", fallback: "All set! Your pronunciation matched.")
+        /// Finish
+        public static let finish = Loc.tr("MusicDiscovering", "quiz.pronunciation.finish", fallback: "Finish")
+        /// Keep listening and try again.
+        public static let incorrectTitle = Loc.tr("MusicDiscovering", "quiz.pronunciation.incorrect_title", fallback: "Keep listening and try again.")
+        /// Listening…
+        public static let listening = Loc.tr("MusicDiscovering", "quiz.pronunciation.listening", fallback: "Listening…")
+        /// We need microphone and speech recognition to check your pronunciation.
+        public static let permissionsMessage = Loc.tr("MusicDiscovering", "quiz.pronunciation.permissions_message", fallback: "We need microphone and speech recognition to check your pronunciation.")
+        /// Permissions required
+        public static let permissionsTitle = Loc.tr("MusicDiscovering", "quiz.pronunciation.permissions_title", fallback: "Permissions required")
+        /// Live transcript
+        public static let previewText = Loc.tr("MusicDiscovering", "quiz.pronunciation.preview_text", fallback: "Live transcript")
+        /// Say the lyric line out loud exactly as shown.
+        public static let prompt = Loc.tr("MusicDiscovering", "quiz.pronunciation.prompt", fallback: "Say the lyric line out loud exactly as shown.")
+        /// Start Recording
+        public static let recordButton = Loc.tr("MusicDiscovering", "quiz.pronunciation.record_button", fallback: "Start Recording")
+        /// Your pronunciation
+        public static let resultText = Loc.tr("MusicDiscovering", "quiz.pronunciation.result_text", fallback: "Your pronunciation")
+        /// Stop
+        public static let stopButton = Loc.tr("MusicDiscovering", "quiz.pronunciation.stop_button", fallback: "Stop")
+      }
     }
     public enum Results {
       public enum Actions {
@@ -1917,6 +1941,8 @@ public enum Loc {
       public static let generatingContextQuestions = Loc.tr("Quizzes", "loading.generating_context_questions", fallback: "Generating context questions...")
       /// Generating fill-in-the-blank stories...
       public static let generatingFillInBlankStories = Loc.tr("Quizzes", "loading.generating_fill_in_blank_stories", fallback: "Generating fill-in-the-blank stories...")
+      /// Generating pronunciation practice...
+      public static let generatingPronunciationSentences = Loc.tr("Quizzes", "loading.generating_pronunciation_sentences", fallback: "Generating pronunciation practice...")
       /// Loading next question...
       public static let loadingNextQuestion = Loc.tr("Quizzes", "loading.loading_next_question", fallback: "Loading next question...")
       /// Loading next story...
@@ -1925,6 +1951,28 @@ public enum Loc {
       public static let preparingNextQuestion = Loc.tr("Quizzes", "loading.preparing_next_question", fallback: "AI is preparing the next question for you.")
       /// AI is preparing the next story for you.
       public static let preparingNextStory = Loc.tr("Quizzes", "loading.preparing_next_story", fallback: "AI is preparing the next story for you.")
+      /// Preparing your pronunciation quiz...
+      public static let preparingPronunciation = Loc.tr("Quizzes", "loading.preparing_pronunciation", fallback: "Preparing your pronunciation quiz...")
+      /// AI is preparing sentences tailored to your level.
+      public static let pronunciationDescription = Loc.tr("Quizzes", "loading.pronunciation_description", fallback: "AI is preparing sentences tailored to your level.")
+    }
+    public enum PronunciationPractice {
+      /// Another sentence to try: %@
+      public static func alternateSentence(_ p1: Any) -> String {
+        return Loc.tr("Quizzes", "pronunciation_practice.alternate_sentence", String(describing: p1), fallback: "Another sentence to try: %@")
+      }
+      /// Another example
+      public static let alternateSentenceTitle = Loc.tr("Quizzes", "pronunciation_practice.alternate_sentence_title", fallback: "Another example")
+      /// Pronounce each sentence out loud. You'll get instant feedback and see another example afterwards.
+      public static let instructionsDescription = Loc.tr("Quizzes", "pronunciation_practice.instructions_description", fallback: "Pronounce each sentence out loud. You'll get instant feedback and see another example afterwards.")
+      /// Pronunciation Practice
+      public static let instructionsTitle = Loc.tr("Quizzes", "pronunciation_practice.instructions_title", fallback: "Pronunciation Practice")
+      /// Practice sentence
+      public static let practiceSentence = Loc.tr("Quizzes", "pronunciation_practice.practice_sentence", fallback: "Practice sentence")
+      /// Review your practice
+      public static let reviewHeader = Loc.tr("Quizzes", "pronunciation_practice.review_header", fallback: "Review your practice")
+      /// Your transcript
+      public static let transcriptTitle = Loc.tr("Quizzes", "pronunciation_practice.transcript_title", fallback: "Your transcript")
     }
     public enum QuizActions {
       /// Finish
@@ -2005,6 +2053,8 @@ public enum Loc {
       public static let greatJobCompletedFillInTheBlankQuiz = Loc.tr("Quizzes", "quiz_types.great_job_completed_fill_in_the_blank_quiz", fallback: "Great job! You've completed the fill in the blank quiz.")
       /// Great job! You've completed the music lesson.
       public static let greatJobCompletedMusicLesson = Loc.tr("Quizzes", "quiz_types.great_job_completed_music_lesson", fallback: "Great job! You've completed the music lesson.")
+      /// Great job! You've completed the pronunciation practice.
+      public static let greatJobCompletedPronunciationPractice = Loc.tr("Quizzes", "quiz_types.great_job_completed_pronunciation_practice", fallback: "Great job! You've completed the pronunciation practice.")
       /// Great job! You've completed the sentence writing quiz.
       public static let greatJobCompletedSentenceWritingQuiz = Loc.tr("Quizzes", "quiz_types.great_job_completed_sentence_writing_quiz", fallback: "Great job! You've completed the sentence writing quiz.")
       /// Great job! You've completed the spelling quiz.
@@ -2013,6 +2063,10 @@ public enum Loc {
       public static let musicLesson = Loc.tr("Quizzes", "quiz_types.music_lesson", fallback: "Music Lesson")
       /// Discover songs and practice with lyric-based activities.
       public static let musicLessonDescription = Loc.tr("Quizzes", "quiz_types.music_lesson_description", fallback: "Discover songs and practice with lyric-based activities.")
+      /// Pronunciation Practice
+      public static let pronunciationPractice = Loc.tr("Quizzes", "quiz_types.pronunciation_practice", fallback: "Pronunciation Practice")
+      /// Practice your pronunciation with AI-generated sentences.
+      public static let pronunciationPracticeDescription = Loc.tr("Quizzes", "quiz_types.pronunciation_practice_description", fallback: "Practice your pronunciation with AI-generated sentences.")
       /// Select the correct definition for each word
       public static let selectCorrectDefinition = Loc.tr("Quizzes", "quiz_types.select_correct_definition", fallback: "Select the correct definition for each word")
       /// Sentence Writing

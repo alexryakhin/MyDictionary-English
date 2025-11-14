@@ -4,6 +4,7 @@
 "view.section.favorite_songs" = "Любимые песни";
 "view.section.history" = "История";
 "view.description" = "Изучайте языки через музыку. Найдите любимые песни или исполнителей. ИИ создаст уроки и викторины для каждой композиции.";
+"view.emptyTitle" = "Выберите песню, чтобы начать урок";
 
 // MARK: - Search
 "view.search.loading" = "Поиск...";
@@ -72,6 +73,8 @@
 "player.lesson.ready" = "Перейти к уроку";
 "player.lesson.failed" = "Ошибка загрузки урока. Повторить попытку?";
 "player.lesson.unavailable" = "Не удалось создать урок";
+"player.playback.open_youtube" = "Найти на YouTube";
+"player.playback.unavailable_message" = "В Apple Music воспроизведение недоступно. Попробуйте YouTube.";
 "player.tips.title" = "Советы для урока";
 "player.tips.header" = "Подготовьтесь к уроку";
 "player.tips.intro" = "Найдите тихий момент, подключите наушники и держите под рукой блокнот. Помогает напеть мелодию один раз перед упражнениями.";
@@ -136,6 +139,18 @@
 "quiz.fill_blank.prompt" = "Дополните текст, выбрав недостающее слово.";
 "quiz.fill_blank.feedback.correct" = "Отлично!";
 "quiz.fill_blank.feedback.incorrect" = "Продолжайте исследовать текст и попробуйте следующий вопрос.";
+"quiz.pronunciation.permissions_title" = "Требуются разрешения";
+"quiz.pronunciation.permissions_message" = "Нам нужны микрофон и распознавание речи, чтобы проверить произношение.";
+"quiz.pronunciation.prompt" = "Произнесите строку текста вслух точь-в-точь как показано.";
+"quiz.pronunciation.record_button" = "Начать запись";
+"quiz.pronunciation.stop_button" = "Стоп";
+"quiz.pronunciation.listening" = "Слушаем...";
+"quiz.pronunciation.preview_text" = "Онлайн-расшифровка";
+"quiz.pronunciation.result_text" = "Ваше произношение";
+"quiz.pronunciation.correct_title" = "Готово! Ваше произношение совпало.";
+"quiz.pronunciation.incorrect_title" = "Продолжайте слушать и попробуйте снова.";
+"quiz.pronunciation.finish" = "Завершить";
+
 
 // MARK: - Authentication
 "auth.header.title" = "Подключитесь к музыкальным сервисам";

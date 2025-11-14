@@ -12,6 +12,7 @@ struct QuizzesListView: View {
     @StateObject private var viewModel = QuizzesListViewModel()
     @StateObject private var sideBarManager = SideBarManager.shared
     @AppStorage(UDKeys.practiceItemCount) private var practiceItemCount: Int = 10
+    private let aiService = AIService.shared
 
     var body: some View {
         ZStack {
@@ -92,6 +93,12 @@ struct QuizzesListView: View {
                                     sideBarManager.selectedQuiz = .sentenceWriting(preset)
                                 case .contextMultipleChoice:
                                     sideBarManager.selectedQuiz = .contextMultipleChoice(preset)
+                                case .pronunciationPractice:
+                                    guard aiService.canRunQuizToday(.pronunciationPractice) else {
+                                        showQuizUnavailableAlert()
+                                        return
+                                    }
+                                    sideBarManager.selectedQuiz = .pronunciationPractice(preset)
                                 case .fillInTheBlank:
                                     sideBarManager.selectedQuiz = .fillInTheBlank(preset)
                                 case .storyLab, .musicLesson:
@@ -352,5 +359,20 @@ struct QuizzesListView: View {
 
             Spacer()
         }
+    }
+
+    private func showQuizUnavailableAlert() {
+        AlertCenter.shared.showAlert(
+            with: .init(
+                title: Loc.Subscription.ProFeatures.aiQuizzes,
+                message: Loc.Subscription.ProFeatures.aiQuizzesDescription,
+                actionText: Loc.Actions.ok,
+                additionalActionText: Loc.Subscription.Paywall.upgradeToPro,
+                action: {},
+                additionalAction: {
+                    PaywallService.shared.presentPaywall(for: .aiQuizzes)
+                }
+            )
+        )
     }
 }

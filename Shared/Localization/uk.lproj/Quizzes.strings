@@ -159,6 +159,9 @@
 "loading.loading_next_question" = "Завантаження наступного питання...";
 "loading.preparing_next_question" = "Штучний інтелект готує наступне питання для вас.";
 "loading.failed_to_load_quiz" = "Не вдалося завантажити вікторину";
+"loading.generating_pronunciation_sentences" = "Створення вправи з вимови...";
+"loading.pronunciation_description" = "ШІ готує речення, адаптовані до вашого рівня.";
+"loading.preparing_pronunciation" = "Підготовка вашої вікторини з вимови...";
 
 // MARK: - Quiz UI Elements
 "ui.question" = "Питання";
@@ -177,6 +180,17 @@
 "quiz_types.great_job_completed_sentence_writing_quiz" = "Чудова робота! Ви завершили вікторину з написання речень.";
 "quiz_types.great_job_completed_context_quiz" = "Чудова робота! Ви завершили вікторину з використання в контексті.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Чудова робота! Ви завершили вікторину із заповнення пропусків.";
+"quiz_types.pronunciation_practice" = "Тренування вимови";
+"quiz_types.pronunciation_practice_description" = "Тренуйте вимову з реченнями, згенерованими ШІ.";
+"quiz_types.great_job_completed_pronunciation_practice" = "Чудова робота! Ви завершили тренування вимови.";
+
+"pronunciation_practice.instructions_title" = "Тренування вимови";
+"pronunciation_practice.instructions_description" = "Вимовляйте кожне речення вголос. Ви одразу отримаєте зворотний зв'язок і побачите інший приклад.";
+"pronunciation_practice.alternate_sentence" = "Ще одне речення для практики: %@";
+"pronunciation_practice.practice_sentence" = "Тренувальне речення";
+"pronunciation_practice.review_header" = "Огляд вашої практики";
+"pronunciation_practice.alternate_sentence_title" = "Інший приклад";
+"pronunciation_practice.transcript_title" = "Ваша транскрипція";
 
 // MARK: - Filter Messages
 "filters.practice_words_specific_language" = "Практикуйте слова з певної мови";

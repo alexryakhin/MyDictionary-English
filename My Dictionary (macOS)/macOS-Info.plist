@@ -28,5 +28,9 @@
 			</array>
 		</dict>
 	</array>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>My Dictionary needs microphone access to record your pronunciation during quizzes and practice sessions.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>My Dictionary uses speech recognition to evaluate your spoken responses and provide pronunciation feedback.</string>
 </dict>
 </plist>

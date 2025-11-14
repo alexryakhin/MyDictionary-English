@@ -23,6 +23,7 @@
 "select_word" = "Wybierz słowo";
 "select_idiom" = "Wybierz idiom";
 "select_quiz" = "Wybierz quiz";
+"select_collection" = "Wybierz kolekcję";
 "sign_out" = "Wyloguj";
 "sign_in" = "Zaloguj";
 "upgrade" = "Uaktualnij";
@@ -61,6 +62,8 @@
 "load_more" = "Załaduj więcej";
 "loading_more" = "Ładowanie...";
 "copy_email" = "Kopiuj e-mail";
+"select_all" = "Zaznacz wszystko";
+"deselect_all" = "Odznacz wszystko";
 "play" = "Odtwórz";
 "pause" = "Wstrzymaj";
 "playFromHere" = "Odtwórz stąd";

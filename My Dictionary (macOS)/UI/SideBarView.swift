@@ -193,6 +193,11 @@ struct SideBarView: View {
                     .id(sideBarManager.selectedQuiz)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .layoutPriority(1)
+            case .pronunciationPractice(let preset):
+                PronunciationPracticeQuizView(preset: preset)
+                    .id(sideBarManager.selectedQuiz)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .layoutPriority(1)
             case .contextMultipleChoice(let preset):
                 ContextMultipleChoiceQuizContentView(preset: preset)
                     .id(sideBarManager.selectedQuiz)

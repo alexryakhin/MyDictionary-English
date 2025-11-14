@@ -159,6 +159,9 @@
 "loading.loading_next_question" = "Nächste Frage wird geladen...";
 "loading.preparing_next_question" = "KI bereitet die nächste Frage für Sie vor.";
 "loading.failed_to_load_quiz" = "Quiz konnte nicht geladen werden";
+"loading.generating_pronunciation_sentences" = "Uitspraaktraining wordt gegenereerd...";
+"loading.pronunciation_description" = "De AI bereidt zinnen voor die op uw niveau zijn afgestemd.";
+"loading.preparing_pronunciation" = "Uw uitspraakquiz wordt voorbereid...";
 
 // MARK: - Quiz UI Elements
 "ui.question" = "Vraag";
@@ -177,6 +180,17 @@
 "quiz_types.great_job_completed_sentence_writing_quiz" = "Goed gedaan! Je hebt de quiz over zinschrijven voltooid.";
 "quiz_types.great_job_completed_context_quiz" = "Goed gedaan! Je hebt de quiz over gebruik in context voltooid.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Goed gedaan! Je hebt de quiz over gatenvullen voltooid.";
+"quiz_types.pronunciation_practice" = "Uitspraaktraining";
+"quiz_types.pronunciation_practice_description" = "Oefen uw uitspraak met door AI gegenereerde zinnen.";
+"quiz_types.great_job_completed_pronunciation_practice" = "Goed gedaan! U hebt de uitspraaktraining voltooid.";
+
+"pronunciation_practice.instructions_title" = "Uitspraaktraining";
+"pronunciation_practice.instructions_description" = "Spreek elke zin hardop uit. U krijgt direct feedback en ziet daarna een ander voorbeeld.";
+"pronunciation_practice.alternate_sentence" = "Nog een zin om te proberen: %@";
+"pronunciation_practice.practice_sentence" = "Oefenzin";
+"pronunciation_practice.review_header" = "Bekijk uw training";
+"pronunciation_practice.alternate_sentence_title" = "Nog een voorbeeld";
+"pronunciation_practice.transcript_title" = "Uw transcript";
 
 // MARK: - Filter Messages
 "filters.practice_words_specific_language" = "Oefen woorden uit een specifieke taal";

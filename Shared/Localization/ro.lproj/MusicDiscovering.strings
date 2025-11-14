@@ -4,6 +4,7 @@
 "view.section.favorite_songs" = "Melodii favorite";
 "view.section.history" = "Istoric";
 "view.description" = "Învață limbi prin muzică. Caută melodiile sau artiștii preferați. Inteligența artificială va genera lecții și chestionare pentru fiecare melodie.";
+"view.emptyTitle" = "Alege o melodie pentru a începe o lecție";
 
 // MARK: - Search
 "view.search.loading" = "Se caută...";
@@ -72,6 +73,8 @@
 "player.lesson.ready" = "Continuă către lecție";
 "player.lesson.failed" = "Eroare la încărcarea lecției. Încerci din nou?";
 "player.lesson.unavailable" = "Nu am putut genera lecția";
+"player.playback.open_youtube" = "Caută pe YouTube";
+"player.playback.unavailable_message" = "Redarea nu este disponibilă în Apple Music. Încearcă YouTube.";
 "player.tips.title" = "Sfaturi pentru lecția muzicală";
 "player.tips.header" = "Pregătește-te pentru lecție";
 "player.tips.intro" = "Găsește un moment liniștit, conectează căștile dacă le ai și ține un caiet aproape. Ajută să fredonezi o dată înainte să începi exercițiile.";
@@ -136,6 +139,18 @@
 "quiz.fill_blank.prompt" = "Completează versul alegând cuvântul lipsă.";
 "quiz.fill_blank.feedback.correct" = "Foarte bine!";
 "quiz.fill_blank.feedback.incorrect" = "Continuă să explorezi versurile și încearcă din nou.";
+"quiz.pronunciation.permissions_title" = "Sunt necesare permisiuni";
+"quiz.pronunciation.permissions_message" = "Avem nevoie de microfon și de recunoaștere vocală pentru a-ți verifica pronunția.";
+"quiz.pronunciation.prompt" = "Spune cu voce tare versul exact așa cum este afișat.";
+"quiz.pronunciation.record_button" = "Pornește înregistrarea";
+"quiz.pronunciation.stop_button" = "Oprește";
+"quiz.pronunciation.listening" = "Ascultăm...";
+"quiz.pronunciation.preview_text" = "Transcriere în timp real";
+"quiz.pronunciation.result_text" = "Pronunția ta";
+"quiz.pronunciation.correct_title" = "Totul este gata! Pronunția ta se potrivește.";
+"quiz.pronunciation.incorrect_title" = "Continuă să asculți și încearcă din nou.";
+"quiz.pronunciation.finish" = "Finalizează";
+
 
 // MARK: - Authentication
 "auth.header.title" = "Conectează-te la servicii muzicale";

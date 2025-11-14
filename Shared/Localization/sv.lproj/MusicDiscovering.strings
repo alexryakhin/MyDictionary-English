@@ -4,6 +4,7 @@
 "view.section.favorite_songs" = "Favoritlåtar";
 "view.section.history" = "Historik";
 "view.description" = "Lär dig språk genom musik. Sök efter dina favoritlåtar eller artister. AI:n skapar lektioner och quiz för varje låt.";
+"view.emptyTitle" = "Välj en låt för att starta en lektion";
 
 // MARK: - Search
 "view.search.loading" = "Söker...";
@@ -72,6 +73,8 @@
 "player.lesson.ready" = "Fortsätt till lektionen";
 "player.lesson.failed" = "Det gick inte att ladda lektionen. Försök igen?";
 "player.lesson.unavailable" = "Det går inte att skapa lektionen";
+"player.playback.open_youtube" = "Sök på YouTube";
+"player.playback.unavailable_message" = "Uppspelning är inte tillgänglig i Apple Music. Prova YouTube.";
 "player.tips.title" = "Tips för musiklektionen";
 "player.tips.header" = "Förbered dig för lektionen";
 "player.tips.intro" = "Hitta en lugn stund, koppla in hörlurar och ha ett block nära till hands. Att nynnar en gång innan övningarna hjälper.";
@@ -136,6 +139,18 @@
 "quiz.fill_blank.prompt" = "Fyll i texten genom att välja det ord som saknas.";
 "quiz.fill_blank.feedback.correct" = "Snyggt jobbat!";
 "quiz.fill_blank.feedback.incorrect" = "Fortsätt utforska texten och prova nästa.";
+"quiz.pronunciation.permissions_title" = "Behörigheter krävs";
+"quiz.pronunciation.permissions_message" = "Vi behöver mikrofon och röstigenkänning för att kontrollera ditt uttal.";
+"quiz.pronunciation.prompt" = "Säg textraden högt exakt som den visas.";
+"quiz.pronunciation.record_button" = "Starta inspelning";
+"quiz.pronunciation.stop_button" = "Stoppa";
+"quiz.pronunciation.listening" = "Lyssnar...";
+"quiz.pronunciation.preview_text" = "Direkttranskription";
+"quiz.pronunciation.result_text" = "Ditt uttal";
+"quiz.pronunciation.correct_title" = "Klart! Ditt uttal stämde.";
+"quiz.pronunciation.incorrect_title" = "Fortsätt lyssna och försök igen.";
+"quiz.pronunciation.finish" = "Slutför";
+
 
 // MARK: - Authentication
 "auth.header.title" = "Anslut till musiktjänster";

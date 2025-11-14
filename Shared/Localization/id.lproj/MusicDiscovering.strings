@@ -4,6 +4,7 @@
 "view.section.favorite_songs" = "Lagu favorit";
 "view.section.history" = "Riwayat";
 "view.description" = "Pelajari bahasa melalui musik. Cari lagu atau artis favorit Anda. AI akan membuat pelajaran dan kuis untuk setiap lagu.";
+"view.emptyTitle" = "Pilih lagu untuk memulai pelajaran";
 
 // MARK: - Search
 "view.search.loading" = "Mencari...";
@@ -72,6 +73,8 @@
 "player.lesson.ready" = "Lanjut ke pelajaran";
 "player.lesson.failed" = "Gagal memuat pelajaran, coba lagi?";
 "player.lesson.unavailable" = "Tidak dapat membuat pelajaran";
+"player.playback.open_youtube" = "Cari di YouTube";
+"player.playback.unavailable_message" = "Pemutaran tidak tersedia di Apple Music. Coba YouTube.";
 "player.tips.title" = "Tips pelajaran musik";
 "player.tips.header" = "Bersiaplah untuk pelajaran";
 "player.tips.intro" = "Cari waktu yang tenang, sambungkan headphone jika ada, dan siapkan buku catatan. Bersiul atau bersenandung sekali sebelum mulai latihan bisa membantu.";
@@ -136,6 +139,18 @@
 "quiz.fill_blank.prompt" = "Lengkapi lirik dengan memilih kata yang hilang.";
 "quiz.fill_blank.feedback.correct" = "Kerja bagus!";
 "quiz.fill_blank.feedback.incorrect" = "Terus jelajahi liriknya dan coba lagi.";
+"quiz.pronunciation.permissions_title" = "Perlu izin";
+"quiz.pronunciation.permissions_message" = "Kami memerlukan mikrofon dan pengenalan suara untuk memeriksa pelafalanmu.";
+"quiz.pronunciation.prompt" = "Ucapkan baris lirik dengan keras persis seperti yang ditampilkan.";
+"quiz.pronunciation.record_button" = "Mulai rekaman";
+"quiz.pronunciation.stop_button" = "Berhenti";
+"quiz.pronunciation.listening" = "Sedang mendengarkan...";
+"quiz.pronunciation.preview_text" = "Transkrip langsung";
+"quiz.pronunciation.result_text" = "Pelafalanmu";
+"quiz.pronunciation.correct_title" = "Semua siap! Pelafalanmu cocok.";
+"quiz.pronunciation.incorrect_title" = "Terus dengarkan dan coba lagi.";
+"quiz.pronunciation.finish" = "Selesai";
+
 
 // MARK: - Authentication
 "auth.header.title" = "Hubungkan ke layanan musik";

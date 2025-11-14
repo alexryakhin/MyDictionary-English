@@ -159,6 +159,9 @@
 "loading.loading_next_question" = "Következő kérdés betöltése...";
 "loading.preparing_next_question" = "A mesterséges intelligencia előkészíti a következő kérdést számodra.";
 "loading.failed_to_load_quiz" = "A kvíz betöltése nem sikerült";
+"loading.generating_pronunciation_sentences" = "Kiejtésgyakorlás előkészítése...";
+"loading.pronunciation_description" = "A mesterséges intelligencia a szintedhez igazított mondatokat készít elő.";
+"loading.preparing_pronunciation" = "Kiejtéskvízed előkészítése...";
 
 // MARK: - Quiz UI Elements
 "ui.question" = "Kérdés";
@@ -177,6 +180,17 @@
 "quiz_types.great_job_completed_sentence_writing_quiz" = "Nagyszerű munka! Befejezte a mondatírási kvízt.";
 "quiz_types.great_job_completed_context_quiz" = "Nagyszerű munka! Befejezte a kontextus használati kvízt.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Nagyszerű munka! Befejezte az üres helyek kitöltési kvízt.";
+"quiz_types.pronunciation_practice" = "Kiejtésgyakorlás";
+"quiz_types.pronunciation_practice_description" = "Gyakorold a kiejtésed MI által generált mondatokkal.";
+"quiz_types.great_job_completed_pronunciation_practice" = "Nagyszerű munka! Befejezted a kiejtésgyakorlást.";
+
+"pronunciation_practice.instructions_title" = "Kiejtésgyakorlás";
+"pronunciation_practice.instructions_description" = "Mondd ki hangosan az összes mondatot. Azonnali visszajelzést kapsz, majd újabb példát látsz.";
+"pronunciation_practice.alternate_sentence" = "Újabb mondat kipróbálásra: %@";
+"pronunciation_practice.practice_sentence" = "Gyakorló mondat";
+"pronunciation_practice.review_header" = "Tekintsd át a gyakorlást";
+"pronunciation_practice.alternate_sentence_title" = "További példa";
+"pronunciation_practice.transcript_title" = "A te átírásod";
 
 // MARK: - Filter Messages
 "filters.practice_words_specific_language" = "Gyakorolj szavakat egy adott nyelvből";

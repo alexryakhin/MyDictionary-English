@@ -159,6 +159,9 @@
 "loading.loading_next_question" = "Φόρτωση επόμενης ερώτησης...";
 "loading.preparing_next_question" = "Η τεχνητή νοημοσύνη προετοιμάζει την επόμενη ερώτηση για εσάς.";
 "loading.failed_to_load_quiz" = "Αποτυχία φόρτωσης του κουίζ";
+"loading.generating_pronunciation_sentences" = "Δημιουργία άσκησης προφοράς...";
+"loading.pronunciation_description" = "Η τεχνητή νοημοσύνη ετοιμάζει προτάσεις προσαρμοσμένες στο επίπεδό σου.";
+"loading.preparing_pronunciation" = "Ετοιμάζεται το κουίζ προφοράς σου...";
 
 // MARK: - Quiz UI Elements
 "ui.question" = "Ερώτηση";
@@ -177,6 +180,17 @@
 "quiz_types.great_job_completed_sentence_writing_quiz" = "Μπράβο! Ολοκληρώσατε το κουίζ γράψιμου προτάσεων.";
 "quiz_types.great_job_completed_context_quiz" = "Μπράβο! Ολοκληρώσατε το κουίζ χρήσης στο πλαίσιο.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Μπράβο! Ολοκληρώσατε το κουίζ συμπλήρωσης κενών.";
+"quiz_types.pronunciation_practice" = "Άσκηση προφοράς";
+"quiz_types.pronunciation_practice_description" = "Εξάσκησε την προφορά σου με προτάσεις που δημιουργεί η AI.";
+"quiz_types.great_job_completed_pronunciation_practice" = "Μπράβο! Ολοκλήρωσες την άσκηση προφοράς.";
+
+"pronunciation_practice.instructions_title" = "Άσκηση προφοράς";
+"pronunciation_practice.instructions_description" = "Πες δυνατά κάθε πρόταση. Θα λάβεις άμεση ανατροφοδότηση και στη συνέχεια θα δεις ένα ακόμη παράδειγμα.";
+"pronunciation_practice.alternate_sentence" = "Άλλη μία πρόταση για δοκιμή: %@";
+"pronunciation_practice.practice_sentence" = "Πρόταση εξάσκησης";
+"pronunciation_practice.review_header" = "Έλεγξε την εξάσκησή σου";
+"pronunciation_practice.alternate_sentence_title" = "Άλλο παράδειγμα";
+"pronunciation_practice.transcript_title" = "Το απομαγνητοφώνημά σου";
 
 // MARK: - Filter Messages
 "filters.practice_words_specific_language" = "Εξασκήστε λέξεις από μια συγκεκριμένη γλώσσα";

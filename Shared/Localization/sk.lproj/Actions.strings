@@ -23,6 +23,7 @@
 "select_word" = "Vybrať slovo";
 "select_idiom" = "Vybrať idiom";
 "select_quiz" = "Vybrať kvíz";
+"select_collection" = "Vyberte kolekciu";
 "sign_out" = "Odhlásiť";
 "sign_in" = "Prihlásiť";
 "upgrade" = "Upgradovať";
@@ -61,6 +62,8 @@
 "load_more" = "Načítať viac";
 "loading_more" = "Načítava sa...";
 "copy_email" = "Kopírovať e-mail";
+"select_all" = "Vybrať všetko";
+"deselect_all" = "Zrušiť výber všetkého";
 "play" = "Prehrať";
 "pause" = "Pozastaviť";
 "playFromHere" = "Prehrať odtiaľto";

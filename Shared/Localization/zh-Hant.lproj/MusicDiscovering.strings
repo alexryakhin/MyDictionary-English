@@ -4,6 +4,7 @@
 "view.section.favorite_songs" = "收藏歌曲";
 "view.section.history" = "歷史紀錄";
 "view.description" = "透過音樂學習語言。搜尋你喜愛的歌曲或歌手，AI 會為每首歌建立課程和小測驗。";
+"view.emptyTitle" = "選擇一首歌曲開始課程";
 
 // MARK: - Search
 "view.search.loading" = "正在搜尋…";
@@ -72,6 +73,8 @@
 "player.lesson.ready" = "繼續課程";
 "player.lesson.failed" = "課程載入失敗，要再試一次嗎？";
 "player.lesson.unavailable" = "無法建立課程";
+"player.playback.open_youtube" = "在 YouTube 搜尋";
+"player.playback.unavailable_message" = "Apple Music 無法播放，請改用 YouTube。";
 "player.tips.title" = "音樂課堂小提示";
 "player.tips.header" = "為課程做好準備";
 "player.tips.intro" = "找個安靜的時刻，戴上耳機並準備筆記本。開始練習前輕哼一次會有幫助。";
@@ -136,6 +139,18 @@
 "quiz.fill_blank.prompt" = "選出缺少的詞語來完成歌詞。";
 "quiz.fill_blank.feedback.correct" = "做得很好！";
 "quiz.fill_blank.feedback.incorrect" = "繼續探索歌詞，挑戰下一題吧。";
+"quiz.pronunciation.permissions_title" = "需要權限";
+"quiz.pronunciation.permissions_message" = "我們需要麥克風與語音辨識權限來檢查你的發音。";
+"quiz.pronunciation.prompt" = "請依照顯示內容大聲唸出歌詞。";
+"quiz.pronunciation.record_button" = "開始錄音";
+"quiz.pronunciation.stop_button" = "停止";
+"quiz.pronunciation.listening" = "正在聆聽…";
+"quiz.pronunciation.preview_text" = "即時轉寫";
+"quiz.pronunciation.result_text" = "你的發音";
+"quiz.pronunciation.correct_title" = "準備完成！你的發音相符。";
+"quiz.pronunciation.incorrect_title" = "繼續聆聽並再試一次。";
+"quiz.pronunciation.finish" = "完成";
+
 
 // MARK: - Authentication
 "auth.header.title" = "連結音樂服務";

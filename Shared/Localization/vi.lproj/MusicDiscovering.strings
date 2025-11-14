@@ -4,6 +4,7 @@
 "view.section.favorite_songs" = "Bài hát yêu thích";
 "view.section.history" = "Lịch sử";
 "view.description" = "Học ngôn ngữ thông qua âm nhạc. Tìm kiếm bài hát hoặc nghệ sĩ yêu thích của bạn. AI sẽ tạo bài học và bài kiểm tra cho từng bài hát.";
+"view.emptyTitle" = "Chọn một bài hát để bắt đầu bài học";
 
 // MARK: - Search
 "view.search.loading" = "Đang tìm kiếm...";
@@ -72,6 +73,8 @@
 "player.lesson.ready" = "Tiếp tục tới bài học";
 "player.lesson.failed" = "Lỗi tải bài học, thử lại?";
 "player.lesson.unavailable" = "Không thể tạo bài học";
+"player.playback.open_youtube" = "Tìm trên YouTube";
+"player.playback.unavailable_message" = "Phát lại không khả dụng trên Apple Music. Hãy thử YouTube.";
 "player.tips.title" = "Mẹo cho bài học âm nhạc";
 "player.tips.header" = "Sẵn sàng cho bài học";
 "player.tips.intro" = "Hãy tìm thời gian yên tĩnh, đeo tai nghe nếu có và giữ sổ ghi chép bên cạnh. Hát ngân một lần trước khi luyện tập sẽ rất hữu ích.";
@@ -136,6 +139,18 @@
 "quiz.fill_blank.prompt" = "Hoàn thiện lời ca bằng cách chọn từ còn thiếu.";
 "quiz.fill_blank.feedback.correct" = "Làm tốt lắm!";
 "quiz.fill_blank.feedback.incorrect" = "Tiếp tục khám phá lời ca và thử câu tiếp theo.";
+"quiz.pronunciation.permissions_title" = "Cần cấp quyền";
+"quiz.pronunciation.permissions_message" = "Chúng tôi cần mic và nhận dạng giọng nói để kiểm tra phát âm của bạn.";
+"quiz.pronunciation.prompt" = "Đọc to dòng lời bài hát đúng như hiển thị.";
+"quiz.pronunciation.record_button" = "Bắt đầu ghi âm";
+"quiz.pronunciation.stop_button" = "Dừng";
+"quiz.pronunciation.listening" = "Đang lắng nghe...";
+"quiz.pronunciation.preview_text" = "Bản chép trực tiếp";
+"quiz.pronunciation.result_text" = "Phát âm của bạn";
+"quiz.pronunciation.correct_title" = "Hoàn tất! Phát âm của bạn khớp rồi.";
+"quiz.pronunciation.incorrect_title" = "Tiếp tục lắng nghe và thử lại.";
+"quiz.pronunciation.finish" = "Hoàn thành";
+
 
 // MARK: - Authentication
 "auth.header.title" = "Kết nối dịch vụ âm nhạc";

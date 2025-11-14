@@ -4,6 +4,7 @@
 "view.section.favorite_songs" = "Lagu kegemaran";
 "view.section.history" = "Sejarah";
 "view.description" = "Belajar bahasa melalui muzik. Cari lagu atau artis kegemaran anda. AI akan menjana pelajaran dan kuiz untuk setiap lagu.";
+"view.emptyTitle" = "Pilih lagu untuk memulakan pelajaran";
 
 // MARK: - Search
 "view.search.loading" = "Sedang mencari...";
@@ -72,6 +73,8 @@
 "player.lesson.ready" = "Teruskan ke pelajaran";
 "player.lesson.failed" = "Ralat memuatkan pelajaran. Cuba lagi?";
 "player.lesson.unavailable" = "Tidak dapat menjana pelajaran";
+"player.playback.open_youtube" = "Cari di YouTube";
+"player.playback.unavailable_message" = "Main balik tidak tersedia dalam Apple Music. Cuba YouTube.";
 "player.tips.title" = "Tip pelajaran muzik";
 "player.tips.header" = "Bersedia untuk pelajaran anda";
 "player.tips.intro" = "Cari masa yang tenang, sambungkan fon kepala jika ada, dan sediakan buku nota. Menyanyi perlahan sekali sebelum memulakan latihan boleh membantu.";
@@ -136,6 +139,18 @@
 "quiz.fill_blank.prompt" = "Lengkapkan lirik dengan memilih perkataan yang hilang.";
 "quiz.fill_blank.feedback.correct" = "Kerja yang bagus!";
 "quiz.fill_blank.feedback.incorrect" = "Terus terokai lirik dan cuba soalan seterusnya.";
+"quiz.pronunciation.permissions_title" = "Kebenaran diperlukan";
+"quiz.pronunciation.permissions_message" = "Kami memerlukan mikrofon dan pengecaman pertuturan untuk menyemak sebutan anda.";
+"quiz.pronunciation.prompt" = "Sebut baris lirik dengan kuat sama seperti yang ditunjukkan.";
+"quiz.pronunciation.record_button" = "Mulakan rakaman";
+"quiz.pronunciation.stop_button" = "Hentikan";
+"quiz.pronunciation.listening" = "Sedang mendengar...";
+"quiz.pronunciation.preview_text" = "Transkrip langsung";
+"quiz.pronunciation.result_text" = "Sebutan anda";
+"quiz.pronunciation.correct_title" = "Siap! Sebutan anda sepadan.";
+"quiz.pronunciation.incorrect_title" = "Teruskan mendengar dan cuba lagi.";
+"quiz.pronunciation.finish" = "Tamat";
+
 
 // MARK: - Authentication
 "auth.header.title" = "Sambungkan ke perkhidmatan muzik";

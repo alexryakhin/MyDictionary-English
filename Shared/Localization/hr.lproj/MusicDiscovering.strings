@@ -4,6 +4,7 @@
 "view.section.favorite_songs" = "Omiljene pjesme";
 "view.section.history" = "Povijest";
 "view.description" = "Uči jezike kroz glazbu. Pretraži svoje omiljene pjesme ili izvođače. AI će za svaku pjesmu generirati lekcije i kvizove.";
+"view.emptyTitle" = "Odaberi pjesmu za početak lekcije";
 
 // MARK: - Search
 "view.search.loading" = "Pretraživanje...";
@@ -72,6 +73,8 @@
 "player.lesson.ready" = "Nastavi na lekciju";
 "player.lesson.failed" = "Pogreška pri učitavanju. Pokušati ponovno?";
 "player.lesson.unavailable" = "Lekciju nije moguće generirati";
+"player.playback.open_youtube" = "Pretraži na YouTubeu";
+"player.playback.unavailable_message" = "Reprodukcija nije dostupna u Apple Musicu. Pokušaj s YouTubeom.";
 "player.tips.title" = "Savjeti za sat glazbe";
 "player.tips.header" = "Pripremi se za lekciju";
 "player.tips.intro" = "Pronađi miran trenutak, spoji slušalice ako ih imaš i drži bilježnicu pri ruci. Pomaže ako jednom pjevušiš prije nego što započneš vježbe.";
@@ -136,6 +139,18 @@
 "quiz.fill_blank.prompt" = "Dovrši stih odabirom riječi koja nedostaje.";
 "quiz.fill_blank.feedback.correct" = "Sjajan posao!";
 "quiz.fill_blank.feedback.incorrect" = "Nastavi istraživati stihove i pokušaj dalje.";
+"quiz.pronunciation.permissions_title" = "Potrebna su dopuštenja";
+"quiz.pronunciation.permissions_message" = "Trebamo mikrofon i prepoznavanje govora kako bismo provjerili tvoj izgovor.";
+"quiz.pronunciation.prompt" = "Izgovori stih naglas točno kako je prikazan.";
+"quiz.pronunciation.record_button" = "Započni snimanje";
+"quiz.pronunciation.stop_button" = "Zaustavi";
+"quiz.pronunciation.listening" = "Slušamo...";
+"quiz.pronunciation.preview_text" = "Prijenos uživo";
+"quiz.pronunciation.result_text" = "Tvoj izgovor";
+"quiz.pronunciation.correct_title" = "Sve spremno! Izgovor se podudara.";
+"quiz.pronunciation.incorrect_title" = "Nastavi slušati i pokušaj ponovno.";
+"quiz.pronunciation.finish" = "Završi";
+
 
 // MARK: - Authentication
 "auth.header.title" = "Poveži se s glazbenim servisima";

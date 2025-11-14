@@ -159,6 +159,9 @@
 "loading.loading_next_question" = "Caricamento della prossima domanda...";
 "loading.preparing_next_question" = "L'IA sta preparando la prossima domanda per te.";
 "loading.failed_to_load_quiz" = "Impossibile caricare il quiz";
+"loading.generating_pronunciation_sentences" = "Generazione della pratica di pronuncia...";
+"loading.pronunciation_description" = "L'IA sta preparando frasi su misura per il tuo livello.";
+"loading.preparing_pronunciation" = "Preparazione del tuo quiz di pronuncia...";
 
 // MARK: - Quiz UI Elements
 "ui.question" = "Domanda";
@@ -177,6 +180,17 @@
 "quiz_types.great_job_completed_sentence_writing_quiz" = "Ottimo lavoro! Hai completato il quiz di scrittura di frasi.";
 "quiz_types.great_job_completed_context_quiz" = "Ottimo lavoro! Hai completato il quiz di uso nel contesto.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Ottimo lavoro! Hai completato il quiz di riempimento degli spazi.";
+"quiz_types.pronunciation_practice" = "Pratica di pronuncia";
+"quiz_types.pronunciation_practice_description" = "Allena la tua pronuncia con frasi generate dall'IA.";
+"quiz_types.great_job_completed_pronunciation_practice" = "Ottimo lavoro! Hai completato la pratica di pronuncia.";
+
+"pronunciation_practice.instructions_title" = "Pratica di pronuncia";
+"pronunciation_practice.instructions_description" = "Pronuncia ogni frase ad alta voce. Riceverai un feedback istantaneo e poi un altro esempio.";
+"pronunciation_practice.alternate_sentence" = "Un'altra frase da provare: %@";
+"pronunciation_practice.practice_sentence" = "Frase di pratica";
+"pronunciation_practice.review_header" = "Rivedi la tua pratica";
+"pronunciation_practice.alternate_sentence_title" = "Un altro esempio";
+"pronunciation_practice.transcript_title" = "La tua trascrizione";
 
 // MARK: - Filter Messages
 "filters.practice_words_specific_language" = "Pratica parole di una lingua specifica";

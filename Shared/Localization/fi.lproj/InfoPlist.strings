@@ -1,3 +1,5 @@
 CFBundleDisplayName = "Sanakirjani";
 CFBundleName = "Sanakirjani";
 "NSAppleMusicUsageDescription" = "My Dictionary tarvitsee pääsyn Apple Musiciin löytääkseen yksilöityjä kappaleita kielten opiskeluun. Tämä mahdollistaa sovelluksen hakea kappaleita kohdekielelläsi ja antaa suosituksia oppimisprofiilisi perusteella.";
+"NSMicrophoneUsageDescription" = "My Dictionary tarvitsee mikrofonin käyttöoikeuden tallentaakseen ääntämisesi visojen ja harjoituskertojen aikana.";
+"NSSpeechRecognitionUsageDescription" = "My Dictionary käyttää puheentunnistusta arvioidakseen puhutut vastauksesi ja antaakseen palautetta ääntämisestä.";

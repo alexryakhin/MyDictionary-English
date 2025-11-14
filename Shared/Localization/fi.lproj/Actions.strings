@@ -23,6 +23,7 @@
 "select_word" = "Valitse sana";
 "select_idiom" = "Valitse sanonta";
 "select_quiz" = "Valitse tietokilpailu";
+"select_collection" = "Valitse kokoelma";
 "sign_out" = "Kirjaudu ulos";
 "sign_in" = "Kirjaudu sisään";
 "upgrade" = "Päivitä";
@@ -61,6 +62,8 @@
 "load_more" = "Lataa lisää";
 "loading_more" = "Ladataan...";
 "copy_email" = "Kopioi sähköposti";
+"select_all" = "Valitse kaikki";
+"deselect_all" = "Poista kaikki valinnat";
 "play" = "Toista";
 "pause" = "Tauko";
 "playFromHere" = "Toista tästä";

@@ -159,6 +159,9 @@
 "loading.loading_next_question" = "Đang tải câu hỏi tiếp theo...";
 "loading.preparing_next_question" = "AI đang chuẩn bị câu hỏi tiếp theo cho bạn.";
 "loading.failed_to_load_quiz" = "Không thể tải bài kiểm tra";
+"loading.generating_pronunciation_sentences" = "Đang tạo bài luyện phát âm...";
+"loading.pronunciation_description" = "AI đang chuẩn bị các câu phù hợp với trình độ của bạn.";
+"loading.preparing_pronunciation" = "Đang chuẩn bị bài kiểm tra phát âm của bạn...";
 
 // MARK: - Quiz UI Elements
 "ui.question" = "Câu hỏi";
@@ -177,6 +180,17 @@
 "quiz_types.great_job_completed_sentence_writing_quiz" = "Tuyệt vời! Bạn đã hoàn thành bài kiểm tra viết câu.";
 "quiz_types.great_job_completed_context_quiz" = "Tuyệt vời! Bạn đã hoàn thành bài kiểm tra sử dụng trong ngữ cảnh.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Tuyệt vời! Bạn đã hoàn thành bài kiểm tra điền vào chỗ trống.";
+"quiz_types.pronunciation_practice" = "Luyện phát âm";
+"quiz_types.pronunciation_practice_description" = "Luyện phát âm với các câu do AI tạo ra.";
+"quiz_types.great_job_completed_pronunciation_practice" = "Tuyệt lắm! Bạn đã hoàn thành bài luyện phát âm.";
+
+"pronunciation_practice.instructions_title" = "Luyện phát âm";
+"pronunciation_practice.instructions_description" = "Đọc to từng câu. Bạn sẽ nhận được phản hồi ngay lập tức và sau đó xem thêm một ví dụ.";
+"pronunciation_practice.alternate_sentence" = "Câu khác để thử: %@";
+"pronunciation_practice.practice_sentence" = "Câu luyện tập";
+"pronunciation_practice.review_header" = "Xem lại bài luyện của bạn";
+"pronunciation_practice.alternate_sentence_title" = "Ví dụ khác";
+"pronunciation_practice.transcript_title" = "Bản ghi của bạn";
 
 // MARK: - Filter Messages
 "filters.practice_words_specific_language" = "Luyện tập từ vựng từ một ngôn ngữ cụ thể";

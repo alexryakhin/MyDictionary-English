@@ -1,3 +1,5 @@
 CFBundleDisplayName = "قاموسي";
 CFBundleName = "قاموسي";
 "NSAppleMusicUsageDescription" = "تحتاج My Dictionary إلى الوصول إلى Apple Music لاكتشاف أغانٍ مخصصة لتعلّم اللغات. يتيح ذلك للتطبيق البحث عن أغانٍ بلغتك المستهدفة وتقديم توصيات استنادًا إلى ملفك التعليمي.";
+"NSMicrophoneUsageDescription" = "يحتاج My Dictionary إلى الوصول إلى الميكروفون لتسجيل نطقك أثناء الاختبارات وجلسات التدريب.";
+"NSSpeechRecognitionUsageDescription" = "يستخدم My Dictionary تقنية التعرّف على الكلام لتقييم إجاباتك المنطوقة وتقديم ملاحظات حول النطق.";

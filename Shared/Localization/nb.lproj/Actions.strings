@@ -23,6 +23,7 @@
 "select_word" = "Velg ord";
 "select_idiom" = "Velg idiom";
 "select_quiz" = "Velg quiz";
+"select_collection" = "Velg en samling";
 "sign_out" = "Logg ut";
 "sign_in" = "Logg inn";
 "upgrade" = "Oppgrader";
@@ -61,6 +62,8 @@
 "load_more" = "Last mer";
 "loading_more" = "Laster...";
 "copy_email" = "Kopier e-post";
+"select_all" = "Velg alle";
+"deselect_all" = "Fjern valg av alle";
 "play" = "Spill av";
 "pause" = "Pause";
 "playFromHere" = "Spill av herfra";

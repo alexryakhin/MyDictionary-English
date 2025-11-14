@@ -159,6 +159,9 @@
 "loading.loading_next_question" = "Ladataan seuraavaa kysymystä...";
 "loading.preparing_next_question" = "Tekoäly valmistelee seuraavaa kysymystä sinulle.";
 "loading.failed_to_load_quiz" = "Kyselyn lataaminen epäonnistui";
+"loading.generating_pronunciation_sentences" = "Luodaan ääntämisharjoitusta...";
+"loading.pronunciation_description" = "Tekoäly valmistelee tasoosi sopivia lauseita.";
+"loading.preparing_pronunciation" = "Valmistellaan ääntämistestiäsi...";
 
 // MARK: - Quiz UI Elements
 "ui.question" = "Kysymys";
@@ -177,6 +180,17 @@
 "quiz_types.great_job_completed_sentence_writing_quiz" = "Hienoa työtä! Olet suorittanut lauseiden kirjoittamisen kyselyn.";
 "quiz_types.great_job_completed_context_quiz" = "Hienoa työtä! Olet suorittanut kontekstin käytön kyselyn.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Hienoa työtä! Olet suorittanut täytä tyhjä kohta -kyselyn.";
+"quiz_types.pronunciation_practice" = "Ääntämisharjoitus";
+"quiz_types.pronunciation_practice_description" = "Harjoittele ääntämistäsi tekoälyn luomilla lauseilla.";
+"quiz_types.great_job_completed_pronunciation_practice" = "Hienoa työtä! Olet suorittanut ääntämisharjoituksen.";
+
+"pronunciation_practice.instructions_title" = "Ääntämisharjoitus";
+"pronunciation_practice.instructions_description" = "Lausu jokainen lause ääneen. Saat välittömän palautteen ja näet sen jälkeen toisen esimerkin.";
+"pronunciation_practice.alternate_sentence" = "Toinen lause kokeiltavaksi: %@";
+"pronunciation_practice.practice_sentence" = "Harjoituslause";
+"pronunciation_practice.review_header" = "Tarkastele harjoitustasi";
+"pronunciation_practice.alternate_sentence_title" = "Toinen esimerkki";
+"pronunciation_practice.transcript_title" = "Transkriptiosi";
 
 // MARK: - Filter Messages
 "filters.practice_words_specific_language" = "Harjoittele sanoja tietystä kielestä";

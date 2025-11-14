@@ -159,6 +159,9 @@
 "loading.loading_next_question" = "Laddar nästa fråga...";
 "loading.preparing_next_question" = "AI förbereder nästa fråga för dig.";
 "loading.failed_to_load_quiz" = "Misslyckades med att ladda quizzet";
+"loading.generating_pronunciation_sentences" = "Genererar uttalsträning...";
+"loading.pronunciation_description" = "AI förbereder meningar anpassade efter din nivå.";
+"loading.preparing_pronunciation" = "Förbereder ditt uttalsquiz...";
 
 // MARK: - Quiz UI Elements
 "ui.question" = "Fråga";
@@ -177,6 +180,17 @@
 "quiz_types.great_job_completed_sentence_writing_quiz" = "Bra jobbat! Du har slutfört quizzet om meningskrivning.";
 "quiz_types.great_job_completed_context_quiz" = "Bra jobbat! Du har slutfört quizzet om kontextanvändning.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Bra jobbat! Du har slutfört quizzet om att fylla i luckan.";
+"quiz_types.pronunciation_practice" = "Uttalsträning";
+"quiz_types.pronunciation_practice_description" = "Öva ditt uttal med AI-genererade meningar.";
+"quiz_types.great_job_completed_pronunciation_practice" = "Bra jobbat! Du har slutfört uttalsträningen.";
+
+"pronunciation_practice.instructions_title" = "Uttalsträning";
+"pronunciation_practice.instructions_description" = "Säg varje mening högt. Du får direkt feedback och ser därefter ett nytt exempel.";
+"pronunciation_practice.alternate_sentence" = "En annan mening att prova: %@";
+"pronunciation_practice.practice_sentence" = "Övningsmening";
+"pronunciation_practice.review_header" = "Granska din träning";
+"pronunciation_practice.alternate_sentence_title" = "Ett annat exempel";
+"pronunciation_practice.transcript_title" = "Din utskrift";
 
 // MARK: - Filter Messages
 "filters.practice_words_specific_language" = "Öva ord från ett specifikt språk";

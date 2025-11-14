@@ -1,3 +1,5 @@
 CFBundleDisplayName = "Kamus Saya";
 CFBundleName = "Kamus Saya";
 "NSAppleMusicUsageDescription" = "My Dictionary memerlukan akses ke Apple Music untuk menemukan lagu yang dipersonalisasi bagi pembelajaran bahasa. Ini memungkinkan aplikasi mencari lagu dalam bahasa target Anda dan memberikan rekomendasi berdasarkan profil belajar Anda.";
+"NSMicrophoneUsageDescription" = "My Dictionary memerlukan akses mikrofon untuk merekam pelafalanmu selama kuis dan sesi latihan.";
+"NSSpeechRecognitionUsageDescription" = "My Dictionary menggunakan pengenalan suara untuk menilai jawaban lisanmu dan memberikan umpan balik pelafalan.";

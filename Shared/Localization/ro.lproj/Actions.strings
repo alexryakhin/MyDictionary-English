@@ -23,6 +23,7 @@
 "select_word" = "Selectează cuvântul";
 "select_idiom" = "Selectează idiomul";
 "select_quiz" = "Selectează testul";
+"select_collection" = "Selectează o colecție";
 "sign_out" = "Deconectare";
 "sign_in" = "Conectare";
 "upgrade" = "Actualizează";
@@ -61,6 +62,8 @@
 "load_more" = "Încarcă mai mult";
 "loading_more" = "Se încarcă...";
 "copy_email" = "Copiază e-mail";
+"select_all" = "Selectează tot";
+"deselect_all" = "Deselectează tot";
 "play" = "Redă";
 "pause" = "Pauză";
 "playFromHere" = "Redă de aici";

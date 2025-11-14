@@ -1,3 +1,5 @@
 CFBundleDisplayName = "我的词典";
 CFBundleName = "我的词典";
 "NSAppleMusicUsageDescription" = "My Dictionary 需要访问 Apple Music，才能为语言学习发现个性化歌曲。这样应用就能搜索你目标语言的歌曲，并根据你的学习档案提供推荐。";
+"NSMicrophoneUsageDescription" = "My Dictionary 需要访问麦克风，以便在测验和练习过程中录制你的发音。";
+"NSSpeechRecognitionUsageDescription" = "My Dictionary 使用语音识别来评估你的口头回答，并提供发音反馈。";

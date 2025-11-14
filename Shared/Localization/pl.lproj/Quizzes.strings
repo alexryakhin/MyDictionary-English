@@ -159,6 +159,9 @@
 "loading.loading_next_question" = "Indlæser næste spørgsmål...";
 "loading.preparing_next_question" = "AI forbereder næste spørgsmål til dig.";
 "loading.failed_to_load_quiz" = "Kunne ikke indlæse quizzen";
+"loading.generating_pronunciation_sentences" = "Generowanie ćwiczenia wymowy...";
+"loading.pronunciation_description" = "Sztuczna inteligencja przygotowuje zdania dopasowane do twojego poziomu.";
+"loading.preparing_pronunciation" = "Przygotowywanie quizu z wymowy...";
 
 // MARK: - Quiz UI Elements
 "ui.question" = "Spørgsmål";
@@ -177,6 +180,17 @@
 "quiz_types.great_job_completed_sentence_writing_quiz" = "Świetna robota! Ukończyłeś quiz pisania zdań.";
 "quiz_types.great_job_completed_context_quiz" = "Świetna robota! Ukończyłeś quiz użycia w kontekście.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Świetna robota! Ukończyłeś quiz wypełniania luk.";
+"quiz_types.pronunciation_practice" = "Ćwiczenie wymowy";
+"quiz_types.pronunciation_practice_description" = "Ćwicz wymowę z zdaniami generowanymi przez SI.";
+"quiz_types.great_job_completed_pronunciation_practice" = "Świetna robota! Ukończyłeś ćwiczenie wymowy.";
+
+"pronunciation_practice.instructions_title" = "Ćwiczenie wymowy";
+"pronunciation_practice.instructions_description" = "Wypowiadaj każde zdanie na głos. Otrzymasz natychmiastową informację zwrotną i zobaczysz kolejny przykład.";
+"pronunciation_practice.alternate_sentence" = "Kolejne zdanie do wypróbowania: %@";
+"pronunciation_practice.practice_sentence" = "Zdanie ćwiczeniowe";
+"pronunciation_practice.review_header" = "Przejrzyj swoje ćwiczenie";
+"pronunciation_practice.alternate_sentence_title" = "Kolejny przykład";
+"pronunciation_practice.transcript_title" = "Twoja transkrypcja";
 
 // MARK: - Filter Messages
 "filters.practice_words_specific_language" = "Ćwicz słowa z określonego języka";

@@ -4,6 +4,7 @@
 "view.section.favorite_songs" = "Chansons préférées";
 "view.section.history" = "Historique";
 "view.description" = "Apprends des langues grâce à la musique. Cherche tes chansons ou artistes préférés. L'IA générera des leçons et des quiz pour chaque chanson.";
+"view.emptyTitle" = "Choisis une chanson pour démarrer une leçon";
 
 // MARK: - Search
 "view.search.loading" = "Recherche en cours...";
@@ -72,6 +73,8 @@
 "player.lesson.ready" = "Continuer vers la leçon";
 "player.lesson.failed" = "Erreur lors du chargement de la leçon. Réessayer ?";
 "player.lesson.unavailable" = "Impossible de générer la leçon";
+"player.playback.open_youtube" = "Rechercher sur YouTube";
+"player.playback.unavailable_message" = "La lecture n'est pas disponible dans Apple Music. Essaie YouTube.";
 "player.tips.title" = "Conseils pour la leçon de musique";
 "player.tips.header" = "Préparez-vous pour votre leçon";
 "player.tips.intro" = "Trouvez un moment calme, branchez des écouteurs si vous en avez et gardez un carnet à portée de main. Fredonner une fois avant de commencer les exercices aide beaucoup.";
@@ -136,6 +139,18 @@
 "quiz.fill_blank.prompt" = "Complétez les paroles en choisissant le mot manquant.";
 "quiz.fill_blank.feedback.correct" = "Beau travail !";
 "quiz.fill_blank.feedback.incorrect" = "Continuez d'explorer les paroles et essayez la suivante.";
+"quiz.pronunciation.permissions_title" = "Autorisations requises";
+"quiz.pronunciation.permissions_message" = "Nous avons besoin du micro et de la reconnaissance vocale pour vérifier ta prononciation.";
+"quiz.pronunciation.prompt" = "Dis la ligne des paroles à voix haute exactement comme affiché.";
+"quiz.pronunciation.record_button" = "Commencer l’enregistrement";
+"quiz.pronunciation.stop_button" = "Arrêter";
+"quiz.pronunciation.listening" = "Écoute...";
+"quiz.pronunciation.preview_text" = "Transcription en direct";
+"quiz.pronunciation.result_text" = "Ta prononciation";
+"quiz.pronunciation.correct_title" = "Tout est prêt ! Ta prononciation correspond.";
+"quiz.pronunciation.incorrect_title" = "Continue d’écouter et réessaie.";
+"quiz.pronunciation.finish" = "Terminer";
+
 
 // MARK: - Authentication
 "auth.header.title" = "Connectez-vous aux services musicaux";

@@ -1,3 +1,5 @@
 CFBundleDisplayName = "Dicționarul Meu";
 CFBundleName = "Dicționarul Meu";
 "NSAppleMusicUsageDescription" = "My Dictionary are nevoie de acces la Apple Music pentru a descoperi melodii personalizate dedicate învățării limbilor. Astfel, aplicația poate căuta melodii în limba ta țintă și poate oferi recomandări bazate pe profilul tău de învățare.";
+"NSMicrophoneUsageDescription" = "My Dictionary are nevoie de acces la microfon pentru a-ți înregistra pronunția în timpul quizurilor și sesiunilor de exersare.";
+"NSSpeechRecognitionUsageDescription" = "My Dictionary folosește recunoașterea vocală pentru a-ți evalua răspunsurile vorbite și pentru a-ți oferi feedback asupra pronunției.";

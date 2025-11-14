@@ -1,3 +1,5 @@
 CFBundleDisplayName = "พจนานุกรมของฉัน";
 CFBundleName = "พจนานุกรมของฉัน";
 "NSAppleMusicUsageDescription" = "My Dictionary จำเป็นต้องเข้าถึง Apple Music เพื่อค้นหาเพลงที่ปรับให้เหมาะกับการเรียนภาษา แอปจึงสามารถค้นหาเพลงในภาษาที่คุณกำลังเรียนและแนะนำตามโปรไฟล์การเรียนรู้ของคุณได้.";
+"NSMicrophoneUsageDescription" = "My Dictionary ต้องการสิทธิ์เข้าถึงไมโครโฟนเพื่อบันทึกการออกเสียงของคุณระหว่างแบบทดสอบและช่วงฝึกฝน.";
+"NSSpeechRecognitionUsageDescription" = "My Dictionary ใช้การรู้จำเสียงพูดเพื่อประเมินคำตอบที่พูดของคุณและให้ข้อเสนอแนะเรื่องการออกเสียง.";

@@ -1,3 +1,5 @@
 CFBundleDisplayName = "Szótár";
 CFBundleName = "Szótár";
 "NSAppleMusicUsageDescription" = "A My Dictionary hozzáférést igényel az Apple Music szolgáltatáshoz, hogy személyre szabott dalokat fedezhessen fel a nyelvtanuláshoz. Ez lehetővé teszi az alkalmazás számára, hogy dalokat keressen a célnyelveden, és ajánlásokat adjon a tanulási profilod alapján.";
+"NSMicrophoneUsageDescription" = "A My Dictionary mikrofon-hozzáférést igényel, hogy rögzíthesse a kiejtésed a kvízek és gyakorló alkalmak során.";
+"NSSpeechRecognitionUsageDescription" = "A My Dictionary beszédfelismerést használ, hogy kiértékelje a kimondott válaszaidat, és visszajelzést adjon a kiejtésről.";

@@ -4,6 +4,7 @@
 "view.section.favorite_songs" = "أغاني مفضلة";
 "view.section.history" = "السجل";
 "view.description" = "تعلّم اللغات من خلال الموسيقى. ابحث عن أغانيك أو فنانيك المفضلين. سيُنشئ الذكاء الاصطناعي دروسًا واختبارات لكل أغنية.";
+"view.emptyTitle" = "اختر أغنية لبدء درس";
 
 // MARK: - Search
 "view.search.loading" = "جاري البحث...";
@@ -72,6 +73,8 @@
 "player.lesson.ready" = "متابعة إلى الدرس";
 "player.lesson.failed" = "حدث خطأ أثناء تحميل الدرس. هل تريد المحاولة مرة أخرى؟";
 "player.lesson.unavailable" = "تعذّر إنشاء الدرس";
+"player.playback.open_youtube" = "ابحث على YouTube";
+"player.playback.unavailable_message" = "التشغيل غير متاح في Apple Music. جرّب YouTube بدلاً من ذلك.";
 "player.tips.title" = "نصائح لدرس الموسيقى";
 "player.tips.header" = "استعد لدرسِك";
 "player.tips.intro" = "اختر لحظة هادئة، وصل سماعات الأذن إن وُجدت، واحتفظ بدفتر ملاحظات قريباً. من المفيد أن تدندن مرة قبل بدء التمارين.";
@@ -136,6 +139,18 @@
 "quiz.fill_blank.prompt" = "أكمل الكلمات باختيار الكلمة الناقصة.";
 "quiz.fill_blank.feedback.correct" = "عمل ممتاز!";
 "quiz.fill_blank.feedback.incorrect" = "تابع استكشاف الكلمات وجرّب السؤال التالي.";
+"quiz.pronunciation.permissions_title" = "مطلوب أذونات";
+"quiz.pronunciation.permissions_message" = "نحتاج إلى الميكروفون والتعرّف على الكلام للتحقق من نطقك.";
+"quiz.pronunciation.prompt" = "قل سطر الكلمات بصوت عالٍ تمامًا كما يظهر.";
+"quiz.pronunciation.record_button" = "ابدأ التسجيل";
+"quiz.pronunciation.stop_button" = "إيقاف";
+"quiz.pronunciation.listening" = "جارٍ الاستماع...";
+"quiz.pronunciation.preview_text" = "نص مباشر";
+"quiz.pronunciation.result_text" = "نطقك";
+"quiz.pronunciation.correct_title" = "كل شيء جاهز! نطقك كان مطابقًا.";
+"quiz.pronunciation.incorrect_title" = "استمر في الاستماع وحاول مرة أخرى.";
+"quiz.pronunciation.finish" = "إنهاء";
+
 
 // MARK: - Authentication
 "auth.header.title" = "الاتصال بخدمات الموسيقى";

@@ -86,7 +86,7 @@ final class AIService: ObservableObject {
     /// - Returns: true if the quiz uses AI, false otherwise
     func isAIQuiz(_ quizType: Quiz) -> Bool {
         switch quizType {
-        case .contextMultipleChoice, .fillInTheBlank, .sentenceWriting, .storyLab, .musicLesson:
+        case .contextMultipleChoice, .fillInTheBlank, .sentenceWriting, .pronunciationPractice, .storyLab, .musicLesson:
             return true
         case .spelling, .chooseDefinition:
             return false
@@ -96,7 +96,7 @@ final class AIService: ObservableObject {
     /// Gets all AI quiz types
     /// - Returns: Array of AI-powered quiz types
     func getAIQuizzes() -> [Quiz] {
-        return [.contextMultipleChoice, .fillInTheBlank, .sentenceWriting, .storyLab, .musicLesson]
+        return [.contextMultipleChoice, .fillInTheBlank, .sentenceWriting, .pronunciationPractice, .storyLab, .musicLesson]
     }
 
     // MARK: - Request Enum
@@ -111,6 +111,7 @@ final class AIService: ObservableObject {
         case musicPreListenHook(song: Song, targetLanguage: InputLanguage) // CEFR level is determined by AI
         case musicLesson(song: Song, lyrics: String, targetLanguage: InputLanguage, cefrLevel: CEFRLevel) // Plain lyrics (no timestamps)
         case musicRecommendations(language: InputLanguage, userProfile: UserOnboardingProfile) // AI generates 2 songs per CEFR level
+        case pronunciationPractice(words: [AIPronunciationPracticeWordInput])
     }
 
     // MARK: - Centralized Request Handler
@@ -182,6 +183,10 @@ final class AIService: ObservableObject {
         return response
     }
 
+    func generatePronunciationPractice(for words: [AIPronunciationPracticeWordInput]) async throws -> AIPronunciationPracticeResponse {
+        return try await request(.pronunciationPractice(words: words))
+    }
+
     // MARK: - Prompt Builder
 
     private func buildPrompt(for r: Request) -> String {
@@ -246,6 +251,8 @@ final class AIService: ObservableObject {
                 userProfile: userProfile,
                 userLanguage: getCurrentAppLanguage()
             )
+        case .pronunciationPractice(let words):
+            return buildPronunciationPracticePrompt(words: words)
         }
     }
 
@@ -783,6 +790,29 @@ extension AIService {
         - Reason: Why this song is good for its assigned CEFR level (1-2 sentences)
         
         Ensure diversity across genres while maintaining educational value for each proficiency level.
+        """
+    }
+
+    private func buildPronunciationPracticePrompt(
+        words: [AIPronunciationPracticeWordInput]
+    ) -> String {
+        let formattedWords = words.enumerated().map { index, item in
+            "\(index + 1). Word: \(item.word) | Language: \(item.language.englishName)"
+        }.joined(separator: "\n")
+
+        return """
+        IMPORTANT: This is for pronunciation practice in a language learning application. The learner already knows each word's meaning—they now need natural sentences to say out loud.
+
+        TARGET WORDS:
+        \(formattedWords)
+
+        REQUIREMENTS:
+        1. For each word, provide a sentence written entirely in the specified language.
+        2. Each sentence must sound natural to native speakers and be appropriate for the learner’s CEFR level (provided in the system prompt).
+        3. The target word must appear in a sentence for that entry.
+        4. Keep sentences practical for speaking practice: 8–18 words, no tongue twisters, and no phonetic spellings.
+        5. Do not include translations, explanations, or additional commentary—only the sentences.
+        6. Avoid repeating sentence structures or themes across different words.
         """
     }
 }

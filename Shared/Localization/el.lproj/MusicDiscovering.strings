@@ -4,6 +4,7 @@
 "view.section.favorite_songs" = "Αγαπημένα τραγούδια";
 "view.section.history" = "Ιστορικό";
 "view.description" = "Μάθε γλώσσες μέσα από τη μουσική. Αναζήτησε τα αγαπημένα σου τραγούδια ή καλλιτέχνες. Η τεχνητή νοημοσύνη θα δημιουργεί μαθήματα και κουίζ για κάθε τραγούδι.";
+"view.emptyTitle" = "Επίλεξε ένα τραγούδι για να ξεκινήσεις μάθημα";
 
 // MARK: - Search
 "view.search.loading" = "Αναζήτηση...";
@@ -72,6 +73,8 @@
 "player.lesson.ready" = "Συνέχεια στο μάθημα";
 "player.lesson.failed" = "Σφάλμα φόρτωσης μαθήματος. Να γίνει νέα προσπάθεια;";
 "player.lesson.unavailable" = "Δεν ήταν δυνατή η δημιουργία μαθήματος";
+"player.playback.open_youtube" = "Αναζήτηση στο YouTube";
+"player.playback.unavailable_message" = "Η αναπαραγωγή δεν είναι διαθέσιμη στο Apple Music. Δοκίμασε το YouTube.";
 "player.tips.title" = "Συμβουλές για το μάθημα μουσικής";
 "player.tips.header" = "Ετοιμαστείτε για το μάθημα";
 "player.tips.intro" = "Βρείτε μια ήσυχη στιγμή, συνδέστε ακουστικά αν έχετε και κρατήστε ένα σημειωματάριο κοντά. Βοηθά να τραγουδήσετε μία φορά πριν ξεκινήσετε τις ασκήσεις.";
@@ -136,6 +139,18 @@
 "quiz.fill_blank.prompt" = "Συμπληρώστε τους στίχους επιλέγοντας τη λέξη που λείπει.";
 "quiz.fill_blank.feedback.correct" = "Πολύ καλά!";
 "quiz.fill_blank.feedback.incorrect" = "Συνεχίστε να εξερευνάτε τους στίχους και δοκιμάστε την επόμενη.";
+"quiz.pronunciation.permissions_title" = "Απαιτούνται δικαιώματα";
+"quiz.pronunciation.permissions_message" = "Χρειαζόμαστε μικρόφωνο και αναγνώριση ομιλίας για να ελέγξουμε την προφορά σου.";
+"quiz.pronunciation.prompt" = "Πες δυνατά τον στίχο όπως εμφανίζεται.";
+"quiz.pronunciation.record_button" = "Έναρξη εγγραφής";
+"quiz.pronunciation.stop_button" = "Διακοπή";
+"quiz.pronunciation.listening" = "Ακούμε...";
+"quiz.pronunciation.preview_text" = "Ζωντανή απομαγνητοφώνηση";
+"quiz.pronunciation.result_text" = "Η προφορά σου";
+"quiz.pronunciation.correct_title" = "Όλα έτοιμα! Η προφορά σου ταίριαξε.";
+"quiz.pronunciation.incorrect_title" = "Συνέχισε να ακούς και δοκίμασε ξανά.";
+"quiz.pronunciation.finish" = "Τέλος";
+
 
 // MARK: - Authentication
 "auth.header.title" = "Συνδεθείτε με υπηρεσίες μουσικής";

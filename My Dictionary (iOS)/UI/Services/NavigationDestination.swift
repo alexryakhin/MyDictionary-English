@@ -23,6 +23,7 @@ enum NavigationDestination: Hashable {
     case sentenceWritingQuiz(QuizPreset)
     case contextMultipleChoiceQuiz(QuizPreset)
     case fillInTheBlankQuiz(QuizPreset)
+    case pronunciationPracticeQuiz(QuizPreset)
 
     // MARK: - Analytics destinations
     case quizResultsList

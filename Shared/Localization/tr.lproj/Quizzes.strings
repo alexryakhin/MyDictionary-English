@@ -159,6 +159,9 @@
 "loading.loading_next_question" = "Sonraki soru yükleniyor...";
 "loading.preparing_next_question" = "Yapay zeka sizin için sonraki soruyu hazırlıyor.";
 "loading.failed_to_load_quiz" = "Sınav yüklenemedi";
+"loading.generating_pronunciation_sentences" = "Telaffuz çalışması oluşturuluyor...";
+"loading.pronunciation_description" = "Yapay zeka seviyenize uygun cümleler hazırlıyor.";
+"loading.preparing_pronunciation" = "Telaffuz testiniz hazırlanıyor...";
 
 // MARK: - Quiz UI Elements
 "ui.question" = "Soru";
@@ -177,6 +180,17 @@
 "quiz_types.great_job_completed_sentence_writing_quiz" = "Harika iş! Cümle yazma sınavını tamamladınız.";
 "quiz_types.great_job_completed_context_quiz" = "Harika iş! Bağlam kullanımı sınavını tamamladınız.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Harika iş! Boşluk doldurma sınavını tamamladınız.";
+"quiz_types.pronunciation_practice" = "Telaffuz çalışması";
+"quiz_types.pronunciation_practice_description" = "Telaffuzunuzu yapay zekâ tarafından oluşturulan cümlelerle geliştirin.";
+"quiz_types.great_job_completed_pronunciation_practice" = "Harika iş! Telaffuz çalışmasını tamamladınız.";
+
+"pronunciation_practice.instructions_title" = "Telaffuz çalışması";
+"pronunciation_practice.instructions_description" = "Her cümleyi yüksek sesle söyleyin. Hemen geri bildirim alacak ve ardından başka bir örnek göreceksiniz.";
+"pronunciation_practice.alternate_sentence" = "Denemek için başka bir cümle: %@";
+"pronunciation_practice.practice_sentence" = "Alıştırma cümlesi";
+"pronunciation_practice.review_header" = "Çalışmanızı gözden geçirin";
+"pronunciation_practice.alternate_sentence_title" = "Başka bir örnek";
+"pronunciation_practice.transcript_title" = "Metin dökümünüz";
 
 // MARK: - Filter Messages
 "filters.practice_words_specific_language" = "Belirli bir dilden kelimeler pratik yapın";

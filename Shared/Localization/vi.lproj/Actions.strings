@@ -23,6 +23,7 @@
 "select_word" = "Chọn từ";
 "select_idiom" = "Chọn thành ngữ";
 "select_quiz" = "Chọn câu đố";
+"select_collection" = "Chọn bộ sưu tập";
 "sign_out" = "Đăng xuất";
 "sign_in" = "Đăng nhập";
 "upgrade" = "Nâng cấp";
@@ -61,6 +62,8 @@
 "load_more" = "Tải thêm";
 "loading_more" = "Đang tải...";
 "copy_email" = "Sao chép e-mail";
+"select_all" = "Chọn tất cả";
+"deselect_all" = "Bỏ chọn tất cả";
 "play" = "Phát";
 "pause" = "Tạm dừng";
 "playFromHere" = "Phát từ đây";

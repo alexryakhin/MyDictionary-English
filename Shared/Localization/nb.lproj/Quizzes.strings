@@ -159,6 +159,9 @@
 "loading.loading_next_question" = "Laster neste spørsmål...";
 "loading.preparing_next_question" = "KI forbereder neste spørsmål for deg.";
 "loading.failed_to_load_quiz" = "Kunne ikke laste quizen";
+"loading.generating_pronunciation_sentences" = "Genererer uttaletrening...";
+"loading.pronunciation_description" = "KI forbereder setninger tilpasset nivået ditt.";
+"loading.preparing_pronunciation" = "Forbereder uttalekvissen din...";
 
 // MARK: - Quiz UI Elements
 "ui.question" = "Spørsmål";
@@ -177,6 +180,17 @@
 "quiz_types.great_job_completed_sentence_writing_quiz" = "Flott jobb! Du har fullført quizen om setningsskriving.";
 "quiz_types.great_job_completed_context_quiz" = "Flott jobb! Du har fullført quizen om kontekstbruk.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Flott jobb! Du har fullført quizen om å fylle ut tomrommet.";
+"quiz_types.pronunciation_practice" = "Uttaletrening";
+"quiz_types.pronunciation_practice_description" = "Øv på uttalen din med KI-genererte setninger.";
+"quiz_types.great_job_completed_pronunciation_practice" = "Flott jobb! Du har fullført uttaletreningen.";
+
+"pronunciation_practice.instructions_title" = "Uttaletrening";
+"pronunciation_practice.instructions_description" = "Si hver setning høyt. Du får umiddelbar tilbakemelding og ser et nytt eksempel etterpå.";
+"pronunciation_practice.alternate_sentence" = "En annen setning å prøve: %@";
+"pronunciation_practice.practice_sentence" = "Øvingssetning";
+"pronunciation_practice.review_header" = "Gå gjennom treningen din";
+"pronunciation_practice.alternate_sentence_title" = "Et annet eksempel";
+"pronunciation_practice.transcript_title" = "Transkripsjonen din";
 
 // MARK: - Filter Messages
 "filters.practice_words_specific_language" = "Øv ord fra et spesifikt språk";

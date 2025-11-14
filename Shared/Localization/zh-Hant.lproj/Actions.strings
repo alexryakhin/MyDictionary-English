@@ -23,6 +23,7 @@
 "select_word" = "選擇單字";
 "select_idiom" = "選擇慣用語";
 "select_quiz" = "選擇測驗";
+"select_collection" = "選擇集合";
 "sign_out" = "登出";
 "sign_in" = "登入";
 "upgrade" = "升級";
@@ -61,6 +62,8 @@
 "load_more" = "載入更多";
 "loading_more" = "載入中...";
 "copy_email" = "複製電子郵件";
+"select_all" = "全選";
+"deselect_all" = "取消全選";
 "play" = "播放";
 "pause" = "暫停";
 "playFromHere" = "從這裡播放";

@@ -14,6 +14,7 @@ enum Quiz: String, Identifiable {
     case sentenceWriting = "sentence_writing"
     case contextMultipleChoice = "context_multiple_choice"
     case fillInTheBlank = "fill_in_the_blank"
+    case pronunciationPractice = "pronunciation_practice"
     case storyLab = "story_lab"
     case musicLesson = "music_lesson"
 
@@ -22,7 +23,8 @@ enum Quiz: String, Identifiable {
         .chooseDefinition,
         .sentenceWriting,
         .contextMultipleChoice,
-        .fillInTheBlank
+        .fillInTheBlank,
+        .pronunciationPractice
     ]
 
     static let discoveryLessons: [Quiz] = [
@@ -44,6 +46,8 @@ enum Quiz: String, Identifiable {
             return .orange
         case .fillInTheBlank:
             return .purple
+        case .pronunciationPractice:
+            return .pink
         case .storyLab:
             return .pink
         case .musicLesson:
@@ -63,6 +67,8 @@ enum Quiz: String, Identifiable {
             return "questionmark.circle"
         case .fillInTheBlank:
             return "textformat.abc"
+        case .pronunciationPractice:
+            return "mic.fill"
         case .storyLab:
             return "books.vertical.fill"
         case .musicLesson:
@@ -82,6 +88,8 @@ enum Quiz: String, Identifiable {
             return Loc.Quizzes.QuizTypes.contextMultipleChoice
         case .fillInTheBlank:
             return Loc.Quizzes.QuizTypes.fillInTheBlank
+        case .pronunciationPractice:
+            return Loc.Quizzes.QuizTypes.pronunciationPractice
         case .storyLab:
             return Loc.StoryLab.title
         case .musicLesson:
@@ -101,6 +109,8 @@ enum Quiz: String, Identifiable {
             return Loc.Quizzes.QuizTypes.chooseCorrectUsage
         case .fillInTheBlank:
             return Loc.Quizzes.QuizTypes.fillBlanksInContext
+        case .pronunciationPractice:
+            return Loc.Quizzes.QuizTypes.pronunciationPracticeDescription
         case .storyLab:
             return Loc.StoryLab.description
         case .musicLesson:
@@ -120,6 +130,8 @@ enum Quiz: String, Identifiable {
             return Loc.Quizzes.QuizTypes.greatJobCompletedContextQuiz
         case .fillInTheBlank:
             return Loc.Quizzes.QuizTypes.greatJobCompletedFillInTheBlankQuiz
+        case .pronunciationPractice:
+            return Loc.Quizzes.QuizTypes.greatJobCompletedPronunciationPractice
         case .storyLab:
             return Loc.StoryLab.completionDescription
         case .musicLesson:
@@ -129,7 +141,7 @@ enum Quiz: String, Identifiable {
 
     var isOnlineQuiz: Bool {
         switch self {
-        case .sentenceWriting, .contextMultipleChoice, .fillInTheBlank, .storyLab, .musicLesson:
+        case .sentenceWriting, .contextMultipleChoice, .fillInTheBlank, .pronunciationPractice, .storyLab, .musicLesson:
             return true
         default:
             return false
@@ -138,7 +150,7 @@ enum Quiz: String, Identifiable {
 
     var isNewQuiz: Bool {
         switch self {
-        case .storyLab, .musicLesson:
+        case .storyLab, .musicLesson, .pronunciationPractice:
             return true
         default:
             return false

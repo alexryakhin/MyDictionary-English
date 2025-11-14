@@ -159,6 +159,9 @@
 "loading.loading_next_question" = "अगला प्रश्न लोड हो रहा है...";
 "loading.preparing_next_question" = "AI आपके लिए अगला प्रश्न तैयार कर रहा है।";
 "loading.failed_to_load_quiz" = "क्विज़ लोड करने में विफल";
+"loading.generating_pronunciation_sentences" = "उच्चारण अभ्यास तैयार किया जा रहा है...";
+"loading.pronunciation_description" = "AI आपके स्तर के अनुसार वाक्य तैयार कर रहा है।";
+"loading.preparing_pronunciation" = "आपका उच्चारण क्विज़ तैयार किया जा रहा है...";
 
 // MARK: - Quiz UI Elements
 "ui.question" = "प्रश्न";
@@ -177,6 +180,17 @@
 "quiz_types.great_job_completed_sentence_writing_quiz" = "शानदार काम! आपने वाक्य लेखन क्विज़ पूरा कर लिया है।";
 "quiz_types.great_job_completed_context_quiz" = "शानदार काम! आपने संदर्भ उपयोग क्विज़ पूरा कर लिया है।";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "शानदार काम! आपने रिक्त स्थान भरने का क्विज़ पूरा कर लिया है।";
+"quiz_types.pronunciation_practice" = "उच्चारण अभ्यास";
+"quiz_types.pronunciation_practice_description" = "AI द्वारा बनाए गए वाक्यों के साथ अपना उच्चारण अभ्यास करें।";
+"quiz_types.great_job_completed_pronunciation_practice" = "बहुत बढ़िया! आपने उच्चारण अभ्यास पूरा कर लिया है।";
+
+"pronunciation_practice.instructions_title" = "उच्चारण अभ्यास";
+"pronunciation_practice.instructions_description" = "हर वाक्य को ज़ोर से बोलें। आपको तुरंत प्रतिक्रिया मिलेगी और उसके बाद एक और उदाहरण दिखाई देगा।";
+"pronunciation_practice.alternate_sentence" = "आजमाने के लिए एक और वाक्य: %@";
+"pronunciation_practice.practice_sentence" = "अभ्यास वाक्य";
+"pronunciation_practice.review_header" = "अपने अभ्यास की समीक्षा करें";
+"pronunciation_practice.alternate_sentence_title" = "एक और उदाहरण";
+"pronunciation_practice.transcript_title" = "आपका ट्रांसक्रिप्ट";
 
 // MARK: - Filter Messages
 "filters.practice_words_specific_language" = "एक विशिष्ट भाषा के शब्दों का अभ्यास करें";

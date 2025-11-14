@@ -23,6 +23,7 @@ struct MusicDiscoveringSession: Codable, Hashable, Identifiable {
         enum QuizType: String, Codable {
             case fillInBlank
             case meaningMCQ
+            case pronunciation
         }
         
         let questionIndex: Int
@@ -30,19 +31,22 @@ struct MusicDiscoveringSession: Codable, Hashable, Identifiable {
         let isCorrect: Bool
         let answeredAt: Date
         let type: QuizType
+        let spokenText: String?
         
         init(
             questionIndex: Int,
             selectedAnswerIndex: Int,
             isCorrect: Bool,
             type: QuizType,
-            answeredAt: Date = Date()
+            answeredAt: Date = Date(),
+            spokenText: String? = nil
         ) {
             self.questionIndex = questionIndex
             self.selectedAnswerIndex = selectedAnswerIndex
             self.isCorrect = isCorrect
             self.answeredAt = answeredAt
             self.type = type
+            self.spokenText = spokenText
         }
         
         func matches(questionIndex: Int, type: QuizType) -> Bool {
@@ -115,7 +119,8 @@ struct MusicDiscoveringSession: Codable, Hashable, Identifiable {
             selectedAnswerIndex: submission.selectedAnswerIndex,
             isCorrect: submission.isCorrect,
             type: quizType,
-            answeredAt: Date()
+            answeredAt: Date(),
+            spokenText: submission.spokenText
         )
         quizAnswers.removeAll { $0.matches(questionIndex: answer.questionIndex, type: quizType) }
         quizAnswers.append(answer)

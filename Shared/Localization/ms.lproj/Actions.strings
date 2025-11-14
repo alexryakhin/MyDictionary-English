@@ -23,6 +23,7 @@
 "select_word" = "Pilih perkataan";
 "select_idiom" = "Pilih ungkapan";
 "select_quiz" = "Pilih kuiz";
+"select_collection" = "Pilih koleksi";
 "sign_out" = "Log keluar";
 "sign_in" = "Log masuk";
 "upgrade" = "Tingkatkan";
@@ -61,6 +62,8 @@
 "load_more" = "Muat lebih";
 "loading_more" = "Memuatkan...";
 "copy_email" = "Salin e-mel";
+"select_all" = "Pilih semua";
+"deselect_all" = "Nyahpilih semua";
 "play" = "Mainkan";
 "pause" = "Jeda";
 "playFromHere" = "Mainkan dari sini";

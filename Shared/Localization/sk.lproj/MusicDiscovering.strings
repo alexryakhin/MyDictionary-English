@@ -4,6 +4,7 @@
 "view.section.favorite_songs" = "Obľúbené skladby";
 "view.section.history" = "História";
 "view.description" = "Uč sa jazyky cez hudbu. Vyhľadaj svoje obľúbené piesne alebo interpretov. AI vytvorí lekcie a kvízy pre každú skladbu.";
+"view.emptyTitle" = "Vyberte skladbu a spustite lekciu";
 
 // MARK: - Search
 "view.search.loading" = "Hľadá sa...";
@@ -72,6 +73,8 @@
 "player.lesson.ready" = "Pokračovať na lekciu";
 "player.lesson.failed" = "Chyba pri načítaní lekcie. Skúsiť znova?";
 "player.lesson.unavailable" = "Lekciu sa nepodarilo vytvoriť";
+"player.playback.open_youtube" = "Hľadať na YouTube";
+"player.playback.unavailable_message" = "Prehrávanie nie je dostupné v Apple Music. Skúste YouTube.";
 "player.tips.title" = "Tipy k hudobnej lekcii";
 "player.tips.header" = "Pripravte sa na lekciu";
 "player.tips.intro" = "Nájdite si tichý okamih, pripojte slúchadlá a majte pri sebe poznámkový blok. Pomáha, keď si pred cvičeniami raz zanôtiť.";
@@ -136,6 +139,18 @@
 "quiz.fill_blank.prompt" = "Doplňte text výberom chýbajúceho slova.";
 "quiz.fill_blank.feedback.correct" = "Skvelá práca!";
 "quiz.fill_blank.feedback.incorrect" = "Pokračujte v skúmaní textu a skúste ďalšiu otázku.";
+"quiz.pronunciation.permissions_title" = "Vyžadujú sa povolenia";
+"quiz.pronunciation.permissions_message" = "Potrebujeme mikrofón a rozpoznávanie reči, aby sme overili vašu výslovnosť.";
+"quiz.pronunciation.prompt" = "Povedzte riadok textu nahlas presne tak, ako je zobrazený.";
+"quiz.pronunciation.record_button" = "Spustiť nahrávanie";
+"quiz.pronunciation.stop_button" = "Stop";
+"quiz.pronunciation.listening" = "Počúvame...";
+"quiz.pronunciation.preview_text" = "Živý prepis";
+"quiz.pronunciation.result_text" = "Vaša výslovnosť";
+"quiz.pronunciation.correct_title" = "Všetko pripravené! Výslovnosť sa zhoduje.";
+"quiz.pronunciation.incorrect_title" = "Pokračujte v počúvaní a skúste znova.";
+"quiz.pronunciation.finish" = "Dokončiť";
+
 
 // MARK: - Authentication
 "auth.header.title" = "Pripojte sa k hudobným službám";

@@ -139,6 +139,17 @@
 "quiz.fill_blank.prompt" = "Complete the lyric by choosing the missing word.";
 "quiz.fill_blank.feedback.correct" = "Nice work!";
 "quiz.fill_blank.feedback.incorrect" = "Keep exploring the lyrics and try the next one.";
+"quiz.pronunciation.permissions_title" = "Permissions required";
+"quiz.pronunciation.permissions_message" = "We need microphone and speech recognition to check your pronunciation.";
+"quiz.pronunciation.prompt" = "Say the lyric line out loud exactly as shown.";
+"quiz.pronunciation.record_button" = "Start Recording";
+"quiz.pronunciation.stop_button" = "Stop";
+"quiz.pronunciation.listening" = "Listening…";
+"quiz.pronunciation.preview_text" = "Live transcript";
+"quiz.pronunciation.result_text" = "Your pronunciation";
+"quiz.pronunciation.correct_title" = "All set! Your pronunciation matched.";
+"quiz.pronunciation.incorrect_title" = "Keep listening and try again.";
+"quiz.pronunciation.finish" = "Finish";
 
 // MARK: - Authentication
 "auth.header.title" = "Connect to Music Services";

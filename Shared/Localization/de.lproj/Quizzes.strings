@@ -159,6 +159,9 @@
 "loading.loading_next_question" = "Nächste Frage wird geladen...";
 "loading.preparing_next_question" = "KI bereitet die nächste Frage für Sie vor.";
 "loading.failed_to_load_quiz" = "Quiz konnte nicht geladen werden";
+"loading.generating_pronunciation_sentences" = "Aussprachetraining wird erstellt...";
+"loading.pronunciation_description" = "Die KI bereitet Sätze vor, die auf Ihr Niveau zugeschnitten sind.";
+"loading.preparing_pronunciation" = "Ihr Aussprachequiz wird vorbereitet...";
 
 // MARK: - Quiz UI Elements
 "ui.question" = "Frage";
@@ -177,6 +180,17 @@
 "quiz_types.great_job_completed_sentence_writing_quiz" = "Gute Arbeit! Sie haben das Quiz zum Satzschreiben abgeschlossen.";
 "quiz_types.great_job_completed_context_quiz" = "Gute Arbeit! Sie haben das Quiz zur Kontextnutzung abgeschlossen.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Gute Arbeit! Sie haben das Quiz zum Lückentext abgeschlossen.";
+"quiz_types.pronunciation_practice" = "Aussprachetraining";
+"quiz_types.pronunciation_practice_description" = "Trainieren Sie Ihre Aussprache mit KI-generierten Sätzen.";
+"quiz_types.great_job_completed_pronunciation_practice" = "Gute Arbeit! Sie haben das Aussprachetraining abgeschlossen.";
+
+"pronunciation_practice.instructions_title" = "Aussprachetraining";
+"pronunciation_practice.instructions_description" = "Sprechen Sie jeden Satz laut aus. Sie erhalten sofort Feedback und sehen anschließend ein weiteres Beispiel.";
+"pronunciation_practice.alternate_sentence" = "Ein weiterer Satz zum Üben: %@";
+"pronunciation_practice.practice_sentence" = "Übungssatz";
+"pronunciation_practice.review_header" = "Überprüfen Sie Ihr Training";
+"pronunciation_practice.alternate_sentence_title" = "Weiteres Beispiel";
+"pronunciation_practice.transcript_title" = "Ihre Transkription";
 
 // MARK: - Filter Messages
 "filters.practice_words_specific_language" = "Wörter aus einer bestimmten Sprache üben";

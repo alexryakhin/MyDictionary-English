@@ -23,6 +23,7 @@
 "select_word" = "Välj ord";
 "select_idiom" = "Välj idiom";
 "select_quiz" = "Välj quiz";
+"select_collection" = "Välj en samling";
 "sign_out" = "Logga ut";
 "sign_in" = "Logga in";
 "upgrade" = "Uppgradera";
@@ -61,6 +62,8 @@
 "load_more" = "Ladda mer";
 "loading_more" = "Laddar...";
 "copy_email" = "Kopiera e-post";
+"select_all" = "Markera alla";
+"deselect_all" = "Avmarkera alla";
 "play" = "Spela upp";
 "pause" = "Paus";
 "playFromHere" = "Spela upp härifrån";

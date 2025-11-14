@@ -23,7 +23,7 @@
 "select_word" = "اختيار كلمة";
 "select_idiom" = "اختيار تعبير";
 "select_quiz" = "اختيار اختبار";
-"select_collection" = "اختيار مجموعة";
+"select_collection" = "اختر مجموعة";
 "sign_out" = "تسجيل خروج";
 "sign_in" = "تسجيل دخول";
 "upgrade" = "ترقية";
@@ -62,6 +62,8 @@
 "load_more" = "تحميل المزيد";
 "loading_more" = "جاري التحميل...";
 "copy_email" = "نسخ البريد الإلكتروني";
+"select_all" = "تحديد الكل";
+"deselect_all" = "إلغاء تحديد الكل";
 "play" = "تشغيل";
 "pause" = "إيقاف مؤقت";
 "playFromHere" = "تشغيل من هنا";

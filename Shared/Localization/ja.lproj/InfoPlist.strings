@@ -1,3 +1,5 @@
 CFBundleDisplayName = "マイ辞書";
 CFBundleName = "マイ辞書";
 "NSAppleMusicUsageDescription" = "My Dictionary は語学学習のためにパーソナライズされた曲を見つけるため、Apple Music へのアクセスが必要です。これにより、アプリはあなたの学習言語の曲を検索し、学習プロフィールに基づいたおすすめを提供できます。";
+"NSMicrophoneUsageDescription" = "My Dictionary はクイズや練習セッション中にあなたの発音を録音するため、マイクへのアクセスが必要です。";
+"NSSpeechRecognitionUsageDescription" = "My Dictionary は音声認識を使ってあなたの発話を評価し、発音に関するフィードバックを提供します。";

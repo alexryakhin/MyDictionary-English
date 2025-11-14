@@ -159,6 +159,9 @@
 "loading.loading_next_question" = "Загрузка следующего вопроса...";
 "loading.preparing_next_question" = "ИИ готовит следующий вопрос для вас.";
 "loading.failed_to_load_quiz" = "Не удалось загрузить викторину";
+"loading.generating_pronunciation_sentences" = "Создание упражнения по произношению...";
+"loading.pronunciation_description" = "ИИ подбирает фразы, соответствующие вашему уровню.";
+"loading.preparing_pronunciation" = "Подготовка вашего теста по произношению...";
 
 // MARK: - Quiz UI Elements
 "ui.question" = "Вопрос";
@@ -177,9 +180,20 @@
 "quiz_types.great_job_completed_sentence_writing_quiz" = "Отличная работа! Вы завершили викторину по написанию предложений.";
 "quiz_types.great_job_completed_context_quiz" = "Отличная работа! Вы завершили викторину по использованию в контексте.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Отличная работа! Вы завершили викторину по заполнению пропусков.";
+"quiz_types.pronunciation_practice" = "Тренировка произношения";
+"quiz_types.pronunciation_practice_description" = "Тренируйте произношение с фразами, сгенерированными ИИ.";
+"quiz_types.great_job_completed_pronunciation_practice" = "Отличная работа! Вы завершили тренировку произношения.";
 "quiz_types.music_lesson" = "Музыкальный урок";
 "quiz_types.music_lesson_description" = "Открывайте песни и тренируйтесь с заданиями по тексту.";
 "quiz_types.great_job_completed_music_lesson" = "Отличная работа! Вы завершили музыкальный урок.";
+
+"pronunciation_practice.instructions_title" = "Тренировка произношения";
+"pronunciation_practice.instructions_description" = "Произнесите каждую фразу вслух. Вы сразу получите обратную связь, а затем увидите другой пример.";
+"pronunciation_practice.alternate_sentence" = "Другая фраза для тренировки: %@";
+"pronunciation_practice.practice_sentence" = "Тренировочная фраза";
+"pronunciation_practice.review_header" = "Просмотрите свою тренировку";
+"pronunciation_practice.alternate_sentence_title" = "Другой пример";
+"pronunciation_practice.transcript_title" = "Ваш транскрипт";
 
 // MARK: - Filter Messages
 "filters.practice_words_specific_language" = "Практикуйте слова из определённого языка";

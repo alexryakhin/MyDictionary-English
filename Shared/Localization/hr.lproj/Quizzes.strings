@@ -159,6 +159,9 @@
 "loading.loading_next_question" = "Učitavanje sljedećeg pitanja...";
 "loading.preparing_next_question" = "Umjetna inteligencija priprema sljedeće pitanje za vas.";
 "loading.failed_to_load_quiz" = "Neuspjelo učitavanje kviza";
+"loading.generating_pronunciation_sentences" = "Stvaranje vježbe izgovora...";
+"loading.pronunciation_description" = "AI priprema rečenice prilagođene tvojoj razini.";
+"loading.preparing_pronunciation" = "Priprema se tvoj kviz izgovora...";
 
 // MARK: - Quiz UI Elements
 "ui.question" = "Pitanje";
@@ -177,6 +180,17 @@
 "quiz_types.great_job_completed_sentence_writing_quiz" = "Odličan posao! Završili ste kviz pisanja rečenica.";
 "quiz_types.great_job_completed_context_quiz" = "Odličan posao! Završili ste kviz korištenja u kontekstu.";
 "quiz_types.great_job_completed_fill_in_the_blank_quiz" = "Odličan posao! Završili ste kviz ispunjavanja praznina.";
+"quiz_types.pronunciation_practice" = "Vježba izgovora";
+"quiz_types.pronunciation_practice_description" = "Vježbaj izgovor uz rečenice koje generira AI.";
+"quiz_types.great_job_completed_pronunciation_practice" = "Sjajan posao! Završio si vježbu izgovora.";
+
+"pronunciation_practice.instructions_title" = "Vježba izgovora";
+"pronunciation_practice.instructions_description" = "Izgovori naglas svaku rečenicu. Odmah ćeš dobiti povratnu informaciju, a zatim vidjeti još jedan primjer.";
+"pronunciation_practice.alternate_sentence" = "Još jedna rečenica za pokušaj: %@";
+"pronunciation_practice.practice_sentence" = "Rečenica za vježbu";
+"pronunciation_practice.review_header" = "Pregledaj svoju vježbu";
+"pronunciation_practice.alternate_sentence_title" = "Još jedan primjer";
+"pronunciation_practice.transcript_title" = "Tvoj transkript";
 
 // MARK: - Filter Messages
 "filters.practice_words_specific_language" = "Vježbaj riječi određenog jezika";

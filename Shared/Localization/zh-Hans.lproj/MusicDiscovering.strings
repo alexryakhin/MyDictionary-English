@@ -4,6 +4,7 @@
 "view.section.favorite_songs" = "收藏歌曲";
 "view.section.history" = "历史记录";
 "view.description" = "通过音乐学习语言。搜索你喜欢的歌曲或艺术家，AI 会为每一首歌生成课程和测验。";
+"view.emptyTitle" = "选择一首歌曲开始课程";
 
 // MARK: - Search
 "view.search.loading" = "正在搜索…";
@@ -72,6 +73,8 @@
 "player.lesson.ready" = "继续课程";
 "player.lesson.failed" = "加载课程出错，要重试吗？";
 "player.lesson.unavailable" = "无法生成课程";
+"player.playback.open_youtube" = "在 YouTube 上搜索";
+"player.playback.unavailable_message" = "Apple Music 暂不支持播放。可以试试 YouTube。";
 "player.tips.title" = "音乐课程小贴士";
 "player.tips.header" = "为课程做好准备";
 "player.tips.intro" = "找个安静的时间，接上耳机并准备好笔记本。练习前哼唱一遍会很有帮助。";
@@ -136,6 +139,18 @@
 "quiz.fill_blank.prompt" = "选择缺失的词语补全歌词。";
 "quiz.fill_blank.feedback.correct" = "干得漂亮！";
 "quiz.fill_blank.feedback.incorrect" = "继续探索歌词再试下一题吧。";
+"quiz.pronunciation.permissions_title" = "需要权限";
+"quiz.pronunciation.permissions_message" = "我们需要麦克风和语音识别权限来检查你的发音。";
+"quiz.pronunciation.prompt" = "请按照显示内容大声读出歌词。";
+"quiz.pronunciation.record_button" = "开始录音";
+"quiz.pronunciation.stop_button" = "停止";
+"quiz.pronunciation.listening" = "正在聆听…";
+"quiz.pronunciation.preview_text" = "实时转写";
+"quiz.pronunciation.result_text" = "你的发音";
+"quiz.pronunciation.correct_title" = "一切就绪！你的发音匹配。";
+"quiz.pronunciation.incorrect_title" = "继续聆听并再试一次。";
+"quiz.pronunciation.finish" = "完成";
+
 
 // MARK: - Authentication
 "auth.header.title" = "连接音乐服务";

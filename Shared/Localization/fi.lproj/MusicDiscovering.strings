@@ -4,6 +4,7 @@
 "view.section.favorite_songs" = "Lempikappaleet";
 "view.section.history" = "Historia";
 "view.description" = "Opiskele kieliä musiikin avulla. Etsi suosikkikappaleitasi tai -artistejasi. Tekoäly luo jokaiselle kappaleelle oppitunteja ja visoja.";
+"view.emptyTitle" = "Valitse kappale aloittaaksesi oppitunnin";
 
 // MARK: - Search
 "view.search.loading" = "Haetaan...";
@@ -72,6 +73,8 @@
 "player.lesson.ready" = "Jatka oppitunnille";
 "player.lesson.failed" = "Virhe oppitunnin latauksessa. Yritetäänkö uudelleen?";
 "player.lesson.unavailable" = "Oppituntia ei voitu luoda";
+"player.playback.open_youtube" = "Hae YouTubesta";
+"player.playback.unavailable_message" = "Toisto ei ole saatavilla Apple Musicissa. Kokeile YouTubea.";
 "player.tips.title" = "Vinkkejä musiikkioppitunnille";
 "player.tips.header" = "Valmistaudu oppituntiin";
 "player.tips.intro" = "Etsi rauhallinen hetki, liitä kuulokkeet jos sinulla on ja pidä muistivihko käden ulottuvilla. On hyödyllistä hyräillä kerran ennen harjoituksia.";
@@ -136,6 +139,18 @@
 "quiz.fill_blank.prompt" = "Täydennä sanoitus valitsemalla puuttuva sana.";
 "quiz.fill_blank.feedback.correct" = "Hyvin tehty!";
 "quiz.fill_blank.feedback.incorrect" = "Jatka sanoitusten tutkimista ja kokeile seuraavaa.";
+"quiz.pronunciation.permissions_title" = "Luvat tarvitaan";
+"quiz.pronunciation.permissions_message" = "Tarvitsemme mikrofonin ja puheentunnistuksen tarkistaaksemme ääntämyksesi.";
+"quiz.pronunciation.prompt" = "Sano sanoituksen rivi ääneen täsmälleen kuten se näkyy.";
+"quiz.pronunciation.record_button" = "Aloita nauhoitus";
+"quiz.pronunciation.stop_button" = "Pysäytä";
+"quiz.pronunciation.listening" = "Kuunnellaan...";
+"quiz.pronunciation.preview_text" = "Live-transkriptio";
+"quiz.pronunciation.result_text" = "Ääntämyksesi";
+"quiz.pronunciation.correct_title" = "Valmista! Ääntämyksesi täsmäsi.";
+"quiz.pronunciation.incorrect_title" = "Jatka kuuntelemista ja yritä uudelleen.";
+"quiz.pronunciation.finish" = "Valmis";
+
 
 // MARK: - Authentication
 "auth.header.title" = "Yhdistä musiikkipalveluihin";
