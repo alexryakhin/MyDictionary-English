@@ -16,6 +16,7 @@ final class WordCollectionDetailsViewModel: ObservableObject {
     @Published var collection: WordCollection
     @Published var isTranslating = false
     @Published var translationError: Error?
+    @Published private(set) var hasCompletedTranslation = false
     
     // MARK: - Private Properties
     
@@ -26,6 +27,10 @@ final class WordCollectionDetailsViewModel: ObservableObject {
     
     private var localeLanguageCode: String {
         Locale.current.language.languageCode?.identifier ?? "en"
+    }
+    
+    var shouldShowTranslateButton: Bool {
+        !hasCompletedTranslation && localeLanguageCode != collection.languageCode
     }
     
     // MARK: - Initialization
@@ -49,9 +54,11 @@ final class WordCollectionDetailsViewModel: ObservableObject {
         
         do {
             await performTranslation()
+            hasCompletedTranslation = true
         } catch {
             translationError = error
             print("❌ [WordCollectionDetailsViewModel] Translation failed: \(error)")
+            hasCompletedTranslation = false
         }
         
         isTranslating = false

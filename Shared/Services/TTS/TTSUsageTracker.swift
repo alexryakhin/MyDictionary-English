@@ -483,11 +483,14 @@ final class TTSUsageTracker: ObservableObject {
     }
 
     var timeSaved: String {
+        guard usageStats.totalCharacters > 0 else { return "0min" }
+
         // Estimate time saved based on reading speed (average 200 words per minute)
         let wordsPerMinute: Double = 200
         let charactersPerWord: Double = 5 // Average
         let totalWords = Double(usageStats.totalCharacters) / charactersPerWord
-        let timeToRead = totalWords / wordsPerMinute
+        let timeToReadMinutes = totalWords / wordsPerMinute
+        let timeInterval = timeToReadMinutes * 60 // Convert minutes to seconds for formatter
 
         let formatter = DateComponentsFormatter()
         formatter.allowedUnits = [.hour, .minute]
@@ -495,7 +498,7 @@ final class TTSUsageTracker: ObservableObject {
         formatter.maximumUnitCount = 2
         formatter.zeroFormattingBehavior = .dropAll
 
-        return formatter.string(from: timeToRead) ?? "0min"
+        return formatter.string(from: timeInterval) ?? "0min"
     }
 
     var providerUsagePercentage: Double {

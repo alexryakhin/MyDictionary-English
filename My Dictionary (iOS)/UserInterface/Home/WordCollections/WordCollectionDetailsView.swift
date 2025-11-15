@@ -145,8 +145,8 @@ struct WordCollectionDetailsView: View {
                         showAddToDictionary = true
                     }
 
-                    // Translation button (only show if locale is not English)
-                    if Locale.current.language.languageCode?.identifier != viewModel.collection.languageCode {
+                    // Translation button (only show if locale differs and translation not yet done)
+                    if viewModel.shouldShowTranslateButton {
                         AsyncActionButton(
                             Loc.WordCollections.translateDefinitions,
                             systemImage: "globe",
