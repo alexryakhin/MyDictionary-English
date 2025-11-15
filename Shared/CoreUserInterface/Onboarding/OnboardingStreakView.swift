@@ -103,10 +103,14 @@ extension OnboardingFlow {
                 }
                 
                 // Generate AI paywall content in background so it's ready when user reaches paywall
-                Task {
-                    logInfo("[OnboardingStreakView] Triggering paywall content prefetch")
-                    await PaywallContentService.shared.generatePaywallContent()
-                    logInfo("[OnboardingStreakView] Paywall content prefetch completed")
+                if viewModel.isAIPersonalizationEnabled {
+                    Task {
+                        logInfo("[OnboardingStreakView] Triggering paywall content prefetch")
+                        await PaywallContentService.shared.generatePaywallContent()
+                        logInfo("[OnboardingStreakView] Paywall content prefetch completed")
+                    }
+                } else {
+                    logInfo("[OnboardingStreakView] Skipping paywall prefetch – AI personalization disabled")
                 }
             }
         }

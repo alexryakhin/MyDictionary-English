@@ -12,6 +12,7 @@ enum UDKeys {
     static let hasCompletedOnboarding = "hasCompletedOnboarding"
     static let userDisplayName = "userDisplayName"
     static let userNickname = "userNickname"
+    static let aiPersonalizationAllowed = "aiPersonalizationAllowed"
 
     // Notification Settings
     static let dailyRemindersEnabled = "dailyRemindersEnabled"
@@ -100,6 +101,17 @@ enum UDService {
     static var userNickname: String? {
         get { UserDefaults.standard.string(forKey: UDKeys.userNickname) }
         set { UserDefaults.standard.set(newValue, forKey: UDKeys.userNickname) }
+    }
+
+    static var aiPersonalizationAllowed: Bool? {
+        get { UserDefaults.standard.object(forKey: UDKeys.aiPersonalizationAllowed) as? Bool }
+        set {
+            if let value = newValue {
+                UserDefaults.standard.set(value, forKey: UDKeys.aiPersonalizationAllowed)
+            } else {
+                UserDefaults.standard.removeObject(forKey: UDKeys.aiPersonalizationAllowed)
+            }
+        }
     }
 
     // Notification Settings

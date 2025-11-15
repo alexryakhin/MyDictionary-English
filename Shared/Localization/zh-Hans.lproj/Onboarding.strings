@@ -123,6 +123,17 @@
 "study_time_evening_range" = "18:00 - 23:00";
 "study_time_flexible_range" = "任何时间";
 
+
+// Privacy
+"ai_privacy_title" = "控制 AI 个性化";
+"ai_privacy_description" = "选择我们是否可以将你的入门档案（姓名、目标、学习语言、兴趣和学习计划）与我们的 AI 合作伙伴 OpenAI 共享，以便定制课程。我们绝不会发送你保存的单词或密码。";
+"ai_privacy_allow_title" = "启用个性化 AI";
+"ai_privacy_allow_description" = "分享你的学习目标，让测验、故事和付费页面提示都为你量身打造。";
+"ai_privacy_skip_title" = "使用标准 AI 提示";
+"ai_privacy_skip_description" = "保持你的资料私密。我们会使用通用提示，不会发送任何个人信息。";
+"ai_privacy_footer" = "你可以随时在 设置 → 隐私 中更改此选项。";
+"ai_privacy_policy_link" = "隐私政策";
+
 // Streak Introduction
 "build_your_learning_streak" = "建立您的学习连续记录！";
 "streak_intro_message" = "每天练习以建立您的连续记录并保持动力。不要打破链条！";

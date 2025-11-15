@@ -123,6 +123,17 @@
 "study_time_evening_range" = "18:00 - 23:00";
 "study_time_flexible_range" = "Oricând";
 
+
+// Privacy
+"ai_privacy_title" = "Controlează personalizarea AI";
+"ai_privacy_description" = "Alege dacă putem partaja profilul tău de onboarding (nume, obiective, limbi de studiu, interese și plan de studiu) cu partenerul nostru AI OpenAI pentru a adapta lecțiile. Nu îți trimitem niciodată cuvintele salvate sau parola.";
+"ai_privacy_allow_title" = "Activează AI personalizată";
+"ai_privacy_allow_description" = "Distribuie-ți obiectivele de învățare pentru ca testele, poveștile și sfaturile ecranului de plată să fie adaptate pentru tine.";
+"ai_privacy_skip_title" = "Folosește prompturi AI standard";
+"ai_privacy_skip_description" = "Păstrează-ți profilul privat. Vom folosi prompturi generice fără a trimite date personale.";
+"ai_privacy_footer" = "Poți schimba asta oricând în Setări → Confidențialitate.";
+"ai_privacy_policy_link" = "Politica de Confidențialitate";
+
 // Streak Introduction
 "build_your_learning_streak" = "Construiește-ți seria de învățare!";
 "streak_intro_message" = "Exersează în fiecare zi pentru a-ți construi seria și rămâi motivat. Nu rupe lanțul!";

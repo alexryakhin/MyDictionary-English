@@ -123,6 +123,17 @@
 "study_time_evening_range" = "18:00 - 23:00";
 "study_time_flexible_range" = "Bármikor";
 
+
+// Privacy
+"ai_privacy_title" = "Irányítsd az AI-személyre szabást";
+"ai_privacy_description" = "Válaszd ki, megoszthatjuk-e a beléptetési profilt (név, célok, tanult nyelvek, érdeklődési körök és tanulási terv) AI partnerünkkel, az OpenAI-jal a leckék testreszabásához. A mentett szavaidat vagy jelszavadat soha nem küldjük el.";
+"ai_privacy_allow_title" = "Személyre szabott AI engedélyezése";
+"ai_privacy_allow_description" = "Oszd meg tanulási céljaidat, hogy a kvízek, történetek és a fizetési fal tippek hozzád igazodjanak.";
+"ai_privacy_skip_title" = "Standard AI promptok használata";
+"ai_privacy_skip_description" = "Tartsd a profilodat privátnak. Általános promptokat használunk személyes adatok küldése nélkül.";
+"ai_privacy_footer" = "Ezt bármikor módosíthatod a Beállítások → Adatvédelem menüpontban.";
+"ai_privacy_policy_link" = "Adatvédelmi irányelvek";
+
 // Streak Introduction
 "build_your_learning_streak" = "Építsd fel a tanulási sorozatod!";
 "streak_intro_message" = "Gyakorolj minden nap, hogy felépítsd a sorozatod és motivált maradj. Ne szakítsd meg a láncot!";

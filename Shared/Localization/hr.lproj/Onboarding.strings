@@ -123,6 +123,17 @@
 "study_time_evening_range" = "18:00 - 23:00";
 "study_time_flexible_range" = "Bilo kada";
 
+
+// Privacy
+"ai_privacy_title" = "Kontroliraj personalizaciju AI-ja";
+"ai_privacy_description" = "Odluči možemo li tvoj onboarding profil (ime, ciljeve, jezike učenja, interese i plan učenja) podijeliti s našim AI partnerom OpenAI kako bismo prilagodili lekcije. Nikada ne šaljemo tvoje spremljene riječi ni lozinku.";
+"ai_privacy_allow_title" = "Omogući personalizirani AI";
+"ai_privacy_allow_description" = "Podijeli svoje ciljeve učenja kako bi kvizovi, priče i savjeti na stranici za plaćanje bili prilagođeni tebi.";
+"ai_privacy_skip_title" = "Koristi standardne AI upute";
+"ai_privacy_skip_description" = "Zadrži svoj profil privatnim. Koristit ćemo generičke upute bez slanja osobnih podataka.";
+"ai_privacy_footer" = "Ovo možeš promijeniti u bilo kojem trenutku u Postavke → Privatnost.";
+"ai_privacy_policy_link" = "Politika privatnosti";
+
 // Streak Introduction
 "build_your_learning_streak" = "Izgradite svoju seriju učenja!";
 "streak_intro_message" = "Vježbajte svaki dan da izgradite svoju seriju i ostanete motivirani. Ne prekidajte lanac!";

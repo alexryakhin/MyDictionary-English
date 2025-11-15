@@ -123,6 +123,17 @@
 "study_time_evening_range" = "18:00 - 23:00";
 "study_time_flexible_range" = "Her zaman";
 
+
+// Privacy
+"ai_privacy_title" = "Yapay zeka kişiselleştirmesini kontrol et";
+"ai_privacy_description" = "Dersleri uyarlamak için onboarding profilini (isim, hedefler, öğrenilen diller, ilgi alanları ve çalışma planı) AI ortağımız OpenAI ile paylaşıp paylaşamayacağımızı seç. Kaydedilmiş kelimelerini veya parolanı asla göndermeyiz.";
+"ai_privacy_allow_title" = "Kişiselleştirilmiş Yapay Zekayı etkinleştir";
+"ai_privacy_allow_description" = "Öğrenme hedeflerini paylaş ki testler, hikayeler ve ödeme duvarı ipuçları sana göre uyarlansın.";
+"ai_privacy_skip_title" = "Standart yapay zeka istemlerini kullan";
+"ai_privacy_skip_description" = "Profilini gizli tut. Kişisel bilgiler göndermeden genel istemler kullanacağız.";
+"ai_privacy_footer" = "Bunu istediğin zaman Ayarlar → Gizlilik bölümünde değiştirebilirsin.";
+"ai_privacy_policy_link" = "Gizlilik Politikası";
+
 // Streak Introduction
 "build_your_learning_streak" = "Öğrenme serinizi oluşturun!";
 "streak_intro_message" = "Serinizi oluşturmak ve motive kalmak için her gün pratik yapın. Zinciri kırmayın!";

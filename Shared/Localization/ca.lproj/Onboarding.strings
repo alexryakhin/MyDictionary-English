@@ -123,6 +123,17 @@
 "study_time_evening_range" = "18:00 - 23:00";
 "study_time_flexible_range" = "Qualsevol hora";
 
+
+// Privacy
+"ai_privacy_title" = "Controla la personalització amb IA";
+"ai_privacy_description" = "Tria si podem compartir el teu perfil d'onboarding (nom, objectius, idiomes d'estudi, interessos i pla d'estudi) amb el nostre soci d'IA OpenAI per adaptar les lliçons. No enviem mai les teves paraules desades ni la contrasenya.";
+"ai_privacy_allow_title" = "Activa l'IA personalitzada";
+"ai_privacy_allow_description" = "Comparteix els teus objectius d'aprenentatge perquè els qüestionaris, les històries i els consells de la pantalla de pagament s'adaptin a tu.";
+"ai_privacy_skip_title" = "Utilitza indicacions estàndard d'IA";
+"ai_privacy_skip_description" = "Mantén el teu perfil privat. Farem servir indicacions genèriques sense enviar dades personals.";
+"ai_privacy_footer" = "Ho pots canviar sempre que vulguis a Configuració → Privadesa.";
+"ai_privacy_policy_link" = "Política de privadesa";
+
 // Streak Introduction
 "build_your_learning_streak" = "Construeix la teva ratxa d'aprenentatge!";
 "streak_intro_message" = "Practica cada dia per construir la teva ratxa i mantenir-te motivat. No trenquis la cadena!";

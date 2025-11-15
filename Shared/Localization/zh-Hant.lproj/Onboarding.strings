@@ -123,6 +123,17 @@
 "study_time_evening_range" = "18:00 - 23:00";
 "study_time_flexible_range" = "任何時間";
 
+
+// Privacy
+"ai_privacy_title" = "控制 AI 個人化";
+"ai_privacy_description" = "選擇是否允許我們將你的啟動檔案（姓名、目標、學習語言、興趣與學習計畫）分享給 AI 合作夥伴 OpenAI，以便客製化課程。我們絕不會傳送你儲存的單字或密碼。";
+"ai_privacy_allow_title" = "啟用個人化 AI";
+"ai_privacy_allow_description" = "分享你的學習目標，讓測驗、故事與付費頁面提示為你量身打造。";
+"ai_privacy_skip_title" = "使用標準 AI 提示";
+"ai_privacy_skip_description" = "讓個人檔案維持私密。我們會使用通用提示，不會傳送任何個人資料。";
+"ai_privacy_footer" = "你可以隨時在 設定 → 隱私 中變更。";
+"ai_privacy_policy_link" = "隱私政策";
+
 // Streak Introduction
 "build_your_learning_streak" = "建立您的學習連續記錄！";
 "streak_intro_message" = "每天練習以建立您的連續記錄並保持動力。不要打破鏈條！";

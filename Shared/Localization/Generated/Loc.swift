@@ -1182,6 +1182,22 @@ public enum Loc {
     public static let adaptiveQuizzes = Loc.tr("Onboarding", "adaptive_quizzes", fallback: "Adaptive quizzes that learn from your progress")
     /// Add Language
     public static let addLanguage = Loc.tr("Onboarding", "add_language", fallback: "Add Language")
+    /// Control AI Personalization
+    public static let aiPrivacyTitle = Loc.tr("Onboarding", "ai_privacy_title", fallback: "Control AI Personalization")
+    /// Choose whether we can share your onboarding profile (name, goals, study languages, interests, and study plan) with our AI partner OpenAI to tailor lessons. We never send your saved words or password.
+    public static let aiPrivacyDescription = Loc.tr("Onboarding", "ai_privacy_description", fallback: "Choose whether we can share your onboarding profile (name, goals, study languages, interests, and study plan) with our AI partner OpenAI to tailor lessons. We never send your saved words or password.")
+    /// Enable Personalized AI
+    public static let aiPrivacyAllowTitle = Loc.tr("Onboarding", "ai_privacy_allow_title", fallback: "Enable Personalized AI")
+    /// Share your learning goals so quizzes, stories, and paywall tips are customized for you.
+    public static let aiPrivacyAllowDescription = Loc.tr("Onboarding", "ai_privacy_allow_description", fallback: "Share your learning goals so quizzes, stories, and paywall tips are customized for you.")
+    /// Use Standard AI Prompts
+    public static let aiPrivacySkipTitle = Loc.tr("Onboarding", "ai_privacy_skip_title", fallback: "Use Standard AI Prompts")
+    /// Keep your profile private. We'll use generic prompts without sending personal details.
+    public static let aiPrivacySkipDescription = Loc.tr("Onboarding", "ai_privacy_skip_description", fallback: "Keep your profile private. We'll use generic prompts without sending personal details.")
+    /// You can change this anytime in Settings → Privacy.
+    public static let aiPrivacyFooter = Loc.tr("Onboarding", "ai_privacy_footer", fallback: "You can change this anytime in Settings → Privacy.")
+    /// Privacy Policy
+    public static let aiPrivacyPolicyLink = Loc.tr("Onboarding", "ai_privacy_policy_link", fallback: "Privacy Policy")
     /// AI-powered practice for %@
     public static func aiPoweredPracticeForInterests(_ p1: Any) -> String {
       return Loc.tr("Onboarding", "ai_powered_practice_for_interests", String(describing: p1), fallback: "AI-powered practice for %@")

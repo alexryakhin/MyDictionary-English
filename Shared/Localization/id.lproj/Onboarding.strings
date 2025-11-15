@@ -123,6 +123,17 @@
 "study_time_evening_range" = "18:00 - 23:00";
 "study_time_flexible_range" = "Kapan saja";
 
+
+// Privacy
+"ai_privacy_title" = "Kendalikan personalisasi AI";
+"ai_privacy_description" = "Pilih apakah kami boleh membagikan profil onboarding Anda (nama, tujuan, bahasa yang dipelajari, minat, dan rencana belajar) dengan mitra AI kami, OpenAI, untuk menyesuaikan pelajaran. Kami tidak pernah mengirim kata yang disimpan atau kata sandi Anda.";
+"ai_privacy_allow_title" = "Aktifkan AI yang dipersonalisasi";
+"ai_privacy_allow_description" = "Bagikan tujuan belajar Anda agar kuis, cerita, dan tips di halaman pembayaran disesuaikan untuk Anda.";
+"ai_privacy_skip_title" = "Gunakan prompt AI standar";
+"ai_privacy_skip_description" = "Biarkan profil Anda tetap privat. Kami akan menggunakan prompt umum tanpa mengirim data pribadi.";
+"ai_privacy_footer" = "Anda dapat mengubahnya kapan saja di Pengaturan → Privasi.";
+"ai_privacy_policy_link" = "Kebijakan Privasi";
+
 // Streak Introduction
 "build_your_learning_streak" = "Bangun streak pembelajaran Anda!";
 "streak_intro_message" = "Berlatih setiap hari untuk membangun streak Anda dan tetap termotivasi. Jangan putus rantai!";

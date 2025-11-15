@@ -22,6 +22,10 @@ final class PaywallContentService: ObservableObject {
     private let cacheDuration: TimeInterval = 30 * 24 * 60 * 60 // 30 days
     private var cancellables = Set<AnyCancellable>()
     
+    private var isPersonalizationAllowed: Bool {
+        UDService.aiPersonalizationAllowed ?? true
+    }
+    
     private init() {
         loadCachedContent()
         setupSubscriptionObserver()
@@ -29,6 +33,11 @@ final class PaywallContentService: ObservableObject {
     
     /// Checks if AI paywall generation is needed based on user profile, subscription status, and cache age
     func shouldGeneratePaywall() -> Bool {
+        guard isPersonalizationAllowed else {
+            logInfo("[PaywallContentService] AI personalization disabled – skipping generation")
+            return false
+        }
+        
         // Check if user has profile data
         guard onboardingService.userProfile?.isCompleted == true else {
             logWarning("[PaywallContentService] No user profile - skipping AI generation")
@@ -108,6 +117,12 @@ final class PaywallContentService: ObservableObject {
     /// Generates AI paywall content and caches it
     func generatePaywallContent() async {
         logInfo("[PaywallContentService] generatePaywallContent() started")
+        
+        guard isPersonalizationAllowed else {
+            logInfo("[PaywallContentService] Personalization disabled – aborting generation")
+            return
+        }
+        
         guard let userProfile = onboardingService.userProfile else {
             logWarning("[PaywallContentService] No user profile available for AI generation")
             return

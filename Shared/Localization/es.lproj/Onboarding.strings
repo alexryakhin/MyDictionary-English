@@ -123,6 +123,17 @@
 "study_time_evening_range" = "18:00 - 23:00";
 "study_time_flexible_range" = "Cualquier momento";
 
+
+// Privacy
+"ai_privacy_title" = "Controla la personalización con IA";
+"ai_privacy_description" = "Elige si podemos compartir tu perfil de onboarding (nombre, objetivos, idiomas de estudio, intereses y plan de estudio) con nuestro socio de IA OpenAI para personalizar las lecciones. Nunca enviamos tus palabras guardadas ni tu contraseña.";
+"ai_privacy_allow_title" = "Activar IA personalizada";
+"ai_privacy_allow_description" = "Comparte tus objetivos de aprendizaje para que los cuestionarios, las historias y los consejos de la pantalla de pago se adapten a ti.";
+"ai_privacy_skip_title" = "Usar indicaciones estándar de IA";
+"ai_privacy_skip_description" = "Mantén tu perfil privado. Usaremos indicaciones genéricas sin enviar datos personales.";
+"ai_privacy_footer" = "Puedes cambiar esto en cualquier momento en Ajustes → Privacidad.";
+"ai_privacy_policy_link" = "Política de privacidad";
+
 // Streak Introduction
 "build_your_learning_streak" = "¡Construye tu racha de aprendizaje!";
 "streak_intro_message" = "Practica todos los días para construir tu racha y mantenerte motivado. ¡No rompas la cadena!";

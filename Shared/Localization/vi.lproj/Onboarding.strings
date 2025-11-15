@@ -123,6 +123,17 @@
 "study_time_evening_range" = "18:00 - 23:00";
 "study_time_flexible_range" = "Bất cứ lúc nào";
 
+
+// Privacy
+"ai_privacy_title" = "Kiểm soát cá nhân hóa AI";
+"ai_privacy_description" = "Chọn xem chúng tôi có thể chia sẻ hồ sơ onboarding của bạn (tên, mục tiêu, ngôn ngữ học, sở thích và kế hoạch học tập) với đối tác AI OpenAI để điều chỉnh bài học hay không. Chúng tôi không bao giờ gửi từ đã lưu hay mật khẩu của bạn.";
+"ai_privacy_allow_title" = "Bật AI được cá nhân hóa";
+"ai_privacy_allow_description" = "Chia sẻ mục tiêu học tập để bài kiểm tra, câu chuyện và gợi ý trên trang thanh toán được tùy chỉnh cho bạn.";
+"ai_privacy_skip_title" = "Dùng prompt AI tiêu chuẩn";
+"ai_privacy_skip_description" = "Giữ hồ sơ của bạn ở chế độ riêng tư. Chúng tôi sẽ dùng prompt chung mà không gửi thông tin cá nhân.";
+"ai_privacy_footer" = "Bạn có thể thay đổi bất cứ lúc nào trong Cài đặt → Quyền riêng tư.";
+"ai_privacy_policy_link" = "Chính sách bảo mật";
+
 // Streak Introduction
 "build_your_learning_streak" = "Xây dựng chuỗi học tập của bạn!";
 "streak_intro_message" = "Luyện tập mỗi ngày để xây dựng chuỗi và giữ động lực. Đừng phá vỡ chuỗi!";

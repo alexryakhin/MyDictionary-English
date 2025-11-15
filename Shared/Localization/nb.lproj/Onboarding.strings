@@ -123,6 +123,17 @@
 "study_time_evening_range" = "18:00 - 23:00";
 "study_time_flexible_range" = "Når som helst";
 
+
+// Privacy
+"ai_privacy_title" = "Kontroller AI-personalisering";
+"ai_privacy_description" = "Velg om vi kan dele onboardingprofilen din (navn, mål, læringsspråk, interesser og studieplan) med AI-partneren vår OpenAI for å skreddersy leksjoner. Vi sender aldri de lagrede ordene dine eller passordet ditt.";
+"ai_privacy_allow_title" = "Aktiver personlig AI";
+"ai_privacy_allow_description" = "Del læringsmålene dine slik at quizer, historier og tips på betalingsveggen tilpasses deg.";
+"ai_privacy_skip_title" = "Bruk standard AI-prompter";
+"ai_privacy_skip_description" = "Hold profilen din privat. Vi bruker generiske prompter uten å sende personlige detaljer.";
+"ai_privacy_footer" = "Du kan endre dette når som helst under Innstillinger → Personvern.";
+"ai_privacy_policy_link" = "Personvernerklæring";
+
 // Streak Introduction
 "build_your_learning_streak" = "Bygg læringsstreaken din!";
 "streak_intro_message" = "Øv hver dag for å bygge streaken din og hold motivasjonen. Ikke bryt kjeden!";

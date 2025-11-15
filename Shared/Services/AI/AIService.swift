@@ -59,6 +59,9 @@ final class AIService: ObservableObject {
     private let onboardingService = OnboardingService.shared
     private let authenticationService = AuthenticationService.shared
     private var cancellables = Set<AnyCancellable>()
+    private var isPersonalizationAllowed: Bool {
+        UDService.aiPersonalizationAllowed ?? true
+    }
 
     // MARK: - Initialization
 
@@ -260,7 +263,8 @@ final class AIService: ObservableObject {
 
     /// Gets user profile context for AI personalization
     private func getUserProfileContext() -> AIUserProfileContext? {
-        guard let profile = onboardingService.userProfile else { return nil }
+        guard isPersonalizationAllowed,
+              let profile = onboardingService.userProfile else { return nil }
         return AIUserProfileContext(from: profile)
     }
 

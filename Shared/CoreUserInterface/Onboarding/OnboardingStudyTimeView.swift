@@ -67,7 +67,7 @@ extension OnboardingFlow {
             .safeAreaBarIfAvailable {
                 ActionButton(Loc.Onboarding.continue, style: .borderedProminent) {
                     logInfo("[OnboardingStudyTimeView] Continue tapped – preferredStudyTime=\(viewModel.preferredStudyTime.rawValue)")
-                    viewModel.navigate(to: .streak)
+                    viewModel.navigate(to: .privacy)
                 }
                 .padding(vertical: 12, horizontal: 16)
             }

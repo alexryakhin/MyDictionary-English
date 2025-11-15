@@ -18,6 +18,7 @@ extension OnboardingFlow {
         case interests
         case studyIntensity
         case studyTime
+        case privacy
         case streak
         case notifications
         case paywall

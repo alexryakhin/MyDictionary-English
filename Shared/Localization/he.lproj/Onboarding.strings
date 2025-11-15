@@ -123,6 +123,17 @@
 "study_time_evening_range" = "18:00 - 23:00";
 "study_time_flexible_range" = "בכל זמן";
 
+
+// Privacy
+"ai_privacy_title" = "שליטה בהתאמה האישית של הבינה המלאכותית";
+"ai_privacy_description" = "בחר אם לשתף את פרופיל ההצטרפות שלך (שם, מטרות, שפות לימוד, תחומי עניין ותוכנית לימודים) עם שותפת ה-AI שלנו OpenAI כדי להתאים שיעורים. לעולם איננו שולחים את המילים השמורות או הסיסמה שלך.";
+"ai_privacy_allow_title" = "הפעלת בינה מלאכותית מותאמת אישית";
+"ai_privacy_allow_description" = "שתף את יעדי הלמידה שלך כדי שהחידונים, הסיפורים והטיפים במסך התשלום יתאימו לך.";
+"ai_privacy_skip_title" = "השתמש בהנחיות AI סטנדרטיות";
+"ai_privacy_skip_description" = "השאר את הפרופיל שלך פרטי. נשתמש בהנחיות כלליות מבלי לשלוח פרטים אישיים.";
+"ai_privacy_footer" = "תוכל לשנות זאת בכל עת תחת הגדרות → פרטיות.";
+"ai_privacy_policy_link" = "מדיניות פרטיות";
+
 // Streak Introduction
 "build_your_learning_streak" = "בנה את רצף הלמידה שלך!";
 "streak_intro_message" = "תרגל כל יום כדי לבנות את הרצף שלך ולהישאר מוטיבציה. אל תשבור את השרשרת!";

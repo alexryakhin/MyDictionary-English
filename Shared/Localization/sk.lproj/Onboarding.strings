@@ -123,6 +123,17 @@
 "study_time_evening_range" = "18:00 - 23:00";
 "study_time_flexible_range" = "Kedykoľvek";
 
+
+// Privacy
+"ai_privacy_title" = "Majte pod kontrolou personalizáciu AI";
+"ai_privacy_description" = "Vyberte si, či môžeme zdieľať váš onboardingový profil (meno, ciele, jazyky štúdia, záujmy a študijný plán) s naším AI partnerom OpenAI na prispôsobenie lekcií. Nikdy neposielame vaše uložené slová ani heslo.";
+"ai_privacy_allow_title" = "Povoliť personalizovanú AI";
+"ai_privacy_allow_description" = "Zdieľajte svoje študijné ciele, aby sa kvízy, príbehy a tipy na platobnej stránke prispôsobili vám.";
+"ai_privacy_skip_title" = "Použiť štandardné AI prompty";
+"ai_privacy_skip_description" = "Ponechajte svoj profil v súkromí. Budeme používať všeobecné prompty bez odosielania osobných údajov.";
+"ai_privacy_footer" = "Toto môžete kedykoľvek zmeniť v Nastavenia → Ochrana súkromia.";
+"ai_privacy_policy_link" = "Zásady ochrany osobných údajov";
+
 // Streak Introduction
 "build_your_learning_streak" = "Vybudujte si svoju sériu učenia!";
 "streak_intro_message" = "Cvičte každý deň, aby ste si vybudovali sériu a zostali motivovaní. Neprerušte reťaz!";

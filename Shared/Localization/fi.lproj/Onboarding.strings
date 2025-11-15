@@ -123,6 +123,17 @@
 "study_time_evening_range" = "18:00 - 23:00";
 "study_time_flexible_range" = "Milloin tahansa";
 
+
+// Privacy
+"ai_privacy_title" = "Hallitse tekoälyn personointia";
+"ai_privacy_description" = "Valitse, saammeko jakaa aloitusprofiilisi (nimi, tavoitteet, opiskelukielet, kiinnostuksen kohteet ja opintosuunnitelma) AI-kumppanimme OpenAI:n kanssa oppituntien räätälöimiseksi. Emme koskaan lähetä tallennettuja sanojasi tai salasanaasi.";
+"ai_privacy_allow_title" = "Ota personoitu tekoäly käyttöön";
+"ai_privacy_allow_description" = "Jaa oppimistavoitteesi, jotta visat, tarinat ja maksuseinän vinkit räätälöidään sinulle.";
+"ai_privacy_skip_title" = "Käytä vakiomuotoisia AI-kehotteita";
+"ai_privacy_skip_description" = "Pidä profiilisi yksityisenä. Käytämme yleisiä kehotteita lähettämättä henkilötietoja.";
+"ai_privacy_footer" = "Voit muuttaa tätä milloin tahansa kohdassa Asetukset → Tietosuoja.";
+"ai_privacy_policy_link" = "Tietosuojakäytäntö";
+
 // Streak Introduction
 "build_your_learning_streak" = "Rakenna oppimisputkesi!";
 "streak_intro_message" = "Harjoittele joka päivä rakentaaksesi putkesi ja pysyäksesi motivoituneena. Älä riko ketjua!";

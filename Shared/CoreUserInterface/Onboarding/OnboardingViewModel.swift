@@ -26,6 +26,7 @@ extension OnboardingFlow {
         @Published var completedSignIn: Bool = false
         @Published var isLoading: Bool = false
         @Published var errorMessage: String?
+        @Published var aiPersonalizationAllowed: Bool? = UDService.aiPersonalizationAllowed
 
         // MARK: - Properties
 
@@ -58,6 +59,24 @@ extension OnboardingFlow {
                 navigationPath.removeLast()
                 logInfo("[OnboardingViewModel] goBack() -> pathCount=\(navigationPath.count)")
             }
+        }
+
+        // MARK: - AI Personalization
+
+        func updateAIPersonalizationConsent(_ allowed: Bool) {
+            aiPersonalizationAllowed = allowed
+            UDService.aiPersonalizationAllowed = allowed
+
+            if allowed {
+                logInfo("[OnboardingViewModel] AI personalization enabled")
+            } else {
+                logWarning("[OnboardingViewModel] AI personalization disabled by user")
+                PaywallContentService.shared.clearCache()
+            }
+        }
+
+        var isAIPersonalizationEnabled: Bool {
+            aiPersonalizationAllowed ?? true
         }
 
         // MARK: - Progressive Saving

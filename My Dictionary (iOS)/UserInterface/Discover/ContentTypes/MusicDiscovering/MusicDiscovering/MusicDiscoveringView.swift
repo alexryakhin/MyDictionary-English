@@ -59,6 +59,11 @@ struct MusicDiscoveringView<ContentPicker: View>: View {
                     }
                 }
                 .padding(vertical: 12, horizontal: 16)
+                .if(isPad) { view in
+                    view
+                        .frame(maxWidth: 550, alignment: .center)
+                        .frame(maxWidth: .infinity, alignment: .center)
+                }
             } else {
                 MusicAuthenticationView()
                     .onDisappear {

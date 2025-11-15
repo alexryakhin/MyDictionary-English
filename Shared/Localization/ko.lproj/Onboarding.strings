@@ -123,6 +123,17 @@
 "study_time_evening_range" = "18:00 - 23:00";
 "study_time_flexible_range" = "언제든지";
 
+
+// Privacy
+"ai_privacy_title" = "AI 개인화를 제어하세요";
+"ai_privacy_description" = "레슨 맞춤화를 위해 온보딩 프로필(이름, 목표, 학습 언어, 관심사, 학습 계획)을 AI 파트너인 OpenAI와 공유할지 선택하세요. 저장된 단어나 비밀번호는 절대 보내지 않습니다.";
+"ai_privacy_allow_title" = "맞춤형 AI 활성화";
+"ai_privacy_allow_description" = "학습 목표를 공유하면 퀴즈, 스토리, 결제 화면 팁이 나에게 맞게 조정됩니다.";
+"ai_privacy_skip_title" = "표준 AI 프롬프트 사용";
+"ai_privacy_skip_description" = "프로필을 비공개로 유지하세요. 개인 정보를 보내지 않고 일반 프롬프트를 사용합니다.";
+"ai_privacy_footer" = "설정 → 개인정보에서 언제든지 변경할 수 있습니다.";
+"ai_privacy_policy_link" = "개인정보 처리방침";
+
 // Streak Introduction
 "build_your_learning_streak" = "학습 연속 기록을 만들어보세요!";
 "streak_intro_message" = "매일 연습하여 연속 기록을 만들고 동기를 유지하세요. 체인을 끊지 마세요!";

@@ -123,6 +123,17 @@
 "study_time_evening_range" = "18:00 - 23:00";
 "study_time_flexible_range" = "Bila-bila masa";
 
+
+// Privacy
+"ai_privacy_title" = "Kawal pemperibadian AI";
+"ai_privacy_description" = "Pilih sama ada kami boleh berkongsi profil onboarding anda (nama, matlamat, bahasa pembelajaran, minat dan pelan belajar) dengan rakan AI kami OpenAI untuk menyesuaikan pelajaran. Kami tidak pernah menghantar perkataan tersimpan atau kata laluan anda.";
+"ai_privacy_allow_title" = "Aktifkan AI diperibadikan";
+"ai_privacy_allow_description" = "Kongsi matlamat pembelajaran anda supaya kuiz, cerita dan tip di halaman pembayaran disesuaikan untuk anda.";
+"ai_privacy_skip_title" = "Gunakan prompt AI standard";
+"ai_privacy_skip_description" = "Biarkan profil anda kekal peribadi. Kami akan menggunakan prompt umum tanpa menghantar butiran peribadi.";
+"ai_privacy_footer" = "Anda boleh menukarnya pada bila-bila masa di Tetapan → Privasi.";
+"ai_privacy_policy_link" = "Dasar Privasi";
+
 // Streak Introduction
 "build_your_learning_streak" = "Bina streak pembelajaran anda!";
 "streak_intro_message" = "Berlatih setiap hari untuk membina streak anda dan tetap bermotivasi. Jangan putuskan rantai!";

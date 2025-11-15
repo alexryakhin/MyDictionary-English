@@ -72,6 +72,8 @@ enum OnboardingFlow {
                 OnboardingFlow.StudyIntensityView(viewModel: viewModel)
             case .studyTime:
                 OnboardingFlow.StudyTimeView(viewModel: viewModel)
+            case .privacy:
+                OnboardingFlow.PrivacyView(viewModel: viewModel)
             case .streak:
                 OnboardingFlow.StreakView(viewModel: viewModel)
             case .notifications:

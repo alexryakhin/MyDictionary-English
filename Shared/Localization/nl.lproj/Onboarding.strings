@@ -123,6 +123,17 @@
 "study_time_evening_range" = "18:00 - 23:00";
 "study_time_flexible_range" = "Elke tijd";
 
+
+// Privacy
+"ai_privacy_title" = "AI-personalisatie beheren";
+"ai_privacy_description" = "Kies of we je onboardingprofiel (naam, doelen, studietalen, interesses en studieplan) mogen delen met onze AI-partner OpenAI om lessen te personaliseren. We verzenden nooit je opgeslagen woorden of wachtwoord.";
+"ai_privacy_allow_title" = "Gepersonaliseerde AI inschakelen";
+"ai_privacy_allow_description" = "Deel je leerdoelen zodat quizzen, verhalen en tips op de betalingspagina op jou worden afgestemd.";
+"ai_privacy_skip_title" = "Standaard AI-prompts gebruiken";
+"ai_privacy_skip_description" = "Houd je profiel privé. We gebruiken generieke prompts zonder persoonlijke gegevens te versturen.";
+"ai_privacy_footer" = "Je kunt dit altijd wijzigen via Instellingen → Privacy.";
+"ai_privacy_policy_link" = "Privacybeleid";
+
 // Streak Introduction
 "build_your_learning_streak" = "Bouw je leerreeks op!";
 "streak_intro_message" = "Oefen elke dag om je reeks op te bouwen en gemotiveerd te blijven. Breek de ketting niet!";
