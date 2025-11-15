@@ -83,12 +83,6 @@ struct PronunciationQuizRecorderView: View {
                 )
             }
 
-            if let error = viewModel.errorMessage, error.isNotEmpty {
-                Text(error)
-                    .font(.caption)
-                    .foregroundStyle(.red)
-            }
-
             if viewModel.currentState.isCorrect != true {
                 recordButton
             }

@@ -83,18 +83,12 @@ struct PronunciationQuizRecorderView: View {
                 )
             }
 
-            if let error = viewModel.errorMessage, error.isNotEmpty {
-                Text(error)
-                    .font(.caption)
-                    .foregroundColor(.red)
-            }
-
             if viewModel.currentState.isCorrect != true {
                 recordButton
             }
         }
         .padding(20)
-        .background(Color(NSColor.controlBackgroundColor))
+        .background(.secondarySystemGroupedBackground)
         .cornerRadius(16)
         .shadow(color: Color.black.opacity(0.05), radius: 8, x: 0, y: 4)
     }

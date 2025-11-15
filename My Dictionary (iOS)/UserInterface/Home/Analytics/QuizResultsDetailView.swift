@@ -52,9 +52,20 @@ enum QuizResultsList {
         var body: some View {
             VStack(alignment: .leading, spacing: 12) {
                 // Header with date and quiz type
-                HStack {
+                HStack(spacing: 12) {
+                    // Quiz Icon
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 8)
+                            .fill(session.quizColor.gradient)
+                            .frame(width: 36, height: 36)
+
+                        Image(systemName: session.quizIconName)
+                            .font(.system(size: 20, weight: .medium))
+                            .foregroundStyle(.white)
+                    }
+
                     VStack(alignment: .leading, spacing: 4) {
-                        Text(session.quiz?.title ?? Loc.Quizzes.QuizResults.quiz)
+                        Text(session.quiz?.title ?? session.quizTitleFromType)
                             .font(.headline)
                             .fontWeight(.semibold)
 

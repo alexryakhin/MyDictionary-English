@@ -29,7 +29,6 @@ extension SongLesson {
         @Published private(set) var isProcessingResult: Bool = false
         @Published private(set) var liveTranscription: String = ""
         @Published private(set) var lineStates: [Int: LineState] = [:]
-        @Published var errorMessage: String?
 
         private var isFinishingAttempt: Bool = false
 
@@ -127,7 +126,7 @@ extension SongLesson {
                 return
             }
             guard let recognizer = speechRecognizer, recognizer.isAvailable else {
-                errorMessage = Loc.Errors.cannotSetupAudioSession
+                logError("[SpeechQuizViewModel] Recognition error")
                 return
             }
 
@@ -168,7 +167,7 @@ extension SongLesson {
 
                     if let error {
                         Task { @MainActor in
-                            self.errorMessage = error.localizedDescription
+                            logError("[SpeechQuizViewModel] Recognition error: \(error.localizedDescription)")
                             await self.completeCurrentAttempt(spokenText: self.liveTranscription)
                         }
                     }
@@ -177,7 +176,7 @@ extension SongLesson {
                 isRecording = true
             } catch {
                 resetRecognition()
-                errorMessage = error.localizedDescription
+                logError("[SpeechQuizViewModel] Recognition error: \(error.localizedDescription)")
             }
         }
 

@@ -98,12 +98,6 @@ extension SongLesson {
                     explanation
                 }
 
-                if let error = viewModel.errorMessage, error.isNotEmpty {
-                    Text(error)
-                        .font(.caption)
-                        .foregroundColor(.red)
-                }
-
                 let isCorrectScore = viewModel.currentState.score == 1
                 if !isCorrectScore {
                     recordButton

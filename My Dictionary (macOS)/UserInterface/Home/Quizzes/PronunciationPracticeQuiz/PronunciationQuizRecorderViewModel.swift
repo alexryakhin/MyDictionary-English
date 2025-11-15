@@ -22,7 +22,6 @@ final class PronunciationQuizRecorderViewModel: ObservableObject {
     @Published private(set) var isProcessingResult: Bool = false
     @Published private(set) var liveTranscription: String = ""
     @Published private(set) var lineStates: [Int: LineState] = [:]
-    @Published var errorMessage: String?
 
     private let config: PronunciationQuizConfig
     private var speechRecognizer: SFSpeechRecognizer?
@@ -104,7 +103,7 @@ final class PronunciationQuizRecorderViewModel: ObservableObject {
             return
         }
         guard let recognizer = speechRecognizer, recognizer.isAvailable else {
-            errorMessage = Loc.Errors.cannotSetupAudioSession
+            logError("[PronunciationQuizRecorderViewModel] Recognition error")
             return
         }
 
@@ -145,7 +144,7 @@ final class PronunciationQuizRecorderViewModel: ObservableObject {
 
                 if let error {
                     Task { @MainActor in
-                        self.errorMessage = error.localizedDescription
+                        logError("[PronunciationQuizRecorderViewModel] Recognition error: \(error.localizedDescription)")
                         await self.completeCurrentAttempt(spokenText: self.liveTranscription)
                     }
                 }
@@ -154,7 +153,7 @@ final class PronunciationQuizRecorderViewModel: ObservableObject {
             isRecording = true
         } catch {
             resetRecognition()
-            errorMessage = error.localizedDescription
+            logError("[PronunciationQuizRecorderViewModel] Recognition error: \(error.localizedDescription)")
         }
     }
 

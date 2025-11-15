@@ -98,19 +98,13 @@ extension SongLesson {
                     explanation
                 }
 
-                if let error = viewModel.errorMessage, error.isNotEmpty {
-                    Text(error)
-                        .font(.caption)
-                        .foregroundColor(.red)
-                }
-
                 let isCorrectScore = viewModel.currentState.score == 1
                 if !isCorrectScore {
                     recordButton
                 }
             }
             .padding(20)
-            .background(Color(NSColor.controlBackgroundColor))
+            .background(.tertiarySystemGroupedBackground)
             .cornerRadius(16)
             .shadow(color: Color.black.opacity(0.05), radius: 8, x: 0, y: 4)
         }
