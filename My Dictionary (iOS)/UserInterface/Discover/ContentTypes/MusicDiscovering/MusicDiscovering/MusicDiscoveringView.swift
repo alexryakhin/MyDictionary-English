@@ -257,7 +257,9 @@ struct MusicDiscoveringView<ContentPicker: View>: View {
 
     @ViewBuilder
     private var searchResultsSection: some View {
-        let width = UIScreen.main.fixedCoordinateSpace.bounds.width / 2 - 6 - 32
+        let width = isPad
+        ? 550 / 2 - 6 - 32
+        : UIScreen.main.fixedCoordinateSpace.bounds.width / 2 - 6 - 32
         if viewModel.isSearching {
             CustomSectionView(header: Loc.MusicDiscovering.View.Search.loading) {
                 LazyVGrid(
