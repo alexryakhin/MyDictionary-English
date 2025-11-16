@@ -207,6 +207,22 @@ private extension LRCLibService {
             guard let filtered else {
                 throw MusicError.lyricsNotFound
             }
+            
+            // If the duration is an exact match, try fetching the full lyrics
+            // to prefer synced lyrics when available.
+            if filtered.roundedDurationSeconds == durationSeconds {
+                do {
+                    return try await fetchLyrics(
+                        trackName: filtered.trackName,
+                        artistName: filtered.artistName,
+                        albumName: filtered.albumName,
+                        durationSeconds: durationSeconds
+                    )
+                } catch {
+                    // If fetching full lyrics fails, fall back to the search result
+                    logError("[LRCLibService] Exact match fetch failed, falling back to search result: \(error.localizedDescription)")
+                }
+            }
             return filtered.toSongLyrics()
         } catch let error as MusicError {
             throw error
