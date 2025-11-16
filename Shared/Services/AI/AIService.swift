@@ -113,7 +113,7 @@ final class AIService: ObservableObject {
         case paywall(userProfile: UserOnboardingProfile, userLanguage: InputLanguage)
         case musicPreListenHook(song: Song, targetLanguage: InputLanguage) // CEFR level is determined by AI
         case musicLesson(song: Song, lyrics: String, targetLanguage: InputLanguage, cefrLevel: CEFRLevel) // Plain lyrics (no timestamps)
-        case musicRecommendations(language: InputLanguage, userProfile: UserOnboardingProfile) // AI generates 2 songs per CEFR level
+        case musicRecommendations(language: InputLanguage) // AI generates 2 songs per CEFR level
         case pronunciationPractice(words: [AIPronunciationPracticeWordInput])
     }
 
@@ -244,16 +244,11 @@ final class AIService: ObservableObject {
                 song: song,
                 lyrics: lyrics,
                 targetLanguage: targetLanguage,
-                songCEFR: cefrLevel,
-                userLanguage: getCurrentAppLanguage()
+                songCEFR: cefrLevel
             )
             
-        case .musicRecommendations(let language, let userProfile):
-            return buildMusicRecommendationsPrompt(
-                language: language,
-                userProfile: userProfile,
-                userLanguage: getCurrentAppLanguage()
-            )
+        case .musicRecommendations(let language):
+            return buildMusicRecommendationsPrompt(language: language)
         case .pronunciationPractice(let words):
             return buildPronunciationPracticePrompt(words: words)
         }
@@ -627,8 +622,7 @@ extension AIService {
         song: Song,
         lyrics: String,
         targetLanguage: InputLanguage,
-        songCEFR: CEFRLevel,
-        userLanguage: InputLanguage
+        songCEFR: CEFRLevel
     ) -> String {
         return """
         IMPORTANT: This is for EDUCATIONAL PURPOSES in a language learning application. Analyze a song to help a user learn \(targetLanguage.englishName).
@@ -653,6 +647,7 @@ extension AIService {
            - Explain meaning, context, and cultural significance
            - Keep explanations appropriate for \(songCEFR.rawValue) level
            - All explanations in \(targetLanguage.englishName) (fully in the target language)
+           - Lines should be adapted (removed contractions, special characters, apostrophes, etc. - For example, "'cause" should be "because", "ain't" should be "is not")
         
         2. VOCABULARY WORDS, IDIOMS, PHRASES, AND EXPRESSIONS:
            - Based on the song's title, artist, and cultural context, provide 10-15 important idioms, phrases, and expressions that would typically appear in this type of song
@@ -758,33 +753,27 @@ extension AIService {
         """
     }
     
-    private func buildMusicRecommendationsPrompt(
-        language: InputLanguage,
-        userProfile: UserOnboardingProfile,
-        userLanguage: InputLanguage
-    ) -> String {
-        let studyLanguages = userProfile.studyLanguages.map { "\($0.language.englishName) (\($0.proficiencyLevel.rawValue))" }.joined(separator: ", ")
-        let interests = userProfile.interests.map { $0.rawValue }.joined(separator: ", ")
-        let ageGroup = userProfile.ageGroup.rawValue
-
+    private func buildMusicRecommendationsPrompt(language: InputLanguage) -> String {
         return """
         IMPORTANT: This is for EDUCATIONAL PURPOSES in a language learning application. Generate music recommendations for language learning.
-        
-        USER PROFILE:
-        - Study Languages: \(studyLanguages)
-        - Age Group: \(ageGroup)
-        - Interests: \(interests)
-        - Learning Goals: \(userProfile.learningGoals.map { $0.rawValue }.joined(separator: ", "))
-        - Weekly Word Goal: \(userProfile.weeklyWordGoal) words
         
         TARGET LANGUAGE: \(language.englishName)
         
         TASK:
-        Generate exactly 12 song recommendations (2 songs for each CEFR level) that are:
-        - All in \(language.englishName) language
-        - Have clear pronunciation and lyrics
-        - Culturally relevant and popular
+        Generate exactly 12-20 song recommendations (at least 2 songs for each CEFR level) that are:
+        - All performed IN \(language.englishName) (original recordings, not translations of titles)
+        - By artists who primarily sing in \(language.englishName) (avoid global English artists unless they have original songs in \(language.englishName), and only choose those songs)
+        - Widely available and easy to find on Apple Music in the relevant region (prefer well-known tracks or artists with mainstream presence)
+        - Have clear pronunciation and intelligible lyrics
+        - Culturally relevant and popular enough to be discoverable
         - Appropriate for their assigned CEFR level
+        
+        HARD CONSTRAINTS (must follow):
+        1) LANGUAGE MATCH: Each song must be originally performed in \(language.englishName). Do NOT include songs in other languages. If uncertain about the language, pick a different song.
+        2) ORIGINAL TITLES: Provide the official song titles in the original language and script (no translated titles in the output).
+        3) APPLE MUSIC AVAILABILITY: Prefer charting or widely-known tracks that a typical user can find on Apple Music. Avoid obscure demos, niche indie releases with limited distribution, live bootlegs, or unreleased tracks.
+        4) EXCLUSIONS: Avoid remixes and live versions unless they are the most canonical version of a very famous track and easily found.
+        5) IF IN DOUBT: If the language or availability is ambiguous, replace with a safer, more popular track in \(language.englishName).
         
         For each song, provide:
         - Title: Song title

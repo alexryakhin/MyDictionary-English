@@ -238,10 +238,7 @@ final class MusicRecommendationService {
         let aiResponse: AIMusicRecommendationsResponse
         do {
             aiResponse = try await aiService.request(
-                .musicRecommendations(
-                    language: language,
-                    userProfile: userProfile
-                )
+                .musicRecommendations(language: language)
             )
             print("✅ [MusicRecommendationService] Received response from OpenAI: \(aiResponse.songs.count) songs across all CEFR levels")
         } catch {
