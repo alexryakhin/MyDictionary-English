@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dictionary (Multi-language) - Learn Vocabulary with AI</title>
+    <meta name="description" content="Master vocabulary in any language with My Dictionary - learn through understanding meanings, not translations. Build your personal dictionary with AI-powered definitions and achieve true fluency across multiple languages!">
+    <meta name="keywords" content="dictionary,vocabulary,word,quiz,language,learn,english,idiom,sync,definition,game,list,education,ai,multi-language">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/app-icon.png">
+    <link rel="apple-touch-icon" href="images/app-icon.png">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mydictionary.app/">
+    <meta property="og:title" content="My Dictionary (Multi-language) - Learn Vocabulary with AI">
+    <meta property="og:description" content="Master vocabulary in any language with My Dictionary - learn through understanding meanings, not translations. Build your personal dictionary with AI-powered definitions and achieve true fluency across multiple languages!">
+    <meta property="og:image" content="https://mydictionary.app/images/og-image.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://mydictionary.app/">
+    <meta property="twitter:title" content="My Dictionary (Multi-language) - Learn Vocabulary with AI">
+    <meta property="twitter:description" content="Master vocabulary in any language with My Dictionary - learn through understanding meanings, not translations. Build your personal dictionary with AI-powered definitions and achieve true fluency across multiple languages!">
+    <meta property="twitter:image" content="https://mydictionary.app/images/twitter-image.png">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #ffffff;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo img {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 8rem 0 4rem 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #28a745;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: #6c757d;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+        }
+
+        .cta-button.secondary {
+            background: white;
+            color: #28a745;
+            border: 2px solid #28a745;
+        }
+
+        .cta-button.secondary:hover {
+            background: #28a745;
+            color: white;
+        }
+
+        /* Philosophy Section */
+        .philosophy {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .philosophy-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .philosophy-text h2 {
+            font-size: 2.5rem;
+            color: #28a745;
+            margin-bottom: 1rem;
+        }
+
+        .philosophy-subtitle {
+            font-size: 1.2rem;
+            color: #6c757d;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .story-section {
+            margin-bottom: 3rem;
+        }
+
+        .story-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #495057;
+            margin-bottom: 1.5rem;
+        }
+
+        .philosophy-highlight {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .philosophy-highlight h3 {
+            color: #28a745;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .philosophy-points {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .point {
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #28a745;
+        }
+
+        .point strong {
+            color: #28a745;
+        }
+
+        .learning-journey {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .journey-step {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .journey-step:hover {
+            transform: translateY(-5px);
+        }
+
+        .step-number {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            color: #28a745;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .step-content p {
+            color: #6c757d;
+            margin: 0;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: #28a745;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: #6c757d;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .feature-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border-left: 4px solid #28a745;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(40, 167, 69, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 0rem;
+        }
+
+        .feature-icon img {
+            width: 180px;
+            height: 180px;
+            object-fit: contain;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            color: #28a745;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            color: #6c757d;
+            line-height: 1.6;
+        }
+
+        /* Screenshots Section */
+        .screenshots {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .screenshot-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .screenshot-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .screenshot-placeholder {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c757d;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .screenshot-image {
+            width: 100%;
+            height: 400px;
+            object-fit: contain;
+            border-radius: 10px 10px 0 0;
+            padding: 16px;
+            box-sizing: border-box;
+        }
+
+        .screenshot-info {
+            padding: 1.5rem;
+        }
+
+        .screenshot-info h3 {
+            color: #28a745;
+            margin-bottom: 0.5rem;
+        }
+
+        .screenshot-info p {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .pricing-card.featured {
+            border-color: #28a745;
+            transform: scale(1.05);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-5px);
+        }
+
+        .pricing-header h3 {
+            color: #28a745;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #28a745;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .pricing-features li {
+            padding: 0.5rem 0;
+            color: #6c757d;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 0.75rem 2rem;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .pricing-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+        }
+
+        /* Download Section */
+        .download {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .download h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .download p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .download-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .download-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: white;
+            color: #28a745;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .download-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            background: #343a40;
+            color: white;
+            padding: 3rem 0 1rem 0;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #28a745;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #adb5bd;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: #28a745;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #495057;
+            color: #adb5bd;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .philosophy-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .philosophy-text h2 {
+                font-size: 2rem;
+            }
+
+            .journey-step {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .screenshots-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .download-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .reviews-summary {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .rating-stats {
+                gap: 1rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Reviews Section */
+        .reviews {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .review-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .stars {
+            font-size: 1.2rem;
+        }
+
+        .reviewer-info {
+            text-align: right;
+        }
+
+        .reviewer-info strong {
+            display: block;
+            color: #28a745;
+            font-size: 1.1rem;
+        }
+
+        .reviewer-info span {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+
+        .review-text {
+            color: #495057;
+            line-height: 1.6;
+            font-style: italic;
+            margin: 0;
+        }
+
+        .reviews-summary {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .rating {
+            text-align: center;
+        }
+
+        .rating-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #28a745;
+            line-height: 1;
+        }
+
+        .rating-stars {
+            font-size: 1.5rem;
+            margin: 0.5rem 0;
+        }
+
+        .rating-text {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+
+        .rating-stats {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 2rem;
+            color: #28a745;
+            line-height: 1;
+        }
+
+        .stat span {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+
+        .star-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 2px;
+        }
+
+        .stars {
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <img src="images/app-icon.png" alt="My Dictionary App Icon">
+                My Dictionary (Multi-language)
+            </div>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#screenshots">Screenshots</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#download">Download</a></li>
+                <li><a href="legal.html">Legal</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="fade-in-up">Learn Vocabulary with AI</h1>
+            <p class="hero-subtitle fade-in-up">
+                Master vocabulary in any language with My Dictionary! Learn through understanding meanings, not translations. 
+                Build your personal dictionary with AI-powered definitions and achieve true fluency across multiple languages.
+            </p>
+            <div class="cta-buttons fade-in-up">
+                <a href="#download" class="cta-button">
+                    Download Now
+                </a>
+                <a href="#features" class="cta-button secondary">
+                    Learn More
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="philosophy">
+        <div class="container">
+            <div class="philosophy-content">
+                <div class="philosophy-text">
+                    <h2>Understand, Don't Just Translate</h2>
+                    <p class="philosophy-subtitle">The story behind My Dictionary and why understanding beats translation every time.</p>
+                    
+                    <div class="story-section">
+                        <p>My name is Alexander, and I'm the creator of My Dictionary. Four years ago, I was struggling to learn English as a Russian speaker with no English-speaking environment around me. I was tired of traditional translation-based learning methods that never seemed to stick.</p>
+                        
+                        <p>Then I discovered a powerful concept: <strong>learn every language as if it's your first</strong>. Instead of constantly translating between languages, I started building understanding through meanings and context. I would write definitions in Russian to explain English words, not translate them. This created a deeper, more natural understanding.</p>
+                        
+                        <p>But doing this manually in textbooks was exhausting. So I built My Dictionary to automate this process and make it accessible to everyone. As my English improved, I naturally transitioned to writing definitions in English itself, building true fluency.</p>
+                        
+                        <p>Today, I'm fluent in English and use it as my primary language for daily life. I'm proud of this journey and want every language learner to experience the same transformation.</p>
+                    </div>
+                    
+                    <div class="philosophy-highlight">
+                        <h3>Why Understanding Beats Translation</h3>
+                        <div class="philosophy-points">
+                            <div class="point">
+                                <strong>Deep Learning:</strong> Understanding meanings creates lasting knowledge, not just word-for-word memorization.
+                            </div>
+                            <div class="point">
+                                <strong>Natural Fluency:</strong> You learn to think in the target language, not constantly translate in your head.
+                            </div>
+                            <div class="point">
+                                <strong>Context Mastery:</strong> You grasp how words work in different situations, not just their dictionary equivalents.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="philosophy-visual">
+                    <div class="learning-journey">
+                        <div class="journey-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Start with Understanding</h4>
+                                <p>Learn meanings in your native language to build solid foundations</p>
+                            </div>
+                        </div>
+                        <div class="journey-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Build Context</h4>
+                                <p>See words in real examples and situations, not isolated translations</p>
+                            </div>
+                        </div>
+                        <div class="journey-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Achieve Fluency</h4>
+                                <p>Think naturally in your target language without mental translation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose My Dictionary?</h2>
+                <p>AI-powered features designed to make vocabulary learning effective, collaborative, and enjoyable across multiple languages.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="images/chat-with-ai.svg" alt="AI Definitions Image">
+                    </div>
+                    <h3>AI-Powered Definitions</h3>
+                    <p>Advanced AI-generated definitions with comprehensive word meanings, multiple contexts, examples, and support for idioms and phrases.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="images/images.svg" alt="Visual Learning Image">
+                    </div>
+                    <h3>Visual Learning with Images</h3>
+                    <p>Attach custom images to your words for enhanced memory retention. Add visual context that makes vocabulary stick and accelerates your learning journey.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="images/around-the-world.svg" alt="Multi-Language Support Image">
+                    </div>
+                    <h3>Multi-Language Support</h3>
+                    <p>Support for multiple languages including English, German, Russian, Croatian, and more with automatic language detection.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="images/collection.svg" alt="Word Collections Image">
+                    </div>
+                    <h3>Word Collections</h3>
+                    <p>Explore pre-built vocabulary collections like "Top 50 Spanish Words" for structured learning. Personalize your learning preferences to match your goals and interests.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="images/push-notifications.svg" alt="Smart Notifications Image">
+                    </div>
+                    <h3>Smart Notifications</h3>
+                    <p>Stay consistent with random word notifications during your study time. Track your learning streak and get intelligent reminders to practice difficult words.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="images/interactive-quizzes.svg" alt="Interactive Quizzes Image">
+                    </div>
+                    <h3>Interactive Quizzes</h3>
+                    <p>Engage with interactive quizzes including Sentence Writing Quiz with AI feedback, Context Multiple Choice Quiz, and Fill in the Blank Quiz with AI guidance and explanations.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="images/progress-analytics.svg" alt="Progress Analytics Image">
+                    </div>
+                    <h3>Progress Analytics & Streaks</h3>
+                    <p>Track your learning progress with detailed insights, statistics, and performance metrics. Monitor your learning streak to stay motivated and consistent.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="images/smart-organization.svg" alt="Smart Organization Image">
+                    </div>
+                    <h3>Smart Organization</h3>
+                    <p>Create custom tags with color coding, organize vocabulary with difficulty tracking, and filter words for targeted practice.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="images/shared-dictionaries.svg" alt="Shared Dictionaries Image">
+                    </div>
+                    <h3>Collaborative Learning</h3>
+                    <p>Create and share dictionaries with friends and family, real-time collaboration, and role-based access control.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots Section -->
+    <section id="screenshots" class="screenshots">
+        <div class="container">
+            <div class="section-header">
+                <h2>See My Dictionary in Action</h2>
+                <p>Beautiful, intuitive interface designed for effective vocabulary learning.</p>
+            </div>
+            
+            <div class="screenshots-grid">
+                <div class="screenshot-card">
+                    <img src="images/screenshot-ios-main.png" alt="iOS Main Screen" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="screenshot-info">
+                        <h3>Your Personal Vocabulary Hub</h3>
+                        <p>Build and organize your word collection with smart tags, difficulty tracking, and instant search across all your devices</p>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <img src="images/screenshot-macos-interface.png" alt="macOS Interface" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="screenshot-info">
+                        <h3>Powerful Desktop Experience</h3>
+                        <p>Full-featured macOS app with advanced editing, sidebar navigation, and seamless sync with your mobile devices</p>
+                    </div>
+                </div>
+                                
+                <div class="screenshot-card">
+                    <img src="images/screenshot-details.png" alt="Rich Definitions" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="screenshot-info">
+                        <h3>Visual Learning with Rich Definitions</h3>
+                        <p>AI-powered definitions with multiple meanings, examples, and custom images that make vocabulary stick in your memory</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <img src="images/screenshot-quiz.png" alt="Quiz Mode" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="screenshot-info">
+                        <h3>Engaging Quiz Experience</h3>
+                        <p>Test your knowledge with interactive quizzes featuring AI feedback, multiple choice, and fill-in-the-blank challenges</p>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <img src="images/screenshot-multilanguage.png" alt="Multi-Language Support" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="screenshot-info">
+                        <h3>30+ Languages Supported</h3>
+                        <p>Learn vocabulary in any language with automatic detection, pronunciation guides, and localized definitions</p>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <img src="images/screenshot-settings.png" alt="Settings & Customization" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="screenshot-info">
+                        <h3>Personalized Learning Settings</h3>
+                        <p>Customize your experience with smart notifications, TTS voices, study reminders, and learning preferences</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Reviews Section -->
+    <section class="reviews">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Our Users Say</h2>
+                <p>Join thousands of satisfied learners who have transformed their vocabulary with My Dictionary.</p>
+            </div>
+            
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars" data-rating="5"></div>
+                        <div class="reviewer-info">
+                            <strong>Hydrangia</strong>
+                            <span>United Kingdom</span>
+                        </div>
+                    </div>
+                    <p class="review-text">"I'm very pleased with this app. I can now key in words that I'm not familiar with and test myself with the quiz. So far everything in the app is working well and I'm enjoying it. It's great that it syncs as well as I have it on another device."</p>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars" data-rating="5"></div>
+                        <div class="reviewer-info">
+                            <strong>Branwiches</strong>
+                            <span>United States</span>
+                        </div>
+                    </div>
+                    <p class="review-text">"I've been looking for something basic and simple like this for over a YEAR. This little My Dictionary app is SO easy to use and EXACTLY what I was looking for. I also LOVE that it lets you enter in your own examples!! This has been so handy since I often forget where I initially read the word."</p>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars" data-rating="5"></div>
+                        <div class="reviewer-info">
+                            <strong>Am0rdad</strong>
+                            <span>United States</span>
+                        </div>
+                    </div>
+                    <p class="review-text">"Thank you for creating this. I searched a lot to find this perfection. Actually even better in this format. Thank you."</p>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars" data-rating="5"></div>
+                        <div class="reviewer-info">
+                            <strong>TAdi47</strong>
+                            <span>India</span>
+                        </div>
+                    </div>
+                    <p class="review-text">"Absolutely love this app. Great to build your vocabulary and practice the use of these words, apart from spelling and meaning another quiz could be added where you can practice the use of these words. Great job kudos to the team!! :)"</p>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars" data-rating="5"></div>
+                        <div class="reviewer-info">
+                            <strong>_lynn！</strong>
+                            <span>United States</span>
+                        </div>
+                    </div>
+                    <p class="review-text">"I'm looking for an app which can make my own quizzes for months. And I'm so happy to find the idioms section!! This little app definitely has everything for building your own dictionary! Best dictionary app ever."</p>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars" data-rating="5"></div>
+                        <div class="reviewer-info">
+                            <strong>lovoxide</strong>
+                            <span>United States</span>
+                        </div>
+                    </div>
+                    <p class="review-text">"I beg beg beg and plead, add compatibility between users. My friends and I are looking for a shared dictionary app, where we can all have our own dictionaries, and then a large combined overlapping one, the market has NONE."</p>
+                </div>
+            </div>
+            
+            <div class="reviews-summary">
+                <div class="rating">
+                    <div class="rating-number">4.8</div>
+                    <div class="rating-stars" data-rating="5"></div>
+                    <div class="rating-text">out of 5 stars</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Choose Your Plan</h2>
+                <p>Start free and upgrade when you need advanced features.</p>
+            </div>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Free</h3>
+                        <div class="pricing-price">$0</div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>✓ Multi-language support</li>
+                        <li>✓ Basic word collections</li>
+                        <li>✓ Basic quizzes</li>
+                        <li>✓ Progress tracking & streaks</li>
+                        <li>✓ Cross-platform sync</li>
+                        <li>✓ Smart organization</li>
+                    </ul>
+                    <a href="#download" class="pricing-button">Get Started Free</a>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <div class="pricing-header">
+                        <h3>Pro</h3>
+                        <div class="pricing-price">$3.99<span style="font-size: 1rem;">/month</span></div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>✓ Everything in Free</li>
+                        <li>✓ AI-powered definitions</li>
+                        <li>✓ Visual learning with images</li>
+                        <li>✓ Advanced word collections</li>
+                        <li>✓ AI-powered quizzes with feedback</li>
+                        <li>✓ Smart notifications</li>
+                        <li>✓ Create shared dictionaries</li>
+                        <li>✓ Advanced analytics</li>
+                        <li>✓ Priority customer support</li>
+                    </ul>
+                    <a href="#download" class="pricing-button">Start With Pro</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Pro Yearly</h3>
+                        <div class="pricing-price">$29.99<span style="font-size: 1rem;">/year</span></div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>✓ Everything in Pro</li>
+                        <li>✓ 37% savings vs monthly</li>
+                        <li>✓ Best value for long-term users</li>
+                        <li>✓ Early access to new features</li>
+                    </ul>
+                    <a href="#download" class="pricing-button">Save 37%</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="download">
+        <div class="container">
+            <h2>Download My Dictionary Today</h2>
+            <p>Available on iOS and macOS. Master vocabulary in any language with AI-powered definitions and collaborative features!</p>
+            
+            <div class="download-buttons">
+                <a href="https://apps.apple.com/us/app/my-dictionary-english/id1588418793" class="download-button">
+                    <img src="images/apple-logo-black.svg" alt="Apple Logo" style="width: 16px; height: 20px;">
+                    Download on App Store
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>My Dictionary (Multi-language)</h3>
+                <p>Master vocabulary in any language with AI-powered definitions, collaborative features, and advanced analytics.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Features</h3>
+                <a href="#features">AI-Powered Definitions</a>
+                <a href="#features">Multi-Language Support</a>
+                <a href="#features">AI-Powered Quizzes</a>
+                <a href="#features">Smart Organization</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Support</h3>
+                <a href="mailto:bonney977@gmail.com">Contact Support</a>
+                <a href="legal.html">Legal Documents</a>
+                <a href="mailto:bonney977@gmail.com">Send Feedback</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <a href="mailto:bonney977@gmail.com">Email Us</a>
+                <a href="https://x.com/xander1100001" target="_blank">Twitter</a>
+                <a href="https://www.instagram.com/ar_x101/" target="_blank">Instagram</a>
+                <a href="https://www.linkedin.com/in/xander1100001/" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 My Dictionary (Multi-language). All rights reserved. Made with ❤️ for language learners.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all feature cards and screenshot cards
+        document.querySelectorAll('.feature-card, .screenshot-card, .pricing-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Star Rating Component
+        function createStars(container, rating) {
+            container.innerHTML = '';
+            for (let i = 0; i < rating; i++) {
+                const star = document.createElement('img');
+                star.src = 'images/star.svg';
+                star.alt = 'Star';
+                star.className = 'star-icon';
+                container.appendChild(star);
+            }
+        }
+
+        // Initialize all star ratings
+        function initializeStarRatings() {
+            const starContainers = document.querySelectorAll('.stars, .rating-stars');
+            starContainers.forEach(container => {
+                const rating = parseInt(container.getAttribute('data-rating')) || 5;
+                createStars(container, rating);
+            });
+        }
+
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeStarRatings();
+        });
+    </script>
+</body>
+</html>

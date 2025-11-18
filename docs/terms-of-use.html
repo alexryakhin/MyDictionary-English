@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Use - My Dictionary</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 3px solid #28a745;
+            position: relative;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #28a745, #20c997);
+            border-radius: 2px;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #28a745;
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            color: #6c757d;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .date {
+            color: #28a745;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .section {
+            margin-bottom: 2.5rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border-left: 4px solid #28a745;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.1);
+        }
+
+        .section h2 {
+            color: #28a745;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section h2::before {
+            content: '📋';
+            font-size: 1.2rem;
+        }
+
+        .section h3 {
+            color: #495057;
+            font-size: 1.1rem;
+            margin: 1.5rem 0 0.5rem 0;
+            padding-left: 1rem;
+            border-left: 2px solid #28a745;
+        }
+
+        .section p {
+            margin-bottom: 1rem;
+            color: #495057;
+        }
+
+        .section ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .section li {
+            margin-bottom: 0.5rem;
+            color: #495057;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #d4edda 0%, #c3e6cb 100%);
+            padding: 1rem;
+            border-radius: 10px;
+            border-left: 4px solid #28a745;
+            margin: 1rem 0;
+        }
+
+        .warning {
+            background: linear-gradient(120deg, #fff3cd 0%, #ffeaa7 100%);
+            padding: 1rem;
+            border-radius: 10px;
+            border-left: 4px solid #ffc107;
+            margin: 1rem 0;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .contact-info h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0.5rem;
+        }
+
+        .back-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            margin-top: 1rem;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .logo {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">📚 My Dictionary</div>
+            <div class="subtitle">Terms of Use</div>
+            <div class="date">Last updated: November 2025</div>
+        </div>
+
+        <div class="section">
+            <h2>Agreement to Terms</h2>
+            <p>Welcome to My Dictionary! These Terms of Use ("Terms") govern your use of our vocabulary learning application and services. By downloading, installing, or using My Dictionary, you agree to be bound by these Terms.</p>
+            
+            <div class="highlight">
+                <strong>Important:</strong> Please read these Terms carefully before using our app. If you do not agree to these Terms, please do not use My Dictionary.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Description of Service</h2>
+            <p>My Dictionary is a vocabulary learning application that provides:</p>
+            <ul>
+                <li>Personal dictionary creation and management</li>
+                <li>Vocabulary learning tools and quizzes</li>
+                <li>Collaborative dictionary features</li>
+                <li>Progress tracking and analytics</li>
+                <li>Cross-platform synchronization</li>
+                <li>Import and export functionality</li>
+                <li>AI-powered definitions, stories, quizzes, and personalized recommendations delivered through OpenAI APIs</li>
+                <li>Music-based lessons and listening activities delivered through Apple Music and MusicKit</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>User Accounts & Registration</h2>
+            
+            <h3>Account Creation</h3>
+            <ul>
+                <li>You must provide accurate and complete information when creating an account</li>
+                <li>You are responsible for maintaining the security of your account credentials</li>
+                <li>You must be at least 13 years old to create an account</li>
+                <li>One account per person is allowed</li>
+            </ul>
+
+            <h3>Account Responsibilities</h3>
+            <ul>
+                <li>You are responsible for all activities that occur under your account</li>
+                <li>You must notify us immediately of any unauthorized use of your account</li>
+                <li>You may not share your account credentials with others</li>
+                <li>You may not create accounts for others without their consent</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Acceptable Use Policy</h2>
+            
+            <h3>You May:</h3>
+            <ul>
+                <li>Use the app for personal vocabulary learning</li>
+                <li>Create and manage your own dictionaries</li>
+                <li>Collaborate with others on shared dictionaries</li>
+                <li>Export your data for personal use</li>
+                <li>Use the app on multiple devices with the same account</li>
+            </ul>
+
+            <h3>You May Not:</h3>
+            <ul>
+                <li>Use the app for any illegal or unauthorized purpose</li>
+                <li>Upload content that is offensive, harmful, or violates others' rights</li>
+                <li>Attempt to gain unauthorized access to other users' accounts or data</li>
+                <li>Use automated systems to access the service</li>
+                <li>Interfere with or disrupt the app's functionality</li>
+                <li>Reverse engineer or attempt to extract source code</li>
+                <li>Use the app to spam or harass other users</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Content & Intellectual Property</h2>
+            
+            <h3>Your Content</h3>
+            <ul>
+                <li>You retain ownership of the vocabulary words and content you create</li>
+                <li>You grant us a license to store and process your content for app functionality</li>
+                <li>You are responsible for ensuring you have rights to any content you add</li>
+                <li>You may delete your content at any time</li>
+            </ul>
+
+            <h3>Our Content</h3>
+            <ul>
+                <li>The app, its design, and features are owned by us</li>
+                <li>You may not copy, modify, or distribute our content without permission</li>
+                <li>Our trademarks and branding are protected</li>
+            </ul>
+
+            <h3>Third-Party Content</h3>
+            <ul>
+                <li>We may provide access to third-party content (definitions, translations, Apple Music previews, lyrics)</li>
+                <li>Third-party content is subject to their respective terms and licenses</li>
+                <li>We are not responsible for third-party content accuracy or availability</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>AI-Powered Features</h2>
+            <p>Some experiences rely on OpenAI models to generate definitions, stories, quizzes, music lessons, or recommendations.</p>
+            <h3>Your Responsibilities</h3>
+            <ul>
+                <li>Provide lawful, non-sensitive prompts (no personal health, financial, or biometric data)</li>
+                <li>Review AI outputs before sharing or relying on them—generated content may contain mistakes</li>
+                <li>Report problematic generations so we can improve safety filters</li>
+            </ul>
+            <h3>Our Commitments</h3>
+            <ul>
+                <li>We send only the data required to fulfill the AI feature you request</li>
+                <li>We disclose that OpenAI processes your prompts under their API terms</li>
+                <li>We may store outputs in your account so you can revisit previous lessons</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Subscription & Payment Terms</h2>
+            
+            <h3>Free Features</h3>
+            <ul>
+                <li>Basic dictionary functionality is free</li>
+                <li>Limited export capabilities</li>
+                <li>Basic analytics and progress tracking</li>
+            </ul>
+
+            <h3>Premium Features</h3>
+            <ul>
+                <li>Unlimited exports and imports</li>
+                <li>Advanced analytics and insights</li>
+                <li>Priority customer support</li>
+                <li>Collaborative dictionary features</li>
+            </ul>
+
+            <h3>Payment & Billing</h3>
+            <ul>
+                <li>Subscriptions are billed through Apple App Store or Google Play Store</li>
+                <li>Subscriptions automatically renew unless cancelled</li>
+                <li>You can cancel subscriptions through your device's settings</li>
+                <li>Refunds are subject to Apple/Google's refund policies</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Collaborative Features</h2>
+            
+            <h3>Shared Dictionaries</h3>
+            <ul>
+                <li>You can create and share dictionaries with other users</li>
+                <li>You control who has access to your shared dictionaries</li>
+                <li>Collaborators can view and edit shared content</li>
+                <li>You can remove collaborators at any time</li>
+            </ul>
+
+            <h3>Collaboration Rules</h3>
+            <ul>
+                <li>Respect other users' contributions</li>
+                <li>Do not add inappropriate or offensive content</li>
+                <li>Be mindful of shared dictionary purposes</li>
+                <li>Report any misuse of collaborative features</li>
+            </ul>
+
+            <div class="warning">
+                <strong>Note:</strong> We are not responsible for content added by other users to shared dictionaries. Use collaborative features at your own discretion.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Privacy & Data Protection</h2>
+            <p>Your privacy is important to us. Our collection and use of your personal information is governed by our Privacy Policy, which is incorporated into these Terms by reference.</p>
+            
+            <h3>Data Security</h3>
+            <ul>
+                <li>We implement industry-standard security measures</li>
+                <li>Your data is encrypted during transmission and storage</li>
+                <li>We regularly update our security practices</li>
+                <li>You are responsible for keeping your account secure</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Service Availability & Updates</h2>
+            
+            <h3>Service Availability</h3>
+            <ul>
+                <li>We strive to maintain high service availability</li>
+                <li>Service may be temporarily unavailable for maintenance</li>
+                <li>We are not liable for temporary service interruptions</li>
+                <li>We will notify users of planned maintenance when possible</li>
+            </ul>
+
+            <h3>Updates & Changes</h3>
+            <ul>
+                <li>We may update the app and these Terms from time to time</li>
+                <li>Material changes will be communicated to users</li>
+                <li>Continued use after changes constitutes acceptance</li>
+                <li>You can reject changes by discontinuing use</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Limitation of Liability</h2>
+            
+            <div class="warning">
+                <strong>Important:</strong> To the maximum extent permitted by law, we shall not be liable for any indirect, incidental, special, consequential, or punitive damages.
+            </div>
+
+            <h3>Our Liability</h3>
+            <ul>
+                <li>We provide the app "as is" without warranties</li>
+                <li>We are not liable for data loss or corruption</li>
+                <li>We are not liable for third-party content accuracy</li>
+                <li>Our total liability is limited to the amount you paid for the service</li>
+            </ul>
+
+            <h3>Your Responsibility</h3>
+            <ul>
+                <li>You are responsible for backing up your data</li>
+                <li>You use the app at your own risk</li>
+                <li>You are responsible for your interactions with other users</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Termination</h2>
+            
+            <h3>Account Termination</h3>
+            <ul>
+                <li>You may delete your account at any time</li>
+                <li>We may terminate accounts that violate these Terms</li>
+                <li>Upon termination, your data will be deleted within 30 days</li>
+                <li>Shared content may remain if other users are active</li>
+            </ul>
+
+            <h3>Effect of Termination</h3>
+            <ul>
+                <li>Your access to the app will cease immediately</li>
+                <li>You will lose access to your data and subscriptions</li>
+                <li>Provisions that survive termination remain in effect</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Governing Law & Disputes</h2>
+            
+            <h3>Governing Law</h3>
+            <p>These Terms are governed by the laws of [Your Jurisdiction], without regard to conflict of law principles.</p>
+
+            <h3>Dispute Resolution</h3>
+            <ul>
+                <li>We encourage resolving disputes through direct communication</li>
+                <li>Contact us at support@mydictionary.app for assistance</li>
+                <li>Legal disputes will be resolved in [Your Jurisdiction] courts</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>MusicKit & Apple Music</h2>
+            <p>Our music discovery and lesson features rely on Apple Music, MusicKit, and media provided by Apple. By enabling these features you agree to the Apple Media Services Terms.</p>
+            <h3>Requirements</h3>
+            <ul>
+                <li>An active Apple Music subscription linked to the same Apple ID</li>
+                <li>MusicKit authorization on each device</li>
+                <li>Compliance with Apple’s usage rules, including no audio downloading or redistribution</li>
+            </ul>
+            <h3>Limitations</h3>
+            <ul>
+                <li>Playback is streamed via MusicKit; offline caching is not available</li>
+                <li>Availability of specific songs may vary by region or licensing agreements</li>
+                <li>We may suspend music features if Apple revokes access or if you violate these terms</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Third-Party Services & Integrations</h2>
+            <ul>
+                <li><strong>OpenAI:</strong> Provides AI-generated educational content. Governed by OpenAI API terms.</li>
+                <li><strong>Firebase (Google):</strong> Powers authentication, analytics, and remote config.</li>
+                <li><strong>RevenueCat:</strong> Manages subscriptions and purchase validation.</li>
+                <li><strong>Apple Music / MusicKit:</strong> Streams licensed audio and provides catalog metadata.</li>
+            </ul>
+            <p>By using features that depend on these partners you also agree to their respective policies.</p>
+        </div>
+
+        <div class="section">
+            <h2>Miscellaneous</h2>
+            
+            <h3>Entire Agreement</h3>
+            <p>These Terms, together with our Privacy Policy, constitute the entire agreement between you and us regarding the app.</p>
+
+            <h3>Severability</h3>
+            <p>If any provision of these Terms is found to be unenforceable, the remaining provisions will remain in effect.</p>
+
+            <h3>Waiver</h3>
+            <p>Our failure to enforce any provision of these Terms does not constitute a waiver of that provision.</p>
+        </div>
+
+        <div class="contact-info">
+            <h2>Contact Us</h2>
+            <p>If you have any questions about these Terms of Use, please contact us:</p>
+            <p><strong>Email:</strong> bonney977@gmail.com</p>
+            <p><strong>Support:</strong> bonney977@gmail.com</p>
+            <p>We're here to help and will respond to your inquiries promptly.</p>
+        </div>
+
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="index.html" class="back-button">← Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>
