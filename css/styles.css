@@ -559,9 +559,80 @@ body {
 
 .screenshots-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     margin-top: 3rem;
+}
+
+.screenshots-grid.macos {
+    max-width: 1200px;
+    margin: 3rem auto 0;
+}
+
+.screenshots-grid.macos .screenshot-card {
+    overflow: visible;
+    padding: 2rem;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.screenshots-grid.macos .screenshot-image {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100% !important;
+    max-height: 500px !important;
+    object-fit: contain !important;
+    object-position: center;
+    border-radius: 0;
+    padding: 0;
+    display: block;
+    margin: 0 auto;
+}
+
+.screenshots-horizontal-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 3rem;
+    -webkit-overflow-scrolling: touch;
+}
+
+.screenshots-horizontal-wrapper::-webkit-scrollbar {
+    height: 8px;
+}
+
+.screenshots-horizontal-wrapper::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.screenshots-horizontal-wrapper::-webkit-scrollbar-thumb {
+    background: #28a745;
+    border-radius: 10px;
+}
+
+.screenshots-horizontal-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #20c997;
+}
+
+.screenshots-horizontal {
+    display: flex;
+    gap: 2rem;
+    padding: 1rem 2rem 2rem;
+    scroll-snap-type: x mandatory;
+    width: max-content;
+    min-width: 100%;
+}
+
+.screenshots-horizontal .screenshot-card {
+    flex: 0 0 400px;
+    scroll-snap-align: start;
 }
 
 .screenshot-card {
@@ -595,6 +666,14 @@ body {
     border-radius: 10px 10px 0 0;
     padding: 16px;
     box-sizing: border-box;
+}
+
+.screenshots-grid.macos .screenshot-image {
+    height: auto;
+    max-height: none;
+    object-fit: none;
+    padding: 0;
+    border-radius: 0;
 }
 
 .screenshot-info {
@@ -997,6 +1076,14 @@ body {
 
     .screenshots-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .screenshots-horizontal {
+        padding: 1rem 1.5rem 2rem;
+    }
+    
+    .screenshots-horizontal .screenshot-card {
+        flex: 0 0 320px;
     }
 
     .pricing-grid {
