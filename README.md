@@ -77,7 +77,7 @@ Welcome to **My Dictionary**, a comprehensive vocabulary learning platform desig
 
 ## User Reviews
 
-**4.8 out of 5 stars** • **75 Ratings** • **17 Reviews**
+**4.8 out of 5 stars**
 
 ### ⭐⭐⭐⭐⭐ "Very useful app" - Hydrangia (UK)
 *"I'm very pleased with this app. I can now key in words that I'm not familiar with and test myself with the quiz. So far everything in the app is working well and I'm enjoying it. It's great that it syncs as well as I have it on another device."*
