@@ -25,29 +25,34 @@
     <meta property="twitter:description" content="Organize and master your vocabulary with the most powerful personal dictionary tool. Collect, organize, and manage words across 50+ languages.">
     <meta property="twitter:image" content="https://mydictionary.org/images/twitter-image.png">
 
+    <link rel="stylesheet" href="css/apple-design-system.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dark-mode.css">
+    
+    <meta name="color-scheme" content="light dark">
 </head>
 <body>
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
     <!-- Header -->
-    <header class="header">
-        <nav class="nav">
+    <header class="header" role="banner">
+        <nav class="nav" role="navigation" aria-label="Main navigation">
             <div class="logo">
                 <img src="images/app-icon.png" alt="My Dictionary App Icon">
-                My Dictionary
+                <span>My Dictionary</span>
             </div>
-            <ul class="nav-links">
-                <li><a href="#features">Features</a></li>
-                <li><a href="#how-it-works">How It Works</a></li>
-                <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#faq">FAQ</a></li>
-                <li><a href="#download">Download</a></li>
-                <li><a href="legal.html">Legal</a></li>
+            <ul class="nav-links" role="list">
+                <li role="listitem"><a href="#features" aria-label="View features">Features</a></li>
+                <li role="listitem"><a href="#how-it-works" aria-label="Learn how it works">How It Works</a></li>
+                <li role="listitem"><a href="#pricing" aria-label="View pricing">Pricing</a></li>
+                <li role="listitem"><a href="#faq" aria-label="View frequently asked questions">FAQ</a></li>
+                <li role="listitem"><a href="#download" aria-label="Download the app">Download</a></li>
+                <li role="listitem"><a href="legal.html" aria-label="View legal documents">Legal</a></li>
             </ul>
         </nav>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section id="main-content" class="hero">
         <div class="hero-content">
             <h1 class="fade-in-up">Organize Your Vocabulary.<br>Master Every Word.</h1>
             <p class="hero-subtitle fade-in-up">
@@ -56,10 +61,10 @@
                 Stop collecting words you forget. Start organizing the ones that matter.
             </p>
             <div class="cta-buttons fade-in-up">
-                <a href="#download" class="cta-button">
+                <a href="#download" class="cta-button" aria-label="Download My Dictionary for free">
                     Download For Free
                 </a>
-                <a href="#how-it-works" class="cta-button secondary">
+                <a href="#how-it-works" class="cta-button secondary" aria-label="Learn more about My Dictionary">
                     Learn More
                 </a>
             </div>
