@@ -6,12 +6,12 @@ This directory contains screenshots for the My Dictionary website. The website i
 
 To add screenshots to your website, save your app screenshots with the following filenames:
 
-1. **`screenshot-ios-main.jpg`** - Main iOS app screen showing the dictionary interface
-2. **`screenshot-macos-interface.jpg`** - macOS app interface showing desktop experience
-3. **`screenshot-quiz-mode.jpg`** - Quiz mode or interactive learning interface
-4. **`screenshot-analytics.jpg`** - Analytics dashboard or progress tracking screen
-5. **`screenshot-shared-dictionary.jpg`** - Shared dictionary or collaboration features
-6. **`screenshot-settings.jpg`** - Settings or customization screen
+1. **`screenshot-ios-main.png`** - Main iOS app screen showing the dictionary interface
+2. **`screenshot-macos-interface.png`** - macOS app interface showing desktop experience
+3. **`screenshot-quiz-mode.png`** - Quiz mode or interactive learning interface
+4. **`screenshot-analytics.png`** - Analytics dashboard or progress tracking screen
+5. **`screenshot-shared-dictionary.png`** - Shared dictionary or collaboration features
+6. **`screenshot-settings.png`** - Settings or customization screen
 
 ## Image Requirements
 

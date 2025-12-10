@@ -29,6 +29,12 @@ body {
     transition: var(--transition-standard);
 }
 
+@media (prefers-color-scheme: dark) {
+    .header {
+        background: rgba(28, 28, 30, 0.8);
+    }
+}
+
 .nav {
     max-width: var(--container-max-width);
     margin: 0 auto;
@@ -928,6 +934,12 @@ body {
     background: var(--color-text-primary);
     color: white;
     padding: var(--spacing-3xl) 0 var(--spacing-md) 0;
+}
+
+@media (prefers-color-scheme: dark) {
+    .footer {
+        background: var(--color-background-secondary);
+    }
 }
 
 .footer-content {
