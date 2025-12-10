@@ -107,9 +107,53 @@ function initializeFAQ() {
     });
 }
 
+// Lightbox functionality for screenshots
+function initializeLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightbox-image');
+    const lightboxClose = document.querySelector('.lightbox-close');
+    const lightboxOverlay = document.querySelector('.lightbox-overlay');
+    const screenshotImages = document.querySelectorAll('.screenshot-image');
+    
+    function openLightbox(imageSrc, imageAlt) {
+        lightboxImage.src = imageSrc;
+        lightboxImage.alt = imageAlt;
+        lightbox.classList.add('active');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+    }
+    
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+        lightbox.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = ''; // Restore scrolling
+    }
+    
+    // Open lightbox on screenshot click
+    screenshotImages.forEach(image => {
+        image.addEventListener('click', function() {
+            openLightbox(this.src, this.alt);
+        });
+    });
+    
+    // Close lightbox on close button click
+    lightboxClose.addEventListener('click', closeLightbox);
+    
+    // Close lightbox on overlay click
+    lightboxOverlay.addEventListener('click', closeLightbox);
+    
+    // Close lightbox on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+            closeLightbox();
+        }
+    });
+}
+
 // Initialize everything when page loads
 document.addEventListener('DOMContentLoaded', function() {
     initializeStarRatings();
     initializeFAQ();
+    initializeLightbox();
 });
 
