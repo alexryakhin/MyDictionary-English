@@ -185,7 +185,7 @@ body {
 }
 
 .problem-card {
-    background: var(--color-background-secondary);
+    background: var(--color-background);
     padding: var(--spacing-lg);
     border-radius: var(--radius-large);
     text-align: center;
@@ -347,7 +347,7 @@ body {
 /* FAQ Section */
 .faq {
     padding: 80px 0;
-    background: var(--color-background);
+    background: var(--color-background-secondary);
 }
 
 .faq-list {
@@ -356,7 +356,7 @@ body {
 }
 
 .faq-item {
-    background: var(--color-background-secondary);
+    background: var(--color-background);
     margin-bottom: var(--spacing-md);
     border-radius: var(--radius-large);
     overflow: hidden;
@@ -411,7 +411,7 @@ body {
 /* Philosophy Section */
 .philosophy {
     padding: 80px 0;
-    background: var(--color-background);
+    background: var(--color-background-secondary);
 }
 
 .philosophy-content {
@@ -449,7 +449,7 @@ body {
 }
 
 .philosophy-highlight {
-    background: var(--color-background-secondary);
+    background: var(--color-background);
     padding: var(--spacing-lg);
     border-radius: var(--radius-large);
     box-shadow: var(--shadow-card);
@@ -491,7 +491,7 @@ body {
     display: flex;
     align-items: center;
     gap: var(--spacing-lg);
-    background: var(--color-background-secondary);
+    background: var(--color-background);
     padding: var(--spacing-lg);
     border-radius: var(--radius-large);
     box-shadow: var(--shadow-card);
@@ -536,7 +536,7 @@ body {
 /* Features Section */
 .features {
     padding: 80px 0;
-    background: var(--color-background-secondary);
+    background: var(--color-background);
 }
 
 .container {
@@ -617,7 +617,7 @@ body {
 /* Screenshots Section */
 .screenshots {
     padding: 80px 0;
-    background: var(--color-background);
+    background: var(--color-background-secondary);
 }
 
 .screenshots-grid {
@@ -635,7 +635,7 @@ body {
 .screenshots-grid.macos .screenshot-card {
     overflow: visible;
     padding: var(--spacing-lg);
-    background: var(--color-background-secondary);
+    background: var(--color-background);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -700,7 +700,7 @@ body {
 }
 
 .screenshot-card {
-    background: var(--color-background-secondary);
+    background: var(--color-background);
     border-radius: var(--radius-large);
     overflow: hidden;
     box-shadow: var(--shadow-card);
@@ -763,7 +763,7 @@ body {
 /* Pricing Section */
 .pricing {
     padding: 80px 0;
-    background: var(--color-background-secondary);
+    background: var(--color-background);
 }
 
 .pricing-grid {
@@ -985,7 +985,7 @@ body {
 /* Reviews Section */
 .reviews {
     padding: 80px 0;
-    background: var(--color-background);
+    background: var(--color-background-secondary);
 }
 
 .reviews-grid {
@@ -996,7 +996,7 @@ body {
 }
 
 .review-card {
-    background: var(--color-background-secondary);
+    background: var(--color-background);
     padding: var(--spacing-lg);
     border-radius: var(--radius-large);
     box-shadow: var(--shadow-card);
@@ -1049,7 +1049,7 @@ body {
     justify-content: center;
     align-items: center;
     gap: var(--spacing-3xl);
-    background: var(--color-background-secondary);
+    background: var(--color-background);
     padding: var(--spacing-lg);
     border-radius: var(--radius-large);
     box-shadow: var(--shadow-card);
