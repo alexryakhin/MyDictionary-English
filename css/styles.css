@@ -414,14 +414,12 @@ body {
     background: var(--color-background-secondary);
 }
 
-.philosophy-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-4xl);
-    align-items: start;
+.philosophy-header {
+    text-align: center;
+    margin-bottom: var(--spacing-4xl);
 }
 
-.philosophy-text h2 {
+.philosophy-header h2 {
     font-size: 56px;
     font-weight: 700;
     letter-spacing: -0.022em;
@@ -433,8 +431,16 @@ body {
 .philosophy-subtitle {
     font-size: 19px;
     color: var(--color-text-secondary);
-    margin-bottom: var(--spacing-2xl);
+    max-width: 800px;
+    margin: 0 auto;
     line-height: 1.47059;
+}
+
+.philosophy-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-4xl);
+    align-items: start;
 }
 
 .story-section {
@@ -479,6 +485,16 @@ body {
 .point strong {
     color: var(--color-text-primary);
     font-weight: 600;
+}
+
+.creator-photo {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    border-radius: var(--radius-large);
+    object-fit: cover;
+    box-shadow: var(--shadow-card);
+    margin-bottom: var(--spacing-lg);
 }
 
 .learning-journey {
@@ -1127,13 +1143,13 @@ body {
         align-items: center;
     }
 
+    .philosophy-header h2 {
+        font-size: 40px;
+    }
+
     .philosophy-content {
         grid-template-columns: 1fr;
         gap: var(--spacing-2xl);
-    }
-
-    .philosophy-text h2 {
-        font-size: 40px;
     }
 
     .journey-step {
