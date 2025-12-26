@@ -80,18 +80,11 @@
                     <li><strong>Personalization Context:</strong> Optional onboarding profile data (learning goals, interests, preferred study languages) used to tailor AI results</li>
                 </ul>
 
-                <h3>Music & Listening Data</h3>
-                <ul>
-                    <li><strong>Apple Music Authorization:</strong> Whether you granted MusicKit permissions</li>
-                    <li><strong>Song Metadata:</strong> Title, artist, album art, and duration for songs you explore or play</li>
-                    <li><strong>Lesson Context:</strong> Lyrics excerpts and CEFR levels required to build MusicKit lessons</li>
-                </ul>
-
                 <h3>Diagnostic & Analytics Data</h3>
                 <ul>
                     <li><strong>Firebase Authentication:</strong> Anonymous identifiers needed to secure your session</li>
                     <li><strong>Crash & Performance Logs:</strong> High-level device diagnostics with no personal content</li>
-                    <li><strong>Subscription Status:</strong> RevenueCat identifiers and purchase receipts needed to validate premium access</li>
+                    <li><strong>Subscription Status:</strong> RevenueCat identifiers and purchase receipts needed to validate subscription access</li>
                 </ul>
 
                 <h3>Shared Dictionary Data</h3>
@@ -141,7 +134,6 @@
                     <li><strong>Firebase (Google):</strong> Authentication, remote configuration, and secure hosting</li>
                     <li><strong>RevenueCat:</strong> Subscription validation across Apple and Google storefronts</li>
                     <li><strong>OpenAI:</strong> Processes AI prompts and generates structured learning content</li>
-                    <li><strong>Apple Music / MusicKit:</strong> Provides licensed audio playback, catalog metadata, and MusicKit lesson assets</li>
                     <li><strong>Google / Apple Sign-In:</strong> Federated authentication options</li>
                 </ul>
 
@@ -155,7 +147,7 @@
 
             <div class="legal-section privacy">
                 <h2>How Third-Party Services Handle Your Data</h2>
-                <p>We rely on trusted vendors to power premium experiences. Each partner only receives the minimum data needed to perform its role.</p>
+                <p>We rely on trusted vendors to power the app's features. Each partner only receives the minimum data needed to perform its role.</p>
 
                 <h3>OpenAI</h3>
                 <ul>
@@ -178,12 +170,6 @@
                     <li>Keeps entitlements synced across iOS, macOS, and Android</li>
                 </ul>
 
-                <h3>Apple Music / MusicKit</h3>
-                <ul>
-                    <li>Requires an active Apple Music subscription and MusicKit authorization from you</li>
-                    <li>Receives catalog identifiers for songs you search, preview, or study</li>
-                    <li>Playback occurs through MusicKit; we do not download or store full audio files</li>
-                </ul>
             </div>
 
             <div class="legal-section privacy">
@@ -255,17 +241,12 @@
 
             <div class="legal-section privacy">
                 <h2>International Data Transfers</h2>
-                <p>Your data may be processed in countries other than your own. Firebase, OpenAI, RevenueCat, and Apple Music may route requests through the United States or other regions. We rely on contractual safeguards, encryption in transit, and industry-standard protections to keep your information secure.</p>
+                <p>Your data may be processed in countries other than your own. Firebase, OpenAI, and RevenueCat may route requests through the United States or other regions. We rely on contractual safeguards, encryption in transit, and industry-standard protections to keep your information secure.</p>
             </div>
 
             <div class="legal-section privacy">
                 <h2>AI Content Controls</h2>
                 <p>You can disable AI personalization at any time from the in-app privacy controls. Disabling personalization prevents onboarding profile data from being sent to OpenAI, though anonymous prompts are still required to deliver AI-powered features.</p>
-            </div>
-
-            <div class="legal-section privacy">
-                <h2>MusicKit Permissions</h2>
-                <p>If you connect Apple Music, we request MusicKit authorization tokens from Apple to verify your subscription. We never access your personal library—only catalog media IDs for the songs you choose to study. You can revoke MusicKit access through your Apple device settings.</p>
             </div>
 
             <div class="legal-section privacy">
