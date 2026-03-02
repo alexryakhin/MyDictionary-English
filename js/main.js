@@ -43,7 +43,7 @@ function createStars(container, rating) {
     container.innerHTML = '';
     for (let i = 0; i < rating; i++) {
         const star = document.createElement('img');
-        star.src = 'images/star.svg';
+        star.src = '/images/star.svg';
         star.alt = 'Star';
         star.className = 'star-icon';
         container.appendChild(star);
@@ -62,20 +62,20 @@ function initializeStarRatings() {
 // FAQ Accordion functionality
 function initializeFAQ() {
     const faqItems = document.querySelectorAll('.faq-item');
-    
+
     faqItems.forEach(item => {
         const question = item.querySelector('.faq-question');
         const answer = item.querySelector('.faq-answer');
-        
+
         // Add ARIA attributes for accessibility
         question.setAttribute('role', 'button');
         question.setAttribute('aria-expanded', 'false');
         question.setAttribute('tabindex', '0');
         answer.setAttribute('aria-hidden', 'true');
-        
+
         const toggleFAQ = () => {
             const isActive = item.classList.contains('active');
-            
+
             // Close all other items
             faqItems.forEach(otherItem => {
                 if (otherItem !== item) {
@@ -84,7 +84,7 @@ function initializeFAQ() {
                     otherItem.querySelector('.faq-answer').setAttribute('aria-hidden', 'true');
                 }
             });
-            
+
             // Toggle current item
             if (isActive) {
                 item.classList.remove('active');
@@ -96,7 +96,7 @@ function initializeFAQ() {
                 answer.setAttribute('aria-hidden', 'false');
             }
         };
-        
+
         question.addEventListener('click', toggleFAQ);
         question.addEventListener('keydown', (e) => {
             if (e.key === 'Enter' || e.key === ' ') {
@@ -114,7 +114,7 @@ function initializeLightbox() {
     const lightboxClose = document.querySelector('.lightbox-close');
     const lightboxOverlay = document.querySelector('.lightbox-overlay');
     const screenshotImages = document.querySelectorAll('.screenshot-image');
-    
+
     function openLightbox(imageSrc, imageAlt) {
         lightboxImage.src = imageSrc;
         lightboxImage.alt = imageAlt;
@@ -122,26 +122,26 @@ function initializeLightbox() {
         lightbox.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden'; // Prevent scrolling
     }
-    
+
     function closeLightbox() {
         lightbox.classList.remove('active');
         lightbox.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = ''; // Restore scrolling
     }
-    
+
     // Open lightbox on screenshot click
     screenshotImages.forEach(image => {
         image.addEventListener('click', function() {
             openLightbox(this.src, this.alt);
         });
     });
-    
+
     // Close lightbox on close button click
     lightboxClose.addEventListener('click', closeLightbox);
-    
+
     // Close lightbox on overlay click
     lightboxOverlay.addEventListener('click', closeLightbox);
-    
+
     // Close lightbox on Escape key
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && lightbox.classList.contains('active')) {
@@ -156,4 +156,3 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeFAQ();
     initializeLightbox();
 });
-

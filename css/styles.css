@@ -92,8 +92,18 @@ body {
     padding: 0 var(--spacing-lg);
 }
 
+.hero-welcome-image {
+    display: block;
+    margin: 0 auto var(--spacing-lg);
+    width: 400px;
+    height: 300px;
+    max-width: 100%;
+    object-fit: contain;
+    aspect-ratio: 4 / 3;
+}
+
 .hero h1 {
-    font-size: 80px;
+    font-size: 52px;
     font-weight: 700;
     letter-spacing: -0.022em;
     color: var(--color-text-primary);
@@ -125,6 +135,13 @@ body {
     display: flex;
     align-items: center;
     gap: var(--spacing-sm);
+}
+
+.inline-star {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    display: inline-block;
 }
 
 .cta-buttons {
@@ -200,8 +217,16 @@ body {
 }
 
 .problem-icon {
-    font-size: 48px;
     margin-bottom: var(--spacing-md);
+}
+
+.problem-icon img {
+    display: block;
+    width: 180px;
+    height: 135px;
+    margin: 0 auto;
+    object-fit: contain;
+    aspect-ratio: 4 / 3;
 }
 
 .problem-card h3 {
@@ -265,8 +290,16 @@ body {
 }
 
 .solution-icon {
-    font-size: 48px;
     margin-bottom: var(--spacing-md);
+}
+
+.solution-icon img {
+    display: block;
+    width: 240px;
+    height: 180px;
+    margin: 0 auto;
+    object-fit: contain;
+    aspect-ratio: 4 / 3;
 }
 
 .solution-card h3 {
@@ -990,6 +1023,35 @@ body {
     color: white;
 }
 
+.footer-lang .footer-lang-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm) var(--spacing-md);
+    align-items: center;
+}
+
+.footer-lang .footer-lang-links a,
+.footer-lang .footer-lang-links .current-lang {
+    margin-bottom: 0;
+    display: inline-block;
+}
+
+.footer-lang .footer-lang-links .current-lang {
+    color: white;
+    font-weight: 600;
+    cursor: default;
+}
+
+.footer-lang .footer-lang-links > *::after {
+    content: " · ";
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 400;
+}
+
+.footer-lang .footer-lang-links > *:last-child::after {
+    content: none;
+}
+
 .footer-bottom {
     text-align: center;
     padding-top: var(--spacing-2xl);
@@ -1131,7 +1193,13 @@ body {
 /* Responsive Design */
 @media (max-width: 768px) {
     .hero h1 {
-        font-size: 48px;
+        font-size: 36px;
+    }
+
+    .hero-welcome-image {
+        width: min(400px, 100%);
+        height: auto;
+        aspect-ratio: 4 / 3;
     }
 
     .nav-links {
@@ -1165,11 +1233,11 @@ body {
     .screenshots-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .screenshots-horizontal {
         padding: var(--spacing-md) var(--spacing-lg) var(--spacing-lg);
     }
-    
+
     .screenshots-horizontal .screenshot-card {
         flex: 0 0 320px;
     }
@@ -1668,19 +1736,19 @@ body {
         margin: var(--spacing-md);
         padding: var(--spacing-lg);
     }
-    
+
     .legal-logo {
         font-size: 40px;
     }
-    
+
     .legal-section {
         padding: var(--spacing-md);
     }
-    
+
     .documents-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .legal-features-list {
         grid-template-columns: 1fr;
     }

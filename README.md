@@ -303,7 +303,7 @@ Now the app helps thousands of people organize their vocabulary learning journey
 
 ## 📧 Contact & Support
 
-- **Email**: [bonney977@gmail.com](mailto:bonney977@gmail.com)
+- **Email**: [hello@mydictionary.org](mailto:hello@mydictionary.org)
 - **Email**: [xander1100001@gmail.com](mailto:xander1100001@gmail.com)
 - **LinkedIn**: [Xander Riakhin](https://www.linkedin.com/in/xander1100001)
 - **X (Twitter)**: [@xander1100001](https://x.com/xander1100001)

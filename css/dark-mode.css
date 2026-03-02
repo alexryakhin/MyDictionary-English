@@ -8,18 +8,17 @@
     .feature-icon img {
         opacity: 0.95;
     }
-    
+
     /* Adjust scrollbar for dark mode */
     .screenshots-horizontal-wrapper::-webkit-scrollbar-track {
         background: var(--color-background-tertiary);
     }
-    
+
     .screenshots-horizontal-wrapper::-webkit-scrollbar-thumb {
         background: var(--color-primary);
     }
-    
+
     .screenshots-horizontal-wrapper::-webkit-scrollbar-thumb:hover {
         background: var(--color-primary-light);
     }
 }
-

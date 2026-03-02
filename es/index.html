@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dictionary - Organiza y domina tu vocabulario | App de diccionario personal</title>
+    <meta name="description" content="Organiza y domina tu vocabulario con la herramienta de diccionario personal más potente. Colecciona, organiza y gestiona palabras en más de 135 idiomas con definiciones con IA, cuestionarios inteligentes y funciones colaborativas.">
+    <meta name="keywords" content="app de vocabulario, diccionario, organizador de palabras, constructor de vocabulario, diccionario personal, colección de palabras, práctica de vocabulario, herramienta de diccionario">
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon/favicon.ico" sizes="any">
+    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+    <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mydictionary.org/es/">
+    <meta property="og:title" content="My Dictionary - Organiza y domina tu vocabulario">
+    <meta property="og:description" content="Organiza y domina tu vocabulario con la herramienta de diccionario personal más potente. Más de 135 idiomas.">
+    <meta property="og:image" content="https://mydictionary.org/images/og-image.png">
+    <meta property="og:locale" content="es">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://mydictionary.org/es/">
+    <meta property="twitter:title" content="My Dictionary - Organiza y domina tu vocabulario">
+    <meta property="twitter:description" content="Organiza y domina tu vocabulario con la herramienta de diccionario personal más potente. Más de 135 idiomas.">
+    <meta property="twitter:image" content="https://mydictionary.org/images/twitter-image.png">
+
+    <link rel="stylesheet" href="/css/apple-design-system.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/dark-mode.css">
+
+    <meta name="color-scheme" content="light dark">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0DLV1WM03"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0DLV1WM03');
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-content">Saltar al contenido principal</a>
+    <!-- Header -->
+    <header class="header" role="banner">
+        <nav class="nav" role="navigation" aria-label="Navegación principal">
+            <div class="logo">
+                <img src="/favicon/favicon.svg" alt="My Dictionary" width="28" height="28">
+                <span>My Dictionary</span>
+            </div>
+            <ul class="nav-links" role="list">
+                <li role="listitem"><a href="#features" aria-label="Ver características">Características</a></li>
+                <li role="listitem"><a href="#faq" aria-label="Preguntas frecuentes">FAQ</a></li>
+                <li role="listitem"><a href="#download" aria-label="Descargar la app">Descargar</a></li>
+                <li role="listitem"><a href="/es/legal.html" aria-label="Documentos legales">Legal</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="main-content" class="hero">
+        <div class="hero-content">
+            <img src="/images/welcome.svg" alt="" class="hero-welcome-image fade-in-up" width="400" height="300">
+            <h1 class="fade-in-up">Organiza tu vocabulario.<br>Domina cada palabra.</h1>
+            <p class="hero-subtitle fade-in-up">
+                La herramienta de diccionario personal más potente. Colecciona palabras, organiza con etiquetas,
+                practica con cuestionarios y construye tu vocabulario en más de 135 idiomas.
+                Deja de acumular palabras que olvidas. Empieza a organizar las que importan.
+            </p>
+            <div class="cta-buttons fade-in-up">
+                <a href="#download" class="cta-button" aria-label="Descargar My Dictionary">
+                    Descargar ahora
+                </a>
+                <a href="#features" class="cta-button secondary" aria-label="Ver características">
+                    Saber más
+                </a>
+            </div>
+            <div class="trust-indicators fade-in-up">
+                <span><img src="/images/star.svg" alt="" class="inline-star"> 4.8/5 estrellas</span>
+                <span>•</span>
+                <span>135+ idiomas</span>
+                <span>•</span>
+                <span>Disponible en iOS y macOS</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section id="problems" class="problems">
+        <div class="container">
+            <div class="section-header">
+                <h2>¿Te cuesta organizar tu vocabulario?</h2>
+            </div>
+
+            <div class="problems-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <img src="/images/multiple-meanings.svg" alt="" width="180" height="135">
+                    </div>
+                    <h3>Las palabras tienen varios significados</h3>
+                    <p>Buscas una palabra, pero la definición no encaja en el contexto. Muchas tienen 2, 3 o incluso 5+ significados. Necesitas un diccionario que te ayude a entender matices, no solo traducciones.</p>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <img src="/images/disorganized.svg" alt="" width="180" height="135">
+                    </div>
+                    <h3>Tus listas de palabras están desordenadas</h3>
+                    <p>Guardas palabras por todas partes: cuadernos, apps, fichas. Pero están dispersas y son difíciles de encontrar. Memorizas palabras pero las olvidas rápido porque no hay un sistema para organizarlas y repasarlas.</p>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <img src="/images/dont-know.svg" alt="" width="180" height="135">
+                    </div>
+                    <h3>No sabes cómo usar las palabras</h3>
+                    <p>Sabes qué significan, pero no cómo usarlas. Te pierdes modismos, expresiones y patrones naturales. Tu vocabulario se siente incompleto.</p>
+                </div>
+            </div>
+
+            <p class="problem-transition">Hay una mejor forma...</p>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section id="solution" class="solution">
+        <div class="container">
+            <div class="section-header">
+                <h2>Tu diccionario personal, organizado a tu manera</h2>
+            </div>
+
+            <p class="solution-overview">
+                My Dictionary es una herramienta de vocabulario que te ayuda a coleccionar, organizar
+                y dominar palabras. Añade palabras con varios significados, organiza con etiquetas
+                y practica con cuestionarios.
+            </p>
+
+            <div class="solution-grid">
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <img src="/images/personal-dictionary.svg" alt="" width="240" height="180">
+                    </div>
+                    <h3>Tu diccionario personal</h3>
+                    <p>Colecciona palabras con definiciones, varios significados y ejemplos. Organiza con etiquetas personalizadas, sigue la dificultad y construye tu vocabulario como lo necesitas.</p>
+                </div>
+
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <img src="/images/practice.svg" alt="" width="240" height="180">
+                    </div>
+                    <h3>Práctica inteligente y cuestionarios</h3>
+                    <p>Ponte a prueba con seis tipos de cuestionarios. Sigue tu progreso con repetición espaciada. Domina las palabras con práctica, no solo memorización.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="philosophy">
+        <div class="container">
+            <div class="philosophy-header">
+                <h2>Hecho para organizar vocabulario</h2>
+                <p class="philosophy-subtitle">La historia detrás de My Dictionary y por qué organizar el vocabulario importa más que solo coleccionar palabras.</p>
+            </div>
+
+            <div class="philosophy-content">
+                <div class="philosophy-text">
+                    <div class="story-section">
+                        <p>Me llamo Alexander y soy el creador de My Dictionary. Hace cuatro años aprendía inglés y me costaba organizar todas las palabras nuevas. Los diccionarios genéricos no me ayudaban a recordar y las listas estaban muy desordenadas.</p>
+
+                        <p>Necesitaba una mejor forma de coleccionar, organizar y practicar vocabulario. En lugar de solo traducir, empecé a construir comprensión mediante significados y contexto. Escribía definiciones para explicar palabras, no solo traducirlas. Así conseguí una comprensión más profunda y natural.</p>
+
+                        <p>Pero hacerlo a mano era agotador. Así que creé My Dictionary para automatizar el proceso y que todo el mundo pudiera usarlo. Una herramienta potente para coleccionar, organizar, ordenar y categorizar vocabulario como necesites.</p>
+
+                        <p>Hoy My Dictionary ayuda a miles de personas a organizar su vocabulario. El objetivo es simple: deja de acumular palabras que olvidas y empieza a organizar las que importan.</p>
+                    </div>
+
+                    <div class="philosophy-highlight">
+                        <h3>Por qué organizar gana a coleccionar</h3>
+                        <div class="philosophy-points">
+                            <div class="point">
+                                <strong>Conocimiento duradero:</strong> Un vocabulario organizado con contexto genera conocimiento que perdura, no solo memorización palabra por palabra.
+                            </div>
+                            <div class="point">
+                                <strong>Práctica eficiente:</strong> Cuando las palabras están organizadas, puedes practicar bien y seguir qué has dominado.
+                            </div>
+                            <div class="point">
+                                <strong>Dominio del contexto:</strong> Entender cómo funcionan las palabras en distintas situaciones construye un dominio real del vocabulario.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="philosophy-visual">
+                    <img src="/images/picture_of_me.jpeg" alt="Alexander, creador de My Dictionary" class="creator-photo">
+                    <div class="learning-journey">
+                        <div class="journey-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Colecciona palabras</h4>
+                                <p>Guarda palabras con definiciones y ejemplos cuando las encuentres</p>
+                            </div>
+                        </div>
+                        <div class="journey-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Organiza tu vocabulario</h4>
+                                <p>Usa etiquetas, categorías y niveles de dificultad para crear tu sistema</p>
+                            </div>
+                        </div>
+                        <div class="journey-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Domina con práctica</h4>
+                                <p>Practica con cuestionarios, sigue tu progreso y domina tu vocabulario</p>
+                            </div>
+                        </div>
+                        <div class="journey-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>Sigue tu crecimiento</h4>
+                                <p>Mira cómo crece tu vocabulario con análisis detallados y controla tu progreso</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Todo lo que necesitas para dominar el vocabulario</h2>
+                <p>Características pensadas para que aprender vocabulario sea efectivo, colaborativo y agradable.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="/images/feature-illustrations/personal-dictionary.svg" alt="Diccionario personal">
+                    </div>
+                    <h3>Tu diccionario personal</h3>
+                    <p>Añade palabras con varios significados, definiciones, ejemplos e imágenes. Organiza con etiquetas y sigue niveles de dificultad.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="/images/feature-illustrations/smart-organization.svg" alt="Organización inteligente">
+                    </div>
+                    <h3>Organización inteligente</h3>
+                    <p>Usa etiquetas, colores y categorías para ordenar y clasificar tu vocabulario como necesites.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="/images/feature-illustrations/interactive-quizzes.svg" alt="Cuestionarios">
+                    </div>
+                    <h3>Seis tipos de cuestionarios</h3>
+                    <p>Practica con cuestionarios de ortografía, definición, contexto y pronunciación. Sigue tu progreso con repetición espaciada.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="/images/feature-illustrations/chat-with-ai.svg" alt="Escáner de texto">
+                    </div>
+                    <h3>Escáner de texto</h3>
+                    <p>Extrae palabras de fotos. Captura palabras de libros, carteles, menús y añádelas al instante a tu diccionario.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="/images/feature-illustrations/collection.svg" alt="Colecciones de palabras">
+                    </div>
+                    <h3>Colecciones de palabras</h3>
+                    <p>Explora paquetes listos o crea colecciones personalizadas con IA. Importa colecciones enteras o elige palabras sueltas.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="/images/feature-illustrations/shared-dictionaries.svg" alt="Diccionarios compartidos">
+                    </div>
+                    <h3>Colabora en equipo</h3>
+                    <p>Crea diccionarios compartidos con amigos, compañeros o grupos. Colaboración en tiempo real con permisos por rol.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="/images/feature-illustrations/progress-analytics.svg" alt="Seguimiento de progreso">
+                    </div>
+                    <h3>Sigue tu crecimiento</h3>
+                    <p>Mira cómo crece tu vocabulario con análisis detallados. Controla progreso, rachas y niveles de dominio.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- iOS Screenshots Section -->
+    <section id="screenshots" class="screenshots">
+        <div class="container">
+            <div class="section-header">
+                <h2>Experiencia iOS</h2>
+                <p>Interfaz clara e intuitiva para gestionar tu vocabulario en iPhone e iPad.</p>
+            </div>
+        </div>
+
+        <div class="screenshots-horizontal-wrapper">
+            <div class="screenshots-horizontal">
+                <div class="screenshot-card">
+                    <img src="/images/ios-screenshots/main.png" alt="Interfaz limpia sin anuncios" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="screenshot-info">
+                        <h3>Interfaz limpia sin anuncios</h3>
+                        <p>Construye y organiza tu colección con etiquetas, seguimiento de dificultad y búsqueda al instante. Tu diccionario, a tu manera.</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <img src="/images/ios-screenshots/word-details.png" alt="Imágenes, varios significados y ejemplos" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="screenshot-info">
+                        <h3>Imágenes, varios significados y ejemplos</h3>
+                        <p>Añade contexto a cada palabra con imágenes, varias definiciones y ejemplos reales. Construye comprensión, no solo traducción.</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <img src="/images/ios-screenshots/word-share.png" alt="Compartir palabras fácilmente" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="screenshot-info">
+                        <h3>Comparte palabras fácilmente</h3>
+                        <p>Comparte tus palabras favoritas o exporta tu vocabulario. Colabora con amigos y grupos de estudio sin fricciones.</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <img src="/images/ios-screenshots/quizzes-list.png" alt="Practica con cuestionarios" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="screenshot-info">
+                        <h3>Practica con cuestionarios</h3>
+                        <p>Ponte a prueba con seis tipos: ortografía, definición, frases, contexto y rellenar huecos. Domina las palabras practicando.</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <img src="/images/ios-screenshots/quiz-in-action.png" alt="Cuestionario en acción" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="screenshot-info">
+                        <h3>Experiencia de cuestionario interactiva</h3>
+                        <p>Cuestionarios pensados para evaluar tu vocabulario. La repetición espaciada se adapta a tu ritmo para que las palabras se queden.</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <img src="/images/ios-screenshots/quiz-results.png" alt="Estadísticas guardadas para repasar" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="screenshot-info">
+                        <h3>Estadísticas guardadas para repasar después</h3>
+                        <p>Revisa resultados con precisión, tiempo y métricas. Sigue tu dominio del vocabulario con análisis completos.</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <img src="/images/ios-screenshots/flashcards.png" alt="Repaso con fichas" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="screenshot-info">
+                        <h3>Repaso con fichas</h3>
+                        <p>Repasa con fichas para memorizar rápido. Practica definiciones, ortografía y uso en sesiones enfocadas.</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <img src="/images/ios-screenshots/analytics.png" alt="Sigue tu progreso" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="screenshot-info">
+                        <h3>Sigue tu progreso</h3>
+                        <p>Mira cómo crece tu vocabulario con análisis. Controla progreso, rachas, precisión y niveles de dominio.</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <img src="/images/ios-screenshots/notifications.png" alt="Notificaciones personalizadas" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="screenshot-info">
+                        <h3>Notificaciones personalizadas</h3>
+                        <p>Configura recordatorios de estudio y notificaciones para mantener la constancia. Elige cuándo y cómo recibirlos.</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <img src="/images/ios-screenshots/settings.png" alt="TTS Speechify, notificaciones, importar/exportar y más" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="screenshot-info">
+                        <h3>Ajustes completos</h3>
+                        <p>Personaliza la experiencia con voces TTS premium, recordatorios, repetición espaciada e importación/exportación.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- macOS Screenshots Section -->
+    <section class="screenshots">
+        <div class="container">
+            <div class="section-header">
+                <h2>Experiencia macOS</h2>
+                <p>Experiencia de escritorio potente con funciones avanzadas y sincronización fluida.</p>
+            </div>
+
+            <div class="screenshots-grid macos">
+                <div class="screenshot-card">
+                    <img src="/images/macos-screenshots/main-and-word-details.png" alt="Interfaz macOS" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="screenshot-info">
+                        <h3>Experiencia de escritorio potente</h3>
+                        <p>App macOS completa con edición avanzada, navegación lateral y sincronización con tus dispositivos. Edita y visualiza palabras en pantalla grande.</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <img src="/images/macos-screenshots/quizzes-list-and-quiz-in-action.png" alt="Cuestionarios en macOS" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="screenshot-info">
+                        <h3>Cuestionarios avanzados</h3>
+                        <p>Haz cuestionarios con interfaz de escritorio, mejor soporte de teclado y retroalimentación mejorada. Todos los tipos de cuestionario en pantallas grandes.</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <img src="/images/macos-screenshots/word-collections.png" alt="Colecciones de palabras" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="screenshot-info">
+                        <h3>Colecciones de palabras</h3>
+                        <p>Explora y gestiona colecciones con facilidad. Importa colecciones listas o crea las tuyas con ayuda de la IA.</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <img src="/images/macos-screenshots/word-share.png" alt="Compartir palabras" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="screenshot-info">
+                        <h3>Compartir y exportar</h3>
+                        <p>Comparte palabras o exporta todo tu vocabulario. Colabora con diccionarios compartidos o exporta en CSV o JSON.</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <img src="/images/macos-screenshots/analytics.png" alt="Análisis en macOS" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="screenshot-info">
+                        <h3>Análisis completo</h3>
+                        <p>Sigue el crecimiento de tu vocabulario y tu progreso. Rachas, precisión, niveles de dominio y estadísticas en pantalla grande.</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <img src="/images/macos-screenshots/settings.png" alt="Ajustes macOS" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="screenshot-info">
+                        <h3>Ajustes avanzados</h3>
+                        <p>Personaliza el aprendizaje. Configura TTS, notificaciones, repetición espaciada, importar/exportar y más en escritorio.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Reviews Section -->
+    <section class="reviews">
+        <div class="container">
+            <div class="section-header">
+                <h2>Querida por quienes construyen vocabulario en todo el mundo</h2>
+                <p>Miles de usuarios ya organizan y dominan su vocabulario con My Dictionary.</p>
+            </div>
+
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars" data-rating="5"></div>
+                        <div class="reviewer-info">
+                            <strong>Sarah M.</strong>
+                            <span>Estudiante de inglés</span>
+                        </div>
+                    </div>
+                    <p class="review-text">"He aprendido 500 palabras en inglés en 3 meses con My Dictionary. ¡El sistema de repetición espaciada y los cuestionarios hacen que aprender vocabulario sea muy efectivo!"</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars" data-rating="5"></div>
+                        <div class="reviewer-info">
+                            <strong>Carlos R.</strong>
+                            <span>Hispanohablante</span>
+                        </div>
+                    </div>
+                    <p class="review-text">"Por fin una app que ayuda a entender el contexto, no solo a traducir. ¡Las expresiones y modismos son un cambio de juego!"</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars" data-rating="5"></div>
+                        <div class="reviewer-info">
+                            <strong>Hydrangia</strong>
+                            <span>Reino Unido</span>
+                        </div>
+                    </div>
+                    <p class="review-text">"Estoy muy contenta con esta app. Puedo añadir palabras que no conozco y ponerme a prueba con el cuestionario. Hasta ahora todo funciona bien y lo disfruto. Genial que sincronice con otro dispositivo."</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars" data-rating="5"></div>
+                        <div class="reviewer-info">
+                            <strong>Branwiches</strong>
+                            <span>Estados Unidos</span>
+                        </div>
+                    </div>
+                    <p class="review-text">"Llevaba más de un AÑO buscando algo así de básico y simple. Esta app My Dictionary es MUY fácil de usar y EXACTAMENTE lo que buscaba. ¡Y me encanta que puedas poner tus propios ejemplos!"</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars" data-rating="5"></div>
+                        <div class="reviewer-info">
+                            <strong>Grupo de estudio</strong>
+                            <span>Estudiantes universitarios</span>
+                        </div>
+                    </div>
+                    <p class="review-text">"Los diccionarios compartidos ayudaron a nuestro grupo a aprender juntos. ¡Hemos duplicado nuestro vocabulario en la mitad de tiempo!"</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars" data-rating="5"></div>
+                        <div class="reviewer-info">
+                            <strong>Alex K.</strong>
+                            <span>Entusiasta de idiomas</span>
+                        </div>
+                    </div>
+                    <p class="review-text">"Como políglota que aprende varios idiomas, el soporte de más de 135 idiomas es increíble. Una sola app para todo mi vocabulario."</p>
+                </div>
+            </div>
+
+            <div class="reviews-summary">
+                <div class="rating">
+                    <div class="rating-number">4.8</div>
+                    <div class="rating-stars" data-rating="5"></div>
+                    <div class="rating-text">de 5 estrellas</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>Preguntas frecuentes</h2>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">¿En qué se diferencia de otras apps de diccionario?</div>
+                    <div class="faq-answer">
+                        La mayoría solo traducen. My Dictionary te ayuda a organizar y dominar el vocabulario:
+                        varias significados, etiquetas, cuestionarios y repetición espaciada. Es un sistema de gestión de vocabulario, no solo un diccionario.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">¿Qué idiomas se soportan?</div>
+                    <div class="faq-answer">
+                        ¡Más de 135! Construye vocabulario en cualquier idioma: inglés, español, francés, alemán,
+                        chino, hindi, ruso y muchos más. La app soporta vocabulario en cualquier idioma.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">¿Funciona sin conexión?</div>
+                    <div class="faq-answer">
+                        Sí. Las funciones principales funcionan sin conexión. Tu vocabulario se guarda localmente y se sincroniza cuando hay internet. Las funciones con IA necesitan conexión para generar contenido, pero tus palabras y cuestionarios funcionan sin conexión.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">¿Hay versión web?</div>
+                    <div class="faq-answer">
+                        Disponible en iOS y macOS. ¡Versión web próximamente! Tu vocabulario se sincroniza en todos tus dispositivos.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">¿Qué opciones de suscripción hay?</div>
+                    <div class="faq-answer">
+                        Mensual: 2,99 € el primer mes, luego 4,99 €/mes. Anual: prueba gratis de 3 días, luego 39,99 €/año (ahorro de 19,89 €). Ambas incluyen todas las funciones.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">¿Puedo cancelar la suscripción?</div>
+                    <div class="faq-answer">
+                        Sí, en cualquier momento desde los ajustes del dispositivo. Sin preguntas ni cargos ocultos. La suscripción sigue hasta el final del periodo. En la anual puedes cancelar durante la prueba de 3 días sin que te cobren.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="download">
+        <div class="container">
+            <h2>Descarga My Dictionary hoy</h2>
+            <p>Disponible en iOS y macOS. Organiza y domina tu vocabulario con definiciones con IA,
+organización inteligente y colaboración.</p>
+
+            <div class="download-buttons">
+                <a href="https://apps.apple.com/app/id1588418793" class="download-button">
+                    <img src="/images/apple-logo-black.svg" alt="Logo de Apple" style="width: 16px; height: 20px;">
+                    Descargar en App Store
+                </a>
+            </div>
+
+            <div class="download-trust">
+                <p><img src="/images/star.svg" alt="" class="inline-star"> 4.8/5 estrellas • 135+ idiomas • Disponible en App Store</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>My Dictionary</h3>
+                <p>Organiza y domina tu vocabulario con definiciones con IA, organización inteligente y colaboración.</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Enlaces rápidos</h3>
+                <a href="#features">Características</a>
+                <a href="#faq">FAQ</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Soporte</h3>
+                <a href="mailto:hello@mydictionary.org">Contactar soporte</a>
+                <a href="/es/legal.html">Documentos legales</a>
+                <a href="/es/privacy-policy.html">Política de privacidad</a>
+                <a href="/es/terms-of-use.html">Términos de uso</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Conectar</h3>
+                <a href="mailto:hello@mydictionary.org">Email</a>
+                <a href="https://x.com/xander1100001" target="_blank">Twitter</a>
+                <a href="https://www.instagram.com/ar_x101/" target="_blank">Instagram</a>
+                <a href="https://www.linkedin.com/in/xander1100001/" target="_blank">LinkedIn</a>
+            </div>
+
+            <div class="footer-section footer-lang">
+                <h3>Idioma</h3>
+                <div class="footer-lang-links">
+                    <a href="/">English</a>
+                    <span class="current-lang" aria-current="true">Español</span>
+                    <a href="/ru/">Русский</a>
+                    <a href="/hr/">Hrvatski</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 My Dictionary. Todos los derechos reservados. Hecho con ❤️ para quienes construyen vocabulario.</p>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal for Screenshots -->
+    <div id="lightbox" class="lightbox" role="dialog" aria-label="Vista previa de captura" aria-hidden="true">
+        <div class="lightbox-overlay"></div>
+        <div class="lightbox-content">
+            <button class="lightbox-close" aria-label="Cerrar vista previa">&times;</button>
+            <img src="" alt="" class="lightbox-image" id="lightbox-image">
+        </div>
+    </div>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>
