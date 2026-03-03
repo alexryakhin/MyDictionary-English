@@ -79,6 +79,29 @@ body {
     color: var(--color-primary);
 }
 
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-text-primary);
+}
+
+.nav-toggle-bar {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: currentColor;
+    border-radius: 1px;
+    transition: var(--transition-quick);
+}
+
 /* Hero Section */
 .hero {
     background: var(--color-background);
@@ -109,6 +132,17 @@ body {
     color: var(--color-text-primary);
     margin-bottom: var(--spacing-lg);
     line-height: 1.05;
+}
+
+.hero-tagline {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-md);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.4;
 }
 
 .hero-subtitle {
@@ -149,23 +183,52 @@ body {
     gap: var(--spacing-md);
     justify-content: center;
     flex-wrap: wrap;
+    align-items: center;
+}
+
+/* App Store / Mac badge buttons: black badge on light → show as white on black in light mode */
+.app-store-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 16px;
+    background: #000;
+    border-radius: 9999px;
+    text-decoration: none;
+    transition: var(--transition-quick);
+}
+
+.app-store-badge img {
+    display: block;
+    height: 36px;
+    width: auto;
+    filter: invert(1);
+}
+
+.app-store-badge:hover {
+    opacity: 0.9;
+}
+
+.app-store-badge:active {
+    opacity: 0.8;
 }
 
 .cta-button {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: var(--spacing-sm);
     background: var(--color-primary);
     color: white;
     padding: 12px 22px;
     text-decoration: none;
-    border-radius: var(--radius-pill);
+    border-radius: 9999px;
     font-size: 17px;
     font-weight: 600;
     transition: var(--transition-quick);
     border: none;
     cursor: pointer;
-    min-height: 44px;
+    min-height: 60px;
 }
 
 .cta-button:hover {
@@ -378,6 +441,28 @@ body {
 }
 
 /* FAQ Section */
+.cta-block {
+    padding: var(--spacing-3xl) 0;
+    background: var(--color-background);
+    text-align: center;
+}
+
+.cta-block-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-xl);
+    letter-spacing: -0.022em;
+}
+
+.cta-block .cta-button {
+    margin: 0;
+}
+
+.cta-block .download-buttons {
+    justify-content: center;
+}
+
 .faq {
     padding: 80px 0;
     background: var(--color-background-secondary);
@@ -1202,8 +1287,43 @@ body {
         aspect-ratio: 4 / 3;
     }
 
+    .nav {
+        position: relative;
+    }
+
+    .nav-toggle {
+        display: flex;
+    }
+
     .nav-links {
         display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 0;
+        padding: var(--spacing-md);
+        background: var(--color-bg);
+        border-bottom: 1px solid var(--color-separator);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .nav-open .nav-links {
+        display: flex;
+    }
+
+    .nav-links li {
+        border-bottom: 1px solid var(--color-separator);
+    }
+
+    .nav-links li:last-child {
+        border-bottom: none;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: var(--spacing-md) 0;
     }
 
     .cta-buttons {

@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Dictionary - Organize & Master Your Vocabulary | Personal Dictionary App</title>
-    <meta name="description" content="Organize and master your vocabulary with the most powerful personal dictionary tool. Collect, organize, and manage words across 135+ languages with AI-powered definitions, smart quizzes, and collaborative features.">
-    <meta name="keywords" content="vocabulary app, dictionary app, word organizer, vocabulary builder, personal dictionary, word collection, vocabulary practice, dictionary tool, word management">
+    <title>My Dictionary - Vocabulary App for Language Learners | Organize & Master Your Words</title>
+    <meta name="description" content="The vocabulary app for language learners. Organize and master your words with a personal dictionary: collect, tag, quiz, and track progress across 135+ languages.">
+    <meta name="keywords" content="vocabulary app, dictionary app, word organizer, vocabulary builder, personal dictionary, word collection, vocabulary practice, dictionary tool, word management, picture dictionary">
 
     <!-- Favicon -->
     <link rel="icon" href="/favicon/favicon.ico" sizes="any">
     <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
     <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
+    <meta name="apple-itunes-app" content="app-id=1588418793">
     <link rel="manifest" href="/favicon/site.webmanifest">
 
     <!-- Open Graph / Facebook -->
@@ -51,7 +52,12 @@
                 <img src="/favicon/favicon.svg" alt="My Dictionary" width="28" height="28">
                 <span>My Dictionary</span>
             </div>
-            <ul class="nav-links" role="list">
+            <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+            <ul class="nav-links" id="nav-links" role="list">
                 <li role="listitem"><a href="#features" aria-label="View features">Features</a></li>
                 <li role="listitem"><a href="#faq" aria-label="View frequently asked questions">FAQ</a></li>
                 <li role="listitem"><a href="#download" aria-label="Download the app">Download</a></li>
@@ -65,14 +71,16 @@
         <div class="hero-content">
             <img src="/images/welcome.svg" alt="" class="hero-welcome-image fade-in-up" width="400" height="300">
             <h1 class="fade-in-up">Organize Your Vocabulary.<br>Master Every Word.</h1>
+            <p class="hero-tagline fade-in-up">The app for language learners: your words, quizzes, and progress in one place.</p>
             <p class="hero-subtitle fade-in-up">
-                The most powerful personal dictionary tool. Collect words, organize by tags,
-                practice with quizzes, and build your vocabulary across 135+ languages.
-                Stop collecting words you forget. Start organizing the ones that matter.
+                A personal dictionary that lets you collect words, organize by tags, and practice with quizzes across 135+ languages.
             </p>
             <div class="cta-buttons fade-in-up">
-                <a href="#download" class="cta-button" aria-label="Download My Dictionary">
-                    Download Now
+                <a href="https://apps.apple.com/app/id1588418793" class="app-store-badge" aria-label="Download on the App Store">
+                    <img src="images/download-on-the-app-store.svg" alt="" width="141" height="36">
+                </a>
+                <a href="https://apps.apple.com/app/id1588418793" class="app-store-badge" aria-label="Download for macOS">
+                    <img src="images/download-for-macos.svg" alt="" width="201" height="37">
                 </a>
                 <a href="#features" class="cta-button secondary" aria-label="View features">
                     Learn More
@@ -231,76 +239,8 @@
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="features" class="features">
-        <div class="container">
-            <div class="section-header">
-                <h2>Everything You Need to Master Vocabulary</h2>
-                <p>Comprehensive features designed to make vocabulary learning effective, collaborative, and enjoyable.</p>
-            </div>
-
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <img src="images/feature-illustrations/personal-dictionary.svg" alt="Personal Dictionary Image">
-                    </div>
-                    <h3>Your Personal Dictionary</h3>
-                    <p>Add words with multiple meanings, definitions, examples, and images. Organize with custom tags and track difficulty levels.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <img src="images/feature-illustrations/smart-organization.svg" alt="Smart Organization Image">
-                    </div>
-                    <h3>Smart Organization</h3>
-                    <p>Use custom tags, color coding, and categories to sort, arrange, and classify your vocabulary exactly how you need it.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <img src="images/feature-illustrations/interactive-quizzes.svg" alt="Quizzes Image">
-                    </div>
-                    <h3>Six Types of Quizzes</h3>
-                    <p>Practice with spelling, definition, context, and pronunciation quizzes. Track progress with spaced repetition.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <img src="images/feature-illustrations/chat-with-ai.svg" alt="Text Scanner Image">
-                    </div>
-                    <h3>Text Scanner</h3>
-                    <p>Extract words from photos. Capture words from books, signs, menus, and instantly add them to your dictionary.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <img src="images/feature-illustrations/collection.svg" alt="Word Collections Image">
-                    </div>
-                    <h3>Word Collections</h3>
-                    <p>Browse ready-made packs or create custom collections with AI. Import entire collections or pick individual words.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <img src="images/feature-illustrations/shared-dictionaries.svg" alt="Shared Dictionaries Image">
-                    </div>
-                    <h3>Collaborate Together</h3>
-                    <p>Create shared dictionaries with friends, classmates, or study groups. Real-time collaboration with role-based access.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <img src="images/feature-illustrations/progress-analytics.svg" alt="Progress Tracking Image">
-                    </div>
-                    <h3>Track Your Growth</h3>
-                    <p>See your vocabulary grow with detailed analytics. Monitor progress, streaks, and mastery levels over time.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- iOS Screenshots Section -->
-    <section id="screenshots" class="screenshots">
+    <section id="features" class="screenshots">
         <div class="container">
             <div class="section-header">
                 <h2>iOS Experience</h2>
@@ -539,6 +479,21 @@
         </div>
     </section>
 
+    <!-- CTA after reviews -->
+    <section class="cta-block">
+        <div class="container">
+            <h2 class="cta-block-title">Ready to organize your vocabulary?</h2>
+            <div class="download-buttons">
+                <a href="https://apps.apple.com/app/id1588418793" class="app-store-badge" aria-label="Download on the App Store">
+                    <img src="images/download-on-the-app-store.svg" alt="" width="141" height="36">
+                </a>
+                <a href="https://apps.apple.com/app/id1588418793" class="app-store-badge" aria-label="Download for macOS">
+                    <img src="images/download-for-macos.svg" alt="" width="201" height="37">
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- FAQ Section -->
     <section id="faq" class="faq">
         <div class="container">
@@ -583,14 +538,14 @@
                 <div class="faq-item">
                     <div class="faq-question">What subscription options are available?</div>
                     <div class="faq-answer">
-                        We offer flexible subscription options: Monthly subscription starts at $2.99 for the first month, then $4.99/month. Yearly subscription includes a 3-day free trial, then $39.99/year (save $19.89 per year). Both subscriptions include all features.
+                        We offer Weekly ($2.99), Monthly ($3.99), and Yearly ($39.99) subscriptions. There are no free trials or introductory discounts. All plans include all features.
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question">Can I cancel my subscription?</div>
                     <div class="faq-answer">
-                        Absolutely! Cancel anytime from your device settings. No questions asked, no hidden fees. Your subscription continues until the end of the billing period. For yearly subscriptions, you can cancel during the 3-day trial without being charged.
+                        Yes. Cancel anytime from your device settings. No questions asked, no hidden fees. Your subscription continues until the end of the current billing period.
                     </div>
                 </div>
             </div>
@@ -605,12 +560,13 @@
 smart organization, and collaborative features!</p>
 
             <div class="download-buttons">
-                <a href="https://apps.apple.com/app/id1588418793" class="download-button">
-                    <img src="images/apple-logo-black.svg" alt="Apple Logo" style="width: 16px; height: 20px;">
-                    Download on App Store
+                <a href="https://apps.apple.com/app/id1588418793" class="app-store-badge" aria-label="Download on the App Store">
+                    <img src="images/download-on-the-app-store.svg" alt="" width="141" height="36">
+                </a>
+                <a href="https://apps.apple.com/app/id1588418793" class="app-store-badge" aria-label="Download for macOS">
+                    <img src="images/download-for-macos.svg" alt="" width="201" height="37">
                 </a>
             </div>
-
             <div class="download-trust">
                 <p><img src="/images/star.svg" alt="" class="inline-star"> 4.8/5 stars • 135+ languages • Available on App Store</p>
             </div>
@@ -653,7 +609,13 @@ and collaborative features.</p>
                 <div class="footer-lang-links">
                     <span class="current-lang" aria-current="true">English</span>
                     <a href="/es/">Español</a>
+                    <a href="/fr/">Français</a>
+                    <a href="/de/">Deutsch</a>
                     <a href="/ru/">Русский</a>
+                    <a href="/uk/">Українська</a>
+                    <a href="/ar/">العربية</a>
+                    <a href="/ja/">日本語</a>
+                    <a href="/ko/">한국어</a>
                     <a href="/hr/">Hrvatski</a>
                 </div>
             </div>

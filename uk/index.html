@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dictionary – Організуй словник і опануй кожне слово | Особистий словник</title>
+    <meta name="description" content="Додаток для тих, хто вивчає мови: твої слова, квізи та прогрес в одному місці. Понад 135 мов, визначення з ШІ та інтервальне повторення.">
+    <meta name="keywords" content="додаток словника, словник, організація слів, вивчення мов, особистий словник, словниковий запас">
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon/favicon.ico" sizes="any">
+    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+    <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
+    <meta name="apple-itunes-app" content="app-id=1588418793">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mydictionary.org/uk/">
+    <meta property="og:title" content="My Dictionary – Організуй словник і опануй кожне слово">
+    <meta property="og:description" content="Додаток для вивчення мов. Понад 135 мов.">
+    <meta property="og:image" content="https://mydictionary.org/images/og-image.png">
+    <meta property="og:locale" content="uk_UA">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://mydictionary.org/uk/">
+    <meta property="twitter:title" content="My Dictionary – Організуй словник і опануй кожне слово">
+    <meta property="twitter:description" content="Додаток для вивчення мов. Понад 135 мов.">
+    <meta property="twitter:image" content="https://mydictionary.org/images/twitter-image.png">
+
+    <link rel="stylesheet" href="/css/apple-design-system.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/dark-mode.css">
+
+    <meta name="color-scheme" content="light dark">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0DLV1WM03"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0DLV1WM03');
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-content">Перейти до основного вмісту</a>
+    <!-- Header -->
+    <header class="header" role="banner">
+        <nav class="nav" role="navigation" aria-label="Головна навігація">
+            <div class="logo">
+                <img src="/favicon/favicon.svg" alt="My Dictionary" width="28" height="28">
+                <span>My Dictionary</span>
+            </div>
+            <button type="button" class="nav-toggle" aria-label="Відкрити меню" aria-expanded="false" aria-controls="nav-links">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+            <ul class="nav-links" id="nav-links" role="list">
+                <li role="listitem"><a href="#features" aria-label="Функції">Функції</a></li>
+                <li role="listitem"><a href="#faq" aria-label="FAQ">FAQ</a></li>
+                <li role="listitem"><a href="#download" aria-label="Завантажити додаток">Завантажити</a></li>
+                <li role="listitem"><a href="/uk/legal.html" aria-label="Правова інформація">Правова інформація</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="main-content" class="hero">
+        <div class="hero-content">
+            <img src="/images/welcome.svg" alt="" class="hero-welcome-image fade-in-up" width="400" height="300">
+            <h1 class="fade-in-up">Організуй словник.<br>Опануй кожне слово.</h1>
+            <p class="hero-tagline fade-in-up">Додаток для тих, хто вивчає мови: твої слова, квізи й прогрес — у одному місці.</p>
+            <p class="hero-subtitle fade-in-up">
+                Особистий словник: збирай слова, організовуй тегами та тренуйся квізами у понад 135 мовах.
+            </p>
+            <div class="cta-buttons fade-in-up">
+                <a href="https://apps.apple.com/app/id1588418793" class="app-store-badge" aria-label="Завантажити в App Store">
+                    <img src="/images/download-on-the-app-store.svg" alt="" width="141" height="36">
+                </a>
+                <a href="https://apps.apple.com/app/id1588418793" class="app-store-badge" aria-label="Завантажити для macOS">
+                    <img src="/images/download-for-macos.svg" alt="" width="201" height="37">
+                </a>
+                <a href="#features" class="cta-button secondary" aria-label="Дізнатися більше">
+                    Дізнатися більше
+                </a>
+            </div>
+            <div class="trust-indicators fade-in-up">
+                <span><img src="/images/star.svg" alt="" class="inline-star"> 4,8/5</span>
+                <span>•</span>
+                <span>135+ мов</span>
+                <span>•</span>
+                <span>iOS та macOS</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section id="problems" class="problems">
+        <div class="container">
+            <div class="section-header">
+                <h2>Важко організувати словниковий запас?</h2>
+            </div>
+
+            <div class="problems-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <img src="/images/multiple-meanings.svg" alt="" width="180" height="135">
+                    </div>
+                    <h3>Одне слово — багато значень</h3>
+                    <p>Шукаєш слово, а визначення не підходить до контексту. Багато слів мають 2, 3 або навіть 5+ значень. Потрібен словник, який допомагає розуміти відтінки, а не лише переклади.</p>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <img src="/images/disorganized.svg" alt="" width="180" height="135">
+                    </div>
+                    <h3>Списки слів розкидані</h3>
+                    <p>Слова зберігаються скрізь: зошити, додатки, картки. Їх важко знайти. Ти запам'ятовуєш, але швидко забуваєш — немає системи організації та повторення.</p>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <img src="/images/dont-know.svg" alt="" width="180" height="135">
+                    </div>
+                    <h3>Не знаєш, як вживати слова</h3>
+                    <p>Знаєш значення, але не вживання. Втрачаються ідіоми, вирази й природні конструкції. Словниковий запас відчувається неповним.</p>
+                </div>
+            </div>
+
+            <p class="problem-transition">Є кращий підхід…</p>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section id="solution" class="solution">
+        <div class="container">
+            <div class="section-header">
+                <h2>Твій особистий словник — організований по-твоєму</h2>
+            </div>
+
+            <p class="solution-overview">
+                My Dictionary — інструмент для збирання, організації та опанування слів: кілька значень,
+                теги та квізи для тренування.
+            </p>
+
+            <div class="solution-grid">
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <img src="/images/personal-dictionary.svg" alt="" width="240" height="180">
+                    </div>
+                    <h3>Твій особистий словник</h3>
+                    <p>Збирай слова з визначеннями, кількома значеннями та прикладами. Організуй тегами, відстежуй складність і будуй словниковий запас так, як тобі потрібно.</p>
+                </div>
+
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <img src="/images/practice.svg" alt="" width="240" height="180">
+                    </div>
+                    <h3>Розумна практика та квізи</h3>
+                    <p>Шість типів квізів для перевірки. Прогрес і інтервальне повторення. Опануй слова практикою, а не лише запам'ятовуванням.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="philosophy">
+        <div class="container">
+            <div class="philosophy-header">
+                <h2>Створено для організації словника</h2>
+                <p class="philosophy-subtitle">Історія My Dictionary і чому організувати важливіше, ніж лише збирати слова.</p>
+            </div>
+
+            <div class="philosophy-content">
+                <div class="philosophy-text">
+                    <div class="story-section">
+                        <p>Мене звати Олександр, я автор My Dictionary. Чотири роки тому вивчав англійську і важко було організувати нові слова. Звичайні словники не допомагали запам'ятовувати, списки були безладно розкидані.</p>
+
+                        <p>Потрібен був кращий спосіб збирати, організовувати та тренувати словник. Замість лише перекладати я почав будувати розуміння через значення й контекст. Писав визначення, щоб пояснювати слова, а не тільки перекладати. Так прийшло глибше й природніше розуміння.</p>
+
+                        <p>Робити це вручну було виснажливо. Тому я створив My Dictionary, щоб автоматизувати процес і зробити його доступним усім. Потужний інструмент для збирання, організації та категоризації словника так, як тобі потрібно.</p>
+
+                        <p>Сьогодні My Dictionary допомагає тисячам людей організувати словниковий запас. Мета проста: перестань накопичувати слова, які забуваєш, і почни організовувати ті, що справді важливі.</p>
+                    </div>
+
+                    <div class="philosophy-highlight">
+                        <h3>Чому організація краща за збирання</h3>
+                        <div class="philosophy-points">
+                            <div class="point">
+                                <strong>Стійкі знання:</strong> Організований словник з контекстом дає знання, яке лишається, а не одноразове запам'ятовування.
+                            </div>
+                            <div class="point">
+                                <strong>Ефективна практика:</strong> Коли слова в порядку, можна добре тренуватися й бачити, що вже опанував.
+                            </div>
+                            <div class="point">
+                                <strong>Опанування контексту:</strong> Розуміння того, як слова працюють у різних ситуаціях, будує справжнє володіння словником.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="philosophy-visual">
+                    <img src="/images/picture_of_me.jpeg" alt="Олександр, автор My Dictionary" class="creator-photo">
+                    <div class="learning-journey">
+                        <div class="journey-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Збирай слова</h4>
+                                <p>Зберігай слова з визначеннями та прикладами, коли їх зустрічаєш</p>
+                            </div>
+                        </div>
+                        <div class="journey-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Організуй словник</h4>
+                                <p>Використовуй теги, категорії та рівні складності для свого системи</p>
+                            </div>
+                        </div>
+                        <div class="journey-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Опануй практикою</h4>
+                                <p>Тренуйся квізами, відстежуй прогрес і опануй словник</p>
+                            </div>
+                        </div>
+                        <div class="journey-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>Відстежуй зростання</h4>
+                                <p>Дивись, як росте словник завдяки аналітиці та контролю прогресу</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- iOS Screenshots Section -->
+    <section id="features" class="screenshots">
+        <div class="container">
+            <div class="section-header">
+                <h2>Досвід на iOS</h2>
+                <p>Зрозумілий інтерфейс для керування словником на iPhone та iPad.</p>
+            </div>
+        </div>
+
+        <div class="screenshots-horizontal-wrapper">
+            <div class="screenshots-horizontal">
+                <div class="screenshot-card">
+                    <img src="/images/ios-screenshots/main.png" alt="Чистий інтерфейс без реклами" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="screenshot-info">
+                        <h3>Чистий інтерфейс без реклами</h3>
+                        <p>Будуючи колекцію з тегами, відстеженням складності та миттєвим пошуком. Твій словник — по-твоєму.</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <img src="/images/ios-screenshots/word-details.png" alt="Зображення, кілька значень і приклади" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="screenshot-info">
+                        <h3>Зображення, кілька значень і приклади</h3>
+                        <p>Додавай контекст до кожного слова: зображення, кілька визначень і реальні приклади. Будуй розуміння, а не лише переклад.</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <img src="/images/ios-screenshots/word-share.png" alt="Легко ділитися словами" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="screenshot-info">
+                        <h3>Легко ділитися словами</h3>
+                        <p>Ділись улюбленими словами або експортуй словник. Співпрацюй з друзями та групами без зайвих кроків.</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <img src="/images/ios-screenshots/quizzes-list.png" alt="Тренуйся квізами" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="screenshot-info">
+                        <h3>Тренуйся квізами</h3>
+                        <p>Шість типів: орфографія, визначення, речення, контекст і заповнення пропусків. Опануй слова практикою.</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <img src="/images/ios-screenshots/quiz-in-action.png" alt="Квіз в дії" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="screenshot-info">
+                        <h3>Інтерактивний квіз</h3>
+                        <p>Квізи для оцінки словника. Інтервальне повторення підлаштовується під тебе, щоб слова закріплювались.</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <img src="/images/ios-screenshots/quiz-results.png" alt="Збережені статистики для повторення" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="screenshot-info">
+                        <h3>Збережені статистики для повторення</h3>
+                        <p>Переглядай результати з точністю, часом і метриками. Відстежуй опанування словника за повною аналітикою.</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <img src="/images/ios-screenshots/flashcards.png" alt="Повторення картками" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="screenshot-info">
+                        <h3>Повторення картками</h3>
+                        <p>Повторюй картками для швидкого запам'ятовування. Тренуй визначення, орфографію та вживання у зосереджених сесіях.</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <img src="/images/ios-screenshots/analytics.png" alt="Відстежуй прогрес" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="screenshot-info">
+                        <h3>Відстежуй прогрес</h3>
+                        <p>Дивись, як росте словник завдяки аналітиці. Контролюй прогрес, серії, точність та рівні опанування.</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <img src="/images/ios-screenshots/notifications.png" alt="Налаштовувані сповіщення" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="screenshot-info">
+                        <h3>Налаштовувані сповіщення</h3>
+                        <p>Налаштуй нагадування про заняття та сповіщення для регулярності. Обери час і спосіб отримання.</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <img src="/images/ios-screenshots/settings.png" alt="TTS, сповіщення, імпорт/експорт і більше" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="screenshot-info">
+                        <h3>Повні налаштування</h3>
+                        <p>Персоналізуй досвід: преміум TTS, нагадування, інтервальне повторення та імпорт/експорт.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- macOS Screenshots Section -->
+    <section class="screenshots">
+        <div class="container">
+            <div class="section-header">
+                <h2>Досвід на macOS</h2>
+                <p>Потужний десктопний досвід з розширеними функціями та синхронізацією.</p>
+            </div>
+
+            <div class="screenshots-grid macos">
+                <div class="screenshot-card">
+                    <img src="/images/macos-screenshots/main-and-word-details.png" alt="Інтерфейс macOS" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="screenshot-info">
+                        <h3>Потужний десктопний досвід</h3>
+                        <p>Повноцінний додаток macOS: розширене редагування, бічна навігація та синхронізація з пристроями. Редагуй і переглядай слова на великому екрані.</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <img src="/images/macos-screenshots/quizzes-list-and-quiz-in-action.png" alt="Квізи на macOS" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="screenshot-info">
+                        <h3>Розширені квізи</h3>
+                        <p>Квізи з десктопним інтерфейсом, краща підтримка клавіатури та покращений зворотний зв’язок. Усі типи квізів на великих екранах.</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <img src="/images/macos-screenshots/word-collections.png" alt="Колекції слів" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="screenshot-info">
+                        <h3>Колекції слів</h3>
+                        <p>Переглядай та керуй колекціями зручно. Імпортуй готові або створюй свої за допомогою ШІ.</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <img src="/images/macos-screenshots/word-share.png" alt="Ділитися словами" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="screenshot-info">
+                        <h3>Ділитися та експортувати</h3>
+                        <p>Ділись словами або експортуй увесь словник. Співпрацюй через спільні словники або експортуй у CSV чи JSON.</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <img src="/images/macos-screenshots/analytics.png" alt="Аналітика на macOS" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="screenshot-info">
+                        <h3>Повна аналітика</h3>
+                        <p>Відстежуй зростання словника та прогрес. Серії, точність, рівні опанування та статистика на великому екрані.</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <img src="/images/macos-screenshots/settings.png" alt="Налаштування macOS" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="screenshot-info">
+                        <h3>Розширені налаштування</h3>
+                        <p>Персоналізуй навчання. Налаштуй TTS, сповіщення, інтервальне повторення, імпорт/експорт та інше на десктопі.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Reviews Section -->
+    <section class="reviews">
+        <div class="container">
+            <div class="section-header">
+                <h2>Її обирають ті, хто будує словник по всьому світу</h2>
+                <p>Тисячі користувачів уже організовують і опановують словник за допомогою My Dictionary.</p>
+            </div>
+
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars" data-rating="5"></div>
+                        <div class="reviewer-info">
+                            <strong>Sarah M.</strong>
+                            <span>Вивчає англійську</span>
+                        </div>
+                    </div>
+                    <p class="review-text">"За 3 місяці з My Dictionary вивчила 500 слів англійською. Інтервальне повторення та квізи роблять вивчення словника дуже ефективним!"</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars" data-rating="5"></div>
+                        <div class="reviewer-info">
+                            <strong>Carlos R.</strong>
+                            <span>Іспаномовний</span>
+                        </div>
+                    </div>
+                    <p class="review-text">"Нарешті додаток, який допомагає розуміти контекст, а не лише перекладати. Вирази та ідіоми — справжня знахідка!"</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars" data-rating="5"></div>
+                        <div class="reviewer-info">
+                            <strong>Hydrangia</strong>
+                            <span>Велика Британія</span>
+                        </div>
+                    </div>
+                    <p class="review-text">"Дуже задоволена додатком. Можу додавати незнайомі слова та перевіряти себе квізами. Поки все працює добре, подобається. Чудово, що синхронізується з іншим пристроєм."</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars" data-rating="5"></div>
+                        <div class="reviewer-info">
+                            <strong>Branwiches</strong>
+                            <span>США</span>
+                        </div>
+                    </div>
+                    <p class="review-text">"Більше року шукав щось таке просте й базове. My Dictionary дуже зручний і саме те, що потрібно. Подобається, що можна додавати власні приклади!"</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars" data-rating="5"></div>
+                        <div class="reviewer-info">
+                            <strong>Група студентів</strong>
+                            <span>Університет</span>
+                        </div>
+                    </div>
+                    <p class="review-text">"Спільні словники допомогли нашій групі вчитися разом. Подвоїли словниковий запас удвічі швидше!"</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="stars" data-rating="5"></div>
+                        <div class="reviewer-info">
+                            <strong>Alex K.</strong>
+                            <span>Ентузіаст мов</span>
+                        </div>
+                    </div>
+                    <p class="review-text">"Як поліглот, що вивчає кілька мов, підтримка понад 135 мов — це неймовірно. Один додаток для всього мого словника."</p>
+                </div>
+            </div>
+
+            <div class="reviews-summary">
+                <div class="rating">
+                    <div class="rating-number">4.8</div>
+                    <div class="rating-stars" data-rating="5"></div>
+                    <div class="rating-text">з 5</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-block">
+        <div class="container">
+            <h2 class="cta-block-title">Готовий організувати словник?</h2>
+            <div class="download-buttons">
+                <a href="https://apps.apple.com/app/id1588418793" class="app-store-badge" aria-label="Завантажити в App Store">
+                    <img src="/images/download-on-the-app-store.svg" alt="" width="141" height="36">
+                </a>
+                <a href="https://apps.apple.com/app/id1588418793" class="app-store-badge" aria-label="Завантажити для macOS">
+                    <img src="/images/download-for-macos.svg" alt="" width="201" height="37">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>Часті питання</h2>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">Чим відрізняється від інших словникових додатків?</div>
+                    <div class="faq-answer">
+                        Більшість лише перекладають. My Dictionary допомагає організовувати й опановувати словник:
+                        кілька значень, теги, квізи та інтервальне повторення. Це система керування словником, а не лише словник.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Які мови підтримуються?</div>
+                    <div class="faq-answer">
+                        Понад 135! Будуй словник будь-якою мовою: англійська, іспанська, французька, німецька,
+                        китайська, хінді, російська та багато інших. Додаток підтримує словник будь-якою мовою.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Чи працює без інтернету?</div>
+                    <div class="faq-answer">
+                        Так. Основні функції працюють офлайн. Словник зберігається локально і синхронізується при підключенні. Функції з ШІ потребують інтернету для генерації контенту, але слова та квізи працюють офлайн.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Чи є веб-версія?</div>
+                    <div class="faq-answer">
+                        Доступно на iOS та macOS. Веб-версія незабаром! Словник синхронізується на всіх пристроях.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Які варіанти підписки?</div>
+                    <div class="faq-answer">
+                        Тижнева (2,99 €), місячна (3,99 €) та річна (39,99 €). Без безкоштовних проб і знижок. Усі плани включають усі функції.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Чи можна скасувати підписку?</div>
+                    <div class="faq-answer">
+                        Так, у будь-який момент у налаштуваннях пристрою. Без зайвих питань і прихованих зборів. Підписка діє до кінця поточного періоду оплати.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="download">
+        <div class="container">
+            <h2>Завантаж My Dictionary сьогодні</h2>
+            <p>Доступно на iOS та macOS. Організуй і опановуй словник за допомогою визначень з ШІ, розумної організації та співпраці.</p>
+
+            <div class="download-buttons">
+                <a href="https://apps.apple.com/app/id1588418793" class="app-store-badge" aria-label="Завантажити в App Store">
+                    <img src="/images/download-on-the-app-store.svg" alt="" width="141" height="36">
+                </a>
+                <a href="https://apps.apple.com/app/id1588418793" class="app-store-badge" aria-label="Завантажити для macOS">
+                    <img src="/images/download-for-macos.svg" alt="" width="201" height="37">
+                </a>
+            </div>
+            <div class="download-trust">
+                <p><img src="/images/star.svg" alt="" class="inline-star"> 4,8/5 • 135+ мов • Доступно в App Store</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>My Dictionary</h3>
+                <p>Організуй і опановуй словник за допомогою визначень з ШІ, розумної організації та співпраці.</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Швидкі посилання</h3>
+                <a href="#features">Функції</a>
+                <a href="#faq">FAQ</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Підтримка</h3>
+                <a href="mailto:hello@mydictionary.org">Зв’язатися з підтримкою</a>
+                <a href="/uk/legal.html">Правові документи</a>
+                <a href="/uk/privacy-policy.html">Політика конфіденційності</a>
+                <a href="/uk/terms-of-use.html">Умови використання</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Зв’язок</h3>
+                <a href="mailto:hello@mydictionary.org">Email</a>
+                <a href="https://x.com/xander1100001" target="_blank">Twitter</a>
+                <a href="https://www.instagram.com/ar_x101/" target="_blank">Instagram</a>
+                <a href="https://www.linkedin.com/in/xander1100001/" target="_blank">LinkedIn</a>
+            </div>
+
+            <div class="footer-section footer-lang">
+                <h3>Мова</h3>
+                <div class="footer-lang-links">
+                    <a href="/">English</a>
+                    <a href="/es/">Español</a>
+                    <a href="/fr/">Français</a>
+                    <a href="/de/">Deutsch</a>
+                    <a href="/ru/">Русский</a>
+                    <a href="/ar/">العربية</a>
+                    <a href="/ja/">日本語</a>
+                    <a href="/ko/">한국어</a>
+                    <a href="/hr/">Hrvatski</a>
+                    <span class="current-lang" aria-current="true">Українська</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 My Dictionary. Усі права захищені. Зроблено з ❤️ для тих, хто будує словник.</p>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal for Screenshots -->
+    <div id="lightbox" class="lightbox" role="dialog" aria-label="Попередній перегляд знімка" aria-hidden="true">
+        <div class="lightbox-overlay"></div>
+        <div class="lightbox-content">
+            <button class="lightbox-close" aria-label="Закрити попередній перегляд">&times;</button>
+            <img src="" alt="" class="lightbox-image" id="lightbox-image">
+        </div>
+    </div>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>

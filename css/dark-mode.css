@@ -3,6 +3,15 @@
 /* This file is for any dark mode specific overrides or enhancements */
 
 @media (prefers-color-scheme: dark) {
+    /* App Store / Mac badges: light button, black image in dark mode */
+    .app-store-badge {
+        background: #fff;
+    }
+
+    .app-store-badge img {
+        filter: none;
+    }
+
     /* Ensure images have proper contrast in dark mode */
     .screenshot-image,
     .feature-icon img {
