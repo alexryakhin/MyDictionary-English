@@ -52,7 +52,12 @@
                 <img src="/favicon/favicon.svg" alt="My Dictionary" width="28" height="28">
                 <span>My Dictionary</span>
             </div>
-            <ul class="nav-links" role="list">
+            <button type="button" class="nav-toggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="nav-links">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+            <ul class="nav-links" id="nav-links" role="list">
                 <li role="listitem"><a href="#features" aria-label="機能を見る">機能</a></li>
                 <li role="listitem"><a href="#faq" aria-label="よくある質問">FAQ</a></li>
                 <li role="listitem"><a href="#download" aria-label="アプリをダウンロード">ダウンロード</a></li>

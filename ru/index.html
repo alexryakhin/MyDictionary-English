@@ -47,7 +47,12 @@
                 <img src="/favicon/favicon.svg" alt="My Dictionary" width="28" height="28">
                 <span>My Dictionary</span>
             </div>
-            <ul class="nav-links" role="list">
+            <button type="button" class="nav-toggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav-links">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+            <ul class="nav-links" id="nav-links" role="list">
                 <li role="listitem"><a href="#features">Возможности</a></li>
                 <li role="listitem"><a href="#faq">Вопросы</a></li>
                 <li role="listitem"><a href="#download">Скачать</a></li>

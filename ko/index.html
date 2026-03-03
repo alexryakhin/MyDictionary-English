@@ -52,7 +52,12 @@
                 <img src="/favicon/favicon.svg" alt="My Dictionary" width="28" height="28">
                 <span>My Dictionary</span>
             </div>
-            <ul class="nav-links" role="list">
+            <button type="button" class="nav-toggle" aria-label="메뉴 열기" aria-expanded="false" aria-controls="nav-links">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+            <ul class="nav-links" id="nav-links" role="list">
                 <li role="listitem"><a href="#features" aria-label="기능 보기">기능</a></li>
                 <li role="listitem"><a href="#faq" aria-label="자주 묻는 질문">FAQ</a></li>
                 <li role="listitem"><a href="#download" aria-label="앱 다운로드">다운로드</a></li>
