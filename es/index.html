@@ -6,12 +6,15 @@
     <title>My Dictionary - Cuando las palabras son tuyas, hablas con seguridad</title>
     <meta name="description" content="Recoge palabras de la vida, entiéndelas - y el vocabulario será realmente tuyo. En la conversación, en la reunión, en el viaje: la palabra adecuada cuando hace falta.">
     <meta name="keywords" content="app de vocabulario, diccionario, organizar palabras, acumular vocabulario, diccionario personal, colección de palabras">
+    <link rel="canonical" href="https://mydictionary.org/es/">
+    <meta name="robots" content="index,follow,max-image-preview:large">
 
     <!-- Favicon -->
     <link rel="icon" href="/favicon/favicon.ico" sizes="any">
     <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
     <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
     <meta name="apple-itunes-app" content="app-id=1588418793">
+    <link rel="manifest" href="/favicon/site.webmanifest">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -46,6 +49,8 @@
     <link rel="stylesheet" href="/css/dark-mode.css">
 
     <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0DLV1WM03"></script>
@@ -54,6 +59,44 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-B0DLV1WM03');
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://mydictionary.org/es/#website",
+            "url": "https://mydictionary.org/es/",
+            "name": "My Dictionary",
+            "inLanguage": "es"
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://mydictionary.org/#organization",
+            "name": "My Dictionary",
+            "url": "https://mydictionary.org/",
+            "email": "hello@mydictionary.org",
+            "sameAs": [
+              "https://x.com/xander1100001",
+              "https://www.instagram.com/ar_x101/",
+              "https://www.linkedin.com/in/xander1100001/"
+            ]
+          },
+          {
+            "@type": "MobileApplication",
+            "@id": "https://mydictionary.org/#app",
+            "name": "My Dictionary",
+            "operatingSystem": "iOS, macOS",
+            "applicationCategory": "EducationalApplication",
+            "offers": {
+              "@type": "Offer",
+              "url": "https://apps.apple.com/app/id1588418793"
+            }
+          }
+        ]
+      }
     </script>
 </head>
 <body>

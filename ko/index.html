@@ -6,12 +6,15 @@
     <title>My Dictionary - 단어가 내 것이 되면, 자신 있게 말할 수 있다</title>
     <meta name="description" content="일상에서 만난 단어를 모으고, 이해하세요. 어휘가 진짜 내 것이 됩니다. 대화에서, 회의에서, 여행에서 - 필요한 순간에 딱 맞는 말을.">
     <meta name="keywords" content="어휘 앱, 사전 앱, 단어 정리, 어휘 구축, 개인 사전, 단어 컬렉션, 어휘 연습, 사전 도구">
+    <link rel="canonical" href="https://mydictionary.org/ko/">
+    <meta name="robots" content="index,follow,max-image-preview:large">
 
     <!-- Favicon -->
     <link rel="icon" href="/favicon/favicon.ico" sizes="any">
     <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
     <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
     <meta name="apple-itunes-app" content="app-id=1588418793">
+    <link rel="manifest" href="/favicon/site.webmanifest">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -46,6 +49,8 @@
     <link rel="stylesheet" href="/css/dark-mode.css">
 
     <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0DLV1WM03"></script>
@@ -54,6 +59,44 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-B0DLV1WM03');
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://mydictionary.org/ko/#website",
+            "url": "https://mydictionary.org/ko/",
+            "name": "My Dictionary",
+            "inLanguage": "ko"
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://mydictionary.org/#organization",
+            "name": "My Dictionary",
+            "url": "https://mydictionary.org/",
+            "email": "hello@mydictionary.org",
+            "sameAs": [
+              "https://x.com/xander1100001",
+              "https://www.instagram.com/ar_x101/",
+              "https://www.linkedin.com/in/xander1100001/"
+            ]
+          },
+          {
+            "@type": "MobileApplication",
+            "@id": "https://mydictionary.org/#app",
+            "name": "My Dictionary",
+            "operatingSystem": "iOS, macOS",
+            "applicationCategory": "EducationalApplication",
+            "offers": {
+              "@type": "Offer",
+              "url": "https://apps.apple.com/app/id1588418793"
+            }
+          }
+        ]
+      }
     </script>
 </head>
 <body>
@@ -541,7 +584,7 @@
                 <div class="faq-item">
                     <div class="faq-question">요금 플랜은?</div>
                     <div class="faq-answer">
-                        주간($3.99), 월간($4.99), 연간($39.99). 무료 체험이나 출시 할인은 없습니다. 모든 플랜에 전체 기능이 포함됩니다. 가격은 지역에 따라 다를 수 있으며, 표시된 가격은 미국 기준 가격입니다.
+                        월간($5.99), 연간($39.99). 7일 무료 체험은 연간 플랜에만 제공됩니다. 또한 앱에서 프로모션 요금이 표시될 수 있습니다(예: 연간 $29.99 - 무료 체험 없음, 평생 $79.99 - 무료 체험 없음). 가격은 지역에 따라 다를 수 있으며, 표시된 가격은 미국 기준 가격입니다.
                     </div>
                 </div>
 
@@ -600,9 +643,9 @@
             <div class="footer-section">
                 <h3>연결</h3>
                 <a href="mailto:hello@mydictionary.org">Email</a>
-                <a href="https://x.com/xander1100001" target="_blank">Twitter</a>
-                <a href="https://www.instagram.com/ar_x101/" target="_blank">Instagram</a>
-                <a href="https://www.linkedin.com/in/xander1100001/" target="_blank">LinkedIn</a>
+                <a href="https://x.com/xander1100001" target="_blank" rel="noopener">Twitter</a>
+                <a href="https://www.instagram.com/ar_x101/" target="_blank" rel="noopener">Instagram</a>
+                <a href="https://www.linkedin.com/in/xander1100001/" target="_blank" rel="noopener">LinkedIn</a>
             </div>
 
             <div class="footer-section footer-lang">

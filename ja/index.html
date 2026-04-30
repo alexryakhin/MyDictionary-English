@@ -6,12 +6,15 @@
     <title>My Dictionary - 単語が自分のものになれば、自信を持って話せる</title>
     <meta name="description" content="日常で出会った単語を集め、理解する。語彙が本当に自分のものに。会話でも、会議でも、旅先でも、必要な時にぴったりの言葉を。">
     <meta name="keywords" content="語彙アプリ,辞書アプリ,単語整理,語彙構築,個人辞書,単語コレクション,語彙練習,辞書ツール">
+    <link rel="canonical" href="https://mydictionary.org/ja/">
+    <meta name="robots" content="index,follow,max-image-preview:large">
 
     <!-- Favicon -->
     <link rel="icon" href="/favicon/favicon.ico" sizes="any">
     <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
     <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
     <meta name="apple-itunes-app" content="app-id=1588418793">
+    <link rel="manifest" href="/favicon/site.webmanifest">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -46,6 +49,8 @@
     <link rel="stylesheet" href="/css/dark-mode.css">
 
     <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0DLV1WM03"></script>
@@ -54,6 +59,44 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-B0DLV1WM03');
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://mydictionary.org/ja/#website",
+            "url": "https://mydictionary.org/ja/",
+            "name": "My Dictionary",
+            "inLanguage": "ja"
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://mydictionary.org/#organization",
+            "name": "My Dictionary",
+            "url": "https://mydictionary.org/",
+            "email": "hello@mydictionary.org",
+            "sameAs": [
+              "https://x.com/xander1100001",
+              "https://www.instagram.com/ar_x101/",
+              "https://www.linkedin.com/in/xander1100001/"
+            ]
+          },
+          {
+            "@type": "MobileApplication",
+            "@id": "https://mydictionary.org/#app",
+            "name": "My Dictionary",
+            "operatingSystem": "iOS, macOS",
+            "applicationCategory": "EducationalApplication",
+            "offers": {
+              "@type": "Offer",
+              "url": "https://apps.apple.com/app/id1588418793"
+            }
+          }
+        ]
+      }
     </script>
 </head>
 <body>
@@ -541,7 +584,7 @@
                 <div class="faq-item">
                     <div class="faq-question">料金プランは？</div>
                     <div class="faq-answer">
-                        週間（$3.99）、月間（$4.99）、年間（$39.99）。無料トライアルやリリース割引はありません。全プランに全機能が含まれます。価格は地域により異なる場合があります。表示価格は米国基準価格です。
+                        月間（$5.99）、年間（$39.99）。7日間の無料トライアルは年間プランのみです。アプリ内でプロモーション価格が表示される場合もあります（例：年間 $29.99 - 無料トライアルなし、買い切り（Lifetime）$79.99 - 無料トライアルなし）。価格は地域により異なる場合があります。表示価格は米国基準価格です。
                     </div>
                 </div>
 
@@ -600,9 +643,9 @@
             <div class="footer-section">
                 <h3>リンク</h3>
                 <a href="mailto:hello@mydictionary.org">Email</a>
-                <a href="https://x.com/xander1100001" target="_blank">Twitter</a>
-                <a href="https://www.instagram.com/ar_x101/" target="_blank">Instagram</a>
-                <a href="https://www.linkedin.com/in/xander1100001/" target="_blank">LinkedIn</a>
+                <a href="https://x.com/xander1100001" target="_blank" rel="noopener">Twitter</a>
+                <a href="https://www.instagram.com/ar_x101/" target="_blank" rel="noopener">Instagram</a>
+                <a href="https://www.linkedin.com/in/xander1100001/" target="_blank" rel="noopener">LinkedIn</a>
             </div>
 
             <div class="footer-section footer-lang">

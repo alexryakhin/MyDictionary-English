@@ -209,8 +209,10 @@ My Dictionary helps you collect, organize, and manage words across 40+ languages
 - **Priority Support**: Get priority help when you need it
 
 ### **Subscription Plans**
-- **Monthly Pro**: $4.99/month
-- **Yearly Pro**: $39.99/year (33% savings)
+- **Monthly Pro**: $5.99/month (no free trial)
+- **Yearly Pro**: $39.99/year (includes a 7-day free trial)
+- **Promo Yearly** (sometimes shown in-app): $29.99/year (no free trial)
+- **Promo Lifetime** (sometimes shown in-app): $79.99 (no free trial)
 
 ---
 
