@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCP Server for Claude &amp; Cursor - My Dictionary</title>
+    <meta name="description" content="Connect Claude, Cursor, or VS Code to My Dictionary on Mac via MCP. Manage vocabulary with AI tools — localhost only, Pro for write access.">
+    <link rel="canonical" href="https://mydictionary.org/docs/mcp/">
+    <link rel="icon" href="/favicon/favicon.ico" sizes="any">
+    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+    <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
+    <meta name="apple-itunes-app" content="app-id=1588418793">
+    <link rel="stylesheet" href="/css/apple-design-system.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/dark-mode.css">
+    <meta name="color-scheme" content="light dark">
+    <meta property="og:title" content="MCP Server - My Dictionary">
+    <meta property="og:description" content="Manage your My Dictionary vocabulary from Claude, Cursor, and VS Code on Mac.">
+    <meta property="og:url" content="https://mydictionary.org/docs/mcp/">
+    <meta property="og:image" content="https://mydictionary.org/images/og-image.png">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0DLV1WM03"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B0DLV1WM03');
+    </script>
+    <style>
+      .legal-section pre {
+        overflow-x: auto;
+        padding: 1rem;
+        border-radius: 12px;
+        background: rgba(127, 127, 127, 0.12);
+        font-size: 0.85rem;
+        line-height: 1.45;
+      }
+      .legal-section code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 0.9em;
+      }
+      .legal-section ul.tool-list li {
+        margin-bottom: 0.35rem;
+      }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+    <header class="header" role="banner">
+        <nav class="nav" role="navigation" aria-label="Main navigation">
+            <a href="/" class="logo" style="text-decoration: none;">
+                <img src="/favicon/favicon.svg" alt="My Dictionary" width="28" height="28">
+                <span>My Dictionary</span>
+            </a>
+            <ul class="nav-links" role="list">
+                <li role="listitem"><a href="/#features">Features</a></li>
+                <li role="listitem"><a href="/#how-it-works">How It Works</a></li>
+                <li role="listitem"><a href="/#faq">FAQ</a></li>
+                <li role="listitem"><a href="/#download">Download</a></li>
+                <li role="listitem"><a href="/legal.html">Legal</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="main-content" class="legal-page">
+        <div class="legal-container">
+            <div class="legal-header">
+                <div class="legal-logo">My Dictionary</div>
+                <div class="legal-subtitle">MCP Server (macOS)</div>
+                <div class="legal-date">Last updated: August 2026</div>
+            </div>
+
+            <div class="legal-section">
+                <h2>What is this?</h2>
+                <p>
+                    The <strong>macOS</strong> app can run a local <a href="https://modelcontextprotocol.io/" target="_blank" rel="noopener">MCP</a>
+                    (Model Context Protocol) server so AI tools like <strong>Claude</strong>, <strong>Cursor</strong>, and <strong>VS Code</strong>
+                    can read — and with Pro, edit — your personal vocabulary.
+                </p>
+                <ul>
+                    <li>Runs only on <strong>localhost</strong> on your Mac (not exposed to the internet).</li>
+                    <li>Protected with a Bearer auth token you copy from Settings.</li>
+                    <li>Off by default — enable it in <strong>Settings → MCP Server</strong>.</li>
+                    <li><strong>Free:</strong> read-only tools. <strong>Pro:</strong> full read/write (add/update words, tags, quiz results).</li>
+                </ul>
+            </div>
+
+            <div class="legal-section">
+                <h2>Quick start</h2>
+                <ol>
+                    <li>Open <strong>My Dictionary</strong> on Mac.</li>
+                    <li>Go to <strong>Settings → MCP Server</strong>.</li>
+                    <li>Turn the server <strong>On</strong> (optionally enable auto-start).</li>
+                    <li>Copy the <strong>server URL</strong> (default <code>http://127.0.0.1:PORT/mcp</code>) and the <strong>auth token</strong>.</li>
+                    <li>Paste the matching config into your AI client (configs are also copyable in the app).</li>
+                </ol>
+            </div>
+
+            <div class="legal-section">
+                <h2>Client setup</h2>
+                <p>Replace <code>PORT</code> and <code>YOUR_TOKEN</code> with values from Settings → MCP Server.</p>
+
+                <h3>Cursor</h3>
+                <pre><code>{
+  "mcpServers": {
+    "my-dictionary": {
+      "url": "http://127.0.0.1:PORT/mcp",
+      "headers": {
+        "Authorization": "Bearer YOUR_TOKEN"
+      }
+    }
+  }
+}</code></pre>
+
+                <h3>Claude Code</h3>
+                <pre><code>{
+  "mcpServers": {
+    "my-dictionary": {
+      "transport": {
+        "type": "http",
+        "url": "http://127.0.0.1:PORT/mcp"
+      },
+      "headers": {
+        "Authorization": "Bearer YOUR_TOKEN"
+      }
+    }
+  }
+}</code></pre>
+
+                <h3>VS Code</h3>
+                <pre><code>{
+  "servers": {
+    "my-dictionary": {
+      "type": "http",
+      "url": "http://127.0.0.1:PORT/mcp",
+      "headers": {
+        "Authorization": "Bearer YOUR_TOKEN"
+      }
+    }
+  }
+}</code></pre>
+
+                <p>
+                    <strong>Claude Desktop:</strong> use an MCP HTTP bridge or Claude Code if your Desktop build does not support
+                    remote/HTTP MCP yet. Prefer the in-app copy buttons so the URL and token stay in sync.
+                </p>
+            </div>
+
+            <div class="legal-section">
+                <h2>Tools</h2>
+                <h3>Free (read-only)</h3>
+                <ul class="tool-list">
+                    <li><code>search_words</code> — search vocabulary by text</li>
+                    <li><code>list_words</code> — paginate the dictionary</li>
+                    <li><code>get_word</code> — full word details by id</li>
+                    <li><code>list_tags</code> — list tags</li>
+                    <li><code>get_quiz_candidates</code> — words due for review / practice</li>
+                </ul>
+                <h3>Pro (write)</h3>
+                <ul class="tool-list">
+                    <li><code>add_word</code> — add a word or expression</li>
+                    <li><code>update_word</code> — update fields and tags</li>
+                    <li><code>update_meaning</code> — add / update / remove meanings</li>
+                    <li><code>assign_tags_batch</code> — tag many words at once</li>
+                    <li><code>manage_tag</code> — create / update / delete tags</li>
+                    <li><code>record_quiz_result</code> — save chat-quiz results to SRS</li>
+                </ul>
+            </div>
+
+            <div class="legal-section">
+                <h2>Security</h2>
+                <ul>
+                    <li>The server binds to <strong>127.0.0.1</strong> only.</li>
+                    <li>Every request needs <code>Authorization: Bearer …</code> with your token.</li>
+                    <li>You can regenerate the token anytime in Settings.</li>
+                    <li>Leave the server off when you are not using AI tools.</li>
+                </ul>
+            </div>
+
+            <div class="legal-section">
+                <h2>Availability</h2>
+                <p>
+                    MCP is a <strong>macOS</strong> feature. It is not available in the iOS app.
+                    You need My Dictionary running on your Mac while the AI client is connected.
+                </p>
+            </div>
+
+            <div class="legal-contact-info">
+                <h2>Contact</h2>
+                <p>Questions? <a href="mailto:hello@mydictionary.org">hello@mydictionary.org</a></p>
+            </div>
+
+            <div style="text-align: left; margin-top: 2rem;">
+                <a href="/" class="legal-back-button">← Back to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>My Dictionary</h3>
+                <p>Master vocabulary in any language with AI-powered definitions, collaborative features, and advanced analytics.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="/#features">Features</a>
+                <a href="/#how-it-works">How It Works</a>
+                <a href="/#faq">FAQ</a>
+                <a href="/docs/mcp/">MCP Docs</a>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <a href="mailto:hello@mydictionary.org">Contact Support</a>
+                <a href="/legal.html">Legal Documents</a>
+                <a href="/privacy-policy.html">Privacy Policy</a>
+                <a href="/terms-of-use.html">Terms of Use</a>
+            </div>
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <a href="mailto:hello@mydictionary.org">Email Us</a>
+                <a href="https://x.com/xander1100001" target="_blank">Twitter</a>
+                <a href="https://www.instagram.com/ar_x101/" target="_blank">Instagram</a>
+                <a href="https://www.linkedin.com/in/xander1100001/" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 My Dictionary. All rights reserved. Made with ❤️ for language learners.</p>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>
