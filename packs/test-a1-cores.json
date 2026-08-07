@@ -1,0 +1,91 @@
+{
+  "id": "md-test-a1-cores",
+  "title": "Test Pack · Cores e objetos",
+  "description": "Sample external vocabulary pack for My Dictionary deep-link testing (A1 Portuguese).",
+  "languageCode": "pt",
+  "level": "A1",
+  "tags": ["Test", "A1", "Colors"],
+  "source": "mydictionary-website",
+  "words": [
+    {
+      "id": "vermelho",
+      "text": "vermelho",
+      "phonetics": "/veʁˈmeʎu/",
+      "partOfSpeech": "adjective",
+      "definition": "Da cor do sangue ou do tomate.",
+      "examples": ["Um carro vermelho.", "A caneta vermelha está na mesa."]
+    },
+    {
+      "id": "azul",
+      "text": "azul",
+      "phonetics": "/aˈzuw/",
+      "partOfSpeech": "adjective",
+      "definition": "Da cor do céu sem nuvens.",
+      "examples": ["O caderno é azul.", "Eu tenho uma bolsa azul."]
+    },
+    {
+      "id": "verde",
+      "text": "verde",
+      "phonetics": "/ˈveʁ.dʒi/",
+      "partOfSpeech": "adjective",
+      "definition": "Da cor da grama ou das folhas.",
+      "examples": ["A mochila é verde.", "Eu gosto de chá verde."]
+    },
+    {
+      "id": "preto",
+      "text": "preto",
+      "phonetics": "/ˈpɾe.tu/",
+      "partOfSpeech": "adjective",
+      "definition": "Da cor mais escura; o contrário de branco.",
+      "examples": ["O celular é preto.", "Uns sapatos pretos."]
+    },
+    {
+      "id": "branco",
+      "text": "branco",
+      "phonetics": "/ˈbɾɐ̃.ku/",
+      "partOfSpeech": "adjective",
+      "definition": "Da cor da neve ou do leite.",
+      "examples": ["A parede é branca.", "Meu celular é branco."]
+    },
+    {
+      "id": "amarelo",
+      "text": "amarelo",
+      "phonetics": "/amaˈɾɛ.lu/",
+      "partOfSpeech": "adjective",
+      "definition": "Da cor do sol ou da banana.",
+      "examples": ["Um lápis amarelo.", "Umas flores amarelas."]
+    },
+    {
+      "id": "caderno",
+      "text": "caderno",
+      "phonetics": "/kaˈdɛʁ.nu/",
+      "partOfSpeech": "noun",
+      "definition": "Livro com páginas em branco para escrever.",
+      "examples": ["Isso é um caderno azul.", "Eu abro o caderno na aula."]
+    },
+    {
+      "id": "caneta",
+      "text": "caneta",
+      "phonetics": "/kaˈne.tɐ/",
+      "partOfSpeech": "noun",
+      "definition": "Objeto com tinta para escrever no papel.",
+      "examples": ["O que é isso? Isso é uma caneta.", "A caneta vermelha é minha."]
+    },
+    {
+      "id": "mochila",
+      "text": "mochila",
+      "phonetics": "/moˈʃi.lɐ/",
+      "partOfSpeech": "noun",
+      "definition": "Bolsa grande que se carrega nas costas.",
+      "examples": ["Minha mochila é verde.", "Eu levo a mochila para a escola."]
+    },
+    {
+      "id": "carregador",
+      "text": "carregador",
+      "phonetics": "/ka.ʁe.ɡaˈdoʁ/",
+      "partOfSpeech": "noun",
+      "definition": "Objeto que dá energia à bateria do celular.",
+      "examples": ["Isso é um carregador.", "O adaptador é preto."]
+    }
+  ]
+}
