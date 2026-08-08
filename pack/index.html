@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open vocabulary pack — My Dictionary</title>
+    <meta name="description" content="Open this vocabulary pack in My Dictionary on iPhone, iPad, or Mac.">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="apple-itunes-app" content="app-id=1588418793">
+    <link rel="canonical" href="https://www.mydictionary.org/pack">
+    <link rel="icon" href="/favicon/favicon.ico" sizes="any">
+    <link rel="stylesheet" href="/css/apple-design-system.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        .pack-fallback {
+            max-width: 36rem;
+            margin: 4rem auto;
+            padding: 0 1.25rem;
+            text-align: center;
+        }
+        .pack-fallback h1 {
+            font-size: 1.75rem;
+            margin-bottom: 0.75rem;
+        }
+        .pack-fallback p {
+            color: var(--text-secondary, #6e6e73);
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+        .pack-fallback .actions {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            align-items: center;
+        }
+        .pack-fallback a.button {
+            display: inline-block;
+            padding: 0.75rem 1.25rem;
+            border-radius: 980px;
+            background: #0071e3;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .pack-fallback a.secondary {
+            background: transparent;
+            color: #0071e3;
+        }
+        .pack-fallback .hint {
+            font-size: 0.875rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <main class="pack-fallback">
+        <h1>Open in My Dictionary</h1>
+        <p id="status">Opening your vocabulary pack…</p>
+        <div class="actions">
+            <a id="open-app" class="button" href="#">Open in app</a>
+            <a class="button secondary" href="https://apps.apple.com/app/id1588418793">Get the app</a>
+            <a class="button secondary" href="https://www.mydictionary.org/">Go to website</a>
+        </div>
+        <p class="hint">If the app doesn’t open, install My Dictionary from the App Store, then tap Open in app again.</p>
+    </main>
+    <script>
+        (function () {
+            var params = new URLSearchParams(window.location.search);
+            var packUrl = params.get('url');
+            var openLink = document.getElementById('open-app');
+            var status = document.getElementById('status');
+
+            if (!packUrl) {
+                status.textContent = 'This link is missing a pack URL.';
+                openLink.style.display = 'none';
+                return;
+            }
+
+            var customScheme = 'mydictionary://pack?url=' + encodeURIComponent(packUrl);
+            openLink.href = customScheme;
+
+            // Best-effort open for in-app browsers (Instagram, etc.) that block Universal Links.
+            var opened = false;
+            function tryOpen() {
+                if (opened) return;
+                opened = true;
+                window.location.href = customScheme;
+            }
+
+            status.textContent = 'If My Dictionary is installed, the pack should open automatically.';
+            setTimeout(tryOpen, 400);
+        })();
+    </script>
+</body>
+</html>
