@@ -8,9 +8,7 @@
     <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
     <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
     <meta name="apple-itunes-app" content="app-id=1588418793">
-    <link rel="stylesheet" href="css/apple-design-system.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/dark-mode.css">
+    <link rel="stylesheet" href="/css/site.css">
     <meta name="color-scheme" content="light dark">
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0DLV1WM03"></script>
@@ -22,21 +20,17 @@
     </script>
 </head>
 <body>
-    <a href="#main-content" class="skip-to-content">Skip to main content</a>
-    <header class="header" role="banner">
-        <nav class="nav" role="navigation" aria-label="Main navigation">
-            <a href="index.html" class="logo" style="text-decoration: none;">
-                <img src="/favicon/favicon.svg" alt="My Dictionary" width="28" height="28">
-                <span>My Dictionary</span>
-            </a>
-            <ul class="nav-links" role="list">
-                <li role="listitem"><a href="index.html#features">Features</a></li>
-                <li role="listitem"><a href="index.html#how-it-works">How It Works</a></li>
-                <li role="listitem"><a href="index.html#faq">FAQ</a></li>
-                <li role="listitem"><a href="index.html#download">Download</a></li>
-                <li role="listitem"><a href="legal.html">Legal</a></li>
-            </ul>
-        </nav>
+    <a href="#main-content" class="skip">Skip to content</a>
+    <header class="site-header">
+        <div class="wrap">
+            <a href="/" class="brand"><img src="/favicon/favicon.svg" alt="" width="30" height="30">My Dictionary</a>
+            <nav class="nav" aria-label="Main">
+                <a href="/#features">Features</a>
+                <a href="/#mac">Mac</a>
+                <a href="/#faq">FAQ</a>
+                <a href="https://apps.apple.com/app/id1588418793" class="get">Download</a>
+            </nav>
+        </div>
     </header>
 
     <div id="main-content" class="legal-page">
@@ -115,43 +109,24 @@
             </div>
 
             <div style="text-align: left; margin-top: 2rem;">
-                <a href="index.html" class="legal-back-button">← Back to Home</a>
+                <a href="/" class="legal-back-button">← Back to Home</a>
             </div>
         </div>
     </div>
 
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>My Dictionary</h3>
-                <p>Master vocabulary in any language with AI-powered definitions, collaborative features, and advanced analytics.</p>
-            </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <a href="index.html#features">Features</a>
-                <a href="index.html#how-it-works">How It Works</a>
-                <a href="index.html#faq">FAQ</a>
-            </div>
-            <div class="footer-section">
-                <h3>Support</h3>
-                <a href="mailto:hello@mydictionary.org">Contact Support</a>
-                <a href="legal.html">Legal Documents</a>
-                <a href="privacy-policy.html">Privacy Policy</a>
-                <a href="terms-of-use.html">Terms of Use</a>
-            </div>
-            <div class="footer-section">
-                <h3>Connect</h3>
-                <a href="mailto:hello@mydictionary.org">Email Us</a>
-                <a href="https://x.com/xander1100001" target="_blank">Twitter</a>
-                <a href="https://www.instagram.com/ar_x101/" target="_blank">Instagram</a>
-                <a href="https://www.linkedin.com/in/xander1100001/" target="_blank">LinkedIn</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 My Dictionary. All rights reserved. Made with ❤️ for language learners.</p>
+    <footer class="site-footer">
+        <div class="wrap">
+            <span>© 2026 My Dictionary</span>
+            <nav aria-label="Footer">
+                <a href="mailto:hello@mydictionary.org">Support</a>
+                <a href="/privacy-policy.html">Privacy</a>
+                <a href="/terms-of-use.html">Terms</a>
+                <a href="/legal.html">Legal</a>
+                <a href="/docs/mcp/">MCP docs</a>
+                <a href="https://x.com/xander1100001" rel="noopener">X</a>
+                <a href="https://www.instagram.com/ar_x101/" rel="noopener">Instagram</a>
+            </nav>
         </div>
     </footer>
-
-    <script src="js/main.js"></script>
 </body>
 </html>
