@@ -162,7 +162,8 @@ h3 { font-size: 22px; letter-spacing: -0.01em; line-height: 1.2; }
 .faq summary::-webkit-details-marker { display: none; }
 .faq summary::after { content: "+"; position: absolute; right: 0; top: 16px; font-size: 26px; font-weight: 400; color: var(--green); }
 .faq details[open] summary::after { content: "–"; }
-.faq details p { margin: 0 0 20px; color: var(--soft); }
+.faq details[open] { padding-bottom: 22px; }
+.faq details p { margin: 0; color: var(--soft); }
 
 /* Final call to action */
 .cta { text-align: center; }
