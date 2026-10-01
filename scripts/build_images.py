@@ -10,7 +10,7 @@ the app repo this site is a submodule of: docs/ASO/screenshots/source and docs/A
 import math
 from pathlib import Path
 
-from PIL import Image, ImageDraw, ImageFilter
+from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 SITE = Path(__file__).resolve().parent.parent
 ASO = SITE.parent / "docs" / "ASO"
@@ -62,11 +62,22 @@ def macbook(window, width):
                     px[x + dx, y] = c + (255,)
     win = load(window)
     box = win.getchannel("A").point(lambda v: 255 if v > 250 else 0).getbbox()
-    scale = min(sh * 0.86 / (box[3] - box[1]), sw * 0.9 / (box[2] - box[0]))
+    scale = min(sh * 0.62 / (box[3] - box[1]), sw * 0.62 / (box[2] - box[0]))
     win = win.resize((round(win.width * scale), round(win.height * scale)), Image.LANCZOS)
     wx = (sw - (box[2] - box[0]) * scale) / 2 - box[0] * scale
-    wy = (sh - (box[3] - box[1]) * scale) / 2 - box[1] * scale + sh * 0.02
+    wy = (sh - (box[3] - box[1]) * scale) / 2 - box[1] * scale + sh * 0.03
     wall.alpha_composite(win, (round(wx), round(wy)))
+    bar = round(sh * 0.03)
+    menu = Image.new("RGBA", (sw, bar), (255, 255, 255, 120))
+    d = ImageDraw.Draw(menu)
+    font = lambda w: ImageFont.truetype(f"/Library/Fonts/SF-Pro-Display-{w}.otf", round(bar * 0.56))
+    x, y = round(bar * 0.8), bar / 2
+    for i, item in enumerate(["\uf8ff", "My Dictionary", "File", "Edit", "View", "Window", "Help"]):
+        f = font("Bold" if i < 2 else "Medium")
+        d.text((x, y), item, font=f, fill=(29, 29, 31, 255), anchor="lm")
+        x += d.textlength(item, font=f) + bar * 0.9
+    d.text((sw - bar * 0.8, y), "9:41", font=font("Medium"), fill=(29, 29, 31, 255), anchor="rm")
+    wall.alpha_composite(menu, (0, 0))
     canvas.alpha_composite(rounded(wall, 30), (sx, sy))
     # draw the frame over the wallpaper, but keep our wallpaper where the frame's own one was
     framed = frame.copy()
@@ -89,13 +100,19 @@ def window(path, width):
 
 
 def card(path, width, radius_ratio=0.035, outline=None):
+    """A cut-out card at `width`, with rounded corners and a white border so rotated edges stay soft."""
     im = load(path)
     im = im.resize((width, round(width * im.height / im.width)), Image.LANCZOS)
-    im = rounded(im, round(width * radius_ratio))
+    radius = round(width * radius_ratio)
+    im = rounded(im, radius)
     if outline:
-        ImageDraw.Draw(im).rounded_rectangle((0, 0, im.width - 1, im.height - 1), round(width * radius_ratio),
+        ImageDraw.Draw(im).rounded_rectangle((0, 0, im.width - 1, im.height - 1), radius,
                                              outline=outline, width=max(4, width // 90))
-    return im
+    b = max(8, round(width * 0.014))
+    framed = Image.new("RGBA", (im.width + 2 * b, im.height + 2 * b), (0, 0, 0, 0))
+    ImageDraw.Draw(framed).rounded_rectangle((0, 0, framed.width - 1, framed.height - 1), radius + b, fill=(255, 255, 255, 255))
+    framed.alpha_composite(im, (b, b))
+    return framed
 
 
 def duck(name, width):
@@ -216,8 +233,8 @@ def main():
     c = Image.new("RGBA", (2100, 2000), (0, 0, 0, 0))
     mb, m = macbook(SRC / "mac" / "mcp.png", 1700); o = (150, 40)
     place(c, mb, *o, shadow=0.24)
-    pop(c, card(mac_cut / "mcp-card.png", 900, 0.05), at(o, m, BOX["mcp-card"]), rotate=-2)
-    place(c, duck("celebrating-duck", 380), 1580, 1020, shadow=0.16)
+    pop(c, card(mac_cut / "mcp-card.png", 700, 0.05), at(o, m, BOX["mcp-card"]), rotate=-2)
+    place(c, duck("celebrating-duck", 360), 1640, 700, shadow=0.16)
     save(c, "mac", widths=(960, 1920))
 
     # Small duck for the closing call to action
