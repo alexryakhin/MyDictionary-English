@@ -17,7 +17,7 @@ from pathlib import Path
 SITE = Path(__file__).resolve().parent.parent
 I18N = SITE / "i18n"
 APP = "https://apps.apple.com/app/id1588418793"
-ORIGIN = "https://mydictionary.org"
+ORIGIN = "https://www.mydictionary.org"  # GitHub Pages serves www; the apex redirects here
 
 # code, name in its own language, right-to-left
 LANGS = [
@@ -274,11 +274,23 @@ def home(lang, rtl, t):
 """ + footer(lang, t))
 
 
+def summary(body, limit=155):
+    """A page's own description: its intro, or the start of its first section, cut at a word."""
+    block = re.search(r'class="legal-(?:description|section)">(.*?)</div>', body, re.S)
+    text = re.sub(r"\s+", " ", re.sub(r"<h2[^>]*>.*?</h2>|<[^>]+>", " ", block.group(1) if block else body)).strip()
+    text = re.sub(r"([。．！？])\s+", r"\1", text)   # no spaces between CJK sentences
+    if len(text) <= limit:
+        return text
+    cut = text[:limit].rsplit(" ", 1)[0] if " " in text[:limit] else text[:limit]
+    return cut.rstrip(",;:") + "…"
+
+
 def legal(lang, rtl, t, page, meta):
     body = (I18N / "legal" / lang / f"{page}.html").read_text().replace('id="main-content"', 'id="main"')
+    body = re.sub(r'<div class="legal-subtitle">(.*?)</div>', r'<h1 class="legal-subtitle">\1</h1>', body, count=1)
     body = body.replace('href="./"', f'href="{url(lang, "index")}"')
     m = meta[lang][page]
-    return head(lang, page, m["title"], m["description"] or t["meta_description"], rtl) + "</head>\n" + header(lang, page, t) + "\n    " + body + "\n" + footer(lang, t)
+    return head(lang, page, m["title"], m["description"] or summary(body), rtl) + "</head>\n" + header(lang, page, t) + "\n    " + body + "\n" + footer(lang, t)
 
 
 def main():
