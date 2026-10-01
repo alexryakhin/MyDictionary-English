@@ -171,7 +171,7 @@ def main():
     green = (11, 138, 26, 255)
 
     # Hero: viajar on the phone, its word card popping out, the reading duck
-    c = Image.new("RGBA", (1500, 1500), (0, 0, 0, 0))
+    c = Image.new("RGBA", (1600, 2000), (0, 0, 0, 0))
     ph, m = phone(cap / "01-word-viajar.png", 640); o = (430, 40)
     place(c, ph, *o, shadow=0.3)
     pop(c, card(cut / "word-card-viajar.png", 1060), at(o, m, BOX["word-card-viajar"]), rotate=-2.5)
@@ -179,7 +179,7 @@ def main():
     save(c, "hero")
 
     # Capture: the word list with its rows popping out, the walking duck
-    c = Image.new("RGBA", (1500, 1500), (0, 0, 0, 0))
+    c = Image.new("RGBA", (1600, 2000), (0, 0, 0, 0))
     ph, m = phone(cap / "02-word-list.png", 640); o = (430, 40)
     place(c, ph, *o)
     pop(c, card(cut / "word-list-rows.png", 900, 0.04), at(o, m, BOX["word-list-rows"]), rotate=2)
@@ -187,14 +187,14 @@ def main():
     save(c, "capture")
 
     # Definitions: quedar and its first meaning popping out
-    c = Image.new("RGBA", (1500, 1500), (0, 0, 0, 0))
+    c = Image.new("RGBA", (1600, 2000), (0, 0, 0, 0))
     ph, m = phone(cap / "03-word-quedar.png", 640); o = (430, 40)
     place(c, ph, *o)
     pop(c, card(cut / "meaning-quedar.png", 1060), at(o, m, BOX["meaning-quedar"]), rotate=-2)
     save(c, "definitions")
 
     # Games: Match Pairs, the matched word and meaning popping out of their tiles
-    c = Image.new("RGBA", (1500, 1500), (0, 0, 0, 0))
+    c = Image.new("RGBA", (1600, 2000), (0, 0, 0, 0))
     ph, m = phone(cap / "05-match-pairs.png", 640); o = (500, 40)
     place(c, ph, *o)
     meaning = at(o, m, BOX["match-tile-meaning"])
@@ -206,14 +206,14 @@ def main():
     save(c, "games")
 
     # Progress: the Mac Progress window with its streak card popping out
-    c = Image.new("RGBA", (1500, 1500), (0, 0, 0, 0))
-    win, m = window(SRC / "mac" / "progress.png", 760); o = (400, 0)
+    c = Image.new("RGBA", (1600, 2000), (0, 0, 0, 0))
+    win, m = window(SRC / "mac" / "progress.png", 760); o = (400, 240)
     place(c, win, *o, shadow=0)
     pop(c, card(mac_cut / "streak-card.png", 1180, 0.04), at(o, m, BOX["streak-card"]), rotate=-2)
     save(c, "progress")
 
     # Mac: MacBook with the MCP Server settings, its card popping out, the celebrating duck
-    c = Image.new("RGBA", (2000, 1500), (0, 0, 0, 0))
+    c = Image.new("RGBA", (2100, 2000), (0, 0, 0, 0))
     mb, m = macbook(SRC / "mac" / "mcp.png", 1700); o = (150, 40)
     place(c, mb, *o, shadow=0.24)
     pop(c, card(mac_cut / "mcp-card.png", 900, 0.05), at(o, m, BOX["mcp-card"]), rotate=-2)
