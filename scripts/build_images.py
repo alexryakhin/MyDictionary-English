@@ -41,7 +41,9 @@ def phone(capture, width):
     ImageDraw.Draw(body).rounded_rectangle((50, 44, 930, 1956), 140, fill=(0, 0, 0, 255))
     body.alpha_composite(screen, (50, 44))
     body.alpha_composite(frame)
-    return body.resize((width, round(width * frame.height / frame.width)), Image.LANCZOS)
+    k = width / frame.width
+    to_image = lambda x, y: ((50 + x * 880 / 1320) * k, (44 + y * 1912 / 2868) * k)
+    return body.resize((width, round(width * frame.height / frame.width)), Image.LANCZOS), to_image
 
 
 def macbook(window, width):
@@ -72,7 +74,18 @@ def macbook(window, width):
     canvas.alpha_composite(framed)
     notch = ImageDraw.Draw(canvas)
     notch.rounded_rectangle((1647, sy - 6, 1647 + 352, sy + 58), 24, fill=(0, 0, 0, 255))
-    return canvas.resize((width, round(width * frame.height / frame.width)), Image.LANCZOS)
+    k = width / frame.width
+    to_image = lambda x, y: ((sx + round(wx) + x * scale) * k, (sy + round(wy) + y * scale) * k)
+    return canvas.resize((width, round(width * frame.height / frame.width)), Image.LANCZOS), to_image
+
+
+def window(path, width):
+    """A Mac window capture (transparent, with its shadow) scaled so the window itself is `width` wide."""
+    win = load(path)
+    box = win.getchannel("A").point(lambda v: 255 if v > 250 else 0).getbbox()
+    f = width / (box[2] - box[0])
+    to_image = lambda x, y: (x * f, y * f)
+    return win.resize((round(win.width * f), round(win.height * f)), Image.LANCZOS), to_image
 
 
 def card(path, width, radius_ratio=0.035, outline=None):
@@ -105,6 +118,21 @@ def place(canvas, layer, x, y, rotate=0, shadow=0.26, blur=36, offset=24):
     canvas.alpha_composite(layer, (x, y))
 
 
+def pop(canvas, layer, center, rotate=0, shadow=0.26):
+    """Place an enlarged card centred on the spot it was cut from."""
+    w, h = layer.size
+    if rotate:
+        a = math.radians(abs(rotate))
+        w, h = w * math.cos(a) + h * math.sin(a), w * math.sin(a) + h * math.cos(a)
+    place(canvas, layer, round(center[0] - w / 2), round(center[1] - h / 2), rotate=rotate, shadow=shadow)
+
+
+def at(origin, to_image, box):
+    """Centre of a source box (capture pixels) in canvas pixels, for a device placed at origin."""
+    x, y = to_image((box[0] + box[2]) / 2, (box[1] + box[3]) / 2)
+    return origin[0] + x, origin[1] + y
+
+
 def check_badge(size):
     im = Image.new("RGBA", (size, size), (0, 0, 0, 0))
     d = ImageDraw.Draw(im)
@@ -125,50 +153,71 @@ def save(canvas, name, widths=(720, 1440)):
     print(f"{name}: {canvas.size}")
 
 
+# Where each card was cut from, in its capture's pixels (iPhone boxes match
+# docs/ASO/screenshots/make_cutouts.py; Mac boxes are the cutouts in source/cutouts-mac).
+BOX = {
+    "word-card-viajar": (52, 974, 1268, 1508),
+    "word-list-rows": (62, 772, 1258, 1672),
+    "meaning-quedar": (52, 1106, 1268, 1590),
+    "match-tile-word": (62, 1926, 644, 2188),
+    "match-tile-meaning": (62, 1316, 644, 1574),
+    "streak-card": (240, 283, 1899, 1031),
+    "mcp-card": (584, 212, 1415, 690),
+}
+
+
 def main():
     cut, mac_cut, cap = SRC / "cutouts", SRC / "cutouts-mac", SRC / "captures"
+    green = (11, 138, 26, 255)
 
-    # Hero: viajar on the phone, its word card enlarged, the reading duck
-    c = Image.new("RGBA", (1600, 1500), (0, 0, 0, 0))
-    place(c, phone(cap / "01-word-viajar.png", 640), 560, 40, shadow=0.3)
-    place(c, card(cut / "word-card-viajar.png", 1080), 300, 860, rotate=-2.5)
-    place(c, duck("my-dictionary-duck", 380), 1180, 1020, rotate=6, shadow=0.16)
+    # Hero: viajar on the phone, its word card popping out, the reading duck
+    c = Image.new("RGBA", (1500, 1500), (0, 0, 0, 0))
+    ph, m = phone(cap / "01-word-viajar.png", 640); o = (430, 40)
+    place(c, ph, *o, shadow=0.3)
+    pop(c, card(cut / "word-card-viajar.png", 1060), at(o, m, BOX["word-card-viajar"]), rotate=-2.5)
+    place(c, duck("my-dictionary-duck", 340), 1120, 900, rotate=6, shadow=0.16)
     save(c, "hero")
 
-    # Capture: the word list, its rows enlarged, the walking duck
+    # Capture: the word list with its rows popping out, the walking duck
     c = Image.new("RGBA", (1500, 1500), (0, 0, 0, 0))
-    place(c, phone(cap / "02-word-list.png", 620), 120, 40)
-    place(c, card(cut / "word-list-rows.png", 760, 0.04), 640, 520, rotate=2)
-    place(c, duck("walking-duck", 300), 1120, 1140, shadow=0.16)
+    ph, m = phone(cap / "02-word-list.png", 640); o = (430, 40)
+    place(c, ph, *o)
+    pop(c, card(cut / "word-list-rows.png", 900, 0.04), at(o, m, BOX["word-list-rows"]), rotate=2)
+    place(c, duck("walking-duck", 280), 1160, 1080, shadow=0.16)
     save(c, "capture")
 
-    # Definitions: quedar and its meaning card
+    # Definitions: quedar and its first meaning popping out
     c = Image.new("RGBA", (1500, 1500), (0, 0, 0, 0))
-    place(c, phone(cap / "03-word-quedar.png", 620), 760, 40)
-    place(c, card(cut / "meaning-quedar.png", 1040), 60, 820, rotate=-2)
+    ph, m = phone(cap / "03-word-quedar.png", 640); o = (430, 40)
+    place(c, ph, *o)
+    pop(c, card(cut / "meaning-quedar.png", 1060), at(o, m, BOX["meaning-quedar"]), rotate=-2)
     save(c, "definitions")
 
-    # Games: Match Pairs with a matched pair floating
+    # Games: Match Pairs, the matched word and meaning popping out of their tiles
     c = Image.new("RGBA", (1500, 1500), (0, 0, 0, 0))
-    place(c, phone(cap / "05-match-pairs.png", 620), 140, 40)
-    green = (11, 138, 26, 255)
-    place(c, card(cut / "match-tile-word.png", 520, 0.08, green), 600, 700, rotate=-4)
-    place(c, card(cut / "match-tile-meaning.png", 520, 0.08, green), 900, 980, rotate=4)
-    place(c, check_badge(170), 1000, 830, shadow=0.3)
-    place(c, duck("headphones-duck", 300), 1140, 1170, rotate=-6, shadow=0.16)
+    ph, m = phone(cap / "05-match-pairs.png", 640); o = (500, 40)
+    place(c, ph, *o)
+    meaning = at(o, m, BOX["match-tile-meaning"])
+    word = at(o, m, BOX["match-tile-word"])
+    pop(c, card(cut / "match-tile-meaning.png", 470, 0.08, green), meaning, rotate=-3)
+    pop(c, card(cut / "match-tile-word.png", 470, 0.08, green), word, rotate=3)
+    place(c, check_badge(150), round(meaning[0] + 160), round((meaning[1] + word[1]) / 2 - 75), shadow=0.3)
+    place(c, duck("headphones-duck", 280), 1170, 1150, rotate=-6, shadow=0.16)
     save(c, "games")
 
-    # Progress: the practice hub with the streak card enlarged
+    # Progress: the Mac Progress window with its streak card popping out
     c = Image.new("RGBA", (1500, 1500), (0, 0, 0, 0))
-    place(c, phone(cap / "05-quizzes-hub.png", 620), 800, 40)
-    place(c, card(mac_cut / "streak-card.png", 1000, 0.04), 40, 860, rotate=-2)
+    win, m = window(SRC / "mac" / "progress.png", 760); o = (400, 0)
+    place(c, win, *o, shadow=0)
+    pop(c, card(mac_cut / "streak-card.png", 1180, 0.04), at(o, m, BOX["streak-card"]), rotate=-2)
     save(c, "progress")
 
-    # Mac: MacBook with the dictionary, the MCP card and the celebrating duck
+    # Mac: MacBook with the MCP Server settings, its card popping out, the celebrating duck
     c = Image.new("RGBA", (2000, 1500), (0, 0, 0, 0))
-    place(c, macbook(SRC / "mac" / "dictionary-pato.png", 1700), 260, 40, shadow=0.24)
-    place(c, card(mac_cut / "mcp-card.png", 820, 0.05), 40, 820, rotate=-2)
-    place(c, duck("celebrating-duck", 380), 1560, 1020, shadow=0.16)
+    mb, m = macbook(SRC / "mac" / "mcp.png", 1700); o = (150, 40)
+    place(c, mb, *o, shadow=0.24)
+    pop(c, card(mac_cut / "mcp-card.png", 900, 0.05), at(o, m, BOX["mcp-card"]), rotate=-2)
+    place(c, duck("celebrating-duck", 380), 1580, 1020, shadow=0.16)
     save(c, "mac", widths=(960, 1920))
 
     # Small duck for the closing call to action
