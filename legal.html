@@ -2,16 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Legal Documents - My Dictionary</title>
+    <meta name="description" content="Save the words you meet in real life, understand them with real definitions and examples, and make them stick with flashcards and word games. Free on iPhone, iPad and Mac.">
+    <link rel="canonical" href="https://mydictionary.org/legal.html">
+    <link rel="alternate" hreflang="en" href="https://mydictionary.org/legal.html">
+    <link rel="alternate" hreflang="ar" href="https://mydictionary.org/ar/legal.html">
+    <link rel="alternate" hreflang="de" href="https://mydictionary.org/de/legal.html">
+    <link rel="alternate" hreflang="es" href="https://mydictionary.org/es/legal.html">
+    <link rel="alternate" hreflang="fr" href="https://mydictionary.org/fr/legal.html">
+    <link rel="alternate" hreflang="hr" href="https://mydictionary.org/hr/legal.html">
+    <link rel="alternate" hreflang="ja" href="https://mydictionary.org/ja/legal.html">
+    <link rel="alternate" hreflang="ko" href="https://mydictionary.org/ko/legal.html">
+    <link rel="alternate" hreflang="ru" href="https://mydictionary.org/ru/legal.html">
+    <link rel="alternate" hreflang="uk" href="https://mydictionary.org/uk/legal.html">
+    <link rel="alternate" hreflang="x-default" href="https://mydictionary.org/legal.html">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#F8F3E8" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#101A13" media="(prefers-color-scheme: dark)">
+    <meta name="apple-itunes-app" content="app-id=1588418793">
     <link rel="icon" href="/favicon/favicon.ico" sizes="any">
     <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
     <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
-    <meta name="apple-itunes-app" content="app-id=1588418793">
+    <link rel="manifest" href="/favicon/site.webmanifest">
     <link rel="stylesheet" href="/css/site.css">
-    <meta name="color-scheme" content="light dark">
-
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0DLV1WM03"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -21,7 +35,8 @@
     </script>
 </head>
 <body>
-    <a href="#main-content" class="skip">Skip to content</a>
+    <a href="#main" class="skip">Skip to content</a>
+
     <header class="site-header">
         <div class="wrap">
             <a href="/" class="brand"><img src="/favicon/favicon.svg" alt="" width="30" height="30">My Dictionary</a>
@@ -29,12 +44,27 @@
                 <a href="/#features">Features</a>
                 <a href="/#mac">Mac</a>
                 <a href="/#faq">FAQ</a>
+                <details class="lang">
+                    <summary aria-label="Language"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M2.5 12h19M12 2.5c2.6 2.8 3.9 6 3.9 9.5s-1.3 6.7-3.9 9.5c-2.6-2.8-3.9-6-3.9-9.5s1.3-6.7 3.9-9.5z" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><span class="lang-name">English</span><span class="lang-code">EN</span></summary>
+                    <ul>
+                        <li><a href="/legal.html" hreflang="en" lang="en" aria-current="page">English</a></li>
+                        <li><a href="/ar/legal.html" hreflang="ar" lang="ar">العربية</a></li>
+                        <li><a href="/de/legal.html" hreflang="de" lang="de">Deutsch</a></li>
+                        <li><a href="/es/legal.html" hreflang="es" lang="es">Español</a></li>
+                        <li><a href="/fr/legal.html" hreflang="fr" lang="fr">Français</a></li>
+                        <li><a href="/hr/legal.html" hreflang="hr" lang="hr">Hrvatski</a></li>
+                        <li><a href="/ja/legal.html" hreflang="ja" lang="ja">日本語</a></li>
+                        <li><a href="/ko/legal.html" hreflang="ko" lang="ko">한국어</a></li>
+                        <li><a href="/ru/legal.html" hreflang="ru" lang="ru">Русский</a></li>
+                        <li><a href="/uk/legal.html" hreflang="uk" lang="uk">Українська</a></li>
+                    </ul>
+                </details>
                 <a href="https://apps.apple.com/app/id1588418793" class="get">Download</a>
             </nav>
         </div>
     </header>
 
-    <div id="main-content" class="legal-page">
+    <div id="main" class="legal-page">
         <div class="legal-container">
             <div class="legal-header">
                 <div class="legal-logo">📚 My Dictionary</div>
@@ -105,6 +135,8 @@
     </div>
 
     <!-- Footer -->
+
+
     <footer class="site-footer">
         <div class="wrap">
             <span>© 2026 My Dictionary</span>
@@ -119,5 +151,15 @@
             </nav>
         </div>
     </footer>
+
+    <script>
+      document.documentElement.classList.add('js');
+      const io = new IntersectionObserver((entries) => entries.forEach((e) => {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      }), { rootMargin: '0px 0px -60px 0px' });
+      document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+      // Close the language menu when clicking elsewhere
+      document.addEventListener('click', (e) => document.querySelectorAll('details.lang[open]').forEach((d) => { if (!d.contains(e.target)) d.open = false; }));
+    </script>
 </body>
 </html>

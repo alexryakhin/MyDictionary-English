@@ -1,0 +1,142 @@
+{
+ "en": {
+  "privacy-policy": {
+   "title": "Privacy Policy - My Dictionary",
+   "description": ""
+  },
+  "terms-of-use": {
+   "title": "Terms of Use - My Dictionary",
+   "description": ""
+  },
+  "legal": {
+   "title": "Legal Documents - My Dictionary",
+   "description": ""
+  }
+ },
+ "ar": {
+  "privacy-policy": {
+   "title": "سياسة الخصوصية - My Dictionary",
+   "description": ""
+  },
+  "terms-of-use": {
+   "title": "شروط الاستخدام - My Dictionary",
+   "description": ""
+  },
+  "legal": {
+   "title": "المستندات القانونية - My Dictionary",
+   "description": ""
+  }
+ },
+ "de": {
+  "privacy-policy": {
+   "title": "Datenschutz - My Dictionary",
+   "description": ""
+  },
+  "terms-of-use": {
+   "title": "Nutzungsbedingungen - My Dictionary",
+   "description": ""
+  },
+  "legal": {
+   "title": "Rechtliches - My Dictionary",
+   "description": ""
+  }
+ },
+ "es": {
+  "privacy-policy": {
+   "title": "Política de privacidad - My Dictionary",
+   "description": ""
+  },
+  "terms-of-use": {
+   "title": "Términos de uso - My Dictionary",
+   "description": ""
+  },
+  "legal": {
+   "title": "Documentos legales - My Dictionary",
+   "description": ""
+  }
+ },
+ "fr": {
+  "privacy-policy": {
+   "title": "Politique de confidentialité - My Dictionary",
+   "description": ""
+  },
+  "terms-of-use": {
+   "title": "Conditions d’utilisation - My Dictionary",
+   "description": ""
+  },
+  "legal": {
+   "title": "Mentions légales - My Dictionary",
+   "description": ""
+  }
+ },
+ "hr": {
+  "privacy-policy": {
+   "title": "Politika privatnosti - My Dictionary",
+   "description": ""
+  },
+  "terms-of-use": {
+   "title": "Uvjeti korištenja - My Dictionary",
+   "description": ""
+  },
+  "legal": {
+   "title": "Pravni dokumenti - My Dictionary",
+   "description": ""
+  }
+ },
+ "ja": {
+  "privacy-policy": {
+   "title": "プライバシーポリシー - My Dictionary",
+   "description": ""
+  },
+  "terms-of-use": {
+   "title": "利用規約 - My Dictionary",
+   "description": ""
+  },
+  "legal": {
+   "title": "法的情報 - My Dictionary",
+   "description": ""
+  }
+ },
+ "ko": {
+  "privacy-policy": {
+   "title": "개인정보 처리방침 - My Dictionary",
+   "description": ""
+  },
+  "terms-of-use": {
+   "title": "이용약관 - My Dictionary",
+   "description": ""
+  },
+  "legal": {
+   "title": "법적 정보 - My Dictionary",
+   "description": ""
+  }
+ },
+ "ru": {
+  "privacy-policy": {
+   "title": "Политика конфиденциальности - My Dictionary",
+   "description": ""
+  },
+  "terms-of-use": {
+   "title": "Условия использования - My Dictionary",
+   "description": ""
+  },
+  "legal": {
+   "title": "Правовые документы - My Dictionary",
+   "description": ""
+  }
+ },
+ "uk": {
+  "privacy-policy": {
+   "title": "Політика конфіденційності - My Dictionary",
+   "description": ""
+  },
+  "terms-of-use": {
+   "title": "Умови використання - My Dictionary",
+   "description": ""
+  },
+  "legal": {
+   "title": "Правова інформація - My Dictionary",
+   "description": ""
+  }
+ }
+}

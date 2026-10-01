@@ -56,8 +56,8 @@ a:hover { text-decoration: none; }
 .wrap { width: 100%; max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
 @media (min-width: 768px) { :root { --gutter: 32px; } }
 
-.skip { position: absolute; left: -9999px; }
-.skip:focus { left: var(--gutter); top: 12px; z-index: 10; background: var(--card); padding: 8px 14px; border-radius: 10px; }
+.skip { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.skip:focus { width: auto; height: auto; clip-path: none; inset-inline-start: var(--gutter); top: 12px; z-index: 10; background: var(--card); padding: 8px 14px; border-radius: 10px; }
 
 /* Headlines */
 .display, h1, h2, h3 {
@@ -68,6 +68,9 @@ a:hover { text-decoration: none; }
   margin: 0;
 }
 h1.display { font-size: clamp(44px, 8vw, 84px); }
+h1, h2, .legal-subtitle { text-wrap: balance; }
+:lang(ko) h1, :lang(ko) h2, :lang(ko) .lede { word-break: keep-all; }
+:lang(ja) h1, :lang(ja) h2 { line-break: strict; }
 h2 { font-size: clamp(32px, 5vw, 52px); }
 h3 { font-size: 22px; letter-spacing: -0.01em; line-height: 1.2; }
 .hl {
@@ -98,7 +101,27 @@ h3 { font-size: 22px; letter-spacing: -0.01em; line-height: 1.2; }
 .nav a:hover { color: var(--green); }
 .nav .get { background: var(--green); color: var(--green-ink); padding: 8px 16px; border-radius: 999px; font-weight: 600; }
 .nav .get:hover { color: var(--green-ink); filter: brightness(1.08); }
-@media (max-width: 640px) { .nav a:not(.get) { display: none; } }
+@media (max-width: 640px) { .nav > a:not(.get) { display: none; } .nav { gap: 10px; } .nav .get { padding: 8px 12px; } }
+.lang-code { display: none; }
+@media (max-width: 480px) { .lang .lang-name { display: none; } .lang .lang-code { display: inline; } .brand { font-size: 16px; } }
+
+/* Language picker */
+.lang { position: relative; }
+.lang summary {
+  list-style: none; cursor: pointer; display: flex; align-items: center; gap: 6px;
+  font-size: 15px; font-weight: 500; padding: 7px 12px; border-radius: 999px; border: 1px solid var(--line); color: var(--ink);
+}
+.lang summary::-webkit-details-marker { display: none; }
+.lang summary::after { content: ""; width: 7px; height: 7px; border: solid currentColor; border-width: 0 1.6px 1.6px 0; transform: translateY(-2px) rotate(45deg); margin-inline-start: 2px; opacity: .6; }
+.lang[open] summary { background: var(--card); }
+.lang ul {
+  position: absolute; inset-inline-end: 0; top: calc(100% + 8px); z-index: 10; min-width: 190px;
+  margin: 0; padding: 6px; list-style: none; background: var(--card); border-radius: 16px;
+  box-shadow: 0 18px 50px rgba(20, 37, 26, 0.18); border: 1px solid var(--line);
+}
+.lang ul a { display: block; padding: 9px 12px; border-radius: 10px; color: var(--ink); text-decoration: none; font-size: 15px; }
+.lang ul a:hover { background: var(--cream); }
+.lang ul a[aria-current] { color: var(--green); font-weight: 700; }
 
 /* Store badges and rating */
 .badges { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
@@ -127,9 +150,9 @@ h3 { font-size: 22px; letter-spacing: -0.01em; line-height: 1.2; }
 .feature .wrap { display: grid; gap: 28px; align-items: center; }
 .feature p { color: var(--soft); font-size: 19px; margin: 16px 0 0; max-width: 30em; }
 .feature ul { list-style: none; padding: 0; margin: 20px 0 0; display: grid; gap: 10px; }
-.feature li { position: relative; padding-left: 30px; color: var(--ink); }
+.feature li { position: relative; padding-inline-start: 30px; color: var(--ink); }
 .feature li::before {
-  content: ""; position: absolute; left: 0; top: 4px; width: 20px; height: 20px; border-radius: 50%;
+  content: ""; position: absolute; inset-inline-start: 0; top: 4px; width: 20px; height: 20px; border-radius: 50%;
   background: var(--green) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4L18 8' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat;
 }
 @media (min-width: 900px) {
@@ -143,6 +166,7 @@ h3 { font-size: 22px; letter-spacing: -0.01em; line-height: 1.2; }
 @media (min-width: 900px) { .band .wrap { grid-template-columns: 0.9fr 1.1fr; gap: 56px; } }
 .text-link { display: inline-block; margin-top: 20px; font-weight: 600; text-decoration: none; }
 .text-link::after { content: " →"; }
+[dir="rtl"] .text-link::after { content: " ←"; }
 
 /* Reviews */
 .reviews-head { text-align: center; }
@@ -158,9 +182,9 @@ h3 { font-size: 22px; letter-spacing: -0.01em; line-height: 1.2; }
 .faq { max-width: 760px; margin: 0 auto; }
 .faq h2 { text-align: center; margin-bottom: 32px; }
 .faq details { background: var(--card); border-radius: 20px; padding: 0 24px; margin-bottom: 12px; }
-.faq summary { cursor: pointer; list-style: none; padding: 20px 28px 20px 0; font-weight: 700; font-size: 18px; position: relative; }
+.faq summary { cursor: pointer; list-style: none; padding-block: 20px; padding-inline-end: 28px; font-weight: 700; font-size: 18px; position: relative; }
 .faq summary::-webkit-details-marker { display: none; }
-.faq summary::after { content: "+"; position: absolute; right: 0; top: 16px; font-size: 26px; font-weight: 400; color: var(--green); }
+.faq summary::after { content: "+"; position: absolute; inset-inline-end: 0; top: 16px; font-size: 26px; font-weight: 400; color: var(--green); }
 .faq details[open] summary::after { content: "–"; }
 .faq details[open] { padding-bottom: 22px; }
 .faq details p { margin: 0; color: var(--soft); }
@@ -190,7 +214,7 @@ h3 { font-size: 22px; letter-spacing: -0.01em; line-height: 1.2; }
 .legal-section h2, .legal-info-section h2, .legal-contact-info h2, .legal-contact-info h3 { font-size: 22px; letter-spacing: -0.01em; margin: 0 0 10px; }
 .legal-section h3 { font-size: 18px; margin: 18px 0 6px; }
 .legal-section p, .legal-section li { color: var(--ink); }
-.legal-section ul { padding-left: 20px; }
+.legal-section ul { padding-inline-start: 20px; }
 .legal-section code, .legal-page code, .legal-page pre { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 14px; background: var(--cream-2); border-radius: 6px; padding: 1px 6px; }
 .legal-page pre { padding: 14px 16px; overflow-x: auto; }
 .legal-page pre code { padding: 0; background: none; }

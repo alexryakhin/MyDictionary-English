@@ -101,7 +101,7 @@ def window(path, width):
 
 def card(path, width, radius_ratio=0.035, outline=None):
     """A cut-out card at `width`, with rounded corners and a white border so rotated edges stay soft."""
-    im = load(path)
+    im = path.convert("RGBA") if isinstance(path, Image.Image) else load(path)
     im = im.resize((width, round(width * im.height / im.width)), Image.LANCZOS)
     radius = round(width * radius_ratio)
     im = rounded(im, radius)
@@ -159,15 +159,16 @@ def check_badge(size):
     return im
 
 
-def save(canvas, name, widths=(720, 1440)):
-    OUT.mkdir(parents=True, exist_ok=True)
+def save(canvas, name, widths=(720, 1440), folder=None):
+    out = OUT / folder if folder else OUT
+    out.mkdir(parents=True, exist_ok=True)
     bbox = canvas.getchannel("A").getbbox()
     canvas = canvas.crop(bbox)
     for w in widths:
         im = canvas.resize((w, round(w * canvas.height / canvas.width)), Image.LANCZOS) if w < canvas.width else canvas
         suffix = "" if w == widths[0] else "@2x"
-        im.save(OUT / f"{name}{suffix}.webp", "WEBP", quality=82, method=6)
-    print(f"{name}: {canvas.size}")
+        im.save(out / f"{name}{suffix}.webp", "WEBP", quality=82, method=6)
+    print(f"{folder or 'en'}/{name}: {canvas.size}")
 
 
 # Where each card was cut from, in its capture's pixels (iPhone boxes match
@@ -178,6 +179,7 @@ BOX = {
     "meaning-quedar": (52, 1106, 1268, 1590),
     "match-tile-word": (62, 1926, 644, 2188),
     "match-tile-meaning": (62, 1316, 644, 1574),
+    "flashcard-back": (74, 500, 1246, 1340),
     "streak-card": (240, 283, 1899, 1031),
     "mcp-card": (584, 212, 1415, 690),
 }
@@ -250,5 +252,58 @@ def main():
     print("og.jpg")
 
 
+# Site language → App Store store whose captures it uses (source/captures-<store>).
+# Croatian has no captures of its own, so it keeps the English pictures.
+LOCALES = {"ar": "ar-SA", "de": "de-DE", "es": "es-ES", "fr": "fr-FR", "ja": "ja", "ko": "ko", "ru": "ru", "uk": "uk"}
+
+
+def build_locale(lang, store):
+    """Hero, capture, definitions and remember scenes from a store's own captures."""
+    import sys
+    sys.path.insert(0, str(ASO / "screenshots" / "locales"))
+    from detect import first_meaning, word_card
+
+    cap = SRC / f"captures-{store}"
+    top, bottom = word_card(cap / "01-word.png")
+    word_box = (52, top - 9, 1268, bottom + 7)
+    top, bottom = first_meaning(cap / "03-word.png")
+    meaning_box = (52, top - 9, 1268, bottom)
+    crop = lambda name, box, r: rounded(load(cap / name).crop(box), r)
+
+    c = Image.new("RGBA", (1600, 2000), (0, 0, 0, 0))
+    ph, m = phone(cap / "01-word.png", 640); o = (430, 40)
+    place(c, ph, *o, shadow=0.3)
+    pop(c, card(crop("01-word.png", word_box, 64), 1060), at(o, m, word_box), rotate=-2.5)
+    place(c, duck("my-dictionary-duck", 340), 1120, 900, rotate=6, shadow=0.16)
+    save(c, "hero", folder=lang)
+
+    c = Image.new("RGBA", (1600, 2000), (0, 0, 0, 0))
+    ph, m = phone(cap / "02-word-list.png", 640); o = (430, 40)
+    place(c, ph, *o)
+    pop(c, card(crop("02-word-list.png", BOX["word-list-rows"], 64), 900, 0.04), at(o, m, BOX["word-list-rows"]), rotate=2)
+    place(c, duck("walking-duck", 280), 1160, 1080, shadow=0.16)
+    save(c, "capture", folder=lang)
+
+    c = Image.new("RGBA", (1600, 2000), (0, 0, 0, 0))
+    ph, m = phone(cap / "03-word.png", 640); o = (430, 40)
+    place(c, ph, *o)
+    pop(c, card(crop("03-word.png", meaning_box, 56), 1060), at(o, m, meaning_box), rotate=-2)
+    save(c, "definitions", folder=lang)
+
+    # Remember: the flashcard's back (its definition is in this language)
+    c = Image.new("RGBA", (1600, 2000), (0, 0, 0, 0))
+    ph, m = phone(cap / "04-flashcard-back.png", 640); o = (430, 40)
+    place(c, ph, *o)
+    pop(c, card(crop("04-flashcard-back.png", BOX["flashcard-back"], 64), 1000), at(o, m, BOX["flashcard-back"]), rotate=3)
+    place(c, duck("headphones-duck", 280), 1150, 1150, rotate=-6, shadow=0.16)
+    save(c, "games", folder=lang)
+
+
 if __name__ == "__main__":
-    main()
+    import sys
+    langs = sys.argv[1:]
+    if not langs or "en" in langs:
+        main()
+    for lang in (langs or LOCALES):
+        if lang in LOCALES:
+            build_locale(lang, LOCALES[lang])
